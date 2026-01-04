@@ -16,6 +16,11 @@ def log(msg):
     except: pass
     sys.stdout.flush()
 
+"""
+CUSTOM HTTP HANDLER
+This class handles all incoming GET, POST, and OPTIONS requests from the game client.
+It simulates the Kixeye "Gateway" and "API" services required for the game to boot.
+"""
 class CustomHandler(http.server.SimpleHTTPRequestHandler):
     gateway_queue = []
     queue_lock = threading.Lock()
@@ -66,6 +71,10 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(response_bytes)
 
+    """
+    HTTP GET HANDLER
+    Handles asset requests (images, scripts) and specific API polling endpoints.
+    """
     def do_GET(self):
         log(f"GET {self.path}")
         decoded_path = urllib.parse.unquote(self.path)
@@ -101,6 +110,11 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         
         self.send_error(404, "File not found")
 
+    """
+    HTTP POST HANDLER
+    Handles data submission and complex API requests like 'loadidata' and 'getflags'.
+    The game uses POST for most state-changing and data-heavy operations.
+    """
     def do_POST(self):
         log(f"POST {self.path}")
         content_len = int(self.headers.get('Content-Length', 0))
@@ -119,6 +133,11 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         else:
             self.send_json_response({"success": True, "error": 0})
 
+    """
+    MOCK RESPONSE GENERATORS
+    These methods return pre-defined JSON structures that spoof the original game backend.
+    Modify these to change your player name, resources, or available game features.
+    """
     def get_player_info_response(self, ts):
         return {
             "error": 0, "server_time": ts, "currenttime": ts, "player_id": "123456", "name": "Commander",
@@ -157,6 +176,11 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         with open(p, 'rb') as f:
             self.wfile.write(f.read())
 
+    """
+    CORS HEADERS & OPTIONS
+    Cross-Origin Resource Sharing (CORS) is mandatory for web games loading assets 
+    from different ports or domains. These headers tell the browser to allow the traffic.
+    """
     def end_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')

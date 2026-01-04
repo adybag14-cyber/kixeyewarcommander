@@ -10,6 +10,11 @@
 
     // =========================================================================
     // 1. GAME.prototype.Data / URLoaderApi / SmartFox (Standard Suite)
+    // -------------------------------------------------------------------------
+    // These patches overwrite core game engine functions at runtime.
+    // By hooking into the GAME class and URLoaderApi, we can redirect
+    // asset requests to localhost and provide mock JSON responses for
+    // flags and player data, bypassing the original servers.
     // =========================================================================
     function patchGameData() {
         var GameClass = window._hx_classes && window._hx_classes["GAME"] ? window._hx_classes["GAME"] : window.GAME;
@@ -68,6 +73,10 @@
 
     // =========================================================================
     // 2. MAIN LOOP: NUKE & METHOD FORCE
+    // -------------------------------------------------------------------------
+    // This loop runs every 200ms to ensure the game stays in a "clean" state.
+    // It aggressively calls initialization methods if the game gets stuck
+    // and scans the display list to delete security/connection popups.
     // =========================================================================
     var attempts = { setupStage: 0, initLocal: 0, onDataFinishedLoading: 0, worldMap: 0 };
     var MAX_ATTEMPTS = 5;
@@ -134,6 +143,12 @@
             return "";
         }
 
+        /**
+         * RECURSIVE DISPLAY-LIST SCANNER
+         * Traverses the entire Haxe/OpenFL display tree to find and destroy
+         * specific popup classes. This is the 'brute force' way to get past
+         * "Connection Lost" or "Please Wait" screens that won't go away.
+         */
         function recursiveKill(obj, depth) {
             if (!obj) return;
             if (depth > 12) return;

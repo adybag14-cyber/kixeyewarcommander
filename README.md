@@ -55,5 +55,39 @@ This project is licensed under the **MIT License**.
 
 See the [LICENSE](LICENSE) file for the full text.
 
+---
+
+## 👨‍🏫 Amateur's Guide to Running the Clone
+
+If you are new to this project, follow these steps to get the game running:
+
+### 1. The Setup
+- **Python**: Most logic for serving assets is in `server.py`. You need Python 3 installed.
+- **Node.js**: Used for checking if your code has typos (syntax errors).
+
+### 2. How to Start
+1.  Open a terminal in this folder.
+2.  Run `python server.py`. This starts your "Local Gateway".
+3.  Open your browser and type `http://localhost:8089`.
+
+### 3. "The Game is stuck on Loading"
+This is common. The game is checking for assets that might not exist yet.
+- Look at the terminal where `server.py` is running. If you see `404 Not Found` for a file like `assets/images/terrain.png`, it means that file is missing.
+- You can run `python create_placeholders.py` to generate fake versions of missing images so the game continues.
+
+### 4. Making yourself a "Pro"
+- Open `server.py` and find `get_player_info_response`.
+- Change `"level": 100` to whatever you want.
+- Change `"name": "Commander"` to your own nickname.
+
+## 🛠️ Advanced Troubleshooting
+
+### Memory Hacking (Runtime Patching)
+The file `js/patch_game_init_v31.js` is where the "magic" happens. If the game shows a "Connection Lost" popup, this script finds it in the computer's memory and deletes it so you can keep playing.
+
+### Syntax Fixing
+Large JavaScript files often get corrupted during extraction. 
+- Use `python check_syntax.py` to find exactly where a file is "broken" (e.g., a missing `}` or `)`).
+
 ## ⚠️ Disclaimer
 This toolset is for educational and research purposes. Use responsibly.
