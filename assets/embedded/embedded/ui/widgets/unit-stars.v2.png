@@ -1,0 +1,14 @@
+<html>
+<head><title>404 Not Found</title></head>
+<body>
+<h1>404 Not Found</h1>
+<ul>
+<li>Code: NoSuchKey</li>
+<li>Message: The specified key does not exist.</li>
+<li>Key: game/game-v7.v71601/embedded/embedded/ui/widgets/unit-stars.v2.png</li>
+<li>RequestId: 32RQ6QAREJQW50ET</li>
+<li>HostId: 1lSI1hjAEnuqGR1XMOg0H2kENJVQfmsyhL5YYSw4JhgMUeWjGdOnCCAykhX3n7TcSOGj4zzd8PA=</li>
+</ul>
+<hr/>
+</body>
+</html>

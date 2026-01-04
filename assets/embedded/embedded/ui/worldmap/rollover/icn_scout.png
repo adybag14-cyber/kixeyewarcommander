@@ -1,0 +1,14 @@
+<html>
+<head><title>404 Not Found</title></head>
+<body>
+<h1>404 Not Found</h1>
+<ul>
+<li>Code: NoSuchKey</li>
+<li>Message: The specified key does not exist.</li>
+<li>Key: game/game-v7.v71601/embedded/embedded/ui/worldmap/rollover/icn_scout.png</li>
+<li>RequestId: 32RPGJ2BSCQW9AR5</li>
+<li>HostId: 1EuF7BSmgw0IGTtY2ggsGmRIQIFe7sjaGXr+PaY9Ws3vtsbxruC6k/sK0UZn7MrFFiaMhFk2MVE=</li>
+</ul>
+<hr/>
+</body>
+</html>

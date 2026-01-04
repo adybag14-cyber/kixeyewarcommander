@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>War Commander</title>
+</head>
+
+<body>
+    <div id="game-holder"></div>
+
+    <script>
+        window.wc_config = {
+            "userid": "123456",
+            "username": "LocalCommander",
+            "currenttime": 1766425592,
+            "version": "71601",
+            "map_id": "1",
+            "homebase": "500,500",
+            "server_list": [{ "id": "1", "name": "Local Server", "ip": "127.0.0.1", "port": 8089 }],
+            "flags": { "faction_change_enabled": 1, "building_multimove": 1, "worldmap_enabled": 1 }
+        };
+        window.bg = { get_version: function () { return "71601"; } };
+    </script>
+
+    <script src="js/patch_game_init_v29.js"></script>
+    <script src="js/warcommander.patched.js"></script>
+    <script src="asset_preloader.js"></script>
+
+    <script>
+        window.onload = function () {
+            console.log("Checking engine state...");
+            if (window.lime && window.lime.$scripts && window.lime.$scripts.WarCommander) {
+                console.log("WarCommander script found. Invoking...");
+                try {
+                    window.lime.$scripts.WarCommander(window, window);
+
+                    // Explicit Boot
+                    setTimeout(function () {
+                        var App = window._hx_classes["ApplicationMain"];
+                        if (App && App.create) {
+                            console.log("Calling ApplicationMain.create...");
+
+                            // Inject preloaded assets (images & text) into Lime cache
+                            if (window.AssetPreloader) {
+                                console.log("Injecting preloaded assets...");
+                                window.AssetPreloader.injectIntoCache();
+                            }
+
+                            App.create({
+                                rootPath: "",
+                                element: document.getElementById("game-holder"),
+                                parameters: {
+                                    "baseurl": "http://localhost:8089/",
+                                    "apiurl": "http://localhost:8089/api/",
+                                    "wmbasemanurl": "http://localhost:8089/api/",
+                                    "gameurl": "http://localhost:8089/",
+                                    "locale": "en",
+                                    "version": "71601"
+                                }
+                            });
+                        }
+                    }, 200);
+                } catch (e) { console.error(e); }
+            }
+        };
+    </script>
+</body>
+
+</html>

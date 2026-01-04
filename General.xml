@@ -1,0 +1,7 @@
+<General>
+    <ver>71601</ver>
+    <date>2024-01-01</date>
+    <cdn>
+        <url>http://localhost:8088/assets/</url>
+    </cdn>
+</General>

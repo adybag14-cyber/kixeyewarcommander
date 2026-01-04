@@ -1,0 +1,14 @@
+<html>
+<head><title>404 Not Found</title></head>
+<body>
+<h1>404 Not Found</h1>
+<ul>
+<li>Code: NoSuchKey</li>
+<li>Message: The specified key does not exist.</li>
+<li>Key: game/game-v7.v71601/embedded/embedded/worldmap/entities/v2/warpath_leader_worldmap_icon.png</li>
+<li>RequestId: 32RSJBDTWAEPB9VR</li>
+<li>HostId: s3IPRoE8FSPHC6kCiZFCgsUJTvn38S4Yg1dKqXoRnvhcQU0jJfJk+nosH0aUmYRXWvvkfW4ZCuY=</li>
+</ul>
+<hr/>
+</body>
+</html>

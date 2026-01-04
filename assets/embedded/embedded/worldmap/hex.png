@@ -1,0 +1,14 @@
+<html>
+<head><title>404 Not Found</title></head>
+<body>
+<h1>404 Not Found</h1>
+<ul>
+<li>Code: NoSuchKey</li>
+<li>Message: The specified key does not exist.</li>
+<li>Key: game/game-v7.v71601/embedded/embedded/worldmap/hex.png</li>
+<li>RequestId: 32RK3KR8100W2A6F</li>
+<li>HostId: PY6NFsOcvQXVi2gdCV5Q5u4s3PlVT1D9Pu8sSclT1iZ+uX9zYKqfSe11dIPZr8HIHHA/eV6zNWM=</li>
+</ul>
+<hr/>
+</body>
+</html>

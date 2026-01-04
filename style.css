@@ -1,0 +1,147 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0d0d0d;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0;
+    user-select: none;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    display: block;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Let clicks pass through to canvas */
+}
+
+#top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, #2a2a2a, #0a0a0a);
+    border-bottom: 2px solid #555;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    pointer-events: auto;
+}
+
+.resource {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    font-weight: bold;
+    color: #f0c040;
+    text-shadow: 1px 1px 2px black;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+.res-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+#bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 60%, transparent);
+}
+
+.panel-left {
+    width: 300px;
+    height: 100%;
+    background: rgba(20, 25, 30, 0.9);
+    border: 1px solid #444;
+    border-left: none;
+    border-bottom: none;
+    pointer-events: auto;
+    color: #888;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.panel-right {
+    width: 450px;
+    height: 100%;
+    background: #111;
+    border: 2px solid #336699;
+    border-bottom: none;
+    border-right: none;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    box-shadow: -5px -5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.build-card {
+    width: 80px;
+    height: 100px;
+    background: rgba(40, 50, 60, 0.8);
+    border: 1px solid #555;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.build-card:hover {
+    border-color: #00ffea;
+    background: rgba(50, 70, 90, 0.9);
+}
+
+.build-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.build-label {
+    font-size: 10px;
+    margin-top: 5px;
+    color: #ccc;
+    text-transform: uppercase;
+}
+
+#loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #00ffea;
+    text-shadow: 0 0 10px #00ffea;
+}

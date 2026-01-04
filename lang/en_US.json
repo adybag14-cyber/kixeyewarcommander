@@ -1,0 +1,8 @@
+{
+    "global_body__reload_to_continue_error": "A critical error occurred. The game state is invalid. Please reload.",
+    "error_code__error_wrapper": "Error Code: WRAPPER_INIT_FAIL",
+    "login__please_reload": "Please reload the game.",
+    "common__ok": "OK",
+    "common__cancel": "Cancel",
+    "common__error": "Error"
+}

@@ -1,0 +1,14 @@
+<html>
+<head><title>404 Not Found</title></head>
+<body>
+<h1>404 Not Found</h1>
+<ul>
+<li>Code: NoSuchKey</li>
+<li>Message: The specified key does not exist.</li>
+<li>Key: game/game-v7.v71601/embedded/worldmap/entities/v2/cc_</li>
+<li>RequestId: E7C4ZRP6C18YABAW</li>
+<li>HostId: Z3VUCUyIxFzj3vlERsIsZL3eyf0eK8AcCZ7UTaRfwEAoNlwWogrGLknqEtx3UMH3lhW2/f0werw=</li>
+</ul>
+<hr/>
+</body>
+</html>

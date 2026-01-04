@@ -1,0 +1,348 @@
+{
+    "name": null,
+    "assets": [
+        {
+            "path": "symbols/406.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/403.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/400.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/397.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/394.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/385.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/378.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/357.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/262.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/261.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/373.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/370.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/369.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/366.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/363.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/360.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/310.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/312.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/314.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/316.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/318.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/320.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/322.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/324.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/326.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/328.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/330.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/332.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/334.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/336.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/338.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/340.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/342.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/344.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/346.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/348.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/350.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/352.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/354.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/264.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/266.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/268.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/270.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/272.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/274.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/276.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/278.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/280.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/282.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/284.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/286.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/288.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/290.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/292.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/294.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/296.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/298.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/300.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/302.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/304.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/306.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/219.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/221.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/223.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/225.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/227.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/229.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/231.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/233.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/235.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/237.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/239.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/241.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/94.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/96.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/98.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/100.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/102.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/104.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/106.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/117.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "symbols/216.png",
+            "type": "IMAGE"
+        },
+        {
+            "path": "lang/en.json",
+            "type": "TEXT"
+        },
+        {
+            "path": "data.json",
+            "type": "TEXT"
+        }
+    ],
+    "rootPath": null,
+    "version": 3,
+    "libraryArgs": [
+        "data.json",
+        "tKw1z6dythNo85D56I1u"
+    ],
+    "libraryType": "openfl._internal.formats.animate.AnimateLibrary"
+}

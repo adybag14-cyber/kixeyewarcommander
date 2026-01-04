@@ -1,0 +1,39 @@
+# Logs
+*.log
+*.txt
+!asset_search.txt
+!potential_assets.txt
+
+# Temporary files
+temp_*
+out.txt
+out_*.txt
+debug_*
+error*.log
+error*.txt
+server_run_*.log
+output_*.txt
+found_offsets.txt
+*~
+
+# Python
+__pycache__/
+*.pyc
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
+
+# Large assets or data (if they are redundant)
+data.json
+shared_configs.json
+# actually keep json files if they are part of the game
+# but exclude large log-like json files if any
+
+# Backups
+*.bak
+*.bak*
+
+# Node
+node_modules/

@@ -1,0 +1,14 @@
+<html>
+<head><title>404 Not Found</title></head>
+<body>
+<h1>404 Not Found</h1>
+<ul>
+<li>Code: NoSuchKey</li>
+<li>Message: The specified key does not exist.</li>
+<li>Key: game/game-v7.v71601/embedded/embedded/ui/selection/enemy_selection_100px.png</li>
+<li>RequestId: RP12JS9BJMRE6K6D</li>
+<li>HostId: Tb5vPZ/OjxRQ4oL7pNY4uL3HCTSLCr/ngX9QKj7vpyK9fQSXOZuIyTg5+29KdJbKlajpm9lgykY=</li>
+</ul>
+<hr/>
+</body>
+</html>

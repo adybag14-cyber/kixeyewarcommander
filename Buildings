@@ -1,0 +1,19 @@
+{
+    "name": "Buildings",
+    "data": [
+        {
+            "id": 1,
+            "name_locKey": "building_hq_name",
+            "description_locKey": "building_hq_desc",
+            "type": 12,
+            "levels": [
+                {
+                    "level": 1,
+                    "hp": 1000,
+                    "r1": 100,
+                    "re": []
+                }
+            ]
+        }
+    ]
+}

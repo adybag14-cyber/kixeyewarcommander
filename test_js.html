@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS Parse Test</title>
+</head>
+
+<body>
+    <h1>Testing JS Parsing...</h1>
+    <script>
+        window.onerror = function (message, source, lineno, colno, error) {
+            console.error("Global Error Caught:", message, "at", lineno, ":", colno);
+            document.body.innerHTML += "<br><span style='color:red'>Error: " + message + "</span>";
+        };
+        console.log("Starting script load...");
+    </script>
+    <script src="js/warcommander.patched.js"></script>
+    <script>
+        console.log("Script load tag processed.");
+        document.body.innerHTML += "<br><span style='color:green'>Script tag processed (execution status unknown).</span>";
+        if (window.lime) {
+            document.body.innerHTML += "<br><span style='color:green'>LIME FOUND!</span>";
+        } else {
+            document.body.innerHTML += "<br><span style='color:orange'>LIME NOT FOUND.</span>";
+        }
+    </script>
+</body>
+
+</html>

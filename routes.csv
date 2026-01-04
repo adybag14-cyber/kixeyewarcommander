@@ -1,0 +1,3 @@
+"DestinationPrefix","NextHop","RouteMetric","InterfaceIndex","InterfaceAlias"
+"0.0.0.0/0","192.168.55.1","0","5","vEthernet (New Virtual Switch)"
+"0.0.0.0/0","25.255.255.254","9999","32","ZeroTier One [2873fd00f248c740]"
