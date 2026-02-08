@@ -1,0 +1,239 @@
+{
+  "map": {
+    "ground": {
+      "cls": "GroundSprite",
+      "x": 757,
+      "y": 384,
+      "sx": 1,
+      "sy": 1,
+      "a": 1,
+      "v": true,
+      "num": 1,
+      "hasParent": true
+    },
+    "oldRender": {
+      "cls": "openfl.display.Sprite",
+      "x": 0,
+      "y": 0,
+      "sx": 1,
+      "sy": 1,
+      "a": 1,
+      "v": true,
+      "num": 16,
+      "hasParent": true
+    },
+    "underlay": {
+      "cls": "openfl.display.Sprite",
+      "x": -3000,
+      "y": -1500,
+      "sx": 1,
+      "sy": 1,
+      "a": 1,
+      "v": true,
+      "num": 1,
+      "hasParent": true
+    },
+    "bases": {
+      "cls": "openfl.display.Sprite",
+      "x": 0,
+      "y": 0,
+      "sx": 1,
+      "sy": 1,
+      "a": 1,
+      "v": true,
+      "num": 2,
+      "hasParent": true
+    },
+    "tops": {
+      "cls": "openfl.display.Sprite",
+      "x": 0,
+      "y": 0,
+      "sx": 1,
+      "sy": 1,
+      "a": 1,
+      "v": true,
+      "num": 532,
+      "hasParent": true
+    },
+    "fog": {
+      "cls": "openfl.display.Sprite",
+      "x": 0,
+      "y": 0,
+      "sx": 1,
+      "sy": 1,
+      "a": 1,
+      "v": true,
+      "num": 0,
+      "hasParent": true
+    }
+  },
+  "worldmap": {
+    "mapView": {
+      "cls": "com.cc.worldmap.HexWorldmapView",
+      "x": 0,
+      "y": 0,
+      "sx": 1,
+      "sy": 1,
+      "a": 1,
+      "v": true,
+      "num": 2,
+      "hasParent": true
+    },
+    "controller": true,
+    "hexMap": true
+  },
+  "layerMap": {
+    "cls": "openfl.display.Sprite",
+    "x": 0,
+    "y": 0,
+    "sx": 1,
+    "sy": 1,
+    "a": 1,
+    "v": true,
+    "num": 2,
+    "hasParent": true
+  },
+  "layerMapChildren": [
+    {
+      "index": 0,
+      "cls": "GroundSprite",
+      "x": 757,
+      "y": 384,
+      "sx": 1,
+      "sy": 1,
+      "a": 1,
+      "v": true,
+      "num": 1,
+      "hasParent": true
+    },
+    {
+      "index": 1,
+      "cls": "com.cc.worldmap.HexWorldmapView",
+      "x": 0,
+      "y": 0,
+      "sx": 1,
+      "sy": 1,
+      "a": 1,
+      "v": true,
+      "num": 2,
+      "hasParent": true
+    }
+  ],
+  "baseCount": 382,
+  "sample": {
+    "buildingType": 14,
+    "sprite": {
+      "cls": "openfl.display.MovieClip",
+      "x": -100,
+      "y": -45,
+      "sx": 1,
+      "sy": 1,
+      "a": 1,
+      "v": true,
+      "num": 7,
+      "hasParent": true
+    },
+    "chain": [
+      {
+        "cls": "openfl.display.MovieClip",
+        "x": -100,
+        "y": -45,
+        "sx": 1,
+        "sy": 1,
+        "a": 1,
+        "v": true,
+        "num": 7,
+        "hasParent": true
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "x": 0,
+        "y": 0,
+        "sx": 1,
+        "sy": 1,
+        "a": 1,
+        "v": true,
+        "num": 532,
+        "hasParent": true
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "x": 0,
+        "y": 0,
+        "sx": 1,
+        "sy": 1,
+        "a": 1,
+        "v": true,
+        "num": 16,
+        "hasParent": true
+      },
+      {
+        "cls": "GroundSprite",
+        "x": 757,
+        "y": 384,
+        "sx": 1,
+        "sy": 1,
+        "a": 1,
+        "v": true,
+        "num": 1,
+        "hasParent": true
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "x": 0,
+        "y": 0,
+        "sx": 1,
+        "sy": 1,
+        "a": 1,
+        "v": true,
+        "num": 2,
+        "hasParent": true
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "x": 0,
+        "y": 0,
+        "sx": 1,
+        "sy": 1,
+        "a": 1,
+        "v": true,
+        "num": 5,
+        "hasParent": true
+      },
+      {
+        "cls": "DocumentClass",
+        "x": 0,
+        "y": 0,
+        "sx": 1,
+        "sy": 1,
+        "a": 1,
+        "v": true,
+        "num": 1,
+        "hasParent": true
+      },
+      {
+        "cls": "openfl.display.MovieClip",
+        "x": 0,
+        "y": 0,
+        "sx": 1,
+        "sy": 1,
+        "a": 1,
+        "v": true,
+        "num": 1,
+        "hasParent": true
+      },
+      {
+        "cls": "openfl.display.Stage",
+        "x": 0,
+        "y": 0,
+        "sx": 1,
+        "sy": 1,
+        "a": 1,
+        "v": true,
+        "num": 1,
+        "hasParent": false
+      }
+    ],
+    "parentIsTops": true
+  }
+}

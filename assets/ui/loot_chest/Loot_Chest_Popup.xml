@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<swf path="Loot_Chest_Popup.swf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../uicontract.xsd">
+	<container path="LootChest.LootPopup" name="LootChest.popup" animations="open,reveal">
+		<text path="TXT_header" lockey="popup_lootchest_header__loot_chest_title" name="headerText"/>
+		<text path="BTN_confirm.TXT_label" lockey="popup_lootchest_confirm_text__loot_chest_confirm_text" name="confirmText"/>
+		<text path="TXT_clickHere" lockey="popup_lootchest_clickhere_text__loot_chest_clickhere_text" name="clickhereText"/>
+		<text path="TXT_possiblePrizes" lockey="popup_lootchest_possibleprize_text__loot_chest_possibleprize_text" name="possibleprizeText"/>
+		<button path="BTN_close" onClick="Close" name="closeButton"/>
+		<button path="BTN_confirm" name="confirmButton"/>
+		<itemScroller path="MC_rootPrizeContainer" name="awardedScroller" nextButton="BTN_arrowRight" previousButton="BTN_arrowLeft" itemCount="2"/>
+		<movieclip path="MC_potentialPrizeContainer" name="potentialPrizeContainer"/>
+		<movieclip path="MC_chestContainer" name="chestContainer"/>
+	</container>
+	<container path="LootChest.PrizeID" name="lootChest.prizeID">
+		<movieclip path="MC_prizeContainer" name= "prizeContainer"/>
+		<text path="TXT_prizeName" lockey="popup_tieredevents_prizeid__prizeid_name_text" name="prizeidNameText"/>
+	</container>
+	<movieclip path="PossiblePrize.Default" name="defaultPossiblePrize"/>
+	<movieclip path="PossiblePrize.Bronze" name="bronzePossiblePrize"/>
+	<movieclip path="PossiblePrize.Silver" name="silverPossiblePrize"/>
+	<movieclip path="PossiblePrize.Gold" name="goldPossiblePrize"/>
+	<movieclip path="PossiblePrize.Diamond" name="diamondPossiblePrize"/>
+	<movieclip path="LootChest.DefaultPrize" name="defaultPrize"/>
+	<movieclip path="LootChest.DiamondPrize" name="diamondPrize"/>
+	<movieclip path="LootChest.GoldPrize" name="goldPrize"/>
+	<movieclip path="LootChest.SilverPrize" name="silverPrize"/>
+	<movieclip path="LootChest.BronzePrize" name="bronzePrize"/>
+
+	<!-- chests -->
+	<button path="LootChest.DefaultChest" name="defaultChest">
+		<movieclip path="MC_sourceContainer" name="MC_sourceContainer"/>
+	</button>
+	<button path="LootChest.BossChest" name="bossChest">
+		<movieclip path="MC_sourceContainer" name="MC_sourceContainer"/>
+	</button>
+	<button path="LootChest.GoldChest" name="goldChest">
+		<movieclip path="MC_sourceContainer" name="MC_sourceContainer"/>
+	</button>
+	<button path="LootChest.SilverChest" name="silverChest">
+		<movieclip path="MC_sourceContainer" name="MC_sourceContainer"/>
+	</button>
+	<button path="LootChest.BronzeChest" name="bronzeChest">
+		<movieclip path="MC_sourceContainer" name="MC_sourceContainer"/>
+	</button>
+
+	<!-- source icons -->
+	<movieclip path="LootChest.RaidsLogo" name="endRaidIcon"/>
+	<movieclip path="LootChest.ShopsLogo" name="opsIcon"/>
+	<movieclip path="LootChest.HoldoutLogo" name="holdoutIcon"/>
+	<movieclip path="LootChest.ShowdownLogo" name="showdownIcon"/>
+	<movieclip path="LootChest.ChallengeBaseLogo" name="endCombatIcon"/>
+	<movieclip path="LootChest.MorePrizes" name="morePrizesIcon"/>
+	<movieclip path="LootChest.BlackWidowLogo" name="BlackWidowIcon"/>
+	<movieclip path="LootChest.SarkisLogo" name="SarkisIcon"/>
+	<movieclip path="LootChest.HannibalLogo" name="HannibalIcon"/>
+	<movieclip path="LootChestRetaliationLogo" name="retaliationIcon"/>
+</swf>

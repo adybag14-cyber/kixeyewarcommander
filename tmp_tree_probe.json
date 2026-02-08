@@ -1,0 +1,207 @@
+{
+  "data": {
+    "activeState": null,
+    "baseLoaded": true,
+    "buildingCount": 1,
+    "map": {
+      "ground": {
+        "cls": "GroundSprite",
+        "n": 1,
+        "hasParent": true
+      },
+      "oldRender": {
+        "cls": "openfl.display.Sprite",
+        "n": 0,
+        "hasParent": true
+      },
+      "oldRenderChain": [
+        {
+          "cls": "openfl.display.Sprite",
+          "n": 0,
+          "hasParent": true
+        },
+        {
+          "cls": "GroundSprite",
+          "n": 1,
+          "hasParent": true
+        },
+        {
+          "cls": "openfl.display.Sprite",
+          "n": 1,
+          "hasParent": true
+        },
+        {
+          "cls": "openfl.display.Sprite",
+          "n": 5,
+          "hasParent": true
+        },
+        {
+          "cls": "DocumentClass",
+          "n": 1,
+          "hasParent": true
+        },
+        {
+          "cls": "openfl.display.MovieClip",
+          "n": 1,
+          "hasParent": true
+        },
+        {
+          "cls": "openfl.display.Stage",
+          "n": 1,
+          "hasParent": false
+        }
+      ],
+      "mapFields": {
+        "_UNDERLAY": {
+          "cls": "openfl.display.Sprite",
+          "n": 823,
+          "hasParent": true
+        },
+        "_BUILDINGBASES": null,
+        "_BUILDINGFOOTPRINTS": null,
+        "_BUILDINGTOPS": null,
+        "_GIBLETS": null,
+        "_MISSILE_RETICLE": null,
+        "_GROUND_ATTACK_RETICLE": null,
+        "_AIRUNITS": null,
+        "_BUILDINGINFO": null,
+        "_PROJECTILE_EFFECTS": null,
+        "_PROJECTILES": null,
+        "_PROJECTILE_HITBOXES": null,
+        "_OUTSIDE_BASE_FOG": null,
+        "_BASE_EDGES": null,
+        "_EFFECTSTOP": null,
+        "_FULLSCREENOVERLAY": null,
+        "_EFFECTSBMP": {
+          "cls": "openfl.display.Sprite",
+          "n": 2,
+          "hasParent": false
+        }
+      },
+      "groundChildInfos": [
+        {
+          "cls": "openfl.display.Sprite",
+          "n": 0,
+          "hasParent": true
+        }
+      ],
+      "detachedResolved": true
+    },
+    "layers": {
+      "layerMap": {
+        "cls": "openfl.display.Sprite",
+        "n": 1,
+        "hasParent": true
+      },
+      "layerWorldMap": null,
+      "layerGround": null,
+      "layerTop": {
+        "cls": "openfl.display.Sprite",
+        "n": 0,
+        "hasParent": true
+      }
+    },
+    "buildingSample": {
+      "id": null,
+      "type": 14,
+      "sprite": {
+        "cls": "openfl.display.MovieClip",
+        "n": 6,
+        "hasParent": true
+      },
+      "chain": [
+        {
+          "cls": "openfl.display.MovieClip",
+          "n": 6,
+          "hasParent": true
+        },
+        {
+          "cls": "openfl.display.Sprite",
+          "n": 531,
+          "hasParent": true
+        },
+        {
+          "cls": "openfl.display.Sprite",
+          "n": 14,
+          "hasParent": true
+        },
+        {
+          "cls": "GroundSprite",
+          "n": 2,
+          "hasParent": false
+        }
+      ]
+    },
+    "detachedCandidate": {
+      "buildingId": null,
+      "p0": {
+        "cls": "openfl.display.Sprite",
+        "n": 531,
+        "hasParent": true
+      },
+      "p1": {
+        "cls": "openfl.display.Sprite",
+        "n": 14,
+        "hasParent": true
+      },
+      "p2": {
+        "cls": "GroundSprite",
+        "n": 2,
+        "hasParent": false
+      },
+      "p2Children": 2,
+      "p2Child0": {
+        "cls": "openfl.display.Sprite",
+        "n": 16,
+        "hasParent": true
+      },
+      "chain": [
+        {
+          "cls": "openfl.display.MovieClip",
+          "n": 6,
+          "hasParent": true
+        },
+        {
+          "cls": "openfl.display.Sprite",
+          "n": 531,
+          "hasParent": true
+        },
+        {
+          "cls": "openfl.display.Sprite",
+          "n": 14,
+          "hasParent": true
+        },
+        {
+          "cls": "GroundSprite",
+          "n": 2,
+          "hasParent": false
+        }
+      ]
+    }
+  },
+  "pageErrors": [
+    "Cannot read properties of null (reading 'addChild')"
+  ],
+  "keyLogs": [
+    {
+      "type": "warning",
+      "text": "[PATCH V33] MAP.Init auto-call disabled (prevents detached render trees)."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "error",
+      "text": "WebSocket connection to 'wss://127.0.0.1:8089/BlueBox/websocket' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED"
+    },
+    {
+      "type": "error",
+      "text": "[CRASH] Fatal Exception: Uncaught TypeError: Cannot read properties of null (reading 'addChild') at http://127.0.0.1:8089/js/warcommander.patched.js : 10847"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Cannot read properties of null (reading 'addChild')\n    at L.updateOutsideBaseFog (http://127.0.0.1:8089/js/warcommander.patched.js:10847:497)\n    at L.updateBaseEdgesAndOutsideFog (http://127.0.0.1:8089/js/warcommander.patched.js:10853:95)\n    at h (http://127.0.0.1:8089/js/warcommander.patched.js:10936:273)\n    at L.FocusToScale (http://127.0.0.1:8089/js/warcommander.patched.js:10937:183)\n    at p.ApplyZoom (http://127.0.0.1:8089/js/warcommander.patched.js:151:559)\n    at x.RevealBase [as _listener] (http://127.0.0.1:8089/js/warcommander.patched.js:1219:444)\n    at WD.execute (http://127.0.0.1:8089/js/warcommander.patched.js:50287:419)\n    at sa.dispatch (http://127.0.0.1:8089/js/warcommander.patched.js:128:346)\n    at $U.onAllDependenciesReady (http://127.0.0.1:8089/js/warcommander.patched.js:13120:394)\n    at $U.onDependencyReady (http://127.0.0.1:8089/js/warcommander.patched.js:13120:153)"
+    }
+  ]
+}

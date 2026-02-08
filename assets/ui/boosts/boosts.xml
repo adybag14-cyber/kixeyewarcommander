@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<swf path="Boosts_Popup.swf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../uicontract.xsd">
+	<container path="Boosts.Popup" name="Boosts.Popup">
+		<text path="TXT_header" lockey="popup_boosts_header__purchasable_boosts_title" name="headerText"/>
+		<text path="TXT_noBoostActive01" lockey="popup_boosts_activeboosts__noboostactive_title" name="noBoostActiveText"/>
+		<text path="TXT_noBoostActive02" lockey="popup_boosts_boostdescription__noboostselected_title" name="noBoostSelectedText"/>
+		<text path="TXT_terminateConfirm" lockey="popup_boosts_boostdescription__boost_terminateconfimation_text" name="terminateConfirmText"/>
+		<text path="TXT_activeBoosts" lockey="popup_boosts_boostsactive__boosts_active_text" name="activeBoostsText"/>
+		<text path="TXT_boostName" lockey="popup_boosts_boostdescription__boost_name_text" name="boostNameText"/>
+		<text path="TXT_boostType" lockey="popup_boosts_boosttype__boost_type_text" name="boostTypeText"/>
+		<text path="TXT_boostDuration" lockey="popup_boosts_boostduration__boost_duration_text" name="boostDurationText"/>
+		<text path="TXT_boostDescription" lockey="popup_boosts_boostdescription__boost_description_text" name="boostDescriptionText"/>
+		<text path="TXT_availableBoosts" lockey="popup_boosts_boostsavailable__boosts_available_text" name="boostsAvailableText"/>
+		<text path="BTN_terminate.TXT_label" lockey="popup_boosts_terminatebutton__boosts_terminate_label" name="terminateButtonText"/>
+		<text path="BTN_confirm.TXT_label" lockey="popup_boosts_terminatebutton__terminateconfirmation_label" name="terminateConfirmButtonText"/>
+		<text path="BTN_cancel.TXT_label" lockey="popup_boosts_cancelbutton__cancel_button_label" name="cancelButtonText"/>
+		<text path="BTN_pay.TXT_label" lockey="popup_boosts_paybutton__boosts_pay_label" name="payButtonText"/>
+		<text path="BTN_pay.TXT_gold" lockey="popup_boosts_paybutton__goldvalue_label" name="goldValueText"/>
+		<text path="MC_sortMenu.BTN_sortMenu.TXT_sort" lockey="popup_boosts_dropmenu__dropmenu_label" name="dropMenuText"/>
+		<button path="BTN_arrowLeft" name="leftNavButton"/>
+		<button path="BTN_arrowRight" name="rightNavButton"/>
+		<button path="BTN_close" onClick="Close" name="closeButton"/>
+		<button path="MC_sortMenu.BTN_sortMenu" name="sortMenuButton"/>
+		<button path="BTN_terminate" name="terminateButton"/>
+		<button path="BTN_confirm" name="confirmButton"/>
+		<button path="BTN_cancel" name="cancelButton"/>
+		<button path="BTN_pay" name="payButton"/>
+		<movieclip path="MC_boostInactiveIcon" name="inactiveBoostIcon"/>
+		<movieclip path="MC_sortMenu" name="dropMenu"/>
+		<movieclip path="MC_sortMenu.MC_subMenuContainer" name="mcSubMenuContainer"/>
+		<movieclip path="MC_boostContainer" name="mcBoostContainer"/>
+		<movieclip path="MC_boostDescriptionContainer" name="mcBoostDecriptionContainer"/>
+		<movieclip path="MC_scrollpane" name="scrollViewClip"/>
+		<scrollview path="MC_scrollpane" contentPane="MC_scrollpane.MC_boostContainer" slider="MC_scrollbarContainer" name="scrollView"/>
+		<dropdown path="MC_sortMenu" name="dropdown">
+			<button path="BTN_sortMenu" name="dropbutton" label="TXT_sort"/>
+			<selectionclass path="Menu.SubMenu" name="item" label="TXT_subMenu"/>
+			<background path="MC_subMenuContainer" name="container"/>
+		</dropdown>
+	</container>
+	<container path="Boosts.SubMenu" name="Boosts.SubMenu">
+		<text path="TXT_subMenu" lockey="popup_boosts_dropdownmenu__boosts_submenu_label" name="subMenuText"/>
+		<movieclip path="up" name="defaultState"/>
+		<movieclip path="over" name="mouseOver"/>
+		<movieclip path="selected" name="selectedState"/>
+		<movieclip path="deselected" name="deselectedState"/>
+	</container>
+	<container path="Boosts.boostID" name="Boosts.boostID">
+		<movieclip path="MC_boostContainer" name= "boostContainer"/>
+		<text path="TXT_boostName" lockey="popup_boosts_boostid__boostid_name_text" name="boostidNameText"/>
+		<text path="TXT_boostTimer" lockey="popup_boosts_boostid__boostid_timer_text" name="boostidTimerText"/>
+	</container>
+	<container path="Boosts.DockLarge" name="Boosts.DockLarge">
+		<text path="TXT_boostName" lockey="docklarge_boosts_boostdescription__boost_name_text" name="boostNameText"/>
+		<text path="TXT_boostType" lockey="docklarge_boosts_boosttype__boost_type_text" name="boostTypeText"/>
+		<text path="TXT_boostDuration" lockey="docklarge_boosts_boostduration__boost_duration_text" name="boostDurationText"/>
+		<text path="TXT_boostDescription" lockey="docklarge_boosts_boostdescription__boost_description_text" name="boostDescriptionText"/>
+		<text path="BTN_pay.TXT_label" lockey="docklarge_boosts_paybutton__boosts_pay_label" name="payButtonText"/>
+		<text path="BTN_pay.TXT_gold" lockey="docklarge_boosts_paybutton__goldvalue_label" name="goldValueText"/>
+		<movieclip path="MC_boostContainer" name= "boostContainer"/>
+		<button path="BTN_pay" name="payButton"/>
+	</container>
+	<container path="Boosts.DockSmall" name="Boosts.DockSmall">
+		<text path="TXT_boostName" lockey="docksmall_boosts_boostdescription__boost_name_text" name="boostNameText"/>
+		<text path="TXT_boostType" lockey="docksmall_boosts_boosttype__boost_type_text" name="boostTypeText"/>
+		<text path="TXT_boostDuration" lockey="docksmall_boosts_boostduration__boost_duration_text" name="boostDurationText"/>
+		<text path="BTN_pay.TXT_label" lockey="docksmall_boosts_paybutton__boosts_pay_label" name="payButtonText"/>
+		<text path="BTN_pay.TXT_gold" lockey="docksmall_boosts_paybutton__goldvalue_label" name="goldValueText"/>
+		<movieclip path="MC_boostContainer" name= "boostContainer"/>
+		<button path="BTN_pay" name="payButton"/>
+	</container>
+	<movieclip path="Boosts.Highlight" name="highlightBoostIcon"/>
+</swf>

@@ -1,0 +1,182 @@
+{
+  "states": [
+    {
+      "label": "t0_loaded",
+      "title": "War Commander",
+      "lastError": null,
+      "activeState": null,
+      "worldmap": {
+        "hasMapView": true,
+        "hasController": true,
+        "hasHexMap": true,
+        "finished": true
+      },
+      "map": {
+        "groundChildren": 1,
+        "oldRenderChildren": 17,
+        "underlayChildren": 2,
+        "buildingBasesChildren": 0,
+        "buildingTopsChildren": 0,
+        "outsideFogChildren": 0
+      },
+      "base": {
+        "loadedHomeBase": true,
+        "buildingCount": 382,
+        "topsParentOK": false,
+        "sampleDetached": 0
+      }
+    },
+    {
+      "label": "t1_closed_popup",
+      "title": "War Commander",
+      "lastError": null,
+      "activeState": null,
+      "worldmap": {
+        "hasMapView": true,
+        "hasController": true,
+        "hasHexMap": true,
+        "finished": true
+      },
+      "map": {
+        "groundChildren": 1,
+        "oldRenderChildren": 17,
+        "underlayChildren": 2,
+        "buildingBasesChildren": 0,
+        "buildingTopsChildren": 0,
+        "outsideFogChildren": 0
+      },
+      "base": {
+        "loadedHomeBase": true,
+        "buildingCount": 382,
+        "topsParentOK": false,
+        "sampleDetached": 0
+      }
+    },
+    {
+      "label": "t2_after_worldmap_click1",
+      "title": "War Commander",
+      "lastError": null,
+      "activeState": null,
+      "worldmap": {
+        "hasMapView": true,
+        "hasController": true,
+        "hasHexMap": true,
+        "finished": true
+      },
+      "map": {
+        "groundChildren": 1,
+        "oldRenderChildren": 17,
+        "underlayChildren": 2,
+        "buildingBasesChildren": 0,
+        "buildingTopsChildren": 0,
+        "outsideFogChildren": 0
+      },
+      "base": {
+        "loadedHomeBase": true,
+        "buildingCount": 382,
+        "topsParentOK": false,
+        "sampleDetached": 0
+      }
+    },
+    {
+      "label": "t3_after_worldmap_click2",
+      "title": "War Commander",
+      "lastError": null,
+      "activeState": null,
+      "worldmap": {
+        "hasMapView": true,
+        "hasController": true,
+        "hasHexMap": true,
+        "finished": true
+      },
+      "map": {
+        "groundChildren": 1,
+        "oldRenderChildren": 17,
+        "underlayChildren": 2,
+        "buildingBasesChildren": 0,
+        "buildingTopsChildren": 0,
+        "outsideFogChildren": 0
+      },
+      "base": {
+        "loadedHomeBase": true,
+        "buildingCount": 382,
+        "topsParentOK": false,
+        "sampleDetached": 0
+      }
+    },
+    {
+      "label": "t4_after_attacklog_open",
+      "title": "War Commander",
+      "lastError": null,
+      "activeState": null,
+      "worldmap": {
+        "hasMapView": true,
+        "hasController": true,
+        "hasHexMap": true,
+        "finished": true
+      },
+      "map": {
+        "groundChildren": 1,
+        "oldRenderChildren": 17,
+        "underlayChildren": 2,
+        "buildingBasesChildren": 0,
+        "buildingTopsChildren": 0,
+        "outsideFogChildren": 0
+      },
+      "base": {
+        "loadedHomeBase": true,
+        "buildingCount": 382,
+        "topsParentOK": false,
+        "sampleDetached": 0
+      }
+    },
+    {
+      "label": "t5_after_attacklog_close",
+      "title": "War Commander",
+      "lastError": null,
+      "activeState": null,
+      "worldmap": {
+        "hasMapView": true,
+        "hasController": true,
+        "hasHexMap": true,
+        "finished": true
+      },
+      "map": {
+        "groundChildren": 1,
+        "oldRenderChildren": 17,
+        "underlayChildren": 2,
+        "buildingBasesChildren": 0,
+        "buildingTopsChildren": 0,
+        "outsideFogChildren": 0
+      },
+      "base": {
+        "loadedHomeBase": true,
+        "buildingCount": 382,
+        "topsParentOK": false,
+        "sampleDetached": 0
+      }
+    }
+  ],
+  "pageErrors": [
+    "Cannot read properties of undefined (reading '0')"
+  ],
+  "keyLogs": [
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "error",
+      "text": "WebSocket connection to 'wss://127.0.0.1:8089/BlueBox/websocket' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED"
+    },
+    {
+      "type": "error",
+      "text": "[CRASH] Fatal Exception: Uncaught TypeError: Cannot read properties of undefined (reading '0') at http://127.0.0.1:8089/js/warcommander.patched.js : 50236"
+    },
+    {
+      "type": "error",
+      "text": "TypeError: Cannot read properties of undefined (reading '0')\n    at dd.readUnsignedByte (http://127.0.0.1:8089/js/warcommander.patched.js:50236:278)\n    at dd.readByte (http://127.0.0.1:8089/js/warcommander.patched.js:50227:30)\n    at cp.processData (http://127.0.0.1:8089/js/warcommander.patched.js:14367:185)\n    at cp.initData (http://127.0.0.1:8089/js/warcommander.patched.js:14363:214)\n    at cp.initializeAndShowMap (http://127.0.0.1:8089/js/warcommander.patched.js:14374:444)\n    at p.TickFast [as callback] (http://127.0.0.1:8089/js/warcommander.patched.js:173:232)\n    at Ih.__dispatchEvent (http://127.0.0.1:8089/js/warcommander.patched.js:724:475)\n    at Ih.__dispatch (http://127.0.0.1:8089/js/warcommander.patched.js:767:285)\n    at KM.__broadcastEvent (http://127.0.0.1:8089/js/warcommander.patched.js:48869:268)\n    at KM.__onLimeRender (http://127.0.0.1:8089/js/warcommander.patched.js:48933:65)"
+    }
+  ],
+  "logCount": 635
+}

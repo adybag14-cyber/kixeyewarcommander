@@ -1,0 +1,36 @@
+{
+  "state": {
+    "title": "War Commander",
+    "lastError": null,
+    "activeState": null,
+    "worldmap": {
+      "hasMapView": false,
+      "hasController": true,
+      "hasHexMap": true
+    },
+    "baseLoaded": true,
+    "buildingCount": 382,
+    "mapLayers": {
+      "groundChildren": 1,
+      "oldRenderChildren": 0,
+      "buildingBasesChildren": null,
+      "buildingTopsChildren": null,
+      "gibletsChildren": null,
+      "effectsTopChildren": null
+    },
+    "sample": {
+      "hasSprite": true,
+      "spriteParentIsBuildingTops": false,
+      "p0Class": "openfl.display.Sprite",
+      "p1Class": "openfl.display.Sprite",
+      "p1HasParent": true
+    },
+    "detachedResolved": true
+  },
+  "key_logs": [
+    "[warning] [PATCH V33] MAP.Init auto-call disabled (prevents detached render trees).",
+    "[warning] [PATCH V33] Rebound detached base render tree to active MAP layers.",
+    "[pageerror] Cannot read properties of null (reading 'addChild')"
+  ],
+  "log_count": 611
+}

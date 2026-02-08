@@ -1,0 +1,84 @@
+{
+  "states": [
+    {
+      "label": "t0_initial",
+      "stateWorldMap": false,
+      "mapViewVisible": false,
+      "map": {
+        "tops": 531,
+        "bases": 2,
+        "underlay": 1,
+        "oldRender": 16
+      },
+      "base": {
+        "loaded": true,
+        "count": 382
+      }
+    },
+    {
+      "label": "t1_after_close_popup",
+      "stateWorldMap": false,
+      "mapViewVisible": false,
+      "map": {
+        "tops": 531,
+        "bases": 2,
+        "underlay": 1,
+        "oldRender": 16
+      },
+      "base": {
+        "loaded": true,
+        "count": 382
+      }
+    },
+    {
+      "label": "t2_after_worldmap_click1",
+      "stateWorldMap": false,
+      "mapViewVisible": false,
+      "map": {
+        "tops": 531,
+        "bases": 2,
+        "underlay": 1,
+        "oldRender": 16
+      },
+      "base": {
+        "loaded": true,
+        "count": 382
+      }
+    },
+    {
+      "label": "t3_after_worldmap_click2",
+      "stateWorldMap": true,
+      "mapViewVisible": true,
+      "map": {
+        "tops": 0,
+        "bases": 0,
+        "underlay": 2,
+        "oldRender": 17
+      },
+      "base": {
+        "loaded": true,
+        "count": 0
+      }
+    }
+  ],
+  "pageErrors": [],
+  "keyLogs": [
+    {
+      "type": "error",
+      "text": "WebSocket connection to 'wss://127.0.0.1:8089/BlueBox/websocket' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED"
+    },
+    {
+      "type": "log",
+      "text": "[PATCH V33] Worldmap map view visibility -> hidden"
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] HexMap.processData suppressed: TypeError: Cannot read properties of undefined (reading '0')\n    at dd.readUnsignedByte (http://127.0.0.1:8089/js/warcommander.patched.js:50236:278)\n    at dd.readByte (http://127.0.0.1:8089/js/warcommander.patched.js:50227:30)\n    at cp.processData (http://127.0.0.1:8089/js/warcommander.patched.js:14367:185)\n    at proto.processData (http://127.0.0.1:8089/js/patch_game_init_v33.js:1209:48)\n    at cp.initData (http://127.0.0.1:8089/js/warcommander.patched.js:14363:214)\n    at proto.initData (http://127.0.0.1:8089/js/patch_game_init_v33.js:1185:45)\n    at cp.initializeAndShowMap (http://127.0.0.1:8089/js/warcommander.patched.js:14374:444)\n    at proto.initializeAndShowMap (http://127.0.0.1:8089/js/patch_game_init_v33.js:1225:57)\n    at p.TickFast [as callback] (http://127.0.0.1:8089/js/warcommander.patched.js:173:232)\n    at Ih.__dispatchEvent (http://127.0.0.1:8089/js/warcommander.patched.js:724:475)"
+    },
+    {
+      "type": "log",
+      "text": "[PATCH V33] Worldmap map view visibility -> visible"
+    }
+  ],
+  "logCount": 654
+}

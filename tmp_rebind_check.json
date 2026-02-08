@@ -1,0 +1,58 @@
+{
+  "state": {
+    "total": 382,
+    "checked": 382,
+    "mapBuildingTops": {
+      "cls": "openfl.display.Sprite",
+      "n": 823,
+      "hasParent": true
+    },
+    "mapOldRender": {
+      "cls": "openfl.display.Sprite",
+      "n": 125,
+      "hasParent": true
+    },
+    "attachedSample": {
+      "buildingType": 281,
+      "p0": {
+        "cls": "openfl.display.Sprite",
+        "n": 823,
+        "hasParent": true
+      },
+      "p1": {
+        "cls": "openfl.display.Sprite",
+        "n": 125,
+        "hasParent": true
+      },
+      "p2": {
+        "cls": "GroundSprite",
+        "n": 1,
+        "hasParent": true
+      }
+    },
+    "detachedSample": null
+  },
+  "rebindLogs": 9,
+  "rebindTail": [
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    }
+  ]
+}

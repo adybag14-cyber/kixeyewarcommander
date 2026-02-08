@@ -1,0 +1,15 @@
+{
+  "startedAt": "2026-02-07T17:13:21.172Z",
+  "endedAt": "2026-02-07T19:50:12.647Z",
+  "totalRecords": 8199,
+  "totalUniqueUrls": 4046,
+  "totalUniqueAssetUrls": 1924,
+  "totalUniqueAssetPaths": 1904,
+  "outputFiles": {
+    "records": "C:\\Users\\adyba\\clone of game\\kixeye_capture\\kixeye_network_records_2026-02-07T17-13-21-172Z.json",
+    "allUrls": "C:\\Users\\adyba\\clone of game\\kixeye_capture\\kixeye_all_urls_2026-02-07T17-13-21-172Z.txt",
+    "assetUrls": "C:\\Users\\adyba\\clone of game\\kixeye_capture\\kixeye_asset_urls_2026-02-07T17-13-21-172Z.txt",
+    "assetPaths": "C:\\Users\\adyba\\clone of game\\kixeye_capture\\kixeye_asset_paths_2026-02-07T17-13-21-172Z.txt",
+    "summary": "C:\\Users\\adyba\\clone of game\\kixeye_capture\\kixeye_capture_summary_2026-02-07T17-13-21-172Z.json"
+  }
+}

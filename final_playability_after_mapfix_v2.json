@@ -1,0 +1,33 @@
+{
+  "state": {
+    "hasCanvas": true,
+    "lastError": null,
+    "map": {
+      "groundChildren": 1,
+      "oldRenderChildren": 17,
+      "buildingBasesChildren": 0,
+      "buildingTopsChildren": 0,
+      "outsideFogChildren": 0
+    },
+    "worldmap": {
+      "hasMapView": true,
+      "hasController": true,
+      "hasHexMap": true,
+      "hasFinishedLoading": true
+    },
+    "base": {
+      "loadedHomeBase": true,
+      "buildingCount": 382,
+      "detachedCount": 0
+    }
+  },
+  "pageErrors": [],
+  "rebindCount": 1,
+  "rebindTail": [
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    }
+  ],
+  "logCount": 637
+}

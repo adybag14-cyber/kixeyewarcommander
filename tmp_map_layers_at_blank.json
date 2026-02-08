@@ -1,0 +1,150 @@
+{
+  "buildCount": 1,
+  "map": {
+    "ground": {
+      "cls": "GroundSprite",
+      "num": 1,
+      "hasParent": true
+    },
+    "oldRender": {
+      "cls": "openfl.display.Sprite",
+      "num": 16,
+      "hasParent": true
+    },
+    "oldRenderChildren": [
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 1,
+        "hasParent": true,
+        "index": 0
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 2,
+        "hasParent": true,
+        "index": 1
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 823,
+        "hasParent": true,
+        "index": 2
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 0,
+        "hasParent": true,
+        "index": 3
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 531,
+        "hasParent": true,
+        "index": 4
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 0,
+        "hasParent": true,
+        "index": 5
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 0,
+        "hasParent": true,
+        "index": 6
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 0,
+        "hasParent": true,
+        "index": 7
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 0,
+        "hasParent": true,
+        "index": 8
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 1,
+        "hasParent": true,
+        "index": 9
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 0,
+        "hasParent": true,
+        "index": 10
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 0,
+        "hasParent": true,
+        "index": 11
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 1,
+        "hasParent": true,
+        "index": 12
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 0,
+        "hasParent": true,
+        "index": 13
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 0,
+        "hasParent": true,
+        "index": 14
+      },
+      {
+        "cls": "openfl.display.Sprite",
+        "num": 0,
+        "hasParent": true,
+        "index": 15
+      }
+    ],
+    "buildingTops": {
+      "cls": "openfl.display.Sprite",
+      "num": 531,
+      "hasParent": true
+    },
+    "buildingBases": {
+      "cls": "openfl.display.Sprite",
+      "num": 2,
+      "hasParent": true
+    },
+    "underlay": {
+      "cls": "openfl.display.Sprite",
+      "num": 1,
+      "hasParent": true
+    },
+    "outsideFog": {
+      "cls": "openfl.display.Sprite",
+      "num": 0,
+      "hasParent": true
+    }
+  },
+  "topParentChain": [
+    {
+      "cls": "openfl.display.Sprite",
+      "num": 531,
+      "hasParent": true
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "num": 16,
+      "hasParent": true
+    },
+    {
+      "cls": "GroundSprite",
+      "num": 1,
+      "hasParent": true
+    }
+  ]
+}

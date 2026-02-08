@@ -1,0 +1,4012 @@
+{
+  "startedAt": "2026-02-07T17:38:42.709Z",
+  "endedAt": "2026-02-07T17:40:14.558Z",
+  "reason": "timeout",
+  "timeoutSec": 90,
+  "records": 8790,
+  "uniqueUrls": 4342,
+  "uniqueAssetUrls": 1984,
+  "uniqueAssetPaths": 1984,
+  "memorySamples": 18,
+  "topEndpoints": {
+    "bi-logging.sjc.kixeye.com/log": {
+      "requests": 10,
+      "responses": 0,
+      "failed": 10,
+      "statusCodes": {}
+    },
+    "api.helpshift.com/events/v1/kixeyesupport/help-center/": {
+      "requests": 6,
+      "responses": 6,
+      "failed": 0,
+      "statusCodes": {
+        "200": 4,
+        "204": 2
+      }
+    },
+    "api.helpshift.com/websdk/kixeyesupport/config": {
+      "requests": 4,
+      "responses": 4,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2,
+        "204": 2
+      }
+    },
+    "debuglog-lb.wc.kixeye.com/debug/recorddebugdata/": {
+      "requests": 4,
+      "responses": 0,
+      "failed": 4,
+      "statusCodes": {}
+    },
+    "prod-kx-vip.sjc.kixeye.com/manifest.json": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "404": 2
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/backend/getmessage": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "kixeyesupport.helpshift.com/hc-widget/en/app/6/": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/style.4190f2c9807a6850512f.css": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/dashboard-resources/kixeyesupport/320/1bbf0998-6789-4889-ae44-e3b2ac7711e4.webp": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/dashboard-resources/kixeyesupport/720/6c542e2c-35ec-4173-883b-d67751567f2e.webp": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/vendors.cc64d9f881b68ceb5fc4.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/corejs.1a80174baf1daa4c0dd7.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/home.1a155446aa6606b1e863.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/chunk.230e96a29b7020ee290c.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/chunk.497e4176bbed9113bb94.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/chunk.a251c1fe5501084a0fe5.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/chunk.b80ffd0771f1e9809589.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/chunk.2b5d211c8109acccfefb.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/chunk.67b8239ec8309023d25f.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/chunk.ba1e0d53ee196bb5819c.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/chunk.e75b4147af0fbf17ce0d.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/hc-themes/theme2/latest/static/chunk.36c873082b4e587ce6c1.96b71a9de1013a6253a7.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "unpkg.com/ionicons@5.2.3/dist/ionicons/p-6f4eae92.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "unpkg.com/ionicons@5.2.3/dist/ionicons/p-4372c4bc.js": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "api.helpshift.com/events/v1/kixeyesupport/logs/hc/performance": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "202": 2
+      }
+    },
+    "api.helpshift.com/websdk/kixeyesupport/intent-trees": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "204": 1,
+        "304": 1
+      }
+    },
+    "api.helpshift.com/events/v1/kixeyesupport/websdk/": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1,
+        "204": 1
+      }
+    },
+    "api.helpshift.com/events/v1/kixeyesupport/logs/websdk/performance": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1,
+        "204": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/v2/log.php": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/assets/ui/backgrounds/Bkgd_Player_Savannah_6k_low.b4748db8ae019d27a999774ca3863835.jpg": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/assets/ui/backgrounds/Bkgd_Player_Savannah_6k_med_low.e658bbbd4075dd05a352e1909c206974.jpg": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/assets/ui/backgrounds/Bkgd_Player_Savannah_6k_med_high.bd30ca0ac75b1c0d6924d0b585e23c6d.jpg": {
+      "requests": 2,
+      "responses": 2,
+      "failed": 0,
+      "statusCodes": {
+        "200": 2
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/canvas": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/assets/style/prod-kx-vip.sjc-0-secure.v199.css": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/assets/script/MooTools-Core-1.6.0-compressed.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/assets/script/MooTools-More-1.6.0-compressed.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/assets/script/jquery.countdown.min.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/assets/style/jquery.countdown.css": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/assets/script/browserdetect.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/assets/script/fb.v199.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/assets/script/cc-framework.v71956.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "kxl-cdn-static.kixeye.com/kxpprod/script/kxp-client-1.0.1.min.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/assets/script/message-sauce.v199.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/images/navbar2/button_cap_left.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/images/navbar2/button_cap_right.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/images/navbar2/kixeye_stillfront_logo.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/WarCommander.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/images/navbar2/background_tile.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/images/navbar2/background_metal.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "ssl.google-analytics.com/ga.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "hs-widget.helpshift.com/init.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "304": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/images/kxl/footer-bar-stretch.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/live/sendmsg": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/helpshift/hmac": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "404": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/assets/images/feeddialog/invite_friends_screen.png": {
+      "requests": 1,
+      "responses": 0,
+      "failed": 1,
+      "statusCodes": {}
+    },
+    "wc-origin.cdn-kixeye.com/images/gift/gift_bg_v3.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "ssl.google-analytics.com/__utm.gif": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "hs-widget.helpshift.com/1.10.0/middleware.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "hs-widget.helpshift.com/1.10.0/html/main.html": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "d2duuy9yo5pldo.cloudfront.net/widget/helpcenter.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "webchat.helpshift.com/latest/webChat.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "304": 1
+      }
+    },
+    "webchat.helpshift.com/latest/3.142.1/scripts/external/middleware.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "webchat.helpshift.com/latest/3.142.1/html/index.html": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "webchat.helpshift.com/latest/3.142.1/css/style.css": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "webchat.helpshift.com/latest/3.142.1/scripts/main.js": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "prod-kx-vip.sjc.kixeye.com/favicon.ico": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "webchat.helpshift.com/3.142.1/assets/audio/send.mp3": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "206": 1
+      }
+    },
+    "webchat.helpshift.com/3.142.1/assets/audio/receive.mp3": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "206": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/assets/fonts/AgencyFB-Bold.woff": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/assets/fonts/Korataki%20Rg-Regular.woff": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/assets/fonts/Bebas%20Neue%20Regular.woff": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/assets/fonts/AgencyFB_Regular.woff": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/assets/fonts/simpfxo.woff": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/assets/preloader/warcommander.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/effects/DARKSTORM_CLOUD_03.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/effects/DARKSTORM_CLOUD_02.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/effects/DARKSTORM_CLOUD_01.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/cursors/scrap.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/cursors/attack_cursor.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/cursors/no_move.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/cursors/attackmove_cursor.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/cursors/move_cursor.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/cursors/enter.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/cursors/full.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/popups/resource/item_frame_black.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/popups/resource/icon_infamy.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/popups/resource/icon_thorium.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/popups/resource/icon_gold.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/popups/resource/icon_repair.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/popups/resource/icon_medal.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hudicons/dog.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hudicons/thorium_dep.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hudicons/metal_dep.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hudicons/foot2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hudicons/tank2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hudicons/tank.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hudicons/mixed.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hudicons/oil_dep.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hudicons/foot.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_silver_3.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_platinum_1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_platinum_2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_rear_upwards_blast_1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_silver_2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_rear_upwards_blast_2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_front_upwards_blast_2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_gold_3.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_front_upwards_blast_1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_silver_1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_gold_2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/vanity/hex_gold_1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/drop_down_bkg_h.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/reserved_blue.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/platoonplacement/deploymouseover.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/platoonplacement/deploy.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/platoonplacement/cancel.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hex_black.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hex_player.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hex_green.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hex_orange.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hex_dark_orange.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hex.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hex_red.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/reserved_red.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/underlays/underlay_banned.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/underlays/underlay_thorium.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/underlays/underlay_thorium_2.v2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/underlays/underlay_thorium_1.v2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/underlays/underlay_thorium_3.v2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/underlays/underlay_oil.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/underlays/underlay_metal.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/drop_down_bkg.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/hex_purple.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/reserved_green.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/cc_04.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/cc_16.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/resource_oil_3.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/cc_06.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/rf_base_5.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/resource_metal_2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/cc_14.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/cc_10.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/survivor_cc_l1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/cc_18.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/cc_12.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/survivor_cc_l11.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/resource_oil_2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/sentinal_cc_l1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/resource_metal_1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/resource_thorium_2.v3.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/rf_base_3.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/dp_base_spire.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/resource_thorium_1.v3.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/warpath_past_leader_worldmap_icon.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/resource_oil_1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/resource_thorium_4.v1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/resource_thorium_3.v3.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/cc_20.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/sentinal_cc_l8.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/rf_base_2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/cc_02.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/resource_metal_3.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/cc_08.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/sentinal_cc_l11.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/survivor_cc_l8.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/rf_base_1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/warpath_leader_worldmap_icon.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/worldmap/entities/v2/rf_base_4.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain67.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain65.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain79.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain34.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain33.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain99.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain59.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain71.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain70.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain115.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain118.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain37.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain38.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain48.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain154.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain12.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain116.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain66.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain125.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain111.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain22.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain131.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain69.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain107.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain45.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain47.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain87.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain128.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain121.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain96.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain120.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain94.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain23.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain109.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain85.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain19.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain119.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain27.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain103.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain14.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain56.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain102.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain104.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain95.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain10.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain61.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain108.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain62.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain58.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain132.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain148.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain129.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain155.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain25.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain36.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain7.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain24.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain153.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain72.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain117.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain130.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain17.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain152.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain74.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain76.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain30.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain49.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain26.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain114.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain60.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain100.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain110.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain122.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain57.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain35.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain43.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain133.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain112.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain89.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain126.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain21.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain15.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain113.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain78.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain151.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain150.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain105.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/default.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain73.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain83.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain88.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain93.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain149.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain92.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain16.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain84.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain123.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain75.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain91.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain20.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain124.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain46.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain127.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain11.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain28.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain101.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/terrain/terrain18.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/movement_selection_white_64px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_bronze_100px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/move_confirm.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/enemy_selection_32px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/movement_selection_64px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_gold_64px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/movement_selection_white_200px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/air_selection.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_silver_100px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/movement_selection_white_96px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/movement_selection_96px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/rubi_selection_100px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_silver_32px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/attackmove_confirm.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_64px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_48px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_gold_32px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/move_confirmation_96px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/attack_confirmation_200px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/follower_glow.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_bronze_32px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/enemy_air_selection.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_bronze_48px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/move_confirmation_200px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/movement_selection_128px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/enemy_selection_48px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/stand_ground_128px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_bronze_64px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_100px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/move_confirmation_128px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/move_confirmation_64px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/attack_confirmation_64px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/stand_ground_96px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_silver_64px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_silver_48px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/rubi_selection_64px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/rubi_selection_48px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/movement_selection_white_128px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/stand_ground_64px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/movement_selection_200px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/rubi_selection_32px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_32px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_gold_48px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/stand_ground_200px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/attack_confirmation_96px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/enemy_selection_100px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/attack_confirmation_128px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/enemy_selection_64px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selection/selection_gold_100px.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/Button_Disabled.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/Icon_Disabled.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/UnitNameBacker.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/BW_Backer_Large_Disabled.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/27.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/10.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/26.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/16.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/31.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/11.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/20.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/24.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/6.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/25.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/5.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/22.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/21.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/19.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/tag/12.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/faction/32.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/faction/18.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/faction/33.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/faction/14.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/faction/13.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/faction/15.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/armor/2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/armor/1.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/armor/0.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/type/3.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/type/34.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/icons/type/4.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/BW_Backer_Large.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/Button.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/BW_Backer_LargeGreen.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/BW_Backer_LargeGold.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/Icon.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/Radial_Gradient.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/BW_Backer_Large_Expanded.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/BW_Backer_Small_Grey.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/field_bonuses/BW_Backer_Small.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/scroller/top_red.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/scroller/notches_red.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/scroller/notches_blue.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/scroller/top_blue.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/scroller/body_green.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/scroller/body_blue.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/scroller/body_red.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/scroller/top_green.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/scroller/notches_green.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/pvp/honor_small.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selected_4.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/battle/resthorium.v2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/level-stars.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/buildingicons/icon_ammo.v2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/buildingicons/icon_ammo_rocket.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/buildingicons/icon_full.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/buildingicons/icon_power.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/buildingicons/icon_ready.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/buildingicons/icon_overdrive.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/buildingicons/icon_halt.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/buildingicons/icon_promotion.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_iridium.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_gen_ii_parts.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_skirmish_xp.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_medals.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_time.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_silicon.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_eventxp.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_event_tokens.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_blood_thorium.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_sector_breach_xp.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_retaliation_xp.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_holdout_xp.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_currency_war_efforts.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_thorium.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_chemicals.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_retalliation.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_event_supplydepot_token.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_gold.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_kixmas_token.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/currencyicons/icon_cores.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selected_3.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/infamy/medal_small.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/fwr/scanline_pattern.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/selected_2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/bookmarks/bookmark_map.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_inspect.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_scout_disabled.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_stop.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_advscout.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_baseinfo.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_gohome.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/roll_bottom_4.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_new_platoon.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_bookmark_add.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_attack2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_worldmap_repair.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_needs_repair.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/spotlight.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_lootchest.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_bookmark_remove.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/roll_bottom_5.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/roll_bottom_6.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_return2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_move.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_history.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_withdraw.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_defend.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/roll_bottom_2.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/roll_bottom.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_history_disabled.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_summon_platoon.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_scout.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/rollover/icn_advscout_disabled.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/icons/pvp_platoon.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/icons/assault_platoon.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/icons/icn_destroyed.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/dp%20bubbles/385.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/dp%20bubbles/400.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/dp%20bubbles/403.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/dp%20bubbles/394.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/dp%20bubbles/397.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/worldmap/dp%20bubbles/406.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/dailydeals/Deals_Background.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/dailydeals/Arrow_Button.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/Sale_Gradient.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/Label_Recommended.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/Label_LastChance.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Event_Token.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Building%20Supplies.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Silicone.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Coin.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Retalliation.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Warpath.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Core.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Thorium.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Skirmish%20XP.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Blood-Thorium.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Event%20XP.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Event%20Token.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_War%20Games.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Chemical.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Logistics.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Building.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Holdout.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Medal.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Sector%20Breach.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_DailyDeals.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_PVP.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/storeicons/50px_Store_Gift.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Panel_Fill.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Header_Left.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Frame_Corner_TopLeft.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Frame_Corner_BottomRight.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Frame_Corner_BottomLeft.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Panel_Top.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Menu_Backer.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Header_Middle.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Frame_Right_Fill.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Frame_Bottom_Fill.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Frame_Top_Fill.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Frame_Corner_TopRight.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Frame_Left_Fill.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/popup/Header_Right.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/button/Button_Corner_BottomLeft.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/button/Button_Corner_TopLeft.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/button/Button_LeftSide_Fill.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/button/Button_Corner_TopRight.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/button/Button_Top_Fill.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/button/Button_Backer_Default.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/button/Button_Corner_BottomRight.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/button/Button_RightSide_Fill.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    },
+    "wc-origin.cdn-kixeye.com/game/game-v7.v71956/embedded/ui/goldstore/frames/button/Button_Bottom_Fill.png": {
+      "requests": 1,
+      "responses": 1,
+      "failed": 0,
+      "statusCodes": {
+        "200": 1
+      }
+    }
+  }
+}
