@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 8080;
+const PORT = 8888;
 
 const mimeTypes = {
     '.html': 'text/html',
@@ -23,7 +23,8 @@ const mimeTypes = {
 };
 
 const server = http.createServer((req, res) => {
-    console.log(`${req.method} ${req.url}`);
+    console.log(`[SERVER] ${req.method} ${req.url}`);
+    console.log(`[SERVER] Headers: ${JSON.stringify(req.headers)}`);
 
     // Set CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -86,6 +87,69 @@ const server = http.createServer((req, res) => {
             "maintenance": 0,
             "translations": langData,
             "lang": langData
+        };
+        const data = JSON.stringify(response);
+        res.writeHead(200, {
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(data)
+        });
+        res.end(data);
+        return;
+    }
+
+    if (url.includes('api/wc/getflags')) {
+        console.log('Handling api/wc/getflags');
+        let sharedConfigs = [];
+        try {
+            sharedConfigs = JSON.parse(fs.readFileSync(path.join(__dirname, 'shared_configs.json'), 'utf8'));
+        } catch (e) {
+            console.log('Error loading shared_configs:', e.message);
+        }
+        const response = {
+            "error": 0,
+            "server_time": 1734789505,
+            "currenttime": 1734789505,
+            "flags": {
+                "faction_change_enabled": 1,
+                "building_multimove": 1,
+                "worldmap_enabled": 1,
+                "skip_tutorial": 1,
+                "login_flow_v2": 1,
+                "new_loading_screen": 1,
+                "enable_performance_mode": 1,
+                "use_new_gateway": 0,
+                "force_update": 0,
+                "chatservers": "localhost:8888",
+                "minimum_client_soft_version": 0
+            },
+            "configs": sharedConfigs,
+            "abtests": {}
+        };
+        const data = JSON.stringify(response);
+        res.writeHead(200, {
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(data)
+        });
+        res.end(data);
+        return;
+    }
+
+    if (url.includes('api/player/getfriendsworldmap')) {
+        console.log('Handling api/player/getfriendsworldmap');
+        let sharedConfigs = [];
+        try {
+            sharedConfigs = JSON.parse(fs.readFileSync(path.join(__dirname, 'shared_configs.json'), 'utf8'));
+        } catch (e) {
+            console.log('Error loading shared_configs:', e.message);
+        }
+        const response = {
+            "error": 0,
+            "currenttime": 1734789505,
+            "server_time": 1734789505,
+            "friends": [],
+            "players": [],
+            "map_entities": [],
+            "configs": sharedConfigs
         };
         const data = JSON.stringify(response);
         res.writeHead(200, {

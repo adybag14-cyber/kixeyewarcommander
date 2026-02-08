@@ -1,0 +1,47 @@
+{
+  "total": 382,
+  "mapOldRender": {
+    "id": 4,
+    "cls": "openfl.display.Sprite",
+    "n": 17,
+    "hasParent": true
+  },
+  "mapBuildingTops": {
+    "id": 5,
+    "cls": "openfl.display.Sprite",
+    "n": 0,
+    "hasParent": true
+  },
+  "parentBuckets": [
+    {
+      "parent": {
+        "id": 1,
+        "cls": "openfl.display.Sprite",
+        "n": 532,
+        "hasParent": true
+      },
+      "count": 381,
+      "parentParent": {
+        "id": 2,
+        "cls": "openfl.display.Sprite",
+        "n": 27,
+        "hasParent": false
+      }
+    },
+    {
+      "parent": {
+        "id": 3,
+        "cls": "openfl.display.Sprite",
+        "n": 823,
+        "hasParent": true
+      },
+      "count": 1,
+      "parentParent": {
+        "id": 2,
+        "cls": "openfl.display.Sprite",
+        "n": 27,
+        "hasParent": false
+      }
+    }
+  ]
+}

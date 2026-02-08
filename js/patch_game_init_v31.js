@@ -23,7 +23,7 @@
             GameClass.prototype.Data = function (a, b) {
                 if (!a) a = {};
                 function def(key, val) { if (!a[key]) a[key] = val; }
-                var localhost = "http://localhost:8088/";
+                var localhost = "http://localhost:8089/";
                 def("baseurl", localhost + "assets/");
                 def("apiurl", localhost + "api/");
                 def("_baseURL", localhost + "assets/");
@@ -37,19 +37,23 @@
         var URLLoaderClass = window.URLoaderApi || (window._hx_classes && window._hx_classes["URLoaderApi"]);
         if (URLLoaderClass && URLLoaderClass.prototype && URLLoaderClass.prototype.load && !URLLoaderClass.prototype.load.patched) {
             var originalLoad = URLLoaderClass.prototype.load;
-            URLLoaderClass.prototype.load = function (urlRequest) {
-                var url = urlRequest.url;
-                if (url.indexOf("wc/getflags") !== -1 || url.indexOf("undefinedwc") !== -1 || url.indexOf("loadidata") !== -1) {
-                    var mockData = { success: true, flags: { example_flag: 1 }, data: {} };
-                    var self = this;
-                    setTimeout(function () {
-                        self.data = JSON.stringify(mockData);
-                        var evt = { type: "complete", target: self };
-                        try { if (self.dispatchEvent) self.dispatchEvent(evt); else if (self.onComplete) self.onComplete(evt); } catch (e) { }
-                    }, 50);
-                    return;
+            URLLoaderClass.prototype.load = function (urlOrRequest) {
+                var url = "";
+                if (typeof urlOrRequest === "string") {
+                    url = urlOrRequest;
+                } else if (urlOrRequest && urlOrRequest.url) {
+                    url = urlOrRequest.url;
                 }
-                return originalLoad.call(this, urlRequest);
+
+                if (url && (url.indexOf("wc/getflags") !== -1 || url.indexOf("undefinedwc") !== -1 || url.indexOf("loadidata") !== -1 || url.indexOf("base/load") !== -1)) {
+                    console.log("[PATCH V31] Allowing server.py to handle API call: " + url);
+                    return originalLoad.apply(this, arguments);
+                }
+
+                // For regular assets, we might want to log or redirect
+                // console.log("[PATCH V31] Loading: " + url);
+
+                return originalLoad.apply(this, arguments);
             };
             URLLoaderClass.prototype.load.patched = true;
         }

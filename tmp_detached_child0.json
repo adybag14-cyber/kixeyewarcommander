@@ -1,0 +1,215 @@
+{
+  "p2": {
+    "cls": "GroundSprite",
+    "n": 2,
+    "hasParent": false
+  },
+  "p2Children": [
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 16,
+      "hasParent": true,
+      "index": 0
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 14,
+      "hasParent": true,
+      "index": 1
+    }
+  ],
+  "c0": {
+    "cls": "openfl.display.Sprite",
+    "n": 16,
+    "hasParent": true
+  },
+  "c0Children": [
+    {
+      "cls": "openfl.display.Bitmap",
+      "n": null,
+      "hasParent": true,
+      "index": 0
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 2,
+      "hasParent": true,
+      "index": 1
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 2
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 3
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 4
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 5
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 6
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 7
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 8
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 1,
+      "hasParent": true,
+      "index": 9
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 10
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 11
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 12
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 13
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 14
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 15
+    }
+  ],
+  "c1": {
+    "cls": "openfl.display.Sprite",
+    "n": 14,
+    "hasParent": true
+  },
+  "c1Children": [
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 823,
+      "hasParent": true,
+      "index": 0
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 1
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 532,
+      "hasParent": true,
+      "index": 2
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 3
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 4
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 5
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 6
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 1,
+      "hasParent": true,
+      "index": 7
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 8
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 9
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 1,
+      "hasParent": true,
+      "index": 10
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 11
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 12
+    },
+    {
+      "cls": "openfl.display.Sprite",
+      "n": 0,
+      "hasParent": true,
+      "index": 13
+    }
+  ]
+}

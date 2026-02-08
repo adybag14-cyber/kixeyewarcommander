@@ -1,0 +1,12 @@
+{
+  "state": {
+    "popups": []
+  },
+  "pageErrors": [],
+  "keyLogs": [
+    {
+      "type": "error",
+      "text": "WebSocket connection to 'wss://127.0.0.1:8089/BlueBox/websocket' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED"
+    }
+  ]
+}

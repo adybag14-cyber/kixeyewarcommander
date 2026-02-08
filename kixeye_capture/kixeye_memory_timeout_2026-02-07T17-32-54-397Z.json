@@ -1,0 +1,362 @@
+[
+  {
+    "ts": 1770485579966,
+    "at": "2026-02-07T17:32:59.966Z",
+    "nodeHeapUsed": 43529832,
+    "nodeRss": 138723328,
+    "jsHeapUsedSize": 32453436,
+    "jsHeapTotalSize": 62472192,
+    "documents": 1,
+    "nodes": 1915
+  },
+  {
+    "ts": 1770485584980,
+    "at": "2026-02-07T17:33:04.980Z",
+    "nodeHeapUsed": 41724776,
+    "nodeRss": 145178624,
+    "jsHeapUsedSize": 73650664,
+    "jsHeapTotalSize": 138354688,
+    "documents": 1,
+    "nodes": 2515
+  },
+  {
+    "ts": 1770485589984,
+    "at": "2026-02-07T17:33:09.984Z",
+    "nodeHeapUsed": 29613456,
+    "nodeRss": 86188032,
+    "jsHeapUsedSize": 213380608,
+    "jsHeapTotalSize": 270176256,
+    "documents": 1,
+    "nodes": 4153
+  },
+  {
+    "ts": 1770485595202,
+    "at": "2026-02-07T17:33:15.202Z",
+    "nodeHeapUsed": 28924872,
+    "nodeRss": 95031296,
+    "jsHeapUsedSize": 681269312,
+    "jsHeapTotalSize": 734961664,
+    "documents": 1,
+    "nodes": 6730
+  },
+  {
+    "ts": 1770485599991,
+    "at": "2026-02-07T17:33:19.991Z",
+    "nodeHeapUsed": 34812544,
+    "nodeRss": 98213888,
+    "jsHeapUsedSize": 711909108,
+    "jsHeapTotalSize": 780402688,
+    "documents": 1,
+    "nodes": 7471
+  },
+  {
+    "ts": 1770485605002,
+    "at": "2026-02-07T17:33:25.002Z",
+    "nodeHeapUsed": 26508032,
+    "nodeRss": 83906560,
+    "jsHeapUsedSize": 748497112,
+    "jsHeapTotalSize": 810287104,
+    "documents": 1,
+    "nodes": 7471
+  },
+  {
+    "ts": 1770485610014,
+    "at": "2026-02-07T17:33:30.014Z",
+    "nodeHeapUsed": 26532496,
+    "nodeRss": 83906560,
+    "jsHeapUsedSize": 787826828,
+    "jsHeapTotalSize": 842006528,
+    "documents": 1,
+    "nodes": 7471
+  },
+  {
+    "ts": 1770485615027,
+    "at": "2026-02-07T17:33:35.027Z",
+    "nodeHeapUsed": 26553880,
+    "nodeRss": 84549632,
+    "jsHeapUsedSize": 828807920,
+    "jsHeapTotalSize": 873463808,
+    "documents": 1,
+    "nodes": 7471
+  },
+  {
+    "ts": 1770485620034,
+    "at": "2026-02-07T17:33:40.034Z",
+    "nodeHeapUsed": 26585488,
+    "nodeRss": 84549632,
+    "jsHeapUsedSize": 868194320,
+    "jsHeapTotalSize": 905183232,
+    "documents": 1,
+    "nodes": 7471
+  },
+  {
+    "ts": 1770485625039,
+    "at": "2026-02-07T17:33:45.039Z",
+    "nodeHeapUsed": 26673520,
+    "nodeRss": 84660224,
+    "jsHeapUsedSize": 874490304,
+    "jsHeapTotalSize": 936116224,
+    "documents": 1,
+    "nodes": 7471
+  },
+  {
+    "ts": 1770485630049,
+    "at": "2026-02-07T17:33:50.049Z",
+    "nodeHeapUsed": 26694688,
+    "nodeRss": 84660224,
+    "jsHeapUsedSize": 907857588,
+    "jsHeapTotalSize": 967573504,
+    "documents": 1,
+    "nodes": 7471
+  },
+  {
+    "ts": 1770485635062,
+    "at": "2026-02-07T17:33:55.062Z",
+    "nodeHeapUsed": 26720728,
+    "nodeRss": 84762624,
+    "jsHeapUsedSize": 941688936,
+    "jsHeapTotalSize": 991690752,
+    "documents": 1,
+    "nodes": 7471
+  },
+  {
+    "ts": 1770485640073,
+    "at": "2026-02-07T17:34:00.073Z",
+    "nodeHeapUsed": 26889688,
+    "nodeRss": 84762624,
+    "jsHeapUsedSize": 958606472,
+    "jsHeapTotalSize": 1020264448,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485645084,
+    "at": "2026-02-07T17:34:05.084Z",
+    "nodeHeapUsed": 26919720,
+    "nodeRss": 84811776,
+    "jsHeapUsedSize": 990425216,
+    "jsHeapTotalSize": 1051459584,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485650098,
+    "at": "2026-02-07T17:34:10.098Z",
+    "nodeHeapUsed": 26940640,
+    "nodeRss": 84811776,
+    "jsHeapUsedSize": 1019589124,
+    "jsHeapTotalSize": 1082130432,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485655108,
+    "at": "2026-02-07T17:34:15.108Z",
+    "nodeHeapUsed": 26963736,
+    "nodeRss": 84901888,
+    "jsHeapUsedSize": 1048890388,
+    "jsHeapTotalSize": 1112539136,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485660117,
+    "at": "2026-02-07T17:34:20.117Z",
+    "nodeHeapUsed": 26989936,
+    "nodeRss": 84901888,
+    "jsHeapUsedSize": 1085056580,
+    "jsHeapTotalSize": 1143472128,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485665118,
+    "at": "2026-02-07T17:34:25.118Z",
+    "nodeHeapUsed": 27047880,
+    "nodeRss": 84967424,
+    "jsHeapUsedSize": 1121129352,
+    "jsHeapTotalSize": 1174929408,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485670129,
+    "at": "2026-02-07T17:34:30.129Z",
+    "nodeHeapUsed": 27070504,
+    "nodeRss": 84967424,
+    "jsHeapUsedSize": 1160337652,
+    "jsHeapTotalSize": 1206386688,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485675141,
+    "at": "2026-02-07T17:34:35.141Z",
+    "nodeHeapUsed": 27125984,
+    "nodeRss": 85065728,
+    "jsHeapUsedSize": 1191853396,
+    "jsHeapTotalSize": 1237319680,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485680153,
+    "at": "2026-02-07T17:34:40.153Z",
+    "nodeHeapUsed": 27146904,
+    "nodeRss": 85065728,
+    "jsHeapUsedSize": 1226650308,
+    "jsHeapTotalSize": 1268252672,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485685163,
+    "at": "2026-02-07T17:34:45.163Z",
+    "nodeHeapUsed": 27311528,
+    "nodeRss": 85090304,
+    "jsHeapUsedSize": 1230103812,
+    "jsHeapTotalSize": 1301020672,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485690164,
+    "at": "2026-02-07T17:34:50.164Z",
+    "nodeHeapUsed": 27332208,
+    "nodeRss": 85090304,
+    "jsHeapUsedSize": 1278793284,
+    "jsHeapTotalSize": 1334050816,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485695167,
+    "at": "2026-02-07T17:34:55.167Z",
+    "nodeHeapUsed": 27355552,
+    "nodeRss": 85217280,
+    "jsHeapUsedSize": 311460820,
+    "jsHeapTotalSize": 456806400,
+    "documents": 1,
+    "nodes": 7504
+  },
+  {
+    "ts": 1770485700175,
+    "at": "2026-02-07T17:35:00.175Z",
+    "nodeHeapUsed": 27484848,
+    "nodeRss": 84877312,
+    "jsHeapUsedSize": 314468772,
+    "jsHeapTotalSize": 363220992,
+    "documents": 1,
+    "nodes": 5421
+  },
+  {
+    "ts": 1770485705185,
+    "at": "2026-02-07T17:35:05.185Z",
+    "nodeHeapUsed": 27535072,
+    "nodeRss": 85213184,
+    "jsHeapUsedSize": 346589064,
+    "jsHeapTotalSize": 363220992,
+    "documents": 1,
+    "nodes": 5388
+  },
+  {
+    "ts": 1770485710189,
+    "at": "2026-02-07T17:35:10.189Z",
+    "nodeHeapUsed": 27555744,
+    "nodeRss": 85213184,
+    "jsHeapUsedSize": 381570384,
+    "jsHeapTotalSize": 400969728,
+    "documents": 1,
+    "nodes": 5388
+  },
+  {
+    "ts": 1770485715198,
+    "at": "2026-02-07T17:35:15.198Z",
+    "nodeHeapUsed": 27580264,
+    "nodeRss": 85286912,
+    "jsHeapUsedSize": 411104656,
+    "jsHeapTotalSize": 433475584,
+    "documents": 1,
+    "nodes": 5388
+  },
+  {
+    "ts": 1770485720206,
+    "at": "2026-02-07T17:35:20.206Z",
+    "nodeHeapUsed": 27711880,
+    "nodeRss": 85348352,
+    "jsHeapUsedSize": 449981408,
+    "jsHeapTotalSize": 465195008,
+    "documents": 1,
+    "nodes": 5388
+  },
+  {
+    "ts": 1770485725221,
+    "at": "2026-02-07T17:35:25.221Z",
+    "nodeHeapUsed": 27749440,
+    "nodeRss": 85430272,
+    "jsHeapUsedSize": 475683308,
+    "jsHeapTotalSize": 495603712,
+    "documents": 1,
+    "nodes": 5388
+  },
+  {
+    "ts": 1770485730230,
+    "at": "2026-02-07T17:35:30.230Z",
+    "nodeHeapUsed": 27770112,
+    "nodeRss": 85430272,
+    "jsHeapUsedSize": 504671180,
+    "jsHeapTotalSize": 526274560,
+    "documents": 1,
+    "nodes": 5388
+  },
+  {
+    "ts": 1770485735234,
+    "at": "2026-02-07T17:35:35.234Z",
+    "nodeHeapUsed": 27793472,
+    "nodeRss": 85471232,
+    "jsHeapUsedSize": 539626892,
+    "jsHeapTotalSize": 574771200,
+    "documents": 1,
+    "nodes": 5388
+  },
+  {
+    "ts": 1770485740246,
+    "at": "2026-02-07T17:35:40.246Z",
+    "nodeHeapUsed": 27819144,
+    "nodeRss": 85471232,
+    "jsHeapUsedSize": 336108664,
+    "jsHeapTotalSize": 427970560,
+    "documents": 1,
+    "nodes": 5388
+  },
+  {
+    "ts": 1770485745251,
+    "at": "2026-02-07T17:35:45.251Z",
+    "nodeHeapUsed": 27871848,
+    "nodeRss": 85565440,
+    "jsHeapUsedSize": 366635672,
+    "jsHeapTotalSize": 427970560,
+    "documents": 1,
+    "nodes": 5388
+  },
+  {
+    "ts": 1770485750259,
+    "at": "2026-02-07T17:35:50.259Z",
+    "nodeHeapUsed": 27892520,
+    "nodeRss": 85565440,
+    "jsHeapUsedSize": 395720028,
+    "jsHeapTotalSize": 427970560,
+    "documents": 1,
+    "nodes": 5388
+  },
+  {
+    "ts": 1770485755267,
+    "at": "2026-02-07T17:35:55.267Z",
+    "nodeHeapUsed": 27954264,
+    "nodeRss": 85540864,
+    "jsHeapUsedSize": 425113032,
+    "jsHeapTotalSize": 451825664,
+    "documents": 1,
+    "nodes": 5388
+  }
+]

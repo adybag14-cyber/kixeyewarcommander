@@ -1,0 +1,57 @@
+{
+  "state": {
+    "lastError": null,
+    "map": {
+      "oldRender": 16,
+      "tops": 532,
+      "bases": 2,
+      "fog": 0
+    },
+    "base": {
+      "loaded": true,
+      "total": 382,
+      "attached": 381,
+      "detached": 0
+    }
+  },
+  "pageErrors": [],
+  "keyLogs": [
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "error",
+      "text": "WebSocket connection to 'wss://127.0.0.1:8089/BlueBox/websocket' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED"
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    }
+  ],
+  "logCount": 644
+}

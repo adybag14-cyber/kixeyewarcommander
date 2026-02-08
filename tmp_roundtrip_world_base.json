@@ -1,0 +1,42 @@
+[
+  {
+    "label": "initial",
+    "isWorld": false,
+    "mapViewVis": false,
+    "buildingCount": 382,
+    "tops": 534,
+    "bases": 2
+  },
+  {
+    "label": "after_close_popup",
+    "isWorld": false,
+    "mapViewVis": false,
+    "buildingCount": 382,
+    "tops": 534,
+    "bases": 2
+  },
+  {
+    "label": "after_world_click1",
+    "isWorld": false,
+    "mapViewVis": false,
+    "buildingCount": 382,
+    "tops": 534,
+    "bases": 2
+  },
+  {
+    "label": "after_world_click2",
+    "isWorld": true,
+    "mapViewVis": true,
+    "buildingCount": 0,
+    "tops": 0,
+    "bases": 0
+  },
+  {
+    "label": "after_enter_base_click1",
+    "isWorld": false,
+    "mapViewVis": false,
+    "buildingCount": 382,
+    "tops": 533,
+    "bases": 825
+  }
+]

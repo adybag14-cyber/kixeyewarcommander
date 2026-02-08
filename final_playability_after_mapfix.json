@@ -1,0 +1,87 @@
+{
+  "state": {
+    "hasCanvas": true,
+    "title": "War Commander",
+    "lastError": null,
+    "pageErrors": [],
+    "game": {
+      "mapId": null,
+      "worldMapTruthy": false,
+      "hasActiveState": false,
+      "activeStateString": null,
+      "stageChildren": 1
+    },
+    "base": {
+      "loadedHomeBase": true,
+      "buildingCount": 382
+    },
+    "map": {
+      "groundChildren": 1,
+      "oldRenderChildren": 125,
+      "buildingBasesChildren": 2,
+      "buildingTopsChildren": 823,
+      "outsideFogChildren": 0
+    },
+    "worldmap": {
+      "hasMapView": true,
+      "hasController": true,
+      "hasHexMap": true,
+      "hasFinishedLoading": true,
+      "attemptedLoad": false
+    },
+    "popups": [
+      {
+        "cls": "com.cc.widget.WidgetBuildingContextMenu",
+        "txt": null
+      }
+    ]
+  },
+  "key_logs_tail": [
+    {
+      "type": "log",
+      "text": "[PATCH V33] MAP layer call safety enabled."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "error",
+      "text": "WebSocket connection to 'wss://127.0.0.1:8089/BlueBox/websocket' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED"
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    }
+  ],
+  "log_count": 650,
+  "page_error_count": 0
+}

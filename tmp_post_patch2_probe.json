@@ -1,0 +1,114 @@
+{
+  "state": {
+    "title": "War Commander",
+    "lastError": null,
+    "activeState": null,
+    "worldmap": {
+      "hasMapView": true,
+      "hasController": true,
+      "hasHexMap": true
+    },
+    "baseLoaded": true,
+    "buildingCount": 382,
+    "map": {
+      "ground": {
+        "cls": "GroundSprite",
+        "n": 1,
+        "hasParent": true
+      },
+      "oldRender": {
+        "cls": "openfl.display.Sprite",
+        "n": 113,
+        "hasParent": true
+      },
+      "underlay": {
+        "cls": "openfl.display.Sprite",
+        "n": 2,
+        "hasParent": true
+      },
+      "buildingBases": {
+        "cls": "openfl.display.Sprite",
+        "n": 2,
+        "hasParent": true
+      },
+      "buildingFootprints": {
+        "cls": "openfl.display.Sprite",
+        "n": 0,
+        "hasParent": true
+      },
+      "buildingTops": {
+        "cls": "openfl.display.Sprite",
+        "n": 823,
+        "hasParent": true
+      },
+      "outsideFog": {
+        "cls": "openfl.display.Sprite",
+        "n": 0,
+        "hasParent": true
+      },
+      "baseEdges": {
+        "cls": "openfl.display.Sprite",
+        "n": 0,
+        "hasParent": true
+      },
+      "detachedResolved": true
+    },
+    "sample": {
+      "sprite": {
+        "cls": "openfl.display.MovieClip",
+        "n": 7,
+        "hasParent": true
+      },
+      "p0": {
+        "cls": "openfl.display.Sprite",
+        "n": 531,
+        "hasParent": true
+      },
+      "p0IsBuildingTops": false
+    }
+  },
+  "pageErrors": [],
+  "keyLogs": [
+    {
+      "type": "log",
+      "text": "[PATCH V33] MAP layer call safety enabled."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "error",
+      "text": "WebSocket connection to 'wss://127.0.0.1:8089/BlueBox/websocket' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED"
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    },
+    {
+      "type": "warning",
+      "text": "[PATCH V33] Rebound detached base render tree to active MAP layers."
+    }
+  ],
+  "logCount": 654
+}

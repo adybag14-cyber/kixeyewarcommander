@@ -46,6 +46,17 @@
         "assets/lang/en_US_real.json"
     ];
 
+    // List of heavy binary assets to parallel prefetch
+    const BINARY_ASSETS = [
+        "lib/bufficons.zip",
+        "lib/Alliance_Manager_Popup.zip",
+        "lib/boost_icons.zip",
+        "lib/Boosts_Popup.zip",
+        "lib/Loot_Chest_Popup.zip",
+        "lib/all.zip",
+        "lib/ChatUI.zip"
+    ];
+
     // Base64 placeholders for missing assets
     const PLACEHOLDERS = {
         "hex": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAALUlEQVRYR+3QQREAAAgEMdw/ot7WAAuY5Cdpqi7T99sBAgQIECBAgAABAgQIEDgDWQDO0/203YAAAAAASUVORK5CYII=", // Grey 32x32
@@ -55,7 +66,7 @@
 
     // Track loading progress
     let loadedCount = 0;
-    let totalCount = EMBEDDED_ASSETS.length + TEXT_ASSETS.length;
+    let totalCount = EMBEDDED_ASSETS.length + TEXT_ASSETS.length + BINARY_ASSETS.length;
     let loadedImages = new Map();
     let loadedText = new Map();
 
@@ -141,86 +152,93 @@
     }
 
     /**
+     * Preload a binary file (ZIP) using fetch
+     */
+    function preloadBinary(src) {
+        return fetch(src).then(r => {
+            if (r.ok) {
+                console.log(`[LOG] Preloaded binary: ${src}`);
+                loadedCount++;
+                return r.blob(); // Consume body to ensure download completes
+            } else {
+                console.warn(`[WARN] Failed to preload binary: ${src} (${r.status})`);
+                return null;
+            }
+        }).catch(e => {
+            console.warn(`[WARN] Error preloading binary: ${src}`, e);
+            return null;
+        });
+    }
+
+    /**
      * Preload all embedded assets
      */
     async function preloadAllAssets() {
-        console.log(`Preloading ${totalCount} assets (${EMBEDDED_ASSETS.length} images, ${TEXT_ASSETS.length} text)...`);
+        console.log(`Preloading ${totalCount} assets (${EMBEDDED_ASSETS.length} images, ${TEXT_ASSETS.length} text, ${BINARY_ASSETS.length} misc)...`);
 
         const imagePromises = EMBEDDED_ASSETS.map(src => preloadImage(src));
         const textPromises = TEXT_ASSETS.map(src => preloadText(src));
+        const binaryPromises = BINARY_ASSETS.map(src => preloadBinary(src));
 
-        await Promise.all([...imagePromises, ...textPromises]);
+        await Promise.all([...imagePromises, ...textPromises, ...binaryPromises]);
 
         console.log(`Preloading complete. ${loadedImages.size} images and ${loadedText.size} text files loaded.`);
         return { images: loadedImages, text: loadedText };
     }
 
     function injectIntoCache() {
-        // The Lime asset cache is at lime.utils.Assets.cache or accessible via the library
-        if (window._hx_classes && window._hx_classes['lime.utils.Assets']) {
-            const Assets = window._hx_classes['lime.utils.Assets'];
+        console.log("[AssetPreloader] Attempting to inject into cache...");
 
-            // Inject Images
-            if (Assets.cache && Assets.cache.image) {
-                console.log('Injecting preloaded assets into Lime cache...');
+        // Find the Assets class
+        const Assets = (window.lime && window.lime.utils && window.lime.utils.Assets) ||
+            (window._hx_classes && window._hx_classes['lime.utils.Assets']);
 
-                loadedImages.forEach((img, src) => {
-                    if (img && img.complete && img.width > 0) {
-                        var limeImg = convertToLimeImage(img);
-
-                        // Injection logic matching text injection closely
-                        Assets.cache.image.h[src] = limeImg;
-                        var shortKey = src.replace('assets/', '');
-                        Assets.cache.image.h[shortKey] = limeImg;
-                        Assets.cache.image.h['default:' + shortKey] = limeImg;
-                        Assets.cache.image.h['default:' + src] = limeImg;
-                    }
-                });
-                console.log(`Injected ${loadedImages.size} images into cache.`);
-            }
-
-            // Inject Text
-            // Force cache initialization if completely missing
-            if (!Assets.cache) {
-                console.warn("[AssetPreloader] Assets.cache missing completely! Initializing...");
-                Assets.cache = { text: { h: {} }, image: { h: {} } };
-            } else if (!Assets.cache.text) {
-                console.warn("[AssetPreloader] Assets.cache.text missing. Initializing new cache map.");
-                Assets.cache.text = { h: {} };
-            }
-
-            if (Assets.cache && Assets.cache.text) {
-                console.log('Injecting preloaded text into Lime cache...');
-                loadedText.forEach((content, src) => {
-                    if (content) {
-                        // Extensive key variations to ensure detection
-                        const variants = [
-                            src,                              // e.g. assets/lang/en.json
-                            src.replace("assets/", ""),       // e.g. lang/en.json
-                            "assets/" + src,                  // e.g. assets/assets/lang/en.json (just in case)
-                            "default:" + src,
-                            "default:" + src.replace("assets/", "")
-                        ];
-
-                        // Also specifically target "en.json" since that's often the root key
-                        if (src.endsWith("en.json")) {
-                            variants.push("en.json");
-                            variants.push("assets/en.json");
-                            variants.push("default:en.json");
-                        }
-
-                        variants.forEach(key => {
-                            Assets.cache.text.h[key] = content;
-                        });
-
-                        console.log(`Cached text: ${src} as ${variants.length} keys`);
-                    }
-                });
-                console.log(`Injected ${loadedText.size} text files into cache.`);
-            }
-        } else {
-            console.error("[AssetPreloader] lime.utils.Assets class NOT FOUND under window._hx_classes!");
+        if (!Assets) {
+            console.warn("[AssetPreloader] Assets class not found yet. Retrying in 500ms...");
+            setTimeout(injectIntoCache, 500);
+            return;
         }
+
+        // Initialize cache if missing
+        if (!Assets.cache) {
+            console.log("[AssetPreloader] Initializing Assets.cache...");
+            Assets.cache = {};
+        }
+
+        if (!Assets.cache.image) Assets.cache.image = { h: {} };
+        if (!Assets.cache.image.h) Assets.cache.image.h = {};
+
+        if (!Assets.cache.text) Assets.cache.text = { h: {} };
+        if (!Assets.cache.text.h) Assets.cache.text.h = {};
+
+        // Inject Images
+        let imgCount = 0;
+        loadedImages.forEach((img, src) => {
+            if (img && img.complete) {
+                const limeImg = convertToLimeImage(img);
+                const keys = [src, src.replace("assets/", ""), "default:" + src, "default:" + src.replace("assets/", "")];
+                keys.forEach(k => { Assets.cache.image.h[k] = limeImg; });
+                imgCount++;
+            }
+        });
+
+        // Inject Text
+        let txtCount = 0;
+        loadedText.forEach((content, src) => {
+            const keys = [src, src.replace("assets/", ""), "default:" + src, "default:" + src.replace("assets/", "")];
+            if (src.endsWith(".json")) {
+                const filename = src.split('/').pop();
+                keys.push(filename, "default:" + filename);
+            }
+            keys.forEach(k => {
+                if (!Assets.cache.text.h[k]) {
+                    Assets.cache.text.h[k] = content;
+                }
+            });
+            txtCount++;
+        });
+
+        console.log(`[AssetPreloader] Successfully injected ${imgCount} images and ${txtCount} text files.`);
     }
 
     /**

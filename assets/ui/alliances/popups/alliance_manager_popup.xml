@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<swf path="Alliance_Manager_Popup.swf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../uicontract.xsd">
+
+
+	<button path="BTN_raidChest_bronze" name="BTN_raidChest_bronze"/>
+	<button path="BTN_raidChest_silver" name="BTN_raidChest_silver"/>
+	<button path="BTN_raidChest_gold" name="BTN_raidChest_gold"/>
+
+	<movieclip path="MC_Explosion" name="MC_Explosion"/>
+
+
+	<!-----Loot Chest Container & Loot Chest Timer / X----->
+	<container path="chestTimerX" name="chestTimer_X">
+	<text path="TXT_raidLootTimer" name="chestTimer"/>
+	<movieclip path="lootChest_lost" name="lootLostX"/>
+	</container>
+
+	<container path="lootChest" name="lootChest">
+	<progressbar path="lootChestGreyOut" name="lootChestGreyOut"/>
+	<movieclip path="raidChestContainer" name="raidChestContainer"/>
+	<movieclip path="lootChest_glow" name="lootChestGlow"/>
+</container>
+
+	<!--Loot Chest IN BATTLE--->
+
+	<container path ="MC_chest_inBattle" name="chest_InBattle">
+	<progressbar path="MC_raidProgressBar.MC_progressBar" name="progress_InBattle"/>
+	<container path="lootChestPosition_battle" name="lootChestPosition_InBattle"></container>
+	<movieclip path="MC_chestFrame" name="chestFrame_InBattle"/>
+	</container>
+
+
+
+	<container path="AllianceManager.Popup" name="AllianceManager.Popup">
+		<text path="TXT_header" lockey="alliance_manager_popup_header" name="headerText"/>
+		<text path="BTN_myAlliance.TXT_label" lockey="alliance_dialog__my_alliance" name="myAllianceButtonText"/>
+		<text path="BTN_warEfforts.TXT_label" lockey="alliance_dialog__war_efforts" name="wareEffortsButtonText"/>
+		<text path="BTN_raids.TXT_label" lockey="alliance_dialog__raids" name="raidButtonText"/>
+		<button path="BTN_myAlliance" name="myAllianceButton"/>
+		<button path="BTN_warEfforts" name="warEffortsButton"/>
+		<button path="BTN_raids" name="raidsButton"/>
+		<button path="BTN_close" onClick="Close" name="closeButton"/>
+		<button path="BTN_help" name="helpButton"/>
+		<movieclip path="MC_container" name="tabContainer"/>
+
+	</container>
+
+
+	<!-------------={ RAID TIERS }=------------->
+	<container path="AllianceManager.Raids" name="AllianceManager.Raids">
+		<movieclip path="MC_mapContainer" name="raidMapContainer"/>
+		<movieclip path="MC_raidTierProgress" name="raidTierProgress"/>
+		<movieclip path="MC_raidTierSelect" name="raidTierSelect"/>
+		<button path="BTN_arrowLeft" name="leftNavButton"/>
+		<button path="BTN_arrowRight" name="rightNavButton"/>
+
+
+		<!------= No Raids Available =------>
+		<container path="MC_raidSelectNoRaids" name="AllianceManager.NoRaids">
+			<text path="TXT_noRaids" name="raidTierSelectNoRaidsTxt"/>
+		</container>
+
+
+		<!------= Tier Select =------>
+		<container path="MC_raidTierSelect" name="AllianceManager.RaidsSelect">
+			<movieclip path="MC_raidSelectDefaultInfo" name="raidTierSelectDefaultInfo"/>
+			<text path="MC_raidSelectDefaultInfo.TXT_raidSelectTitle" name="raidTierSelectTitle"/>
+			<text path="MC_raidSelectDefaultInfo.TXT_titleDescription" name="raidTierSelectTitleDesc"/>
+			<text path="MC_raidSelectDefaultInfo.TXT_raidPoints" name="raidTierSelectRaidPoints"/>
+			<!--<text path="MC_raidSelectDefaultInfo.TXT_duration" lockey="alliance_dialog_raids__tier_select_duration_title" name="raidTierSelectDurationTitle"/>-->
+			<!--<text path="MC_raidSelectDefaultInfo.TXT_durationTimer" name="raidTierSelectDurationTimer"/>-->
+			<!--<text path="MC_raidSelectDefaultInfo.TXT_restriction" lockey="alliance_dialog_raids__tier_select_restriction_title" name="raidTierSelectRestrictionTitle"/>-->
+		  <text path="MC_raidSelectDefaultInfo.TXT_maxPlayers" name="raidTierSelectMaxPlayers"/>
+			<text path="MC_raidSelectDefaultInfo.BTN_confirm.TXT_intelCost" name="raidTierSelectIntelCost"/>
+			<text path="MC_raidSelectDefaultInfo.BTN_confirm.TXT_label" lockey="alliance_dialog_raids__tier_select_confirm_button_text" name="raidTierSelectConfirmBtn"/>
+			<movieclip path="MC_intelAvailable" name="raidTiersAvailableIntelMC"/>
+			<text path="MC_intelAvailable.TXT_intelAvailable" name="raidTiersAvailableIntel"/>
+			<button path="MC_raidSelectDefaultInfo.BTN_confirm" name="confirmButton"/>
+
+			<container path="MC_raidSelectDefaultInfo.lootChestPlacement_1" name="lootChestPosition_1"></container>
+			<container path="MC_raidSelectDefaultInfo.lootChestPlacement_2" name="lootChestPosition_2"></container>
+			<container path="MC_raidSelectDefaultInfo.lootChestPlacement_3" name="lootChestPosition_3"></container>
+			<container path="MC_raidSelectDefaultInfo.lootChestPlacement_4" name="lootChestPosition_4"></container>
+			<container path="MC_raidSelectDefaultInfo.lootChestPlacement_5" name="lootChestPosition_5"></container>
+
+		</container>
+
+		<!--<button path="BTN_tierC" name="tierCButton"/>
+		<button path="BTN_tierB" name="tierBButton"/>
+		<button path="BTN_tierA" name="tierAButton"/>
+
+
+		<container path="MC_raidTierCTab" name="raidTierC_Tab"/>
+
+		<container path="MC_raidTierBTab" name="raidTierB_Tab"/>
+
+		<container path="MC_raidTierATab" name="raidTierA_Tab"/>-->
+
+
+		<!------= Tier Progress =------>
+		<container path="MC_raidTierProgress" name="AllianceManager.RaidsProgress">
+			<movieclip path="MC_raidProgressDefaultInfo" name="raidTierProgressDefaultInfo"/>
+			<movieclip path="MC_raidProgressRelocateInfo" name="raidTierProgressRelocateInfo"/>
+			<movieclip path="MC_raidProgressMaxPlayersInfo" name="raidTierProgressMaxPlayersInfo"/>
+			<movieclip path="MC_raidProgressDefaultInfo.MC_playersTotal" name="raidProgressDefaultTotalPlayers"/>
+			<movieclip path="MC_raidProgressDefaultInfo.MC_raidPlayersIcon" name="raidProgressDefaultPlayerIcon"/>
+
+			<text path="MC_raidProgressDefaultInfo.TXT_raidSelectTitle" name="raidTierSelectTitle"/>
+			<text path="MC_raidProgressDefaultInfo.TXT_raidProgress" name="raidProgress"/>
+
+			<text path="MC_raidProgressDefaultInfo.MC_playersTotal.TXT_players" name="raidProgressDefaultMaxPlayersTxt"/>
+			<text path="MC_raidProgressDefaultInfo.TXT_raidProgressTimer" name="raidProgressDefaultTimerTxt"/>
+			<text path="MC_raidProgressDefaultInfo.MC_playersTotal.TXT_players" name="raidProgressDefaultTotalPlayersTxt"/>
+			<text path="MC_raidProgressRelocateInfo.TXT_raidSelectRelocate" lockey="popup_alliance_raids_relocate_to_leader" name="raidProgressRelocateTxt"/>
+			<text path="MC_raidProgressRelocateInfo.BTN_relocate.TXT_label" name="raidProgressDefaultRelocateBtnTxt"/>
+			<text path="MC_raidProgressMaxPlayersInfo.TXT_raidSelectMaxPlayers" name="raidProgressMaxPlayersTxt"/>
+			<button path="MC_raidProgressRelocateInfo.BTN_relocate" name="raidProgressDefaultRelocateBtn"/>
+			<movieclip path="MC_intelAvailable" name="raidTiersAvailableIntelMC"/>
+			<text path="MC_intelAvailable.TXT_intelAvailable" name="raidTiersAvailableIntel"/>
+
+			<!---<text path="MC_raidProgressDefaultInfo.TXT_raidLootTimer" name="raidLootTimerTxt"/>--->
+			<!---<text path="MC_raidProgressDefaultInfo.TXT_bonus" lockey="alliance_dialog__raid_bonus_label" name="raidBonusTxt"/>-->
+
+			<container path="MC_raidProgressDefaultInfo.lootChestPlacement_1" name="lootChestPosition_1"></container>
+			<container path="MC_raidProgressDefaultInfo.lootChestPlacement_2" name="lootChestPosition_2"></container>
+			<container path="MC_raidProgressDefaultInfo.lootChestPlacement_3" name="lootChestPosition_3"></container>
+			<container path="MC_raidProgressDefaultInfo.lootChestPlacement_4" name="lootChestPosition_4"></container>
+			<container path="MC_raidProgressDefaultInfo.lootChestPlacement_5" name="lootChestPosition_5"></container>
+
+			<progressbar path="MC_raidProgressDefaultInfo.MC_raidProgressBar.MC_progressBar" name="raidProgressBar"/>
+
+		</container>
+	</container>
+
+	<!-------------={ RAID TIER MAP ICONS }=------------->
+	<container path="Alliance.RaidTierBase" name="AllianceRaidTierBase">
+		<text path="TXT_playerName" name="playerName"/>
+		<movieclip path="MC_raidBaseIcon" name="raidBaseContainer"/>
+		<movieclip path="MC_raidBaseAttack" name="raidAttackedIcon"/>
+		<movieclip path="MC_raidBaseDestroyed" name="raidDestroyedIcon"/>
+	</container>
+
+	<movieclip path="Alliances.RaidTierMap1" name="raid1art"/><!----- RAID TIER MAP 1 ------>
+	<button path="Alliance.RaidTierA" name="raidBaseGold"/>
+	<button path="Alliance.RaidTierB" name="raidBaseSilver"/>
+	<button path="Alliance.RaidTierC" name="raidBaseBronze"/>
+	<button path="Alliance.RaidTierBK" name="raidBaseBlack"/>
+
+	<!--Destroyed Bases-->
+	<button path="Alliance.RaidTierA_Destroyed" name="raidBaseGold_Destroyed"/>
+	<button path="Alliance.RaidTierB_Destroyed" name="raidBaseSilver_Destroyed"/>
+	<button path="Alliance.RaidTierC_Destroyed" name="raidBaseBronze_Destroyed"/>
+	<button path="Alliance.RaidTierBK_Destroyed" name="raidBaseBlack_Destroyed"/>
+
+<!--
+	<movieclip path="raid_icon_black_crater" name="blackCrater"/>
+	<movieclip path="raid_icon_gold_crater" name="goldCrater"/>
+	<movieclip path="raid_icon_silver_crater" name="silverCrater"/>
+	<movieclip path="raid_icon_bronze_crater" name="bronzeCrater"/> -->
+
+	<movieclip path="BlackWidowIcon" name="BlackWidow"/>
+
+	<!-------------={ WAR EFFORTS }=------------->
+	<container path="AllianceManager.warEfforts" name="AllianceManager.warEfforts">
+			<movieclip path="MC_supplyTotal" name="supplyTotal"/>
+			<text path="MC_supplyTotal.TXT_supplyTotal" lockey="popup_alliance_supplytotal__alliance_supplytotal_text" name="supplyTotalText"/>
+			<text path="TXT_noBoostActive01" lockey="alliance_dialog__no_war_effort" name="noBoostActiveText"/>
+			<text path="TXT_noBoostActive02" lockey="alliance_dialog__no_war_effort_selected" name="noBoostSelectedText"/>
+			<text path="TXT_terminateConfirm" lockey="popup_boosts_boostdescription__boost_terminateconfimation_text" name="terminateConfirmText"/>
+			<text path="TXT_activeBoosts" lockey="alliance_dialog__active_war_efforts" name="activeBoostsText"/>
+			<text path="TXT_boostName" lockey="popup_boosts_boostdescription__boost_name_text" name="boostNameText"/>
+			<text path="TXT_boostType" lockey="popup_boosts_boosttype__boost_type_text" name="boostTypeText"/>
+			<text path="TXT_boostDuration" lockey="popup_boosts_boostduration__boost_duration_text" name="boostDurationText"/>
+			<text path="TXT_boostDescription" lockey="popup_boosts_boostdescription__boost_description_text" name="boostDescriptionText"/>
+			<text path="TXT_availableBoosts" lockey="alliance_dialog__available_war_efforts" name="boostsAvailableText"/>
+			<text path="BTN_terminate.TXT_label" lockey="popup_boosts_terminatebutton__boosts_terminate_label" name="terminateButtonText"/>
+			<text path="BTN_confirm.TXT_label" lockey="popup_boosts_terminatebutton__terminateconfirmation_label" name="terminateConfirmButtonText"/>
+			<text path="BTN_cancel.TXT_label" lockey="popup_boosts_cancelbutton__cancel_button_label" name="cancelButtonText"/>
+			<text path="BTN_pay.TXT_label" lockey="popup_boosts_paybutton__boosts_pay_label" name="payButtonText"/>
+			<text path="BTN_pay.TXT_gold" lockey="popup_boosts_paybutton__goldvalue_label" name="goldValueText"/>
+			<text path="MC_sortMenu.BTN_sortMenu.TXT_sort" lockey="popup_boosts_dropmenu__dropmenu_label" name="dropMenuText"/>
+			<button path="BTN_arrowLeft" name="leftNavButton"/>
+			<button path="BTN_arrowRight" name="rightNavButton"/>
+			<button path="MC_sortMenu.BTN_sortMenu" name="sortMenuButton"/>
+			<button path="BTN_terminate" name="terminateButton"/>
+			<button path="BTN_confirm" name="confirmButton"/>
+			<button path="BTN_cancel" name="cancelButton"/>
+			<button path="BTN_pay" name="payButton"/>
+			<movieclip path="MC_boostInactiveIcon" name="inactiveBoostIcon"/>
+			<movieclip path="MC_sortMenu" name="dropMenu"/>
+			<movieclip path="MC_sortMenu.MC_subMenuContainer" name="mcSubMenuContainer"/>
+			<movieclip path="MC_boostContainer" name="mcBoostContainer"/>
+			<movieclip path="MC_boostDescriptionContainer" name="mcBoostDecriptionContainer"/>
+			<movieclip path="MC_scrollpane" name="scrollViewClip"/>
+			<scrollview path="MC_scrollpane" contentPane="MC_scrollpane.MC_boostContainer" slider="MC_scrollbarContainer" name="scrollView"/>
+			<dropdown path="MC_sortMenu" name="dropdown">
+				<button path="BTN_sortMenu" name="dropbutton" label="TXT_sort"/>
+				<selectionclass path="Menu.SubMenu" name="item" label="TXT_subMenu"/>
+				<background path="MC_subMenuContainer" name="container"/>
+			</dropdown>
+	</container>
+
+	<container path="Alliance.Management" name="Alliance.Management">
+		<text path="TXT_allianceName" name="allianceNameText"/>
+		<text path="TXT_allianceInfamy" lockey="alliance_common__infamy" name="allianceInfamyText"/>
+		<text path="TXT_tagName" name="tagNameText"/>
+		<text path="TXT_members" lockey="alliance_dialog__current_members" name="membersText"/>
+		<text path="TXT_membertotal" name="membersTotalText"/>
+		<text path="TXT_player" lockey="common__player" name="playerColumnText"/>
+		<text path="TXT_alliance" lockey="common__rank" name="rankColumnText"/>
+		<text path="TXT_infamy" lockey="popups__infamy" name="infamyColumnText"/>
+		<text path="TXT_pageNumber" name="pageNumberText"/>
+		<text path="TXT_addmembers" lockey="common__loading" name="addMemberText"/>
+		<text path="MC_allianceLeader.TXT_playerName" lockey="common__loading" name="playerLeaderNameText"/>
+		<text path="MC_allianceLeader.TXT_rank" name="rankLeaderText"/>
+		<text path="MC_allianceLeader.TXT_infamyPoints" name="leaderInfamyPointsText"/>
+		<text path="MC_allianceLeader.TXT_allianceName" name="leaderAllianceNameText"/>
+		<text path="MC_allianceLeader.TXT_userID" name="leaderUseridText"/>
+		<button path="BTN_add" name="addMemberButton"/>
+		<button path="BTN_refresh" name="refreshButton"/>
+		<button path="BTN_firstPage" name="firstPageButton"/>
+		<button path="BTN_previous" name="previousPageButton"/>
+		<button path="BTN_next" name="nextPageButton"/>
+		<button path="BTN_lastPage" name="lastPageButton"/>
+		<button path="BTN_alliance" name="leaveAllianceButton"/>
+		<movieclip path="MC_allianceLeader" name="allianceLeaderRow"/>
+		<movieclip path="MC_allianceLeader.MC_avatarcontainer" name="avatarContainer"/>
+		<movieclip path="MC_allianceLeader.MC_online" name="userOnline"/>
+		<movieclip path="MC_allianceLeader.MC_offline" name="userOffline"/>
+		<scrolllistview path="MC_scrollpane" contentPane="MC_scrollpane.MC_progressContainer" slider="MC_scrollbarContainer" name="alliancescrollView"/>
+	</container>
+	<container path="Alliance.AddMember" name="Alliance.AddMember">
+		<text path="TXT_enterAllianceName" lockey="popup_alliance_addmembers__enter_alliance_name_text" name="addMembersEnterAllianceNameText"/>
+		<text path="TXT_allianceName" lockey="popup_alliance_addmembers__alliance_name_text" name="addMembersAllianceNameText"/>
+		<text path="TXT_player" lockey="popup_alliance_addmembers__alliance_player_text" name="addMembersPlayerColumnText"/>
+		<text path="TXT_infamy" lockey="popup_alliance_addmembers__alliance_infamy_text" name="addMembersInfamyColumnText"/>
+		<text path="TXT_pageNumber" lockey="popup_alliance_addmembers__alliance_pagenumber_text" name="addMembersPageNumberText"/>
+		<text path="BTN_invite.TXT_label" lockey="alliance_dialog__invite_list" name="inviteButtonText"/>
+		<button path="BTN_search" name="addMembersSearchButton"/>
+		<button path="BTN_refresh" name="addMembersRefreshButton"/>
+		<button path="BTN_invite" name="addMembersInviteButton"/>
+		<button path="BTN_firstPage" name="addMembersFirstPageButton"/>
+		<button path="BTN_previous" name="addMembersPreviousPageButton"/>
+		<button path="BTN_next" name="addMembersNextPageButton"/>
+		<button path="BTN_lastPage" name="addMembersLastPageButton"/>
+		<scrolllistview path="MC_scrollpane" contentPane="MC_scrollpane.MC_progressContainer" slider="MC_scrollbarContainer" name="addMembersScrollView"/>
+	</container>
+	<container path="AllianceManager.SubMenu" name="AllianceManager.SubMenu">
+		<text path="TXT_subMenu" lockey="popup_alliance_dropdownmenu__alliance_submenu_label" name="subMenuText"/>
+		<movieclip path="up" name="defaultState"/>
+		<movieclip path="over" name="mouseOver"/>
+		<movieclip path="selected" name="selectedState"/>
+		<movieclip path="deselected" name="deselectedState"/>
+	</container>
+	<container path="Alliance.Member" name="Alliance.Member">
+		<text path="TXT_playerName" lockey="popup_alliance_member__alliance_playername_text" name="memberPlayerNameText"/>
+		<text path="TXT_rank" lockey="popup_alliance_member__alliance_rank_text" name="memberrankText"/>
+		<text path="TXT_userID" lockey="popup_alliance_member__alliance_userid_text" name="memberuseridText"/>
+		<text path="TXT_allianceName" lockey="popup_alliance_member__alliance_alliancename_text" name="memberalliancenameText"/>
+		<text path="TXT_infamyPoints" lockey="popup_alliance_member__alliance_infamypoints_text" name="memberinfamypointsText"/>
+		<button path="MC_arrowUp" name="memberArrowUpButton"/>
+		<button path="MC_arrowDown" name="memberArrowDownButton"/>
+		<movieclip path="MC_checkMark" name="memberCheckMark"/>
+		<movieclip path="MC_xMark" name="memberxMark"/>
+		<movieclip path="MC_checkbox" name="memberCheckbox"/>
+		<movieclip path="MC_infamy" name="memberInfamyMedal"/>
+		<movieclip path="MC_allianceMember" name="memberAllianceMember"/>
+		<movieclip path="MC_allianceMember.MC_avatarcontainer" name="memberAvatarContainer"/>
+		<movieclip path="MC_online" name="memberUserOnline"/>
+		<movieclip path="MC_offline" name="memberUserOffline"/>
+		<movieclip path="MC_currentPlayer" name="membercurrentPlayer"/>
+		<movieclip path="MC_over" name="memberHighlight"/>
+	</container>
+
+	<container path="Alliance.NewAlliance" name="Alliance.NewAlliance">
+		<text path="TXT_allianceTitle" lockey="alliance_common__alliances" name="newAllianceAddMembersText"/>
+		<text path="TXT_subHeader" lockey="alliance_dialog__suggest_create" name="newAllianceSubHeaderText"/>
+		<text path="TXT_enterAllianceTag" lockey="alliance_dialog__tag_prompt" name="newAllianceEnterAllianceTagText"/>
+		<text path="TXT_allianceTag" name="newAllianceTagText"/>
+		<text path="TXT_enterAllianceName" lockey="alliance_dialog__name_prompt" name="newAllianceEnterAllianceTagText"/>
+		<text path="TXT_namePreview" lockey="alliance_dialog__name_preview" name="newAllianceNamePreviowText"/>
+		<text path="TXT_tagName" name="newAllianceTagNameText"/>
+		<text path="TXT_invites" lockey="alliance_dialog__invites" name="newAllianceInvitesText"/>
+		<text path="TXT_userID" lockey="alliance_dialog__info_user_id" name="allianceIDNumberLabel"/>
+		<text path="TXT_userIDnumber" name="newAllianceIDNumberText"/>
+		<text path="TXT_from" lockey="common__from" name="newAllianceFromColumnText"/>
+		<text path="TXT_alliance" lockey="alliance_common__alliance" name="newAllianceAllianceColumnText"/>
+		<text path="TXT_infamy" lockey="alliance_common__infamy" name="newAllianceInfamyColumnText"/>
+		<text path="TXT_accept" lockey="common__accept" name="newAllianceAcceptColumnText"/>
+		<text path="TXT_thorium" name="newAllianceThoriumText"/>
+		<text path="BTN_create.TXT_label" lockey="widget_button__create" name="newAllianceCreateButtonText"/>
+		<scrolllistview path="MC_scrollpane" contentPane="MC_scrollpane.MC_progressContainer" slider="MC_scrollbarContainer" name="newAllianceScrollView"/>
+		<button path="BTN_create" name="newAlliancesCreateButton"/>
+	</container>
+
+	<container path="AllianceManager.warEffortID" name="AllianceManager.warEffortID">
+		<text path="TXT_warEffortName" lockey="popup_alliance_wareffortid__alliance_name_text" name="warEffortIDNameText"/>
+		<text path="TXT_level" lockey="popup_alliance_wareffortid__alliance_level_text" name="warEffortIDLevelText"/>
+		<text path="TXT_timer" lockey="popup_alliance_wareffortid__alliance_timer_text" name="warEffortIDTimerText"/>
+		<movieclip path="MC_warEffortContainer" name="warEffortIDContainer"/>
+	</container>
+
+	<button path="raidActiveHUD" name="raidActiveHUD">
+ 	  <text path="TXT_raid" name="raidText" lockey="alliance_raid_active_hud__raid﻿"/>
+ 	  <text path="TXT_active" name="activeText" lockey="alliance_raid_active_hud__active"/>
+ 	  <text path="TXT_raidProgressTimerHUD" name="raidProgressTimerText"/>
+  </button>
+
+	<movieclip path="AllianceManager.Highlight" name="highlightWarEffortsIcon"/>
+
+</swf>
