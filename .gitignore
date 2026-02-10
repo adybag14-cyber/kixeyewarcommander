@@ -37,3 +37,7 @@ shared_configs.json
 
 # Node
 node_modules/
+
+# Puppeteer browser profiles (local runtime artifacts)
+.puppeteer-kixeye-profile/
+.puppeteer-kixeye-profile-timeout/
