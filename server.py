@@ -240,6 +240,12 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         if endpoint == "api/wc/getchatlogincredentials":
             payload["apiurl"] = f"http://127.0.0.1:{PORT}"
 
+        if endpoint == "backend/initapplication":
+            pid = self._preferred_player_id()
+            payload["userid"] = pid
+            if payload.get("player_id") in (None, "", 0, "0"):
+                payload["player_id"] = str(pid)
+
         return payload
 
     def _build_hashed_asset_relpath(self, requested_path):
@@ -286,6 +292,71 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             log(f"AUTO-DOWNLOAD FAIL: {requested_path} ({e})")
             return False
 
+    def _try_download_direct_asset(self, requested_path):
+        rel = requested_path.replace("\\", "/").lstrip("/")
+        if not rel:
+            return False
+
+        lower_rel = rel.lower()
+        if lower_rel.startswith(("api/", "backend/", "gateway/", "live/", "player/", "wc/")):
+            return False
+
+        ext = os.path.splitext(lower_rel)[1]
+        allowed_ext = {
+            ".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg",
+            ".json", ".xml", ".zip", ".data", ".xdata",
+            ".woff", ".woff2", ".ttf", ".otf",
+            ".js", ".css", ".mp3", ".ogg"
+        }
+        if ext not in allowed_ext:
+            return False
+
+        remote_rel = rel
+        if not remote_rel.startswith("game/"):
+            if remote_rel.startswith(("assets/", "embedded/", "manifest/")):
+                remote_rel = "game/" + remote_rel
+            else:
+                return False
+
+        try:
+            quoted_rel = urllib.parse.quote(remote_rel, safe="/")
+            url = f"https://wc-origin.cdn-kixeye.com/{quoted_rel}"
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                raw = resp.read()
+
+            target_dir = os.path.dirname(rel)
+            if target_dir:
+                os.makedirs(target_dir, exist_ok=True)
+            with open(rel, "wb") as f:
+                f.write(raw)
+
+            alias_targets = []
+            if rel.startswith("game/game-v"):
+                parts = rel.split("/", 2)
+                if len(parts) >= 3:
+                    alias_targets.append(parts[2])
+            if rel.startswith("game/"):
+                alias_targets.append(rel[5:])
+
+            for alias in alias_targets:
+                if not alias:
+                    continue
+                alias = alias.replace("\\", "/")
+                if os.path.exists(alias):
+                    continue
+                alias_dir = os.path.dirname(alias)
+                if alias_dir:
+                    os.makedirs(alias_dir, exist_ok=True)
+                with open(alias, "wb") as f:
+                    f.write(raw)
+
+            log(f"AUTO-DOWNLOAD DIRECT: {rel} <- {url}")
+            return True
+        except Exception as e:
+            log(f"AUTO-DOWNLOAD DIRECT FAIL: {requested_path} ({e})")
+            return False
+
     def get_timestamp(self, post_body=""):
         try:
             if 'ts=' in post_body:
@@ -316,6 +387,46 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             return hashlib.md5(str(text).encode("utf-8", "ignore")).hexdigest()
         except Exception:
             return "0" * 32
+
+    def _preferred_player_id(self):
+        candidates = []
+        for endpoint, keys in (
+            ("backend/initapplication", ("userid", "player_id")),
+            ("api/wc/base/load", ("userid", "player_id", "ownerid")),
+        ):
+            tpl = self._get_live_template(endpoint)
+            if not isinstance(tpl, dict):
+                continue
+            for key in keys:
+                pid = self._safe_int(tpl.get(key), 0)
+                if pid > 0:
+                    candidates.append(pid)
+
+        if candidates:
+            return int(candidates[0])
+        return int(CustomHandler.DEFAULT_PLAYER_ID)
+
+    def _preferred_map_id(self):
+        candidates = []
+        for endpoint, keys in (
+            ("api/wc/base/load", ("mapid", "map_id", "home_map_id")),
+            ("backend/initapplication", ("mapid", "map_id", "home_map_id")),
+        ):
+            tpl = self._get_live_template(endpoint)
+            if not isinstance(tpl, dict):
+                continue
+            for key in keys:
+                raw = tpl.get(key)
+                if raw is None:
+                    continue
+                text = str(raw).strip()
+                if not text or text.lower() == "none":
+                    continue
+                candidates.append(text)
+
+        if candidates:
+            return str(candidates[0])
+        return str(CustomHandler.DEFAULT_MAP_ID)
 
     def _parse_query(self):
         try:
@@ -419,10 +530,12 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
     def _base_payload(self, ts):
         ts = int(ts)
+        player_id = self._preferred_player_id()
+        map_id = self._preferred_map_id()
         return {
             "basename": "Commander",
             "baseseed": "974",
-            "userid": "123456",
+            "userid": str(player_id),
             "level": "100",
             "tutorialstage": "1000",
             "tutorialcompleted": 1,
@@ -444,7 +557,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             "savetime": ts,
             "lastuserbasesave": ts,
             "clienttime": ts,
-            "mapid": "1",
+            "mapid": str(map_id),
             "entityid": "1",
             "mapentity": 1,
             "basevalue": 100000,
@@ -503,7 +616,9 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             msg = format % args
         except Exception:
             msg = format
-        log(f"HTTP {self.command} {self.path} - {msg}")
+        command = getattr(self, "command", "?")
+        path = getattr(self, "path", "<no-path>")
+        log(f"HTTP {command} {path} - {msg}")
 
     def _respond_bytes(self, payload, content_type, status=200):
         self.send_response(status)
@@ -693,6 +808,44 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 if base_no_ext and base_no_ext != os.path.basename(manifest_rel):
                     possible_paths.append(os.path.join("manifest", f"{base_no_ext}.1.json"))
                     possible_paths.append(os.path.join("manifest", f"{base_no_ext}.json"))
+
+        # Normalize production CDN-style prefixes used by remote sessions:
+        # /game/game-v7.vXXXX/... and /game/... should resolve to local roots.
+        normalized_game_paths = []
+        if path_clean.startswith("game/game-v"):
+            parts = path_clean.split("/", 2)
+            if len(parts) >= 3:
+                normalized_game_paths.append(parts[2])
+        if path_clean.startswith("game/"):
+            normalized_game_paths.append(path_clean[5:])
+
+        # Hash-stripped aliases for files requested as name.<md5>.ext
+        for rel_variant in [path_clean] + normalized_game_paths:
+            m = re.match(r"^(.*)\.[0-9a-fA-F]{32}(\.[^./]+)$", rel_variant)
+            if m:
+                normalized_game_paths.append(f"{m.group(1)}{m.group(2)}")
+
+        for alias in normalized_game_paths:
+            if not alias:
+                continue
+            possible_paths.append(alias)
+            if alias.startswith("assets/"):
+                possible_paths.append(alias[7:])
+                possible_paths.append(os.path.join("assets", alias))
+            else:
+                possible_paths.append(os.path.join("assets", alias))
+            possible_paths.extend([
+                os.path.join("embedded", alias),
+                os.path.join("lang", alias),
+            ])
+
+            # map manifest/data/<name>.<hash>.data requests to local manifest JSON aliases
+            if alias.startswith("manifest/data/"):
+                blob_name = os.path.basename(alias)
+                manifest_key = blob_name.split(".", 1)[0]
+                if manifest_key:
+                    possible_paths.append(os.path.join("manifest", f"{manifest_key}.1.json"))
+                    possible_paths.append(os.path.join("manifest", f"{manifest_key}.json"))
         
         # If it has "assets/" prefix, try without it
         if path_clean.startswith("assets/"):
@@ -714,6 +867,15 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
              possible_paths.append(path_clean.split("lang/")[-1])
              possible_paths.append(os.path.join("assets", "lang", path_clean.split("lang/")[-1]))
 
+        # Keep lookup deterministic and avoid repeated disk checks.
+        deduped_paths = []
+        seen_paths = set()
+        for p in possible_paths:
+            if p and p not in seen_paths:
+                seen_paths.add(p)
+                deduped_paths.append(p)
+        possible_paths = deduped_paths
+
         for p in possible_paths:
             exists = os.path.exists(p)
             isdir = os.path.isdir(p)
@@ -725,7 +887,24 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 log(f"SERVING: {p} for {path_clean}")
                 self.serve_file(p)
                 return
-        
+
+        # Try mirroring the exact CDN asset path once, then resolve again.
+        if self._try_download_direct_asset(path_clean):
+            for p in possible_paths:
+                exists = os.path.exists(p)
+                isdir = os.path.isdir(p)
+                if exists and not isdir:
+                    if not self._is_probably_valid_for_request(p, path_clean):
+                        log(f"SKIP CORRUPT CANDIDATE: {p} for {path_clean}")
+                        continue
+                    log(f"SERVING: {p} for {path_clean} (after direct download)")
+                    self.serve_file(p)
+                    return
+            if os.path.exists(path_clean) and not os.path.isdir(path_clean):
+                log(f"SERVING: {path_clean} for {path_clean} (direct path)")
+                self.serve_file(path_clean)
+                return
+
         # Fallback for localization files
         if path_clean.endswith(".json") and ("en" in path_clean or "US" in path_clean):
             fallback_lang = "assets/lang/en.json"
@@ -826,6 +1005,9 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     """
     def get_player_info_response(self, ts):
         ts = int(ts)
+        player_id = self._preferred_player_id()
+        map_id = self._preferred_map_id()
+        map_id_int = self._safe_int(map_id, 1)
         server_obj = {
             "id": 1,
             "server_id": 1,
@@ -848,8 +1030,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             "softversion": 71601,
 
             # Keep both legacy and newer field names to satisfy multiple codepaths.
-            "userid": 123456,
-            "player_id": "123456",
+            "userid": player_id,
+            "player_id": str(player_id),
             "username": "Commander",
             "name": "Commander",
             "last_name": "Commander",
@@ -879,8 +1061,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             "tzlk": 0,
             "lifetime_spent": 0,
 
-            "map_id": 1,
-            "home_map_id": 1,
+            "map_id": map_id_int,
+            "home_map_id": map_id_int,
             "homebase": "1,1",
             "level": 100,
 
@@ -917,11 +1099,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         if isinstance(live, dict):
             return self._apply_local_runtime_overrides(live, ts, "backend/initapplication")
 
+        player_id = self._preferred_player_id()
+
         return {
-            "userid": 123456,
+            "userid": player_id,
             "fbid": None,
             "kxid": "local_kxid",
-            "player_id": None,
+            "player_id": str(player_id),
             "persona_id": None,
             "last_name": "Commander",
             "addtime": ts,
@@ -1022,6 +1206,23 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         live = self._get_live_template("api/wc/base/load")
         if isinstance(live, dict):
             out = self._apply_local_runtime_overrides(live, ts, "api/wc/base/load")
+            pid = self._preferred_player_id()
+            map_id = self._preferred_map_id()
+            map_id_int = self._safe_int(map_id, 1)
+            out["userid"] = str(pid)
+            out["player_id"] = str(pid)
+            if out.get("mapid") in (None, "", 0, "0", "None"):
+                out["mapid"] = str(map_id)
+            if out.get("map_id") in (None, "", 0, "0", "None"):
+                out["map_id"] = map_id_int
+            if out.get("home_map_id") in (None, "", 0, "0", "None"):
+                out["home_map_id"] = map_id_int
+            if out.get("entityid") in (None, "", 0, "0", "None"):
+                out["entityid"] = str(CustomHandler.DEFAULT_PLAYER_ENTITY_ID)
+            if out.get("mapentity") in (None, "", 0, "0", "None"):
+                out["mapentity"] = int(self._safe_int(CustomHandler.DEFAULT_PLAYER_ENTITY_ID, 1))
+            if out.get("tutorialstage") in (None, "", 0, "0", "None"):
+                out["tutorialstage"] = "1000"
             out["error"] = 0
             out["success"] = True
             return out
@@ -1109,7 +1310,14 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         ts = int(ts)
         live = self._get_live_template("api/player/getfriendsworldmap")
         if isinstance(live, dict):
-            return self._apply_local_runtime_overrides(live, ts, "api/player/getfriendsworldmap")
+            out = self._apply_local_runtime_overrides(live, ts, "api/player/getfriendsworldmap")
+            if not isinstance(out.get("friends"), list):
+                out["friends"] = []
+            if not isinstance(out.get("players"), list):
+                out["players"] = []
+            if not isinstance(out.get("map_entities"), list):
+                out["map_entities"] = []
+            return out
 
         return {
             "error": 0,
@@ -1736,6 +1944,10 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         if handler == 1 and action_id == 1:
             # AuthenticationResponse.authenticated=true
             enqueue(self._build_gateway_action_packet(1, 2, b"\x18\x01", timestamp))
+            return True
+
+        # HTTP gateway disconnect request (fire-and-forget).
+        if handler == 1 and action_id == 7:
             return True
 
         if handler == 19 and action_id == 1:

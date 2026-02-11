@@ -10,6 +10,9 @@
         ? window.location.origin
         : "http://127.0.0.1:8089";
     var WORLDMAP_SYNTHETIC_BOOTSTRAP_MIN_MS = 45000;
+    var WORLDMAP_TRANSITION_STUCK_TIMEOUT_MS = 2500;
+    var WORLDMAP_TRANSITION_MAX_FORCE_ATTEMPTS = 2;
+    var DISABLE_SYNTHETIC_WORLDMAP_BOOTSTRAP = !!window.__PATCH_V33_DISABLE_SYNTH_WM__;
 
     function rewriteLocalUrl(url) {
         if (!url || typeof url !== "string") return url;
@@ -481,6 +484,42 @@
         }
     }
 
+    function patchTutorialCompletionSafety() {
+        var hx = window._hx_classes || {};
+        var Tutorial = hx["com.cc.tutorial.TUTORIAL"];
+        if (!Tutorial || Tutorial.__patchedTutorialCompletionSafety || !Tutorial.tutorialCompleted) return;
+
+        console.log("[PATCH V33] Hooking TUTORIAL.tutorialCompleted safety guard");
+
+        var originalTutorialCompleted = Tutorial.tutorialCompleted;
+        Tutorial.tutorialCompleted = function () {
+            try {
+                if (!Tutorial._mcZone || typeof Tutorial._mcZone !== "object") {
+                    Tutorial._mcZone = {};
+                }
+                if (typeof Tutorial._mcZone.StopTicking !== "function") {
+                    Tutorial._mcZone.StopTicking = function () { };
+                }
+                if (typeof Tutorial._mcZone.CleanUp !== "function") {
+                    Tutorial._mcZone.CleanUp = function () { };
+                }
+            } catch (_zoneInitErr) { }
+
+            try {
+                return originalTutorialCompleted.apply(this, arguments);
+            } catch (err) {
+                var msg = String((err && err.message) || err || "");
+                if (msg.indexOf("StopTicking") !== -1 || msg.indexOf("CleanUp") !== -1) {
+                    console.warn("[PATCH V33] Suppressed tutorial completion zone crash:", err);
+                    return;
+                }
+                throw err;
+            }
+        };
+
+        Tutorial.__patchedTutorialCompletionSafety = true;
+    }
+
     function patchWorldmapDisconnectSafety() {
         var hx = window._hx_classes || {};
         var GLOBAL = hx["GLOBAL"];
@@ -566,23 +605,6 @@
             }
 
             WorldmapController.__patchedNoDisconnect = true;
-        }
-
-        if (WorldmapController && !WorldmapController.__patchedConnectivityBypass) {
-            if (typeof WorldmapController.isConnectedAndAuthenticated === "function") {
-                WorldmapController.isConnectedAndAuthenticated = function () {
-                    return true;
-                };
-            }
-
-            if (typeof WorldmapController.canUseService === "function") {
-                WorldmapController.canUseService = function () {
-                    return true;
-                };
-            }
-
-            WorldmapController.__patchedConnectivityBypass = true;
-            console.log("[PATCH V33] WorldmapController connectivity checks bypassed.");
         }
     }
 
@@ -833,6 +855,117 @@
         console.log("[PATCH V33] MissionToolServiceWrapper safety enabled.");
     }
 
+    function patchAttackLogTimeoutSafety() {
+        var hx = window._hx_classes || {};
+        var AttacklogService = hx["com.cc.attacklog.model.AttacklogService"];
+        if (!AttacklogService || !AttacklogService.prototype || AttacklogService.prototype.__patchedAttackLogTimeoutSafety) return;
+
+        var proto = AttacklogService.prototype;
+
+        function dispatchFallback(callback, queryType) {
+            if (typeof callback !== "function") return;
+            if (queryType === 1 || queryType === 2) {
+                callback(false);
+                return;
+            }
+            if (queryType === 3) {
+                callback([]);
+                return;
+            }
+            if (queryType === 4) {
+                callback([], null);
+                return;
+            }
+            if (queryType === 5) {
+                callback(null);
+                return;
+            }
+            callback();
+        }
+
+        if (typeof proto.popupError === "function") {
+            proto.popupError = function (_title, _message, queryType) {
+                var now = Date.now();
+                var lastWarnAt = this.__patchV33AttackLogTimeoutWarnAt || 0;
+                if ((now - lastWarnAt) > 8000) {
+                    this.__patchV33AttackLogTimeoutWarnAt = now;
+                    console.warn("[PATCH V33] Suppressed Attack Log timeout popup for query " + queryType + ".");
+                }
+            };
+        }
+
+        if (typeof proto.onQueryFailure === "function") {
+            proto.onQueryFailure = function () {
+                var queryType = 0;
+                try {
+                    queryType = this.get_currentQueryType ? this.get_currentQueryType() : 0;
+                } catch (_queryTypeErr) { }
+
+                var callback = this._currentQueryCallback || null;
+                var self = this;
+
+                setTimeout(function () {
+                    try {
+                        dispatchFallback(callback, queryType);
+                    } catch (fallbackErr) {
+                        console.warn("[PATCH V33] Attack Log fallback callback failed:", fallbackErr);
+                    }
+                    try {
+                        self.issueNextQuery();
+                    } catch (_issueNextErr) { }
+                }, 0);
+
+                this.popupError("ERROR", "Error retrieving Attack Log data. Try again.", queryType);
+            };
+        }
+
+        AttacklogService.prototype.__patchedAttackLogTimeoutSafety = true;
+        console.log("[PATCH V33] Attack Log timeout safety enabled.");
+    }
+
+    function getWorldmapStateFlag(hx) {
+        var ActiveState = hx["ActiveState"];
+        if (!ActiveState || typeof ActiveState.IsWorldMap !== "function") return null;
+        try {
+            return ActiveState.IsWorldMap() ? true : false;
+        } catch (_stateErr) {
+            return null;
+        }
+    }
+
+    function getActiveStateChangingFlag(hx) {
+        var ActiveState = hx["ActiveState"];
+        if (!ActiveState || typeof ActiveState.IsChangingState !== "function") return null;
+        try {
+            return ActiveState.IsChangingState() ? true : false;
+        } catch (_changingErr) {
+            return null;
+        }
+    }
+
+    function getPendingWorldmapStateFlag(hx) {
+        var ActiveState = hx["ActiveState"];
+        if (!ActiveState || typeof ActiveState.get_instance !== "function") return null;
+        try {
+            var inst = ActiveState.get_instance();
+            if (!inst) return null;
+            return inst._newState === 1;
+        } catch (_pendingStateErr) {
+            return null;
+        }
+    }
+
+    function isWorldmapTileDataReady(hx) {
+        var TileSetManager = hx["com.cc.worldmap.TileSetManager"];
+        if (!TileSetManager || typeof TileSetManager.get_instance !== "function") return false;
+        try {
+            var manager = TileSetManager.get_instance();
+            return !!(manager && manager._tiles && manager._backgrounds);
+        } catch (_tilesErr) {
+            return false;
+        }
+    }
+
     function patchMapResetSafety() {
         var hx = window._hx_classes || {};
         var MAP = hx["com.cc.core.MAP"];
@@ -865,6 +998,150 @@
         console.log("[PATCH V33] MAP reset safety enabled.");
     }
 
+    function patchHudMapButtonsFallback() {
+        if (window.__PATCH_V33_HUD_MAP_BUTTON_FALLBACK__) return;
+
+        function isInsideWorldMapButton(clientX, clientY) {
+            var width = window.innerWidth || (document.documentElement && document.documentElement.clientWidth) || 0;
+            var height = window.innerHeight || (document.documentElement && document.documentElement.clientHeight) || 0;
+            if (width < 600 || height < 400) return false;
+
+            // Bottom-right rightmost button area:
+            // Home Base: "World Map"
+            // World Map: "Enter Base"
+            var left = width - 92;
+            var right = width - 8;
+            var top = height - 222;
+            var bottom = height - 138;
+
+            return clientX >= left && clientX <= right && clientY >= top && clientY <= bottom;
+        }
+
+        window.addEventListener("pointerup", function (evt) {
+            if (!evt) return;
+            if (typeof evt.button === "number" && evt.button !== 0) return;
+            if (!isInsideWorldMapButton(evt.clientX, evt.clientY)) return;
+
+            var hx = window._hx_classes || {};
+            var ActiveState = hx["ActiveState"];
+            if (!ActiveState) return;
+
+            var isWorld = false;
+            var isChanging = false;
+            try { isWorld = !!(ActiveState.IsWorldMap && ActiveState.IsWorldMap()); } catch (_isWorldErr) { }
+            try { isChanging = !!(ActiveState.IsChangingState && ActiveState.IsChangingState()); } catch (_isChangingErr) { }
+            if (isChanging) return;
+
+            if (isWorld) {
+                try {
+                    if (typeof ActiveState.goHome === "function") {
+                        ActiveState.goHome();
+                        console.warn("[PATCH V33] HUD fallback forced Enter Base.");
+                    }
+                } catch (_goHomeErr) { }
+                return;
+            }
+
+            try {
+                var BaseLoadParams = hx["BaseLoadParams"];
+                if (!BaseLoadParams || typeof ActiveState.SetState !== "function") return;
+
+                var params = new BaseLoadParams();
+                var MAIN = hx["MAIN"] || window.MAIN;
+                var playerInfo = MAIN && MAIN.playerInfo ? MAIN.playerInfo : null;
+                var userId = playerInfo && typeof playerInfo.get_id === "function" ? playerInfo.get_id() : 123456;
+                if (typeof params.set_userID === "function") {
+                    params.set_userID(userId);
+                }
+
+                ActiveState.SetState(1, params, false);
+                console.warn("[PATCH V33] HUD fallback forced World Map transition.");
+            } catch (fallbackErr) {
+                console.warn("[PATCH V33] HUD fallback SetState failed:", fallbackErr);
+            }
+        }, true);
+
+        window.__PATCH_V33_HUD_MAP_BUTTON_FALLBACK__ = true;
+        console.log("[PATCH V33] HUD world/base button fallback enabled.");
+    }
+
+    function stabilizeWorldmapStateTransition() {
+        var hx = window._hx_classes || {};
+        var ActiveState = hx["ActiveState"];
+        var Worldmap = hx["com.cc.worldmap.Worldmap"];
+        if (!ActiveState || !Worldmap) return;
+
+        var pendingWorldState = getPendingWorldmapStateFlag(hx);
+        if (pendingWorldState !== true) {
+            window.__PATCH_V33_WM_TRANSITION_STUCK_SINCE__ = 0;
+            window.__PATCH_V33_WM_TRANSITION_FORCE_COUNT__ = 0;
+            return;
+        }
+
+        var now = Date.now();
+        var stuckSince = window.__PATCH_V33_WM_TRANSITION_STUCK_SINCE__ || 0;
+        if (!stuckSince) {
+            window.__PATCH_V33_WM_TRANSITION_STUCK_SINCE__ = now;
+            return;
+        }
+        if ((now - stuckSince) < WORLDMAP_TRANSITION_STUCK_TIMEOUT_MS) return;
+
+        var worldState = getWorldmapStateFlag(hx);
+        if (worldState === true) {
+            window.__PATCH_V33_WM_TRANSITION_STUCK_SINCE__ = 0;
+            window.__PATCH_V33_WM_TRANSITION_FORCE_COUNT__ = 0;
+            return;
+        }
+
+        var changingState = getActiveStateChangingFlag(hx);
+        if (changingState === false) return;
+
+        var forceCount = window.__PATCH_V33_WM_TRANSITION_FORCE_COUNT__ || 0;
+        if (forceCount >= WORLDMAP_TRANSITION_MAX_FORCE_ATTEMPTS) return;
+
+        var controllerReady = false;
+        try {
+            var ctrl = Worldmap._controller;
+            if (ctrl && typeof ctrl.get_hasReceivedAllInfo === "function") {
+                controllerReady = !!ctrl.get_hasReceivedAllInfo();
+            } else if (ctrl) {
+                controllerReady = !!(ctrl._hasMapHeader && ctrl._hasSharedConfigs);
+            }
+        } catch (_controllerReadyErr) { }
+        if (!controllerReady) return;
+
+        var forcedHexReady = false;
+        try {
+            var hexMap = Worldmap._hexMap || (typeof Worldmap.get_hexMap === "function" ? Worldmap.get_hexMap() : null);
+            if (hexMap) {
+                if (typeof hexMap.markHeaderLoaded === "function") {
+                    try {
+                        hexMap.markHeaderLoaded();
+                    } catch (_markHeaderErr) { }
+                }
+                hexMap._hasInitializedHeader = true;
+                hexMap._isDoneLoading = true;
+                forcedHexReady = true;
+            }
+        } catch (_hexMapPatchErr) { }
+        if (!forcedHexReady) return;
+
+        try {
+            if (typeof Worldmap.FinishHexMapLoad === "function") {
+                Worldmap.FinishHexMapLoad();
+            }
+        } catch (_finishHexErr) { }
+        try {
+            if (typeof ActiveState.FinishStateChange === "function") {
+                ActiveState.FinishStateChange();
+            }
+        } catch (_finishStateErr) { }
+
+        forceCount += 1;
+        window.__PATCH_V33_WM_TRANSITION_FORCE_COUNT__ = forceCount;
+        console.warn("[PATCH V33] Forced worldmap transition completion (attempt " + forceCount + ").");
+    }
+
     function patchWorldmapViewBootstrap() {
         var hx = window._hx_classes || {};
         var Worldmap = hx["com.cc.worldmap.Worldmap"];
@@ -876,7 +1153,30 @@
         // and leave world-map initialization in a permanently bad state.
 
         if (Worldmap._hexMap && Worldmap._controller && !Worldmap._mapView && typeof Worldmap.CreateMapView === "function") {
+            var worldState = getWorldmapStateFlag(hx);
+            var transitionPending = getPendingWorldmapStateFlag(hx);
+            var hasFinishedLoading = false;
+            try {
+                hasFinishedLoading = !!(Worldmap.get_hasFinishedLoading && Worldmap.get_hasFinishedLoading());
+            } catch (_finishedLoadErr) { }
+            if (worldState !== true && transitionPending !== true) return;
+            if (worldState !== true && !hasFinishedLoading) return;
+
+            var controllerReady = false;
+            try {
+                var ctrl = Worldmap._controller;
+                if (ctrl && typeof ctrl.get_hasReceivedAllInfo === "function") {
+                    controllerReady = !!ctrl.get_hasReceivedAllInfo();
+                } else if (ctrl) {
+                    controllerReady = !!(ctrl._hasMapHeader && ctrl._hasSharedConfigs);
+                }
+            } catch (_controllerReadyErr) { }
+            if (!controllerReady) return;
+
             if (MAP && (!MAP._terrainManager || typeof MAP._terrainManager.get_terrainSize !== "function")) {
+                return;
+            }
+            if (!isWorldmapTileDataReady(hx)) {
                 return;
             }
             try {
@@ -929,64 +1229,56 @@
     function syncWorldmapMapViewVisibility() {
         var hx = window._hx_classes || {};
         var Worldmap = hx["com.cc.worldmap.Worldmap"];
-        var ActiveState = hx["ActiveState"];
-        var BASE = hx["BASE"];
         if (!Worldmap || !Worldmap._mapView) return;
 
-        var shouldShowMapView = false;
-        var decidedFromState = false;
-
-        if (ActiveState && typeof ActiveState.IsWorldMap === "function") {
-            try {
-                shouldShowMapView = !!ActiveState.IsWorldMap();
-                decidedFromState = true;
-            } catch (_stateReadErr) { }
-        }
-
-        if (!decidedFromState) {
-            var hasHomeBaseBuildings = false;
-            try {
-                if (BASE && BASE.loadedHomeBase && BASE._buildingsAll && typeof BASE._buildingsAll.iterator === "function") {
-                    var it = BASE._buildingsAll.iterator();
-                    hasHomeBaseBuildings = !!(
-                        it &&
-                        it.keys &&
-                        typeof it.keys.hasNext === "function" &&
-                        it.keys.hasNext()
-                    );
-                }
-            } catch (_baseScanErr) { }
-            shouldShowMapView = !hasHomeBaseBuildings;
-        }
+        var worldState = getWorldmapStateFlag(hx);
+        var changingState = getActiveStateChangingFlag(hx);
+        var transitionPending = getPendingWorldmapStateFlag(hx);
+        var currentVisible = null;
 
         try {
-            var currentVisible = null;
             if (typeof Worldmap._mapView.get_visible === "function") {
                 currentVisible = !!Worldmap._mapView.get_visible();
             } else if (typeof Worldmap._mapView.visible !== "undefined") {
                 currentVisible = !!Worldmap._mapView.visible;
             }
 
-            if (currentVisible !== shouldShowMapView) {
+            if (worldState === true && currentVisible === false) {
                 if (typeof Worldmap._mapView.set_visible === "function") {
-                    Worldmap._mapView.set_visible(shouldShowMapView);
+                    Worldmap._mapView.set_visible(true);
                 } else {
-                    Worldmap._mapView.visible = shouldShowMapView;
+                    Worldmap._mapView.visible = true;
                 }
+                currentVisible = true;
+            }
+            if (worldState !== true && changingState !== true && transitionPending !== true && currentVisible === true) {
+                if (typeof Worldmap._mapView.set_visible === "function") {
+                    Worldmap._mapView.set_visible(false);
+                } else {
+                    Worldmap._mapView.visible = false;
+                }
+                currentVisible = false;
             }
 
-            if (Worldmap.__patchV33MapViewVisible !== shouldShowMapView) {
-                Worldmap.__patchV33MapViewVisible = shouldShowMapView;
-                console.log("[PATCH V33] Worldmap map view visibility -> " + (shouldShowMapView ? "visible" : "hidden"));
+            if (worldState === true && Worldmap.__patchV33MapViewVisible !== true && currentVisible === true) {
+                Worldmap.__patchV33MapViewVisible = true;
+                console.log("[PATCH V33] Worldmap map view visibility -> visible");
             }
         } catch (_mapViewVisibilityErr) { }
 
         try {
-            if (typeof Worldmap._mapView.mouseEnabled !== "undefined") {
-                Worldmap._mapView.mouseEnabled = shouldShowMapView;
+            var shouldEnableMouse = worldState === true && currentVisible === true;
+            if (shouldEnableMouse && typeof Worldmap._mapView.mouseEnabled !== "undefined" && !Worldmap._mapView.mouseEnabled) {
+                Worldmap._mapView.mouseEnabled = true;
             }
-            if (typeof Worldmap._mapView.mouseChildren !== "undefined") {
-                Worldmap._mapView.mouseChildren = shouldShowMapView;
+            if (shouldEnableMouse && typeof Worldmap._mapView.mouseChildren !== "undefined" && !Worldmap._mapView.mouseChildren) {
+                Worldmap._mapView.mouseChildren = true;
+            }
+            if (!shouldEnableMouse && typeof Worldmap._mapView.mouseEnabled !== "undefined" && Worldmap._mapView.mouseEnabled) {
+                Worldmap._mapView.mouseEnabled = false;
+            }
+            if (!shouldEnableMouse && typeof Worldmap._mapView.mouseChildren !== "undefined" && Worldmap._mapView.mouseChildren) {
+                Worldmap._mapView.mouseChildren = false;
             }
         } catch (_mapViewMouseErr) { }
     }
@@ -1573,13 +1865,33 @@
     }
 
     function trySyntheticWorldmapBootstrap() {
-        if (window.__PATCH_V33_SYNTH_WM_DONE__) return;
+        if (DISABLE_SYNTHETIC_WORLDMAP_BOOTSTRAP) {
+            if (!window.__PATCH_V33_SYNTH_WM_DISABLED_LOGGED__) {
+                window.__PATCH_V33_SYNTH_WM_DISABLED_LOGGED__ = true;
+                console.warn("[PATCH V33] Synthetic worldmap bootstrap disabled.");
+            }
+            return;
+        }
         if (!window._hx_classes) return;
 
         var hx = window._hx_classes || {};
         var Worldmap = hx["com.cc.worldmap.Worldmap"];
         var controller = Worldmap && Worldmap._controller ? Worldmap._controller : null;
         if (!controller) return;
+
+        // Worldmap controller instances can be recreated after login or reconnect.
+        // Track attempts per controller instance so bootstrap can run again if state resets.
+        if (!controller.__patchV33SynthControllerId) {
+            window.__PATCH_V33_SYNTH_WM_CONTROLLER_COUNTER__ = (window.__PATCH_V33_SYNTH_WM_CONTROLLER_COUNTER__ || 0) + 1;
+            controller.__patchV33SynthControllerId = window.__PATCH_V33_SYNTH_WM_CONTROLLER_COUNTER__;
+        }
+        var controllerId = controller.__patchV33SynthControllerId;
+        if (window.__PATCH_V33_SYNTH_WM_ACTIVE_CONTROLLER_ID__ !== controllerId) {
+            window.__PATCH_V33_SYNTH_WM_ACTIVE_CONTROLLER_ID__ = controllerId;
+            window.__PATCH_V33_SYNTH_WM_ATTEMPTS__ = 0;
+            window.__PATCH_V33_SYNTH_WM_LAST_ATTEMPT_AT__ = 0;
+            window.__PATCH_V33_SYNTH_WM_DONE__ = false;
+        }
 
         try {
             if (typeof controller.get_hasReceivedAllInfo === "function" && controller.get_hasReceivedAllInfo()) {
@@ -1591,35 +1903,37 @@
         var elapsedMs = window.game_boot_started ? (Date.now() - window.game_boot_started) : 0;
         if (elapsedMs < WORLDMAP_SYNTHETIC_BOOTSTRAP_MIN_MS) return;
 
-        var traffic = window.__PATCH_V33_GATEWAY_TRAFFIC__ || {};
-        var outboundCount = traffic.outboundCount || 0;
-        var inboundCount = traffic.inboundCount || 0;
-        var lastOutboundMs = traffic.lastOutboundMs || 0;
-        var lastInboundMs = traffic.lastInboundMs || 0;
-        var now = Date.now();
-
-        var noInboundAfterOutbound = outboundCount >= 3 &&
-            lastOutboundMs > 0 &&
-            (now - lastOutboundMs) > 1500 &&
-            (inboundCount === 0 || (lastInboundMs > 0 && (now - lastInboundMs) > 12000));
-        var longTimeout = elapsedMs > 90000;
-
-        if (!noInboundAfterOutbound && !longTimeout) return;
-
         var attempts = window.__PATCH_V33_SYNTH_WM_ATTEMPTS__ || 0;
-        var lastAttemptMs = window.__PATCH_V33_SYNTH_WM_LAST_ATTEMPT_MS__ || 0;
         if (attempts >= 4) return;
-        if ((now - lastAttemptMs) < 5000) return;
+
+        var now = Date.now();
+        var lastAttemptAt = window.__PATCH_V33_SYNTH_WM_LAST_ATTEMPT_AT__ || 0;
+        if (lastAttemptAt && (now - lastAttemptAt) < 5000) return;
+
+        var missingCriticalData = false;
+        try {
+            var hasMapHeader = controller.get_hasMapHeader ? !!controller.get_hasMapHeader() : !!controller._hasMapHeader;
+            var hasSharedConfigs = controller.get_hasSharedConfigs ? !!controller.get_hasSharedConfigs() : !!controller._hasSharedConfigs;
+            var hasBaseInfo = controller.get_hasBaseInfo ? !!controller.get_hasBaseInfo() : !!controller._hasBaseInfo;
+            var hasVisibleEntityInfo = controller.get_hasVisibleEntityInfo ? !!controller.get_hasVisibleEntityInfo() : !!controller._hasVisibleEntityInfo;
+            var hasDepositInfo = controller.get_hasDepositInfo ? !!controller.get_hasDepositInfo() : !!controller._hasDepositInfo;
+            var hasTuningData = controller.get_hasTuningData ? !!controller.get_hasTuningData() : !!controller._hasTuningData;
+
+            missingCriticalData = !hasMapHeader || !hasSharedConfigs || !hasBaseInfo || !hasVisibleEntityInfo || !hasDepositInfo || !hasTuningData;
+        } catch (_missingInfoReadErr) {
+            missingCriticalData = true;
+        }
+        if (!missingCriticalData) return;
 
         window.__PATCH_V33_SYNTH_WM_ATTEMPTS__ = attempts + 1;
-        window.__PATCH_V33_SYNTH_WM_LAST_ATTEMPT_MS__ = now;
+        window.__PATCH_V33_SYNTH_WM_LAST_ATTEMPT_AT__ = now;
 
         var ok = synthesizeWorldmapControllerData(controller);
         if (ok) {
             window.__PATCH_V33_SYNTH_WM_DONE__ = true;
-            console.warn("[PATCH V33] Synthetic worldmap bootstrap succeeded (attempt " + (attempts + 1) + ").");
+            console.warn("[PATCH V33] Synthetic worldmap bootstrap succeeded (controller " + controllerId + ", attempt " + (attempts + 1) + ").");
         } else if (attempts < 2) {
-            console.warn("[PATCH V33] Synthetic worldmap bootstrap attempt failed (" + (attempts + 1) + ").");
+            console.warn("[PATCH V33] Synthetic worldmap bootstrap attempt failed (controller " + controllerId + ", attempt " + (attempts + 1) + ").");
         }
     }
 
@@ -3073,6 +3387,7 @@
     // --- MAIN LOOP ---
     window.game_boot_started = Date.now();
     var loopCount = 0;
+    var HEAVY_WORLD_PATCH_EVERY = 4;
     var mainInterval = setInterval(function () {
         loopCount++;
 
@@ -3085,22 +3400,17 @@
         hookDb();
         patchLocalization();
         patchGlobalErrorHandling();
+        patchTutorialCompletionSafety();
         patchLoginProcess();
         patchGameInitParams();
         patchWorldmapDisconnectSafety();
         patchGatewayHttpBootstrap();
         patchGatewayAuthBootstrap();
         patchUInt64Safety();
-        patchMapResetSafety();
-        patchWorldmapViewBootstrap();
-        syncWorldmapMapViewVisibility();
-        patchMapLayerCallSafety();
-        patchHexMapSafety();
-        reconcileDetachedBaseRender();
-        trySyntheticWorldmapBootstrap();
         patchDisplayListSafety();
         patchDailyMissionHudSafety();
         patchMissionToolServiceSafety();
+        patchAttackLogTimeoutSafety();
         patchTimeSync();
         patchContractLoader();
         patchCDNLoader();
@@ -3115,12 +3425,26 @@
         patchPlatoonManifestDefaults();
         patchUpdatesCheck();
         patchStoreSafety();
+        patchHudMapButtonsFallback();
         bootstrapGameDataIfMissing();
         clearConnectionPopups();
         ensureCDNManifestInitialized();
         nudgeBlockingLoaders();
         autoLoadSharedConfigs();
         forceGameStart();
+
+        if (loopCount % HEAVY_WORLD_PATCH_EVERY === 0) {
+            patchMapResetSafety();
+            stabilizeWorldmapStateTransition();
+            patchWorldmapViewBootstrap();
+            syncWorldmapMapViewVisibility();
+            patchMapLayerCallSafety();
+            patchHexMapSafety();
+            reconcileDetachedBaseRender();
+        }
+        if (loopCount % (HEAVY_WORLD_PATCH_EVERY * 2) === 0) {
+            trySyntheticWorldmapBootstrap();
+        }
 
         if (loopCount % 20 === 0) removeLoadingOverlays();
 
@@ -3135,7 +3459,7 @@
                 removeBlockingPopups();
             }
         }
-    }, 50); // 50ms loop for faster checking
+    }, 100); // 100ms loop with throttled heavy world-map patches
 
     // --- EXPOSE GLOBAL PATCHER ---
     window.applyPatchesNow = function () {
@@ -3143,6 +3467,7 @@
         hookUrlLoader();
         patchLocalization();
         patchGlobalErrorHandling();
+        patchTutorialCompletionSafety();
         patchLoginProcess();
         patchGameInitParams();
         patchWorldmapDisconnectSafety();
@@ -3150,6 +3475,7 @@
         patchGatewayAuthBootstrap();
         patchUInt64Safety();
         patchMapResetSafety();
+        stabilizeWorldmapStateTransition();
         patchWorldmapViewBootstrap();
         syncWorldmapMapViewVisibility();
         patchMapLayerCallSafety();
@@ -3159,6 +3485,7 @@
         patchDisplayListSafety();
         patchDailyMissionHudSafety();
         patchMissionToolServiceSafety();
+        patchAttackLogTimeoutSafety();
         patchTimeSync();
         patchBuildingDataSafety();
         patchBaseSafety();
@@ -3170,6 +3497,7 @@
         patchWidgetColorBarSafety();
         patchUpdatesCheck();
         patchStoreSafety();
+        patchHudMapButtonsFallback();
         bootstrapGameDataIfMissing();
         clearConnectionPopups();
     };
