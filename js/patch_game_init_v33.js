@@ -856,12 +856,122 @@
         console.log("[PATCH V33] MissionToolServiceWrapper safety enabled.");
     }
 
+    function patchAttackLogServiceFallback() {
+        var hx = window._hx_classes || {};
+        var AttacklogService = hx["com.cc.attacklog.model.AttacklogService"];
+        if (!AttacklogService || !AttacklogService.prototype || AttacklogService.prototype.__patchedAttackLogServiceFallback) return;
+
+        var proto = AttacklogService.prototype;
+        var originalGetService = (typeof proto.get_service === "function") ? proto.get_service : null;
+        var originalIsServiceReady = (typeof proto.isServiceReady === "function") ? proto.isServiceReady : null;
+
+        function buildLocalStub(owner) {
+            if (!owner) return null;
+            if (owner.__patchV33AttackLogLocalStub) return owner.__patchV33AttackLogLocalStub;
+
+            function buildProtoUser(userId) {
+                var nowMs = Date.now();
+                var uid = String(userId == null ? "33123969" : userId);
+                return {
+                    get_userId: function () { return uid; },
+                    get_level: function () { return 44; },
+                    get_infamy: function () { return 0; },
+                    get_mapId: function () { return "1"; },
+                    get_baseCoordX: function () { return 249; },
+                    get_baseCoordY: function () { return 249; },
+                    get_lastBattleTimestamp: function () { return nowMs - (2 * 60 * 60 * 1000); },
+                    get_battleRole: function () { return 0; },
+                    get_hasDamageProtection: function () { return false; },
+                    get_vanityPrize: function () { return 0; }
+                };
+            }
+
+            function defer(fn) {
+                setTimeout(function () {
+                    try {
+                        fn();
+                    } catch (stubErr) {
+                        console.warn("[PATCH V33] Attack Log local stub callback failed:", stubErr);
+                    }
+                }, 0);
+            }
+
+            owner.__patchV33AttackLogLocalStub = {
+                addEventListener: function () { },
+                removeEventListener: function () { },
+                requestHasAttackEntriesSince: function (_timestampMs) {
+                    defer(function () { owner.onHasBattlesSinceResponse(false); });
+                },
+                requestHasAttackEntriesWithEnemy: function (enemyUserId) {
+                    defer(function () { owner.onHasBattlesWithUserResponse(enemyUserId, false); });
+                },
+                requestGetRecentEnemiesUserData: function (_olderThanMs, _limit, _queryTimestampMs) {
+                    defer(function () {
+                        owner.onRecentEnemiesResponse([
+                            buildProtoUser("33123969")
+                        ]);
+                    });
+                },
+                requestGetAttackEntriesWithEnemy: function (_enemyUserId, _limit, _olderThanMs) {
+                    defer(function () { owner.onGetAttackEntriesWithUserResponse([]); });
+                },
+                requestGetAttackUserData: function (enemyUserId) {
+                    defer(function () { owner.onAttackUserDataResponse(buildProtoUser(enemyUserId)); });
+                }
+            };
+            return owner.__patchV33AttackLogLocalStub;
+        }
+
+        proto.get_service = function () {
+            var service = null;
+            try {
+                service = originalGetService ? originalGetService.call(this) : this._mapService;
+            } catch (_getServiceErr) {
+                service = this._mapService;
+            }
+            if (service) return service;
+
+            var stub = buildLocalStub(this);
+            this._mapService = stub;
+            return stub;
+        };
+
+        proto.isServiceReady = function () {
+            try {
+                if (originalIsServiceReady && originalIsServiceReady.call(this)) return true;
+            } catch (_readyErr) { }
+            return !!this.get_service();
+        };
+
+        var AttackLogPopup = hx["com.cc.attacklog.ui.attack_log_popup.AttackLogPopup"];
+        if (AttackLogPopup && !AttackLogPopup.__patchedAttackLogPopupAvailability) {
+            var originalPopupAvailable = (typeof AttackLogPopup.isPopupAvailable === "function") ? AttackLogPopup.isPopupAvailable : null;
+            AttackLogPopup.isPopupAvailable = function () {
+                try {
+                    if (originalPopupAvailable && originalPopupAvailable()) return true;
+                } catch (_popupAvailErr) { }
+                try {
+                    var ConflictManager = hx["com.cc.attacklog.model.ConflictManager"];
+                    var manager = ConflictManager && typeof ConflictManager.get_instance === "function" ? ConflictManager.get_instance() : null;
+                    return !!(manager && typeof manager.isServiceReady === "function" && manager.isServiceReady());
+                } catch (_fallbackReadyErr) {
+                    return true;
+                }
+            };
+            AttackLogPopup.__patchedAttackLogPopupAvailability = true;
+        }
+
+        AttacklogService.prototype.__patchedAttackLogServiceFallback = true;
+        console.log("[PATCH V33] Attack Log service fallback enabled.");
+    }
+
     function patchAttackLogTimeoutSafety() {
         var hx = window._hx_classes || {};
         var AttacklogService = hx["com.cc.attacklog.model.AttacklogService"];
         if (!AttacklogService || !AttacklogService.prototype || AttacklogService.prototype.__patchedAttackLogTimeoutSafety) return;
 
         var proto = AttacklogService.prototype;
+        var originalPopupError = (typeof proto.popupError === "function") ? proto.popupError : null;
 
         function dispatchFallback(callback, queryType) {
             if (typeof callback !== "function") return;
@@ -884,13 +994,11 @@
             callback();
         }
 
-        if (typeof proto.popupError === "function") {
-            proto.popupError = function (_title, _message, queryType) {
-                var now = Date.now();
-                var lastWarnAt = this.__patchV33AttackLogTimeoutWarnAt || 0;
-                if ((now - lastWarnAt) > 8000) {
-                    this.__patchV33AttackLogTimeoutWarnAt = now;
-                    console.warn("[PATCH V33] Suppressed Attack Log timeout popup for query " + queryType + ".");
+        if (originalPopupError) {
+            proto.popupError = function (_title, _message, _queryType) {
+                if (this && !this.__patchV33AttackLogPopupSuppressed) {
+                    this.__patchV33AttackLogPopupSuppressed = true;
+                    console.warn("[PATCH V33] Suppressed Attack Log error popup in local mode.");
                 }
             };
         }
@@ -903,7 +1011,6 @@
                 } catch (_queryTypeErr) { }
 
                 var callback = this._currentQueryCallback || null;
-                var self = this;
 
                 setTimeout(function () {
                     try {
@@ -911,12 +1018,7 @@
                     } catch (fallbackErr) {
                         console.warn("[PATCH V33] Attack Log fallback callback failed:", fallbackErr);
                     }
-                    try {
-                        self.issueNextQuery();
-                    } catch (_issueNextErr) { }
                 }, 0);
-
-                this.popupError("ERROR", "Error retrieving Attack Log data. Try again.", queryType);
             };
         }
 
@@ -1183,7 +1285,8 @@
             y: 0,
             at: 0,
             moved: false,
-            lastToggleAt: 0
+            lastToggleAt: 0,
+            lastAttackLogAt: 0
         };
 
         function isInsideWorldMapButton(clientX, clientY) {
@@ -1202,6 +1305,32 @@
             return clientX >= left && clientX <= right && clientY >= top && clientY <= bottom;
         }
 
+        function isInsideAttackLogButton(clientX, clientY) {
+            var width = window.innerWidth || (document.documentElement && document.documentElement.clientWidth) || 0;
+            var height = window.innerHeight || (document.documentElement && document.documentElement.clientHeight) || 0;
+            if (width < 600 || height < 400) return false;
+
+            var left = width - 150;
+            var right = width - 8;
+            var top = 46;
+            var bottom = 118;
+
+            return clientX >= left && clientX <= right && clientY >= top && clientY <= bottom;
+        }
+
+        function openAttackLogFallback() {
+            var hx = window._hx_classes || {};
+            var AttackLogPopup = hx["com.cc.attacklog.ui.attack_log_popup.AttackLogPopup"];
+            if (!AttackLogPopup || typeof AttackLogPopup.open !== "function") return false;
+
+            try {
+                AttackLogPopup.open("-1");
+                return !!AttackLogPopup._instance;
+            } catch (attackLogErr) {
+                console.warn("[PATCH V33] HUD fallback failed to open Attack Log popup:", attackLogErr);
+            }
+            return false;
+        }
         window.addEventListener("pointerdown", function (evt) {
             if (!evt) return;
             if (typeof evt.button === "number" && evt.button !== 0) return;
@@ -1244,6 +1373,18 @@
                 }
             }
 
+            if (isInsideAttackLogButton(evt.clientX, evt.clientY)) {
+                if (pointerState.lastAttackLogAt && (now - pointerState.lastAttackLogAt) < 600) return;
+                pointerState.lastAttackLogAt = now;
+                if (openAttackLogFallback()) {
+                    try {
+                        if (typeof evt.stopImmediatePropagation === "function") evt.stopImmediatePropagation();
+                        if (typeof evt.preventDefault === "function") evt.preventDefault();
+                    } catch (_attackLogEventStopErr) { }
+                    console.warn("[PATCH V33] HUD fallback opened Attack Log popup.");
+                    return;
+                }
+            }
             if (!isInsideWorldMapButton(evt.clientX, evt.clientY)) return;
 
             var hx = window._hx_classes || {};
@@ -3773,7 +3914,9 @@
     }
 
     function patchStoreSafety() {
-        var STORE = window._hx_classes && window._hx_classes["STORE"];
+        var hx = window._hx_classes || {};
+        var STORE = hx["com.cc.purchase.store.StoreManager"] || hx["STORE"];
+        var STORE_ALIAS = hx["STORE"];
         if (!STORE || STORE.__patchedSafeStore) return;
 
         function asInt(value) {
@@ -3829,6 +3972,209 @@
             return out;
         }
 
+        function ensureStoreStatics() {
+            var now = (Date.now() / 1000) | 0;
+            var fallbackStoreId = "Daily Deals";
+            var fallbackCategory = "All";
+            var fallbackSubcategory = "All";
+            function makeIterableMap(hash) {
+                var data = (hash && typeof hash === "object") ? hash : {};
+                return {
+                    h: data,
+                    iterator: function () {
+                        var keys = Object.keys(this.h || {});
+                        var index = 0;
+                        var self = this;
+                        return {
+                            hasNext: function () {
+                                return index < keys.length;
+                            },
+                            next: function () {
+                                var key = keys[index++];
+                                return self.h[key];
+                            }
+                        };
+                    }
+                };
+            }
+
+            var fallbackUIConfig = {
+                storeToConfig: makeIterableMap({}),
+                getSortedStoreIds: function () {
+                    return [fallbackStoreId];
+                }
+            };
+            fallbackUIConfig.storeToConfig.h[fallbackStoreId] = {
+                displayName: fallbackStoreId,
+                storeIcon: "",
+                costSku: "gold"
+            };
+
+            var fallbackHierarchy = makeIterableMap({});
+            fallbackHierarchy.h[fallbackStoreId] = {
+                sortedCategories: [fallbackCategory],
+                categories: {
+                    h: {
+                        All: {
+                            subcategories: { h: { All: true } }
+                        }
+                    }
+                },
+                sortedSubcategoriesByCategory: {
+                    h: {
+                        All: [fallbackSubcategory]
+                    }
+                }
+            };
+
+            var fallbackStoreData = {
+                storeToData: makeIterableMap({})
+            };
+            fallbackStoreData.storeToData.h[fallbackStoreId] = {
+                itemsData: makeIterableMap({}),
+                availabilities: [{ to: now + 86400 }]
+            };
+            var fallbackItemListByStore = makeIterableMap({});
+            fallbackItemListByStore.h[fallbackStoreId] = [];
+
+            function ensureSignal(name) {
+                var signal = STORE[name];
+                if (!signal || typeof signal.add !== "function" || typeof signal.remove !== "function") {
+                    STORE[name] = {
+                        add: function () { },
+                        remove: function () { }
+                    };
+                }
+            }
+
+            var originalGetStoreUIConfig = (typeof STORE.get_storeUIConfig === "function") ? STORE.get_storeUIConfig : null;
+            STORE.get_storeUIConfig = function () {
+                var uiConfig = null;
+                try {
+                    uiConfig = originalGetStoreUIConfig ? originalGetStoreUIConfig.apply(this, arguments) : null;
+                } catch (_uiErr) {
+                    uiConfig = null;
+                }
+                if (!uiConfig || typeof uiConfig !== "object") return fallbackUIConfig;
+                if (!uiConfig.storeToConfig || typeof uiConfig.storeToConfig !== "object") uiConfig.storeToConfig = makeIterableMap({});
+                if (!uiConfig.storeToConfig.h || typeof uiConfig.storeToConfig.h !== "object") uiConfig.storeToConfig.h = {};
+                if (typeof uiConfig.storeToConfig.iterator !== "function") {
+                    uiConfig.storeToConfig.iterator = makeIterableMap(uiConfig.storeToConfig.h).iterator;
+                }
+                if (typeof uiConfig.getSortedStoreIds !== "function") {
+                    uiConfig.getSortedStoreIds = function () {
+                        var keys = Object.keys(uiConfig.storeToConfig.h || {});
+                        return keys.length ? keys : [fallbackStoreId];
+                    };
+                }
+                if (!uiConfig.storeToConfig.h[fallbackStoreId]) {
+                    uiConfig.storeToConfig.h[fallbackStoreId] = fallbackUIConfig.storeToConfig.h[fallbackStoreId];
+                }
+                return uiConfig;
+            };
+
+            var originalGetStoreHierarchy = (typeof STORE.get_storeHierarchy === "function") ? STORE.get_storeHierarchy : null;
+            STORE.get_storeHierarchy = function () {
+                var hierarchy = null;
+                try {
+                    hierarchy = originalGetStoreHierarchy ? originalGetStoreHierarchy.apply(this, arguments) : null;
+                } catch (_hierErr) {
+                    hierarchy = null;
+                }
+                if (!hierarchy || typeof hierarchy !== "object") return fallbackHierarchy;
+                if (!hierarchy.h || typeof hierarchy.h !== "object") hierarchy.h = {};
+                if (typeof hierarchy.iterator !== "function") {
+                    hierarchy.iterator = makeIterableMap(hierarchy.h).iterator;
+                }
+                if (!hierarchy.h[fallbackStoreId]) hierarchy.h[fallbackStoreId] = fallbackHierarchy.h[fallbackStoreId];
+                return hierarchy;
+            };
+
+            var originalGetStoreData = (typeof STORE.get_storeData === "function") ? STORE.get_storeData : null;
+            STORE.get_storeData = function () {
+                var data = null;
+                try {
+                    data = originalGetStoreData ? originalGetStoreData.apply(this, arguments) : null;
+                } catch (_dataErr) {
+                    data = null;
+                }
+                if (!data || typeof data !== "object") return fallbackStoreData;
+                if (!data.storeToData || typeof data.storeToData !== "object") data.storeToData = makeIterableMap({});
+                if (!data.storeToData.h || typeof data.storeToData.h !== "object") data.storeToData.h = {};
+                if (typeof data.storeToData.iterator !== "function") {
+                    data.storeToData.iterator = makeIterableMap(data.storeToData.h).iterator;
+                }
+                if (!data.storeToData.h[fallbackStoreId]) data.storeToData.h[fallbackStoreId] = fallbackStoreData.storeToData.h[fallbackStoreId];
+                if (!data.storeToData.h[fallbackStoreId].itemsData || typeof data.storeToData.h[fallbackStoreId].itemsData !== "object") {
+                    data.storeToData.h[fallbackStoreId].itemsData = makeIterableMap({});
+                }
+                if (!data.storeToData.h[fallbackStoreId].itemsData.h || typeof data.storeToData.h[fallbackStoreId].itemsData.h !== "object") {
+                    data.storeToData.h[fallbackStoreId].itemsData.h = {};
+                }
+                if (typeof data.storeToData.h[fallbackStoreId].itemsData.iterator !== "function") {
+                    data.storeToData.h[fallbackStoreId].itemsData.iterator = makeIterableMap(data.storeToData.h[fallbackStoreId].itemsData.h).iterator;
+                }
+                return data;
+            };
+
+            var originalGetItemListByStore = (typeof STORE.get_itemListByStore === "function") ? STORE.get_itemListByStore : null;
+            STORE.get_itemListByStore = function () {
+                var itemListByStore = null;
+                try {
+                    itemListByStore = originalGetItemListByStore ? originalGetItemListByStore.apply(this, arguments) : null;
+                } catch (_itemListErr) {
+                    itemListByStore = null;
+                }
+                if (!itemListByStore || typeof itemListByStore !== "object") itemListByStore = fallbackItemListByStore;
+                if (!itemListByStore.h || typeof itemListByStore.h !== "object") itemListByStore.h = {};
+                if (!Array.isArray(itemListByStore.h[fallbackStoreId])) itemListByStore.h[fallbackStoreId] = [];
+                if (typeof itemListByStore.iterator !== "function") {
+                    itemListByStore.iterator = makeIterableMap(itemListByStore.h).iterator;
+                }
+                STORE._itemListByStore = itemListByStore;
+                return itemListByStore;
+            };
+
+            if (typeof STORE.get_storeTime !== "function") {
+                STORE.get_storeTime = function () {
+                    return (Date.now() / 1000) | 0;
+                };
+            }
+            if (typeof STORE.isSimulatingStoreTime !== "function") {
+                STORE.isSimulatingStoreTime = function () {
+                    return false;
+                };
+            }
+            if (typeof STORE.getStoreSimulatedTime !== "function") {
+                STORE.getStoreSimulatedTime = function () {
+                    return "";
+                };
+            }
+            if (typeof STORE.getPlayerPlatformName !== "function") {
+                STORE.getPlayerPlatformName = function () {
+                    return "All";
+                };
+            }
+
+            if (!STORE._itemListByStore || typeof STORE._itemListByStore !== "object") {
+                STORE._itemListByStore = fallbackItemListByStore;
+            }
+            if (!STORE._itemListByStore.h || typeof STORE._itemListByStore.h !== "object") {
+                STORE._itemListByStore.h = {};
+            }
+            if (!Array.isArray(STORE._itemListByStore.h[fallbackStoreId])) {
+                STORE._itemListByStore.h[fallbackStoreId] = [];
+            }
+            if (typeof STORE._itemListByStore.iterator !== "function") {
+                STORE._itemListByStore.iterator = makeIterableMap(STORE._itemListByStore.h).iterator;
+            }
+
+            ensureSignal("storeUpdatedSignal");
+            ensureSignal("storeItemUnlocked");
+        }
+
+        ensureStoreStatics();
+
         if (STORE.Data) {
             var originalData = STORE.Data;
             STORE.Data = function (storeItems, storeData, inventory) {
@@ -3875,6 +4221,21 @@
         }
 
         STORE.__patchedSafeStore = true;
+
+        if (STORE_ALIAS && STORE_ALIAS !== STORE && !STORE_ALIAS.__patchedSafeStore) {
+            STORE_ALIAS.get_storeUIConfig = function () { return STORE.get_storeUIConfig.apply(STORE, arguments); };
+            STORE_ALIAS.get_storeHierarchy = function () { return STORE.get_storeHierarchy.apply(STORE, arguments); };
+            STORE_ALIAS.get_storeData = function () { return STORE.get_storeData.apply(STORE, arguments); };
+            STORE_ALIAS.get_itemListByStore = function () { return STORE.get_itemListByStore.apply(STORE, arguments); };
+            STORE_ALIAS.get_storeTime = function () { return STORE.get_storeTime.apply(STORE, arguments); };
+            STORE_ALIAS.isSimulatingStoreTime = function () { return STORE.isSimulatingStoreTime.apply(STORE, arguments); };
+            STORE_ALIAS.getStoreSimulatedTime = function () { return STORE.getStoreSimulatedTime.apply(STORE, arguments); };
+            STORE_ALIAS.getPlayerPlatformName = function () { return STORE.getPlayerPlatformName.apply(STORE, arguments); };
+            STORE_ALIAS._itemListByStore = STORE._itemListByStore;
+            STORE_ALIAS.storeUpdatedSignal = STORE.storeUpdatedSignal;
+            STORE_ALIAS.storeItemUnlocked = STORE.storeItemUnlocked;
+            STORE_ALIAS.__patchedSafeStore = true;
+        }
     }
 
     function patchContractLoader() {
@@ -4044,6 +4405,7 @@
         patchDisplayListSafety();
         patchDailyMissionHudSafety();
         patchMissionToolServiceSafety();
+        patchAttackLogServiceFallback();
         patchAttackLogTimeoutSafety();
         patchTimeSync();
         patchContractLoader();
@@ -4124,6 +4486,7 @@
         patchDisplayListSafety();
         patchDailyMissionHudSafety();
         patchMissionToolServiceSafety();
+        patchAttackLogServiceFallback();
         patchAttackLogTimeoutSafety();
         patchTimeSync();
         patchBuildingDataSafety();

@@ -11,6 +11,7 @@ import re
 import hashlib
 import glob
 import copy
+import socket
 
 PORT = 8089
 PNG_PLACEHOLDER_1X1 = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\rIDATx\xdacd\xf8\xcfP\x0f\x00\x03\x86\x01\x80Z4}k\x00\x00\x00\x00IEND\xaeB`\x82'
@@ -45,6 +46,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     live_api_templates = None
     live_api_template_source = None
     default_region_template_cells = None
+    runtime_state_lock = threading.Lock()
+    runtime_state = None
 
     # Minimal world-map seed values used by gateway action stubs.
     DEFAULT_PLAYER_ID = 123456
@@ -55,6 +58,19 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     DEFAULT_REGION_TEMPLATE_CHECKSUM = 515646777
     DEFAULT_REGION_TEMPLATE_LAYOUT = 3
     DEFAULT_REGION_TEMPLATE_STRIDE = 500
+    NEARBY_TYPE_TO_ENTITY_TYPE = {
+        0: 6,   # DEPOSIT_THORIUM -> ENTITY_TYPE_RESOURCE_THORIUM
+        1: 5,   # DEPOSIT_METAL   -> ENTITY_TYPE_RESOURCE_METAL
+        2: 4,   # DEPOSIT_OIL     -> ENTITY_TYPE_RESOURCE_OIL
+        3: 8,   # DEPOSIT_SPIRE   -> ENTITY_TYPE_RESOURCE_SPIRE
+        4: 3,   # BASE_RF         -> ENTITY_TYPE_ROGUE_BASE
+        5: 1,   # BASE_PLAYER     -> ENTITY_TYPE_PLAYER_BASE
+        6: 3,   # EVENT_HUNT_BASE_RF
+        7: 3,   # EVENT_FORTRESS_BASE_RF
+        8: 1,   # EVENT_COMPANION_BASE
+        9: 11,  # DEPOSIT_SKU     -> ENTITY_TYPE_SKU_DEPOSIT
+        10: 3,  # EVENT_ERADICATION_INFESTATION
+    }
 
     def _load_asset_manifest_map(self):
         if CustomHandler.asset_manifest_map is not None:
@@ -128,8 +144,18 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             return "api/wc/bookmark/load"
         if p.endswith("/api/wc/base/updatesaved"):
             return "api/wc/base/updatesaved"
+        if p.endswith("/api/wc/base/updatesave"):
+            return "api/wc/base/updatesaved"
         if p.endswith("/api/wc/getchatlogincredentials"):
             return "api/wc/getchatlogincredentials"
+        if p.endswith("/api/building/production"):
+            return "api/building/production"
+        if p.endswith("/api/wc/stats/save"):
+            return "api/wc/stats/save"
+        if p.endswith("/api/wc/worldmapdata/users"):
+            return "api/wc/worldmapdata/users"
+        if p.endswith("/api/player/updateuserdata"):
+            return "api/player/updateuserdata"
         if p.endswith("/api/player/getrelocatenearfriends"):
             return "api/player/getrelocatenearfriends"
         if p.endswith("/api/wc/base/save"):
@@ -606,6 +632,586 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             "version": "71601"
         }
 
+    def _sanitize_initial_buildingdata(self, buildingdata):
+        if isinstance(buildingdata, str):
+            try:
+                buildingdata = json.loads(buildingdata)
+            except Exception:
+                buildingdata = {}
+        if not isinstance(buildingdata, dict):
+            return {}
+
+        transient_keys = (
+            "cU",
+            "cB",
+            "countdownUpgrade",
+            "countdownBuild",
+            "upgrading",
+            "isUpgrading",
+            "isBuilding",
+        )
+
+        for row in buildingdata.values():
+            if not isinstance(row, dict):
+                continue
+            for key in transient_keys:
+                if key in row:
+                    try:
+                        del row[key]
+                    except Exception:
+                        pass
+
+        return buildingdata
+
+    def _apply_runtime_resource_floor(self, base):
+        if not isinstance(base, dict):
+            return
+
+        resources = base.get("resources")
+        if not isinstance(resources, dict):
+            resources = {}
+            base["resources"] = resources
+
+        resource_floors = {
+            "r1": 2_000_000,
+            "r2": 2_000_000,
+            "r3": 50_000,
+        }
+        for key, floor_value in resource_floors.items():
+            current_value = self._safe_int(resources.get(key), 0)
+            if current_value < floor_value:
+                resources[key] = int(floor_value)
+
+        current_credits = self._safe_int(base.get("credits"), 0)
+        if current_credits < 500:
+            base["credits"] = 500
+
+    def _ensure_runtime_state(self, ts):
+        ts = int(ts)
+        with CustomHandler.runtime_state_lock:
+            state = CustomHandler.runtime_state
+            if isinstance(state, dict):
+                return state
+
+            base = self._get_live_template("api/wc/base/load")
+            if not isinstance(base, dict):
+                base = self._base_payload(ts)
+            base = self._apply_local_runtime_overrides(base, ts, "api/wc/base/load")
+
+            base["buildingdata"] = self._sanitize_initial_buildingdata(base.get("buildingdata"))
+            self._apply_runtime_resource_floor(base)
+            base["updates"] = []
+
+            CustomHandler.runtime_state = {
+                "base": base,
+                "pending_updates": [],
+                "active_building_actions": [],
+            }
+            return CustomHandler.runtime_state
+
+    def _runtime_snapshot_base(self, ts, endpoint):
+        ts = int(ts)
+        state = self._ensure_runtime_state(ts)
+        with CustomHandler.runtime_state_lock:
+            base = copy.deepcopy(state.get("base", {}))
+            self._runtime_reconcile_active_building_actions_locked(state)
+        out = self._apply_local_runtime_overrides(base, ts, endpoint)
+        if not isinstance(out, dict):
+            out = {}
+        self._runtime_overlay_active_building_state(out, ts)
+        out["error"] = 0
+        out["success"] = True
+        out["currenttime"] = ts
+        out["server_time"] = ts
+        if "h" not in out:
+            out["h"] = self._hash_of(f"{endpoint}:{ts}")
+        if "hn" not in out:
+            out["hn"] = ts % 10000000
+        return out
+
+    def _runtime_take_pending_updates(self):
+        with CustomHandler.runtime_state_lock:
+            state = CustomHandler.runtime_state
+            if not isinstance(state, dict):
+                return []
+            pending = state.get("pending_updates")
+            if not isinstance(pending, list):
+                pending = []
+            state["pending_updates"] = []
+            try:
+                return copy.deepcopy(pending)
+            except Exception:
+                return pending
+
+    def _runtime_register_active_building_action_locked(self, state, action, ts):
+        if not isinstance(state, dict) or not isinstance(action, dict):
+            return
+
+        action_name = str(action.get("action") or "").strip().lower()
+        building_id = self._safe_int(action.get("building_id"), -1)
+        if building_id < 0 or action_name not in ("upgrade", "build", "instant_build", "instant_change_type"):
+            return
+
+        active = state.get("active_building_actions")
+        if not isinstance(active, list):
+            active = []
+
+        to_level = action.get("to_level")
+        if to_level is None:
+            to_level = action.get("upgrade_to")
+        to_level = self._safe_int(to_level, -1)
+
+        # Keep actions active long enough to survive base/world transitions.
+        # If we never observe completion in posted buildingdata, stale entries
+        # are eventually pruned by this TTL.
+        ttl_seconds = 6 * 60 * 60
+        now_ts = int(ts)
+        expiry = now_ts + ttl_seconds
+        started_at = self._safe_int(action.get("time"), now_ts)
+        if started_at <= 0:
+            started_at = now_ts
+        if abs(started_at - now_ts) > 7 * 24 * 60 * 60:
+            started_at = now_ts
+
+        duration_seconds = 0
+        for duration_key in ("duration", "time_remaining", "timeLeft", "countdown", "countdownUpgrade", "cU"):
+            duration_seconds = self._safe_int(action.get(duration_key), 0)
+            if duration_seconds > 0:
+                break
+
+        if duration_seconds <= 0:
+            if action_name == "upgrade":
+                duration_seconds = 48 * 60 * 60
+            elif action_name in ("build", "instant_build"):
+                duration_seconds = 6 * 60 * 60
+            else:
+                duration_seconds = 60 * 60
+
+        kept = []
+        for row in active:
+            if not isinstance(row, dict):
+                continue
+            row_action = str(row.get("action") or "").strip().lower()
+            row_building_id = self._safe_int(row.get("building_id"), -1)
+            row_expiry = self._safe_int(row.get("expires_at"), 0)
+            if row_expiry > 0 and row_expiry < now_ts:
+                continue
+            if row_action == action_name and row_building_id == building_id:
+                continue
+            kept.append(row)
+
+        kept.append({
+            "action": action_name,
+            "building_id": building_id,
+            "to_level": to_level,
+            "expires_at": expiry,
+            "started_at": started_at,
+            "duration_seconds": duration_seconds,
+            "payload": copy.deepcopy(action),
+        })
+        state["active_building_actions"] = kept
+
+    def _runtime_get_active_action_remaining_seconds(self, row, now_ts):
+        if not isinstance(row, dict):
+            return 0
+        now_ts = int(now_ts)
+        started_at = self._safe_int(row.get("started_at"), now_ts)
+        duration_seconds = self._safe_int(row.get("duration_seconds"), 0)
+        if duration_seconds <= 0:
+            return 0
+        if started_at <= 0:
+            started_at = now_ts
+        elapsed = max(0, now_ts - started_at)
+        return max(0, duration_seconds - elapsed)
+
+    def _runtime_reconcile_active_building_actions_locked(self, state):
+        if not isinstance(state, dict):
+            return
+
+        active = state.get("active_building_actions")
+        if not isinstance(active, list):
+            state["active_building_actions"] = []
+            return
+
+        base = state.get("base")
+        if not isinstance(base, dict):
+            state["active_building_actions"] = []
+            return
+
+        buildingdata = base.get("buildingdata")
+        if isinstance(buildingdata, str):
+            try:
+                buildingdata = json.loads(buildingdata)
+            except Exception:
+                buildingdata = {}
+        if not isinstance(buildingdata, dict):
+            buildingdata = {}
+        base["buildingdata"] = buildingdata
+
+        now_ts = int(self.get_timestamp())
+        kept = []
+        for row in active:
+            if not isinstance(row, dict):
+                continue
+            expires_at = self._safe_int(row.get("expires_at"), 0)
+            if expires_at > 0 and expires_at < now_ts:
+                continue
+
+            building_id = self._safe_int(row.get("building_id"), -1)
+            to_level = self._safe_int(row.get("to_level"), -1)
+            action_name = str(row.get("action") or "").strip().lower()
+            _, building = self._find_building_entry(buildingdata, building_id)
+            if not isinstance(building, dict):
+                continue
+
+            remaining_seconds = self._runtime_get_active_action_remaining_seconds(row, now_ts)
+            if remaining_seconds <= 0:
+                if action_name == "upgrade" and to_level >= 0:
+                    current_level = self._safe_int(building.get("l"), -1)
+                    if current_level < to_level:
+                        if isinstance(building.get("l"), str):
+                            building["l"] = str(to_level)
+                        else:
+                            building["l"] = int(to_level)
+                continue
+
+            if to_level >= 0:
+                current_level = self._safe_int(building.get("l"), -1)
+                if current_level >= to_level:
+                    continue
+
+            kept.append(row)
+
+        state["active_building_actions"] = kept
+
+    def _runtime_overlay_active_building_state(self, payload, ts):
+        if not isinstance(payload, dict):
+            return
+        ts = int(ts)
+
+        buildingdata = payload.get("buildingdata")
+        if isinstance(buildingdata, str):
+            try:
+                buildingdata = json.loads(buildingdata)
+            except Exception:
+                buildingdata = {}
+        if not isinstance(buildingdata, dict):
+            return
+
+        with CustomHandler.runtime_state_lock:
+            state = CustomHandler.runtime_state
+            if not isinstance(state, dict):
+                return
+            self._runtime_reconcile_active_building_actions_locked(state)
+            active = state.get("active_building_actions")
+            if not isinstance(active, list):
+                return
+            active_copy = copy.deepcopy(active)
+
+        for row in active_copy:
+            if not isinstance(row, dict):
+                continue
+            action_name = str(row.get("action") or "").strip().lower()
+            if action_name != "upgrade":
+                continue
+
+            building_id = self._safe_int(row.get("building_id"), -1)
+            if building_id < 0:
+                continue
+
+            _, building = self._find_building_entry(buildingdata, building_id)
+            if not isinstance(building, dict):
+                continue
+
+            remaining_seconds = self._runtime_get_active_action_remaining_seconds(row, ts)
+            if remaining_seconds <= 0:
+                continue
+
+            building["cU"] = int(remaining_seconds)
+
+        payload["buildingdata"] = buildingdata
+
+    def _runtime_collect_active_building_actions(self, ts):
+        ts = int(ts)
+        with CustomHandler.runtime_state_lock:
+            state = CustomHandler.runtime_state
+            if not isinstance(state, dict):
+                return []
+
+            # Prune stale/completed entries before collecting.
+            self._runtime_reconcile_active_building_actions_locked(state)
+            active = state.get("active_building_actions")
+            if not isinstance(active, list):
+                return []
+
+            actions = []
+            now_ts = int(ts)
+            for row in active:
+                if not isinstance(row, dict):
+                    continue
+                expires_at = self._safe_int(row.get("expires_at"), 0)
+                if expires_at > 0 and expires_at < now_ts:
+                    continue
+                payload = row.get("payload")
+                if isinstance(payload, dict):
+                    actions.append(copy.deepcopy(payload))
+            return actions
+
+    def _runtime_queue_update(self, update_entry):
+        if not isinstance(update_entry, dict):
+            return
+        self._ensure_runtime_state(self.get_timestamp())
+        with CustomHandler.runtime_state_lock:
+            state = CustomHandler.runtime_state
+            if not isinstance(state, dict):
+                return
+            pending = state.get("pending_updates")
+            if not isinstance(pending, list):
+                pending = []
+                state["pending_updates"] = pending
+            pending.append(update_entry)
+
+    def _find_building_entry(self, buildingdata, building_id):
+        if not isinstance(buildingdata, dict):
+            return None, None
+        bid = self._safe_int(building_id, -1)
+        if bid < 0:
+            return None, None
+        key = str(bid)
+        row = buildingdata.get(key)
+        if isinstance(row, dict):
+            return key, row
+        for k, value in buildingdata.items():
+            if isinstance(value, dict) and self._safe_int(value.get("id"), -2) == bid:
+                return str(k), value
+        return key, None
+
+    def _apply_runtime_costs(self, base, resources):
+        if not isinstance(base, dict) or not isinstance(resources, dict):
+            return
+
+        current_resources = base.get("resources")
+        if not isinstance(current_resources, dict):
+            current_resources = {}
+            base["resources"] = current_resources
+
+        for req_key, res_key in (("metal", "r1"), ("oil", "r2"), ("thorium", "r3")):
+            cost = self._safe_int(resources.get(req_key), 0)
+            if cost <= 0:
+                continue
+            current_value = self._safe_int(current_resources.get(res_key), 0)
+            current_resources[res_key] = max(0, current_value - cost)
+
+        gold_cost = self._safe_int(resources.get("gold"), 0)
+        if gold_cost > 0:
+            credits = self._safe_int(base.get("credits"), 0)
+            base["credits"] = max(0, credits - gold_cost)
+
+    def _runtime_apply_base_save(self, post_data, ts):
+        if not isinstance(post_data, dict):
+            return
+        ts = int(ts)
+        state = self._ensure_runtime_state(ts)
+
+        def load_json_field(field_name):
+            raw = self._post_first_value(post_data, field_name, None)
+            if raw in (None, ""):
+                return None
+            try:
+                return json.loads(raw)
+            except Exception:
+                return None
+
+        with CustomHandler.runtime_state_lock:
+            base = state.get("base")
+            if not isinstance(base, dict):
+                base = self._base_payload(ts)
+                state["base"] = base
+
+            posted_buildingdata = load_json_field("buildingdata")
+            if isinstance(posted_buildingdata, dict):
+                active = state.get("active_building_actions")
+                if isinstance(active, list) and active:
+                    current_buildingdata = base.get("buildingdata")
+                    if not isinstance(current_buildingdata, dict):
+                        current_buildingdata = {}
+
+                    # Prevent base/save payloads from instantly finalizing levels
+                    # while an upgrade action is still active.
+                    for row in active:
+                        if not isinstance(row, dict):
+                            continue
+                        if str(row.get("action") or "").strip().lower() != "upgrade":
+                            continue
+
+                        building_id = self._safe_int(row.get("building_id"), -1)
+                        to_level = self._safe_int(row.get("to_level"), -1)
+                        if building_id < 0 or to_level < 0:
+                            continue
+
+                        _, posted_row = self._find_building_entry(posted_buildingdata, building_id)
+                        _, current_row = self._find_building_entry(current_buildingdata, building_id)
+                        if not isinstance(posted_row, dict) or not isinstance(current_row, dict):
+                            continue
+
+                        posted_level = self._safe_int(posted_row.get("l"), -1)
+                        current_level = self._safe_int(current_row.get("l"), -1)
+
+                        if current_level >= 0 and posted_level >= to_level and current_level < to_level:
+                            # Preserve original scalar style (string/int) from the current row.
+                            if isinstance(current_row.get("l"), str):
+                                posted_row["l"] = str(current_level)
+                            else:
+                                posted_row["l"] = int(current_level)
+
+                current_buildingdata = base.get("buildingdata")
+                if isinstance(current_buildingdata, dict):
+                    # Client snapshots can report a promoted level immediately
+                    # after transition even when upgrade is still in-progress.
+                    # Keep level authority server-side so progression is only
+                    # advanced by explicit server logic.
+                    for row_key, posted_row in posted_buildingdata.items():
+                        if not isinstance(posted_row, dict):
+                            continue
+                        _, current_row = self._find_building_entry(current_buildingdata, posted_row.get("id", row_key))
+                        if not isinstance(current_row, dict):
+                            continue
+
+                        posted_level = self._safe_int(posted_row.get("l"), -1)
+                        current_level = self._safe_int(current_row.get("l"), -1)
+                        if posted_level > current_level >= 0:
+                            log(
+                                f"BASESAVE level clamp id={self._safe_int(posted_row.get('id'), -1)} "
+                                f"posted={posted_level} current={current_level}"
+                            )
+                            if isinstance(current_row.get("l"), str):
+                                posted_row["l"] = str(current_level)
+                            else:
+                                posted_row["l"] = int(current_level)
+
+                base["buildingdata"] = posted_buildingdata
+
+            posted_resources = load_json_field("resources")
+            if isinstance(posted_resources, dict):
+                base["resources"] = posted_resources
+
+            posted_inventory = load_json_field("inventory")
+            if isinstance(posted_inventory, dict):
+                base["inventory"] = posted_inventory
+
+            posted_store_items = load_json_field("storeitems")
+            if isinstance(posted_store_items, dict):
+                base["storeitems"] = posted_store_items
+
+            posted_store_data = load_json_field("storedata")
+            if isinstance(posted_store_data, dict):
+                base["storedata"] = posted_store_data
+
+            credits_raw = self._post_first_value(post_data, "credits", None)
+            if credits_raw not in (None, ""):
+                base["credits"] = max(0, self._safe_int(credits_raw, self._safe_int(base.get("credits"), 0)))
+
+            for key in ("basename", "baseseed", "tutorialstage", "tutorialcompleted", "mapid", "entityid", "baseid"):
+                value = self._post_first_value(post_data, key, None)
+                if value in (None, ""):
+                    continue
+                base[key] = value
+
+            base["currenttime"] = ts
+            base["server_time"] = ts
+            base["savetime"] = ts
+            base["lastuserbasesave"] = ts
+            base["basesaveid"] = ts
+            self._runtime_reconcile_active_building_actions_locked(state)
+
+    def _runtime_apply_building_actions(self, actions, ts):
+        if not isinstance(actions, list) or not actions:
+            return
+        ts = int(ts)
+        state = self._ensure_runtime_state(ts)
+        queued_actions = []
+
+        with CustomHandler.runtime_state_lock:
+            base = state.get("base")
+            if not isinstance(base, dict):
+                base = self._base_payload(ts)
+                state["base"] = base
+
+            buildingdata = base.get("buildingdata")
+            if isinstance(buildingdata, str):
+                try:
+                    buildingdata = json.loads(buildingdata)
+                except Exception:
+                    buildingdata = {}
+            if not isinstance(buildingdata, dict):
+                buildingdata = {}
+            base["buildingdata"] = buildingdata
+
+            for action in actions:
+                if not isinstance(action, dict):
+                    continue
+
+                action_name = str(action.get("action") or "").strip().lower()
+                building_id = self._safe_int(action.get("building_id"), -1)
+                b_key, building = self._find_building_entry(buildingdata, building_id)
+
+                if action_name in ("build", "place", "instant_build") and building is None and building_id >= 0:
+                    building_type = self._safe_int(action.get("type"), self._safe_int(action.get("building_type"), 0))
+                    level = self._safe_int(action.get("to_level"), self._safe_int(action.get("level"), 1))
+                    building = {
+                        "id": building_id,
+                        "t": str(max(0, building_type)),
+                        "l": str(max(0, level)),
+                        "X": "0",
+                        "Y": "0"
+                    }
+                    buildingdata[str(building_id)] = building
+                    b_key = str(building_id)
+
+                if action_name in ("move", "place", "build", "instant_build", "relocate") and isinstance(building, dict):
+                    x_candidates = ("x", "X", "nX", "tx", "toX")
+                    y_candidates = ("y", "Y", "nY", "ty", "toY")
+                    for key_name in x_candidates:
+                        if key_name in action:
+                            building["X"] = str(self._safe_int(action.get(key_name), self._safe_int(building.get("X"), 0)))
+                            break
+                    for key_name in y_candidates:
+                        if key_name in action:
+                            building["Y"] = str(self._safe_int(action.get(key_name), self._safe_int(building.get("Y"), 0)))
+                            break
+
+                if action_name in ("upgrade", "instant_change_type") and isinstance(building, dict):
+                    to_level = action.get("to_level")
+                    if to_level is None:
+                        to_level = action.get("upgrade_to")
+                    level = self._safe_int(to_level, -1)
+                    if action_name == "instant_change_type" and level >= 0:
+                        building["l"] = str(level)
+                    elif action_name == "upgrade":
+                        # Keep the action active so transitions/base reloads can
+                        # rehydrate upgrade state instead of silently dropping it.
+                        self._runtime_register_active_building_action_locked(state, action, ts)
+
+                if action_name in ("sell", "remove", "demolish", "trash") and b_key is not None:
+                    if b_key in buildingdata:
+                        del buildingdata[b_key]
+
+                self._apply_runtime_costs(base, action.get("resources"))
+                queued_actions.append(action)
+
+            base["currenttime"] = ts
+            base["server_time"] = ts
+            base["basesaveid"] = ts
+            base["savetime"] = ts
+            base["lastuserbasesave"] = ts
+            self._runtime_reconcile_active_building_actions_locked(state)
+
+        if queued_actions:
+            self._runtime_queue_update({
+                "type": "building_production",
+                "actions": queued_actions
+            })
+
     def log_message(self, format, *args):
         """
         Override default stderr logging.
@@ -722,6 +1328,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         log(f"GET {self.path}")
         decoded_path = urllib.parse.unquote(self.path)
+        path_lower = self.path.lower()
         
         if "crossdomain.xml" in self.path:
             self.send_response(200)
@@ -757,6 +1364,22 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         if "wc/getchatlogincredentials" in self.path.lower():
             self.send_json_response(self.get_chat_login_credentials_response(self.get_timestamp()))
             return
+
+        if "building/production" in path_lower:
+            self.send_json_response(self.get_building_production_response(self.get_timestamp(), self._parse_query()))
+            return
+
+        if "wc/stats/save" in path_lower:
+            self.send_json_response(self.get_stats_save_response(self.get_timestamp(), self._parse_query()))
+            return
+
+        if "wc/worldmapdata/users" in path_lower:
+            self.send_json_response(self.get_worldmap_users_response(self.get_timestamp(), self._parse_query()))
+            return
+
+        if "player/updateuserdata" in path_lower:
+            self.send_json_response(self.get_update_user_data_response(self.get_timestamp(), self._parse_query()))
+            return
             
         if "backend/loadidata" in self.path:
             self.send_json_response(self.get_loadidata_response(self.get_timestamp()))
@@ -778,7 +1401,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             self.send_json_response(self.get_bookmark_load_response(self.get_timestamp()))
             return
 
-        if "base/updatesaved" in self.path or "/updatesaved" in self.path:
+        if "base/updatesaved" in path_lower or "base/updatesave" in path_lower or "/updatesaved" in path_lower:
             self.send_json_response(self.get_updatesaved_response(self.get_timestamp()))
             return
 
@@ -960,43 +1583,72 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         content_len = int(self.headers.get('Content-Length', 0))
         post_body_bytes = self.rfile.read(content_len) if content_len > 0 else b""
         post_data = self._parse_post_body(post_body_bytes)
+        path_lower = self.path.lower()
         
-        if "gateway/action" in self.path:
+        if "gateway/action" in path_lower:
             self.handle_gateway_action(post_body_bytes)
             return
 
-        if "gateway/poll" in self.path:
+        if "gateway/poll" in path_lower:
             self.handle_gateway_poll()
             return
             
-        if "player/getinfo" in self.path:
+        if "player/getinfo" in path_lower:
             self.send_json_response(self.get_player_info_response(self.get_timestamp()))
-        elif "backend/initapplication" in self.path:
+        elif "backend/initapplication" in path_lower:
             self.send_json_response(self.get_initapplication_response(self.get_timestamp()))
-        elif "backend/getmessage" in self.path:
+        elif "backend/getmessage" in path_lower:
             self.send_json_response(self.get_backend_message_response(self.get_timestamp()))
-        elif "live/sendmsg" in self.path:
+        elif "live/sendmsg" in path_lower:
             self.send_json_response(self.get_live_sendmsg_response(self.get_timestamp()))
-        elif "wc/getchatlogincredentials" in self.path.lower():
+        elif "wc/getchatlogincredentials" in path_lower:
             self.send_json_response(self.get_chat_login_credentials_response(self.get_timestamp()))
-        elif "player/getfriendsworldmap" in self.path:
+        elif "player/getfriendsworldmap" in path_lower:
             self.send_json_response(self.get_friends_worldmap_response(self.get_timestamp()))
-        elif "player/getrelocatenearfriends" in self.path:
+        elif "player/getrelocatenearfriends" in path_lower:
             self.send_json_response(self.get_relocate_near_friends_response(self.get_timestamp()))
-        elif "getflags" in self.path:
+        elif "getflags" in path_lower:
             self.send_json_response(self.get_flags_response(self.get_timestamp()))
-        elif "backend/loadidata" in self.path:
+        elif "backend/loadidata" in path_lower:
             self.send_json_response(self.get_loadidata_response(self.get_timestamp()))
-        elif "base/load" in self.path:
+        elif "base/load" in path_lower:
             self.send_json_response(self.get_base_load_response(self.get_timestamp()))
-        elif "wc/bookmark/load" in self.path:
+        elif "wc/bookmark/load" in path_lower:
             self.send_json_response(self.get_bookmark_load_response(self.get_timestamp()))
-        elif "base/save" in self.path:
-            self.send_json_response(self.get_base_save_response(self.get_timestamp()))
-        elif "base/updatesaved" in self.path or "/updatesaved" in self.path:
+        elif "building/production" in path_lower:
+            self.send_json_response(self.get_building_production_response(self.get_timestamp(), post_data))
+        elif "wc/stats/save" in path_lower:
+            self.send_json_response(self.get_stats_save_response(self.get_timestamp(), post_data))
+        elif "wc/worldmapdata/users" in path_lower:
+            self.send_json_response(self.get_worldmap_users_response(self.get_timestamp(), post_data))
+        elif "player/updateuserdata" in path_lower:
+            self.send_json_response(self.get_update_user_data_response(self.get_timestamp(), post_data))
+        elif "structurelab" in path_lower:
+            self.send_json_response(self.get_generic_save_response(self.get_timestamp(), post_data, "structure_lab_token", "structurelab"))
+        elif "repair/allunits" in path_lower:
+            self.send_json_response(self.get_generic_save_response(self.get_timestamp(), post_data, "repair_token", "repair/allunits"))
+        elif "repair/platoon" in path_lower:
+            self.send_json_response(self.get_generic_save_response(self.get_timestamp(), post_data, "repair_token", "repair/platoon"))
+        elif "repair/all" in path_lower:
+            self.send_json_response(self.get_generic_save_response(self.get_timestamp(), post_data, "repair_token", "repair/all"))
+        elif "/api/platoon" in path_lower:
+            self.send_json_response(self.get_generic_save_response(self.get_timestamp(), post_data, "platoon_token", "platoon"))
+        elif "logistic/discard" in path_lower:
+            self.send_json_response(self.get_generic_save_response(self.get_timestamp(), post_data, "logistic_token", "logistic/discard"))
+        elif "base/save" in path_lower:
+            self.send_json_response(self.get_base_save_response(self.get_timestamp(), post_data))
+        elif "base/updatesaved" in path_lower or "base/updatesave" in path_lower or "/updatesaved" in path_lower:
             self.send_json_response(self.get_updatesaved_response(self.get_timestamp()))
         else:
-            self.send_json_response({"success": True, "error": 0})
+            ts = int(self.get_timestamp())
+            self.send_json_response({
+                "success": True,
+                "error": 0,
+                "currenttime": ts,
+                "server_time": ts,
+                "h": self._hash_of(f"post:{path_lower}:{ts}"),
+                "hn": ts % 10000000
+            })
 
     """
     MOCK RESPONSE GENERATORS
@@ -1203,72 +1855,122 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
     def get_base_load_response(self, ts):
         ts = int(ts)
-        live = self._get_live_template("api/wc/base/load")
-        if isinstance(live, dict):
-            out = self._apply_local_runtime_overrides(live, ts, "api/wc/base/load")
-            pid = self._preferred_player_id()
-            map_id = self._preferred_map_id()
-            map_id_int = self._safe_int(map_id, 1)
-            out["userid"] = str(pid)
-            out["player_id"] = str(pid)
-            if out.get("mapid") in (None, "", 0, "0", "None"):
-                out["mapid"] = str(map_id)
-            if out.get("map_id") in (None, "", 0, "0", "None"):
-                out["map_id"] = map_id_int
-            if out.get("home_map_id") in (None, "", 0, "0", "None"):
-                out["home_map_id"] = map_id_int
-            if out.get("entityid") in (None, "", 0, "0", "None"):
-                out["entityid"] = str(CustomHandler.DEFAULT_PLAYER_ENTITY_ID)
-            if out.get("mapentity") in (None, "", 0, "0", "None"):
-                out["mapentity"] = int(self._safe_int(CustomHandler.DEFAULT_PLAYER_ENTITY_ID, 1))
-            if out.get("tutorialstage") in (None, "", 0, "0", "None"):
-                out["tutorialstage"] = "1000"
-            out["error"] = 0
-            out["success"] = True
-            return out
+        out = self._runtime_snapshot_base(ts, "api/wc/base/load")
 
-        out = self._base_payload(ts)
-        out.update({
-            "error": 0,
-            "success": True,
-            "h": self._hash_of(f"baseload:{ts}"),
-            "hn": ts % 10000000
-        })
+        pid = self._preferred_player_id()
+        map_id = self._preferred_map_id()
+        map_id_int = self._safe_int(map_id, 1)
+        out["userid"] = str(pid)
+        out["player_id"] = str(pid)
+        if out.get("mapid") in (None, "", 0, "0", "None"):
+            out["mapid"] = str(map_id)
+        if out.get("map_id") in (None, "", 0, "0", "None"):
+            out["map_id"] = map_id_int
+        if out.get("home_map_id") in (None, "", 0, "0", "None"):
+            out["home_map_id"] = map_id_int
+        if out.get("entityid") in (None, "", 0, "0", "None"):
+            out["entityid"] = str(CustomHandler.DEFAULT_PLAYER_ENTITY_ID)
+        if out.get("mapentity") in (None, "", 0, "0", "None"):
+            out["mapentity"] = int(self._safe_int(CustomHandler.DEFAULT_PLAYER_ENTITY_ID, 1))
+        if out.get("tutorialstage") in (None, "", 0, "0", "None"):
+            out["tutorialstage"] = "1000"
+
+        active_actions = self._runtime_collect_active_building_actions(ts)
+        if active_actions:
+            existing = out.get("updates")
+            if not isinstance(existing, list):
+                existing = []
+            existing.append({
+                "type": "building_production",
+                "actions": active_actions,
+            })
+            out["updates"] = existing
         return out
 
-    def get_base_save_response(self, ts):
+    def get_base_save_response(self, ts, post_data=None):
         ts = int(ts)
-        live = self._get_live_template("api/wc/base/save")
-        if isinstance(live, dict):
-            out = self._apply_local_runtime_overrides(live, ts, "api/wc/base/save")
-            out["error"] = 0
-            out["success"] = True
-            return out
-
-        return {
-            "error": 0,
-            "success": True,
-            "baseid": 1,
-            "basesaveid": ts,
-            "currenttime": ts,
-            "protected": 0,
-            "bookmarked": 0,
-            "fan": 0,
-            "emailshared": 0,
-            "installsgenerated": 0,
-            "credits": 48,
-            "saving": None,
-            "updates": [],
-            "flags": self._default_flags(),
-            "h": self._hash_of(f"basesave:{ts}"),
-            "hn": ts % 10000000
-        }
+        self._runtime_apply_base_save(post_data, ts)
+        out = self._runtime_snapshot_base(ts, "api/wc/base/save")
+        out["saving"] = None
+        active_actions = self._runtime_collect_active_building_actions(ts)
+        if active_actions:
+            out["updates"] = [{
+                "type": "building_production",
+                "actions": active_actions,
+            }]
+        else:
+            out["updates"] = []
+        return out
 
     def get_updatesaved_response(self, ts):
         ts = int(ts)
-        live = self._get_live_template("api/wc/base/updatesaved")
+        out = self._runtime_snapshot_base(ts, "api/wc/base/updatesaved")
+        pending_updates = self._runtime_take_pending_updates()
+        active_actions = self._runtime_collect_active_building_actions(ts)
+        if active_actions:
+            pending_updates = list(pending_updates) if isinstance(pending_updates, list) else []
+            has_building_production = False
+            for row in pending_updates:
+                if not isinstance(row, dict):
+                    continue
+                row_type = str(row.get("type") or "").strip().lower()
+                if row_type == "building_production":
+                    has_building_production = True
+                    break
+            if not has_building_production:
+                pending_updates.append({
+                    "type": "building_production",
+                    "actions": active_actions,
+                })
+        out["updates"] = pending_updates
+        return out
+
+    def _post_first_value(self, post_data, key, default_value=None):
+        if not isinstance(post_data, dict):
+            return default_value
+        values = post_data.get(key)
+        if not values:
+            return default_value
+        try:
+            return values[0]
+        except Exception:
+            return default_value
+
+    def _post_json_value(self, post_data, key, default_value=None):
+        raw = self._post_first_value(post_data, key, None)
+        if raw in (None, ""):
+            return default_value
+        try:
+            return json.loads(raw)
+        except Exception:
+            return default_value
+
+    def get_building_production_response(self, ts, post_data=None):
+        ts = int(ts)
+        actions = self._post_json_value(post_data, "data", [])
+        if not isinstance(actions, list):
+            actions = []
+        build_token = self._post_first_value(post_data, "building_build_token", "")
+        self._runtime_apply_building_actions(actions, ts)
+        out = self.get_updatesaved_response(ts)
+        if not isinstance(out, dict):
+            out = {}
+
+        if build_token:
+            out["building_build_token"] = str(build_token)
+        out["error"] = 0
+        out["success"] = True
+        out["currenttime"] = ts
+        out["server_time"] = ts
+        out["h"] = self._hash_of(f"buildingproduction:{ts}")
+        out["hn"] = ts % 10000000
+        return out
+
+    def get_stats_save_response(self, ts, post_data=None):
+        ts = int(ts)
+        live = self._get_live_template("api/wc/stats/save")
         if isinstance(live, dict):
-            out = self._apply_local_runtime_overrides(live, ts, "api/wc/base/updatesaved")
+            out = self._apply_local_runtime_overrides(live, ts, "api/wc/stats/save")
             out["error"] = 0
             out["success"] = True
             return out
@@ -1277,20 +1979,113 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             "error": 0,
             "success": True,
             "currenttime": ts,
-            "credits": 48,
-            "protected": 0,
-            "bookmarked": 0,
-            "fan": 0,
-            "emailshared": 0,
-            "installsgenerated": 0,
-            "updates": [],
-            "flags": self._default_flags(),
-            "storeitems": self._default_store_items(),
-            "storedata": self._default_store_data(),
-            "inventory": self._default_inventory(),
-            "h": self._hash_of(f"updatesaved:{ts}"),
+            "server_time": ts,
+            "h": self._hash_of(f"statssave:{ts}"),
             "hn": ts % 10000000
         }
+
+    def get_worldmap_users_response(self, ts, post_data=None):
+        ts = int(ts)
+        live = self._get_live_template("api/wc/worldmapdata/users")
+        if isinstance(live, dict):
+            out = self._apply_local_runtime_overrides(live, ts, "api/wc/worldmapdata/users")
+            out["error"] = 0
+            out["success"] = True
+            return out
+
+        requested_ids = []
+        data_payload = self._post_json_value(post_data, "data", None)
+        if isinstance(data_payload, list):
+            for item in data_payload:
+                try:
+                    requested_ids.append(str(int(item)))
+                except Exception:
+                    pass
+        elif isinstance(data_payload, dict):
+            for key in ("ids", "user_ids", "users"):
+                value = data_payload.get(key)
+                if isinstance(value, list):
+                    for item in value:
+                        try:
+                            requested_ids.append(str(int(item)))
+                        except Exception:
+                            pass
+
+        for key in ("userid", "user_id", "ids", "users"):
+            raw = self._post_first_value(post_data, key, None)
+            if not raw:
+                continue
+            for token in str(raw).split(","):
+                token = token.strip()
+                if not token:
+                    continue
+                try:
+                    requested_ids.append(str(int(token)))
+                except Exception:
+                    pass
+
+        requested_ids = sorted(set(requested_ids))
+        if not requested_ids:
+            requested_ids = [str(self._preferred_player_id())]
+
+        users = []
+        map_id = self._preferred_map_id()
+        for pid in requested_ids:
+            users.append({
+                "userid": str(pid),
+                "player_id": str(pid),
+                "id": str(pid),
+                "basename": "Commander",
+                "name": "Commander",
+                "level": 100,
+                "faction": 0,
+                "mapid": str(map_id),
+                "entityid": str(CustomHandler.DEFAULT_PLAYER_ENTITY_ID),
+            })
+
+        return {
+            "error": 0,
+            "success": True,
+            "currenttime": ts,
+            "server_time": ts,
+            "users": users,
+            "h": self._hash_of(f"worldmapusers:{ts}"),
+            "hn": ts % 10000000
+        }
+
+    def get_update_user_data_response(self, ts, post_data=None):
+        ts = int(ts)
+        live = self._get_live_template("api/player/updateuserdata")
+        if isinstance(live, dict):
+            out = self._apply_local_runtime_overrides(live, ts, "api/player/updateuserdata")
+            out["error"] = 0
+            out["success"] = True
+            return out
+
+        return {
+            "error": 0,
+            "success": True,
+            "currenttime": ts,
+            "server_time": ts,
+            "h": self._hash_of(f"updateuserdata:{ts}"),
+            "hn": ts % 10000000
+        }
+
+    def get_generic_save_response(self, ts, post_data=None, token_field=None, endpoint_tag="genericsave"):
+        ts = int(ts)
+        out = self._runtime_snapshot_base(ts, f"api/{endpoint_tag}")
+        out["updates"] = []
+        if token_field:
+            token_value = self._post_first_value(post_data, token_field, None)
+            if token_value not in (None, ""):
+                out[token_field] = str(token_value)
+        out["error"] = 0
+        out["success"] = True
+        out["currenttime"] = ts
+        out["server_time"] = ts
+        out["h"] = self._hash_of(f"{endpoint_tag}:{ts}")
+        out["hn"] = ts % 10000000
+        return out
 
     def get_bookmark_load_response(self, ts):
         ts = int(ts)
@@ -1443,6 +2238,12 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     def _encode_field_varint(self, field_no, value):
         return self._encode_varint((field_no << 3) | 0) + self._encode_varint(value)
 
+    def _encode_field_sint32(self, field_no, value):
+        value = int(value)
+        # protobuf sint32 uses zig-zag encoding.
+        zz = (value << 1) ^ (value >> 31)
+        return self._encode_varint((field_no << 3) | 0) + self._encode_varint(zz)
+
     def _encode_field_bytes(self, field_no, payload):
         payload = payload or b""
         return self._encode_varint((field_no << 3) | 2) + self._encode_varint(len(payload)) + payload
@@ -1543,6 +2344,87 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             else:
                 break
         return int(CustomHandler.DEFAULT_REGION_ID)
+
+    def _decode_coord_payload(self, payload):
+        out = {
+            "sector": int(CustomHandler.DEFAULT_SECTOR_ID),
+            "x": 10,
+            "y": 10,
+            "region": int(CustomHandler.DEFAULT_REGION_ID),
+        }
+        idx = 0
+        total = len(payload or b"")
+        data = payload or b""
+        while idx < total:
+            tag, idx = self._decode_varint(data, idx)
+            if tag is None:
+                break
+            field_no = tag >> 3
+            wire_type = tag & 7
+            if wire_type == 0:
+                value, idx = self._decode_varint(data, idx)
+                if value is None:
+                    break
+                if field_no == 1:
+                    out["sector"] = int(value)
+                elif field_no == 2:
+                    out["x"] = int(value)
+                elif field_no == 3:
+                    out["y"] = int(value)
+                elif field_no == 4:
+                    out["region"] = int(value)
+            elif wire_type == 2:
+                length, idx = self._decode_varint(data, idx)
+                if length is None:
+                    break
+                idx += int(length)
+                if idx > total:
+                    break
+            else:
+                break
+        return out
+
+    def _decode_get_nearby_entities_request(self, payload):
+        out = {
+            "sector_id": int(CustomHandler.DEFAULT_SECTOR_ID),
+            "region_id": int(CustomHandler.DEFAULT_REGION_ID),
+            "x": 10,
+            "y": 10,
+            "type_id": 5,  # BASE_PLAYER
+        }
+        idx = 0
+        total = len(payload or b"")
+        data = payload or b""
+        while idx < total:
+            tag, idx = self._decode_varint(data, idx)
+            if tag is None:
+                break
+            field_no = tag >> 3
+            wire_type = tag & 7
+            if wire_type == 0:
+                value, idx = self._decode_varint(data, idx)
+                if value is None:
+                    break
+                if field_no == 2:
+                    out["type_id"] = int(value)
+            elif wire_type == 2:
+                length, idx = self._decode_varint(data, idx)
+                if length is None:
+                    break
+                end = idx + int(length)
+                if end > total:
+                    break
+                chunk = data[idx:end]
+                idx = end
+                if field_no == 1:
+                    coord = self._decode_coord_payload(chunk)
+                    out["sector_id"] = int(coord.get("sector", out["sector_id"]))
+                    out["region_id"] = int(coord.get("region", out["region_id"]))
+                    out["x"] = int(coord.get("x", out["x"]))
+                    out["y"] = int(coord.get("y", out["y"]))
+            else:
+                break
+        return out
 
     def _decode_remote_data_message(self, payload):
         row = {
@@ -1699,25 +2581,110 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         owner_id = CustomHandler.DEFAULT_PLAYER_ID if owner_id is None else int(owner_id)
         entity_id = CustomHandler.DEFAULT_PLAYER_ENTITY_ID if entity_id is None else str(entity_id)
 
-        attributes = [
-            ("dp", "0"),
-            ("thoriumTotal", "0"),
-            ("su", str(owner_id)),
-        ]
-        entity_payload = self._build_map_entity_payload(
-            entity_id=entity_id,
-            entity_type=1,
-            sector_id=sector_id,
+        entities = self._build_seed_map_entities(
             region_id=region_id,
-            x=10,
-            y=10,
+            sector_id=sector_id,
             owner_id=owner_id,
-            status=0,
-            attributes=attributes,
+            center_x=10,
+            center_y=10,
+            entity_type=1,
+            first_entity_id=entity_id,
+            include_owner=True,
         )
 
         payload = b""
-        payload += self._encode_field_bytes(1, entity_payload)
+        for entity_payload in entities:
+            payload += self._encode_field_bytes(1, entity_payload)
+        return payload
+
+    def _nearby_type_to_entity_type(self, type_id):
+        return int(CustomHandler.NEARBY_TYPE_TO_ENTITY_TYPE.get(int(type_id), 1))
+
+    def _build_seed_map_entities(
+        self,
+        region_id,
+        sector_id,
+        owner_id,
+        center_x,
+        center_y,
+        entity_type,
+        first_entity_id=None,
+        include_owner=True,
+    ):
+        region_id = int(region_id)
+        sector_id = int(sector_id)
+        owner_id = int(owner_id)
+        center_x = max(0, int(center_x))
+        center_y = max(0, int(center_y))
+        entity_type = int(entity_type)
+
+        try:
+            id_seed = int(first_entity_id if first_entity_id is not None else CustomHandler.DEFAULT_PLAYER_ENTITY_ID)
+        except Exception:
+            id_seed = 1
+
+        offsets = [
+            (0, 0),
+            (5, 0),
+            (-5, 0),
+            (0, 5),
+            (0, -5),
+            (8, 4),
+            (-8, -4),
+            (10, -3),
+            (-10, 3),
+        ]
+
+        out = []
+        for idx, (dx, dy) in enumerate(offsets):
+            x = max(0, center_x + dx)
+            y = max(0, center_y + dy)
+            entity_owner = owner_id + idx if include_owner else None
+            attrs = [
+                ("dp", "0"),
+                ("thoriumTotal", "0"),
+            ]
+            if entity_owner is not None:
+                attrs.append(("su", str(entity_owner)))
+            out.append(
+                self._build_map_entity_payload(
+                    entity_id=str(id_seed + idx),
+                    entity_type=entity_type,
+                    sector_id=sector_id,
+                    region_id=region_id,
+                    x=x,
+                    y=y,
+                    owner_id=entity_owner,
+                    status=0,
+                    attributes=attrs,
+                )
+            )
+        return out
+
+    def _build_nearby_response_payload(self, type_id=None, region_id=None, sector_id=None, x=None, y=None, owner_id=None):
+        type_id = 5 if type_id is None else int(type_id)
+        region_id = CustomHandler.DEFAULT_REGION_ID if region_id is None else int(region_id)
+        sector_id = CustomHandler.DEFAULT_SECTOR_ID if sector_id is None else int(sector_id)
+        x = 10 if x is None else int(x)
+        y = 10 if y is None else int(y)
+        owner_id = CustomHandler.DEFAULT_PLAYER_ID if owner_id is None else int(owner_id)
+
+        entity_type = self._nearby_type_to_entity_type(type_id)
+        include_owner = entity_type in (1, 2, 3)
+        entities = self._build_seed_map_entities(
+            region_id=region_id,
+            sector_id=sector_id,
+            owner_id=owner_id,
+            center_x=x,
+            center_y=y,
+            entity_type=entity_type,
+            include_owner=include_owner,
+        )
+
+        payload = b""
+        payload += self._encode_field_sint32(1, type_id)
+        for entity_payload in entities:
+            payload += self._encode_field_bytes(2, entity_payload)
         return payload
 
     def _build_blocked_rf_bases_payload(self):
@@ -1776,8 +2743,9 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 v = int(token)
             except Exception:
                 continue
-            if 0 <= v <= 255:
-                values.append(v)
+            # OpenFL can stringify ByteArray with signed byte values (-128..127).
+            # Preserve all bytes by normalizing into unsigned 0..255.
+            values.append(v & 255)
         if not values:
             return None
         return bytes(values)
@@ -1994,6 +2962,40 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             enqueue(self._build_gateway_action_packet(2, 1102, entity_payload, timestamp))
             return True
 
+        if handler == 2 and action_id == 103:
+            # GET_NEARBY_ENTITIES -> NEARBY_ENTITIES_RESPONSE
+            nearby_req = self._decode_get_nearby_entities_request(payload)
+            region_id = int(nearby_req.get("region_id", CustomHandler.DEFAULT_REGION_ID))
+            sector_id = int(nearby_req.get("sector_id", CustomHandler.DEFAULT_SECTOR_ID))
+            x = int(nearby_req.get("x", 10))
+            y = int(nearby_req.get("y", 10))
+            type_id = int(nearby_req.get("type_id", 5))
+
+            # Compatibility path: also push a visible-entity update so clients that
+            # bind population to visible updates still receive map entities.
+            visible_payload = b""
+            for entity_payload in self._build_seed_map_entities(
+                region_id=region_id,
+                sector_id=sector_id,
+                owner_id=CustomHandler.DEFAULT_PLAYER_ID,
+                center_x=x,
+                center_y=y,
+                entity_type=self._nearby_type_to_entity_type(type_id),
+                include_owner=True,
+            ):
+                visible_payload += self._encode_field_bytes(1, entity_payload)
+            enqueue(self._build_gateway_action_packet(2, 1102, visible_payload, timestamp))
+
+            nearby_payload = self._build_nearby_response_payload(
+                type_id=type_id,
+                region_id=region_id,
+                sector_id=sector_id,
+                x=x,
+                y=y,
+            )
+            enqueue(self._build_gateway_action_packet(2, 1103, nearby_payload, timestamp))
+            return True
+
         if handler == 2 and action_id == 106:
             blocked_payload = self._build_blocked_rf_bases_payload()
             enqueue(self._build_gateway_action_packet(2, 1106, blocked_payload, timestamp))
@@ -2150,6 +3152,11 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 pass
 
         decoded_actions = self._decode_delimited_actions(decoded_data)
+        if not decoded_actions:
+            # Some runtimes send a single action payload without length delimiters.
+            single_action = self._decode_action_message(decoded_data)
+            if single_action.get("handler") is not None and single_action.get("actionId") is not None:
+                decoded_actions = [single_action]
         for action in decoded_actions:
             key = (action.get("handler"), action.get("actionId"))
             if key not in CustomHandler.gateway_seen_actions:
@@ -2200,7 +3207,18 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         self.send_json_response({"success": True})
 
 class ThreadingSimpleServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
-    allow_reuse_address = True
+    # Multiple local server.py instances on Windows can silently bind the same
+    # port when address reuse is enabled, causing non-deterministic state.
+    # Keep bind exclusive so one process owns :8089.
+    allow_reuse_address = False
+
+    def server_bind(self):
+        if os.name == "nt":
+            try:
+                self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+            except Exception:
+                pass
+        return super().server_bind()
 
 if __name__ == '__main__':
     print(f"Starting server on port {PORT}...")

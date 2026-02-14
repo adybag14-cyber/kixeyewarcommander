@@ -8,6 +8,7 @@ const METRIC_INTERVAL_MS = 5000;
 
 const SENSITIVE_QUERY_KEYS = new Set([
     "kixigned_request",
+    "signed_request",
     "kxltoken",
     "token",
     "session",
