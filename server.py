@@ -3127,7 +3127,47 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             max_entities = len(offsets)
         if max_entities <= 0:
             max_entities = 1
-        return offsets[: min(max_entities, len(offsets))]
+        if max_entities <= len(offsets):
+            return offsets[:max_entities]
+
+        # Expand around the center in square rings so we can mirror the dense
+        # live worldmap entity sets (dozens of nearby entities) without hardcoding
+        # a fixed offset table.
+        out = list(offsets)
+        seen = set(out)
+        step = 3
+        radius = 4
+
+        while len(out) < max_entities and radius < 256:
+            for dx in range(-radius, radius + 1):
+                for dy in (-radius, radius):
+                    point = (dx * step, dy * step)
+                    if point in seen:
+                        continue
+                    seen.add(point)
+                    out.append(point)
+                    if len(out) >= max_entities:
+                        break
+                if len(out) >= max_entities:
+                    break
+            if len(out) >= max_entities:
+                break
+
+            for dy in range(-radius + 1, radius):
+                for dx in (-radius, radius):
+                    point = (dx * step, dy * step)
+                    if point in seen:
+                        continue
+                    seen.add(point)
+                    out.append(point)
+                    if len(out) >= max_entities:
+                        break
+                if len(out) >= max_entities:
+                    break
+
+            radius += 1
+
+        return out[:max_entities]
 
     def _encode_special_attributes_value(self, tokens):
         seen = set()
@@ -3145,28 +3185,76 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         entity_type = int(entity_type)
         idx = int(idx)
         entity_id = str(entity_id)
-        attrs = [("dp", "0")]
+        attrs = [("dp", "0"), ("thoriumTotal", "0"), ("faction_id", "0"), ("ignore_obstacles", "0")]
         special_tokens = []
 
         if owner_id is not None:
             attrs.append(("su", str(int(owner_id))))
 
-        if entity_type in (1, 3):
-            attrs.append(("baseId", entity_id))
+        if entity_type == 1:
+            try:
+                preferred_owner_id = int(self._preferred_player_id())
+            except Exception:
+                preferred_owner_id = int(owner_id) if owner_id is not None else int(CustomHandler.DEFAULT_PLAYER_ID)
+
+            damage = "0" if owner_id is not None and int(owner_id) == preferred_owner_id else "100"
+            level = 30 + (idx % 15)
+            attrs.extend(
+                [
+                    ("baseId", entity_id),
+                    ("damage", damage),
+                    ("level", str(level)),
+                    ("cCLevel", str(8 + (idx % 14))),
+                    ("saLevel", str(12 + (idx % 40))),
+                    ("weapons_lab_storage_multiplier", "1.0"),
+                    ("thoriumCapacity", str(20000000 + ((idx % 18) * 3000000))),
+                    ("pvp_rating", "0.0"),
+                    ("pvp_honor_rating", "0.0"),
+                    ("pvp_num_attacks", "0"),
+                    ("nt", str(int(time.time() * 1000) + 3600000)),
+                ]
+            )
+
+            if type_id == 8:
+                # Companion event bases are player-base entities with companion tag.
+                special_tokens.append("companion")
+                attrs.extend(
+                    [
+                        ("rogueFactionId", "1"),
+                        ("rogueFactionType", "8"),
+                    ]
+                )
 
         if entity_type == 3:
-            faction_cycle = [1, 2, 7, 9, 11]
-            rf_id = faction_cycle[idx % len(faction_cycle)]
+            rf_id = 6
             rf_type = 1
-            level = 20 + (idx % 25)
+            level = 5 + ((idx % 12) * 5)
+            analytics_tag = "event"
+            spawn_rule = "supplydepot_range_10_100"
+            award_on_destroy = "supplydepot"
 
+            # Live captures show the dense worldmap set split across rogue faction
+            # types 1/42/43 with spawnRuleName + analyticsTag metadata.
             if type_id == 6:
                 # Hunt event bases are attackable by all.
                 special_tokens.append("attackable_by_all")
-                rf_type = 8
+                rf_type = 1
+                rf_id = 6
+                analytics_tag = "event"
+                spawn_rule = "supplydepot_range_10_100"
+                award_on_destroy = "supplydepot"
             elif type_id == 7:
-                # Fortress event variants.
-                rf_type = 10
+                rf_type = 43
+                rf_id = 19
+                analytics_tag = "retaliation"
+                retaliation_profiles = [
+                    ("retaliation_macedon_f_sector", "macedonrepairbase", 10),
+                    ("retaliation_metatron_f_sector", "metatronrepairbase", 15),
+                    ("retaliation_tachyon_f_sector", "tachyonrepairbase", 5),
+                    ("retaliation_base2_test_f_sector", "", 60),
+                ]
+                spawn_rule, award_on_destroy, level = retaliation_profiles[idx % len(retaliation_profiles)]
+                # Preserve event markers expected by local UI probes.
                 variant = idx % 3
                 if variant == 0:
                     special_tokens.append("fortress")
@@ -3174,27 +3262,37 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     special_tokens.append("satellite")
                 else:
                     special_tokens.extend(["fortress", "megafortress"])
+            elif type_id == 4:
+                rf_type = 42
+                rf_id = 15 + (idx % 8)
+                analytics_tag = "faction"
+                faction_profiles = [
+                    ("faction_base_alpha_sector", "", 18),
+                    ("faction_base_beta_sector", "", 22),
+                    ("faction_base_gamma_sector", "", 26),
+                    ("faction_base_delta_sector", "", 30),
+                ]
+                spawn_rule, award_on_destroy, level = faction_profiles[idx % len(faction_profiles)]
+            elif type_id == 10:
+                rf_type = 44
+                rf_id = 1 + (idx % 3)
+                analytics_tag = "eradication"
+                spawn_rule = "eradication_infestation_sector"
+                award_on_destroy = ""
+                level = 10 + idx
 
             attrs.extend(
                 [
                     ("rogueFactionId", str(rf_id)),
                     ("rogueFactionType", str(rf_type)),
                     ("level", str(level)),
-                    ("thoriumTotal", "0"),
+                    ("analyticsTag", analytics_tag),
+                    ("spawnRuleName", spawn_rule),
+                    ("baseId", "0"),
                 ]
             )
-
-        elif entity_type == 1 and type_id == 8:
-            # Companion event bases are player-base entities with companion tag.
-            special_tokens.append("companion")
-            attrs.extend(
-                [
-                    ("rogueFactionId", "1"),
-                    ("rogueFactionType", "8"),
-                    ("level", str(15 + (idx % 10))),
-                    ("thoriumTotal", "0"),
-                ]
-            )
+            if award_on_destroy:
+                attrs.append(("awardOnDestroy", award_on_destroy))
 
         elif entity_type in (4, 5, 6, 8, 11):
             # Deposits expose size/faction fields used by worldmap rollovers.
@@ -3208,8 +3306,6 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             )
             if entity_type == 6:
                 attrs.append(("thoriumTotal", str(5000 + idx * 750)))
-            else:
-                attrs.append(("thoriumTotal", "0"))
 
         elif entity_type == 10:
             # Eradication infestation nearby entries are crater entities.
@@ -3219,12 +3315,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     ("rogueFactionId", str(1 + (idx % 3))),
                     ("rogueFactionType", "44"),
                     ("level", str(10 + idx)),
-                    ("thoriumTotal", "0"),
                 ]
             )
-
-        else:
-            attrs.append(("thoriumTotal", "0"))
 
         special_value = self._encode_special_attributes_value(special_tokens)
         if special_value:
@@ -3299,8 +3391,9 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             id_seed = 1
 
         entities = []
-        # Blend player, rogue-faction and event entities so UI paths for faction/event
-        # buttons are available without relying on live backend data.
+        # Mirror the denser live worldmap mix:
+        # - player bases (type 1)
+        # - event/faction/retaliation rogue bases (type 3, rogueFactionType 1/42/43)
         entities.extend(
             self._build_seed_entities_for_nearby_type(
                 type_id=5,
@@ -3310,7 +3403,19 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 center_x=center_x,
                 center_y=center_y,
                 first_entity_id=id_seed,
-                max_entities=5,
+                max_entities=16,
+            )
+        )
+        entities.extend(
+            self._build_seed_entities_for_nearby_type(
+                type_id=6,
+                region_id=region_id,
+                sector_id=sector_id,
+                owner_id=owner_id,
+                center_x=center_x + 12,
+                center_y=center_y - 8,
+                first_entity_id=id_seed + 100,
+                max_entities=16,
             )
         )
         entities.extend(
@@ -3319,10 +3424,10 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 region_id=region_id,
                 sector_id=sector_id,
                 owner_id=owner_id,
-                center_x=center_x + 12,
-                center_y=center_y - 8,
-                first_entity_id=id_seed + 100,
-                max_entities=2,
+                center_x=center_x - 14,
+                center_y=center_y + 10,
+                first_entity_id=id_seed + 200,
+                max_entities=19,
             )
         )
         entities.extend(
@@ -3331,22 +3436,10 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 region_id=region_id,
                 sector_id=sector_id,
                 owner_id=owner_id,
-                center_x=center_x - 14,
-                center_y=center_y + 10,
-                first_entity_id=id_seed + 200,
-                max_entities=1,
-            )
-        )
-        entities.extend(
-            self._build_seed_entities_for_nearby_type(
-                type_id=8,
-                region_id=region_id,
-                sector_id=sector_id,
-                owner_id=owner_id,
-                center_x=center_x + 6,
-                center_y=center_y + 12,
+                center_x=center_x + 18,
+                center_y=center_y + 14,
                 first_entity_id=id_seed + 300,
-                max_entities=1,
+                max_entities=43,
             )
         )
         return entities
