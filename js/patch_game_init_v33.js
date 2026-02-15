@@ -623,7 +623,14 @@
                 if (this.sessionId == null || this.sessionId === "" || this.sessionId === "undefined") {
                     this.sessionId = "local_session";
                 }
-                return originalGetRequiredParameters.apply(this, arguments);
+                var out = originalGetRequiredParameters.apply(this, arguments);
+                if (typeof out !== "string") out = String(out || "");
+                // URLStream in this build only exposes binary payload on request completion.
+                // Force one-shot poll requests so each response completes and yields bytes.
+                if (out.indexOf("oneshot=") === -1 && out.indexOf("pollonce=") === -1 && out.indexOf("once=") === -1) {
+                    out += (out.indexOf("?") === -1 ? "?" : "&") + "oneshot=1";
+                }
+                return out;
             };
         }
 
@@ -641,9 +648,18 @@
             };
         }
 
+        if (typeof proto.disconnect === "function") {
+            var originalDisconnect = proto.disconnect;
+            proto.disconnect = function () {
+                this.__patchV33GatewayManualDisconnect = true;
+                return originalDisconnect.apply(this, arguments);
+            };
+        }
+
         if (typeof proto.createConnection === "function") {
             var originalCreateConnection = proto.createConnection;
             proto.createConnection = function () {
+                this.__patchV33GatewayManualDisconnect = false;
                 var result = originalCreateConnection.apply(this, arguments);
                 var self = this;
 
@@ -675,6 +691,38 @@
 
                 return result;
             };
+        }
+
+        if (typeof proto.onClose === "function" && !proto.__patchedGatewayHttpPollReconnect) {
+            var originalOnClose = proto.onClose;
+            proto.onClose = function () {
+                var self = this;
+                var shouldReconnect = !self.__patchV33GatewayManualDisconnect;
+
+                // Ensure final response bytes are processed before reconnecting.
+                try {
+                    if (self.stream && typeof self.onResponse === "function") {
+                        self.onResponse({ target: self.stream });
+                    }
+                } catch (_finalResponseErr) { }
+
+                var out = originalOnClose.apply(self, arguments);
+
+                if (shouldReconnect) {
+                    setTimeout(function () {
+                        try {
+                            if (!self.stream && !self.connecting && self._currentHost && self._currentPort) {
+                                self.createConnection(self._currentHost, self._currentPort);
+                            }
+                        } catch (reopenErr) {
+                            console.warn("[PATCH V33] GatewayHttpConnection poll reopen failed:", reopenErr);
+                        }
+                    }, 25);
+                }
+
+                return out;
+            };
+            proto.__patchedGatewayHttpPollReconnect = true;
         }
 
         proto.__patchedGatewayHttpBootstrap = true;
@@ -856,12 +904,122 @@
         console.log("[PATCH V33] MissionToolServiceWrapper safety enabled.");
     }
 
+    function patchAttackLogServiceFallback() {
+        var hx = window._hx_classes || {};
+        var AttacklogService = hx["com.cc.attacklog.model.AttacklogService"];
+        if (!AttacklogService || !AttacklogService.prototype || AttacklogService.prototype.__patchedAttackLogServiceFallback) return;
+
+        var proto = AttacklogService.prototype;
+        var originalGetService = (typeof proto.get_service === "function") ? proto.get_service : null;
+        var originalIsServiceReady = (typeof proto.isServiceReady === "function") ? proto.isServiceReady : null;
+
+        function buildLocalStub(owner) {
+            if (!owner) return null;
+            if (owner.__patchV33AttackLogLocalStub) return owner.__patchV33AttackLogLocalStub;
+
+            function buildProtoUser(userId) {
+                var nowMs = Date.now();
+                var uid = String(userId == null ? "33123969" : userId);
+                return {
+                    get_userId: function () { return uid; },
+                    get_level: function () { return 44; },
+                    get_infamy: function () { return 0; },
+                    get_mapId: function () { return "1"; },
+                    get_baseCoordX: function () { return 249; },
+                    get_baseCoordY: function () { return 249; },
+                    get_lastBattleTimestamp: function () { return nowMs - (2 * 60 * 60 * 1000); },
+                    get_battleRole: function () { return 0; },
+                    get_hasDamageProtection: function () { return false; },
+                    get_vanityPrize: function () { return 0; }
+                };
+            }
+
+            function defer(fn) {
+                setTimeout(function () {
+                    try {
+                        fn();
+                    } catch (stubErr) {
+                        console.warn("[PATCH V33] Attack Log local stub callback failed:", stubErr);
+                    }
+                }, 0);
+            }
+
+            owner.__patchV33AttackLogLocalStub = {
+                addEventListener: function () { },
+                removeEventListener: function () { },
+                requestHasAttackEntriesSince: function (_timestampMs) {
+                    defer(function () { owner.onHasBattlesSinceResponse(false); });
+                },
+                requestHasAttackEntriesWithEnemy: function (enemyUserId) {
+                    defer(function () { owner.onHasBattlesWithUserResponse(enemyUserId, false); });
+                },
+                requestGetRecentEnemiesUserData: function (_olderThanMs, _limit, _queryTimestampMs) {
+                    defer(function () {
+                        owner.onRecentEnemiesResponse([
+                            buildProtoUser("33123969")
+                        ]);
+                    });
+                },
+                requestGetAttackEntriesWithEnemy: function (_enemyUserId, _limit, _olderThanMs) {
+                    defer(function () { owner.onGetAttackEntriesWithUserResponse([]); });
+                },
+                requestGetAttackUserData: function (enemyUserId) {
+                    defer(function () { owner.onAttackUserDataResponse(buildProtoUser(enemyUserId)); });
+                }
+            };
+            return owner.__patchV33AttackLogLocalStub;
+        }
+
+        proto.get_service = function () {
+            var service = null;
+            try {
+                service = originalGetService ? originalGetService.call(this) : this._mapService;
+            } catch (_getServiceErr) {
+                service = this._mapService;
+            }
+            if (service) return service;
+
+            var stub = buildLocalStub(this);
+            this._mapService = stub;
+            return stub;
+        };
+
+        proto.isServiceReady = function () {
+            try {
+                if (originalIsServiceReady && originalIsServiceReady.call(this)) return true;
+            } catch (_readyErr) { }
+            return !!this.get_service();
+        };
+
+        var AttackLogPopup = hx["com.cc.attacklog.ui.attack_log_popup.AttackLogPopup"];
+        if (AttackLogPopup && !AttackLogPopup.__patchedAttackLogPopupAvailability) {
+            var originalPopupAvailable = (typeof AttackLogPopup.isPopupAvailable === "function") ? AttackLogPopup.isPopupAvailable : null;
+            AttackLogPopup.isPopupAvailable = function () {
+                try {
+                    if (originalPopupAvailable && originalPopupAvailable()) return true;
+                } catch (_popupAvailErr) { }
+                try {
+                    var ConflictManager = hx["com.cc.attacklog.model.ConflictManager"];
+                    var manager = ConflictManager && typeof ConflictManager.get_instance === "function" ? ConflictManager.get_instance() : null;
+                    return !!(manager && typeof manager.isServiceReady === "function" && manager.isServiceReady());
+                } catch (_fallbackReadyErr) {
+                    return true;
+                }
+            };
+            AttackLogPopup.__patchedAttackLogPopupAvailability = true;
+        }
+
+        AttacklogService.prototype.__patchedAttackLogServiceFallback = true;
+        console.log("[PATCH V33] Attack Log service fallback enabled.");
+    }
+
     function patchAttackLogTimeoutSafety() {
         var hx = window._hx_classes || {};
         var AttacklogService = hx["com.cc.attacklog.model.AttacklogService"];
         if (!AttacklogService || !AttacklogService.prototype || AttacklogService.prototype.__patchedAttackLogTimeoutSafety) return;
 
         var proto = AttacklogService.prototype;
+        var originalPopupError = (typeof proto.popupError === "function") ? proto.popupError : null;
 
         function dispatchFallback(callback, queryType) {
             if (typeof callback !== "function") return;
@@ -884,13 +1042,11 @@
             callback();
         }
 
-        if (typeof proto.popupError === "function") {
-            proto.popupError = function (_title, _message, queryType) {
-                var now = Date.now();
-                var lastWarnAt = this.__patchV33AttackLogTimeoutWarnAt || 0;
-                if ((now - lastWarnAt) > 8000) {
-                    this.__patchV33AttackLogTimeoutWarnAt = now;
-                    console.warn("[PATCH V33] Suppressed Attack Log timeout popup for query " + queryType + ".");
+        if (originalPopupError) {
+            proto.popupError = function (_title, _message, _queryType) {
+                if (this && !this.__patchV33AttackLogPopupSuppressed) {
+                    this.__patchV33AttackLogPopupSuppressed = true;
+                    console.warn("[PATCH V33] Suppressed Attack Log error popup in local mode.");
                 }
             };
         }
@@ -903,7 +1059,6 @@
                 } catch (_queryTypeErr) { }
 
                 var callback = this._currentQueryCallback || null;
-                var self = this;
 
                 setTimeout(function () {
                     try {
@@ -911,12 +1066,7 @@
                     } catch (fallbackErr) {
                         console.warn("[PATCH V33] Attack Log fallback callback failed:", fallbackErr);
                     }
-                    try {
-                        self.issueNextQuery();
-                    } catch (_issueNextErr) { }
                 }, 0);
-
-                this.popupError("ERROR", "Error retrieving Attack Log data. Try again.", queryType);
             };
         }
 
@@ -1183,7 +1333,8 @@
             y: 0,
             at: 0,
             moved: false,
-            lastToggleAt: 0
+            lastToggleAt: 0,
+            lastAttackLogAt: 0
         };
 
         function isInsideWorldMapButton(clientX, clientY) {
@@ -1202,6 +1353,32 @@
             return clientX >= left && clientX <= right && clientY >= top && clientY <= bottom;
         }
 
+        function isInsideAttackLogButton(clientX, clientY) {
+            var width = window.innerWidth || (document.documentElement && document.documentElement.clientWidth) || 0;
+            var height = window.innerHeight || (document.documentElement && document.documentElement.clientHeight) || 0;
+            if (width < 600 || height < 400) return false;
+
+            var left = width - 150;
+            var right = width - 8;
+            var top = 46;
+            var bottom = 118;
+
+            return clientX >= left && clientX <= right && clientY >= top && clientY <= bottom;
+        }
+
+        function openAttackLogFallback() {
+            var hx = window._hx_classes || {};
+            var AttackLogPopup = hx["com.cc.attacklog.ui.attack_log_popup.AttackLogPopup"];
+            if (!AttackLogPopup || typeof AttackLogPopup.open !== "function") return false;
+
+            try {
+                AttackLogPopup.open("-1");
+                return !!AttackLogPopup._instance;
+            } catch (attackLogErr) {
+                console.warn("[PATCH V33] HUD fallback failed to open Attack Log popup:", attackLogErr);
+            }
+            return false;
+        }
         window.addEventListener("pointerdown", function (evt) {
             if (!evt) return;
             if (typeof evt.button === "number" && evt.button !== 0) return;
@@ -1244,6 +1421,18 @@
                 }
             }
 
+            if (isInsideAttackLogButton(evt.clientX, evt.clientY)) {
+                if (pointerState.lastAttackLogAt && (now - pointerState.lastAttackLogAt) < 600) return;
+                pointerState.lastAttackLogAt = now;
+                if (openAttackLogFallback()) {
+                    try {
+                        if (typeof evt.stopImmediatePropagation === "function") evt.stopImmediatePropagation();
+                        if (typeof evt.preventDefault === "function") evt.preventDefault();
+                    } catch (_attackLogEventStopErr) { }
+                    console.warn("[PATCH V33] HUD fallback opened Attack Log popup.");
+                    return;
+                }
+            }
             if (!isInsideWorldMapButton(evt.clientX, evt.clientY)) return;
 
             var hx = window._hx_classes || {};
@@ -3713,6 +3902,284 @@
         WidgetColorBar.prototype.__patchedSafeOnSwfLoaded = true;
     }
 
+    function patchUnitCardSafety() {
+        var hx = window._hx_classes || {};
+        var WidgetCard = hx["com.cc.widget.cards.WidgetCard"];
+        var WidgetUnitCard = hx["com.cc.widget.cards.WidgetUnitCard"];
+
+        function shouldSuppressCardError(err) {
+            var msg = String((err && err.message) || err || "");
+            return msg.indexOf("addChild") !== -1 ||
+                msg.indexOf("removeChild") !== -1 ||
+                msg.indexOf("contains") !== -1 ||
+                msg.indexOf("null") !== -1;
+        }
+
+        function ensureCardInitialized(card) {
+            if (!card || card._background) return !!(card && card._background);
+
+            try {
+                if (typeof card.buildIfReady === "function") {
+                    card.buildIfReady();
+                }
+            } catch (_buildErr) { }
+
+            if (card._background) return true;
+
+            try {
+                if (typeof card.areAssetsLoaded === "function" && card.areAssetsLoaded() && typeof card.initialize === "function") {
+                    card.initialize();
+                }
+            } catch (_initErr) { }
+
+            return !!card._background;
+        }
+
+        function createFallbackFrame() {
+            var Sprite = hx["openfl.display.Sprite"] ||
+                hx["openfl.display.MovieClip"] ||
+                (window.openfl && window.openfl.display && window.openfl.display.Sprite);
+            if (!Sprite) return null;
+            try {
+                return new Sprite();
+            } catch (_spriteErr) {
+                return null;
+            }
+        }
+
+        if (WidgetCard && WidgetCard.prototype && !WidgetCard.prototype.__patchedSafeWidgetCard) {
+            var cardProto = WidgetCard.prototype;
+
+            if (typeof cardProto.initialize === "function") {
+                var originalInitialize = cardProto.initialize;
+                cardProto.initialize = function () {
+                    var result = originalInitialize.apply(this, arguments);
+                    try {
+                        if (this.__pendingCardTitle != null && this._title && typeof this._title.set_text === "function") {
+                            this._title.set_text(this.__pendingCardTitle);
+                        }
+                    } catch (_pendingTitleErr) { }
+                    try {
+                        if (this.__pendingCardBottomText != null && this._bottomText && typeof this._bottomText.set_text === "function") {
+                            this._bottomText.set_text(this.__pendingCardBottomText);
+                        }
+                    } catch (_pendingBottomErr) { }
+                    try {
+                        if (this.__pendingCardArtId != null && typeof this.setBackgroundFromRarityArtId === "function") {
+                            this.setBackgroundFromRarityArtId(this.__pendingCardArtId);
+                        }
+                    } catch (_pendingArtErr) { }
+                    return result;
+                };
+            }
+
+            if (typeof cardProto.setBackgroundFromRarityArtId === "function") {
+                var originalSetBackgroundFromRarityArtId = cardProto.setBackgroundFromRarityArtId;
+                cardProto.setBackgroundFromRarityArtId = function (artId) {
+                    this._artId = (artId == null || artId === "") ? "default" : artId;
+                    this.__pendingCardArtId = this._artId;
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._background || typeof this._background.addChild !== "function") return;
+                        return originalSetBackgroundFromRarityArtId.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        try {
+                            if (this._background && typeof this._background.addChild === "function") {
+                                if (typeof H !== "undefined" && H && typeof H.clearChildren === "function") {
+                                    H.clearChildren(this._background);
+                                }
+                                var frame = null;
+                                try {
+                                    frame = (typeof this.getFrameFromArtId === "function") ? this.getFrameFromArtId(this._artId) : null;
+                                } catch (_frameErr) { }
+                                if (!frame) frame = createFallbackFrame();
+                                if (frame) this._background.addChild(frame);
+                                if (typeof this.updateLength === "function") this.updateLength();
+                            }
+                        } catch (_fallbackErr) { }
+                        console.warn("[PATCH V33] WidgetCard.setBackgroundFromRarityArtId suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.set_title === "function") {
+                var originalSetTitle = cardProto.set_title;
+                cardProto.set_title = function (value) {
+                    this.__pendingCardTitle = value;
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._title || typeof this._title.set_text !== "function") return value;
+                        return originalSetTitle.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.set_title suppressed:", e);
+                        return value;
+                    }
+                };
+            }
+
+            if (typeof cardProto.set_bottomText === "function") {
+                var originalSetBottomText = cardProto.set_bottomText;
+                cardProto.set_bottomText = function (value) {
+                    this.__pendingCardBottomText = value;
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._bottomText || typeof this._bottomText.set_text !== "function") return value;
+                        return originalSetBottomText.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.set_bottomText suppressed:", e);
+                        return value;
+                    }
+                };
+            }
+
+            if (typeof cardProto.set_isSelected === "function") {
+                var originalSetIsSelected = cardProto.set_isSelected;
+                cardProto.set_isSelected = function (value) {
+                    this._isSelected = !!value;
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._backgroundButton || typeof this._backgroundButton.set_selected !== "function") return this._isSelected;
+                        return originalSetIsSelected.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.set_isSelected suppressed:", e);
+                        return this._isSelected;
+                    }
+                };
+            }
+
+            if (typeof cardProto.isClickable === "function") {
+                var originalIsClickable = cardProto.isClickable;
+                cardProto.isClickable = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._backgroundButton || typeof this._backgroundButton.set_enabled !== "function") return;
+                        return originalIsClickable.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.isClickable suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.addToCenterOverlay === "function") {
+                var originalAddToCenterOverlay = cardProto.addToCenterOverlay;
+                cardProto.addToCenterOverlay = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._centerContainer || typeof this._centerContainer.addChild !== "function") return;
+                        return originalAddToCenterOverlay.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.addToCenterOverlay suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.clearCenterOverlay === "function") {
+                var originalClearCenterOverlay = cardProto.clearCenterOverlay;
+                cardProto.clearCenterOverlay = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._centerContainer) return;
+                        return originalClearCenterOverlay.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.clearCenterOverlay suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.removeFromCenterOverlay === "function") {
+                var originalRemoveFromCenterOverlay = cardProto.removeFromCenterOverlay;
+                cardProto.removeFromCenterOverlay = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._centerContainer || typeof this._centerContainer.contains !== "function") return;
+                        return originalRemoveFromCenterOverlay.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.removeFromCenterOverlay suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.updateLength === "function") {
+                var originalUpdateLength = cardProto.updateLength;
+                cardProto.updateLength = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._background) return;
+                        return originalUpdateLength.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.updateLength suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.hideBackground === "function") {
+                var originalHideBackground = cardProto.hideBackground;
+                cardProto.hideBackground = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._background) return;
+                        return originalHideBackground.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.hideBackground suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            WidgetCard.prototype.__patchedSafeWidgetCard = true;
+        }
+
+        if (WidgetUnitCard && WidgetUnitCard.prototype && !Object.prototype.hasOwnProperty.call(WidgetUnitCard.prototype, "__patchedSafeWidgetUnitCard")) {
+            var unitProto = WidgetUnitCard.prototype;
+
+            if (typeof unitProto.populatePortrait === "function") {
+                var originalPopulatePortrait = unitProto.populatePortrait;
+                unitProto.populatePortrait = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._foreground || typeof this._foreground.addChild !== "function") return;
+                        return originalPopulatePortrait.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetUnitCard.populatePortrait suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof unitProto.set_promotionId === "function") {
+                var originalSetPromotionId = unitProto.set_promotionId;
+                unitProto.set_promotionId = function () {
+                    try {
+                        return originalSetPromotionId.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetUnitCard.set_promotionId suppressed:", e);
+                        return this._promotionId || 0;
+                    }
+                };
+            }
+
+            WidgetUnitCard.prototype.__patchedSafeWidgetUnitCard = true;
+        }
+    }
+
     function patchUpdatesCheck() {
         var UPDATES = window._hx_classes && window._hx_classes["UPDATES"];
         if (!UPDATES || UPDATES.__patchedSafeCheck || !UPDATES.Check) return;
@@ -3773,7 +4240,9 @@
     }
 
     function patchStoreSafety() {
-        var STORE = window._hx_classes && window._hx_classes["STORE"];
+        var hx = window._hx_classes || {};
+        var STORE = hx["com.cc.purchase.store.StoreManager"] || hx["STORE"];
+        var STORE_ALIAS = hx["STORE"];
         if (!STORE || STORE.__patchedSafeStore) return;
 
         function asInt(value) {
@@ -3829,6 +4298,209 @@
             return out;
         }
 
+        function ensureStoreStatics() {
+            var now = (Date.now() / 1000) | 0;
+            var fallbackStoreId = "Daily Deals";
+            var fallbackCategory = "All";
+            var fallbackSubcategory = "All";
+            function makeIterableMap(hash) {
+                var data = (hash && typeof hash === "object") ? hash : {};
+                return {
+                    h: data,
+                    iterator: function () {
+                        var keys = Object.keys(this.h || {});
+                        var index = 0;
+                        var self = this;
+                        return {
+                            hasNext: function () {
+                                return index < keys.length;
+                            },
+                            next: function () {
+                                var key = keys[index++];
+                                return self.h[key];
+                            }
+                        };
+                    }
+                };
+            }
+
+            var fallbackUIConfig = {
+                storeToConfig: makeIterableMap({}),
+                getSortedStoreIds: function () {
+                    return [fallbackStoreId];
+                }
+            };
+            fallbackUIConfig.storeToConfig.h[fallbackStoreId] = {
+                displayName: fallbackStoreId,
+                storeIcon: "",
+                costSku: "gold"
+            };
+
+            var fallbackHierarchy = makeIterableMap({});
+            fallbackHierarchy.h[fallbackStoreId] = {
+                sortedCategories: [fallbackCategory],
+                categories: {
+                    h: {
+                        All: {
+                            subcategories: { h: { All: true } }
+                        }
+                    }
+                },
+                sortedSubcategoriesByCategory: {
+                    h: {
+                        All: [fallbackSubcategory]
+                    }
+                }
+            };
+
+            var fallbackStoreData = {
+                storeToData: makeIterableMap({})
+            };
+            fallbackStoreData.storeToData.h[fallbackStoreId] = {
+                itemsData: makeIterableMap({}),
+                availabilities: [{ to: now + 86400 }]
+            };
+            var fallbackItemListByStore = makeIterableMap({});
+            fallbackItemListByStore.h[fallbackStoreId] = [];
+
+            function ensureSignal(name) {
+                var signal = STORE[name];
+                if (!signal || typeof signal.add !== "function" || typeof signal.remove !== "function") {
+                    STORE[name] = {
+                        add: function () { },
+                        remove: function () { }
+                    };
+                }
+            }
+
+            var originalGetStoreUIConfig = (typeof STORE.get_storeUIConfig === "function") ? STORE.get_storeUIConfig : null;
+            STORE.get_storeUIConfig = function () {
+                var uiConfig = null;
+                try {
+                    uiConfig = originalGetStoreUIConfig ? originalGetStoreUIConfig.apply(this, arguments) : null;
+                } catch (_uiErr) {
+                    uiConfig = null;
+                }
+                if (!uiConfig || typeof uiConfig !== "object") return fallbackUIConfig;
+                if (!uiConfig.storeToConfig || typeof uiConfig.storeToConfig !== "object") uiConfig.storeToConfig = makeIterableMap({});
+                if (!uiConfig.storeToConfig.h || typeof uiConfig.storeToConfig.h !== "object") uiConfig.storeToConfig.h = {};
+                if (typeof uiConfig.storeToConfig.iterator !== "function") {
+                    uiConfig.storeToConfig.iterator = makeIterableMap(uiConfig.storeToConfig.h).iterator;
+                }
+                if (typeof uiConfig.getSortedStoreIds !== "function") {
+                    uiConfig.getSortedStoreIds = function () {
+                        var keys = Object.keys(uiConfig.storeToConfig.h || {});
+                        return keys.length ? keys : [fallbackStoreId];
+                    };
+                }
+                if (!uiConfig.storeToConfig.h[fallbackStoreId]) {
+                    uiConfig.storeToConfig.h[fallbackStoreId] = fallbackUIConfig.storeToConfig.h[fallbackStoreId];
+                }
+                return uiConfig;
+            };
+
+            var originalGetStoreHierarchy = (typeof STORE.get_storeHierarchy === "function") ? STORE.get_storeHierarchy : null;
+            STORE.get_storeHierarchy = function () {
+                var hierarchy = null;
+                try {
+                    hierarchy = originalGetStoreHierarchy ? originalGetStoreHierarchy.apply(this, arguments) : null;
+                } catch (_hierErr) {
+                    hierarchy = null;
+                }
+                if (!hierarchy || typeof hierarchy !== "object") return fallbackHierarchy;
+                if (!hierarchy.h || typeof hierarchy.h !== "object") hierarchy.h = {};
+                if (typeof hierarchy.iterator !== "function") {
+                    hierarchy.iterator = makeIterableMap(hierarchy.h).iterator;
+                }
+                if (!hierarchy.h[fallbackStoreId]) hierarchy.h[fallbackStoreId] = fallbackHierarchy.h[fallbackStoreId];
+                return hierarchy;
+            };
+
+            var originalGetStoreData = (typeof STORE.get_storeData === "function") ? STORE.get_storeData : null;
+            STORE.get_storeData = function () {
+                var data = null;
+                try {
+                    data = originalGetStoreData ? originalGetStoreData.apply(this, arguments) : null;
+                } catch (_dataErr) {
+                    data = null;
+                }
+                if (!data || typeof data !== "object") return fallbackStoreData;
+                if (!data.storeToData || typeof data.storeToData !== "object") data.storeToData = makeIterableMap({});
+                if (!data.storeToData.h || typeof data.storeToData.h !== "object") data.storeToData.h = {};
+                if (typeof data.storeToData.iterator !== "function") {
+                    data.storeToData.iterator = makeIterableMap(data.storeToData.h).iterator;
+                }
+                if (!data.storeToData.h[fallbackStoreId]) data.storeToData.h[fallbackStoreId] = fallbackStoreData.storeToData.h[fallbackStoreId];
+                if (!data.storeToData.h[fallbackStoreId].itemsData || typeof data.storeToData.h[fallbackStoreId].itemsData !== "object") {
+                    data.storeToData.h[fallbackStoreId].itemsData = makeIterableMap({});
+                }
+                if (!data.storeToData.h[fallbackStoreId].itemsData.h || typeof data.storeToData.h[fallbackStoreId].itemsData.h !== "object") {
+                    data.storeToData.h[fallbackStoreId].itemsData.h = {};
+                }
+                if (typeof data.storeToData.h[fallbackStoreId].itemsData.iterator !== "function") {
+                    data.storeToData.h[fallbackStoreId].itemsData.iterator = makeIterableMap(data.storeToData.h[fallbackStoreId].itemsData.h).iterator;
+                }
+                return data;
+            };
+
+            var originalGetItemListByStore = (typeof STORE.get_itemListByStore === "function") ? STORE.get_itemListByStore : null;
+            STORE.get_itemListByStore = function () {
+                var itemListByStore = null;
+                try {
+                    itemListByStore = originalGetItemListByStore ? originalGetItemListByStore.apply(this, arguments) : null;
+                } catch (_itemListErr) {
+                    itemListByStore = null;
+                }
+                if (!itemListByStore || typeof itemListByStore !== "object") itemListByStore = fallbackItemListByStore;
+                if (!itemListByStore.h || typeof itemListByStore.h !== "object") itemListByStore.h = {};
+                if (!Array.isArray(itemListByStore.h[fallbackStoreId])) itemListByStore.h[fallbackStoreId] = [];
+                if (typeof itemListByStore.iterator !== "function") {
+                    itemListByStore.iterator = makeIterableMap(itemListByStore.h).iterator;
+                }
+                STORE._itemListByStore = itemListByStore;
+                return itemListByStore;
+            };
+
+            if (typeof STORE.get_storeTime !== "function") {
+                STORE.get_storeTime = function () {
+                    return (Date.now() / 1000) | 0;
+                };
+            }
+            if (typeof STORE.isSimulatingStoreTime !== "function") {
+                STORE.isSimulatingStoreTime = function () {
+                    return false;
+                };
+            }
+            if (typeof STORE.getStoreSimulatedTime !== "function") {
+                STORE.getStoreSimulatedTime = function () {
+                    return "";
+                };
+            }
+            if (typeof STORE.getPlayerPlatformName !== "function") {
+                STORE.getPlayerPlatformName = function () {
+                    return "All";
+                };
+            }
+
+            if (!STORE._itemListByStore || typeof STORE._itemListByStore !== "object") {
+                STORE._itemListByStore = fallbackItemListByStore;
+            }
+            if (!STORE._itemListByStore.h || typeof STORE._itemListByStore.h !== "object") {
+                STORE._itemListByStore.h = {};
+            }
+            if (!Array.isArray(STORE._itemListByStore.h[fallbackStoreId])) {
+                STORE._itemListByStore.h[fallbackStoreId] = [];
+            }
+            if (typeof STORE._itemListByStore.iterator !== "function") {
+                STORE._itemListByStore.iterator = makeIterableMap(STORE._itemListByStore.h).iterator;
+            }
+
+            ensureSignal("storeUpdatedSignal");
+            ensureSignal("storeItemUnlocked");
+        }
+
+        ensureStoreStatics();
+
         if (STORE.Data) {
             var originalData = STORE.Data;
             STORE.Data = function (storeItems, storeData, inventory) {
@@ -3875,6 +4547,21 @@
         }
 
         STORE.__patchedSafeStore = true;
+
+        if (STORE_ALIAS && STORE_ALIAS !== STORE && !STORE_ALIAS.__patchedSafeStore) {
+            STORE_ALIAS.get_storeUIConfig = function () { return STORE.get_storeUIConfig.apply(STORE, arguments); };
+            STORE_ALIAS.get_storeHierarchy = function () { return STORE.get_storeHierarchy.apply(STORE, arguments); };
+            STORE_ALIAS.get_storeData = function () { return STORE.get_storeData.apply(STORE, arguments); };
+            STORE_ALIAS.get_itemListByStore = function () { return STORE.get_itemListByStore.apply(STORE, arguments); };
+            STORE_ALIAS.get_storeTime = function () { return STORE.get_storeTime.apply(STORE, arguments); };
+            STORE_ALIAS.isSimulatingStoreTime = function () { return STORE.isSimulatingStoreTime.apply(STORE, arguments); };
+            STORE_ALIAS.getStoreSimulatedTime = function () { return STORE.getStoreSimulatedTime.apply(STORE, arguments); };
+            STORE_ALIAS.getPlayerPlatformName = function () { return STORE.getPlayerPlatformName.apply(STORE, arguments); };
+            STORE_ALIAS._itemListByStore = STORE._itemListByStore;
+            STORE_ALIAS.storeUpdatedSignal = STORE.storeUpdatedSignal;
+            STORE_ALIAS.storeItemUnlocked = STORE.storeItemUnlocked;
+            STORE_ALIAS.__patchedSafeStore = true;
+        }
     }
 
     function patchContractLoader() {
@@ -4044,6 +4731,7 @@
         patchDisplayListSafety();
         patchDailyMissionHudSafety();
         patchMissionToolServiceSafety();
+        patchAttackLogServiceFallback();
         patchAttackLogTimeoutSafety();
         patchTimeSync();
         patchContractLoader();
@@ -4056,6 +4744,7 @@
         patchReticleSafety();
         patchSwfAssetBitmapFallback();
         patchWidgetColorBarSafety();
+        patchUnitCardSafety();
         patchPlatoonManifestDefaults();
         patchUpdatesCheck();
         patchStoreSafety();
@@ -4124,6 +4813,7 @@
         patchDisplayListSafety();
         patchDailyMissionHudSafety();
         patchMissionToolServiceSafety();
+        patchAttackLogServiceFallback();
         patchAttackLogTimeoutSafety();
         patchTimeSync();
         patchBuildingDataSafety();
@@ -4134,6 +4824,7 @@
         patchReticleSafety();
         patchSwfAssetBitmapFallback();
         patchWidgetColorBarSafety();
+        patchUnitCardSafety();
         patchUpdatesCheck();
         patchStoreSafety();
         patchHudMapButtonsFallback();
