@@ -74,6 +74,77 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         9: 11,  # DEPOSIT_SKU     -> ENTITY_TYPE_SKU_DEPOSIT
         10: 10, # EVENT_ERADICATION_INFESTATION -> ENTITY_TYPE_CRATER
     }
+    # Defensive write guardrails for accidental extension/script writes.
+    WRITE_GUARD_MAX_JSON_CHARS = {
+        "buildingdata": 3_500_000,
+        "inventory": 1_500_000,
+        "storeitems": 1_200_000,
+        "storedata": 1_200_000,
+        "resources": 200_000,
+        "data": 1_200_000,
+        # Scalar fields still need explicit limits to prevent huge accidental payloads.
+        "credits": 64,
+        "basename": 256,
+        "baseseed": 64,
+        "tutorialstage": 64,
+        "tutorialcompleted": 16,
+        "mapid": 64,
+        "entityid": 64,
+        "baseid": 64,
+    }
+    WRITE_GUARD_MAX_BUILDING_ENTRIES = 12_000
+    WRITE_GUARD_MAX_GENERIC_DICT_ENTRIES = 20_000
+    WRITE_GUARD_MAX_ACTIONS_PER_REQUEST = 512
+    WRITE_GUARD_BASESAVE_FIELDS = (
+        "buildingdata",
+        "resources",
+        "inventory",
+        "storeitems",
+        "storedata",
+        "credits",
+        "basename",
+        "baseseed",
+        "tutorialstage",
+        "tutorialcompleted",
+        "mapid",
+        "entityid",
+        "baseid",
+    )
+    WRITE_GUARD_MUTATION_FIELDS = {
+        "buildingdata",
+        "resources",
+        "inventory",
+        "storeitems",
+        "storedata",
+        "credits",
+        "basename",
+        "baseseed",
+        "tutorialstage",
+        "tutorialcompleted",
+    }
+    WRITE_GUARD_ALLOWED_BUILDING_ACTIONS = {
+        "build",
+        "place",
+        "instant_build",
+        "move",
+        "relocate",
+        "upgrade",
+        "instant_change_type",
+        "sell",
+        "remove",
+        "demolish",
+        "trash",
+        # Common no-op/compat action names seen in production payloads.
+        "repair",
+        "cancel",
+        "cancel_upgrade",
+        "cancel_build",
+        "finish",
+        "finish_now",
+        "queue",
+        "start",
+        "research",
+    }
 
     def _load_asset_manifest_map(self):
         if CustomHandler.asset_manifest_map is not None:
@@ -1013,6 +1084,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     def _runtime_apply_base_save(self, post_data, ts):
         if not isinstance(post_data, dict):
             return
+        if not self._passes_basesave_write_guard(post_data):
+            return
         ts = int(ts)
         state = self._ensure_runtime_state(ts)
 
@@ -1032,6 +1105,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 state["base"] = base
 
             posted_buildingdata = load_json_field("buildingdata")
+            if isinstance(posted_buildingdata, dict):
+                if len(posted_buildingdata) > CustomHandler.WRITE_GUARD_MAX_BUILDING_ENTRIES:
+                    log(
+                        "BASESAVE write-guard: rejected payload due oversized buildingdata "
+                        f"entries={len(posted_buildingdata)}"
+                    )
+                    return
             if isinstance(posted_buildingdata, dict):
                 active = state.get("active_building_actions")
                 if isinstance(active, list) and active:
@@ -1096,17 +1176,45 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
             posted_resources = load_json_field("resources")
             if isinstance(posted_resources, dict):
+                if len(posted_resources) > CustomHandler.WRITE_GUARD_MAX_GENERIC_DICT_ENTRIES:
+                    log(
+                        "BASESAVE write-guard: rejected payload due oversized resources "
+                        f"entries={len(posted_resources)}"
+                    )
+                    return
+            if isinstance(posted_resources, dict):
                 base["resources"] = posted_resources
 
             posted_inventory = load_json_field("inventory")
+            if isinstance(posted_inventory, dict):
+                if len(posted_inventory) > CustomHandler.WRITE_GUARD_MAX_GENERIC_DICT_ENTRIES:
+                    log(
+                        "BASESAVE write-guard: rejected payload due oversized inventory "
+                        f"entries={len(posted_inventory)}"
+                    )
+                    return
             if isinstance(posted_inventory, dict):
                 base["inventory"] = posted_inventory
 
             posted_store_items = load_json_field("storeitems")
             if isinstance(posted_store_items, dict):
+                if len(posted_store_items) > CustomHandler.WRITE_GUARD_MAX_GENERIC_DICT_ENTRIES:
+                    log(
+                        "BASESAVE write-guard: rejected payload due oversized storeitems "
+                        f"entries={len(posted_store_items)}"
+                    )
+                    return
+            if isinstance(posted_store_items, dict):
                 base["storeitems"] = posted_store_items
 
             posted_store_data = load_json_field("storedata")
+            if isinstance(posted_store_data, dict):
+                if len(posted_store_data) > CustomHandler.WRITE_GUARD_MAX_GENERIC_DICT_ENTRIES:
+                    log(
+                        "BASESAVE write-guard: rejected payload due oversized storedata "
+                        f"entries={len(posted_store_data)}"
+                    )
+                    return
             if isinstance(posted_store_data, dict):
                 base["storedata"] = posted_store_data
 
@@ -1130,6 +1238,12 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     def _runtime_apply_building_actions(self, actions, ts):
         if not isinstance(actions, list) or not actions:
             return
+        if len(actions) > CustomHandler.WRITE_GUARD_MAX_ACTIONS_PER_REQUEST:
+            log(
+                "BUILDING write-guard: clamped action count "
+                f"from={len(actions)} to={CustomHandler.WRITE_GUARD_MAX_ACTIONS_PER_REQUEST}"
+            )
+            actions = actions[: CustomHandler.WRITE_GUARD_MAX_ACTIONS_PER_REQUEST]
         ts = int(ts)
         state = self._ensure_runtime_state(ts)
         queued_actions = []
@@ -1155,7 +1269,17 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     continue
 
                 action_name = str(action.get("action") or "").strip().lower()
+                if not action_name:
+                    log("BUILDING write-guard: ignored action row with missing 'action' value")
+                    continue
+                if action_name not in CustomHandler.WRITE_GUARD_ALLOWED_BUILDING_ACTIONS:
+                    log(f"BUILDING write-guard: ignored unknown action '{action_name}'")
+                    continue
+
                 building_id = self._safe_int(action.get("building_id"), -1)
+                if building_id > 1_000_000:
+                    log(f"BUILDING write-guard: ignored out-of-range building_id={building_id}")
+                    continue
                 b_key, building = self._find_building_entry(buildingdata, building_id)
 
                 if action_name in ("build", "place", "instant_build") and building is None and building_id >= 0:
@@ -2053,6 +2177,42 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             return values[0]
         except Exception:
             return default_value
+
+    def _passes_basesave_write_guard(self, post_data):
+        if not isinstance(post_data, dict):
+            return False
+
+        has_known_write_field = False
+        has_mutation_field = False
+        for key in CustomHandler.WRITE_GUARD_BASESAVE_FIELDS:
+            raw = self._post_first_value(post_data, key, None)
+            if raw in (None, ""):
+                continue
+            has_known_write_field = True
+            if key in CustomHandler.WRITE_GUARD_MUTATION_FIELDS:
+                has_mutation_field = True
+            max_chars = CustomHandler.WRITE_GUARD_MAX_JSON_CHARS.get(key)
+            if max_chars is not None:
+                try:
+                    raw_len = len(str(raw))
+                except Exception:
+                    raw_len = 0
+                if raw_len > int(max_chars):
+                    log(
+                        "BASESAVE write-guard: rejected oversized field "
+                        f"{key} chars={raw_len} limit={max_chars}"
+                    )
+                    return False
+
+        if not has_known_write_field:
+            # Prevent random POST noise from mutating runtime state.
+            log("BASESAVE write-guard: ignored payload with no recognized base-save fields")
+            return False
+        if not has_mutation_field:
+            # Ignore payloads that only contain routing identifiers (map/base/entity).
+            log("BASESAVE write-guard: ignored payload with no mutable base-save fields")
+            return False
+        return True
 
     def _post_json_value(self, post_data, key, default_value=None):
         raw = self._post_first_value(post_data, key, None)
