@@ -12,6 +12,7 @@ import hashlib
 import glob
 import copy
 import socket
+import uuid
 
 PORT = 8089
 PNG_PLACEHOLDER_1X1 = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\rIDATx\xdacd\xf8\xcfP\x0f\x00\x03\x86\x01\x80Z4}k\x00\x00\x00\x00IEND\xaeB`\x82'
@@ -34,7 +35,9 @@ This class handles all incoming GET, POST, and OPTIONS requests from the game cl
 It simulates the Kixeye "Gateway" and "API" services required for the game to boot.
 """
 class CustomHandler(http.server.SimpleHTTPRequestHandler):
-    gateway_queue = []
+    # Keep gateway packets isolated per session query param so concurrent tabs
+    # do not consume each other's worldmap/deploy responses.
+    gateway_queues = {}
     queue_lock = threading.Lock()
     new_data_event = threading.Condition(queue_lock)
     gateway_text_debug_lengths = set()
@@ -1281,39 +1284,154 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
              self.send_response(200)
              self.send_header('Content-Type', 'application/json')
              self.send_header('Content-Length', str(len(response_bytes)))
+             pending_cookie = getattr(self, "_pending_set_cookie", "")
+             if pending_cookie:
+                 self.send_header("Set-Cookie", pending_cookie)
+                 self._pending_set_cookie = ""
              self.end_headers()
              self.wfile.write(response_bytes)
              self.wfile.flush()
         except Exception as e:
              log(f"ERROR in send_json_response: {e}")
 
+    def _gateway_session_id_from_path(self):
+        try:
+            parsed = urllib.parse.urlparse(self.path or "")
+            query = urllib.parse.parse_qs(parsed.query or "")
+            session = str((query.get("session") or [""])[0] or "").strip()
+            if session:
+                return session
+        except Exception:
+            pass
+        return "__global__"
+
+    def _read_cookie_value(self, cookie_name):
+        try:
+            raw_cookie = str(self.headers.get("Cookie") or "")
+            if not raw_cookie:
+                return ""
+            for part in raw_cookie.split(";"):
+                item = part.strip()
+                if not item or "=" not in item:
+                    continue
+                k, v = item.split("=", 1)
+                if k.strip() == cookie_name:
+                    return urllib.parse.unquote(v.strip())
+        except Exception:
+            pass
+        return ""
+
+    def _gateway_client_token(self):
+        token = self._read_cookie_value("wcgwid")
+        if re.match(r"^[A-Za-z0-9_-]{8,64}$", token or ""):
+            return token
+        token = uuid.uuid4().hex
+        self._pending_set_cookie = f"wcgwid={token}; Path=/; Max-Age=604800; SameSite=Lax"
+        return token
+
+    def _gateway_queue_key(self):
+        session_id = self._gateway_session_id_from_path()
+        client_token = self._gateway_client_token()
+        return f"{session_id}:{client_token}", session_id, client_token
+
+    def _take_gateway_packets_for_session_locked(self, session_id):
+        queue = CustomHandler.gateway_queues.get(session_id)
+        if not isinstance(queue, list) or not queue:
+            return b"", 0, 0
+        queue_count = len(queue)
+        queue_bytes = sum(len(packet) for packet in queue)
+        response_bytes = b"".join(queue)
+        CustomHandler.gateway_queues[session_id] = []
+        return response_bytes, queue_count, queue_bytes
+
+    def _enqueue_gateway_packet_for_session(self, session_id, payload):
+        if payload is None:
+            return
+        sid = str(session_id or "__global__")
+        with self.new_data_event:
+            queue = CustomHandler.gateway_queues.get(sid)
+            if not isinstance(queue, list):
+                queue = []
+            queue.append(payload)
+            CustomHandler.gateway_queues[sid] = queue
+            self.new_data_event.notify_all()
+
     def handle_gateway_poll(self):
-        log("GATEWAY poll requested")
+        queue_key, session_id, client_token = self._gateway_queue_key()
+        oneshot = False
+        try:
+            parsed = urllib.parse.urlparse(self.path)
+            query = urllib.parse.parse_qs(parsed.query)
+            raw_oneshot = str(
+                (query.get("oneshot") or query.get("once") or query.get("pollonce") or [""])[0] or ""
+            ).strip().lower()
+            oneshot = raw_oneshot in ("1", "true", "yes", "y", "on")
+        except Exception:
+            oneshot = False
+
+        log(
+            f"GATEWAY poll requested session={session_id} client={client_token[:8]} "
+            f"oneshot={1 if oneshot else 0}"
+        )
         self.send_response(200)
         self.send_header('Content-Type', 'application/octet-stream')
         self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
         self.send_header('Pragma', 'no-cache')
         self.send_header('Expires', '0')
+        if oneshot:
+            self.send_header('Connection', 'close')
+        pending_cookie = getattr(self, "_pending_set_cookie", "")
+        if pending_cookie:
+            self.send_header("Set-Cookie", pending_cookie)
+            self._pending_set_cookie = ""
         self.end_headers()
+
+        if oneshot:
+            try:
+                with self.new_data_event:
+                    queue = CustomHandler.gateway_queues.get(queue_key)
+                    if not isinstance(queue, list) or not queue:
+                        # Keep request open briefly to emulate long-poll, then return.
+                        self.new_data_event.wait(timeout=20)
+                    response_bytes, queue_count, queue_bytes = self._take_gateway_packets_for_session_locked(queue_key)
+
+                if queue_count > 0:
+                    log(
+                        f"GATEWAY poll response session={session_id} client={client_token[:8]} "
+                        f"packets={queue_count} bytes={queue_bytes} oneshot=1"
+                    )
+                    self.wfile.write(response_bytes)
+                    self.wfile.flush()
+                else:
+                    log(
+                        f"GATEWAY poll response session={session_id} client={client_token[:8]} "
+                        f"packets=0 bytes=0 oneshot=1"
+                    )
+            except (BrokenPipeError, ConnectionResetError):
+                log("GATEWAY poll oneshot closed by client")
+            except Exception as e:
+                log(f"GATEWAY poll oneshot error: {e}")
+            return
 
         # Gateway HTTP mode expects a live stream that keeps delivering packets.
         # Do not close after one batch; keep flushing queued packets as they arrive.
         try:
             while True:
                 with self.new_data_event:
-                    if not CustomHandler.gateway_queue:
+                    queue = CustomHandler.gateway_queues.get(queue_key)
+                    if not isinstance(queue, list) or not queue:
                         self.new_data_event.wait(timeout=20)
-                    queue_count = len(CustomHandler.gateway_queue)
-                    queue_bytes = sum(len(packet) for packet in CustomHandler.gateway_queue)
-                    response_bytes = b"".join(CustomHandler.gateway_queue)
-                    CustomHandler.gateway_queue = []
+                    response_bytes, queue_count, queue_bytes = self._take_gateway_packets_for_session_locked(queue_key)
 
                 if queue_count <= 0:
                     if self.wfile.closed:
                         break
                     continue
 
-                log(f"GATEWAY poll response packets={queue_count} bytes={queue_bytes}")
+                log(
+                    f"GATEWAY poll response session={session_id} client={client_token[:8]} "
+                    f"packets={queue_count} bytes={queue_bytes}"
+                )
                 self.wfile.write(response_bytes)
                 self.wfile.flush()
         except (BrokenPipeError, ConnectionResetError):
@@ -2506,6 +2624,372 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 break
         return token, rows
 
+    def _decode_proto_string_fields(self, payload):
+        out = []
+        idx = 0
+        total = len(payload or b"")
+        data = payload or b""
+        while idx < total:
+            tag, idx = self._decode_varint(data, idx)
+            if tag is None:
+                break
+            field_no = tag >> 3
+            wire_type = tag & 7
+            if wire_type == 0:
+                value, idx = self._decode_varint(data, idx)
+                if value is None:
+                    break
+            elif wire_type == 2:
+                length, idx = self._decode_varint(data, idx)
+                if length is None:
+                    break
+                end = idx + int(length)
+                if end > total:
+                    break
+                chunk = data[idx:end]
+                idx = end
+                text = self._decode_utf8_field(chunk)
+                if not text:
+                    continue
+                # Keep mostly-printable strings only; nested protobuf payloads are
+                # often binary and should be ignored for id extraction.
+                printable = True
+                for ch in text:
+                    code = ord(ch)
+                    if code in (9, 10, 13):
+                        continue
+                    if code < 32 or code > 126:
+                        printable = False
+                        break
+                if printable:
+                    out.append((int(field_no), str(text)))
+            else:
+                break
+        return out
+
+    def _collect_proto_scalars(self, payload, depth=0, max_depth=3):
+        string_fields = []
+        varint_fields = []
+        idx = 0
+        total = len(payload or b"")
+        data = payload or b""
+        while idx < total:
+            tag, idx = self._decode_varint(data, idx)
+            if tag is None:
+                break
+            field_no = tag >> 3
+            wire_type = tag & 7
+            if wire_type == 0:
+                value, idx = self._decode_varint(data, idx)
+                if value is None:
+                    break
+                varint_fields.append((int(field_no), int(value)))
+            elif wire_type == 2:
+                length, idx = self._decode_varint(data, idx)
+                if length is None:
+                    break
+                end = idx + int(length)
+                if end > total:
+                    break
+                chunk = data[idx:end]
+                idx = end
+
+                text = self._decode_utf8_field(chunk)
+                if text:
+                    printable = True
+                    for ch in text:
+                        code = ord(ch)
+                        if code in (9, 10, 13):
+                            continue
+                        if code < 32 or code > 126:
+                            printable = False
+                            break
+                    if printable:
+                        string_fields.append((int(field_no), str(text)))
+
+                if depth < max_depth and chunk:
+                    child_strings, child_varints = self._collect_proto_scalars(chunk, depth + 1, max_depth)
+                    string_fields.extend(child_strings)
+                    varint_fields.extend(child_varints)
+            else:
+                break
+        return string_fields, varint_fields
+
+    def _decode_proto_varint_fields(self, payload):
+        out = []
+        idx = 0
+        total = len(payload or b"")
+        data = payload or b""
+        while idx < total:
+            tag, idx = self._decode_varint(data, idx)
+            if tag is None:
+                break
+            field_no = tag >> 3
+            wire_type = tag & 7
+            if wire_type == 0:
+                value, idx = self._decode_varint(data, idx)
+                if value is None:
+                    break
+                out.append((int(field_no), int(value)))
+            elif wire_type == 2:
+                length, idx = self._decode_varint(data, idx)
+                if length is None:
+                    break
+                idx += int(length)
+                if idx > total:
+                    break
+            else:
+                break
+        return out
+
+    def _extract_deploy_ids(self, payload):
+        string_fields, varint_fields = self._collect_proto_scalars(payload)
+        platoon_id = ""
+        deployer_id = ""
+        for _, value in string_fields:
+            if not platoon_id and re.match(r"^[pP][A-Za-z0-9_-]{4,}$", value):
+                platoon_id = value
+            if not deployer_id and re.match(r"^[0-9]{1,20}$", value):
+                deployer_id = value
+        if not deployer_id:
+            for _, value in varint_fields:
+                if value > 0:
+                    deployer_id = str(value)
+                    break
+        if not platoon_id:
+            for _, value in string_fields:
+                if value != deployer_id:
+                    platoon_id = value
+                    break
+        if not deployer_id:
+            for _, value in string_fields:
+                if value != platoon_id:
+                    deployer_id = value
+                    break
+        if deployer_id and re.match(r"^[0-9]+$", deployer_id):
+            try:
+                if int(deployer_id) < 1000:
+                    deployer_id = ""
+            except Exception:
+                deployer_id = ""
+        if not deployer_id and platoon_id:
+            deployer_id = "500001"
+        return platoon_id, deployer_id
+
+    def _decode_deploy_mobile_entity_request(self, payload):
+        """Decode com.kixeye.net.proto.atlas.DeployMobileEntity (handler=2, action=200).
+
+        Field mapping from the client proto (see js/engine_bak.js):
+          1: deployerId (string)
+          2: platoonId (string)
+          3: destination (Coord message)
+          4: squads (repeated message)
+          5: fireteams (repeated message)
+        """
+        out = {"deployer_id": "", "platoon_id": "", "destination": None}
+        idx = 0
+        total = len(payload or b"")
+        data = payload or b""
+        while idx < total:
+            tag, idx = self._decode_varint(data, idx)
+            if tag is None:
+                break
+            field_no = tag >> 3
+            wire_type = tag & 7
+            if wire_type == 2:
+                length, idx = self._decode_varint(data, idx)
+                if length is None:
+                    break
+                end = idx + int(length)
+                if end > total:
+                    break
+                chunk = data[idx:end]
+                idx = end
+                if field_no == 1:
+                    out["deployer_id"] = self._decode_utf8_field(chunk) or ""
+                elif field_no == 2:
+                    out["platoon_id"] = self._decode_utf8_field(chunk) or ""
+                elif field_no == 3:
+                    out["destination"] = self._decode_coord_payload(chunk)
+            elif wire_type == 0:
+                value, idx = self._decode_varint(data, idx)
+                if value is None:
+                    break
+            else:
+                break
+        return out
+
+    def _ensure_runtime_worldmap_state_locked(self, state):
+        if not isinstance(state, dict):
+            return None
+        worldmap = state.get("worldmap")
+        if not isinstance(worldmap, dict):
+            worldmap = {}
+            state["worldmap"] = worldmap
+        if not isinstance(worldmap.get("platoon_to_entity"), dict):
+            worldmap["platoon_to_entity"] = {}
+        if not isinstance(worldmap.get("mobile_entities"), dict):
+            worldmap["mobile_entities"] = {}
+        next_id = self._safe_int(worldmap.get("next_mobile_entity_id"), 600000)
+        if next_id < 600000:
+            next_id = 600000
+        worldmap["next_mobile_entity_id"] = next_id
+        return worldmap
+
+    def _runtime_worldmap_allocate_entity_id_locked(self, worldmap_state):
+        next_id = self._safe_int(worldmap_state.get("next_mobile_entity_id"), 600000)
+        if next_id < 600000:
+            next_id = 600000
+        worldmap_state["next_mobile_entity_id"] = int(next_id) + 1
+        return str(int(next_id))
+
+    def _runtime_worldmap_deploy_platoon(self, platoon_id, deployer_id, destination=None):
+        """Persist a deployed platoon as a world-map mobile entity."""
+        platoon_id = str(platoon_id or "").strip()
+        deployer_id = str(deployer_id or "").strip()
+        dest = destination if isinstance(destination, dict) else {}
+        sector_id = self._safe_int(dest.get("sector"), CustomHandler.DEFAULT_SECTOR_ID)
+        region_id = self._safe_int(dest.get("region"), CustomHandler.DEFAULT_REGION_ID)
+        x = self._safe_int(dest.get("x"), 250)
+        y = self._safe_int(dest.get("y"), 250)
+
+        ts = self.get_timestamp()
+        state = self._ensure_runtime_state(ts)
+        with CustomHandler.runtime_state_lock:
+            worldmap = self._ensure_runtime_worldmap_state_locked(state)
+            if worldmap is None:
+                return None
+            platoon_to_entity = worldmap.get("platoon_to_entity", {})
+            entity_id = platoon_to_entity.get(platoon_id)
+            if not entity_id:
+                entity_id = self._runtime_worldmap_allocate_entity_id_locked(worldmap)
+                platoon_to_entity[platoon_id] = entity_id
+                worldmap["platoon_to_entity"] = platoon_to_entity
+            mobile_entities = worldmap.get("mobile_entities", {})
+            mobile_entities[str(entity_id)] = {
+                "entity_id": str(entity_id),
+                "platoon_id": platoon_id,
+                "deployer_id": deployer_id,
+                "sector_id": int(sector_id),
+                "region_id": int(region_id),
+                "x": int(x),
+                "y": int(y),
+                "status": 0,
+            }
+            worldmap["mobile_entities"] = mobile_entities
+
+        return {
+            "entity_id": str(entity_id),
+            "platoon_id": platoon_id,
+            "deployer_id": deployer_id,
+            "sector_id": int(sector_id),
+            "region_id": int(region_id),
+            "x": int(x),
+            "y": int(y),
+            "status": 0,
+        }
+
+    def _runtime_worldmap_list_mobile_entities(self, region_id=None, sector_id=None):
+        ts = self.get_timestamp()
+        state = self._ensure_runtime_state(ts)
+        with CustomHandler.runtime_state_lock:
+            worldmap = self._ensure_runtime_worldmap_state_locked(state)
+            if worldmap is None:
+                return []
+            entities = worldmap.get("mobile_entities")
+            if not isinstance(entities, dict):
+                return []
+            out = []
+            for row in entities.values():
+                if not isinstance(row, dict):
+                    continue
+                if region_id is not None and self._safe_int(row.get("region_id"), -1) != int(region_id):
+                    continue
+                if sector_id is not None and self._safe_int(row.get("sector_id"), -1) != int(sector_id):
+                    continue
+                out.append(copy.deepcopy(row))
+            return out
+
+    def _extract_move_id(self, payload):
+        string_fields, varint_fields = self._collect_proto_scalars(payload)
+        for _, value in string_fields:
+            if re.match(r"^[A-Za-z0-9_-]{1,32}$", value):
+                if re.match(r"^[0-9]+$", value):
+                    try:
+                        if int(value) < 1000:
+                            continue
+                    except Exception:
+                        pass
+                return value
+        for _, value in varint_fields:
+            if int(value) > 0:
+                if int(value) < 1000:
+                    continue
+                return str(int(value))
+        return "500001"
+
+    def _extract_store_ids(self, payload):
+        string_fields, varint_fields = self._collect_proto_scalars(payload)
+        entity_id = ""
+        deployer_id = ""
+        for _, value in string_fields:
+            if not entity_id and re.match(r"^[A-Za-z0-9_-]{1,32}$", value):
+                entity_id = value
+                continue
+            if not deployer_id and value != entity_id:
+                deployer_id = value
+        if not entity_id:
+            for _, value in varint_fields:
+                if int(value) > 0:
+                    if int(value) < 1000:
+                        continue
+                    entity_id = str(int(value))
+                    break
+        if not deployer_id:
+            for _, value in varint_fields:
+                if int(value) <= 0 or int(value) < 1000:
+                    continue
+                if str(int(value)) != entity_id:
+                    deployer_id = str(int(value))
+                    break
+        if not entity_id:
+            entity_id = "500001"
+        if not deployer_id:
+            deployer_id = "500001"
+        return entity_id, deployer_id
+
+    def _build_deploy_response_payload(self, deployer_id, platoon_id, error_code=None):
+        # com.kixeye.net.proto.atlas.DeployMobileEntityResponse:
+        #   1: deployerId (string)
+        #   2: platoonId (string)
+        #   3: error (enum, optional)
+        payload = b""
+        if deployer_id:
+            payload += self._encode_field_string(1, deployer_id)
+        if platoon_id:
+            payload += self._encode_field_string(2, platoon_id)
+        if error_code is not None:
+            payload += self._encode_field_varint(3, int(error_code))
+        return payload
+
+    def _build_move_response_payload(self, entity_id, error_code=None):
+        payload = b""
+        if entity_id:
+            payload += self._encode_field_string(1, entity_id)
+        if error_code is not None:
+            payload += self._encode_field_varint(2, int(error_code))
+        return payload
+
+    def _build_store_response_payload(self, entity_id, deployer_id, error_code=None):
+        payload = b""
+        if entity_id:
+            payload += self._encode_field_string(1, entity_id)
+        if deployer_id:
+            payload += self._encode_field_string(2, deployer_id)
+        if error_code is not None:
+            payload += self._encode_field_varint(3, int(error_code))
+        return payload
+
     def _build_attribute_payload(self, key, value):
         payload = b""
         payload += self._encode_field_string(1, key)
@@ -2591,6 +3075,33 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             first_entity_id=entity_id,
             include_owner=True,
         )
+
+        # Include any locally-deployed platoons so the worldmap can mark them as
+        # deployed (PlatoonManager filters on state==2 && mapEntity!=null).
+        preferred_owner_id = self._preferred_player_id()
+        for row in self._runtime_worldmap_list_mobile_entities(region_id=region_id, sector_id=sector_id):
+            try:
+                platoon_id = str(row.get("platoon_id") or "").strip()
+                if not platoon_id:
+                    continue
+                attrs = [
+                    ("platoonId", platoon_id),
+                ]
+                entities.append(
+                    self._build_map_entity_payload(
+                        entity_id=str(row.get("entity_id") or ""),
+                        entity_type=2,  # platoon
+                        sector_id=int(row.get("sector_id") or sector_id),
+                        region_id=int(row.get("region_id") or region_id),
+                        x=int(row.get("x") or 0),
+                        y=int(row.get("y") or 0),
+                        owner_id=int(preferred_owner_id),
+                        status=int(row.get("status") or 0),
+                        attributes=attrs,
+                    )
+                )
+            except Exception:
+                continue
 
         payload = b""
         for entity_payload in entities:
@@ -2694,7 +3205,27 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         return b""
 
     def _build_mission_slots_payload(self):
-        return b""
+        # com.kixeye.net.proto.missiontool.MissionSlots
+        # field 1: repeated Slot message
+        now_ts = int(time.time())
+
+        # com.kixeye.net.proto.missiontool.Slot
+        # required fields:
+        #   1: id (int32)
+        #   2: timeStart (int32)
+        slot = b""
+        slot += self._encode_field_varint(1, 1)  # id
+        slot += self._encode_field_varint(2, now_ts)  # timeStart
+        slot += self._encode_field_varint(3, now_ts + 86400)  # timeEnd
+        slot += self._encode_field_varint(5, 1)  # displayTotal
+        slot += self._encode_field_string(7, "Local mission slot")
+        slot += self._encode_field_string(8, "base")
+        slot += self._encode_field_varint(9, 1)  # targetId
+        slot += self._encode_field_varint(10, 0)  # modalType
+
+        payload = b""
+        payload += self._encode_field_bytes(1, slot)
+        return payload
 
     def _build_remote_data_message_payload(self, row):
         row = row or {}
@@ -2959,6 +3490,19 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         if handler == 2 and action_id == 102:
             region_id = self._decode_region_id_request(payload)
             entity_payload = self._build_visible_entity_update_payload(region_id=region_id)
+            try:
+                mobile_count = len(
+                    self._runtime_worldmap_list_mobile_entities(
+                        region_id=region_id,
+                        sector_id=CustomHandler.DEFAULT_SECTOR_ID,
+                    )
+                )
+            except Exception:
+                mobile_count = -1
+            log(
+                f"GATEWAY visible-entities response region={region_id} "
+                f"mobile={mobile_count} payload_len={len(entity_payload)}"
+            )
             enqueue(self._build_gateway_action_packet(2, 1102, entity_payload, timestamp))
             return True
 
@@ -2984,6 +3528,29 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 include_owner=True,
             ):
                 visible_payload += self._encode_field_bytes(1, entity_payload)
+
+            # Keep deployed platoons visible while panning/refreshing via nearby queries.
+            for row in self._runtime_worldmap_list_mobile_entities(region_id=region_id, sector_id=sector_id):
+                try:
+                    platoon_id = str(row.get("platoon_id") or "").strip()
+                    entity_id = str(row.get("entity_id") or "").strip()
+                    if not platoon_id or not entity_id:
+                        continue
+                    owner_id = self._preferred_player_id()
+                    platoon_entity = self._build_map_entity_payload(
+                        entity_id=entity_id,
+                        entity_type=2,
+                        sector_id=int(row.get("sector_id") or sector_id),
+                        region_id=int(row.get("region_id") or region_id),
+                        x=int(row.get("x") or 0),
+                        y=int(row.get("y") or 0),
+                        owner_id=int(owner_id),
+                        status=int(row.get("status") or 0),
+                        attributes=[("platoonId", platoon_id)],
+                    )
+                    visible_payload += self._encode_field_bytes(1, platoon_entity)
+                except Exception:
+                    continue
             enqueue(self._build_gateway_action_packet(2, 1102, visible_payload, timestamp))
 
             nearby_payload = self._build_nearby_response_payload(
@@ -2999,6 +3566,69 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         if handler == 2 and action_id == 106:
             blocked_payload = self._build_blocked_rf_bases_payload()
             enqueue(self._build_gateway_action_packet(2, 1106, blocked_payload, timestamp))
+            return True
+
+        # Platoon deploy / move / store acknowledgements.
+        # These are required for worldmap platoon actions to complete instead of
+        # falling back to a generic handler response.
+        if handler == 2 and action_id == 200:
+            req = self._decode_deploy_mobile_entity_request(payload)
+            platoon_id = str(req.get("platoon_id") or "").strip()
+            deployer_id = str(req.get("deployer_id") or "").strip()
+            destination = req.get("destination") if isinstance(req, dict) else None
+
+            # Fallback to heuristic scalar extraction if we failed to decode expected fields.
+            if not platoon_id or not deployer_id:
+                fallback_platoon, fallback_deployer = self._extract_deploy_ids(payload)
+                if not platoon_id:
+                    platoon_id = str(fallback_platoon or "").strip()
+                if not deployer_id:
+                    deployer_id = str(fallback_deployer or "").strip()
+
+            mobile = self._runtime_worldmap_deploy_platoon(platoon_id, deployer_id, destination)
+            deploy_payload = self._build_deploy_response_payload(deployer_id, platoon_id)
+            try:
+                mobile_count = len(
+                    self._runtime_worldmap_list_mobile_entities(
+                        region_id=CustomHandler.DEFAULT_REGION_ID,
+                        sector_id=CustomHandler.DEFAULT_SECTOR_ID,
+                    )
+                )
+            except Exception:
+                mobile_count = -1
+            log(
+                f"GATEWAY deploy ack platoon={platoon_id or '<empty>'} deployer={deployer_id or '<empty>'} "
+                f"entity={mobile.get('entity_id') if isinstance(mobile, dict) else '<none>'} "
+                f"mobile_count={mobile_count}"
+            )
+            enqueue(self._build_gateway_action_packet(2, 1200, deploy_payload, timestamp))
+
+            # Do not push an ad-hoc 1102 packet on deploy. The client receives
+            # platoon visibility through normal GetVisibleEntities(102) refreshes,
+            # and injecting an extra standalone 1102 here has proven fragile.
+            if isinstance(mobile, dict) and mobile.get("entity_id") and platoon_id:
+                try:
+                    log(
+                        "GATEWAY deploy deferred-visible-update "
+                        f"entity={mobile.get('entity_id')} "
+                        f"coord={mobile.get('sector_id')},{mobile.get('region_id')},{mobile.get('x')},{mobile.get('y')}"
+                    )
+                except Exception:
+                    pass
+            return True
+
+        if handler == 2 and action_id == 201:
+            entity_id = self._extract_move_id(payload)
+            move_payload = self._build_move_response_payload(entity_id)
+            log(f"GATEWAY move ack entity={entity_id or '<empty>'}")
+            enqueue(self._build_gateway_action_packet(2, 1201, move_payload, timestamp))
+            return True
+
+        if handler == 2 and action_id == 202:
+            entity_id, deployer_id = self._extract_store_ids(payload)
+            store_payload = self._build_store_response_payload(entity_id, deployer_id)
+            log(f"GATEWAY store/home ack entity={entity_id or '<empty>'} deployer={deployer_id or '<empty>'}")
+            enqueue(self._build_gateway_action_packet(2, 1202, store_payload, timestamp))
             return True
 
         # setMapView / setOccupied are fire-and-forget in this local shim.
@@ -3123,10 +3753,14 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         return False
 
     def handle_gateway_action(self, data):
+        queue_key, session_id, client_token = self._gateway_queue_key()
         try:
-            log(f"GATEWAY action len={len(data)} hex={data.hex()[:160]}")
+            log(
+                f"GATEWAY action session={session_id} client={client_token[:8]} "
+                f"len={len(data)} hex={data.hex()[:160]}"
+            )
         except Exception:
-            log("GATEWAY action received (hex unavailable)")
+            log(f"GATEWAY action session={session_id} client={client_token[:8]} received (hex unavailable)")
 
         # In this HTTP fallback path, OpenFL may serialize ByteArray as object-like text.
         # Log one preview per payload length so we can map lengths -> action types.
@@ -3172,9 +3806,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
         def enqueue(payload):
             nonlocal queued
-            with self.new_data_event:
-                CustomHandler.gateway_queue.append(payload)
-                self.new_data_event.notify_all()
+            self._enqueue_gateway_packet_for_session(queue_key, payload)
             queued = True
 
         handled_any = False

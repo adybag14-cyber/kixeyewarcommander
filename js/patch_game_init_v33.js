@@ -623,7 +623,14 @@
                 if (this.sessionId == null || this.sessionId === "" || this.sessionId === "undefined") {
                     this.sessionId = "local_session";
                 }
-                return originalGetRequiredParameters.apply(this, arguments);
+                var out = originalGetRequiredParameters.apply(this, arguments);
+                if (typeof out !== "string") out = String(out || "");
+                // URLStream in this build only exposes binary payload on request completion.
+                // Force one-shot poll requests so each response completes and yields bytes.
+                if (out.indexOf("oneshot=") === -1 && out.indexOf("pollonce=") === -1 && out.indexOf("once=") === -1) {
+                    out += (out.indexOf("?") === -1 ? "?" : "&") + "oneshot=1";
+                }
+                return out;
             };
         }
 
@@ -641,9 +648,18 @@
             };
         }
 
+        if (typeof proto.disconnect === "function") {
+            var originalDisconnect = proto.disconnect;
+            proto.disconnect = function () {
+                this.__patchV33GatewayManualDisconnect = true;
+                return originalDisconnect.apply(this, arguments);
+            };
+        }
+
         if (typeof proto.createConnection === "function") {
             var originalCreateConnection = proto.createConnection;
             proto.createConnection = function () {
+                this.__patchV33GatewayManualDisconnect = false;
                 var result = originalCreateConnection.apply(this, arguments);
                 var self = this;
 
@@ -675,6 +691,38 @@
 
                 return result;
             };
+        }
+
+        if (typeof proto.onClose === "function" && !proto.__patchedGatewayHttpPollReconnect) {
+            var originalOnClose = proto.onClose;
+            proto.onClose = function () {
+                var self = this;
+                var shouldReconnect = !self.__patchV33GatewayManualDisconnect;
+
+                // Ensure final response bytes are processed before reconnecting.
+                try {
+                    if (self.stream && typeof self.onResponse === "function") {
+                        self.onResponse({ target: self.stream });
+                    }
+                } catch (_finalResponseErr) { }
+
+                var out = originalOnClose.apply(self, arguments);
+
+                if (shouldReconnect) {
+                    setTimeout(function () {
+                        try {
+                            if (!self.stream && !self.connecting && self._currentHost && self._currentPort) {
+                                self.createConnection(self._currentHost, self._currentPort);
+                            }
+                        } catch (reopenErr) {
+                            console.warn("[PATCH V33] GatewayHttpConnection poll reopen failed:", reopenErr);
+                        }
+                    }, 25);
+                }
+
+                return out;
+            };
+            proto.__patchedGatewayHttpPollReconnect = true;
         }
 
         proto.__patchedGatewayHttpBootstrap = true;
@@ -3854,6 +3902,284 @@
         WidgetColorBar.prototype.__patchedSafeOnSwfLoaded = true;
     }
 
+    function patchUnitCardSafety() {
+        var hx = window._hx_classes || {};
+        var WidgetCard = hx["com.cc.widget.cards.WidgetCard"];
+        var WidgetUnitCard = hx["com.cc.widget.cards.WidgetUnitCard"];
+
+        function shouldSuppressCardError(err) {
+            var msg = String((err && err.message) || err || "");
+            return msg.indexOf("addChild") !== -1 ||
+                msg.indexOf("removeChild") !== -1 ||
+                msg.indexOf("contains") !== -1 ||
+                msg.indexOf("null") !== -1;
+        }
+
+        function ensureCardInitialized(card) {
+            if (!card || card._background) return !!(card && card._background);
+
+            try {
+                if (typeof card.buildIfReady === "function") {
+                    card.buildIfReady();
+                }
+            } catch (_buildErr) { }
+
+            if (card._background) return true;
+
+            try {
+                if (typeof card.areAssetsLoaded === "function" && card.areAssetsLoaded() && typeof card.initialize === "function") {
+                    card.initialize();
+                }
+            } catch (_initErr) { }
+
+            return !!card._background;
+        }
+
+        function createFallbackFrame() {
+            var Sprite = hx["openfl.display.Sprite"] ||
+                hx["openfl.display.MovieClip"] ||
+                (window.openfl && window.openfl.display && window.openfl.display.Sprite);
+            if (!Sprite) return null;
+            try {
+                return new Sprite();
+            } catch (_spriteErr) {
+                return null;
+            }
+        }
+
+        if (WidgetCard && WidgetCard.prototype && !WidgetCard.prototype.__patchedSafeWidgetCard) {
+            var cardProto = WidgetCard.prototype;
+
+            if (typeof cardProto.initialize === "function") {
+                var originalInitialize = cardProto.initialize;
+                cardProto.initialize = function () {
+                    var result = originalInitialize.apply(this, arguments);
+                    try {
+                        if (this.__pendingCardTitle != null && this._title && typeof this._title.set_text === "function") {
+                            this._title.set_text(this.__pendingCardTitle);
+                        }
+                    } catch (_pendingTitleErr) { }
+                    try {
+                        if (this.__pendingCardBottomText != null && this._bottomText && typeof this._bottomText.set_text === "function") {
+                            this._bottomText.set_text(this.__pendingCardBottomText);
+                        }
+                    } catch (_pendingBottomErr) { }
+                    try {
+                        if (this.__pendingCardArtId != null && typeof this.setBackgroundFromRarityArtId === "function") {
+                            this.setBackgroundFromRarityArtId(this.__pendingCardArtId);
+                        }
+                    } catch (_pendingArtErr) { }
+                    return result;
+                };
+            }
+
+            if (typeof cardProto.setBackgroundFromRarityArtId === "function") {
+                var originalSetBackgroundFromRarityArtId = cardProto.setBackgroundFromRarityArtId;
+                cardProto.setBackgroundFromRarityArtId = function (artId) {
+                    this._artId = (artId == null || artId === "") ? "default" : artId;
+                    this.__pendingCardArtId = this._artId;
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._background || typeof this._background.addChild !== "function") return;
+                        return originalSetBackgroundFromRarityArtId.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        try {
+                            if (this._background && typeof this._background.addChild === "function") {
+                                if (typeof H !== "undefined" && H && typeof H.clearChildren === "function") {
+                                    H.clearChildren(this._background);
+                                }
+                                var frame = null;
+                                try {
+                                    frame = (typeof this.getFrameFromArtId === "function") ? this.getFrameFromArtId(this._artId) : null;
+                                } catch (_frameErr) { }
+                                if (!frame) frame = createFallbackFrame();
+                                if (frame) this._background.addChild(frame);
+                                if (typeof this.updateLength === "function") this.updateLength();
+                            }
+                        } catch (_fallbackErr) { }
+                        console.warn("[PATCH V33] WidgetCard.setBackgroundFromRarityArtId suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.set_title === "function") {
+                var originalSetTitle = cardProto.set_title;
+                cardProto.set_title = function (value) {
+                    this.__pendingCardTitle = value;
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._title || typeof this._title.set_text !== "function") return value;
+                        return originalSetTitle.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.set_title suppressed:", e);
+                        return value;
+                    }
+                };
+            }
+
+            if (typeof cardProto.set_bottomText === "function") {
+                var originalSetBottomText = cardProto.set_bottomText;
+                cardProto.set_bottomText = function (value) {
+                    this.__pendingCardBottomText = value;
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._bottomText || typeof this._bottomText.set_text !== "function") return value;
+                        return originalSetBottomText.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.set_bottomText suppressed:", e);
+                        return value;
+                    }
+                };
+            }
+
+            if (typeof cardProto.set_isSelected === "function") {
+                var originalSetIsSelected = cardProto.set_isSelected;
+                cardProto.set_isSelected = function (value) {
+                    this._isSelected = !!value;
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._backgroundButton || typeof this._backgroundButton.set_selected !== "function") return this._isSelected;
+                        return originalSetIsSelected.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.set_isSelected suppressed:", e);
+                        return this._isSelected;
+                    }
+                };
+            }
+
+            if (typeof cardProto.isClickable === "function") {
+                var originalIsClickable = cardProto.isClickable;
+                cardProto.isClickable = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._backgroundButton || typeof this._backgroundButton.set_enabled !== "function") return;
+                        return originalIsClickable.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.isClickable suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.addToCenterOverlay === "function") {
+                var originalAddToCenterOverlay = cardProto.addToCenterOverlay;
+                cardProto.addToCenterOverlay = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._centerContainer || typeof this._centerContainer.addChild !== "function") return;
+                        return originalAddToCenterOverlay.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.addToCenterOverlay suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.clearCenterOverlay === "function") {
+                var originalClearCenterOverlay = cardProto.clearCenterOverlay;
+                cardProto.clearCenterOverlay = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._centerContainer) return;
+                        return originalClearCenterOverlay.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.clearCenterOverlay suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.removeFromCenterOverlay === "function") {
+                var originalRemoveFromCenterOverlay = cardProto.removeFromCenterOverlay;
+                cardProto.removeFromCenterOverlay = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._centerContainer || typeof this._centerContainer.contains !== "function") return;
+                        return originalRemoveFromCenterOverlay.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.removeFromCenterOverlay suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.updateLength === "function") {
+                var originalUpdateLength = cardProto.updateLength;
+                cardProto.updateLength = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._background) return;
+                        return originalUpdateLength.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.updateLength suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof cardProto.hideBackground === "function") {
+                var originalHideBackground = cardProto.hideBackground;
+                cardProto.hideBackground = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._background) return;
+                        return originalHideBackground.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetCard.hideBackground suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            WidgetCard.prototype.__patchedSafeWidgetCard = true;
+        }
+
+        if (WidgetUnitCard && WidgetUnitCard.prototype && !Object.prototype.hasOwnProperty.call(WidgetUnitCard.prototype, "__patchedSafeWidgetUnitCard")) {
+            var unitProto = WidgetUnitCard.prototype;
+
+            if (typeof unitProto.populatePortrait === "function") {
+                var originalPopulatePortrait = unitProto.populatePortrait;
+                unitProto.populatePortrait = function () {
+                    try {
+                        ensureCardInitialized(this);
+                        if (!this._foreground || typeof this._foreground.addChild !== "function") return;
+                        return originalPopulatePortrait.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetUnitCard.populatePortrait suppressed:", e);
+                        return;
+                    }
+                };
+            }
+
+            if (typeof unitProto.set_promotionId === "function") {
+                var originalSetPromotionId = unitProto.set_promotionId;
+                unitProto.set_promotionId = function () {
+                    try {
+                        return originalSetPromotionId.apply(this, arguments);
+                    } catch (e) {
+                        if (!shouldSuppressCardError(e)) throw e;
+                        console.warn("[PATCH V33] WidgetUnitCard.set_promotionId suppressed:", e);
+                        return this._promotionId || 0;
+                    }
+                };
+            }
+
+            WidgetUnitCard.prototype.__patchedSafeWidgetUnitCard = true;
+        }
+    }
+
     function patchUpdatesCheck() {
         var UPDATES = window._hx_classes && window._hx_classes["UPDATES"];
         if (!UPDATES || UPDATES.__patchedSafeCheck || !UPDATES.Check) return;
@@ -4418,6 +4744,7 @@
         patchReticleSafety();
         patchSwfAssetBitmapFallback();
         patchWidgetColorBarSafety();
+        patchUnitCardSafety();
         patchPlatoonManifestDefaults();
         patchUpdatesCheck();
         patchStoreSafety();
@@ -4497,6 +4824,7 @@
         patchReticleSafety();
         patchSwfAssetBitmapFallback();
         patchWidgetColorBarSafety();
+        patchUnitCardSafety();
         patchUpdatesCheck();
         patchStoreSafety();
         patchHudMapButtonsFallback();
