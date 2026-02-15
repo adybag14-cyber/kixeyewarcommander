@@ -72,7 +72,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         7: 3,   # EVENT_FORTRESS_BASE_RF
         8: 1,   # EVENT_COMPANION_BASE
         9: 11,  # DEPOSIT_SKU     -> ENTITY_TYPE_SKU_DEPOSIT
-        10: 3,  # EVENT_ERADICATION_INFESTATION
+        10: 10, # EVENT_ERADICATION_INFESTATION -> ENTITY_TYPE_CRATER
     }
 
     def _load_asset_manifest_map(self):
@@ -3065,15 +3065,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         owner_id = CustomHandler.DEFAULT_PLAYER_ID if owner_id is None else int(owner_id)
         entity_id = CustomHandler.DEFAULT_PLAYER_ENTITY_ID if entity_id is None else str(entity_id)
 
-        entities = self._build_seed_map_entities(
+        entities = self._build_worldmap_bootstrap_entities(
             region_id=region_id,
             sector_id=sector_id,
             owner_id=owner_id,
             center_x=10,
             center_y=10,
-            entity_type=1,
             first_entity_id=entity_id,
-            include_owner=True,
         )
 
         # Include any locally-deployed platoons so the worldmap can mark them as
@@ -3110,6 +3108,248 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
     def _nearby_type_to_entity_type(self, type_id):
         return int(CustomHandler.NEARBY_TYPE_TO_ENTITY_TYPE.get(int(type_id), 1))
+
+    def _seed_entity_offsets(self, max_entities=9):
+        offsets = [
+            (0, 0),
+            (5, 0),
+            (-5, 0),
+            (0, 5),
+            (0, -5),
+            (8, 4),
+            (-8, -4),
+            (10, -3),
+            (-10, 3),
+        ]
+        try:
+            max_entities = int(max_entities)
+        except Exception:
+            max_entities = len(offsets)
+        if max_entities <= 0:
+            max_entities = 1
+        return offsets[: min(max_entities, len(offsets))]
+
+    def _encode_special_attributes_value(self, tokens):
+        seen = set()
+        out = []
+        for token in tokens or []:
+            normalized = str(token or "").strip().lower()
+            if not normalized or normalized in seen:
+                continue
+            seen.add(normalized)
+            out.append(normalized)
+        return ",".join(out)
+
+    def _build_seed_nearby_attributes(self, type_id, entity_type, entity_id, owner_id, idx):
+        type_id = int(type_id)
+        entity_type = int(entity_type)
+        idx = int(idx)
+        entity_id = str(entity_id)
+        attrs = [("dp", "0")]
+        special_tokens = []
+
+        if owner_id is not None:
+            attrs.append(("su", str(int(owner_id))))
+
+        if entity_type in (1, 3):
+            attrs.append(("baseId", entity_id))
+
+        if entity_type == 3:
+            faction_cycle = [1, 2, 7, 9, 11]
+            rf_id = faction_cycle[idx % len(faction_cycle)]
+            rf_type = 1
+            level = 20 + (idx % 25)
+
+            if type_id == 6:
+                # Hunt event bases are attackable by all.
+                special_tokens.append("attackable_by_all")
+                rf_type = 8
+            elif type_id == 7:
+                # Fortress event variants.
+                rf_type = 10
+                variant = idx % 3
+                if variant == 0:
+                    special_tokens.append("fortress")
+                elif variant == 1:
+                    special_tokens.append("satellite")
+                else:
+                    special_tokens.extend(["fortress", "megafortress"])
+
+            attrs.extend(
+                [
+                    ("rogueFactionId", str(rf_id)),
+                    ("rogueFactionType", str(rf_type)),
+                    ("level", str(level)),
+                    ("thoriumTotal", "0"),
+                ]
+            )
+
+        elif entity_type == 1 and type_id == 8:
+            # Companion event bases are player-base entities with companion tag.
+            special_tokens.append("companion")
+            attrs.extend(
+                [
+                    ("rogueFactionId", "1"),
+                    ("rogueFactionType", "8"),
+                    ("level", str(15 + (idx % 10))),
+                    ("thoriumTotal", "0"),
+                ]
+            )
+
+        elif entity_type in (4, 5, 6, 8, 11):
+            # Deposits expose size/faction fields used by worldmap rollovers.
+            size = 1 + (idx % 3)
+            attrs.extend(
+                [
+                    ("size", str(size)),
+                    ("rogueFactionId", str((idx % 5) + 1)),
+                    ("rogueFactionType", "0"),
+                ]
+            )
+            if entity_type == 6:
+                attrs.append(("thoriumTotal", str(5000 + idx * 750)))
+            else:
+                attrs.append(("thoriumTotal", "0"))
+
+        elif entity_type == 10:
+            # Eradication infestation nearby entries are crater entities.
+            special_tokens.append("challenge")
+            attrs.extend(
+                [
+                    ("rogueFactionId", str(1 + (idx % 3))),
+                    ("rogueFactionType", "44"),
+                    ("level", str(10 + idx)),
+                    ("thoriumTotal", "0"),
+                ]
+            )
+
+        else:
+            attrs.append(("thoriumTotal", "0"))
+
+        special_value = self._encode_special_attributes_value(special_tokens)
+        if special_value:
+            attrs.append(("specialAttributes", special_value))
+        return attrs
+
+    def _build_seed_entities_for_nearby_type(
+        self,
+        type_id,
+        region_id,
+        sector_id,
+        owner_id,
+        center_x,
+        center_y,
+        first_entity_id=None,
+        max_entities=9,
+    ):
+        type_id = int(type_id)
+        region_id = int(region_id)
+        sector_id = int(sector_id)
+        owner_id = int(owner_id)
+        center_x = max(0, int(center_x))
+        center_y = max(0, int(center_y))
+        entity_type = self._nearby_type_to_entity_type(type_id)
+
+        try:
+            id_seed = int(first_entity_id if first_entity_id is not None else CustomHandler.DEFAULT_PLAYER_ENTITY_ID)
+        except Exception:
+            id_seed = 1
+
+        include_owner = entity_type in (1, 2, 3)
+        offsets = self._seed_entity_offsets(max_entities=max_entities)
+        out = []
+
+        for idx, (dx, dy) in enumerate(offsets):
+            x = max(0, center_x + dx)
+            y = max(0, center_y + dy)
+            entity_id = str(id_seed + idx)
+
+            entity_owner = owner_id + idx if include_owner else None
+            if type_id == 8 and entity_type == 1:
+                # Companion entities should be spawned for the current user.
+                entity_owner = owner_id
+
+            attrs = self._build_seed_nearby_attributes(
+                type_id=type_id,
+                entity_type=entity_type,
+                entity_id=entity_id,
+                owner_id=entity_owner,
+                idx=idx,
+            )
+
+            out.append(
+                self._build_map_entity_payload(
+                    entity_id=entity_id,
+                    entity_type=entity_type,
+                    sector_id=sector_id,
+                    region_id=region_id,
+                    x=x,
+                    y=y,
+                    owner_id=entity_owner,
+                    status=0,
+                    attributes=attrs,
+                )
+            )
+        return out
+
+    def _build_worldmap_bootstrap_entities(self, region_id, sector_id, owner_id, center_x=10, center_y=10, first_entity_id=None):
+        try:
+            id_seed = int(first_entity_id if first_entity_id is not None else CustomHandler.DEFAULT_PLAYER_ENTITY_ID)
+        except Exception:
+            id_seed = 1
+
+        entities = []
+        # Blend player, rogue-faction and event entities so UI paths for faction/event
+        # buttons are available without relying on live backend data.
+        entities.extend(
+            self._build_seed_entities_for_nearby_type(
+                type_id=5,
+                region_id=region_id,
+                sector_id=sector_id,
+                owner_id=owner_id,
+                center_x=center_x,
+                center_y=center_y,
+                first_entity_id=id_seed,
+                max_entities=5,
+            )
+        )
+        entities.extend(
+            self._build_seed_entities_for_nearby_type(
+                type_id=4,
+                region_id=region_id,
+                sector_id=sector_id,
+                owner_id=owner_id,
+                center_x=center_x + 12,
+                center_y=center_y - 8,
+                first_entity_id=id_seed + 100,
+                max_entities=2,
+            )
+        )
+        entities.extend(
+            self._build_seed_entities_for_nearby_type(
+                type_id=7,
+                region_id=region_id,
+                sector_id=sector_id,
+                owner_id=owner_id,
+                center_x=center_x - 14,
+                center_y=center_y + 10,
+                first_entity_id=id_seed + 200,
+                max_entities=1,
+            )
+        )
+        entities.extend(
+            self._build_seed_entities_for_nearby_type(
+                type_id=8,
+                region_id=region_id,
+                sector_id=sector_id,
+                owner_id=owner_id,
+                center_x=center_x + 6,
+                center_y=center_y + 12,
+                first_entity_id=id_seed + 300,
+                max_entities=1,
+            )
+        )
+        return entities
 
     def _build_seed_map_entities(
         self,
@@ -3180,16 +3420,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         y = 10 if y is None else int(y)
         owner_id = CustomHandler.DEFAULT_PLAYER_ID if owner_id is None else int(owner_id)
 
-        entity_type = self._nearby_type_to_entity_type(type_id)
-        include_owner = entity_type in (1, 2, 3)
-        entities = self._build_seed_map_entities(
+        entities = self._build_seed_entities_for_nearby_type(
+            type_id=type_id,
             region_id=region_id,
             sector_id=sector_id,
             owner_id=owner_id,
             center_x=x,
             center_y=y,
-            entity_type=entity_type,
-            include_owner=include_owner,
         )
 
         payload = b""
@@ -3518,14 +3755,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             # Compatibility path: also push a visible-entity update so clients that
             # bind population to visible updates still receive map entities.
             visible_payload = b""
-            for entity_payload in self._build_seed_map_entities(
+            for entity_payload in self._build_seed_entities_for_nearby_type(
+                type_id=type_id,
                 region_id=region_id,
                 sector_id=sector_id,
                 owner_id=CustomHandler.DEFAULT_PLAYER_ID,
                 center_x=x,
                 center_y=y,
-                entity_type=self._nearby_type_to_entity_type(type_id),
-                include_owner=True,
             ):
                 visible_payload += self._encode_field_bytes(1, entity_payload)
 
