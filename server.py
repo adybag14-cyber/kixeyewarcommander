@@ -3034,7 +3034,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 "region_id": int(region_id),
                 "x": int(x),
                 "y": int(y),
-                "status": 0,
+                # Live uses status=1 for an active world platoon.
+                "status": 1,
+                # Return-home (store) transitions keep the entity visible with
+                # status=2 for a short period before it disappears.
+                "return_ticks": 0,
+                "home_x": 10,
+                "home_y": 10,
             }
             worldmap["mobile_entities"] = mobile_entities
 
@@ -3046,8 +3052,71 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             "region_id": int(region_id),
             "x": int(x),
             "y": int(y),
-            "status": 0,
+            "status": 1,
+            "return_ticks": 0,
         }
+
+    def _runtime_worldmap_tick_mobile_entities_locked(self, worldmap):
+        mobile_entities = worldmap.get("mobile_entities")
+        if not isinstance(mobile_entities, dict):
+            mobile_entities = {}
+            worldmap["mobile_entities"] = mobile_entities
+
+        platoon_to_entity = worldmap.get("platoon_to_entity")
+        if not isinstance(platoon_to_entity, dict):
+            platoon_to_entity = {}
+            worldmap["platoon_to_entity"] = platoon_to_entity
+
+        remove_keys = []
+        for key, row in list(mobile_entities.items()):
+            if not isinstance(row, dict):
+                continue
+            status = self._safe_int(row.get("status"), 0)
+            if status != 2:
+                continue
+
+            ticks = self._safe_int(row.get("return_ticks"), 0)
+            if ticks <= 0:
+                remove_keys.append(key)
+                continue
+
+            ticks -= 1
+            row["return_ticks"] = ticks
+
+            # Keep a lightweight visible "return home" motion so the client sees
+            # status=2 movement updates similar to live.
+            x = self._safe_int(row.get("x"), 0)
+            y = self._safe_int(row.get("y"), 0)
+            home_x = self._safe_int(row.get("home_x"), 10)
+            home_y = self._safe_int(row.get("home_y"), 10)
+            if x < home_x:
+                x += 1
+            elif x > home_x:
+                x -= 1
+            if y < home_y:
+                y += 1
+            elif y > home_y:
+                y -= 1
+            row["x"] = int(x)
+            row["y"] = int(y)
+            mobile_entities[key] = row
+
+            if ticks <= 0:
+                remove_keys.append(key)
+
+        for key in remove_keys:
+            removed = mobile_entities.pop(key, None)
+            if not isinstance(removed, dict):
+                continue
+            removed_entity_id = str(removed.get("entity_id") or "").strip()
+            removed_platoon_id = str(removed.get("platoon_id") or "").strip()
+            if removed_platoon_id:
+                mapped = str(platoon_to_entity.get(removed_platoon_id) or "").strip()
+                if not mapped or mapped == removed_entity_id:
+                    platoon_to_entity.pop(removed_platoon_id, None)
+
+        worldmap["mobile_entities"] = mobile_entities
+        worldmap["platoon_to_entity"] = platoon_to_entity
 
     def _runtime_worldmap_list_mobile_entities(self, region_id=None, sector_id=None):
         ts = self.get_timestamp()
@@ -3056,9 +3125,12 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             worldmap = self._ensure_runtime_worldmap_state_locked(state)
             if worldmap is None:
                 return []
+
+            self._runtime_worldmap_tick_mobile_entities_locked(worldmap)
             entities = worldmap.get("mobile_entities")
             if not isinstance(entities, dict):
                 return []
+
             out = []
             for row in entities.values():
                 if not isinstance(row, dict):
@@ -3069,6 +3141,60 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     continue
                 out.append(copy.deepcopy(row))
             return out
+
+    def _runtime_worldmap_store_mobile_entity(self, entity_id=None, deployer_id=None):
+        """Mark a deployed mobile entity as returning home (status=2)."""
+        entity_id = str(entity_id or "").strip()
+        deployer_id = str(deployer_id or "").strip()
+
+        ts = self.get_timestamp()
+        state = self._ensure_runtime_state(ts)
+        with CustomHandler.runtime_state_lock:
+            worldmap = self._ensure_runtime_worldmap_state_locked(state)
+            if worldmap is None:
+                return None
+
+            mobile_entities = worldmap.get("mobile_entities")
+            if not isinstance(mobile_entities, dict):
+                mobile_entities = {}
+                worldmap["mobile_entities"] = mobile_entities
+
+            target_key = None
+            target = None
+            if entity_id and entity_id in mobile_entities:
+                target_key = entity_id
+                target = mobile_entities.get(entity_id)
+            else:
+                # Fallback: some clients may provide a non-mobile id; try matching by deployer.
+                if deployer_id:
+                    for key, row in list(mobile_entities.items()):
+                        if not isinstance(row, dict):
+                            continue
+                        if str(row.get("deployer_id") or "").strip() == deployer_id:
+                            target_key = key
+                            target = row
+                            break
+                # Last-resort fallback for stale client ids:
+                # mark one active mobile entity as returning.
+                if target is None and mobile_entities:
+                    try:
+                        target_key = sorted(
+                            mobile_entities.keys(),
+                            key=lambda k: int(str(k)) if str(k).isdigit() else -1
+                        )[-1]
+                    except Exception:
+                        target_key = next(iter(mobile_entities.keys()))
+                    target = mobile_entities.get(target_key)
+
+            if isinstance(target, dict) and target_key is not None:
+                target["status"] = 2
+                current_ticks = self._safe_int(target.get("return_ticks"), 0)
+                if current_ticks < 3:
+                    target["return_ticks"] = 3
+                mobile_entities[str(target_key)] = target
+                worldmap["mobile_entities"] = mobile_entities
+                return copy.deepcopy(target)
+            return None
 
     def _extract_move_id(self, payload):
         string_fields, varint_fields = self._collect_proto_scalars(payload)
@@ -3107,7 +3233,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     break
         if not deployer_id:
             for _, value in varint_fields:
-                if int(value) <= 0 or int(value) < 1000:
+                if int(value) <= 0:
                     continue
                 if str(int(value)) != entity_id:
                     deployer_id = str(int(value))
@@ -3243,6 +3369,10 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 if not platoon_id:
                     continue
                 attrs = [
+                    ("icon", "3"),
+                    ("faction_id", "0"),
+                    ("ignore_obstacles", "0"),
+                    ("platoonType", "1"),
                     ("platoonId", platoon_id),
                 ]
                 entities.append(
@@ -4115,9 +4245,55 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
         if handler == 2 and action_id == 202:
             entity_id, deployer_id = self._extract_store_ids(payload)
-            store_payload = self._build_store_response_payload(entity_id, deployer_id)
-            log(f"GATEWAY store/home ack entity={entity_id or '<empty>'} deployer={deployer_id or '<empty>'}")
+            updated = self._runtime_worldmap_store_mobile_entity(entity_id, deployer_id)
+            # Live 1202 ack includes field(1)=entity id; deployer id is omitted.
+            store_payload = self._build_store_response_payload(entity_id, "")
+            try:
+                mobile_count = len(
+                    self._runtime_worldmap_list_mobile_entities(
+                        region_id=CustomHandler.DEFAULT_REGION_ID,
+                        sector_id=CustomHandler.DEFAULT_SECTOR_ID,
+                    )
+                )
+            except Exception:
+                mobile_count = -1
+            log(
+                "GATEWAY store/home ack "
+                f"entity={entity_id or '<empty>'} "
+                f"deployer={deployer_id or '<empty>'} "
+                f"updated={updated.get('entity_id') if isinstance(updated, dict) else '<none>'} "
+                f"mobile_count={mobile_count}"
+            )
             enqueue(self._build_gateway_action_packet(2, 1202, store_payload, timestamp))
+            if isinstance(updated, dict):
+                try:
+                    platoon_id = str(updated.get("platoon_id") or "").strip()
+                    attrs = [
+                        ("icon", "3"),
+                        ("faction_id", "0"),
+                        ("ignore_obstacles", "0"),
+                        ("platoonType", "1"),
+                    ]
+                    if platoon_id:
+                        attrs.append(("platoonId", platoon_id))
+                    owner_id = self._preferred_player_id()
+                    entity_payload = self._encode_field_bytes(
+                        1,
+                        self._build_map_entity_payload(
+                            entity_id=str(updated.get("entity_id") or entity_id),
+                            entity_type=2,
+                            sector_id=int(updated.get("sector_id") or CustomHandler.DEFAULT_SECTOR_ID),
+                            region_id=int(updated.get("region_id") or CustomHandler.DEFAULT_REGION_ID),
+                            x=int(updated.get("x") or 0),
+                            y=int(updated.get("y") or 0),
+                            owner_id=int(owner_id),
+                            status=int(updated.get("status") or 0),
+                            attributes=attrs,
+                        ),
+                    )
+                    enqueue(self._build_gateway_action_packet(2, 1102, entity_payload, timestamp))
+                except Exception:
+                    pass
             return True
 
         # setMapView / setOccupied are fire-and-forget in this local shim.
