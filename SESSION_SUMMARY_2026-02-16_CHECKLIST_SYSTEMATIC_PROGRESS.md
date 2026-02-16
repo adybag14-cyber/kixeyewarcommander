@@ -57,3 +57,39 @@
 - Acceptance section still pending:
   - 3 consecutive full-suite passes
   - final combat/deploy parity lock in same run window
+
+## Update - 2026-02-16 (Live Signed Probe + Local Contract Alignment)
+- Re-ran deep live signed probes using exact URL and full Node binary path:
+  - `tmp_live_capture_deep_signed.json`
+  - `tmp_live_capture_ws_nearby_probe_signed.json`
+  - `tmp_live_capture_ws_combat_focus_signed.json`
+  - `tmp_live_capture_ws_attack_tamper_matrix_signed.json`
+  - `tmp_live_capture_write_tamper_signed.json`
+- Added focused store/deploy live probe:
+  - `js/live_capture_ws_store_cycle_signed.js`
+  - Captured live store-home contract around WS `2:202`:
+    - `sent 2:202`
+    - `recv 2:1202` with payload containing only field `1=<entityId>`
+    - follow-up `recv 2:1102` updates where the same platoon entity remains visible with `status=2` and moving coordinates (not immediate delete).
+
+- Local server contract patch applied in `server.py`:
+  - Deploy runtime mobile entities now default to `status=1` (active).
+  - Store/home (`2:202`) now marks entity as `status=2` with short return countdown instead of immediate removal.
+  - Added runtime tick to advance/remove returning entities safely and clear mapping when countdown completes.
+  - Store response (`2:1202`) now omits deployer id and returns entity id only (live-shape parity).
+  - Store handler now emits immediate `2:1102` single-entity update for the transitioned platoon.
+  - Runtime type-2 entity attributes now include:
+    - `icon=3`
+    - `faction_id=0`
+    - `ignore_obstacles=0`
+    - `platoonType=1`
+    - `platoonId=<id>`
+
+- Direct gateway contract verification (HTTP fallback path) confirms local parity for store-home:
+  - after deploy: `recv 2:1200` payload fields `1=deployerId`, `2=platoonId`
+  - after store: `recv 2:1202` payload field `1=entityId` only
+  - after store: `recv 2:1102` includes type-2 entity with `status=2` and expected platoon attributes.
+
+- Current status:
+  - Live store/home wire contract is now mirrored in local server behavior.
+  - WS1/WS2 deep gameplay parity still remains open for full deterministic completion criteria.
