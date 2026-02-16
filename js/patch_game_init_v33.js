@@ -1676,6 +1676,109 @@
         console.log("[PATCH V33] Worldmap drag input fallback enabled.");
     }
 
+    function patchWorldmapNavigationSafety() {
+        var hx = window._hx_classes || {};
+        var HexWorldmapView = hx["com.cc.worldmap.HexWorldmapView"] || hx["com.cc.worldmap.view.HexWorldmapView"];
+        if (!HexWorldmapView || !HexWorldmapView.prototype || HexWorldmapView.prototype.__patchedWorldmapNavigationSafety) return;
+
+        var proto = HexWorldmapView.prototype;
+
+        function isFiniteCoord(v) {
+            return typeof v === "number" && isFinite(v);
+        }
+
+        function coercePoint(point) {
+            if (!point || !isFiniteCoord(point.x) || !isFiniteCoord(point.y)) return null;
+            return {
+                x: point.x | 0,
+                y: point.y | 0
+            };
+        }
+
+        function resolveSafePoint(view) {
+            var fromPlayer = null;
+            try {
+                if (window.ja && window.ja.playerInfo && typeof window.ja.playerInfo.get_homeBase === "function") {
+                    fromPlayer = coercePoint(window.ja.playerInfo.get_homeBase());
+                }
+            } catch (_homeReadErr) { }
+            if (fromPlayer) return fromPlayer;
+
+            var fromSynth = coercePoint(window.__PATCH_V33_SYNTH_HOME_COORD__);
+            if (fromSynth) return fromSynth;
+
+            try {
+                if (view && view._centerPoint) {
+                    var fromCenter = coercePoint(view._centerPoint);
+                    if (fromCenter) return fromCenter;
+                }
+            } catch (_centerReadErr) { }
+            return null;
+        }
+
+        if (typeof proto.navigateTo === "function" && !proto.__patchedNavigateToNullSafety) {
+            var originalNavigateTo = proto.navigateTo;
+            proto.navigateTo = function (point, onComplete) {
+                var target = coercePoint(point) || resolveSafePoint(this);
+                if (!target) {
+                    if (!window.__PATCH_V33_NAVIGATE_NULL_WARNED__) {
+                        window.__PATCH_V33_NAVIGATE_NULL_WARNED__ = true;
+                        console.warn("[PATCH V33] Suppressed navigateTo(null) with no safe fallback point.");
+                    }
+                    if (typeof onComplete === "function") {
+                        try {
+                            onComplete();
+                        } catch (_navigateCompleteErr) { }
+                    }
+                    return;
+                }
+
+                if (!point || !isFiniteCoord(point.x) || !isFiniteCoord(point.y)) {
+                    var guardCount = (window.__PATCH_V33_NAVIGATE_NULL_GUARD_COUNT__ || 0) + 1;
+                    window.__PATCH_V33_NAVIGATE_NULL_GUARD_COUNT__ = guardCount;
+                    if (guardCount <= 5) {
+                        console.warn("[PATCH V33] navigateTo received invalid point; using safe fallback (" + target.x + "," + target.y + ").");
+                    }
+                }
+
+                return originalNavigateTo.call(this, target, onComplete);
+            };
+            proto.__patchedNavigateToNullSafety = true;
+        }
+
+        if (typeof proto.navigateToBase === "function" && !proto.__patchedNavigateToBaseNullSafety) {
+            var originalNavigateToBase = proto.navigateToBase;
+            proto.navigateToBase = function () {
+                var home = null;
+                try {
+                    if (window.ja && window.ja.playerInfo && typeof window.ja.playerInfo.get_homeBase === "function") {
+                        home = coercePoint(window.ja.playerInfo.get_homeBase());
+                    }
+                } catch (_homeErr) { }
+
+                if (home) {
+                    return this.navigateTo(home);
+                }
+
+                var fallback = resolveSafePoint(this);
+                if (fallback) {
+                    console.warn("[PATCH V33] navigateToBase missing homeBase; using fallback point (" + fallback.x + "," + fallback.y + ").");
+                    return this.navigateTo(fallback);
+                }
+
+                if (!window.__PATCH_V33_NAVIGATE_BASE_NULL_WARNED__) {
+                    window.__PATCH_V33_NAVIGATE_BASE_NULL_WARNED__ = true;
+                    console.warn("[PATCH V33] navigateToBase suppressed due to missing homeBase and fallback.");
+                }
+                return originalNavigateToBase.apply(this, arguments);
+            };
+            proto.__patchedNavigateToBaseNullSafety = true;
+        }
+
+        proto.__patchedWorldmapNavigationSafety = true;
+        console.log("[PATCH V33] Worldmap navigation null-safety enabled.");
+    }
+
     function stabilizeWorldmapStateTransition() {
         var hx = window._hx_classes || {};
         var ActiveState = hx["ActiveState"];
@@ -4750,6 +4853,7 @@
         patchStoreSafety();
         patchHudMapButtonsFallback();
         patchWorldmapDragInputFallback();
+        patchWorldmapNavigationSafety();
         bootstrapGameDataIfMissing();
         clearConnectionPopups();
         ensureCDNManifestInitialized();
@@ -4829,6 +4933,7 @@
         patchStoreSafety();
         patchHudMapButtonsFallback();
         patchWorldmapDragInputFallback();
+        patchWorldmapNavigationSafety();
         bootstrapGameDataIfMissing();
         clearConnectionPopups();
     };
