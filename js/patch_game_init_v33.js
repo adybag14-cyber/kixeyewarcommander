@@ -9,7 +9,7 @@
     var LOCAL_ORIGIN = (window.location && window.location.origin && window.location.origin !== "null")
         ? window.location.origin
         : "http://127.0.0.1:8089";
-    var WORLDMAP_SYNTHETIC_BOOTSTRAP_MIN_MS = 45000;
+    var WORLDMAP_SYNTHETIC_BOOTSTRAP_MIN_MS = 8000;
     var WORLDMAP_TRANSITION_STUCK_TIMEOUT_MS = 2500;
     var WORLDMAP_TRANSITION_MAX_FORCE_ATTEMPTS = 2;
     var DISABLE_SYNTHETIC_WORLDMAP_BOOTSTRAP = !!window.__PATCH_V33_DISABLE_SYNTH_WM__;
@@ -1779,6 +1779,111 @@
         console.log("[PATCH V33] Worldmap navigation null-safety enabled.");
     }
 
+    function patchWorldmapSubEventSafety() {
+        var hx = window._hx_classes || {};
+        if (!hx) return;
+
+        function isNullMapCrash(err) {
+            var msg = String((err && err.message) || err || "");
+            return (
+                msg.indexOf("reading 'h'") !== -1 ||
+                msg.indexOf("reading \"h\"") !== -1 ||
+                msg.indexOf("getSubEventRelatedToBaseRfType") !== -1
+            );
+        }
+
+        function logSuppressed(tag) {
+            var n = (window.__PATCH_V33_WM_SUBEVENT_SUPPRESS_COUNT__ || 0) + 1;
+            window.__PATCH_V33_WM_SUBEVENT_SUPPRESS_COUNT__ = n;
+            if (n <= 6) {
+                console.warn("[PATCH V33] Suppressed " + tag + " null-map crash.");
+            } else if (n === 7) {
+                console.warn("[PATCH V33] Additional worldmap sub-event null-map suppressions muted.");
+            }
+        }
+
+        var keys = Object.keys(hx);
+        var patchedCanAttack = 0;
+        var patchedSubEvent = 0;
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            var Cls = hx[key];
+            if (!Cls || !Cls.prototype) continue;
+            var proto = Cls.prototype;
+
+            if (typeof proto.getSubEventRelatedToBaseRfType === "function" && !proto.__patchedSafeGetSubEventRelatedToBaseRfType) {
+                var originalGetSubEventRelatedToBaseRfType = proto.getSubEventRelatedToBaseRfType;
+                proto.getSubEventRelatedToBaseRfType = function () {
+                    try {
+                        return originalGetSubEventRelatedToBaseRfType.apply(this, arguments);
+                    } catch (e) {
+                        if (isNullMapCrash(e)) {
+                            logSuppressed("getSubEventRelatedToBaseRfType");
+                            return null;
+                        }
+                        throw e;
+                    }
+                };
+                proto.__patchedSafeGetSubEventRelatedToBaseRfType = true;
+                patchedSubEvent++;
+            }
+
+            if (typeof proto.isUnderProtectionSubEventBase === "function" && !proto.__patchedSafeIsUnderProtectionSubEventBase) {
+                var originalIsUnderProtectionSubEventBase = proto.isUnderProtectionSubEventBase;
+                proto.isUnderProtectionSubEventBase = function () {
+                    try {
+                        return originalIsUnderProtectionSubEventBase.apply(this, arguments);
+                    } catch (e) {
+                        if (isNullMapCrash(e)) {
+                            return false;
+                        }
+                        throw e;
+                    }
+                };
+                proto.__patchedSafeIsUnderProtectionSubEventBase = true;
+                patchedSubEvent++;
+            }
+
+            if (typeof proto.isBlockedSubEventBase === "function" && !proto.__patchedSafeIsBlockedSubEventBase) {
+                var originalIsBlockedSubEventBase = proto.isBlockedSubEventBase;
+                proto.isBlockedSubEventBase = function () {
+                    try {
+                        return originalIsBlockedSubEventBase.apply(this, arguments);
+                    } catch (e) {
+                        if (isNullMapCrash(e)) {
+                            return false;
+                        }
+                        throw e;
+                    }
+                };
+                proto.__patchedSafeIsBlockedSubEventBase = true;
+                patchedSubEvent++;
+            }
+
+            if (typeof proto.canAttackWMEntity === "function" && !proto.__patchedSafeCanAttackWMEntity) {
+                var originalCanAttackWMEntity = proto.canAttackWMEntity;
+                proto.canAttackWMEntity = function () {
+                    try {
+                        return originalCanAttackWMEntity.apply(this, arguments);
+                    } catch (e) {
+                        if (isNullMapCrash(e)) {
+                            logSuppressed("canAttackWMEntity");
+                            return false;
+                        }
+                        throw e;
+                    }
+                };
+                proto.__patchedSafeCanAttackWMEntity = true;
+                patchedCanAttack++;
+            }
+        }
+
+        if (!window.__PATCH_V33_WM_SUBEVENT_SAFETY_LOGGED__ && (patchedCanAttack > 0 || patchedSubEvent > 0)) {
+            window.__PATCH_V33_WM_SUBEVENT_SAFETY_LOGGED__ = true;
+            console.log("[PATCH V33] Worldmap sub-event safety enabled (canAttack=" + patchedCanAttack + ", subEvent=" + patchedSubEvent + ").");
+        }
+    }
+
     function stabilizeWorldmapStateTransition() {
         var hx = window._hx_classes || {};
         var ActiveState = hx["ActiveState"];
@@ -1889,9 +1994,9 @@
             // Prevent transition flicker: only create map view after world-state fully enters.
             if (worldState !== true) return;
             if (changingState === true) return;
-            if (!hasFinishedLoading) return;
 
             var controllerReady = false;
+            var hasVisibleEntityInfo = false;
             try {
                 var ctrl = Worldmap._controller;
                 if (ctrl && typeof ctrl.get_hasReceivedAllInfo === "function") {
@@ -1899,8 +2004,14 @@
                 } else if (ctrl) {
                     controllerReady = !!(ctrl._hasMapHeader && ctrl._hasSharedConfigs);
                 }
+                if (ctrl && typeof ctrl.get_hasVisibleEntityInfo === "function") {
+                    hasVisibleEntityInfo = !!ctrl.get_hasVisibleEntityInfo();
+                } else if (ctrl) {
+                    hasVisibleEntityInfo = !!ctrl._hasVisibleEntityInfo;
+                }
             } catch (_controllerReadyErr) { }
             if (!controllerReady) return;
+            if (!hasFinishedLoading && !hasVisibleEntityInfo) return;
 
             if (MAP && (!MAP._terrainManager || typeof MAP._terrainManager.get_terrainSize !== "function")) {
                 return;
@@ -2086,10 +2197,31 @@
         var currentX = isFinite(center.x) ? (center.x | 0) : targetX;
         var currentY = isFinite(center.y) ? (center.y | 0) : targetY;
         var atEdge = currentX < 16 || currentY < 16 || currentX > (mapWidth - 16) || currentY > (mapHeight - 16);
-        if (!atEdge) return;
+        var forceLayerResync = false;
+        try {
+            var baseLayer = mapView._baseLayer || null;
+            if (baseLayer && typeof baseLayer.get_numChildren === "function" && baseLayer.get_numChildren() > 0 && typeof baseLayer.getChildAt === "function") {
+                var firstBase = baseLayer.getChildAt(0);
+                if (firstBase) {
+                    var bx = null;
+                    var by = null;
+                    try { bx = typeof firstBase.get_x === "function" ? firstBase.get_x() : firstBase.x; } catch (_bxReadErr) { }
+                    try { by = typeof firstBase.get_y === "function" ? firstBase.get_y() : firstBase.y; } catch (_byReadErr) { }
+                    // Broken world-map transform state places base sprites at huge
+                    // absolute coordinates (e.g. ~25k,12k) while the camera stays
+                    // near 250,250. Force one camera/layer sync when detected.
+                    if (isFinite(bx) && isFinite(by) && (Math.abs(bx) > 4000 || Math.abs(by) > 4000)) {
+                        forceLayerResync = true;
+                    }
+                }
+            }
+        } catch (_baseLayerProbeErr) { }
+
+        var initialSyncPending = !window.__PATCH_V33_WORLDMAP_RECENTER_INITIAL_SYNC_DONE__;
+        if (!atEdge && !forceLayerResync && !initialSyncPending) return;
 
         var appliedKey = String(targetX) + ":" + String(targetY) + ":" + String(mapWidth) + ":" + String(mapHeight);
-        if (window.__PATCH_V33_WORLDMAP_RECENTER_APPLIED_KEY__ === appliedKey) return;
+        if (!forceLayerResync && window.__PATCH_V33_WORLDMAP_RECENTER_APPLIED_KEY__ === appliedKey) return;
 
         try {
             center.x = targetX;
@@ -2102,9 +2234,127 @@
             if (typeof mapView.updateMap === "function") {
                 mapView.updateMap(true);
             }
+            window.__PATCH_V33_WORLDMAP_RECENTER_INITIAL_SYNC_DONE__ = true;
             window.__PATCH_V33_WORLDMAP_RECENTER_APPLIED_KEY__ = appliedKey;
             console.log("[PATCH V33] Recentered world map view to home coordinate (" + targetX + "," + targetY + ").");
         } catch (_recenterErr) { }
+    }
+
+    function primeWorldmapNearbyEntities() {
+        var hx = window._hx_classes || {};
+        var Worldmap = hx["com.cc.worldmap.Worldmap"];
+        if (!Worldmap || !Worldmap._controller) return;
+
+        var worldState = getWorldmapStateFlag(hx);
+        var pendingWorldState = getPendingWorldmapStateFlag(hx);
+        var changingState = getActiveStateChangingFlag(hx);
+        if (worldState !== true && pendingWorldState !== true && changingState !== true) return;
+
+        var controller = Worldmap._controller;
+        var mapService = controller._mapService || null;
+        if (!mapService || typeof mapService.nearby !== "function") return;
+
+        var visibleCount = 0;
+        try {
+            var visibleMap = controller._visibleEntityMap || null;
+            if (visibleMap && typeof visibleMap.getValues === "function") {
+                var values = visibleMap.getValues();
+                if (values) {
+                    if (Array.isArray(values)) {
+                        visibleCount = values.length | 0;
+                    } else if (typeof values.length === "number") {
+                        visibleCount = values.length | 0;
+                    } else if (typeof values.get_length === "function") {
+                        visibleCount = values.get_length() | 0;
+                    } else if (values.h && typeof values.h === "object") {
+                        visibleCount = Object.keys(values.h).length | 0;
+                    }
+                }
+            }
+            if (!visibleCount && visibleMap && visibleMap.h && typeof visibleMap.h === "object") {
+                visibleCount = Object.keys(visibleMap.h).length | 0;
+            }
+        } catch (_visibleCountErr) { }
+
+        // Once map is populated, stop priming nearby fetches.
+        if (visibleCount >= 24) return;
+
+        var centerX = 250;
+        var centerY = 250;
+        var sectorId = 1;
+        var regionId = 0;
+
+        try {
+            var center = Worldmap._mapView ? Worldmap._mapView._centerPoint : null;
+            if (center && isFinite(center.x)) centerX = center.x | 0;
+            if (center && isFinite(center.y)) centerY = center.y | 0;
+        } catch (_centerErr) { }
+
+        try {
+            var fallbackHome = window.__PATCH_V33_SYNTH_HOME_COORD__ || null;
+            if (!isFinite(centerX) || centerX <= 0) centerX = fallbackHome && isFinite(fallbackHome.x) ? (fallbackHome.x | 0) : 250;
+            if (!isFinite(centerY) || centerY <= 0) centerY = fallbackHome && isFinite(fallbackHome.y) ? (fallbackHome.y | 0) : 250;
+            if (fallbackHome && isFinite(fallbackHome.sector) && (fallbackHome.sector | 0) > 0) sectorId = fallbackHome.sector | 0;
+            if (fallbackHome && isFinite(fallbackHome.region) && (fallbackHome.region | 0) >= 0) regionId = fallbackHome.region | 0;
+        } catch (_homeFallbackErr) { }
+
+        try {
+            var activeSector = controller.get_activeSector ? controller.get_activeSector() : controller._activeSector;
+            if (activeSector && typeof activeSector.get_id === "function") {
+                var sid = activeSector.get_id();
+                if (sid != null && isFinite(sid) && (sid | 0) > 0) sectorId = sid | 0;
+            }
+        } catch (_activeSectorErr) { }
+
+        var now = Date.now();
+
+        // World-map can remain stuck pending when service bootstrap requests are
+        // never issued. Drive these calls directly as a local recovery path.
+        var needsServiceBootstrap = false;
+        try {
+            needsServiceBootstrap =
+                !controller._hasMapHeader ||
+                !controller._hasSharedConfigs ||
+                !controller._hasVisibleEntityInfo ||
+                !controller._hasDepositInfo ||
+                !controller._hasTuningData;
+        } catch (_needsBootstrapErr) {
+            needsServiceBootstrap = true;
+        }
+
+        var serviceLastAt = window.__PATCH_V33_WM_SERVICE_BOOTSTRAP_AT__ || 0;
+        if (needsServiceBootstrap && (!serviceLastAt || (now - serviceLastAt) > 3000)) {
+            window.__PATCH_V33_WM_SERVICE_BOOTSTRAP_AT__ = now;
+            try { if (typeof mapService.getVisibleSectors === "function") mapService.getVisibleSectors(); } catch (_svcVisibleSectorsErr) { }
+            try { if (typeof mapService.getVisibleEntities === "function") mapService.getVisibleEntities(regionId); } catch (_svcVisibleEntitiesErr) { }
+            try { if (typeof mapService.getBlockedRfBases === "function") mapService.getBlockedRfBases(regionId); } catch (_svcBlockedRfErr) { }
+            try {
+                if (typeof mapService.getPlayerHome === "function" && window.ja && window.ja.playerInfo && typeof window.ja.playerInfo.get_id === "function") {
+                    mapService.getPlayerHome(sectorId, window.ja.playerInfo.get_id());
+                }
+            } catch (_svcPlayerHomeErr) { }
+        }
+
+        var lastAt = window.__PATCH_V33_WM_NEARBY_PRIME_AT__ || 0;
+        if (lastAt && (now - lastAt) < 6000) return;
+
+        var key = String(sectorId) + ":" + String(regionId) + ":" + String((centerX / 8) | 0) + ":" + String((centerY / 8) | 0);
+        var lastKey = window.__PATCH_V33_WM_NEARBY_PRIME_KEY__ || "";
+        if (lastKey === key && lastAt && (now - lastAt) < 30000) return;
+
+        window.__PATCH_V33_WM_NEARBY_PRIME_AT__ = now;
+        window.__PATCH_V33_WM_NEARBY_PRIME_KEY__ = key;
+
+        var nearbyTypes = [5, 4, 6, 7, 10];
+        for (var i = 0; i < nearbyTypes.length; i++) {
+            (function (typeId, delayMs) {
+                setTimeout(function () {
+                    try {
+                        mapService.nearby(sectorId, regionId, centerX, centerY, typeId, null, null, null);
+                    } catch (_nearbyPrimeErr) { }
+                }, delayMs);
+            })(nearbyTypes[i], i * 130);
+        }
     }
 
     function ensureMapLayerRefs(MAP) {
@@ -2692,7 +2942,7 @@
             }
 
             var visibleEntityUpdate = new VisibleEntityUpdate();
-            function pushEntity(entityId, entityType, x, y, owner, status) {
+            function pushEntity(entityId, entityType, x, y, owner, status, extraAttrs) {
                 var entity = new MapEntity();
                 entity.set_entityId(entityId);
                 entity.set_type(entityType);
@@ -2724,18 +2974,123 @@
                     attrSu.set_value(String(owner));
                     entity.get_attributes().push(attrSu);
                 }
+                if (extraAttrs && extraAttrs.length) {
+                    for (var ai = 0; ai < extraAttrs.length; ai++) {
+                        var row = extraAttrs[ai];
+                        if (!row || row.length < 2) continue;
+                        var attr = new Attribute();
+                        attr.set_key(String(row[0] || ""));
+                        attr.set_value(String(row[1] == null ? "" : row[1]));
+                        entity.get_attributes().push(attr);
+                    }
+                }
                 visibleEntityUpdate.get_entities().push(entity);
             }
 
-            // Seed with player/rogue bases only; deposit entity types can trigger
-            // stricter parser paths that fail in local bootstrap mode.
-            pushEntity(homeEntityId, 1, homeX, homeY, playerId, 0);
-            pushEntity(homeEntityId + 1, 1, homeX + 8, homeY + 3, playerId + 1, 0);
-            pushEntity(homeEntityId + 2, 1, homeX - 8, homeY - 3, playerId + 2, 0);
-            pushEntity(homeEntityId + 3, 1, homeX + 15, homeY - 5, playerId + 3, 0);
-            pushEntity(homeEntityId + 4, 1, homeX - 14, homeY + 6, playerId + 4, 0);
-            pushEntity(homeEntityId + 5, 3, homeX + 20, homeY + 12, playerId + 5, 0);
-            pushEntity(homeEntityId + 6, 3, homeX - 18, homeY - 10, playerId + 6, 0);
+            function buildOffsets(maxCount) {
+                var out = [];
+                var step = 3;
+                var radius = 0;
+                while (out.length < maxCount && radius < 64) {
+                    for (var dx = -radius; dx <= radius; dx++) {
+                        for (var dy = -radius; dy <= radius; dy++) {
+                            if (Math.abs(dx) !== radius && Math.abs(dy) !== radius) continue;
+                            out.push([dx * step, dy * step]);
+                            if (out.length >= maxCount) break;
+                        }
+                        if (out.length >= maxCount) break;
+                    }
+                    radius += 1;
+                }
+                return out;
+            }
+
+            var denseOffsets = buildOffsets(180);
+            var offsetIndex = 0;
+            var nextEntityId = homeEntityId;
+
+            function takeOffset() {
+                if (offsetIndex >= denseOffsets.length) return [0, 0];
+                var pair = denseOffsets[offsetIndex++];
+                return [pair[0] | 0, pair[1] | 0];
+            }
+
+            // Home base anchor.
+            pushEntity(nextEntityId++, 1, homeX, homeY, playerId, 0, [
+                ["baseId", String(homeEntityId)],
+                ["level", "44"],
+                ["damage", "0"],
+                ["cCLevel", "22"]
+            ]);
+
+            // Dense player-base cluster.
+            for (var pi = 0; pi < 23; pi++) {
+                var po = takeOffset();
+                var playerAttrs = [
+                    ["baseId", String(homeEntityId + pi + 1)],
+                    ["level", String(30 + (pi % 15))],
+                    ["damage", "100"],
+                    ["cCLevel", String(8 + (pi % 14))]
+                ];
+                // Companion-style event markers use player-base entities.
+                if (pi < 6) {
+                    playerAttrs.push(["specialAttributes", "companion"]);
+                    playerAttrs.push(["rogueFactionId", "1"]);
+                    playerAttrs.push(["rogueFactionType", "8"]);
+                }
+                pushEntity(
+                    nextEntityId++,
+                    1,
+                    Math.max(0, homeX + po[0]),
+                    Math.max(0, homeY + po[1]),
+                    playerId + pi + 1,
+                    0,
+                    playerAttrs
+                );
+            }
+
+            // Event/faction/retaliation rogue-base cluster.
+            for (var ri = 0; ri < 102; ri++) {
+                var ro = takeOffset();
+                var rogueType = (ri % 3 === 0) ? 1 : ((ri % 3 === 1) ? 42 : 43);
+                var special = (ri % 5 === 0) ? "fortress" : ((ri % 5 === 1) ? "satellite" : "");
+                var attrs = [
+                    ["rogueFactionId", String(6 + (ri % 14))],
+                    ["rogueFactionType", String(rogueType)],
+                    ["level", String(10 + (ri % 40))],
+                    ["analyticsTag", (rogueType === 42 ? "faction" : (rogueType === 43 ? "retaliation" : "event"))],
+                    ["spawnRuleName", (rogueType === 42 ? "faction_base_alpha_sector" : (rogueType === 43 ? "retaliation_base2_test_f_sector" : "supplydepot_range_10_100"))]
+                ];
+                if (special) attrs.push(["specialAttributes", special]);
+                pushEntity(
+                    nextEntityId++,
+                    3,
+                    Math.max(0, homeX + ro[0]),
+                    Math.max(0, homeY + ro[1]),
+                    null,
+                    0,
+                    attrs
+                );
+            }
+
+            // Challenge/infestation markers.
+            for (var ci = 0; ci < 24; ci++) {
+                var co = takeOffset();
+                pushEntity(
+                    nextEntityId++,
+                    10,
+                    Math.max(0, homeX + co[0]),
+                    Math.max(0, homeY + co[1]),
+                    null,
+                    0,
+                    [
+                        ["rogueFactionId", String(1 + (ci % 3))],
+                        ["rogueFactionType", "44"],
+                        ["level", String(10 + ci)],
+                        ["specialAttributes", "challenge"]
+                    ]
+                );
+            }
 
             if (typeof controller.onVisibleEntityUpdate === "function") {
                 try {
@@ -2746,6 +3101,20 @@
                     console.warn("[PATCH V33] Synthetic visible-entity bootstrap fallback:", visibleEntityErr);
                 }
             }
+
+            // If connection is available, ask for real nearby slices to replace
+            // synthetic rows with server-backed entities.
+            try {
+                var mapService = controller._mapService || null;
+                if (mapService && typeof mapService.nearby === "function") {
+                    mapService.nearby(sectorId, regionId, homeX, homeY, 5, null, null, null);
+                    mapService.nearby(sectorId, regionId, homeX, homeY, 4, null, null, null);
+                    mapService.nearby(sectorId, regionId, homeX, homeY, 6, null, null, null);
+                    mapService.nearby(sectorId, regionId, homeX, homeY, 7, null, null, null);
+                    mapService.nearby(sectorId, regionId, homeX, homeY, 8, null, null, null);
+                    mapService.nearby(sectorId, regionId, homeX, homeY, 10, null, null, null);
+                }
+            } catch (_syntheticNearbyErr) { }
 
             if (typeof controller.receivedDepositInfo === "function") {
                 try {
@@ -2808,30 +3177,45 @@
             window.__PATCH_V33_SYNTH_WM_LAST_ATTEMPT_AT__ = 0;
             window.__PATCH_V33_SYNTH_WM_DONE__ = false;
         }
-        if (isWorldmapStableAndUsable(hx)) {
-            window.__PATCH_V33_SYNTH_WM_DONE__ = true;
-            return;
-        }
 
         var worldState = getWorldmapStateFlag(hx);
         var pendingWorldState = getPendingWorldmapStateFlag(hx);
         var changingState = getActiveStateChangingFlag(hx);
-        if (worldState !== true && pendingWorldState !== true && changingState !== true) return;
+        var inWorldmapFlow = (worldState === true || pendingWorldState === true || changingState === true);
+        if (!inWorldmapFlow) {
+            window.__PATCH_V33_SYNTH_WM_FLOW_STARTED_AT__ = 0;
+            return;
+        }
+
+        var now = Date.now();
+        var flowStartedAt = window.__PATCH_V33_SYNTH_WM_FLOW_STARTED_AT__ || 0;
+        if (!flowStartedAt) {
+            window.__PATCH_V33_SYNTH_WM_FLOW_STARTED_AT__ = now;
+            flowStartedAt = now;
+        }
+
+        if (isWorldmapStableAndUsable(hx)) {
+            window.__PATCH_V33_SYNTH_WM_DONE__ = true;
+            window.__PATCH_V33_SYNTH_WM_FLOW_STARTED_AT__ = 0;
+            return;
+        }
 
         try {
             if (typeof controller.get_hasReceivedAllInfo === "function" && controller.get_hasReceivedAllInfo()) {
                 window.__PATCH_V33_SYNTH_WM_DONE__ = true;
+                window.__PATCH_V33_SYNTH_WM_FLOW_STARTED_AT__ = 0;
                 return;
             }
         } catch (_readyErr) { }
 
-        var elapsedMs = window.game_boot_started ? (Date.now() - window.game_boot_started) : 0;
+        // Measure fallback timeout from active world-map transition, not total game
+        // uptime, so we do not overwrite valid gateway data after long idle sessions.
+        var elapsedMs = now - flowStartedAt;
         if (elapsedMs < WORLDMAP_SYNTHETIC_BOOTSTRAP_MIN_MS) return;
 
         var attempts = window.__PATCH_V33_SYNTH_WM_ATTEMPTS__ || 0;
         if (attempts >= 4) return;
 
-        var now = Date.now();
         var lastAttemptAt = window.__PATCH_V33_SYNTH_WM_LAST_ATTEMPT_AT__ || 0;
         if (lastAttemptAt && (now - lastAttemptAt) < 5000) return;
         if (!ensureSyntheticRegionTemplateCellsLoaded(500)) return;
@@ -4854,6 +5238,7 @@
         patchHudMapButtonsFallback();
         patchWorldmapDragInputFallback();
         patchWorldmapNavigationSafety();
+        patchWorldmapSubEventSafety();
         bootstrapGameDataIfMissing();
         clearConnectionPopups();
         ensureCDNManifestInitialized();
@@ -4868,6 +5253,7 @@
             patchWorldmapViewBootstrap();
             syncWorldmapMapViewVisibility();
             ensureWorldmapCenteredOnHome();
+            primeWorldmapNearbyEntities();
             patchMapLayerCallSafety();
             patchHexMapSafety();
             reconcileDetachedBaseRender();
@@ -4910,6 +5296,7 @@
         patchWorldmapViewBootstrap();
         syncWorldmapMapViewVisibility();
         ensureWorldmapCenteredOnHome();
+        primeWorldmapNearbyEntities();
         patchMapLayerCallSafety();
         patchHexMapSafety();
         reconcileDetachedBaseRender();
@@ -4934,6 +5321,7 @@
         patchHudMapButtonsFallback();
         patchWorldmapDragInputFallback();
         patchWorldmapNavigationSafety();
+        patchWorldmapSubEventSafety();
         bootstrapGameDataIfMissing();
         clearConnectionPopups();
     };
