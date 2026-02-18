@@ -55,8 +55,10 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     # Minimal world-map seed values used by gateway action stubs.
     DEFAULT_PLAYER_ID = 123456
     DEFAULT_PLAYER_ENTITY_ID = "1"
-    DEFAULT_SECTOR_ID = 1
+    DEFAULT_SECTOR_ID = 199
     DEFAULT_REGION_ID = 0
+    DEFAULT_WORLDMAP_CENTER_X = 268
+    DEFAULT_WORLDMAP_CENTER_Y = 377
     DEFAULT_MAP_ID = "1"
     DEFAULT_REGION_TEMPLATE_CHECKSUM = 515646777
     DEFAULT_REGION_TEMPLATE_LAYOUT = 3
@@ -3428,8 +3430,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             region_id=region_id,
             sector_id=sector_id,
             owner_id=owner_id,
-            center_x=10,
-            center_y=10,
+            center_x=CustomHandler.DEFAULT_WORLDMAP_CENTER_X,
+            center_y=CustomHandler.DEFAULT_WORLDMAP_CENTER_Y,
             first_entity_id=entity_id,
         )
 
@@ -3710,7 +3712,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         except Exception:
             id_seed = 1
 
-        include_owner = entity_type in (1, 2, 3)
+        include_owner = entity_type in (1, 2)
         offsets = self._seed_entity_offsets(max_entities=max_entities)
         out = []
 
@@ -3719,16 +3721,18 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             y = max(0, center_y + dy)
             entity_id = str(id_seed + idx)
 
+            attr_owner = owner_id + idx if entity_type in (1, 3) else None
             entity_owner = owner_id + idx if include_owner else None
             if type_id == 8 and entity_type == 1:
                 # Companion entities should be spawned for the current user.
                 entity_owner = owner_id
+                attr_owner = owner_id
 
             attrs = self._build_seed_nearby_attributes(
                 type_id=type_id,
                 entity_type=entity_type,
                 entity_id=entity_id,
-                owner_id=entity_owner,
+                owner_id=attr_owner,
                 idx=idx,
             )
 
@@ -3868,12 +3872,22 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             )
         return out
 
-    def _build_nearby_response_payload(self, type_id=None, region_id=None, sector_id=None, x=None, y=None, owner_id=None):
+    def _build_nearby_response_payload(
+        self,
+        type_id=None,
+        region_id=None,
+        sector_id=None,
+        x=None,
+        y=None,
+        owner_id=None,
+        first_entity_id=None,
+        max_entities=24,
+    ):
         type_id = 5 if type_id is None else int(type_id)
         region_id = CustomHandler.DEFAULT_REGION_ID if region_id is None else int(region_id)
         sector_id = CustomHandler.DEFAULT_SECTOR_ID if sector_id is None else int(sector_id)
-        x = 10 if x is None else int(x)
-        y = 10 if y is None else int(y)
+        x = CustomHandler.DEFAULT_WORLDMAP_CENTER_X if x is None else int(x)
+        y = CustomHandler.DEFAULT_WORLDMAP_CENTER_Y if y is None else int(y)
         owner_id = CustomHandler.DEFAULT_PLAYER_ID if owner_id is None else int(owner_id)
 
         entities = self._build_seed_entities_for_nearby_type(
@@ -3883,6 +3897,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             owner_id=owner_id,
             center_x=x,
             center_y=y,
+            first_entity_id=first_entity_id,
+            max_entities=max_entities,
         )
 
         payload = b""
@@ -4204,9 +4220,21 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             nearby_req = self._decode_get_nearby_entities_request(payload)
             region_id = int(nearby_req.get("region_id", CustomHandler.DEFAULT_REGION_ID))
             sector_id = int(nearby_req.get("sector_id", CustomHandler.DEFAULT_SECTOR_ID))
-            x = int(nearby_req.get("x", 10))
-            y = int(nearby_req.get("y", 10))
+            x = int(nearby_req.get("x", CustomHandler.DEFAULT_WORLDMAP_CENTER_X))
+            y = int(nearby_req.get("y", CustomHandler.DEFAULT_WORLDMAP_CENTER_Y))
             type_id = int(nearby_req.get("type_id", 5))
+            # Keep nearby IDs stable per (sector, type) and non-overlapping across
+            # type families so visible-entity maps don't collapse into a tiny set.
+            id_seed = int(sector_id) * 100000 + int(region_id) * 10000 + int(type_id) * 1000 + 1
+            nearby_density = {
+                4: 36,   # faction npc bases
+                5: 24,   # player bases
+                6: 30,   # hunt event bases
+                7: 36,   # fortress/satellite variants
+                8: 24,   # companion bases
+                10: 24,  # infestation/challenge markers
+            }
+            max_entities = int(nearby_density.get(type_id, 18))
 
             # Compatibility path: also push a visible-entity update so clients that
             # bind population to visible updates still receive map entities.
@@ -4218,6 +4246,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 owner_id=CustomHandler.DEFAULT_PLAYER_ID,
                 center_x=x,
                 center_y=y,
+                first_entity_id=id_seed,
+                max_entities=max_entities,
             ):
                 visible_payload += self._encode_field_bytes(1, entity_payload)
 
@@ -4251,6 +4281,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 sector_id=sector_id,
                 x=x,
                 y=y,
+                first_entity_id=id_seed,
+                max_entities=max_entities,
             )
             enqueue(self._build_gateway_action_packet(2, 1103, nearby_payload, timestamp))
             return True
