@@ -378,6 +378,41 @@ function parseVisibleEntitiesPayload(payloadBytes) {
   return entities;
 }
 
+function parseNearbyEntitiesPayload(payloadBytes) {
+  const entities = [];
+  let i = 0;
+  while (i < payloadBytes.length) {
+    const tag = readVarint(payloadBytes, i);
+    if (!tag) break;
+    i = tag.next;
+    const field = tag.val >> 3;
+    const wt = tag.val & 0x7;
+    if (wt === 2) {
+      const ln = readVarint(payloadBytes, i);
+      if (!ln) break;
+      const start = ln.next;
+      const end = start + ln.val;
+      if (end > payloadBytes.length) break;
+      // Nearby payload shape: field(1)=typeId, repeated field(2)=MapEntity bytes.
+      if (field === 2) {
+        entities.push(parseMapEntity(payloadBytes.subarray(start, end)));
+      }
+      i = end;
+    } else if (wt === 0) {
+      const v = readVarint(payloadBytes, i);
+      if (!v) break;
+      i = v.next;
+    } else if (wt === 5) {
+      i += 4;
+    } else if (wt === 1) {
+      i += 8;
+    } else {
+      break;
+    }
+  }
+  return entities;
+}
+
 function parseWireShallow(buf, maxFields = 80) {
   const out = [];
   let i = 0;
@@ -424,11 +459,14 @@ function parseWireShallow(buf, maxFields = 80) {
 function extractLargestVisibleEntitySet(wsFrames) {
   let best = [];
   for (const fr of wsFrames || []) {
-    if (fr.dir !== 'recv' || fr.action !== '2:1102') continue;
+    if (fr.dir !== 'recv') continue;
+    if (fr.action !== '2:1102' && fr.action !== '2:1103') continue;
     const parsed = parseGatewayPacketFromWsFramePayload(fr.payloadB64);
     if (!parsed) continue;
     const payload = maybeInflate(parsed.payload, parsed.compressed);
-    const entities = parseVisibleEntitiesPayload(payload);
+    const entities = fr.action === '2:1103'
+      ? parseNearbyEntitiesPayload(payload)
+      : parseVisibleEntitiesPayload(payload);
     if (entities.length > best.length) best = entities;
   }
   return best;
@@ -720,21 +758,25 @@ async function main() {
         label: 'blocked_rf_bases_region_0',
         bytes: Array.from(buildGatewayActionPacket(2, 106, encodeFieldVarint(1, 0), tPrime + 1)),
       },
-      {
-        label: 'nearby_player_bases',
+    ];
+    const nearbyTypeIds = [5, 6, 7, 8, 10];
+    for (let i = 0; i < nearbyTypeIds.length; i += 1) {
+      const typeId = nearbyTypeIds[i];
+      primePackets.push({
+        label: `nearby_type_${typeId}`,
         bytes: Array.from(
           buildGatewayActionPacket(
             2,
             103,
             Buffer.concat([
               encodeFieldBytes(1, buildCoordPayload(199, 268, 377, 0)),
-              encodeFieldVarint(2, 5),
+              encodeFieldVarint(2, typeId),
             ]),
-            tPrime + 2
+            tPrime + 2 + i
           )
         ),
-      },
-    ];
+      });
+    }
     const primeSend = await page.evaluate((rows) => {
       if (typeof window.__wsProbeSendPackets === 'function') return window.__wsProbeSendPackets(rows);
       return { ok: false, reason: 'ws-send-helper-missing' };

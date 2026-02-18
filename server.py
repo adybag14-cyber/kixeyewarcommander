@@ -3276,6 +3276,79 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             payload += self._encode_field_varint(3, int(error_code))
         return payload
 
+    def _decode_can_scout_request(self, payload):
+        """
+        com.kixeye.net.proto.atlas.CanScoutRequest
+          1: targetEntityId (string)
+          2: advancedScout (bool)
+          3: invadeHex (bool)
+          4: directDeploy (bool)
+        """
+        out = {
+            "target_entity_id": "",
+            "advanced_scout": False,
+            "invade_hex": False,
+            "direct_deploy": False,
+        }
+        idx = 0
+        total = len(payload or b"")
+        while idx < total:
+            tag, idx = self._decode_varint(payload, idx)
+            if tag is None:
+                break
+            field_no = tag >> 3
+            wire_type = tag & 7
+            if wire_type == 0:
+                value, idx = self._decode_varint(payload, idx)
+                if value is None:
+                    break
+                if field_no == 2:
+                    out["advanced_scout"] = int(value) != 0
+                elif field_no == 3:
+                    out["invade_hex"] = int(value) != 0
+                elif field_no == 4:
+                    out["direct_deploy"] = int(value) != 0
+            elif wire_type == 2:
+                length, idx = self._decode_varint(payload, idx)
+                if length is None:
+                    break
+                end = idx + int(length)
+                if end > total:
+                    break
+                chunk = payload[idx:end]
+                idx = end
+                if field_no == 1:
+                    out["target_entity_id"] = chunk.decode("utf-8", errors="ignore")
+            elif wire_type == 5:
+                idx += 4
+            elif wire_type == 1:
+                idx += 8
+            else:
+                break
+        return out
+
+    def _build_can_scout_response_payload(self, response_code=2202, error_code=0, invade_hex=False):
+        """
+        Minimal local shape that mirrors live can-scout envelope fields:
+          2: response code
+          4: error code
+          5: invadeHex flag echo
+        """
+        payload = b""
+        payload += self._encode_field_varint(2, int(response_code))
+        payload += self._encode_field_varint(4, int(error_code))
+        payload += self._encode_field_varint(5, 1 if invade_hex else 0)
+        return payload
+
+    def _build_start_attack_response_payload(self, response_code=2202):
+        """
+        Lightweight WC_START_ATTACK response envelope observed in live captures:
+          7: response/status code
+        """
+        payload = b""
+        payload += self._encode_field_varint(7, int(response_code))
+        return payload
+
     def _build_attribute_payload(self, key, value):
         payload = b""
         payload += self._encode_field_string(1, key)
@@ -4187,6 +4260,16 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             enqueue(self._build_gateway_action_packet(2, 1106, blocked_payload, timestamp))
             return True
 
+        if handler == 2 and action_id == 104:
+            scout_req = self._decode_can_scout_request(payload)
+            scout_payload = self._build_can_scout_response_payload(
+                response_code=2202,
+                error_code=0,
+                invade_hex=bool(scout_req.get("invade_hex")),
+            )
+            enqueue(self._build_gateway_action_packet(2, 1104, scout_payload, timestamp))
+            return True
+
         # Platoon deploy / move / store acknowledgements.
         # These are required for worldmap platoon actions to complete instead of
         # falling back to a generic handler response.
@@ -4333,9 +4416,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             enqueue(self._build_gateway_action_packet(3, wc_atlas_responses[action_id], b"", timestamp))
             return True
 
+        if handler == 3 and action_id == 3:
+            start_attack_payload = self._build_start_attack_response_payload(response_code=2202)
+            enqueue(self._build_gateway_action_packet(3, 4, start_attack_payload, timestamp))
+            return True
+
         # WC atlas fire-and-forget commands that do not require explicit replies.
         if handler == 3 and action_id in (
-            3,   # WC_START_ATTACK
             5,   # WC_END_ATTACK
             11,  # WC_UPDATE_ATTACK_STATE
             28,  # WC_UPDATE_BASE_EVENT_PARTICIPATION

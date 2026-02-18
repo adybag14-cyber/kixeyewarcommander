@@ -1,17 +1,17 @@
 # Local Clone To-100% Checklist
 
 ## 1) Combat Parity (Highest Priority)
-- [ ] Capture 5 clean live combat sessions (same target type) and diff local vs live action/result envelopes.
+- [x] Capture 5 clean live combat sessions (same target type) and diff local vs live action/result envelopes.
 - [ ] Build a deterministic local battle replay harness for damage-per-shot and unit-count reconciliation.
-- [ ] Validate platoon deploy count invariants: spawned <= available, no duplicate spawn IDs, no double-initialization.
+- [x] Validate platoon deploy count invariants: spawned <= available, no duplicate spawn IDs, no double-initialization.
 - [ ] Validate attacker/defender modifier stack parity (buffs, faction/event flags, hidden multipliers).
 - [ ] Add assertions for no negative/overflow HP and no unexpected splash/range scaling.
 
 ## 2) Worldmap/Event/Faction Deep Paths
 - [x] Verify all nearby/entity type families against live snapshots (player, NPC faction, event, infestation).
-- [ ] Validate event participation toggle state survives world/base roundtrips.
-- [ ] Validate attackability gating rules per entity class (challenge, attackable_by_all, fortress/satellite variants).
-- [ ] Verify move/store/deploy/redeploy transitions under repeated rapid user actions.
+- [x] Validate event participation toggle state survives world/base roundtrips.
+- [x] Validate attackability gating rules per entity class (challenge, attackable_by_all, fortress/satellite variants).
+- [x] Verify move/store/deploy/redeploy transitions under repeated rapid user actions.
 
 ## 3) Save/Write Integrity
 - [x] Add scheduled fuzz run for write-guard scenarios (invalid token/hash/oversized/unknown action flood).
@@ -38,3 +38,10 @@
 - [ ] Combat/deploy/upgrade/production paths all green in one session.
 - [ ] No state corruption under malformed-write fuzz tests.
 - [ ] Session summary updated and pushed.
+
+## Latest Artifacts (2026-02-18)
+- Live combat 5-session batch (new signed URL): `artifacts/combat_live_batch_20260218-183513`
+- Live vs local combat envelope diff: `artifacts/combat_live_batch_20260218-183513/combat_envelope_live_vs_local_diff.json`
+- Local combat envelope roundtrip probe: `tmp_probe_local_gateway_combat_envelope.json`
+- Event participation world/base roundtrip probe: `tmp_probe_event_participation_roundtrip.json`
+- Deploy invariants probe: `tmp_probe_deploy_invariants.json`
