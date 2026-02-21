@@ -536,6 +536,15 @@
                 s.indexOf("server") !== -1;
         }
 
+        function isMissionToolDisconnectReason(text) {
+            var s = String(text || "").toLowerCase();
+            if (!s) return false;
+            return s.indexOf("missiontoolservicewrapper") !== -1 ||
+                s.indexOf("sendgetmissionrequest") !== -1 ||
+                s.indexOf("mission tool") !== -1 ||
+                (s.indexOf("mission") !== -1 && s.indexOf("request") !== -1);
+        }
+
         if (GLOBAL && !GLOBAL.__patchedNoConnectionHalt) {
             if (GLOBAL.setHalted) {
                 var originalSetHalted = GLOBAL.setHalted;
@@ -585,11 +594,14 @@
             if (WorldmapController.onDisconnected) {
                 var originalOnDisconnected = WorldmapController.onDisconnected;
                 WorldmapController.onDisconnected = function (reason, allowReconnect) {
-                    console.warn("[PATCH V33] WorldmapController.onDisconnected suppressed:", reason);
-                    try {
-                        if (GLOBAL && GLOBAL.setHalted) GLOBAL.setHalted(false, "");
-                    } catch (e) { }
-                    return;
+                    if (isMissionToolDisconnectReason(reason)) {
+                        console.warn("[PATCH V33] WorldmapController.onDisconnected suppressed:", reason);
+                        try {
+                            if (GLOBAL && GLOBAL.setHalted) GLOBAL.setHalted(false, "");
+                        } catch (e) { }
+                        return;
+                    }
+                    return originalOnDisconnected.apply(this, arguments);
                 };
             }
 
@@ -597,11 +609,14 @@
                 var originalOnForceDisconnect = WorldmapController.onForceDisconnect;
                 WorldmapController.onForceDisconnect = function (event) {
                     var msg = event && event.message;
-                    console.warn("[PATCH V33] WorldmapController.onForceDisconnect suppressed:", msg);
-                    try {
-                        if (GLOBAL && GLOBAL.setHalted) GLOBAL.setHalted(false, "");
-                    } catch (e) { }
-                    return;
+                    if (isMissionToolDisconnectReason(msg)) {
+                        console.warn("[PATCH V33] WorldmapController.onForceDisconnect suppressed:", msg);
+                        try {
+                            if (GLOBAL && GLOBAL.setHalted) GLOBAL.setHalted(false, "");
+                        } catch (e) { }
+                        return;
+                    }
+                    return originalOnForceDisconnect.apply(this, arguments);
                 };
             }
 
@@ -2109,6 +2124,9 @@
         if (!Worldmap || !Worldmap._mapView) return;
 
         var worldState = getWorldmapStateFlag(hx);
+        var pendingWorldState = getPendingWorldmapStateFlag(hx);
+        var changingState = getActiveStateChangingFlag(hx);
+        var inWorldmapFlow = (worldState === true || pendingWorldState === true || changingState === true);
         var currentVisible = null;
 
         try {
@@ -2118,7 +2136,7 @@
                 currentVisible = !!Worldmap._mapView.visible;
             }
 
-            if (worldState === true && currentVisible === false) {
+            if (inWorldmapFlow && currentVisible === false) {
                 if (typeof Worldmap._mapView.set_visible === "function") {
                     Worldmap._mapView.set_visible(true);
                 } else {
@@ -2126,13 +2144,19 @@
                 }
                 currentVisible = true;
             }
-            if (worldState !== true && currentVisible === true) {
-                if (typeof Worldmap._mapView.set_visible === "function") {
-                    Worldmap._mapView.set_visible(false);
-                } else {
-                    Worldmap._mapView.visible = false;
+            if (inWorldmapFlow) {
+                window.__PATCH_V33_LAST_WM_FLOW_AT__ = Date.now();
+            } else if (currentVisible === true) {
+                var lastFlowAt = window.__PATCH_V33_LAST_WM_FLOW_AT__ || 0;
+                var safeToHide = (!lastFlowAt) || ((Date.now() - lastFlowAt) > 3000);
+                if (safeToHide) {
+                    if (typeof Worldmap._mapView.set_visible === "function") {
+                        Worldmap._mapView.set_visible(false);
+                    } else {
+                        Worldmap._mapView.visible = false;
+                    }
+                    currentVisible = false;
                 }
-                currentVisible = false;
             }
 
             if (worldState === true && Worldmap.__patchV33MapViewVisible !== true && currentVisible === true) {
@@ -2142,7 +2166,7 @@
         } catch (_mapViewVisibilityErr) { }
 
         try {
-            var shouldEnableMouse = currentVisible === true && worldState === true;
+            var shouldEnableMouse = currentVisible === true && inWorldmapFlow;
             if (shouldEnableMouse && typeof Worldmap._mapView.mouseEnabled !== "undefined" && !Worldmap._mapView.mouseEnabled) {
                 Worldmap._mapView.mouseEnabled = true;
             }
@@ -2513,10 +2537,16 @@
         function safeFinishHexMap(instance) {
             if (!instance) return;
             try {
+                var existingCells = (instance._cells && instance._cells.length) ? instance._cells : null;
                 instance._cellData = null;
                 if (!instance._cells) instance._cells = [];
-                instance._numCells = 0;
-                instance._currentIndex = 0;
+                if (existingCells) {
+                    instance._numCells = existingCells.length | 0;
+                    instance._currentIndex = instance._numCells;
+                } else {
+                    instance._numCells = 0;
+                    instance._currentIndex = 0;
+                }
                 instance._hasInitializedHeader = true;
                 if (typeof instance.markHeaderLoaded === "function") {
                     try {
@@ -2563,12 +2593,15 @@
         if (typeof proto.processData === "function") {
             var originalProcessData = proto.processData;
             proto.processData = function () {
+                var hasRenderableCells = !!(this._cells && this._cells.length && this._cells.length > 0);
                 if (this._cellData && !hasReadableByteInterface(this._cellData)) {
                     if (!this.__patchV33HexMapProcessBadDataLogged) {
                         this.__patchV33HexMapProcessBadDataLogged = true;
                         console.warn("[PATCH V33] HexMap.processData skipping unreadable cell data.");
                     }
-                    safeFinishHexMap(this);
+                    if (!hasRenderableCells) {
+                        safeFinishHexMap(this);
+                    }
                     return;
                 }
                 try {
@@ -2578,7 +2611,9 @@
                         this.__patchV33HexMapProcessWarned = true;
                         console.warn("[PATCH V33] HexMap.processData suppressed:", e2);
                     }
-                    safeFinishHexMap(this);
+                    if (!hasRenderableCells) {
+                        safeFinishHexMap(this);
+                    }
                     return;
                 }
             };
@@ -4225,6 +4260,80 @@
         Battle.prototype.__patchedSafeDeploy = true;
     }
 
+    function patchDirectEnyoSocketFallback() {
+        var hx = window._hx_classes || {};
+        var DirectSock = hx["com.kixeye.net.DirectEnyoSocketConnection"];
+        if (!DirectSock || !DirectSock.prototype || DirectSock.prototype.__patchedLocalNoTlsShim) return;
+
+        if (typeof DirectSock.prototype.createConnection === "function") {
+            var originalCreateConnection = DirectSock.prototype.createConnection;
+            DirectSock.prototype.createConnection = function (host, port) {
+                try {
+                    this._currentHost = host || "127.0.0.1";
+                    this._currentPort = (port | 0) || 8089;
+                    this.__patchV33DirectConnected = true;
+                    this.connecting = false;
+                    this.socket = null;
+                    var self = this;
+                    setTimeout(function () {
+                        try {
+                            if (typeof self.onConnect === "function") {
+                                self.onConnect({ type: "connect", forced: true });
+                            }
+                        } catch (e) {
+                            console.warn("[PATCH V33] DirectEnyo local connect dispatch failed:", e);
+                        }
+                    }, 0);
+                    return;
+                } catch (shimErr) {
+                    console.warn("[PATCH V33] DirectEnyo local createConnection shim failed, falling back:", shimErr);
+                    return originalCreateConnection.apply(this, arguments);
+                }
+            };
+        }
+
+        if (typeof DirectSock.prototype.get_connected === "function") {
+            var originalGetConnected = DirectSock.prototype.get_connected;
+            DirectSock.prototype.get_connected = function () {
+                if (this.__patchV33DirectConnected) return true;
+                try {
+                    return originalGetConnected.apply(this, arguments);
+                } catch (e) {
+                    return false;
+                }
+            };
+        }
+
+        if (typeof DirectSock.prototype.sendDirectMessage === "function") {
+            var originalSendDirectMessage = DirectSock.prototype.sendDirectMessage;
+            DirectSock.prototype.sendDirectMessage = function () {
+                if (this.__patchV33DirectConnected) {
+                    return;
+                }
+                return originalSendDirectMessage.apply(this, arguments);
+            };
+        }
+
+        if (typeof DirectSock.prototype.closeConnection === "function") {
+            var originalCloseConnection = DirectSock.prototype.closeConnection;
+            DirectSock.prototype.closeConnection = function () {
+                this.__patchV33DirectConnected = false;
+                return originalCloseConnection.apply(this, arguments);
+            };
+        }
+
+        if (typeof DirectSock.prototype.resetConnection === "function") {
+            var originalResetConnection = DirectSock.prototype.resetConnection;
+            DirectSock.prototype.resetConnection = function () {
+                this.__patchV33DirectConnected = false;
+                return originalResetConnection.apply(this, arguments);
+            };
+        }
+
+        DirectSock.prototype.__patchedLocalNoTlsShim = true;
+        console.log("[PATCH V33] DirectEnyoSocketConnection local no-TLS shim enabled.");
+    }
+
     function patchReticleSafety() {
         var MechMercReticle = window._hx_classes && window._hx_classes["com.cc.ui.reticles.MechMercReticle"];
         if (!MechMercReticle || !MechMercReticle.prototype || MechMercReticle.prototype.__patchedSafeChangeMode) return;
@@ -5228,6 +5337,7 @@
         patchDefenderFireteamSafety();
         patchFootprintSafety();
         patchBattleSafety();
+        patchDirectEnyoSocketFallback();
         patchReticleSafety();
         patchSwfAssetBitmapFallback();
         patchWidgetColorBarSafety();
@@ -5312,6 +5422,7 @@
         patchDefenderFireteamSafety();
         patchFootprintSafety();
         patchBattleSafety();
+        patchDirectEnyoSocketFallback();
         patchReticleSafety();
         patchSwfAssetBitmapFallback();
         patchWidgetColorBarSafety();

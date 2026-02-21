@@ -17,6 +17,9 @@ import uuid
 PORT = 8089
 PNG_PLACEHOLDER_1X1 = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15\xc4\x89\x00\x00\x00\rIDATx\xdacd\xf8\xcfP\x0f\x00\x03\x86\x01\x80Z4}k\x00\x00\x00\x00IEND\xaeB`\x82'
 EMPTY_ZIP = b"PK\x05\x06" + b"\x00" * 18
+# Local sandbox currently has no fully emulated direct battle socket/runtime.
+# Return a graceful attack error instead of entering a black battle scene.
+LOCAL_ATTACK_FALLBACK_ERROR_CODE = 2202
 
 def log(msg):
     try:
@@ -57,8 +60,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     DEFAULT_PLAYER_ENTITY_ID = "1"
     DEFAULT_SECTOR_ID = 199
     DEFAULT_REGION_ID = 0
-    DEFAULT_WORLDMAP_CENTER_X = 268
-    DEFAULT_WORLDMAP_CENTER_Y = 377
+    DEFAULT_WORLDMAP_CENTER_X = 250
+    DEFAULT_WORLDMAP_CENTER_Y = 247
     DEFAULT_MAP_ID = "1"
     DEFAULT_REGION_TEMPLATE_CHECKSUM = 515646777
     DEFAULT_REGION_TEMPLATE_LAYOUT = 3
@@ -1791,6 +1794,9 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
         # Fallback for missing xml layout/config files
         if lower_path.endswith(".xml"):
+            if self._try_download_missing_asset(path_clean) and os.path.exists(path_clean):
+                self.serve_file(path_clean)
+                return
             xml = b'<?xml version="1.0" encoding="utf-8"?><root></root>'
             log(f"FALLBACK XML: Serving minimal XML for {path_clean}")
             self._respond_bytes(xml, "application/xml")
@@ -2628,8 +2634,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     def _decode_coord_payload(self, payload):
         out = {
             "sector": int(CustomHandler.DEFAULT_SECTOR_ID),
-            "x": 10,
-            "y": 10,
+            "x": int(CustomHandler.DEFAULT_WORLDMAP_CENTER_X),
+            "y": int(CustomHandler.DEFAULT_WORLDMAP_CENTER_Y),
             "region": int(CustomHandler.DEFAULT_REGION_ID),
         }
         idx = 0
@@ -2668,8 +2674,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         out = {
             "sector_id": int(CustomHandler.DEFAULT_SECTOR_ID),
             "region_id": int(CustomHandler.DEFAULT_REGION_ID),
-            "x": 10,
-            "y": 10,
+            "x": int(CustomHandler.DEFAULT_WORLDMAP_CENTER_X),
+            "y": int(CustomHandler.DEFAULT_WORLDMAP_CENTER_Y),
             "type_id": 5,  # BASE_PLAYER
         }
         idx = 0
@@ -2702,6 +2708,82 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     out["region_id"] = int(coord.get("region", out["region_id"]))
                     out["x"] = int(coord.get("x", out["x"]))
                     out["y"] = int(coord.get("y", out["y"]))
+            else:
+                break
+        return out
+
+    def _decode_set_map_view_request(self, payload):
+        # com.kixeye.net.proto.atlas.SetMapView bounds message:
+        #   field(1): bounds
+        # bounds fields:
+        #   1=sectorId, 2=regionId, 3=centerX, 4=centerY, 5=width, 6=height
+        out = {
+            "sector_id": int(CustomHandler.DEFAULT_SECTOR_ID),
+            "region_id": int(CustomHandler.DEFAULT_REGION_ID),
+            "x": int(CustomHandler.DEFAULT_WORLDMAP_CENTER_X),
+            "y": int(CustomHandler.DEFAULT_WORLDMAP_CENTER_Y),
+            "width": 0,
+            "height": 0,
+        }
+
+        idx = 0
+        total = len(payload or b"")
+        data = payload or b""
+        while idx < total:
+            tag, idx = self._decode_varint(data, idx)
+            if tag is None:
+                break
+            field_no = tag >> 3
+            wire_type = tag & 7
+            if wire_type == 0:
+                value, idx = self._decode_varint(data, idx)
+                if value is None:
+                    break
+            elif wire_type == 2:
+                length, idx = self._decode_varint(data, idx)
+                if length is None:
+                    break
+                end = idx + int(length)
+                if end > total:
+                    break
+                chunk = data[idx:end]
+                idx = end
+                if field_no != 1:
+                    continue
+
+                bidx = 0
+                blen = len(chunk)
+                while bidx < blen:
+                    btag, bidx = self._decode_varint(chunk, bidx)
+                    if btag is None:
+                        break
+                    bfield = btag >> 3
+                    bwire = btag & 7
+                    if bwire == 0:
+                        value, bidx = self._decode_varint(chunk, bidx)
+                        if value is None:
+                            break
+                        if bfield == 1:
+                            out["sector_id"] = int(value)
+                        elif bfield == 2:
+                            out["region_id"] = int(value)
+                        elif bfield == 3:
+                            out["x"] = int(value)
+                        elif bfield == 4:
+                            out["y"] = int(value)
+                        elif bfield == 5:
+                            out["width"] = int(value)
+                        elif bfield == 6:
+                            out["height"] = int(value)
+                    elif bwire == 2:
+                        blength, bidx = self._decode_varint(chunk, bidx)
+                        if blength is None:
+                            break
+                        bidx += int(blength)
+                        if bidx > blen:
+                            break
+                    else:
+                        break
             else:
                 break
         return out
@@ -2992,11 +3074,67 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             worldmap["platoon_to_entity"] = {}
         if not isinstance(worldmap.get("mobile_entities"), dict):
             worldmap["mobile_entities"] = {}
+        view = worldmap.get("view")
+        if not isinstance(view, dict):
+            view = {}
+        view["sector_id"] = self._safe_int(view.get("sector_id"), CustomHandler.DEFAULT_SECTOR_ID)
+        view["region_id"] = self._safe_int(view.get("region_id"), CustomHandler.DEFAULT_REGION_ID)
+        view["x"] = self._safe_int(view.get("x"), CustomHandler.DEFAULT_WORLDMAP_CENTER_X)
+        view["y"] = self._safe_int(view.get("y"), CustomHandler.DEFAULT_WORLDMAP_CENTER_Y)
+        worldmap["view"] = view
         next_id = self._safe_int(worldmap.get("next_mobile_entity_id"), 600000)
         if next_id < 600000:
             next_id = 600000
         worldmap["next_mobile_entity_id"] = next_id
         return worldmap
+
+    def _runtime_worldmap_get_view(self):
+        ts = self.get_timestamp()
+        state = self._ensure_runtime_state(ts)
+        with CustomHandler.runtime_state_lock:
+            worldmap = self._ensure_runtime_worldmap_state_locked(state)
+            if worldmap is None:
+                return {
+                    "sector_id": int(CustomHandler.DEFAULT_SECTOR_ID),
+                    "region_id": int(CustomHandler.DEFAULT_REGION_ID),
+                    "x": int(CustomHandler.DEFAULT_WORLDMAP_CENTER_X),
+                    "y": int(CustomHandler.DEFAULT_WORLDMAP_CENTER_Y),
+                }
+            view = worldmap.get("view") if isinstance(worldmap, dict) else None
+            if not isinstance(view, dict):
+                view = {}
+            return {
+                "sector_id": self._safe_int(view.get("sector_id"), CustomHandler.DEFAULT_SECTOR_ID),
+                "region_id": self._safe_int(view.get("region_id"), CustomHandler.DEFAULT_REGION_ID),
+                "x": self._safe_int(view.get("x"), CustomHandler.DEFAULT_WORLDMAP_CENTER_X),
+                "y": self._safe_int(view.get("y"), CustomHandler.DEFAULT_WORLDMAP_CENTER_Y),
+            }
+
+    def _runtime_worldmap_update_view(self, sector_id=None, region_id=None, x=None, y=None):
+        ts = self.get_timestamp()
+        state = self._ensure_runtime_state(ts)
+        with CustomHandler.runtime_state_lock:
+            worldmap = self._ensure_runtime_worldmap_state_locked(state)
+            if worldmap is None:
+                return None
+            view = worldmap.get("view")
+            if not isinstance(view, dict):
+                view = {}
+            if sector_id is not None:
+                view["sector_id"] = self._safe_int(sector_id, CustomHandler.DEFAULT_SECTOR_ID)
+            if region_id is not None:
+                view["region_id"] = self._safe_int(region_id, CustomHandler.DEFAULT_REGION_ID)
+            if x is not None:
+                view["x"] = self._safe_int(x, CustomHandler.DEFAULT_WORLDMAP_CENTER_X)
+            if y is not None:
+                view["y"] = self._safe_int(y, CustomHandler.DEFAULT_WORLDMAP_CENTER_Y)
+            worldmap["view"] = view
+            return {
+                "sector_id": self._safe_int(view.get("sector_id"), CustomHandler.DEFAULT_SECTOR_ID),
+                "region_id": self._safe_int(view.get("region_id"), CustomHandler.DEFAULT_REGION_ID),
+                "x": self._safe_int(view.get("x"), CustomHandler.DEFAULT_WORLDMAP_CENTER_X),
+                "y": self._safe_int(view.get("y"), CustomHandler.DEFAULT_WORLDMAP_CENTER_Y),
+            }
 
     def _runtime_worldmap_allocate_entity_id_locked(self, worldmap_state):
         next_id = self._safe_int(worldmap_state.get("next_mobile_entity_id"), 600000)
@@ -3012,8 +3150,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         dest = destination if isinstance(destination, dict) else {}
         sector_id = self._safe_int(dest.get("sector"), CustomHandler.DEFAULT_SECTOR_ID)
         region_id = self._safe_int(dest.get("region"), CustomHandler.DEFAULT_REGION_ID)
-        x = self._safe_int(dest.get("x"), 250)
-        y = self._safe_int(dest.get("y"), 250)
+        x = self._safe_int(dest.get("x"), CustomHandler.DEFAULT_WORLDMAP_CENTER_X)
+        y = self._safe_int(dest.get("y"), CustomHandler.DEFAULT_WORLDMAP_CENTER_Y)
 
         ts = self.get_timestamp()
         state = self._ensure_runtime_state(ts)
@@ -3041,8 +3179,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 # Return-home (store) transitions keep the entity visible with
                 # status=2 for a short period before it disappears.
                 "return_ticks": 0,
-                "home_x": 10,
-                "home_y": 10,
+                "home_x": int(CustomHandler.DEFAULT_WORLDMAP_CENTER_X),
+                "home_y": int(CustomHandler.DEFAULT_WORLDMAP_CENTER_Y),
             }
             worldmap["mobile_entities"] = mobile_entities
 
@@ -3089,8 +3227,8 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             # status=2 movement updates similar to live.
             x = self._safe_int(row.get("x"), 0)
             y = self._safe_int(row.get("y"), 0)
-            home_x = self._safe_int(row.get("home_x"), 10)
-            home_y = self._safe_int(row.get("home_y"), 10)
+            home_x = self._safe_int(row.get("home_x"), CustomHandler.DEFAULT_WORLDMAP_CENTER_X)
+            home_y = self._safe_int(row.get("home_y"), CustomHandler.DEFAULT_WORLDMAP_CENTER_Y)
             if x < home_x:
                 x += 1
             elif x > home_x:
@@ -3329,26 +3467,256 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 break
         return out
 
-    def _build_can_scout_response_payload(self, response_code=2202, error_code=0, invade_hex=False):
+    def _decode_start_attack_request(self, payload):
         """
-        Minimal local shape that mirrors live can-scout envelope fields:
-          2: response code
-          4: error code
-          5: invadeHex flag echo
+        com.kixeye.net.proto.atlas.StartAttack
+          1: attackers (repeated message)
+          2: target (string entityId)
+          3: baseId (int32)
+          4: gameData (repeated key/value message)
+        """
+        out = {
+            "target_entity_id": "",
+            "base_id": None,
+            "chosen_platoon_id": "",
+        }
+        idx = 0
+        total = len(payload or b"")
+        while idx < total:
+            tag, idx = self._decode_varint(payload, idx)
+            if tag is None:
+                break
+            field_no = tag >> 3
+            wire_type = tag & 7
+            if wire_type == 0:
+                value, idx = self._decode_varint(payload, idx)
+                if value is None:
+                    break
+                if field_no == 3:
+                    out["base_id"] = int(value)
+            elif wire_type == 2:
+                length, idx = self._decode_varint(payload, idx)
+                if length is None:
+                    break
+                end = idx + int(length)
+                if end > total:
+                    break
+                chunk = payload[idx:end]
+                idx = end
+                if field_no == 2:
+                    out["target_entity_id"] = chunk.decode("utf-8", errors="ignore")
+                elif field_no == 4:
+                    # Parse key/value gameData rows for optional chosenPlatoon hint.
+                    k = ""
+                    v = ""
+                    c_idx = 0
+                    c_total = len(chunk)
+                    while c_idx < c_total:
+                        c_tag, c_idx = self._decode_varint(chunk, c_idx)
+                        if c_tag is None:
+                            break
+                        c_field = c_tag >> 3
+                        c_wire = c_tag & 7
+                        if c_wire != 2:
+                            if c_wire == 0:
+                                _, c_idx = self._decode_varint(chunk, c_idx)
+                            elif c_wire == 1:
+                                c_idx += 8
+                            elif c_wire == 5:
+                                c_idx += 4
+                            else:
+                                break
+                            continue
+                        c_len, c_idx = self._decode_varint(chunk, c_idx)
+                        if c_len is None:
+                            break
+                        c_end = c_idx + int(c_len)
+                        if c_end > c_total:
+                            break
+                        c_val = chunk[c_idx:c_end].decode("utf-8", errors="ignore")
+                        c_idx = c_end
+                        if c_field == 1:
+                            k = c_val
+                        elif c_field == 2:
+                            v = c_val
+                    if str(k or "").strip() == "chosenPlatoon" and str(v or "").strip():
+                        out["chosen_platoon_id"] = str(v).strip()
+            elif wire_type == 5:
+                idx += 4
+            elif wire_type == 1:
+                idx += 8
+            else:
+                break
+        return out
+
+    def _build_default_target_map_entity_payload(
+        self,
+        target_entity_id=None,
+        entity_type=3,
+        region_id=None,
+        sector_id=None,
+        x=None,
+        y=None,
+        owner_id=None,
+        status=0,
+    ):
+        target_entity_id = str(target_entity_id or "").strip() or str(CustomHandler.DEFAULT_PLAYER_ENTITY_ID + 999)
+        try:
+            view = self._runtime_worldmap_get_view() or {}
+        except Exception:
+            view = {}
+        region_id = self._safe_int(region_id, self._safe_int(view.get("region_id"), CustomHandler.DEFAULT_REGION_ID))
+        sector_id = self._safe_int(sector_id, self._safe_int(view.get("sector_id"), CustomHandler.DEFAULT_SECTOR_ID))
+        x = self._safe_int(x, self._safe_int(view.get("x"), CustomHandler.DEFAULT_WORLDMAP_CENTER_X))
+        y = self._safe_int(y, self._safe_int(view.get("y"), CustomHandler.DEFAULT_WORLDMAP_CENTER_Y))
+        if owner_id is None:
+            try:
+                owner_id = int(CustomHandler.DEFAULT_PLAYER_ID) + 500
+            except Exception:
+                owner_id = None
+        attrs = [("faction_id", "0"), ("ignore_obstacles", "0")]
+        return self._build_map_entity_payload(
+            entity_id=target_entity_id,
+            entity_type=int(entity_type),
+            sector_id=int(sector_id),
+            region_id=int(region_id),
+            x=int(x),
+            y=int(y),
+            owner_id=owner_id,
+            status=int(status),
+            attributes=attrs,
+        )
+
+    def _build_battle_token_payload(self, team_id=1, user_id=None, room_id=1, timestamp=None):
+        """
+        com.kixeye.net.proto.atlas.BattleToken
+          1: timeStamp (uint64)
+          2: roomId (uint32)
+          3: userId (uint32)
+          4: teamId (uint32)
+          5: authKey (string, optional)
         """
         payload = b""
-        payload += self._encode_field_varint(2, int(response_code))
-        payload += self._encode_field_varint(4, int(error_code))
-        payload += self._encode_field_varint(5, 1 if invade_hex else 0)
+        if timestamp is None:
+            try:
+                timestamp = int(self.get_timestamp())
+            except Exception:
+                timestamp = int(time.time())
+        payload += self._encode_field_varint(1, int(timestamp))
+        payload += self._encode_field_varint(2, int(room_id))
+        if user_id is not None:
+            try:
+                payload += self._encode_field_varint(3, int(user_id))
+            except Exception:
+                pass
+        payload += self._encode_field_varint(4, int(team_id))
         return payload
 
-    def _build_start_attack_response_payload(self, response_code=2202):
+    def _build_battle_entity_payload(self, map_entity_payload, npc_type=None):
         """
-        Lightweight WC_START_ATTACK response envelope observed in live captures:
-          7: response/status code
+        com.kixeye.net.proto.atlas.BattleEntity
+          1: npcType (enum, optional)
+          2: mapEntity (message)
         """
         payload = b""
-        payload += self._encode_field_varint(7, int(response_code))
+        if npc_type is not None:
+            payload += self._encode_field_varint(1, int(npc_type))
+        if map_entity_payload:
+            payload += self._encode_field_bytes(2, map_entity_payload)
+        return payload
+
+    def _build_can_scout_response_payload(
+        self,
+        target_entity_id=None,
+        target_entity_payload=None,
+        error_code=None,
+        advanced=False,
+        invade_hex=False,
+    ):
+        """
+        com.kixeye.net.proto.atlas.ScoutingReport
+          1: target (MapEntity)
+          2: errorCode (enum, optional)
+          4: advanced (bool, optional)
+          5: invadeHex (bool, optional)
+        """
+        if target_entity_payload is None:
+            target_entity_payload = self._build_default_target_map_entity_payload(
+                target_entity_id=target_entity_id,
+                entity_type=3,
+            )
+        payload = b""
+        if target_entity_payload:
+            payload += self._encode_field_bytes(1, target_entity_payload)
+        if error_code is not None:
+            payload += self._encode_field_varint(2, int(error_code))
+        if advanced:
+            payload += self._encode_field_varint(4, 1)
+        if invade_hex:
+            payload += self._encode_field_varint(5, 1)
+        return payload
+
+    def _build_start_attack_response_payload(
+        self,
+        target_entity_id=None,
+        target_entity_payload=None,
+        attacker_user_id=None,
+        defender_user_id=None,
+        team_id=1,
+        error_code=None,
+        host=None,
+        ports=None,
+    ):
+        """
+        com.kixeye.net.proto.atlas.AttackInfo
+          1: token (BattleToken)
+          4: defenderEntity (BattleEntity)
+          7: errorCode (enum, optional)
+          8: host (string, optional)
+          9: ports (repeated int32, optional)
+          10: attackerUserId (string, optional)
+          11: defenderUserId (string, optional)
+        """
+        if target_entity_payload is None:
+            target_entity_payload = self._build_default_target_map_entity_payload(
+                target_entity_id=target_entity_id,
+                entity_type=3,
+            )
+        if attacker_user_id is None:
+            attacker_user_id = str(self._preferred_player_id())
+        token_payload = self._build_battle_token_payload(
+            team_id=int(team_id),
+            user_id=self._safe_int(attacker_user_id, None),
+            room_id=1,
+            timestamp=self.get_timestamp(),
+        )
+        defender_payload = self._build_battle_entity_payload(
+            map_entity_payload=target_entity_payload,
+            npc_type=2,
+        )
+        payload = b""
+        if token_payload:
+            payload += self._encode_field_bytes(1, token_payload)
+        if defender_payload:
+            payload += self._encode_field_bytes(4, defender_payload)
+        if error_code is not None:
+            payload += self._encode_field_varint(7, int(error_code))
+        if host is None:
+            host = "127.0.0.1"
+        if ports is None:
+            ports = [int(PORT)]
+        if host:
+            payload += self._encode_field_string(8, str(host))
+        if isinstance(ports, (list, tuple)):
+            for port in ports:
+                try:
+                    payload += self._encode_field_varint(9, int(port))
+                except Exception:
+                    continue
+        if attacker_user_id:
+            payload += self._encode_field_string(10, str(attacker_user_id))
+        if defender_user_id:
+            payload += self._encode_field_string(11, str(defender_user_id))
         return payload
 
     def _build_attribute_payload(self, key, value):
@@ -3420,18 +3788,28 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         payload += self._encode_field_bytes(4, cells)
         return payload
 
-    def _build_visible_entity_update_payload(self, region_id=None, sector_id=None, owner_id=None, entity_id=None):
+    def _build_visible_entity_update_payload(
+        self,
+        region_id=None,
+        sector_id=None,
+        owner_id=None,
+        entity_id=None,
+        center_x=None,
+        center_y=None,
+    ):
         region_id = CustomHandler.DEFAULT_REGION_ID if region_id is None else int(region_id)
         sector_id = CustomHandler.DEFAULT_SECTOR_ID if sector_id is None else int(sector_id)
         owner_id = CustomHandler.DEFAULT_PLAYER_ID if owner_id is None else int(owner_id)
         entity_id = CustomHandler.DEFAULT_PLAYER_ENTITY_ID if entity_id is None else str(entity_id)
+        center_x = CustomHandler.DEFAULT_WORLDMAP_CENTER_X if center_x is None else int(center_x)
+        center_y = CustomHandler.DEFAULT_WORLDMAP_CENTER_Y if center_y is None else int(center_y)
 
         entities = self._build_worldmap_bootstrap_entities(
             region_id=region_id,
             sector_id=sector_id,
             owner_id=owner_id,
-            center_x=CustomHandler.DEFAULT_WORLDMAP_CENTER_X,
-            center_y=CustomHandler.DEFAULT_WORLDMAP_CENTER_Y,
+            center_x=center_x,
+            center_y=center_y,
             first_entity_id=entity_id,
         )
 
@@ -3751,7 +4129,17 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             )
         return out
 
-    def _build_worldmap_bootstrap_entities(self, region_id, sector_id, owner_id, center_x=10, center_y=10, first_entity_id=None):
+    def _build_worldmap_bootstrap_entities(
+        self,
+        region_id,
+        sector_id,
+        owner_id,
+        center_x=None,
+        center_y=None,
+        first_entity_id=None,
+    ):
+        center_x = CustomHandler.DEFAULT_WORLDMAP_CENTER_X if center_x is None else int(center_x)
+        center_y = CustomHandler.DEFAULT_WORLDMAP_CENTER_Y if center_y is None else int(center_y)
         try:
             id_seed = int(first_entity_id if first_entity_id is not None else CustomHandler.DEFAULT_PLAYER_ENTITY_ID)
         except Exception:
@@ -3807,6 +4195,30 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 center_y=center_y + 14,
                 first_entity_id=id_seed + 300,
                 max_entities=43,
+            )
+        )
+        entities.extend(
+            self._build_seed_entities_for_nearby_type(
+                type_id=8,
+                region_id=region_id,
+                sector_id=sector_id,
+                owner_id=owner_id,
+                center_x=center_x - 10,
+                center_y=center_y - 12,
+                first_entity_id=id_seed + 400,
+                max_entities=20,
+            )
+        )
+        entities.extend(
+            self._build_seed_entities_for_nearby_type(
+                type_id=10,
+                region_id=region_id,
+                sector_id=sector_id,
+                owner_id=owner_id,
+                center_x=center_x + 8,
+                center_y=center_y + 16,
+                first_entity_id=id_seed + 500,
+                max_entities=20,
             )
         )
         return entities
@@ -4198,18 +4610,34 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
         if handler == 2 and action_id == 102:
             region_id = self._decode_region_id_request(payload)
-            entity_payload = self._build_visible_entity_update_payload(region_id=region_id)
+            view = self._runtime_worldmap_get_view() or {}
+            sector_id = self._safe_int(view.get("sector_id"), CustomHandler.DEFAULT_SECTOR_ID)
+            center_x = self._safe_int(view.get("x"), CustomHandler.DEFAULT_WORLDMAP_CENTER_X)
+            center_y = self._safe_int(view.get("y"), CustomHandler.DEFAULT_WORLDMAP_CENTER_Y)
+            self._runtime_worldmap_update_view(
+                sector_id=sector_id,
+                region_id=region_id,
+                x=center_x,
+                y=center_y,
+            )
+            entity_payload = self._build_visible_entity_update_payload(
+                region_id=region_id,
+                sector_id=sector_id,
+                center_x=center_x,
+                center_y=center_y,
+            )
             try:
                 mobile_count = len(
                     self._runtime_worldmap_list_mobile_entities(
                         region_id=region_id,
-                        sector_id=CustomHandler.DEFAULT_SECTOR_ID,
+                        sector_id=sector_id,
                     )
                 )
             except Exception:
                 mobile_count = -1
             log(
                 f"GATEWAY visible-entities response region={region_id} "
+                f"sector={sector_id} center={center_x},{center_y} "
                 f"mobile={mobile_count} payload_len={len(entity_payload)}"
             )
             enqueue(self._build_gateway_action_packet(2, 1102, entity_payload, timestamp))
@@ -4223,6 +4651,16 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             x = int(nearby_req.get("x", CustomHandler.DEFAULT_WORLDMAP_CENTER_X))
             y = int(nearby_req.get("y", CustomHandler.DEFAULT_WORLDMAP_CENTER_Y))
             type_id = int(nearby_req.get("type_id", 5))
+            log(
+                f"GATEWAY nearby request sector={sector_id} region={region_id} "
+                f"x={x} y={y} type={type_id}"
+            )
+            self._runtime_worldmap_update_view(
+                sector_id=sector_id,
+                region_id=region_id,
+                x=x,
+                y=y,
+            )
             # Keep nearby IDs stable per (sector, type) and non-overlapping across
             # type families so visible-entity maps don't collapse into a tiny set.
             id_seed = int(sector_id) * 100000 + int(region_id) * 10000 + int(type_id) * 1000 + 1
@@ -4259,6 +4697,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     if not platoon_id or not entity_id:
                         continue
                     owner_id = self._preferred_player_id()
+                    attrs = [
+                        ("icon", "3"),
+                        ("faction_id", "0"),
+                        ("ignore_obstacles", "0"),
+                        ("platoonType", "1"),
+                        ("platoonId", platoon_id),
+                    ]
                     platoon_entity = self._build_map_entity_payload(
                         entity_id=entity_id,
                         entity_type=2,
@@ -4268,7 +4713,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                         y=int(row.get("y") or 0),
                         owner_id=int(owner_id),
                         status=int(row.get("status") or 0),
-                        attributes=[("platoonId", platoon_id)],
+                        attributes=attrs,
                     )
                     visible_payload += self._encode_field_bytes(1, platoon_entity)
                 except Exception:
@@ -4295,8 +4740,9 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         if handler == 2 and action_id == 104:
             scout_req = self._decode_can_scout_request(payload)
             scout_payload = self._build_can_scout_response_payload(
-                response_code=2202,
-                error_code=0,
+                target_entity_id=scout_req.get("target_entity_id"),
+                error_code=None,
+                advanced=bool(scout_req.get("advanced_scout")),
                 invade_hex=bool(scout_req.get("invade_hex")),
             )
             enqueue(self._build_gateway_action_packet(2, 1104, scout_payload, timestamp))
@@ -4337,11 +4783,33 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             )
             enqueue(self._build_gateway_action_packet(2, 1200, deploy_payload, timestamp))
 
-            # Do not push an ad-hoc 1102 packet on deploy. The client receives
-            # platoon visibility through normal GetVisibleEntities(102) refreshes,
-            # and injecting an extra standalone 1102 here has proven fragile.
+            # Push a one-entity visible delta so the world platoon binds immediately
+            # after a successful deploy, even when the client has no follow-up 102.
             if isinstance(mobile, dict) and mobile.get("entity_id") and platoon_id:
                 try:
+                    owner_id = self._preferred_player_id()
+                    attrs = [
+                        ("icon", "3"),
+                        ("faction_id", "0"),
+                        ("ignore_obstacles", "0"),
+                        ("platoonType", "1"),
+                        ("platoonId", platoon_id),
+                    ]
+                    entity_payload = self._encode_field_bytes(
+                        1,
+                        self._build_map_entity_payload(
+                            entity_id=str(mobile.get("entity_id") or ""),
+                            entity_type=2,
+                            sector_id=int(mobile.get("sector_id") or CustomHandler.DEFAULT_SECTOR_ID),
+                            region_id=int(mobile.get("region_id") or CustomHandler.DEFAULT_REGION_ID),
+                            x=int(mobile.get("x") or 0),
+                            y=int(mobile.get("y") or 0),
+                            owner_id=int(owner_id),
+                            status=int(mobile.get("status") or 0),
+                            attributes=attrs,
+                        ),
+                    )
+                    enqueue(self._build_gateway_action_packet(2, 1102, entity_payload, timestamp))
                     log(
                         "GATEWAY deploy deferred-visible-update "
                         f"entity={mobile.get('entity_id')} "
@@ -4411,8 +4879,18 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                     pass
             return True
 
-        # setMapView / setOccupied are fire-and-forget in this local shim.
-        if handler == 2 and action_id in (110, 111):
+        if handler == 2 and action_id == 110:
+            view_req = self._decode_set_map_view_request(payload)
+            self._runtime_worldmap_update_view(
+                sector_id=view_req.get("sector_id"),
+                region_id=view_req.get("region_id"),
+                x=view_req.get("x"),
+                y=view_req.get("y"),
+            )
+            return True
+
+        # setOccupied is fire-and-forget in this local shim.
+        if handler == 2 and action_id == 111:
             return True
 
         # WC atlas battle bootstrap.
@@ -4449,7 +4927,13 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             return True
 
         if handler == 3 and action_id == 3:
-            start_attack_payload = self._build_start_attack_response_payload(response_code=2202)
+            start_attack_req = self._decode_start_attack_request(payload)
+            start_attack_payload = self._build_start_attack_response_payload(
+                target_entity_id=start_attack_req.get("target_entity_id"),
+                attacker_user_id=str(self._preferred_player_id()),
+                team_id=1,
+                error_code=LOCAL_ATTACK_FALLBACK_ERROR_CODE,
+            )
             enqueue(self._build_gateway_action_packet(3, 4, start_attack_payload, timestamp))
             return True
 
