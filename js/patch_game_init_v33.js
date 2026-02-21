@@ -12,6 +12,8 @@
     var WORLDMAP_SYNTHETIC_BOOTSTRAP_MIN_MS = 8000;
     var WORLDMAP_TRANSITION_STUCK_TIMEOUT_MS = 2500;
     var WORLDMAP_TRANSITION_MAX_FORCE_ATTEMPTS = 2;
+    var WORLDMAP_MAPVIEW_VISIBILITY_GRACE_MS = 20000;
+    var ENABLE_WORLDMAP_MAPVIEW_AUTOHIDE = !!window.__PATCH_V33_WM_MAPVIEW_AUTOHIDE__;
     var DISABLE_SYNTHETIC_WORLDMAP_BOOTSTRAP = !!window.__PATCH_V33_DISABLE_SYNTH_WM__;
     var ENABLE_MANUAL_WORLDMAP_DRAG_BRIDGE = !!window.__PATCH_V33_ENABLE_MANUAL_WM_DRAG_BRIDGE__;
 
@@ -1817,6 +1819,29 @@
             }
         }
 
+        if (!window.__PATCH_V33_WM_NULL_ERROR_GUARD__) {
+            window.__PATCH_V33_WM_NULL_ERROR_GUARD__ = true;
+            window.addEventListener("error", function (evt) {
+                try {
+                    var message = String((evt && evt.message) || ((evt && evt.error && evt.error.message) || ""));
+                    if (!isNullMapCrash(message)) return;
+                    logSuppressed("window.error");
+                    if (evt && typeof evt.preventDefault === "function") evt.preventDefault();
+                    if (evt && typeof evt.stopImmediatePropagation === "function") evt.stopImmediatePropagation();
+                } catch (_wmGlobalErr) { }
+            }, true);
+            window.addEventListener("unhandledrejection", function (evt) {
+                try {
+                    var reason = evt ? evt.reason : null;
+                    var message = String((reason && reason.message) || reason || "");
+                    if (!isNullMapCrash(message)) return;
+                    logSuppressed("window.unhandledrejection");
+                    if (evt && typeof evt.preventDefault === "function") evt.preventDefault();
+                    if (evt && typeof evt.stopImmediatePropagation === "function") evt.stopImmediatePropagation();
+                } catch (_wmRejectionErr) { }
+            }, true);
+        }
+
         var keys = Object.keys(hx);
         var patchedCanAttack = 0;
         var patchedSubEvent = 0;
@@ -2146,9 +2171,9 @@
             }
             if (inWorldmapFlow) {
                 window.__PATCH_V33_LAST_WM_FLOW_AT__ = Date.now();
-            } else if (currentVisible === true) {
+            } else if (currentVisible === true && ENABLE_WORLDMAP_MAPVIEW_AUTOHIDE) {
                 var lastFlowAt = window.__PATCH_V33_LAST_WM_FLOW_AT__ || 0;
-                var safeToHide = (!lastFlowAt) || ((Date.now() - lastFlowAt) > 3000);
+                var safeToHide = (!lastFlowAt) || ((Date.now() - lastFlowAt) > WORLDMAP_MAPVIEW_VISIBILITY_GRACE_MS);
                 if (safeToHide) {
                     if (typeof Worldmap._mapView.set_visible === "function") {
                         Worldmap._mapView.set_visible(false);
@@ -2166,7 +2191,9 @@
         } catch (_mapViewVisibilityErr) { }
 
         try {
-            var shouldEnableMouse = currentVisible === true && inWorldmapFlow;
+            var lastFlowAtMs = window.__PATCH_V33_LAST_WM_FLOW_AT__ || 0;
+            var inFlowGrace = !!lastFlowAtMs && ((Date.now() - lastFlowAtMs) <= WORLDMAP_MAPVIEW_VISIBILITY_GRACE_MS);
+            var shouldEnableMouse = currentVisible === true && (inWorldmapFlow || inFlowGrace);
             if (shouldEnableMouse && typeof Worldmap._mapView.mouseEnabled !== "undefined" && !Worldmap._mapView.mouseEnabled) {
                 Worldmap._mapView.mouseEnabled = true;
             }
@@ -2976,164 +3003,188 @@
                 controller.OnSharedConfigsInfo({ configs: [] });
             }
 
-            var visibleEntityUpdate = new VisibleEntityUpdate();
-            function pushEntity(entityId, entityType, x, y, owner, status, extraAttrs) {
-                var entity = new MapEntity();
-                entity.set_entityId(entityId);
-                entity.set_type(entityType);
-                if (owner != null && typeof entity.set_ownerId === "function") {
-                    entity.set_ownerId(owner);
-                }
-                entity.set_status(status);
-
-                var eCoord = new Coord();
-                eCoord.set_sector(sectorId);
-                eCoord.set_region(regionId);
-                eCoord.set_x(x);
-                eCoord.set_y(y);
-                entity.set_coord(eCoord);
-
-                var attrDp = new Attribute();
-                attrDp.set_key("dp");
-                attrDp.set_value("0");
-                entity.get_attributes().push(attrDp);
-
-                var attrThorium = new Attribute();
-                attrThorium.set_key("thoriumTotal");
-                attrThorium.set_value("0");
-                entity.get_attributes().push(attrThorium);
-
-                if (owner != null) {
-                    var attrSu = new Attribute();
-                    attrSu.set_key("su");
-                    attrSu.set_value(String(owner));
-                    entity.get_attributes().push(attrSu);
-                }
-                if (extraAttrs && extraAttrs.length) {
-                    for (var ai = 0; ai < extraAttrs.length; ai++) {
-                        var row = extraAttrs[ai];
-                        if (!row || row.length < 2) continue;
-                        var attr = new Attribute();
-                        attr.set_key(String(row[0] || ""));
-                        attr.set_value(String(row[1] == null ? "" : row[1]));
-                        entity.get_attributes().push(attr);
+            var realVisibleCount = 0;
+            try {
+                var existingVisibleMap = controller._visibleEntityMap || null;
+                if (existingVisibleMap && typeof existingVisibleMap.getValues === "function") {
+                    var existingValues = existingVisibleMap.getValues();
+                    if (existingValues) {
+                        if (Array.isArray(existingValues)) {
+                            realVisibleCount = existingValues.length | 0;
+                        } else if (typeof existingValues.length === "number") {
+                            realVisibleCount = existingValues.length | 0;
+                        } else if (typeof existingValues.get_length === "function") {
+                            realVisibleCount = existingValues.get_length() | 0;
+                        } else if (existingValues.h && typeof existingValues.h === "object") {
+                            realVisibleCount = Object.keys(existingValues.h).length | 0;
+                        }
                     }
+                } else if (existingVisibleMap && existingVisibleMap.h && typeof existingVisibleMap.h === "object") {
+                    realVisibleCount = Object.keys(existingVisibleMap.h).length | 0;
                 }
-                visibleEntityUpdate.get_entities().push(entity);
-            }
+            } catch (_realVisibleProbeErr) { }
 
-            function buildOffsets(maxCount) {
-                var out = [];
-                var step = 3;
-                var radius = 0;
-                while (out.length < maxCount && radius < 64) {
-                    for (var dx = -radius; dx <= radius; dx++) {
-                        for (var dy = -radius; dy <= radius; dy++) {
-                            if (Math.abs(dx) !== radius && Math.abs(dy) !== radius) continue;
-                            out.push([dx * step, dy * step]);
+            // Avoid replacing real world-map data when live-like rows are already present.
+            if (realVisibleCount < 8) {
+                var visibleEntityUpdate = new VisibleEntityUpdate();
+                function pushEntity(entityId, entityType, x, y, owner, status, extraAttrs) {
+                    var entity = new MapEntity();
+                    entity.set_entityId(entityId);
+                    entity.set_type(entityType);
+                    if (owner != null && typeof entity.set_ownerId === "function") {
+                        entity.set_ownerId(owner);
+                    }
+                    entity.set_status(status);
+
+                    var eCoord = new Coord();
+                    eCoord.set_sector(sectorId);
+                    eCoord.set_region(regionId);
+                    eCoord.set_x(x);
+                    eCoord.set_y(y);
+                    entity.set_coord(eCoord);
+
+                    var attrDp = new Attribute();
+                    attrDp.set_key("dp");
+                    attrDp.set_value("0");
+                    entity.get_attributes().push(attrDp);
+
+                    var attrThorium = new Attribute();
+                    attrThorium.set_key("thoriumTotal");
+                    attrThorium.set_value("0");
+                    entity.get_attributes().push(attrThorium);
+
+                    if (owner != null) {
+                        var attrSu = new Attribute();
+                        attrSu.set_key("su");
+                        attrSu.set_value(String(owner));
+                        entity.get_attributes().push(attrSu);
+                    }
+                    if (extraAttrs && extraAttrs.length) {
+                        for (var ai = 0; ai < extraAttrs.length; ai++) {
+                            var row = extraAttrs[ai];
+                            if (!row || row.length < 2) continue;
+                            var attr = new Attribute();
+                            attr.set_key(String(row[0] || ""));
+                            attr.set_value(String(row[1] == null ? "" : row[1]));
+                            entity.get_attributes().push(attr);
+                        }
+                    }
+                    visibleEntityUpdate.get_entities().push(entity);
+                }
+
+                function buildOffsets(maxCount) {
+                    var out = [];
+                    var step = 3;
+                    var radius = 0;
+                    while (out.length < maxCount && radius < 64) {
+                        for (var dx = -radius; dx <= radius; dx++) {
+                            for (var dy = -radius; dy <= radius; dy++) {
+                                if (Math.abs(dx) !== radius && Math.abs(dy) !== radius) continue;
+                                out.push([dx * step, dy * step]);
+                                if (out.length >= maxCount) break;
+                            }
                             if (out.length >= maxCount) break;
                         }
-                        if (out.length >= maxCount) break;
+                        radius += 1;
                     }
-                    radius += 1;
+                    return out;
                 }
-                return out;
-            }
 
-            var denseOffsets = buildOffsets(180);
-            var offsetIndex = 0;
-            var nextEntityId = homeEntityId;
+                var denseOffsets = buildOffsets(180);
+                var offsetIndex = 0;
+                var nextEntityId = homeEntityId;
 
-            function takeOffset() {
-                if (offsetIndex >= denseOffsets.length) return [0, 0];
-                var pair = denseOffsets[offsetIndex++];
-                return [pair[0] | 0, pair[1] | 0];
-            }
-
-            // Home base anchor.
-            pushEntity(nextEntityId++, 1, homeX, homeY, playerId, 0, [
-                ["baseId", String(homeEntityId)],
-                ["level", "44"],
-                ["damage", "0"],
-                ["cCLevel", "22"]
-            ]);
-
-            // Dense player-base cluster.
-            for (var pi = 0; pi < 23; pi++) {
-                var po = takeOffset();
-                var playerAttrs = [
-                    ["baseId", String(homeEntityId + pi + 1)],
-                    ["level", String(30 + (pi % 15))],
-                    ["damage", "100"],
-                    ["cCLevel", String(8 + (pi % 14))]
-                ];
-                // Companion-style event markers use player-base entities.
-                if (pi < 6) {
-                    playerAttrs.push(["specialAttributes", "companion"]);
-                    playerAttrs.push(["rogueFactionId", "1"]);
-                    playerAttrs.push(["rogueFactionType", "8"]);
+                function takeOffset() {
+                    if (offsetIndex >= denseOffsets.length) return [0, 0];
+                    var pair = denseOffsets[offsetIndex++];
+                    return [pair[0] | 0, pair[1] | 0];
                 }
-                pushEntity(
-                    nextEntityId++,
-                    1,
-                    Math.max(0, homeX + po[0]),
-                    Math.max(0, homeY + po[1]),
-                    playerId + pi + 1,
-                    0,
-                    playerAttrs
-                );
-            }
 
-            // Event/faction/retaliation rogue-base cluster.
-            for (var ri = 0; ri < 102; ri++) {
-                var ro = takeOffset();
-                var rogueType = (ri % 3 === 0) ? 1 : ((ri % 3 === 1) ? 42 : 43);
-                var special = (ri % 5 === 0) ? "fortress" : ((ri % 5 === 1) ? "satellite" : "");
-                var attrs = [
-                    ["rogueFactionId", String(6 + (ri % 14))],
-                    ["rogueFactionType", String(rogueType)],
-                    ["level", String(10 + (ri % 40))],
-                    ["analyticsTag", (rogueType === 42 ? "faction" : (rogueType === 43 ? "retaliation" : "event"))],
-                    ["spawnRuleName", (rogueType === 42 ? "faction_base_alpha_sector" : (rogueType === 43 ? "retaliation_base2_test_f_sector" : "supplydepot_range_10_100"))]
-                ];
-                if (special) attrs.push(["specialAttributes", special]);
-                pushEntity(
-                    nextEntityId++,
-                    3,
-                    Math.max(0, homeX + ro[0]),
-                    Math.max(0, homeY + ro[1]),
-                    null,
-                    0,
-                    attrs
-                );
-            }
+                // Home base anchor.
+                pushEntity(nextEntityId++, 1, homeX, homeY, playerId, 1, [
+                    ["baseId", String(homeEntityId)],
+                    ["level", "44"],
+                    ["damage", "0"],
+                    ["cCLevel", "22"]
+                ]);
 
-            // Challenge/infestation markers.
-            for (var ci = 0; ci < 24; ci++) {
-                var co = takeOffset();
-                pushEntity(
-                    nextEntityId++,
-                    10,
-                    Math.max(0, homeX + co[0]),
-                    Math.max(0, homeY + co[1]),
-                    null,
-                    0,
-                    [
-                        ["rogueFactionId", String(1 + (ci % 3))],
-                        ["rogueFactionType", "44"],
-                        ["level", String(10 + ci)],
-                        ["specialAttributes", "challenge"]
-                    ]
-                );
-            }
+                // Dense player-base cluster.
+                for (var pi = 0; pi < 23; pi++) {
+                    var po = takeOffset();
+                    var playerAttrs = [
+                        ["baseId", String(homeEntityId + pi + 1)],
+                        ["level", String(30 + (pi % 15))],
+                        ["damage", "100"],
+                        ["cCLevel", String(8 + (pi % 14))]
+                    ];
+                    // Companion-style event markers use player-base entities.
+                    if (pi < 6) {
+                        playerAttrs.push(["specialAttributes", "companion"]);
+                        playerAttrs.push(["rogueFactionId", "1"]);
+                        playerAttrs.push(["rogueFactionType", "8"]);
+                    }
+                    pushEntity(
+                        nextEntityId++,
+                        1,
+                        Math.max(0, homeX + po[0]),
+                        Math.max(0, homeY + po[1]),
+                        playerId + pi + 1,
+                        1,
+                        playerAttrs
+                    );
+                }
 
-            if (typeof controller.onVisibleEntityUpdate === "function") {
-                try {
-                    controller.onVisibleEntityUpdate({
-                        get_response: function () { return visibleEntityUpdate; }
-                    });
-                } catch (visibleEntityErr) {
-                    console.warn("[PATCH V33] Synthetic visible-entity bootstrap fallback:", visibleEntityErr);
+                // Event/faction/retaliation rogue-base cluster.
+                for (var ri = 0; ri < 102; ri++) {
+                    var ro = takeOffset();
+                    var rogueType = (ri % 3 === 0) ? 1 : ((ri % 3 === 1) ? 42 : 43);
+                    var special = (ri % 5 === 0) ? "fortress" : ((ri % 5 === 1) ? "satellite" : "");
+                    var attrs = [
+                        ["rogueFactionId", String(6 + (ri % 14))],
+                        ["rogueFactionType", String(rogueType)],
+                        ["level", String(10 + (ri % 40))],
+                        ["analyticsTag", (rogueType === 42 ? "faction" : (rogueType === 43 ? "retaliation" : "event"))],
+                        ["spawnRuleName", (rogueType === 42 ? "faction_base_alpha_sector" : (rogueType === 43 ? "retaliation_base2_test_f_sector" : "supplydepot_range_10_100"))]
+                    ];
+                    if (special) attrs.push(["specialAttributes", special]);
+                    pushEntity(
+                        nextEntityId++,
+                        3,
+                        Math.max(0, homeX + ro[0]),
+                        Math.max(0, homeY + ro[1]),
+                        null,
+                        1,
+                        attrs
+                    );
+                }
+
+                // Challenge/infestation markers.
+                for (var ci = 0; ci < 24; ci++) {
+                    var co = takeOffset();
+                    pushEntity(
+                        nextEntityId++,
+                        10,
+                        Math.max(0, homeX + co[0]),
+                        Math.max(0, homeY + co[1]),
+                        null,
+                        1,
+                        [
+                            ["rogueFactionId", String(1 + (ci % 3))],
+                            ["rogueFactionType", "44"],
+                            ["level", String(10 + ci)],
+                            ["specialAttributes", "challenge"]
+                        ]
+                    );
+                }
+
+                if (typeof controller.onVisibleEntityUpdate === "function") {
+                    try {
+                        controller.onVisibleEntityUpdate({
+                            get_response: function () { return visibleEntityUpdate; }
+                        });
+                    } catch (visibleEntityErr) {
+                        console.warn("[PATCH V33] Synthetic visible-entity bootstrap fallback:", visibleEntityErr);
+                    }
                 }
             }
 
@@ -3198,6 +3249,12 @@
         var Worldmap = hx["com.cc.worldmap.Worldmap"];
         var controller = Worldmap && Worldmap._controller ? Worldmap._controller : null;
         if (!controller) return;
+
+        if (Worldmap && Worldmap._mapView) {
+            window.__PATCH_V33_SYNTH_WM_DONE__ = true;
+            window.__PATCH_V33_SYNTH_WM_FLOW_STARTED_AT__ = 0;
+            return;
+        }
 
         // Worldmap controller instances can be recreated after login or reconnect.
         // Track attempts per controller instance so bootstrap can run again if state resets.
