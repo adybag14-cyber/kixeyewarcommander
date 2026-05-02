@@ -7,7 +7,7 @@
 
 ## Current score estimate
 
-- Estimated band: high `Excellent` / very near publication-ready, but not yet final-submission-safe because a clean rerun has not been completed in this environment.
+- Estimated band: high `Excellent` / near publication-ready, but not yet final-submission-safe because a clean rerun has not been completed in this environment.
 
 ## Criterion tracker
 
@@ -20,7 +20,7 @@
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly with the accepted solvent order and rate span; the last solvent-ranking contradictions have been corrected in both generated prose and stored rendered output; the literature-comparison paragraph no longer over-claims the acetone benchmark; and the solvent-effects discussion is now more faithful to what the actual solvent series does and does not prove.
+- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly; the solvent-ranking contradictions have been corrected again in both generated prose and stored rendered output; the literature-comparison paragraph no longer over-claims the acetone benchmark; and the solvent-effects discussion is now more faithful to what the actual solvent series does and does not prove.
 - Remaining gap: final sign-off should still confirm there are no other small prose statements that drift from the numerical summary after rerun.
 
 ### Programming structure and efficiency
@@ -38,7 +38,7 @@
 ### Markdown, LaTeX, HTML, and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report sections, LaTeX equations, custom HTML panels, and inline media; 8 embedded PNG figures plus 2 GIFs were decoded and checked directly from the notebook output; both inline animation panels are now stored collapsed-by-default for a cleaner opening layout; and the stored media are readable and free from obvious broken-image symptoms.
+- Evidence: the notebook uses structured headings, styled report sections, LaTeX equations, custom HTML panels, and inline media; 8 embedded PNG figures plus 2 GIFs were extracted and checked directly from the notebook output; a combined visual contact sheet and OCR spot-checks did not show obvious clipping, overlap, or broken-media defects in the stored outputs; final GIF frames OCR as readable; and the second animation panel is now stored collapsed-by-default for a cleaner opening layout.
 - Remaining gap: a clean rerender is still needed for final formatting sign-off because the plotting stack is unavailable here.
 
 ## Fastest route to full marks
