@@ -16,6 +16,7 @@
 - Corrected the remaining post-lab UV-vis / solvatochromism answer so it no longer says acetone is the fastest solvent.
 - Strengthened the conclusion so the final publication-facing summary repeats the explicit ordering and 46.5-fold rate span.
 - Changed the stored laboratory workflow animation panel back to collapsed-by-default and confirmed both inline GIF panels are now closed on load.
+- A final verification pass caught one remaining rendered-output drift where the laboratory workflow panel was still opening by default in the stored HTML payload; that state is now corrected in both the generator source and executed output.
 
 ## Major remaining blockers
 
