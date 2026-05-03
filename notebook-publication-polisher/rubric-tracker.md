@@ -3,7 +3,7 @@
 ## Note on rubric recovery
 
 - The supplied rubric file is an HTML-style export rather than a clean text rubric.
-- The criteria below are therefore inferred from the recovered headings and descriptors, not copied from a clean original sheet.
+- The criteria below are inferred from the recovered headings and descriptors, not copied from a clean original sheet.
 
 ## Current score estimate
 
@@ -15,7 +15,7 @@
 ### Data analysis and plotting
 
 - Current estimate: strong.
-- Evidence: all five solvents were analysed; trace-level QC is explicit; uncertainty is reported; independent validation and sensitivity checks are included; figures are legible and visually consistent; and the stored media audit again confirmed 8 embedded PNG figures plus 2 GIFs that decode cleanly from the notebook payload.
+- Evidence: all five solvents were analysed; trace-level QC is explicit; uncertainty is reported; independent validation and sensitivity checks are included; figures are legible and visually consistent; and the stored media audit confirmed 8 embedded PNG figures plus 2 GIFs that decode cleanly from the notebook payload.
 - Remaining gap: one full rerun is still needed to confirm regenerated outputs after the latest narrative and GIF fixes.
 
 ### Write-up and interpretation
