@@ -2,19 +2,18 @@
 
 ## 2026-05-03 assessment
 
-- Overall state: stronger and closer to publication-ready than the prior pass, but still not fully final-submission-safe.
-- Readiness summary: this pass removed the highest-impact remaining source/output drift by aligning the notebook title card, abstract, results-discussion generator, post-lab answer generator and conclusion with the accepted solvent ranking already supported by the retained data. A fresh media audit again found decodable stored PNG and GIF assets with no obvious clipping, overlap, broken-image or unreadable end-frame defects in the embedded outputs.
+- Overall state: publication-ready in narrative structure and stored-output presentation, but still not fully final-submission-safe until one clean rerun is completed in a full notebook environment.
+- Readiness summary: this pass removed the remaining internal contradictions still visible in the notebook source and stored Markdown outputs, strengthened the title card, abstract and conclusion so the headline result is explicit from the opening screen, and repeated a direct audit of all stored figures and both GIF endpoints. The stored media remain visually strong, with no obvious clipping, overlap, broken-image, unreadable-label or broken-GIF defects found in the embedded outputs.
 
 ## Major issues resolved this run
 
-- Rewrote the title-card central result so the publication headline now states the accepted solvent order explicitly instead of only saying the rate changes by more than an order of magnitude.
-- Strengthened the abstract so it now reports the supported sequence acetonitrile > acetone > THF > cyclohexane > toluene and the 46.5-fold rate span.
-- Corrected the last high-impact results-discussion source contradiction that still said acetone gave the largest measured rate.
-- Corrected the literature-comparison discussion source so acetone is now described as close to its literature benchmark and second only to acetonitrile in the present class data.
-- Corrected the post-lab UV-vis/solvent-effects source text so it now says acetonitrile is fastest and acetone is a close second rather than inverting the ranking.
-- Reordered the solvent list in the post-lab kinetics explanation so the rendered stored answer now follows the accepted ranking and reports the 46.5-fold span explicitly.
-- Strengthened the conclusion so the final summary now repeats the supported solvent sequence and span rather than ending on a generic solvent-dependence statement.
-- Re-extracted the stored notebook media and re-checked 8 embedded PNG figures plus 2 GIFs; both GIF contact sheets and OCR spot-checks of the final frames remained consistent with clean, readable stored outputs.
+- Corrected the remaining high-impact solvent-ranking drift in the results discussion source and stored output: acetonitrile is fastest, acetone is second, and the trend is not captured by one bulk polarity scale.
+- Corrected the remaining post-lab explanation drift in both source and stored output, including the UV-vis solvent-effects answer and the final solvent-order statement.
+- Strengthened the discussion by adding a clearer evidence line that the acetonitrile and acetone means remain separated at the reported 95% confidence-interval level.
+- Corrected the literature-comparison wording so acetone is described as close to its literature benchmark and second only to acetonitrile in the present class data, rather than being called the fastest solvent.
+- Strengthened the title-card headline, abstract and conclusion so they now state the accepted sequence acetonitrile > acetone > THF > cyclohexane > toluene and the 46.5-fold solvent span explicitly.
+- Corrected the stored workflow-animation HTML so the laboratory workflow panel is collapsed by default rather than opening expanded.
+- Re-extracted all embedded stored media from the notebook HTML outputs: 8 PNG figures and 2 GIFs decoded successfully, a contact-sheet review did not show obvious clipping or overlap, and OCR spot-checks on all figures plus both GIF final frames showed readable headings, axes and summary text.
 
 ## 2026-05-02 assessment (late publication pass)
 
