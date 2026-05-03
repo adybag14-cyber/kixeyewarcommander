@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high `Excellent` / near publication-ready, but not yet final-submission-safe because a clean rerun has not been completed in this environment.
-- Latest pass effect: improved write-up precision and publication polish by correcting the live attached notebook opening, post-lab interpretation, conclusion and workflow GIF panel, aligning those sections to the accepted solvent ranking, retained-trace count and 46.5-fold span, and re-confirming that the stored rendered outputs align with the accepted interpretation and contain no stored error outputs.
+- Latest pass effect: improved rubric alignment by correcting the live attached notebook itself so the title card, abstract, results discussion, post-lab answers and conclusion now all agree on the accepted solvent ordering, retained-trace count and 46.5-fold rate span, while the final stored GIF panel layout also matches the intended collapsed-by-default presentation.
 
 ## Criterion tracker
 
@@ -21,7 +21,7 @@
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly; the stored results discussion and post-lab interpretation now agree that acetonitrile is fastest and acetone is a close second; the literature-comparison paragraph no longer over-claims the acetone benchmark; the solvent-effects discussion now makes the more defensible claim that the ranking is not captured by dielectric constant alone; and the saved notebook file was reloaded after patching to confirm those statements are present in the live attachment itself.
+- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly with 111 retained traces and a 46.5-fold span; the stored results discussion and post-lab interpretation now agree that acetonitrile is fastest and acetone is a close second; the literature-comparison paragraph no longer over-claims the acetone benchmark; the solvent-effects discussion now makes the more defensible claim that bulk polarity alone does not explain the full ordering; and the saved notebook file was reloaded after patching to confirm those statements are present in the live attachment itself.
 - Remaining gap: final sign-off should still confirm there are no other small prose statements that drift from the numerical summary after rerun.
 
 ### Programming structure and efficiency
