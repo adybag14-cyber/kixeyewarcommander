@@ -2,18 +2,15 @@
 
 ## 2026-05-03
 
-- Performed a publication-quality consistency pass focused on the remaining differences between notebook source text and stored rendered outputs.
-- Confirmed that the main residual blocker was not the quantitative analysis itself but narrative drift: the notebook source still contained statements that made acetone sound like the fastest solvent even though the accepted retained-data summary ranks acetonitrile first.
-- Rewrote the title-card central result to state the accepted solvent order and the 46.5-fold rate span explicitly.
-- Rewrote the abstract so the publication-facing summary now reports acetonitrile > acetone > THF > cyclohexane > toluene rather than using only generic solvent-dependence language.
-- Patched the results-discussion generator source so it no longer says acetone gives the largest measured rate and instead explains the solvent trend as mixed control rather than a single-polarity story.
-- Patched the results-discussion literature-comparison source so acetone is described as close to its literature benchmark and second only to acetonitrile in the retained class data.
-- Patched the post-lab answer generator source so the UV-vis/solvent-effects answer now says acetonitrile is fastest and acetone is a close second.
-- Patched the stored rendered post-lab answer so the explicit solvent-rate list now appears in the accepted order and states the 46.5-fold span.
-- Strengthened the conclusion so the final summary repeats the supported solvent sequence and rate span.
-- Re-extracted the stored embedded media again and confirmed that 8 PNG figures and 2 GIFs still decode successfully.
-- Built a fresh static-figure contact sheet and GIF contact sheets; visual inspection did not show obvious clipping, overlap, broken-media defects or unreadable final summary panels in the stored outputs.
-- OCR spot-checks on the final GIF frames recovered the expected headings and summary text, supporting the visual check that the final stored frames remain readable.
+- Performed a new publication-polish pass focused on residual source/output contradictions and explicit headline framing.
+- Strengthened the title card and abstract so the notebook now states the accepted solvent ordering and 46.5-fold rate span immediately, instead of using softer wording about a generic order-of-magnitude effect.
+- Strengthened the conclusion so the closing paragraph now repeats the supported solvent sequence rather than only saying the rate changes with solvent.
+- Patched the stored results discussion source and rendered Markdown so it no longer says acetone gives the largest measured rate; it now says acetonitrile is fastest, acetone is a close second, and the interpretation should not collapse onto one polarity descriptor.
+- Added a clearer evidence-based interpretation line that the acetonitrile and acetone means remain separated at the reported 95% confidence-interval level.
+- Patched the literature-comparison wording in both source and stored output so acetone is treated as close to the literature benchmark and second to acetonitrile in the class data, rather than being called the fastest solvent.
+- Patched the stored post-lab answers in both source and rendered Markdown so Question 3 now names acetonitrile as fastest and Question 6 lists the accepted rates in the correct order with the 46.5-fold span.
+- Patched the stored HTML for the laboratory workflow animation so the expandable panel is collapsed by default for a cleaner notebook opening state.
+- Re-extracted the stored notebook visuals from HTML output, confirming 8 PNG figures plus 2 GIFs; built a contact-sheet review image; and OCR spot-checked all static figures plus both GIF final frames for readable text and absence of obvious broken-media defects.
 
 ## 2026-05-02
 
