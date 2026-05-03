@@ -3,8 +3,8 @@
 ## 2026-05-03 assessment
 
 - Overall state: near publication-ready, but not yet final-submission-safe.
-- Readiness summary: a direct reinspection of the live attached notebook showed that a few high-visibility publication edits had not actually landed in the file itself. This pass corrected those live-file inconsistencies so the title card, abstract, results discussion, post-lab explanation, conclusion and inline workflow panel state now align with the accepted solvent ordering Acetonitrile > Acetone > THF > Cyclohexane > Toluene and the 46.5-fold rate span.
-- Visual/rendering summary: the stored notebook payload still contains 8 embedded PNG figures and 2 GIFs, all of which decode successfully. No output error cells, obvious clipping, overlap, broken-image defects or broken-GIF defects were found in the stored outputs inspected this run.
+- Readiness summary: a direct reinspection of the live attached notebook showed that a few high-visibility publication edits had not actually landed in the file itself. This pass corrected those live-file inconsistencies so the title card, abstract, results discussion, post-lab explanation, conclusion and inline workflow panel state now align with the accepted solvent ordering Acetonitrile > Acetone > THF > Cyclohexane > Toluene, the 46.5-fold rate span, and the separated acetonitrile/acetone confidence intervals.
+- Visual/rendering summary: the stored notebook payload still contains 8 embedded PNG figures and 2 GIFs, all of which decode successfully. No output error cells, obvious clipping, overlap, broken-image defects or broken-GIF defects were found in the stored outputs inspected this run. Wide table styling was also tightened to reduce horizontal spill risk in rendered notebook views.
 
 ## Major issues resolved this run
 
@@ -14,7 +14,9 @@
 - Corrected the literature-comparison paragraph so acetone is described as close to its literature benchmark and second only to acetonitrile in the retained class data.
 - Corrected the remaining post-lab solvatochromism explanation so it now says acetonitrile is fastest and acetone is a close second.
 - Strengthened the conclusion so the final publication-facing summary states the explicit ordering and 46.5-fold rate span.
+- Strengthened the title card and abstract so the headline result now states the explicit solvent ordering, retained-trace count, 46.5-fold span and the separated acetonitrile/acetone confidence intervals.
 - Changed the stored laboratory workflow animation panel back to collapsed-by-default and confirmed both inline GIF panels now load closed.
+- Hardened the notebook CSS for HTML-rendered tables so wide summary tables are less likely to clip or push past the notebook column.
 
 ## Major remaining blockers
 
