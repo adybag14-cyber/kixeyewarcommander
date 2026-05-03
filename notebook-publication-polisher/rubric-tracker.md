@@ -7,8 +7,8 @@
 
 ## Current score estimate
 
-- Estimated band: high `Excellent` / near publication-ready, but not yet final-submission-safe because a clean rerun has not been completed in this environment.
-- Latest pass effect: improved write-up precision and publication polish by correcting the live attached notebook itself, aligning all major publication-facing sections to the accepted solvent ranking, fixing the last stored open-by-default GIF panel, and re-confirming that the stored rendered outputs align with the accepted interpretation and contain no stored error outputs.
+- Estimated band: high `Excellent` / near publication-ready from the saved notebook package, but not yet final-submission-safe because a clean rerun has not been completed in this environment.
+- Latest pass effect: improved write-up precision and publication polish by correcting the live attached notebook itself, aligning the title card, abstract, discussion, post-lab interpretation and conclusion to the accepted solvent ranking, tightening the appendix consistency-check presentation, and re-confirming that the stored rendered outputs align with the accepted interpretation and contain no stored error outputs.
 
 ## Criterion tracker
 
@@ -21,7 +21,7 @@
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly; the stored results discussion and post-lab interpretation now agree that acetonitrile is fastest and acetone is a close second; the literature-comparison paragraph no longer over-claims the acetone benchmark; the solvent-effects discussion now makes the more defensible claim that bulk polarity alone does not explain the full ordering; and the saved notebook file was reloaded after patching to confirm those statements are present in the live attachment itself.
+- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the retained-trace count, accepted solvent ordering and 46.5-fold span explicitly; the stored results discussion and post-lab interpretation now agree that acetonitrile is fastest and acetone is a close second; the literature-comparison paragraph no longer over-claims the acetone benchmark; the solvent-effects discussion now makes the more defensible claim that bulk polarity alone does not explain the full ordering; and the saved notebook file was reloaded after patching to confirm those statements are present in the live attachment itself.
 - Remaining gap: final sign-off should still confirm there are no other small prose statements that drift from the numerical summary after rerun.
 
 ### Programming structure and efficiency
@@ -39,7 +39,7 @@
 ### Markdown, LaTeX, HTML, and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report sections, LaTeX equations, custom HTML panels, and inline media; 8 embedded PNG figures plus 2 GIFs were extracted and checked directly from the notebook output; no output error cells, clipping, overlap, broken-media defects or unreadable summary labels were obvious in the stored outputs; and both inline GIF panels are now stored collapsed-by-default for a cleaner opening layout.
+- Evidence: the notebook uses structured headings, styled report sections, LaTeX equations, custom HTML panels, and inline media; 8 embedded PNG figures plus 2 GIFs were extracted and checked directly from the notebook output; no output error cells, clipping, overlap, broken-media defects or unreadable summary labels were obvious in the stored outputs; both inline GIF panels are stored collapsed-by-default for a cleaner opening layout; and the appendix consistency-check table now avoids two previously truncated raw-object detail strings in the saved output.
 - Remaining gap: a clean rerender is still needed for final formatting sign-off because the plotting stack is unavailable here.
 
 ## Fastest route to full marks
