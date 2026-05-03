@@ -1,9 +1,9 @@
 # Publication Status
 
-## 2026-05-03 assessment
+## 2026-05-04 assessment
 
 - Overall state: near publication-ready, with the attached notebook now internally consistent at the publication-facing level, but still awaiting one clean full-environment rerun before final submission-safe sign-off.
-- Readiness summary: this pass corrected real drift between the saved notebook and the tracking notes. The live notebook title card, abstract, results discussion, post-lab interpretation, conclusion and workflow-animation disclosure now consistently report the accepted solvent ordering Acetonitrile > Acetone > THF > Cyclohexane > Toluene, based on 111 retained traces out of 225 raw files and a 46.5-fold span from the fastest to slowest accepted solvent means.
+- Readiness summary: this pass corrected the last visible drift between the saved notebook file and the intended report narrative. The live notebook title card, abstract, results discussion, post-lab interpretation, conclusion and workflow-animation disclosure now consistently report the accepted solvent ordering Acetonitrile > Acetone > THF > Cyclohexane > Toluene, based on 111 retained traces out of 225 raw files and a 46.5-fold span from the fastest to slowest accepted solvent means.
 - Verification note: the notebook JSON was reloaded after patching to confirm that the corrected publication-facing wording and the collapsed workflow-animation panel are present in the saved notebook file itself.
 - Visual/rendering summary: the stored notebook payload contains 8 embedded PNG figures and 2 GIFs, all of which decode successfully. The audit reconfirmed PNG sizes of 8562x3282, 3726x2334, 2866x1756, 3194x1459, 2566x1516, 3392x1317, 2626x1486 and 3404x1426, plus GIFs at 1495x828 (84 frames) and 1400x772 (70 frames). No stored output error cells, broken-image defects, broken-GIF defects, or obvious clipping/overlap problems were found in the embedded outputs inspected this run. Both expandable media panels are now stored collapsed by default.
 
