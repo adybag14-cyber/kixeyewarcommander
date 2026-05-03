@@ -4,6 +4,7 @@
 
 - Overall state: near publication-ready, but still awaiting a final full-environment rerun before submission-safe sign-off.
 - Readiness summary: this pass corrected the last publication-facing narrative inconsistencies found in the live attached notebook itself. The title card, abstract, results discussion, post-lab interpretation and conclusion now consistently report the accepted solvent ordering Acetonitrile > Acetone > THF > Cyclohexane > Toluene, with a 46.5-fold span from the fastest to slowest accepted solvent means.
+- Verification note: after patching, the notebook JSON was reloaded directly and checked to confirm that the corrected title card, abstract, results discussion, post-lab answers, conclusion and collapsed GIF panel are all present in the saved notebook file, not only in the tracking notes.
 - Visual/rendering summary: the stored notebook payload contains 8 embedded PNG figures and 2 GIFs, all of which decode successfully. No stored output error cells, broken-image defects, broken-GIF defects, or obvious clipping/overlap problems were found in the embedded outputs inspected this run. The second inline GIF panel had still been stored open at the start of this run and was corrected so both expandable media panels now open collapsed by default for a cleaner publication layout.
 
 ## Major issues resolved this run
