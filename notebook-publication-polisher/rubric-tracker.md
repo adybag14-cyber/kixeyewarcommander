@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high `Excellent` / near publication-ready, but not yet final-submission-safe because a clean rerun has not been completed in this environment.
-- Latest pass effect: improved write-up precision and publication polish by correcting the live attached notebook itself, not just the tracking notes, aligning all major publication-facing sections to the accepted solvent ranking, and re-confirming that the stored rendered outputs align with that ranking and contain no stored error outputs.
+- Latest pass effect: improved write-up precision and publication polish by correcting the live attached notebook itself, aligning all major publication-facing sections to the accepted solvent ranking, fixing the last stored open-by-default GIF panel, and re-confirming that the stored rendered outputs align with the accepted interpretation and contain no stored error outputs.
 
 ## Criterion tracker
 
