@@ -3,9 +3,9 @@
 ## 2026-05-03 assessment
 
 - Overall state: near publication-ready, but still awaiting a final full-environment rerun before submission-safe sign-off.
-- Readiness summary: this pass corrected the last publication-facing narrative inconsistencies found in the live attached notebook itself. The title card, abstract, results discussion, post-lab interpretation and conclusion now consistently report the accepted solvent ordering Acetonitrile > Acetone > THF > Cyclohexane > Toluene, with a 46.5-fold span from the fastest to slowest accepted solvent means.
-- Verification note: after patching, the notebook JSON was reloaded directly and checked to confirm that the corrected title card, abstract, results discussion, post-lab answers, conclusion and collapsed GIF panel are all present in the saved notebook file, not only in the tracking notes.
-- Visual/rendering summary: the stored notebook payload contains 8 embedded PNG figures and 2 GIFs, all of which decode successfully. No stored output error cells, broken-image defects, broken-GIF defects, or obvious clipping/overlap problems were found in the embedded outputs inspected this run. The second inline GIF panel had still been stored open at the start of this run and was corrected so both expandable media panels now open collapsed by default for a cleaner publication layout.
+- Readiness summary: this run patched the live attached notebook itself so the title card, abstract, results discussion, post-lab interpretation and conclusion now consistently report the accepted solvent ordering Acetonitrile > Acetone > THF > Cyclohexane > Toluene, with a 46.5-fold span from the fastest to slowest accepted solvent means.
+- Verification note: after patching, the notebook JSON was reloaded directly and checked to confirm that the corrected title card, abstract, results discussion, post-lab answers, conclusion and collapsed second GIF panel are all present in the saved notebook file, not only in the tracking notes.
+- Visual/rendering summary: the stored notebook payload contains 8 embedded PNG figures and 2 GIFs, all of which decode successfully. No stored output error cells, broken-image defects, broken-GIF defects, or obvious clipping/overlap problems were found in the embedded outputs inspected this run. Both expandable media panels are now stored collapsed by default for a cleaner publication layout.
 
 ## Major issues resolved this run
 
@@ -14,7 +14,7 @@
 - Corrected the stored results-discussion prose and generator source so they no longer imply acetone is the fastest solvent or that bulk polarity alone explains the trend.
 - Corrected the literature-comparison paragraph so acetone is described as close to its literature benchmark and second only to acetonitrile in the retained class data.
 - Corrected the post-lab answer source and stored output so acetonitrile is identified as the fastest solvent, acetone as a close second, and the reported rate list follows the accepted ordering.
-- Strengthened the conclusion so the final publication-facing summary states the explicit ordering, retained-trace count and 46.5-fold rate span.
+- Strengthened the conclusion so the final publication-facing summary states the explicit ordering and 46.5-fold rate span.
 - Corrected the stored second GIF panel so it no longer opens by default, matching the cleaner publication layout of the first expandable media panel.
 - Reconfirmed that the executed notebook contains no stored error outputs and that all stored figures and inline GIFs remain decodable.
 
