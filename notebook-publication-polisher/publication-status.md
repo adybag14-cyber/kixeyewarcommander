@@ -2,20 +2,19 @@
 
 ## 2026-05-03 assessment
 
-- Overall state: near publication-ready, but not yet final-submission-safe.
-- Readiness summary: a direct reinspection of the live attached notebook showed that a few high-visibility publication edits had not actually landed in the file itself. This pass corrected those live-file inconsistencies so the title card, abstract, results discussion, post-lab explanation, conclusion and inline workflow panel state now align with the accepted solvent ordering Acetonitrile > Acetone > THF > Cyclohexane > Toluene, the 46.5-fold rate span, and the separated acetonitrile/acetone confidence intervals.
-- Visual/rendering summary: the stored notebook payload still contains 8 embedded PNG figures and 2 GIFs, all of which decode successfully. No output error cells, obvious clipping, overlap, broken-image defects or broken-GIF defects were found in the stored outputs inspected this run.
+- Overall state: near publication-ready, but still awaiting a final full-environment rerun before submission-safe sign-off.
+- Readiness summary: this pass rechecked the live attached notebook itself and corrected the remaining publication-facing wording drift. The title card, abstract, results discussion, post-lab interpretation and conclusion now consistently report the accepted solvent ordering Acetonitrile > Acetone > THF > Cyclohexane > Toluene, with a 46.5-fold span from the fastest to slowest accepted solvent means.
+- Visual/rendering summary: the stored notebook payload still contains 8 embedded PNG figures and 2 GIFs, all of which decode successfully. No stored output error cells, broken-image defects, broken-GIF defects, or obvious clipping/overlap problems were found in the embedded outputs inspected this run.
 
 ## Major issues resolved this run
 
 - Rewrote the title-card central result so it states the explicit solvent ordering and 46.5-fold span rather than a vague order-of-magnitude claim.
-- Strengthened the abstract with the retained-trace count, explicit solvent sequence and 46.5-fold rate span.
-- Corrected the stored results-discussion prose and generator source so they no longer imply acetone is the fastest solvent.
+- Strengthened the abstract with the retained-trace count, explicit solvent sequence and explicit rate span.
+- Corrected the stored results-discussion prose and generator source so they no longer imply acetone is the fastest solvent or that bulk polarity alone explains the trend.
 - Corrected the literature-comparison paragraph so acetone is described as close to its literature benchmark and second only to acetonitrile in the retained class data.
-- Corrected the remaining post-lab solvatochromism explanation so it now says acetonitrile is fastest and acetone is a close second.
-- Reordered the post-lab solvent summary so the listed rates now match the accepted ranking.
+- Corrected the post-lab solvatochromism explanation so it now says acetonitrile is fastest and acetone is a close second.
 - Strengthened the conclusion so the final publication-facing summary states the explicit ordering and 46.5-fold rate span.
-- Changed the stored laboratory workflow animation panel back to collapsed-by-default and confirmed both inline GIF panels now load closed.
+- Reconfirmed that the executed notebook contains no stored error outputs and that both inline GIF panels remain decodable.
 
 ## Major remaining blockers
 
