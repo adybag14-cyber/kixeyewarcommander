@@ -10,6 +10,7 @@
 - Patched the stored post-lab UV-vis / solvatochromism answer and its generator source so they now say acetonitrile is fastest and acetone is a close second.
 - Strengthened the conclusion so the final headline claim now repeats the explicit solvent ranking and 46.5-fold span.
 - Changed the stored laboratory workflow animation panel back to collapsed-by-default in both source and rendered HTML output.
+- A last verification pass found that the rendered laboratory workflow panel had still drifted back to an expanded state in the stored HTML output, so that executed HTML was patched again and rechecked until both inline GIF panels loaded collapsed.
 - Re-ran direct inspection of the embedded notebook media after patching and confirmed that 8 PNG figures and 2 GIFs still decode successfully from the notebook payload.
 - Verified that the old contradictory phrases and the expanded-by-default workflow panel are no longer present anywhere in the notebook source or stored outputs.
 - Re-checked the local execution environment and confirmed that `matplotlib`, `scipy`, `IPython`, `rdkit`, `numba`, `jupyter` and `nbconvert` are still unavailable, so a clean rerun remains blocked here.
