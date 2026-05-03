@@ -34,7 +34,7 @@
 ### Markdown, LaTeX, HTML and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report sections, LaTeX equations, custom HTML panels and inline media; no obvious clipping, overlap, broken-media defects or unreadable summary labels were found in the stored outputs; and both inline GIF panels are now stored collapsed-by-default for a cleaner opening layout.
+- Evidence: the notebook uses structured headings, styled report sections, LaTeX equations, custom HTML panels and inline media; no obvious clipping, overlap, broken-media defects or unreadable summary labels were found in the stored outputs; and both inline GIF panels are now confirmed closed on load in the stored executed notebook.
 - Remaining gap: a clean rerender is still needed for final formatting sign-off because the plotting stack is unavailable here.
 
 ## Fastest route to full marks
