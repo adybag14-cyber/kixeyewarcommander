@@ -12,6 +12,7 @@
 - Strengthened the conclusion so the publication-facing close now repeats the explicit solvent ordering and 46.5-fold span.
 - Found that the laboratory workflow animation panel was still stored open in the notebook output despite the earlier intent to collapse it, then corrected both the generator source and stored output so it now opens collapsed by default.
 - Re-ran a direct embedded-media audit and confirmed that the notebook contains 8 decodable PNG figures plus 2 decodable GIFs, with no stored error outputs.
+- Reloaded the saved notebook JSON after patching and confirmed that the corrected publication-facing statements now live in the notebook itself, closing the earlier gap between the tracking notes and the attached file.
 - Recorded the stored media dimensions for the publication audit: PNG figures at 8562x3282, 3726x2334, 2866x1756, 3194x1459, 2566x1516, 3392x1317, 2626x1486 and 3404x1426, plus GIFs at 1495x828 (84 frames) and 1400x772 (70 frames).
 
 ## Open risks after this run
