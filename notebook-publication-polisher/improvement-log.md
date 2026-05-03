@@ -10,6 +10,7 @@
 - Corrected the stored post-lab output and the answer-generator source so the solvatochromism explanation now says acetonitrile is fastest and acetone is a close second.
 - Corrected the literature-comparison wording in both source and stored output so acetone is described as close to the literature benchmark and second only to acetonitrile in the retained class data.
 - Strengthened the conclusion so the publication-facing close now repeats the explicit solvent ordering and 46.5-fold span.
+- Changed the laboratory workflow animation panel to open collapsed by default so the notebook landing view is cleaner and less visually heavy.
 - Re-ran a direct embedded-media audit and confirmed that the notebook still contains 8 decodable PNG figures plus 2 decodable GIFs, with no stored error outputs.
 
 ## Open risks after this run
