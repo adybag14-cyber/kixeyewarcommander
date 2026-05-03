@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-04
+
+- Re-opened the live attached notebook and found that a few publication-facing sections still contained older wording even though the tracking notes had already been updated.
+- Patched the notebook title-card central result so the opening summary now states 111 retained traces, the explicit solvent ordering, and the 46.5-fold rate span.
+- Strengthened the abstract so the top-level report summary now includes the retained-trace count, accepted ordering, and explicit dynamic range.
+- Corrected the stored results-discussion output and its generator source so the solvent-effects paragraph no longer says acetone is the fastest solvent and the literature-comparison paragraph no longer describes acetone as still the fastest retained solvent.
+- Corrected the stored post-lab answers and their generator source so the characteristic-time example, solvatochromism explanation, and final solvent-rate list all place acetonitrile first and acetone second.
+- Strengthened the saved conclusion so the notebook closes with the retained-trace count, explicit solvent ordering and 46.5-fold span.
+- Corrected the second inline GIF panel in both stored output and source so it is collapsed by default instead of opening on load.
+- Re-ran a direct embedded-media audit after patching and reconfirmed 8 decodable PNG figures plus 2 decodable GIFs, with no stored output error cells.
+
 ## 2026-05-03
 
 - Re-opened the actual attached notebook file and confirmed that several publication-facing wording fixes still needed to be applied to the live notebook itself, not just the tracking notes.
