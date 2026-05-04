@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high `Excellent` / near publication-ready, but not yet final-submission-safe because a clean rerun has not been completed in this environment.
-- Latest pass effect: improved rubric alignment by correcting the live notebook front matter, results discussion, post-lab interpretation and conclusion so they now all agree on the accepted solvent ordering, retained-trace count and 46.5-fold rate span.
+- Latest pass effect: improved rubric alignment by correcting the attached notebook front matter, results discussion, post-lab interpretation and conclusion so they now all agree on the accepted solvent ordering, retained-trace count and 46.5-fold rate span, and by removing remaining contradictions that had still implied acetone was the fastest solvent.
 
 ## Criterion tracker
 
@@ -21,7 +21,7 @@
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly with 111 retained traces and a 46.5-fold span; the saved results discussion and post-lab interpretation now agree that acetonitrile is fastest and acetone is a close second; the post-lab characteristic-time example now uses the true fastest solvent; the literature-comparison paragraph now describes acetone as close to its benchmark and second only to acetonitrile in the accepted class data; and the solvent-effects discussion now makes the more defensible claim that dielectric constant alone does not explain the full ordering.
+- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly with 111 retained traces and a 46.5-fold span; the saved results discussion and post-lab interpretation now agree that acetonitrile is fastest and acetone is a close second; the literature-comparison paragraph now describes acetone as close to its benchmark while treating acetonitrile as the fastest class-data solvent without a direct JCE-subset comparator; and the solvent-effects discussion now makes the more defensible claim that dielectric constant alone does not explain the full ordering.
 - Remaining gap: final sign-off should still confirm there are no other small prose statements that drift from the numerical summary after rerun.
 
 ### Programming structure and efficiency
