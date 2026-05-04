@@ -9,6 +9,7 @@
 - Corrected the literature-comparison wording in both source and stored output so acetone is described as close to its benchmark and second only to acetonitrile in the retained class data.
 - Corrected the saved post-lab answers and stored rendered output so acetonitrile is identified as the fastest solvent, acetone is described as a close second, the timescale example uses the actual fastest solvent, and the explicit solvent list follows the accepted ordering.
 - Strengthened the saved conclusion so it closes with the retained-trace count, explicit solvent ordering and 46.5-fold span.
+- Re-verified the attached notebook package after editing so the saved notebook now matches the durable status notes rather than leaving those fixes only in tracking files.
 - Switched the laboratory workflow animation from open-by-default to collapsed-by-default so the notebook reads more cleanly on first pass without removing the embedded media.
 - Extracted all 8 stored PNG figures plus both embedded GIFs from the notebook payload and reviewed a contact sheet plus sampled GIF frames; no obvious clipping, overlap, broken-image or broken-GIF defects were visible in the stored media audited this pass.
 - Ran a contradiction sweep against the notebook JSON after patching to confirm that the earlier acetone-fastest wording had been removed from the publication-facing passages reviewed this run.
