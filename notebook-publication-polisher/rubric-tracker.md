@@ -7,8 +7,8 @@
 
 ## Current score estimate
 
-- Estimated band: high Excellent, with publication readiness now limited mainly by rerun verification rather than by obvious narrative or visual defects in the saved package.
-- Latest pass effect: improved rubric alignment by correcting contradictions in the visible notebook opening, discussion, post-lab responses and conclusion, and by tightening first-open presentation through the collapsed workflow animation.
+- Estimated band: high Excellent / near publication-ready from the saved notebook package.
+- Latest pass effect: improved rubric alignment by making the notebook opening, discussion, post-lab responses and conclusion all agree on the same supported solvent ordering, by quantifying the first screen with the retained-trace count and rate span, and by tightening first-open presentation through the collapsed workflow animation.
 
 ## Criterion tracker
 
@@ -39,7 +39,7 @@
 ### Markdown, LaTeX, HTML, and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers and inline media. The saved media audit still shows 8 clean PNG figures and 2 working GIFs; sampled figure review found no clipping, overlap or unreadable labels; and both expandable animation panels now load collapsed by default for a tidier first read.
+- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers and inline media. The saved media audit still shows 8 clean PNG figures and 2 working GIFs, contact-sheet review found no obvious clipping or overlap defects, and both expandable animation panels now load collapsed by default for a tidier first read.
 - Remaining gap: a clean rerender is still required for final formatting sign-off because the full notebook execution stack is unavailable here.
 
 ## Fastest route to full marks
