@@ -2,6 +2,11 @@
 
 ## 2026-05-04
 
+- Re-opened the saved notebook payload and found that a few publication-facing passages still contradicted the accepted solvent ordering, even though most earlier corrections had already landed.
+- Patched both the generator source and the stored rendered output so the results discussion now says acetonitrile has the largest accepted mean rate and acetone is a close second.
+- Corrected the literature-comparison wording so acetone is described as close to its benchmark and second only to acetonitrile in the accepted class data.
+- Corrected the post-lab solvatochromism and solvent-effects answers so they no longer call acetone the fastest solvent and so the explicit solvent-rate list is ordered correctly.
+- Re-extracted the embedded PNG and GIF media from the notebook payload for direct spot-checking; the stored figures and first animation frames showed no obvious clipping, overlap or broken-media defects.
 - Re-opened the live attached notebook and found that a few publication-facing sections still contained older wording even though the tracking notes had already been updated.
 - Patched the notebook title-card central result so the opening summary now states 111 retained traces, the explicit solvent ordering, and the 46.5-fold rate span.
 - Strengthened the abstract so the top-level report summary now includes the retained-trace count, accepted ordering, and explicit dynamic range.
