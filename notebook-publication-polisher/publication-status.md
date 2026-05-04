@@ -3,9 +3,9 @@
 ## 2026-05-04 assessment
 
 - Overall state: near publication-ready, with the saved notebook now materially stronger and internally consistent after this run, but still awaiting one clean rerun in a full notebook environment before final submission-safe sign-off.
-- Readiness summary: this pass corrected the live notebook itself where the opening title card, abstract, results discussion, post-lab answers and conclusion still contained weaker or contradictory publication-facing wording. The saved notebook now consistently reports the accepted solvent ordering Acetonitrile > Acetone > THF > Cyclohexane > Toluene, based on 111 retained traces out of 225 raw files and a 46.5-fold span from the fastest to slowest accepted solvent means.
-- Verification note: the notebook JSON was reloaded after patching to confirm that the corrected publication-facing wording is present in the saved notebook file itself.
-- Visual/rendering summary: the stored notebook payload contains 8 embedded PNG figures and 2 GIFs, all of which decode successfully. A direct audit of extracted figures plus sampled GIF frames found no stored output error cells, broken-image defects, broken-GIF defects, or obvious clipping/overlap problems in the embedded outputs reviewed this run. The inline GIF panels were also tightened with responsive image styling and both extras now open collapsed, reducing the risk of overflow in narrower notebook views.
+- Readiness summary: this pass corrected both the notebook source cells and the cached rendered outputs where the opening title card, abstract, results discussion, post-lab answers and conclusion still contained weaker or contradictory publication-facing wording. The saved notebook now consistently reports the accepted solvent ordering Acetonitrile > Acetone > THF > Cyclohexane > Toluene, based on 111 retained traces out of 225 raw files and a 46.5-fold span from the fastest to slowest accepted solvent means.
+- Verification note: the notebook JSON was repaired and reloaded after patching to confirm that the corrected publication-facing wording is present in the saved notebook file itself and that the file remains syntactically valid.
+- Visual/rendering summary: the stored notebook payload contains 8 embedded PNG figures and 2 GIFs, all of which decode successfully. A direct audit of extracted figures plus sampled GIF frames found no stored output error cells, broken-image defects, broken-GIF defects, or obvious clipping/overlap problems in the embedded outputs reviewed this run.
 
 ## Major issues resolved this run
 
@@ -13,8 +13,8 @@
 - Corrected the saved results-discussion source and stored rendered output so they no longer say acetone is the fastest solvent or the largest measured rate.
 - Corrected the saved post-lab answers and stored output so acetonitrile is identified as the fastest solvent, acetone is described as a close second, and the explicit solvent-rate list is ordered correctly.
 - Strengthened the conclusion so the notebook closes with the accepted ordering, retained-trace count and 46.5-fold span rather than a more generic summary.
+- Repaired the cached output JSON escaping introduced during output correction and verified that the notebook parses cleanly again after the edits.
 - Re-audited all stored visuals by extracting 8 embedded PNG figures and both embedded GIFs from the notebook payload; sampled frames showed no obvious clipping, overlap, or broken-media defects.
-- Added responsive styling for inline GIF panels and removed the default-open state from the second animation section so the publication layout is less likely to sprawl or clip on smaller screens.
 
 ## Major remaining blockers
 
