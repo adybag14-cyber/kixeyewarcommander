@@ -2,48 +2,48 @@
 
 ## Note on rubric recovery
 
-- The supplied rubric file is an HTML-style export rather than a clean text rubric.
-- The criteria below are inferred from the recovered headings and descriptors, not copied from a clean original sheet.
+- The supplied rubric is an HTML-style export rather than a clean text sheet.
+- The criteria below are inferred from the recovered descriptors and remain a best-effort reconstruction rather than a verbatim rubric transcription.
 
 ## Current score estimate
 
-- Estimated band: high `Excellent` / near publication-ready, but not yet final-submission-safe because a clean rerun has not been completed in this environment.
-- Latest pass effect: improved rubric alignment by correcting the live notebook front matter, abstract, results discussion, post-lab interpretation and conclusion so they now all agree on the accepted solvent ordering, retained-trace count and 46.5-fold rate span, while also confirming via a fresh contact-sheet review that the stored embedded figures and GIFs remain visually clean.
+- Estimated band: high Excellent / near publication-ready from the saved notebook package.
+- Latest pass effect: improved rubric alignment by removing the last major source-output contradictions in the publication-facing narrative and by tightening first-open presentation through the collapsed workflow animation.
 
 ## Criterion tracker
 
 ### Data analysis and plotting
 
 - Current estimate: strong.
-- Evidence: all five solvents were analysed; trace-level QC is explicit; uncertainty is reported; independent validation and sensitivity checks are included; figures are legible and visually consistent; and the stored media audit confirmed 8 embedded PNG figures plus 2 GIFs that decode cleanly from the notebook payload.
-- Remaining gap: one full rerun is still needed to confirm regenerated outputs after the latest narrative fixes.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty, bootstrap ranking and validation checks are present; the stored notebook still reports 111 accepted traces out of 225 raw files; and all 8 embedded figure PNGs plus both GIFs decode successfully from the saved payload.
+- Remaining gap: one full rerun is still needed to confirm regenerated outputs after the latest text fixes.
 
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly with 111 retained traces and a 46.5-fold span; the saved results discussion and post-lab interpretation now agree that acetonitrile is fastest and acetone is a close second; the literature-comparison paragraph now describes acetone as close to its benchmark and second only to acetonitrile in the accepted class data; and a contradiction sweep confirmed that the earlier acetone-fastest drift has been removed from the reviewed publication-facing passages in the attached notebook package itself.
-- Remaining gap: final sign-off should still confirm there are no other small prose statements that drift from the numerical summary after rerun.
+- Evidence: the title card, abstract, results discussion, post-lab answers and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The solvent-polarity discussion now correctly states that acetonitrile is the fastest retained solvent and that acetone is a close second.
+- Remaining gap: final sign-off should still confirm after rerun that no small prose drift remains elsewhere in regenerated outputs.
 
 ### Programming structure and efficiency
 
 - Current estimate: strong.
-- Evidence: repeated tasks are wrapped in functions, configuration is centralized, QC logic is auditable, and validation/export steps are automated.
+- Evidence: the notebook centralizes configuration, uses reusable helper functions, documents quality-control logic, includes benchmarking and validation code, and keeps the analysis self-contained apart from the raw Data directory.
 - Remaining gap: none obvious from this pass.
 
 ### Comments and documentation
 
 - Current estimate: strong.
-- Evidence: functions are documented with docstrings and the notebook explains the purpose of the main analysis blocks.
-- Remaining gap: low-risk only; a future pass could add a few extra orienting comments around the more specialized animation code if desired.
+- Evidence: the analysis functions include docstrings, the notebook explains the purpose of the major blocks, and the publication-facing narrative now better explains how the molecular interpretation connects to the fitted rates.
+- Remaining gap: low-risk only; a future pass could add a little more orientation around the animation-building code if the notebook were being graded heavily on code commentary.
 
 ### Markdown, LaTeX, HTML, and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report sections, LaTeX equations, custom HTML panels, and inline media; 8 embedded PNG figures plus 2 GIFs were extracted and checked directly from the notebook output; no output error cells, clipping, overlap, broken-media defects or unreadable summary labels were obvious in the stored outputs reviewed this pass; and the extra laboratory animation remains collapsed by default so the notebook opens in a cleaner reading state.
-- Remaining gap: a clean rerender is still needed for final formatting sign-off because the plotting stack is unavailable here.
+- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers and inline media. The saved media audit still shows 8 clean PNG figures and 2 working GIFs, and the workflow animation now loads collapsed by default for a tidier first read.
+- Remaining gap: a clean rerender is still required for final formatting sign-off because the full notebook execution stack is unavailable here.
 
 ## Fastest route to full marks
 
-1. Re-run the notebook end to end in an environment with the plotting stack installed.
-2. Confirm that regenerated figures, tables, and GIFs still match the corrected narrative.
-3. Do one final publication pass focused only on figure captions, output sizing, and last-pass prose consistency.
+1. Re-run the notebook end to end in an environment with the required plotting and notebook stack installed.
+2. Confirm that regenerated figures, tables and both GIF panels remain visually clean and consistent with the corrected narrative.
+3. Do one final publication pass focused only on captions, output sizing and last-pass prose consistency.
