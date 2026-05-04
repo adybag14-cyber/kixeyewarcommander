@@ -13,6 +13,8 @@
 - Verified that the saved title card and abstract now carry the same quantified result as the results tables and discussion rather than a generic solvent-dependence claim.
 - Fixed the workflow animation panel in both the generating source and saved HTML output so it now loads collapsed by default instead of opening expanded on first load.
 - Re-checked the embedded media payload directly from the notebook JSON and through an extracted contact sheet: 8 figure PNGs and 2 GIFs decode successfully, with no broken-media, clipping, overlap or obvious layout defects visible in the stored notebook package.
+- Patched the underlying discussion-generator and post-lab-generator source strings as well as the saved rendered markdown, so a future clean rerun will preserve the corrected acetonitrile-first interpretation instead of regenerating the old contradiction.
+- Confirmed that the notebook source no longer contains the stale phrases that previously described acetone as the fastest solvent or opened the workflow animation by default.
 
 ## Open risks after this run
 
