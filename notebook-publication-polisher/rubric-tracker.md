@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high `Excellent` / near publication-ready, but not yet final-submission-safe because a clean rerun has not been completed in this environment.
-- Latest pass effect: improved rubric alignment by correcting the live notebook front matter, results discussion, post-lab interpretation and conclusion so they now all agree on the accepted solvent ordering, retained-trace count and 46.5-fold rate span, and by tightening the inline GIF presentation so the extras are less likely to create layout spill.
+- Latest pass effect: improved rubric alignment by correcting the live notebook front matter, results discussion, post-lab interpretation, conclusion and cached rendered outputs so they now all agree on the accepted solvent ordering, retained-trace count and 46.5-fold rate span.
 
 ## Criterion tracker
 
@@ -21,7 +21,7 @@
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly with 111 retained traces and a 46.5-fold span; the saved results discussion and post-lab interpretation now agree that acetonitrile is fastest and acetone is a close second; the literature-comparison paragraph now describes acetone as close to its benchmark and second only to acetonitrile in the accepted class data; and the solvent-effects discussion now makes the more defensible claim that dielectric constant alone does not explain the full ordering.
+- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly with 111 retained traces and a 46.5-fold span; the saved results discussion and post-lab interpretation now agree in both source and cached output that acetonitrile is fastest and acetone is a close second; the literature-comparison paragraph now describes acetone as close to its benchmark and second only to acetonitrile in the accepted class data; and the solvent-effects discussion now makes the more defensible claim that dielectric constant alone does not explain the full ordering.
 - Remaining gap: final sign-off should still confirm there are no other small prose statements that drift from the numerical summary after rerun.
 
 ### Programming structure and efficiency
@@ -39,7 +39,7 @@
 ### Markdown, LaTeX, HTML, and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report sections, LaTeX equations, custom HTML panels, and inline media; 8 embedded PNG figures plus 2 GIFs were extracted and checked directly from the notebook output; no output error cells, clipping, overlap, broken-media defects or unreadable summary labels were obvious in the stored outputs reviewed this pass; and the GIF panels now include explicit responsive image styling with collapsed-by-default presentation.
+- Evidence: the notebook uses structured headings, styled report sections, LaTeX equations, custom HTML panels, and inline media; 8 embedded PNG figures plus 2 GIFs were extracted and checked directly from the notebook output; and no output error cells, clipping, overlap, broken-media defects or unreadable summary labels were obvious in the stored outputs reviewed this pass.
 - Remaining gap: a clean rerender is still needed for final formatting sign-off because the plotting stack is unavailable here.
 
 ## Fastest route to full marks
