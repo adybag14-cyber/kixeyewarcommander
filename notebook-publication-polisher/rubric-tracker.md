@@ -8,20 +8,20 @@
 ## Current score estimate
 
 - Estimated band: high Excellent / near publication-ready from the saved notebook package.
-- Latest pass effect: corrected a mismatch between the durable notes and the notebook itself by quantifying the opening, fixing the remaining acetonitrile-versus-acetone wording errors in both the results discussion and post-lab material, strengthening the conclusion, and collapsing the workflow animation on first load.
+- Latest pass effect: corrected the remaining mismatch between the durable notes and the notebook itself by quantifying the opening, fixing the remaining acetonitrile-versus-acetone wording errors in both the results discussion and post-lab material, strengthening the conclusion, and collapsing the workflow animation on first load.
 
 ## Criterion tracker
 
 ### Data analysis and plotting
 
 - Current estimate: strong.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty, bootstrap ranking and validation checks are present; the stored notebook still reports 111 accepted traces out of 225 raw files; and all 8 embedded figure PNGs plus both GIFs decode successfully from the saved payload.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty, bootstrap ranking, and validation checks are present; the stored notebook reports 111 accepted traces out of 225 raw files; and the embedded saved-output media reviewed this run remains decodable.
 - Remaining gap: one full rerun is still needed to confirm regenerated outputs after the latest text fixes.
 
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the title card, abstract, results discussion, post-lab answers and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The post-lab timescale and solvatochromism answers now correctly identify acetonitrile as the fastest retained solvent and acetone as a close second. The generating notebook source has also been corrected so a future rerun should preserve that interpretation.
+- Evidence: the title card, abstract, results discussion, post-lab answers, and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The mechanistic discussion no longer contradicts the retained ordering, and the post-lab timescale and solvatochromism answers now correctly identify acetonitrile as the fastest retained solvent and acetone as a close second.
 - Remaining gap: final sign-off should still confirm after rerun that no small prose drift remains elsewhere in regenerated outputs.
 
 ### Programming structure and efficiency
@@ -39,11 +39,11 @@
 ### Markdown, LaTeX, HTML, and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers and inline media. The saved media audit still shows 8 clean PNG figures and 2 working GIFs, the stored wrappers include responsive sizing and alt text, and both expandable animation panels now load collapsed by default for a tidier first read.
+- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers, and inline media. Both expandable animation panels now load collapsed by default for a tidier first read, and no broken-image, broken-GIF, clipping, or overlap defect was confirmed from the saved notebook payload reviewed this run.
 - Remaining gap: a clean rerender is still required for final formatting sign-off because the full notebook execution stack is unavailable here.
 
 ## Fastest route to full marks
 
 1. Re-run the notebook end to end in an environment with the required plotting and notebook stack installed.
-2. Confirm that regenerated figures, tables and both GIF panels remain visually clean and consistent with the corrected narrative.
-3. Do one final publication pass focused only on captions, output sizing and last-pass prose consistency.
+2. Confirm that regenerated figures, tables, and both GIF panels remain visually clean and consistent with the corrected narrative.
+3. Do one final publication pass focused only on captions, output sizing, and last-pass prose consistency.
