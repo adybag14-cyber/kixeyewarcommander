@@ -2,10 +2,10 @@
 
 ## 2026-05-04 assessment
 
-- Overall state: near publication-ready from the saved notebook package, but this run corrected a real mismatch between the previous progress notes and the notebook itself.
-- Readiness summary: the saved notebook now consistently reports 111 accepted traces out of 225 raw files, solvent order Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and a 46.5-fold span between the fastest and slowest retained solvent means across the opening, discussion, post-lab answers and conclusion.
+- Overall state: near publication-ready from the saved notebook package, and this run reconciled the notebook source, saved rendered outputs and durable progress notes.
+- Readiness summary: the saved notebook now consistently reports 111 accepted traces out of 225 raw files, solvent order Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and a 46.5-fold span between the fastest and slowest retained solvent means across the opening, results discussion, post-lab answers and conclusion.
 - Visual/rendering summary: all 8 embedded PNG figures and both embedded GIFs decode successfully from the saved notebook payload. The figure PNGs range from 2566x1516 to 8562x3282 pixels, the mechanism GIF is 1495x828 with 84 frames, and the laboratory workflow GIF is 1400x772 with 70 frames. Stored HTML wrappers use responsive sizing and alt text, and no broken-image or broken-GIF defects were found in the saved outputs reviewed this run.
-- Presentation change this run: the title card, abstract and conclusion now state the quantified central result, the post-lab narrative now uses acetonitrile consistently as the fastest retained solvent, and the laboratory workflow GIF no longer opens expanded on first load.
+- Presentation change this run: the title card, abstract and conclusion now state the quantified central result, the results discussion and post-lab narrative now use acetonitrile consistently as the fastest retained solvent, and the laboratory workflow GIF no longer opens expanded on first load.
 
 ## Major issues resolved this run
 
