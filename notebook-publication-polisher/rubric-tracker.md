@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high Excellent / near publication-ready from the saved notebook package.
-- Latest pass effect: improved rubric alignment by removing the last major source-output contradictions in the publication-facing narrative and by tightening first-open presentation through the collapsed workflow animation.
+- Latest pass effect: improved rubric alignment by making the notebook opening, discussion, post-lab responses and conclusion all agree on the same supported solvent ordering and by tightening first-open presentation through the collapsed workflow animation.
 
 ## Criterion tracker
 
@@ -21,7 +21,7 @@
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the title card, abstract, results discussion, post-lab answers and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The solvent-polarity discussion now correctly states that acetonitrile is the fastest retained solvent and that acetone is a close second.
+- Evidence: the title card, abstract, results discussion, post-lab answers and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The solvent-polarity discussion now correctly states that acetonitrile is the fastest retained solvent, that acetone is a close second, and that the trend is not explained by one bulk polarity variable alone.
 - Remaining gap: final sign-off should still confirm after rerun that no small prose drift remains elsewhere in regenerated outputs.
 
 ### Programming structure and efficiency
@@ -39,7 +39,7 @@
 ### Markdown, LaTeX, HTML, and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers and inline media. The saved media audit still shows 8 clean PNG figures and 2 working GIFs, and the workflow animation now loads collapsed by default for a tidier first read.
+- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers and inline media. The saved media audit still shows 8 clean PNG figures and 2 working GIFs, and both expandable animation panels now load collapsed by default for a tidier first read.
 - Remaining gap: a clean rerender is still required for final formatting sign-off because the full notebook execution stack is unavailable here.
 
 ## Fastest route to full marks
