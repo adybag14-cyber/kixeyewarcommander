@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high Excellent / near publication-ready from the saved notebook package.
-- Latest pass effect: improved rubric alignment by making the notebook opening, discussion, post-lab responses and conclusion all agree on the same supported solvent ordering, by quantifying the first screen with the retained-trace count and rate span, and by tightening first-open presentation through the collapsed workflow animation.
+- Latest pass effect: improved rubric alignment by making the notebook opening, discussion generator, post-lab generator, stored rendered outputs and conclusion all agree on the same supported solvent ordering, by quantifying the first screen with the retained-trace count and rate span, and by tightening first-open presentation through the collapsed workflow animation.
 
 ## Criterion tracker
 
@@ -21,7 +21,7 @@
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the title card, abstract, results discussion, post-lab answers and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The solvent-polarity discussion now correctly states that acetonitrile is the fastest retained solvent, that acetone is a close second, and that the trend is not explained by one bulk polarity variable alone.
+- Evidence: the title card, abstract, results discussion, post-lab answers and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The solvent-polarity discussion now correctly states that acetonitrile is the fastest retained solvent, that acetone is a close second, and that the trend is not explained by one bulk polarity variable alone. The generating notebook source has also been corrected so a future rerun should preserve that interpretation.
 - Remaining gap: final sign-off should still confirm after rerun that no small prose drift remains elsewhere in regenerated outputs.
 
 ### Programming structure and efficiency
