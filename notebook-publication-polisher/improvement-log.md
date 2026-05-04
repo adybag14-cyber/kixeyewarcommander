@@ -2,19 +2,18 @@
 
 ## 2026-05-04
 
-- Re-opened the attached notebook and confirmed that a few publication-facing passages still lagged behind the accepted solvent ranking even though earlier tracking notes already described the corrected interpretation.
-- Patched the title-card central result so the notebook opening now states 111 retained traces, the explicit solvent ordering, and the 46.5-fold span.
-- Strengthened the abstract with the same quantified summary so the first screen now carries the key result clearly and consistently.
-- Corrected the saved results-discussion source and stored rendered output so the solvent-effects paragraph no longer says or implies that acetone is the fastest solvent and instead describes acetonitrile as fastest with acetone as a close second.
-- Corrected the literature-comparison wording in both source and stored output so acetone is described as close to its benchmark and second only to acetonitrile in the retained class data.
-- Corrected the saved post-lab answers and stored rendered output so acetonitrile is identified as the fastest solvent, acetone is described as a close second, the timescale example uses the actual fastest solvent, and the explicit solvent list follows the accepted ordering.
-- Strengthened the saved conclusion so it closes with the retained-trace count, explicit solvent ordering and 46.5-fold span.
-- Re-verified the attached notebook package after editing so the saved notebook now matches the durable status notes rather than leaving those fixes only in tracking files.
-- Switched the laboratory workflow animation from open-by-default to collapsed-by-default so the notebook reads more cleanly on first pass without removing the embedded media.
-- Extracted all 8 stored PNG figures plus both embedded GIFs from the notebook payload and reviewed a contact sheet plus sampled GIF frames; no obvious clipping, overlap, broken-image or broken-GIF defects were visible in the stored media audited this pass.
-- Ran a contradiction sweep against the notebook JSON after patching to confirm that the earlier acetone-fastest wording had been removed from the publication-facing passages reviewed this run.
+- Re-opened the notebook package, rubric export and saved progress notes to reassess the highest-impact publication blockers from the stored notebook itself rather than relying on prior summaries.
+- Confirmed that the detailed saved results discussion was already strong, but the title card, abstract and conclusion still undersold the actual result.
+- Found remaining internal contradictions in the saved results discussion and post-lab answers where acetone was still described as the fastest solvent even though the stored summary table ranks acetonitrile first.
+- Patched the notebook title card so the opening now states 111 retained traces, the explicit solvent order and the 46.5-fold rate span.
+- Strengthened the abstract with the same quantitative result so the notebook's first screen now reflects the saved analysis output.
+- Corrected the saved results discussion source and rendered markdown so acetonitrile is identified as the fastest retained solvent, acetone is described as a close second, and the literature comparison no longer implies that acetone ranked first.
+- Corrected the saved post-lab answers and the generating source so the timescale example uses acetonitrile, the solvent-order explanation is internally consistent, and the explicit solvent list follows the accepted ranking.
+- Strengthened the conclusion so it closes with the retained-trace count, solvent sequence and 46.5-fold span rather than a generic solvent-effect statement.
+- Updated both the generating code and stored rendered HTML for the laboratory workflow animation so the expandable panel is collapsed by default.
+- Re-checked the embedded media payload directly from the notebook JSON: 8 figure PNGs and 2 GIFs decode successfully, with no broken-media defects visible in the stored notebook package.
 
 ## Open risks after this run
 
-- Could not perform a full notebook rerun locally because the required plotting and notebook packages are unavailable in this container.
-- Source/output consistency for the edited prose was checked directly in the notebook JSON after patching, and embedded visuals were inspected directly from their stored payloads, but regenerated outputs still need confirmation in a full execution environment.
+- Could not perform a fresh end-to-end execution of the notebook in this container, so regenerated outputs still need confirmation in a full scientific notebook environment.
+- The current publication check is therefore based on the saved notebook package and its embedded outputs, not on a rerendered notebook from source.
