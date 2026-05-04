@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high Excellent / near publication-ready from the saved notebook package.
-- Latest pass effect: corrected a mismatch between the durable notes and the notebook itself by quantifying the opening, fixing the last acetonitrile-versus-acetone wording errors in the post-lab material, strengthening the conclusion, and collapsing the workflow animation on first load.
+- Latest pass effect: corrected a mismatch between the durable notes and the notebook itself by quantifying the opening, fixing the remaining acetonitrile-versus-acetone wording errors in both the results discussion and post-lab material, strengthening the conclusion, and collapsing the workflow animation on first load.
 
 ## Criterion tracker
 
