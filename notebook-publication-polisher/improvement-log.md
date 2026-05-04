@@ -10,7 +10,7 @@
 - Corrected the saved post-lab answers and the generating source so the timescale example uses acetonitrile, the solvent-order explanation is internally consistent, and acetone is described as a close second rather than the fastest solvent.
 - Strengthened the conclusion so it closes with the retained-trace count, solvent sequence, and 46.5-fold span rather than a generic solvent-effect statement.
 - Fixed the workflow animation panel in both the generating source and saved HTML output so it now loads collapsed by default instead of opening expanded on first load.
-- Re-checked the embedded media payload directly from the notebook JSON and confirmed that both inline GIFs still decode successfully and remain embedded in the saved package.
+- Decoded all eight saved figure PNGs and both inline GIFs from the notebook payload for direct visual QA. No broken-image, broken-GIF, clipping, or overlap defect was confirmed from the saved outputs reviewed this run.
 - Confirmed that the notebook source and stored rendered outputs no longer contain the stale phrases that previously described acetone as the fastest solvent or opened the workflow animation by default.
 - Re-aligned the memory notes and GitHub tracking notes with the corrected notebook state so future runs start from the real publication status rather than the earlier overstated summary.
 
