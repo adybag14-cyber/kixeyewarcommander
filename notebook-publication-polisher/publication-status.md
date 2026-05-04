@@ -2,19 +2,19 @@
 
 ## 2026-05-04 assessment
 
-- Overall state: near publication-ready from the saved notebook package, and this run reconciled the notebook source, stored rendered outputs, memory notes, and GitHub tracking notes.
-- Readiness summary: the saved notebook now consistently states 111 accepted traces out of 225 raw files, solvent order Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and a 46.5-fold span between the fastest and slowest retained solvent means across the title card, abstract, results discussion, post-lab answers, and conclusion.
-- Visual/rendering summary: all embedded figure and animation payloads reviewed from the saved notebook remain decodable. Both inline GIFs still decode successfully, and both expandable animation panels are now collapsed by default in the stored output. No broken-image, broken-GIF, clipping, or overlap defect was confirmed from the saved notebook payload reviewed this run.
-- Presentation change this run: the opening summary is now quantitative, the mechanistic discussion no longer contradicts the retained solvent ordering, the post-lab answers consistently identify acetonitrile as the fastest retained solvent, and the workflow animation no longer opens expanded on first load.
+- Overall state: near publication-ready from the saved notebook package, with the highest-impact publication blockers in the notebook itself corrected this run.
+- Readiness summary: the notebook now consistently reports 111 accepted traces out of 225 raw files, solvent order Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and a 46.5-fold span between the fastest and slowest retained solvent means across the title card, abstract, generated discussion, post-lab answers, and conclusion.
+- Visual/rendering summary: all eight saved figure PNGs and both inline GIFs were decoded from the notebook payload and checked. Both animation panels are now collapsed by default in the stored output, and no broken-image, broken-GIF, clipping, or overlap defect was confirmed from the saved notebook outputs reviewed this run.
+- Presentation change this run: the opening summary and abstract are now quantitative, the results discussion and post-lab narrative no longer misidentify acetone as the fastest retained solvent, the conclusion now closes on the quantified solvent ranking, and the workflow animation no longer opens expanded on first load.
 
 ## Major issues resolved this run
 
 - Rewrote the title-card central result so the notebook opens with the retained-trace count, explicit solvent ordering, and 46.5-fold rate span instead of a generic solvent-dependence claim.
 - Strengthened the abstract with the same quantified result so the first publication-facing screen now matches the results tables and discussion.
-- Corrected the results-discussion source and stored rendered output where the prose had still implied acetone was the fastest solvent despite the retained data ranking acetonitrile first.
+- Corrected the generated results-discussion source and stored rendered output where the prose had still implied acetone was the fastest solvent despite the retained data ranking acetonitrile first.
 - Corrected the post-lab generator source and stored rendered answers so the timescale example, solvatochromism explanation, and solvent-summary paragraph all use acetonitrile consistently as the fastest retained solvent and acetone as a close second.
 - Strengthened the conclusion so the notebook closes with the retained-trace count, accepted solvent sequence, and 46.5-fold span instead of a generic solvent-effect statement.
-- Confirmed that the two inline animations remain embedded and readable, and corrected the workflow animation panel so it is collapsed by default in both source and stored output.
+- Confirmed that all saved figure PNGs and both inline animations remain embedded and readable, and corrected the workflow animation panel so it is collapsed by default in both source and stored output.
 - Re-aligned the durable progress notes with the notebook that actually exists, so future runs no longer inherit the earlier overstatement of what had already been fixed.
 
 ## Major remaining blockers
