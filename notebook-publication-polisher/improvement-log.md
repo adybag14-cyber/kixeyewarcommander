@@ -10,6 +10,7 @@
 - Corrected the saved post-lab answers and stored rendered output so acetonitrile is identified as the fastest solvent, acetone is described as a close second, and the explicit solvent list follows the accepted ordering.
 - Strengthened the saved conclusion so it closes with the retained-trace count, explicit solvent ordering and 46.5-fold span.
 - Extracted all 8 stored PNG figures plus both embedded GIFs from the notebook payload and reviewed a contact sheet plus sampled GIF frames; no obvious clipping, overlap, broken-image or broken-GIF defects were visible in the stored media audited this pass.
+- Added responsive image styling to both inline GIF panels and changed the second animation panel to a collapsed-by-default state to reduce the chance of overflow or layout fatigue in notebook view.
 
 ## Open risks after this run
 
