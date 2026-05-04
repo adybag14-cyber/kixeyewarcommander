@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high `Excellent` / near publication-ready, but not yet final-submission-safe because a clean rerun has not been completed in this environment.
-- Latest pass effect: improved rubric alignment by correcting the live notebook front matter and close-out, so the title card, abstract, results discussion, post-lab answers and conclusion now all agree on the accepted solvent ordering, retained-trace count and 46.5-fold rate span, while both stored GIF panels now match the intended collapsed-by-default presentation.
+- Latest pass effect: improved rubric alignment by correcting the live notebook front matter, results discussion, post-lab interpretation and conclusion so they now all agree on the accepted solvent ordering, retained-trace count and 46.5-fold rate span.
 
 ## Criterion tracker
 
@@ -16,12 +16,12 @@
 
 - Current estimate: strong.
 - Evidence: all five solvents were analysed; trace-level QC is explicit; uncertainty is reported; independent validation and sensitivity checks are included; figures are legible and visually consistent; and the stored media audit confirmed 8 embedded PNG figures plus 2 GIFs that decode cleanly from the notebook payload.
-- Remaining gap: one full rerun is still needed to confirm regenerated outputs after the latest narrative and GIF fixes.
+- Remaining gap: one full rerun is still needed to confirm regenerated outputs after the latest narrative fixes.
 
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly with 111 retained traces and a 46.5-fold span; the stored results discussion and post-lab interpretation now agree that acetonitrile is fastest and acetone is a close second; the literature-comparison paragraph now describes acetone as close to its benchmark and second only to acetonitrile in the accepted class data; the solvent-effects discussion now makes the more defensible claim that bulk polarity alone does not explain the full ordering; and the saved notebook file was reloaded after patching to confirm those statements are present in the live attachment itself.
+- Evidence: the notebook has a clear aims-introduction-results-conclusion flow; the title card, abstract and conclusion now state the supported class-data result explicitly with 111 retained traces and a 46.5-fold span; the saved results discussion and post-lab interpretation now agree that acetonitrile is fastest and acetone is a close second; the literature-comparison paragraph now describes acetone as close to its benchmark and second only to acetonitrile in the accepted class data; and the solvent-effects discussion now makes the more defensible claim that dielectric constant alone does not explain the full ordering.
 - Remaining gap: final sign-off should still confirm there are no other small prose statements that drift from the numerical summary after rerun.
 
 ### Programming structure and efficiency
@@ -39,7 +39,7 @@
 ### Markdown, LaTeX, HTML, and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report sections, LaTeX equations, custom HTML panels, and inline media; 8 embedded PNG figures plus 2 GIFs were extracted and checked directly from the notebook output; no output error cells, clipping, overlap, broken-media defects or unreadable summary labels were obvious in the stored outputs reviewed this pass; and both inline GIF panels are now stored collapsed-by-default for a cleaner opening layout.
+- Evidence: the notebook uses structured headings, styled report sections, LaTeX equations, custom HTML panels, and inline media; 8 embedded PNG figures plus 2 GIFs were extracted and checked directly from the notebook output; and no output error cells, clipping, overlap, broken-media defects or unreadable summary labels were obvious in the stored outputs reviewed this pass.
 - Remaining gap: a clean rerender is still needed for final formatting sign-off because the plotting stack is unavailable here.
 
 ## Fastest route to full marks
