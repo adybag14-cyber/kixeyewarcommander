@@ -7,7 +7,7 @@
 
 ## Current score estimate
 
-- Estimated band: high Excellent / strong publication-ready draft, pending one clean rerun for full sign-off.
+- Estimated band: high Excellent / strong publication-ready draft, pending one clean rerun and fresh render for full sign-off.
 - Latest pass effect: the notebook source and stored rendered outputs are now aligned on the same supported retained result. The opening, abstract, results discussion, post-lab answers, and conclusion now agree on 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span; and both expandable animation panels now load collapsed by default for a cleaner publication read.
 
 ## Criterion tracker
@@ -40,7 +40,7 @@
 
 - Current estimate: strong.
 - Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers, and inline media. Both expandable animation panels now load collapsed by default for a tidier first read, and no broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed after extracting and reviewing all eight saved figure PNGs and both inline GIFs from the stored notebook outputs.
-- Remaining gap: a clean rerender is still required for final formatting sign-off because the full notebook execution stack is unavailable here.
+- Remaining gap: a clean rerender is still required for final formatting sign-off because the full notebook execution stack and Jupyter conversion tooling are unavailable here.
 
 ## Fastest route to full marks
 
