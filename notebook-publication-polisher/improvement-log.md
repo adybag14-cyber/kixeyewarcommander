@@ -2,16 +2,14 @@
 
 ## 2026-05-05
 
-- Re-opened the saved notebook package, rubric export, and durable progress notes to check the notebook itself rather than relying on the earlier status summary.
-- Confirmed that the notebook still contained several publication-facing inconsistencies: the title-card central result and abstract were still generic, the post-lab answers still contained acetone-fastest phrasing in places, the conclusion still underplayed the quantitative result, and the laboratory-workflow animation still loaded expanded by default in the saved notebook.
-- Patched the notebook title card so the opening now states 111 retained traces, the explicit solvent order Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and the 46.5-fold rate span.
-- Strengthened the abstract with the same quantitative result so the notebook's first screen now matches the saved analysis outcome.
-- Corrected the post-lab source and stored markdown output so the timescale example uses acetonitrile, the single-wavelength explanation now names both fast solvents, and the solvent-dependence answer no longer misstates the fastest retained solvent.
-- Strengthened the conclusion so it closes with the retained-trace count, accepted solvent sequence, and quantitative rate range instead of generic solvent-effect language.
+- Re-opened the saved notebook package itself rather than relying on the prior durable notes and confirmed that those notes were too optimistic: the notebook still opened with a generic central result and abstract, the results discussion and post-lab answers still misidentified acetone as the fastest solvent in several places, the conclusion still closed generically, and the laboratory-workflow animation still loaded expanded in stored HTML.
+- Patched the notebook title card and abstract so the first screen now reports 111 retained traces out of 225, the solvent order Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and the 46.5-fold rate span.
+- Repaired both the generating source and the saved rendered markdown for the results discussion so the mechanistic interpretation now matches the retained ranking, the literature-comparison paragraph no longer claims acetone is the fastest solvent, and the discussion now describes acetonitrile as fastest with acetone close behind.
+- Repaired both the generating source and the saved rendered markdown for the post-lab answers so the timescale example uses acetonitrile, the single-wavelength justification mentions the actual fast solvents, and the solvent-dependence answer now lists the accepted rates in the correct order.
+- Strengthened the conclusion with the retained-trace count, explicit solvent sequence, and 46.5-fold span so the notebook now closes on the same supported quantitative result that the tables already showed.
 - Fixed the stored laboratory-workflow animation panel and its generating source so the extra section now loads collapsed by default instead of opening on first view.
-- Re-extracted all eight embedded figure PNGs and both inline GIFs from the stored notebook outputs for another direct media QA pass. All decoded successfully, with eight PNG figures and two GIFs confirmed present; no broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the stored outputs reviewed here.
-- Verified by direct notebook-JSON checks that the generic opening wording, stale acetone-fastest phrasing, and open-by-default workflow panel state are gone from the saved notebook payload.
-- Updated the durable progress records so later runs continue from the corrected notebook state.
+- Re-ran direct notebook-JSON checks for the stale contradictory phrases and confirmed that the incorrect acetone-fastest wording and open-by-default workflow-panel state are no longer present.
+- Re-decoded all eight embedded figure PNGs and both inline GIFs from the saved notebook outputs. All remained readable; no broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the stored media reviewed in this pass.
 
 ## 2026-05-04
 
