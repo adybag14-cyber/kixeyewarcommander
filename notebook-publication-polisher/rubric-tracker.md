@@ -15,7 +15,7 @@
 ### Data analysis and plotting
 
 - Current estimate: strong.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty, bootstrap ranking, and validation checks are present; the stored notebook reports 111 accepted traces out of 225 raw files; and the embedded saved-output media reviewed this run remains decodable and visually readable.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty, bootstrap ranking, and validation checks are present; the stored notebook reports 111 accepted traces out of 225 raw files; and the embedded saved-output media reviewed this run remains decodable and visually readable in both direct extraction and contact-sheet review.
 - Remaining gap: one full rerun is still needed to confirm regenerated outputs after the latest text fixes.
 
 ### Write-up and interpretation
