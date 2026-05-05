@@ -9,7 +9,9 @@
 - Corrected the generated results discussion and its stored rendered Markdown so the solvent-interpretation paragraph no longer claims that acetone is faster than acetonitrile and the literature-comparison paragraph no longer says the acetone value sits below the literature result.
 - Corrected the generated post-lab answers and their stored rendered Markdown so the timescale example uses acetonitrile, the single-wavelength justification names both fast polar solvents, the solvatochromism answer identifies acetonitrile as the fastest retained solvent, the optical-density explanation no longer mischaracterizes the transformed-signal limit case, and the solvent-summary paragraph is listed in the accepted rank order.
 - Strengthened the conclusion so it closes with the retained-trace count, accepted solvent sequence, and 46.5-fold span instead of a generic solvent-effect statement.
+- Removed the forced-open state from the laboratory workflow animation in both the generating code and saved HTML output so the notebook now lands in a cleaner collapsed state.
 - Extracted all eight saved figure PNGs and both inline GIFs directly from the notebook outputs for another direct visual QA pass. All media decoded successfully and no broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the stored outputs.
+- Verified by direct notebook-JSON checks that the quantified opening and conclusion are present, the solvent-order contradictions are gone, and the workflow panel is collapsed in both source and stored output.
 
 ## 2026-05-04
 
