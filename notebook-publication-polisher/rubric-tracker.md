@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high Excellent / strong publication-ready draft, pending one clean rerun and fresh render for full sign-off.
-- Latest pass effect: the notebook source and stored rendered outputs are now aligned on the same supported retained result. The opening, abstract, results discussion, post-lab answers, and conclusion now agree on 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span. The saved notebook layout also opens more cleanly because both inline animation panels are collapsed by default.
+- Latest pass effect: the notebook source and stored rendered outputs are now aligned on the same supported retained result. The title card, abstract, results discussion, post-lab answers, and conclusion now agree on 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span. Both inline animation panels also now open collapsed by default, which improves first-view readability.
 
 ## Criterion tracker
 
@@ -21,7 +21,7 @@
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the title card, abstract, results discussion, post-lab answers, and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The post-lab timescale, single-wavelength, solvatochromism, and solvent-dependence answers now correctly identify acetonitrile as the fastest retained solvent and acetone as a close second, and the narrative no longer drifts between generic and contradictory statements about the final result.
+- Evidence: the opening, abstract, results discussion, post-lab answers, and conclusion now agree on the same supported result and no longer drift into an acetone-fastest interpretation. The narrative now states the retained sample size, explicit solvent ranking, and quantitative spread clearly enough for publication-facing readers.
 - Remaining gap: final sign-off should still confirm after rerun that no small prose drift remains elsewhere in regenerated outputs.
 
 ### Programming structure and efficiency
