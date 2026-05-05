@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high Excellent / near publication-ready from the saved notebook package.
-- Latest pass effect: the notebook source and stored rendered outputs are now aligned on the same supported retained result. The opening, abstract, results discussion, post-lab answers, and conclusion all state 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span, and the remaining solvent-order and literature-comparison wording defects have been removed from both generating source and stored rendered output.
+- Latest pass effect: the notebook source and stored rendered outputs are now aligned on the same supported retained result. The opening, abstract, results discussion, post-lab answers, and conclusion all state 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span, the remaining solvent-order and literature-comparison wording defects have been removed from both generating source and stored rendered output, and the workflow animation now loads collapsed in both source and stored HTML.
 
 ## Criterion tracker
 
