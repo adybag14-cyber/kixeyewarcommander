@@ -2,18 +2,17 @@
 
 ## 2026-05-05
 
-- Re-opened the attached notebook package, rubric export, and durable progress notes to inspect the notebook itself rather than relying on prior summaries.
-- Confirmed that the previous saved notes were too optimistic: the notebook still opened with a generic central result and abstract, the saved results discussion still implied acetone was fastest in places, the post-lab section still contained solvent-order drift, the conclusion still underplayed the quantitative result, and one inline animation panel still opened expanded by default.
-- Patched the notebook title card so the opening now states 111 retained traces out of 225, the accepted solvent sequence Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and the 46.5-fold rate span.
-- Strengthened the abstract with the same quantitative result so the notebook now opens with the retained outcome rather than a generic solvent-dependence statement.
-- Repaired both the generating source and the stored rendered markdown for the results discussion so the mechanistic interpretation no longer contradicts the retained ranking and the literature-comparison paragraph no longer treats acetone as the fastest solvent.
-- Repaired both the generating source and the stored rendered markdown for the post-lab answers so the timescale example uses acetonitrile, the fixed-wavelength explanation names both fast solvents, and the solvent-dependence answers consistently place acetonitrile first and acetone second.
-- Strengthened the conclusion with the retained-trace count, explicit solvent sequence, and 46.5-fold span so the notebook closes on the same supported result shown earlier in the analysis.
-- Collapsed the second inline animation panel by default so the saved notebook opens with a tidier layout while preserving the GIF.
-- Re-decoded all eight embedded figure PNGs and both inline GIFs from the saved notebook outputs. All remained readable; no broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the stored media reviewed in this pass.
-- Saved a polished notebook copy to `/workspace/output/P201_201698955_publication_ready_polished.ipynb` for direct handoff.
-- Attempted a full rendered notebook export check, but `jupyter` and `nbconvert` are not installed in this container, so final render verification remains blocked here.
-- Updated the durable progress records so later runs continue from the real corrected notebook state rather than the earlier overstated assessment.
+- Re-opened the attached notebook package, rubric export, and durable progress notes and checked the notebook JSON directly rather than relying on earlier summaries.
+- Confirmed that the saved notebook still had several publication-level inconsistencies: the title card and abstract understated the result, the results discussion still contained an acetone-fastest contradiction, the post-lab section reused the same drift, and the second inline animation panel still opened expanded by default.
+- Patched the notebook opening so the central result now states 111 retained traces out of 225 raw files, the accepted solvent sequence Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and the 46.5-fold rate span.
+- Strengthened the abstract with the same quantitative result so the notebook opens like a report rather than a generic lab summary.
+- Repaired both the generating source and the stored rendered markdown for the results discussion so the mechanistic interpretation and literature-comparison paragraph no longer contradict the retained ranking.
+- Repaired both the generating source and the stored rendered markdown for the post-lab answers so the timescale example uses acetonitrile, the one-wavelength answer names both fast solvents, and the solvent-dependence answer no longer claims acetone is fastest.
+- Strengthened the conclusion so the notebook closes with the same retained-trace count, explicit solvent order, and 46.5-fold spread shown earlier in the analysis.
+- Collapsed the second inline animation panel by default so the notebook opens more cleanly while preserving the saved GIF.
+- Re-decoded all eight embedded figure PNGs and both inline GIFs from the polished notebook copy. All remained readable; no broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the stored media reviewed in this pass.
+- Saved the revised notebook locally as `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Verified by direct notebook-text checks that the earlier generic and contradictory wording is gone from the opening, discussion, and post-lab sections.
 
 ## Open risks after this run
 
