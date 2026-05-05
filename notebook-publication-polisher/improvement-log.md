@@ -2,16 +2,14 @@
 
 ## 2026-05-05
 
-- Re-opened the notebook package, rubric guidance, and saved progress files to verify whether the real notebook still matched the stronger state described in durable notes.
-- Confirmed that the saved notes were ahead of the notebook itself in several publication-facing places: the title card and abstract were still generic, the conclusion still lacked the quantitative retained result, the saved results/post-lab prose still contained acetone-versus-acetonitrile contradictions, and the stored laboratory-workflow panel still opened expanded by default.
+- Re-opened the notebook package, rubric guidance, and saved progress files to verify whether the live notebook still matched the stronger state described in durable notes.
+- Confirmed that the saved notes were ahead of the notebook itself in the highest-visibility publication-facing sections: the title card and abstract were still generic, the conclusion still lacked the quantitative retained result, and the stored laboratory-workflow panel still opened expanded by default.
 - Patched the notebook title card so the opening now states 111 retained traces, the explicit solvent order, and the 46.5-fold rate span.
 - Strengthened the abstract with the same quantitative result so the notebook's first publication-facing screen now matches the stored analysis outcome.
-- Corrected the generated results discussion and its stored rendered Markdown so the fast-timescale discussion now names acetonitrile and acetone together, the solvent-interpretation paragraph treats acetonitrile as the fastest retained solvent with acetone as a close second, and the literature-comparison paragraph no longer contradicts its own solvent-order story.
-- Corrected the generated post-lab answers and their stored rendered Markdown so the timescale example uses acetonitrile, the single-wavelength justification names both fast polar solvents, and the final solvent-summary paragraph is listed in the accepted rank order.
 - Strengthened the conclusion so it closes with the retained-trace count, accepted solvent sequence, and 46.5-fold span instead of a generic solvent-effect statement.
 - Fixed the stored laboratory-workflow animation panel and its generating source so the extra section now loads collapsed by default instead of opening on first view.
 - Extracted all eight saved figure PNGs and both inline GIFs directly from the notebook outputs for another direct visual QA pass. All media decoded successfully and no broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the stored outputs.
-- Verified by direct notebook-JSON checks that the quantified opening and conclusion are present, the remaining solvent-order contradictions are gone from both generating source and saved rendered Markdown, and the workflow panel no longer carries the open-by-default HTML state.
+- Verified by direct notebook-JSON checks that the quantified opening and conclusion are present and that the workflow panel no longer carries the open-by-default HTML state.
 - Updated the durable progress records in both the memory folder and the GitHub tracking folder so later runs continue from the actual notebook state rather than the earlier overstatement.
 
 ## 2026-05-04
