@@ -1,8 +1,9 @@
 # Revision Plan
 
-## 2026-05-04 next pass priorities
+## 2026-05-05
 
-1. Re-run the notebook end to end in an environment with the full scientific Python and Jupyter stack installed.
-2. Confirm that regenerated figures, tables, and both inline GIF panels remain visually clean and consistent with the corrected narrative.
-3. Re-check the opening summary, generated discussion, post-lab answers, and conclusion after rerun so the saved outputs still report 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene order, and the 46.5-fold span consistently.
-4. Do one final polish pass focused only on caption wording, figure/output sizing, and any small prose drift introduced during rerun.
+1. Re-align the saved notebook opening, interpretive sections, and conclusion with the retained quantitative result.
+2. Verify every embedded figure and both inline GIFs directly from stored notebook outputs for broken media, clipping, overlap, or unreadable layout.
+3. Keep both expandable animation panels collapsed by default in saved notebook output.
+4. Preserve durable state for future runs in publication status, improvement log, rubric tracker, and revision plan files.
+5. Highest-value next step after this pass: rerun the notebook in a full scientific Jupyter environment and confirm that regenerated outputs remain visually clean.
