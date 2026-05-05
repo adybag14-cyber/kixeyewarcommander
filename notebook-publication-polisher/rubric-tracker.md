@@ -8,14 +8,14 @@
 ## Current score estimate
 
 - Estimated band: high Excellent / strong publication-ready draft, pending one clean rerun and fresh render for full sign-off.
-- Latest pass effect: the notebook source and stored rendered outputs are now aligned on the same supported retained result. The opening, abstract, results discussion, post-lab answers, and conclusion now agree on 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span; and both expandable animation panels now load collapsed by default for a cleaner publication read.
+- Latest pass effect: the notebook source and stored rendered outputs are now aligned on the same supported retained result. The opening, abstract, results discussion, post-lab answers, and conclusion now agree on 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span.
 
 ## Criterion tracker
 
 ### Data analysis and plotting
 
 - Current estimate: strong.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty, bootstrap ranking, and validation checks are present; the stored notebook reports 111 accepted traces out of 225 raw files; and the embedded saved-output media reviewed this run remains decodable and visually readable in both direct extraction and contact-sheet review.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty, bootstrap ranking, and validation checks are present; the stored notebook reports 111 accepted traces out of 225 raw files; and the embedded saved-output media reviewed this run remains decodable and visually readable.
 - Remaining gap: one full rerun is still needed to confirm regenerated outputs after the latest text fixes.
 
 ### Write-up and interpretation
@@ -39,7 +39,7 @@
 ### Markdown, LaTeX, HTML, and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers, and inline media. Both expandable animation panels now load collapsed by default for a tidier first read, and no broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed after extracting and reviewing all eight saved figure PNGs and both inline GIFs from the stored notebook outputs.
+- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers, and inline media. No broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed after extracting and reviewing all eight saved figure PNGs and both inline GIFs from the stored notebook outputs.
 - Remaining gap: a clean rerender is still required for final formatting sign-off because the full notebook execution stack and Jupyter conversion tooling are unavailable here.
 
 ## Fastest route to full marks
