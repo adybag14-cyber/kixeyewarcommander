@@ -21,7 +21,7 @@
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the title card, abstract, results discussion, post-lab answers, and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The mechanistic discussion no longer contradicts the retained ordering, the post-lab timescale and solvatochromism answers now correctly identify acetonitrile as the fastest retained solvent and acetone as a close second, and the literature-comparison paragraph no longer contradicts its own solvent-order story.
+- Evidence: the title card, abstract, results discussion, post-lab answers, and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The post-lab timescale and solvatochromism answers now correctly identify acetonitrile as the fastest retained solvent and acetone as a close second, and the narrative no longer drifts between generic and quantitative statements about the final result.
 - Remaining gap: final sign-off should still confirm after rerun that no small prose drift remains elsewhere in regenerated outputs.
 
 ### Programming structure and efficiency
