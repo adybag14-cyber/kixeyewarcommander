@@ -2,11 +2,11 @@
 
 ## 2026-05-05 assessment
 
-- Overall state: close to publication-ready from the saved notebook package, and stronger than at the start of this run because the actual notebook file now matches the publication standard described in the durable notes.
-- Readiness summary: the opening title card, abstract, results discussion, post-lab answers, and conclusion now consistently report 111 retained traces out of 225 raw files, the solvent order Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and a 46.5-fold span between the fastest and slowest retained solvent means.
-- Visual/rendering summary: all eight embedded figure PNGs and both inline GIFs were decoded again directly from the stored notebook outputs after the edits. No broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the saved media reviewed in this run.
-- Presentation change this run: generic opening and closing statements were replaced with quantitative publication-facing summaries; the results discussion now describes acetonitrile as the fastest retained solvent and acetone as a close second; the literature-comparison paragraph no longer contradicts its own acetone percentage difference; and the post-lab answers now use the accepted solvent ordering consistently in both source and saved rendered output.
-- Verification note: direct checks against the notebook JSON confirm that the quantified opening and conclusion are present, the remaining acetone-versus-acetonitrile contradictions are absent from both generating source and stored rendered Markdown, and the notebook's inline media still decodes cleanly.
+- Overall state: close to publication-ready from the saved notebook package, but this run showed that the live notebook still lagged behind the stronger durable notes in several high-visibility publication-facing sections.
+- Readiness summary: the actual notebook file now aligns across the opening title card, abstract, results discussion, post-lab answers, conclusion, and both inline-animation panels. These sections consistently report 111 retained traces out of 225 raw files, the solvent order Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and a 46.5-fold span between the fastest and slowest retained solvent means.
+- Visual/rendering summary: all eight embedded figure PNGs and both inline GIFs were decoded directly from the stored notebook outputs after the corrections. No broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the saved media reviewed in this run. The laboratory workflow animation now loads collapsed by default in both source and stored rendered HTML.
+- Presentation change this run: the generic opening title-card result and abstract were replaced with quantitative publication-facing summaries; the conclusion was strengthened with the retained-trace count and final solvent ordering; the results discussion and post-lab answers were corrected so acetonitrile is consistently treated as the fastest retained solvent and acetone as a close second; and the stored workflow-animation output no longer opens expanded on load.
+- Verification note: direct notebook-JSON checks confirm that the earlier solvent-order contradictions are absent from both generating source and saved rendered Markdown, and that the notebook's inline media still decodes cleanly after the edits.
 
 ## 2026-05-04 assessment
 
@@ -17,11 +17,12 @@
 
 ## Major issues resolved this run
 
-- Corrected the notebook itself where the saved source and stored rendered prose still lagged behind the stronger state described in memory.
+- Corrected the live notebook where the durable notes had overstated completion and the stored source still contained generic or contradictory publication-facing prose.
 - Rewrote the title-card central result and abstract so the notebook now opens with the retained-trace count, explicit solvent ordering, and 46.5-fold span instead of generic solvent-dependence wording.
-- Corrected the results-discussion source and saved rendered Markdown so the mechanistic interpretation no longer says acetone outruns acetonitrile and the literature paragraph no longer misstates the acetone benchmark direction.
-- Corrected the saved post-lab answers and generating source so the timescale example, single-wavelength justification, solvatochromism explanation, and solvent-summary paragraph now consistently treat acetonitrile as the fastest retained solvent and acetone as a close second.
-- Strengthened the conclusion so the notebook closes with the retained-trace count, solvent sequence, and 46.5-fold span rather than a generic solvent-effect statement.
+- Strengthened the conclusion so it closes with the same quantitative result rather than a generic solvent-effect statement.
+- Corrected the generated results discussion and its stored rendered Markdown so the mechanistic interpretation no longer says acetone outruns acetonitrile, the fast-timescale discussion now names acetonitrile and acetone together, and the literature-comparison paragraph no longer describes acetone as the fastest solvent.
+- Corrected the generated post-lab answers and their stored rendered Markdown so the timescale example uses acetonitrile, the single-wavelength justification names both fast polar solvents, and the final solvent-summary paragraph is listed in the accepted rank order.
+- Fixed the laboratory workflow animation panel in both source and stored rendered HTML so it now loads collapsed by default instead of opening expanded on first load.
 - Confirmed again by direct media extraction that all saved figure PNGs and inline GIFs remain intact and visually readable.
 - Updated both the memory folder and the GitHub tracking folder so future runs start from the true current notebook state.
 
