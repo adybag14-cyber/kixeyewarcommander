@@ -2,25 +2,25 @@
 
 ## 2026-05-05 assessment
 
-- Overall state: strong, substantially improved, and closer to publication-ready than the incoming saved package, but not yet fully signed off because a clean rerun is still blocked in this container.
-- Readiness summary: the saved notebook itself now opens, argues, and closes on the same supported result: 111 retained traces out of 225 raw files, solvent order Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and a 46.5-fold span between the fastest and slowest retained solvent means.
-- Visual/rendering summary: all eight embedded figure PNGs and both inline GIFs were decoded directly from stored notebook outputs during this pass. No broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the saved media reviewed here. The laboratory workflow animation now loads collapsed by default in both its generating source and stored rendered HTML.
-- Publication-facing change this run: the title-card central result, abstract, results discussion, post-lab answers, and conclusion were repaired where the saved notebook still contradicted its own fitted data, and the final expandable animation panel no longer opens expanded on load.
-- Verification note: direct notebook-JSON checks confirm that the stale generic wording, acetone-fastest phrasing, and open-by-default workflow-panel HTML state are gone from the saved notebook payload.
+- Overall state: strong and materially closer to publication-ready, but not yet fully signed off because a clean rerun and full notebook render are still blocked in this container.
+- Readiness summary: the saved notebook now opens and closes on the same supported result. It reports 111 retained traces out of 225 raw files, the accepted solvent order Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and a 46.5-fold span between the fastest and slowest retained mean rates.
+- Visual/rendering summary: all eight embedded figure PNGs and both inline GIFs were decoded directly from stored notebook outputs during this pass. No broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the saved media reviewed here. Both expandable animation panels are now saved collapsed by default in the notebook payload.
+- Publication-facing change this run: the notebook itself was still drifting away from its saved analysis result. The title card, abstract, results discussion, post-lab explanations, conclusion, and workflow-animation panel state were corrected so the stored notebook now matches its own retained quantitative result.
+- Verification note: direct notebook-JSON checks confirm that the stale acetone-fastest wording and open-by-default workflow-panel HTML state are gone from the saved notebook payload.
 
 ## Major issues resolved this run
 
-- Corrected the notebook where the first screen still understated the result compared with the fitted-results narrative and tables already embedded in the saved package.
-- Rewrote the title-card central result and abstract so the notebook now opens with the retained-trace count, explicit solvent ordering, and 46.5-fold span instead of generic solvent-dependence wording.
-- Repaired the results discussion where the saved text still claimed acetone was fastest in places even though the retained ranking and rate table showed acetonitrile first.
-- Corrected the post-lab narrative so the timescale example, single-wavelength explanation, and solvent-order interpretation now identify acetonitrile as the fastest retained solvent and acetone as a close second.
-- Strengthened the conclusion so it closes with the same quantitative supported result rather than a generic solvent-effect statement.
-- Fixed the laboratory workflow animation panel in both source and stored rendered HTML so it now loads collapsed by default instead of opening on first view.
-- Confirmed again by direct media extraction that all saved figure PNGs and both inline GIFs remain intact and readable.
+- Repaired the notebook opening so the central result and abstract now state the retained-trace count, explicit solvent ordering, and 46.5-fold span instead of generic solvent-dependence language.
+- Corrected the results discussion where the saved narrative still implied acetone was the fastest solvent and where the literature-comparison paragraph still contradicted the retained ranking.
+- Corrected the post-lab answers so the timescale example, fixed-wavelength explanation, and solvent-dependence discussion now treat acetonitrile as the fastest retained solvent and acetone as a close second.
+- Strengthened the conclusion so the notebook now closes with the same supported quantitative result shown by the saved tables and figures.
+- Fixed the laboratory-workflow animation panel in both generating source and stored rendered HTML so it no longer opens expanded on first view.
+- Reconfirmed by direct media extraction that all saved figure PNGs and both inline GIFs remain intact and readable.
 
 ## Major remaining blockers
 
 - A full clean rerun of the notebook is still blocked in this container because the complete scientific Python and Jupyter execution stack used by the saved notebook is not available here.
+- A full rendered notebook export check is also blocked here because `jupyter`/`nbconvert` is unavailable in the container.
 - Final publication sign-off still depends on one end-to-end rerun in a complete notebook environment to confirm that regenerated outputs remain visually clean and fully consistent with the corrected narrative.
 
 ## Next highest-value actions
