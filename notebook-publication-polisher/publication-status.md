@@ -6,6 +6,7 @@
 - Readiness summary: the opening title card, abstract, results discussion, post-lab answers, and conclusion now all state the same supported result: 111 accepted traces out of 225 raw files, solvent order Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and a 46.5-fold span between the fastest and slowest retained solvent means.
 - Visual/rendering summary: all eight embedded figure PNGs and both inline GIFs were extracted and reviewed directly from the stored notebook outputs in this run. The saved media remain decodable and readable, and no broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the stored outputs reviewed here.
 - Presentation change this run: the notebook no longer opens or closes with generic statements. The title card, abstract, and conclusion now quantify the accepted result; the results discussion no longer claims that acetone is faster than acetonitrile; the literature-comparison paragraph no longer misstates the acetone benchmark direction; and the post-lab answers now use the accepted solvent ordering consistently.
+- Verification note: direct checks against the notebook JSON now confirm that the quantified opening and conclusion are present, the solvent-order contradictions are absent from both generating source and saved rendered output, and the laboratory workflow animation panel is collapsed by default in both source and stored HTML.
 
 ## 2026-05-04 assessment
 
