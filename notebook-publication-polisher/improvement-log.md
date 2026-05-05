@@ -2,16 +2,16 @@
 
 ## 2026-05-05
 
-- Re-opened the notebook package, rubric guidance, and saved progress files to check whether the notebook itself matched the stronger state described in memory.
-- Found that the saved durable notes were ahead of the notebook source in several important publication-facing places: the title card and abstract were still generic, the conclusion still lacked the quantified retained result, the results discussion still contained an acetone-versus-acetonitrile contradiction, and the literature-comparison paragraph still contradicted its own positive acetone difference.
+- Re-opened the notebook package, rubric guidance, and saved progress files to verify whether the real notebook still matched the stronger state described in durable notes.
+- Confirmed that the saved notes were ahead of the notebook itself in several publication-facing places: the title card and abstract were still generic, the conclusion still lacked the quantitative retained result, and the saved results/post-lab prose still contained acetone-versus-acetonitrile contradictions.
 - Patched the notebook title card so the opening now states 111 retained traces, the explicit solvent order, and the 46.5-fold rate span.
-- Strengthened the abstract with the same quantitative result so the first publication-facing screen immediately reflects the stored analysis output.
-- Corrected the generated results discussion and its stored rendered Markdown so the solvent-interpretation paragraph no longer claims that acetone is faster than acetonitrile and the literature-comparison paragraph no longer says the acetone value sits below the literature result.
-- Corrected the generated post-lab answers and their stored rendered Markdown so the timescale example uses acetonitrile, the single-wavelength justification names both fast polar solvents, the solvatochromism answer identifies acetonitrile as the fastest retained solvent, the optical-density explanation no longer mischaracterizes the transformed-signal limit case, and the solvent-summary paragraph is listed in the accepted rank order.
+- Strengthened the abstract with the same quantitative result so the notebook's first publication-facing screen now matches the stored analysis outcome.
+- Corrected the generated results discussion and its stored rendered Markdown so the solvent-interpretation paragraph now treats acetonitrile as the fastest retained solvent, acetone as a close second, and the literature-comparison paragraph no longer contradicts its own acetone percentage difference.
+- Corrected the generated post-lab answers and their stored rendered Markdown so the timescale example uses acetonitrile, the single-wavelength justification names both fast polar solvents, and the final solvent-summary paragraph is listed in the accepted rank order.
 - Strengthened the conclusion so it closes with the retained-trace count, accepted solvent sequence, and 46.5-fold span instead of a generic solvent-effect statement.
-- Removed the forced-open state from the laboratory workflow animation in both the generating code and saved HTML output so the notebook now lands in a cleaner collapsed state.
 - Extracted all eight saved figure PNGs and both inline GIFs directly from the notebook outputs for another direct visual QA pass. All media decoded successfully and no broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the stored outputs.
-- Verified by direct notebook-JSON checks that the quantified opening and conclusion are present, the solvent-order contradictions are gone, and the workflow panel is collapsed in both source and stored output.
+- Verified by direct notebook-JSON checks that the quantified opening and conclusion are present and that the remaining acetone-versus-acetonitrile contradictions are gone from both generating source and saved rendered Markdown.
+- Updated the durable progress records in both the memory folder and the GitHub tracking folder so later runs continue from the actual notebook state rather than the earlier overstatement.
 
 ## 2026-05-04
 
