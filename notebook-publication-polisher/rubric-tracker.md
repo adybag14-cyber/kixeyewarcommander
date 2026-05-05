@@ -8,14 +8,14 @@
 ## Current score estimate
 
 - Estimated band: high Excellent / strong publication-ready draft, pending one clean rerun and fresh render for full sign-off.
-- Latest pass effect: the notebook source and stored rendered outputs are now aligned on the same supported retained result. The title card, abstract, results discussion, post-lab answers, and conclusion now agree on 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span. Both inline animation panels also now open collapsed by default, which improves first-view readability.
+- Latest pass effect: the actual attached notebook source and its saved rendered outputs are now aligned on the same supported retained result. The title card, abstract, results discussion, post-lab answers, conclusion, and portability appendix now agree on 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span. Both inline animation panels also now open collapsed by default, which improves first-view readability.
 
 ## Criterion tracker
 
 ### Data analysis and plotting
 
 - Current estimate: strong.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty, bootstrap ranking, and validation checks are present; the stored notebook reports 111 accepted traces out of 225 raw files; and the embedded saved-output media reviewed this run remains decodable and visually readable.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty, bootstrap ranking, and validation checks are present; the saved notebook reports 111 accepted traces out of 225 raw files; and the embedded saved-output media reviewed this run remains decodable and visually readable.
 - Remaining gap: one full rerun is still needed to confirm regenerated outputs after the latest text fixes.
 
 ### Write-up and interpretation
@@ -27,7 +27,7 @@
 ### Programming structure and efficiency
 
 - Current estimate: strong.
-- Evidence: the notebook centralizes configuration, uses reusable helper functions, documents quality-control logic, includes benchmarking and validation code, and keeps the analysis self-contained apart from the raw Data directory.
+- Evidence: the notebook centralizes configuration, uses reusable helper functions, documents quality-control logic, includes benchmarking and validation code, and keeps the analysis self-contained apart from the raw `Data` directory.
 - Remaining gap: none obvious from this pass.
 
 ### Comments and documentation
