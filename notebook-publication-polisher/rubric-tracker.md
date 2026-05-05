@@ -12,25 +12,37 @@
 
 ## Criterion tracker
 
+### Post-labs
+
+- Current estimate: strong.
+- Evidence: all six post-lab answers are present, tied back to the fitted data, and now use the retained solvent ordering consistently. The fastest-timescale example now correctly uses acetonitrile rather than acetone, and the solvent-effect explanation is linked to the notebook’s own kinetic results rather than generic polarity claims.
+- Remaining gap: a fresh rerun should still confirm that regenerated post-lab output stays identical to the stored corrected answers.
+
 ### Data analysis and plotting
 
 - Current estimate: strong.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty, bootstrap ranking, and validation checks are present; the stored notebook reports 111 accepted traces out of 225 raw files; and the embedded saved-output media reviewed this run remains decodable.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty, bootstrap ranking, validation checks, and literature comparisons are present; the stored notebook reports 111 accepted traces out of 225 raw files; and the embedded saved-output media reviewed this run remains decodable.
 - Remaining gap: one full rerun is still needed to confirm regenerated outputs after the latest text fixes.
 
-### Write-up and interpretation
+### Experimental write-up
 
 - Current estimate: strong after this run.
-- Evidence: the title card, abstract, results discussion, post-lab answers, and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The mechanistic discussion no longer contradicts the retained ordering, and the post-lab timescale and solvatochromism answers now correctly identify acetonitrile as the fastest retained solvent and acetone as a close second.
+- Evidence: the title card, abstract, results discussion, post-lab answers, and conclusion now agree on the same supported result: Acetonitrile > Acetone > THF > Cyclohexane > Toluene, 111 retained traces, and a 46.5-fold span. The mechanistic discussion no longer contradicts the retained ordering, and the conclusion now closes with a clear quantitative statement rather than a generic solvent-effect summary.
 - Remaining gap: final sign-off should still confirm after rerun that no small prose drift remains elsewhere in regenerated outputs.
 
-### Programming structure and efficiency
+### Originality and elegance of Python code
 
 - Current estimate: strong.
 - Evidence: the notebook centralizes configuration, uses reusable helper functions, documents quality-control logic, includes benchmarking and validation code, and keeps the analysis self-contained apart from the raw Data directory.
 - Remaining gap: none obvious from this pass.
 
-### Comments and documentation
+### Portability of code
+
+- Current estimate: strong.
+- Evidence: the notebook documents the external `Data/` dependency, centralizes configurable paths and solvent-specific parameters, and includes consistency checks for generated outputs.
+- Remaining gap: final confirmation still depends on rerunning the notebook in a complete environment with the expected scientific stack installed.
+
+### Commenting, documentation and explanation of code
 
 - Current estimate: strong.
 - Evidence: the analysis functions include docstrings, the notebook explains the purpose of the major blocks, and the publication-facing narrative now better explains how the molecular interpretation connects to the fitted rates.
