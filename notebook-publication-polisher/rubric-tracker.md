@@ -34,7 +34,7 @@
 ### Experimental write-up
 
 - Current estimate: high Excellent.
-- Evidence: the notebook now has a clear headline result, stronger abstract, more precise results discussion, a corrected literature comparison, and a conclusion that states the retained sample size, solvent ordering, and quantitative span explicitly.
+- Evidence: the notebook now has a clear headline result, stronger abstract, more precise results discussion, a corrected literature comparison, corrected post-lab reasoning, and a conclusion that states the retained sample size, solvent ordering, and quantitative span explicitly. The remaining stale acetone-versus-acetonitrile contradictions have been removed from both source and rendered notebook text.
 - Remaining gap: fresh rendered verification is still needed before claiming there are no residual formatting or regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -46,7 +46,7 @@
 ### Portability of code
 
 - Current estimate: strong Excellent.
-- Evidence: the notebook documents the `Data/` dependency, centralizes key parameters, writes derived outputs systematically, includes a manifest, and now includes source-level safer HTML table rendering for future reruns.
+- Evidence: the notebook documents the `Data/` dependency, centralizes key parameters, writes derived outputs systematically, includes a manifest, and the saved publication-ready artifact now protects wide HTML tables with horizontal overflow wrapping.
 - Remaining gap: practical portability still depends on having the full scientific Python and Jupyter stack available.
 
 ### Commenting, documentation and explanation of code
