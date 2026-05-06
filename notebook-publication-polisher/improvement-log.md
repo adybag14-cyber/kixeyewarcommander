@@ -1,18 +1,18 @@
 # Improvement Log
 
-## 2026-05-05
+## 2026-05-06
 
-- Re-opened the attached notebook package, rubric export, and durable progress notes and checked the notebook JSON directly rather than relying on earlier summaries.
-- Confirmed that the saved notebook still had several publication-level inconsistencies: the title card and abstract understated the result, the results discussion still contained an acetone-fastest contradiction, the post-lab section reused the same drift, and the second inline animation panel still opened expanded by default.
-- Patched the notebook opening so the central result now states 111 retained traces out of 225 raw files, the accepted solvent sequence Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and the 46.5-fold rate span.
-- Strengthened the abstract with the same quantitative result so the notebook opens like a report rather than a generic lab summary.
-- Repaired both the generating source and the stored rendered markdown for the results discussion so the mechanistic interpretation and literature-comparison paragraph no longer contradict the retained ranking.
-- Repaired both the generating source and the stored rendered markdown for the post-lab answers so the timescale example uses acetonitrile, the one-wavelength answer names both fast solvents, and the solvent-dependence answer no longer claims acetone is fastest.
-- Strengthened the conclusion so the notebook closes with the same retained-trace count, explicit solvent order, and 46.5-fold spread shown earlier in the analysis.
+- Re-opened the attached notebook package, rubric export, and durable progress notes and checked the notebook JSON and saved outputs directly.
+- Confirmed that the attached notebook still contained publication-level inconsistencies despite earlier notes: the title-card result and abstract were too generic, the discussion source still contained stale acetone-led interpretation, the post-lab source and saved post-lab output still used older acetone-fastest wording, and the second inline animation panel still opened expanded by default.
+- Re-decoded the saved media from the attached notebook. The two inline GIF panels decoded successfully at 84 and 70 frames, and the eight embedded figure PNGs remained extractable from the saved HTML outputs. No broken-image, broken-GIF, overlap, or malformed saved-media defect was confirmed from that extraction pass.
+- Produced a new polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the opening central-result panel and abstract so the notebook now leads with 111 retained traces out of 225 raw files, the accepted Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold spread.
+- Repaired the discussion source and saved discussion output so the notebook no longer implies acetone is the fastest solvent or treats the series as if one polarity metric were sufficient.
+- Repaired the post-lab source and saved post-lab output so the timescale example uses acetonitrile correctly, the fast-solvent discussion names the acetonitrile/acetone pair, and the final solvent-rate list appears in the correct order.
+- Strengthened the conclusion so it closes with the same retained-trace count, solvent order, and quantified spread established at the notebook opening.
+- Added a safer table-presentation rule so wide tables can scroll horizontally instead of clipping in narrower notebook views.
 - Collapsed the second inline animation panel by default so the notebook opens more cleanly while preserving the saved GIF.
-- Re-decoded all eight embedded figure PNGs and both inline GIFs from the polished notebook copy. All remained readable; no broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed from the stored media reviewed in this pass. The two GIF panels decoded at 84 and 70 frames respectively.
-- Saved the revised notebook locally as `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Verified by direct notebook-text checks that the earlier generic and contradictory wording is gone from the opening, discussion, post-lab sections, conclusion, and second animation panel markup.
+- Verified by direct text checks that the old acetone-fastest wording and the expanded second animation panel markup are gone from the polished notebook copy.
 
 ## Open risks after this run
 
