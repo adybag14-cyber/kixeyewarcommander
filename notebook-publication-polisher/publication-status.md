@@ -18,6 +18,7 @@
 - Corrected post-lab answers so the timescale example, fast-solvent discussion, and solvent-order answer all agree with the accepted rates.
 - Strengthened the conclusion with the retained sample size, final solvent order, and 46.5-fold span.
 - Added a reproducibility note explaining that this publication check was performed from the executed notebook package and stored outputs because the current container cannot do a clean rerun.
+- Expanded the automated-checks appendix so the notebook now records that inline PNG and GIF media were decoded directly from stored outputs during this review.
 - Wrapped all 9 saved HTML table outputs, including the package audit table, to reduce clipping risk in narrow notebook views.
 - Removed the default-open state from the second inline GIF panel in both source and saved output.
 
