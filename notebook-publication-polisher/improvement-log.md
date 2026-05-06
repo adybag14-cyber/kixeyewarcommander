@@ -5,17 +5,16 @@
 - Re-opened the notebook package, rubric export, and saved progress notes instead of relying on the prior summary.
 - Confirmed that the attached notebook package still contained publication-level inconsistencies despite earlier tracker claims: the title-card result and abstract were generic, the results discussion still contained stale acetone-led interpretation, the post-lab source and saved post-lab output still used acetone-fastest wording, wide saved HTML tables did not yet carry overflow protection, and the second inline animation panel still opened expanded by default.
 - Parsed the notebook as raw JSON and reviewed both source cells and saved outputs directly because the container does not include the normal notebook execution stack.
-- Re-decoded the saved media from the notebook outputs. The two inline GIF panels decoded successfully at 84 and 70 frames, and the eight embedded figure PNGs remained extractable from the saved HTML outputs. No broken-image, broken-GIF, overlap, clipping, or malformed saved-media defect was confirmed from that extraction pass.
+- Re-decoded the saved media from the notebook outputs. The two inline GIF panels decoded successfully at 84 and 70 frames, and the eight embedded figure PNGs remained extractable from the saved HTML outputs with dimensions `8562x3282`, `3726x2334`, `2866x1756`, `3194x1459`, `2566x1516`, `3392x1317`, `2626x1486`, and `3404x1426`. No broken-image, broken-GIF, overlap, clipping, or malformed saved-media defect was confirmed from that extraction pass.
 - Produced a corrected polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Rewrote the opening central-result panel and abstract so the notebook now leads with 111 retained traces out of 225 raw files, the accepted Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold spread.
-- Repaired the results-discussion source and saved discussion output so the notebook no longer implies acetone is the fastest solvent or frames the interpretation as if one polarity metric alone explains the series.
-- Repaired the literature-comparison wording so it now talks about the literature-benchmarked subset rather than claiming acetone is the overall fastest solvent.
+- Repaired the results-discussion source and saved discussion output so the notebook no longer implies acetone is the fastest solvent, no longer treats the series as if one polarity metric alone explains it, and now keeps the literature comparison explicitly limited to the benchmarked solvent subset.
 - Repaired the post-lab source and saved post-lab output so the timescale example uses acetonitrile correctly, the fast-solvent discussion names the acetonitrile/acetone pair, and the accepted solvent means appear in the correct order.
 - Strengthened the conclusion so it now states the retained trace count, final solvent ranking, and 46.5-fold span explicitly.
-- Wrapped saved HTML table outputs in horizontal overflow containers to reduce clipping risk in narrower notebook views.
+- Added source-level HTML table wrapper helpers and updated the displayed-table cells to use them on future reruns.
+- Wrapped all nine saved HTML table outputs in horizontal overflow containers to reduce clipping risk in narrower notebook views.
 - Collapsed the second inline animation panel by default in both source and saved output while preserving the embedded GIF.
 - Verified by direct text checks that the old acetone-fastest phrasing, the stale literature summary, and the expanded second-animation markup are gone from the polished notebook copy.
-- Verified that all nine saved HTML table outputs in the notebook now carry the overflow wrapper needed to reduce clipping risk in narrower notebook views.
 
 ## Open risks after this run
 
