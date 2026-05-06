@@ -15,6 +15,8 @@
 - Wrapped all nine saved HTML table outputs in horizontal overflow containers to reduce clipping risk in narrower notebook views.
 - Collapsed the second inline animation panel by default in both source and saved output while preserving the embedded GIF.
 - Verified by direct text checks that the old acetone-fastest phrasing, the stale literature summary, and the expanded second-animation markup are gone from the polished notebook copy.
+- Verified the final polished copy again after writing it to `/workspace/output/P201_201698955_publication_ready_polished.ipynb`: all nine saved table outputs remained wrapped for overflow protection; the second animation panel no longer rendered open by default; the eight embedded PNG figures still decoded successfully at `8562x3282`, `3726x2334`, `2866x1756`, `3194x1459`, `2566x1516`, `3392x1317`, `2626x1486`, and `3404x1426`; and the two inline GIFs still decoded successfully at `1495x828` over 84 frames and `1400x772` over 70 frames.
+- Added a reproducibility note to the appendix clarifying that this publication check was performed from the executed notebook package and its stored outputs because the container still lacks the full rerun stack.
 
 ## Open risks after this run
 
