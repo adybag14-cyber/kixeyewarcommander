@@ -1,16 +1,20 @@
 # Revision Plan
 
-## 2026-05-06 publication pass
+## 2026-05-06 UTC publication-polishing plan
 
-- [x] Re-open the notebook package, rubric export, and durable tracker files.
-- [x] Identify the highest-impact publication blockers in the live notebook package.
-- [x] Rebuild a polished notebook copy in `/workspace/output/`.
-- [x] Replace generic front-matter claims with the supported retained-trace count, final solvent ranking, and 46.5-fold span.
-- [x] Correct results-discussion and post-lab wording so the notebook no longer drifts into an acetone-fastest interpretation.
-- [x] Strengthen the conclusion and reproducibility appendix.
-- [x] Collapse the second inline GIF panel by default.
-- [x] Add horizontal overflow protection to saved HTML table outputs and to the source-level table helper used on future reruns.
-- [x] Decode-check every embedded PNG and GIF in the stored notebook outputs.
-- [ ] Run the notebook end to end in a complete scientific Python + Jupyter environment.
-- [ ] Generate a fresh rendered export and confirm that regenerated figures, tables, and GIF panels remain clean.
-- [ ] Do a final caption-and-layout-only publication pass after rerun.
+1. Audit the attached executed notebook package itself, not just prior notes, for factual drift and presentation defects.
+2. Verify stored notebook media directly: embedded PNGs, inline GIFs, and rendered HTML tables.
+3. Correct the highest-impact narrative issues first:
+   - headline result in the opening card and abstract;
+   - any stale solvent-order claims in results and post-lab answers;
+   - conclusion wording that undersells the supported result.
+4. Harden notebook presentation in the saved artifact:
+   - wrap wide HTML tables for horizontal scrolling;
+   - remove the default-open state from the second animation panel;
+   - document what visual audit was actually completed.
+5. Update progress memory and GitHub persistence so the saved status matches the notebook artifact produced in this run.
+
+## Outcome
+
+- Steps 1-5 completed for `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Remaining publication blocker: one clean rerun in a complete notebook environment is still needed for final sign-off.
