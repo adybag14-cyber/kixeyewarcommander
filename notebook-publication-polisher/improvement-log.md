@@ -3,6 +3,7 @@
 ## 2026-05-06
 
 - Re-opened the notebook package, rubric export, and saved progress notes instead of relying on the prior summary.
+- Confirmed that the expected polished notebook deliverable was missing from `/workspace/output/`, so the notebook needed to be rebuilt rather than merely re-referenced.
 - Confirmed that the attached notebook package still contained publication-level inconsistencies despite earlier tracker claims: the title-card result and abstract were generic, the results discussion still contained stale acetone-led interpretation, the post-lab source and saved post-lab output still used acetone-fastest wording, wide saved HTML tables did not yet carry overflow protection, and the second inline animation panel still opened expanded by default.
 - Parsed the notebook as raw JSON and reviewed both source cells and saved outputs directly because the container does not include the normal notebook execution stack.
 - Re-decoded the saved media from the notebook outputs. The two inline GIF panels decoded successfully at 84 and 70 frames, and the eight embedded figure PNGs remained extractable from the saved HTML outputs with dimensions `8562x3282`, `3726x2334`, `2866x1756`, `3194x1459`, `2566x1516`, `3392x1317`, `2626x1486`, and `3404x1426`. No broken-image, broken-GIF, overlap, clipping, or malformed saved-media defect was confirmed from that extraction pass.
