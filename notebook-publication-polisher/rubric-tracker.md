@@ -7,7 +7,7 @@
 
 ## Current score estimate
 
-- Estimated band: high Excellent / near-publication-ready polished copy, pending one clean rerun and fresh render for full sign-off.
+- Estimated band: high Excellent / near-publication-ready polished copy now rebuilt on disk, pending one clean rerun and fresh render for full sign-off.
 - Latest pass effect: the polished notebook copy now states one consistent supported result across the front matter, results discussion, post-lab answers, and conclusion; it also carries safer saved-output layout defaults for wide HTML tables and the second inline GIF panel.
 
 ## Criterion tracker
