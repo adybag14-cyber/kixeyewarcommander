@@ -8,12 +8,13 @@
 - Produced a new polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Rewrote the opening central-result panel and abstract so the notebook now leads with 111 retained traces out of 225 raw files, the accepted Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold spread.
 - Repaired the discussion source and saved discussion output so the notebook no longer implies acetone is the fastest solvent or treats the series as if one polarity metric were sufficient.
+- Repaired the literature-comparison wording so it now talks about the subset with published benchmarks rather than claiming acetone is the fastest solvent overall.
 - Repaired the post-lab source and saved post-lab output so the timescale example uses acetonitrile correctly, the fast-solvent discussion names the acetonitrile/acetone pair, and the final solvent-rate list appears in the correct order.
-- Strengthened the conclusion so it closes with the same retained-trace count, solvent order, and quantified spread established at the notebook opening.
+- Confirmed by text search that the stale acetone-fastest phrasing is no longer present anywhere in the corrected attached notebook.
+- Confirmed that all eight embedded PNG figures are still present in the saved HTML outputs after the corrections and remain readable at large resolutions.
 - Added a safer table-presentation rule so wide tables can scroll horizontally instead of clipping in narrower notebook views.
 - Collapsed the second inline animation panel by default so the notebook opens more cleanly while preserving the saved GIF.
 - Verified by direct text checks that the old acetone-fastest wording and the expanded second animation panel markup are gone from the polished notebook copy.
-- Re-created the polished notebook in the current workspace output folder and re-verified that the saved output still decodes as eight PNG figures and two inline GIFs after the final text updates.
 
 ## Open risks after this run
 
