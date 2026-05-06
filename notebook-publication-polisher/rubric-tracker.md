@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high Excellent / near-publication-ready polished copy, pending one clean rerun and fresh render for full sign-off.
-- Latest pass effect: the polished notebook copy now states one consistent supported result across the front matter, results discussion, post-lab answers, and conclusion. The main retained result is 111 accepted traces out of 225 raw traces, with Acetonitrile > Acetone > THF > Cyclohexane > Toluene and a 46.5-fold span. The second inline animation panel is collapsed by default, all saved HTML table outputs now carry safer overflow handling, and the source notebook now includes matching table-wrapper helpers for future reruns.
+- Latest pass effect: the polished notebook copy now states one consistent supported result across the front matter, results discussion, post-lab answers, and conclusion. The main retained result is 111 accepted traces out of 225 raw traces, with Acetonitrile > Acetone > THF > Cyclohexane > Toluene and a 46.5-fold span. The second inline animation panel is collapsed by default, all nine saved HTML table outputs now carry safer overflow handling, and the appendix now states clearly that this publication check was performed from the executed notebook package because the container cannot do a clean rerun.
 
 ## Criterion tracker
 
@@ -21,7 +21,7 @@
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the opening, abstract, results discussion, post-lab answers, and conclusion in the polished copy now agree on the same supported result and no longer drift into an acetone-fastest interpretation. The narrative states the retained sample size, explicit solvent ranking, and quantitative spread clearly enough for publication-facing readers, the literature paragraph now makes subset-safe claims only, and the mechanistic discussion now explains more carefully why the solvent series cannot be reduced to a single polarity scale.
+- Evidence: the opening, abstract, results discussion, post-lab answers, and conclusion in the polished copy now agree on the same supported result and no longer drift into an acetone-fastest interpretation. The narrative states the retained sample size, explicit solvent ranking, and quantitative spread clearly enough for publication-facing readers, the literature paragraph now makes subset-safe claims only, and the mechanistic discussion explains more carefully why the solvent series cannot be reduced to a single polarity scale.
 - Remaining gap: final sign-off should still confirm after rerun that no small prose drift remains elsewhere in regenerated outputs.
 
 ### Programming structure and efficiency
