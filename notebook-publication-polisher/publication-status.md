@@ -2,33 +2,33 @@
 
 ## 2026-05-06 assessment
 
-- Overall state: materially stronger and now re-established as a verified polished notebook artifact in this workspace, but still awaiting final publication sign-off because a clean rerun and a fresh rendered export remain blocked in this container.
-- Readiness summary: the polished notebook copy now states one supported headline result throughout the opening, abstract, results discussion, post-lab answers, and conclusion. The supported publication summary is: 111 of 225 traces retained after quality control, accepted solvent sequence Acetonitrile > Acetone > THF > Cyclohexane > Toluene, and a 46.5-fold spread between the fastest and slowest retained solvent means.
-- Narrative consistency summary: the polished copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` removes the acetone-fastest drift from both the saved outputs and the underlying source cells that would control any future rerun. The opening title card, abstract, results discussion, post-lab answers, conclusion, and reproducibility note now agree on the same retained sample size, final solvent ranking, and interpretation limits.
-- Visual/rendering summary: the eight embedded figure PNGs and both inline GIFs were decoded directly from stored notebook outputs during this review. No broken-image, broken-GIF, clipping, overlap, or malformed saved-media defect was confirmed from those extracted outputs. The second inline animation panel is collapsed by default in the polished copy, and all nine saved HTML table outputs are wrapped in horizontal overflow containers to reduce clipping risk in narrower notebook views.
-- Deliverable created and verified this run: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
+- Overall state: materially improved and now much closer to publication-ready as a notebook artifact, but still not at final sign-off because this container cannot perform a clean end-to-end rerun.
+- Readiness summary: the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` now states one supported headline result throughout the opening, abstract, results discussion, post-lab answers, conclusion, and reproducibility appendix.
+- Supported headline result: 111 of 225 traces retained after quality control; accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; 46.5-fold span between the fastest and slowest accepted solvent means.
+- Visual/rendering summary: all 8 embedded PNG figures and both inline GIFs decoded successfully from stored notebook outputs during this run. No confirmed broken image, broken GIF, clipping, overlap, or malformed saved-media defect was found in those extracted outputs. All 9 rendered HTML tables in the polished copy now have horizontal overflow protection, and the second animation panel is collapsed by default.
 
 ## Major issues resolved this run
 
-- Produced a new polished notebook artifact instead of relying on tracker notes alone.
-- Recreated the polished notebook artifact after confirming that the expected `/workspace/output/` deliverable was no longer present in the workspace.
-- Rewrote the opening central-result panel and abstract so the notebook foregrounds the retained trace count, explicit solvent ordering, and 46.5-fold span rather than a generic solvent-dependence statement.
-- Corrected both the source code and saved rendered markdown for the results discussion so the mechanistic interpretation no longer claims acetone is the fastest solvent or treats the series as if one bulk polarity scale explains it.
-- Corrected the literature-comparison wording so it refers accurately to the literature-benchmarked subset rather than implying that the benchmarked solvents cover the whole solvent series equally well.
-- Corrected both the source code and saved rendered markdown for the post-lab section so the timescale example uses acetonitrile correctly, the one-wavelength discussion names the fast acetonitrile/acetone pair, and the solvent-dependence answer lists the final rates in the correct order.
-- Strengthened the conclusion so it states the retained sample size, final solvent ranking, and quantitative span explicitly.
-- Removed the default-open state from the second inline GIF panel and added horizontal overflow protection to every saved HTML table output.
-- Added a reproducibility note that the publication check in this container is based on the executed notebook package and its stored outputs because a clean rerun is not currently possible here.
-- Corrected the underlying source cells as well as the saved rendered outputs, so a future rerun will preserve the Acetonitrile > Acetone ordering language and emit horizontally scrollable report tables by default.
+- Created a new polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the title-card central result and abstract so the notebook now foregrounds the retained trace count, explicit solvent order, and 46.5-fold span.
+- Corrected results-discussion drift so the notebook no longer claims or implies that acetone is faster than acetonitrile.
+- Corrected the mechanistic interpretation so the solvent trend is no longer reduced to a false single-polarity narrative.
+- Corrected the literature-comparison wording so it stays limited to the benchmarked solvent subset instead of overstating what the literature comparison proves.
+- Corrected post-lab answers so the timescale example, fast-solvent discussion, and solvent-order answer all agree with the accepted rates.
+- Strengthened the conclusion with the retained sample size, final solvent order, and quantitative span.
+- Added a reproducibility note explaining that this publication check was performed from the executed notebook package and stored outputs because the current container cannot do a clean rerun.
+- Added source-level wrapped-table helpers so future reruns preserve safer horizontal table scrolling by default.
+- Wrapped all 9 saved HTML table outputs, including the package audit table, to reduce clipping risk in narrow notebook views.
+- Removed the default-open state from the second inline GIF panel in both source and saved output.
 
 ## Major remaining blockers
 
-- A full clean rerun of the notebook is still blocked in this container because the saved notebook depends on packages that are unavailable here, including `matplotlib`, `rdkit`, `numba`, and the Jupyter execution stack.
-- A full rendered notebook export check is also blocked here because `jupyter` and `nbconvert` are unavailable in the container.
-- Final publication sign-off still depends on one end-to-end rerun in a complete notebook environment to confirm that regenerated outputs remain visually clean and fully consistent with the corrected narrative and layout defaults.
+- A clean end-to-end rerun is still blocked in this container because the notebook depends on unavailable execution components, including the Jupyter stack and scientific packages such as RDKit, Numba, and Matplotlib.
+- A fresh exported notebook render check is still blocked here because the normal Jupyter conversion tooling is unavailable.
+- Final publication sign-off therefore still depends on one rerun in a complete notebook environment to confirm that regenerated outputs remain visually clean and consistent with the corrected narrative.
 
 ## Next highest-value actions
 
 1. Re-run the notebook in an environment with the full scientific Python and Jupyter stack installed.
 2. Confirm that regenerated figures, tables, and both GIF panels remain visually clean and consistent with the corrected narrative.
-3. Do one last publication pass focused only on captions, output sizing, and any small prose drift introduced during rerun.
+3. Do one last publication pass focused only on captions, output sizing, and any minor prose drift introduced during rerun.
