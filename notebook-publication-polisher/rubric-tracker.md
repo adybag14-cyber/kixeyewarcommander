@@ -28,6 +28,7 @@
 
 - Current estimate: strong.
 - Evidence: the notebook centralizes configuration, uses reusable helper functions, documents quality-control logic, includes benchmarking and validation code, and keeps the analysis self-contained apart from the raw `Data/` directory.
+- Additional evidence from this run: the polished source now includes a reusable scroll-safe table display helper for report tables, and the edited code cells were checked for syntax validity after the publication pass.
 - Remaining gap: none obvious from this pass.
 
 ### Comments and documentation
