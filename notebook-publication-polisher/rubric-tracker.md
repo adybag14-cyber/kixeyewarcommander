@@ -8,7 +8,7 @@
 ## Current score estimate
 
 - Estimated band: high Excellent / near-publication-ready polished copy, pending one clean rerun and fresh render for full sign-off.
-- Latest pass effect: the polished notebook copy now states one consistent supported result across the front matter, results discussion, post-lab answers, and conclusion. The main retained result is 111 accepted traces out of 225 raw traces, with Acetonitrile > Acetone > THF > Cyclohexane > Toluene and a 46.5-fold span. The second inline animation panel is collapsed by default, all nine saved HTML table outputs now carry safer overflow handling, and the appendix now states clearly that this publication check was performed from the executed notebook package because the container cannot do a clean rerun.
+- Latest pass effect: the polished notebook copy was recreated and verified in `/workspace/output/`, and it now states one consistent supported result across the front matter, results discussion, post-lab answers, and conclusion. The main retained result is 111 accepted traces out of 225 raw traces, with Acetonitrile > Acetone > THF > Cyclohexane > Toluene and a 46.5-fold span. The second inline animation panel is collapsed by default, all nine saved HTML table outputs now carry safer overflow handling, and the appendix now states clearly that this publication check was performed from the executed notebook package because the container cannot do a clean rerun.
 
 ## Criterion tracker
 
