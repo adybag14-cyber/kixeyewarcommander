@@ -22,6 +22,7 @@
 - Corrected the post-lab source and saved output so the timescale example uses acetonitrile correctly, the fast-solvent discussion names acetonitrile and acetone together, and the solvent-order answer lists the accepted means in the right order.
 - Strengthened the conclusion with the retained sample size, solvent order, and 46.5-fold span.
 - Added a reproducibility note explaining that this review was based on the executed notebook package and stored outputs because the current container cannot perform a clean rerun.
+- Expanded the automated-checks appendix so the notebook explicitly records the media-decoding audit performed during this pass.
 - Wrapped all 9 saved HTML table outputs, including the package audit table, to reduce clipping risk.
 - Removed the default-open state from the second inline animation panel in both source and saved output.
 - Verified after writing the polished notebook that:
