@@ -19,6 +19,7 @@
 - Strengthened the conclusion so it states the retained sample size, final solvent ranking, and quantitative span explicitly.
 - Removed the default-open state from the second inline GIF panel and added horizontal overflow protection to every saved HTML table output.
 - Added a reproducibility note that the publication check in this container is based on the executed notebook package and its stored outputs because a clean rerun is not currently possible here.
+- Corrected the underlying source cells as well as the saved rendered outputs, so a future rerun will preserve the Acetonitrile > Acetone ordering language and emit horizontally scrollable report tables by default.
 
 ## Major remaining blockers
 
