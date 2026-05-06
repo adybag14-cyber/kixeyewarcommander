@@ -39,7 +39,7 @@
 ### Markdown, LaTeX, HTML, and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers, and inline media. No broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed after extracting and reviewing all eight saved figure PNGs and both inline GIFs from the stored notebook outputs. The GIF panels decoded successfully at 84 and 70 frames, the figure PNGs remained extractable at publication-grade resolutions, the second inline animation panel is collapsed by default in the polished copy, and all nine saved HTML table outputs now have horizontal overflow protection for narrower notebook views.
+- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers, and inline media. No broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed after extracting and reviewing all eight saved figure PNGs and both inline GIFs from the stored notebook outputs. The GIF panels decoded successfully at 84 and 70 frames, the figure PNGs remained extractable at publication-grade resolutions, the second inline animation panel is collapsed by default in the polished copy, all nine saved HTML table outputs now have horizontal overflow protection for narrower notebook views, and the source-level `report_table` helper has been updated so future reruns preserve that safer table behaviour.
 - Remaining gap: a clean rerender is still required for final formatting sign-off because the full notebook execution stack and Jupyter conversion tooling are unavailable here.
 
 ## Fastest route to full marks
