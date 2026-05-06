@@ -14,7 +14,7 @@
 
 ## Current score estimate
 
-- Estimated band: high Excellent, with some aspects pushing toward Outstanding on the visible notebook artifact.
+- Estimated band: high Excellent, with some aspects pushing toward Outstanding on the visible notebook artifact in the polished copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Reason this is not full sign-off yet: the notebook still needs one clean rerun and fresh render in a complete notebook environment before it can honestly be called fully verified for publication.
 
 ## Criterion tracker
@@ -34,7 +34,7 @@
 ### Experimental write-up
 
 - Current estimate: high Excellent.
-- Evidence: the polished notebook now has a clear quantified headline result, stronger abstract, more precise results discussion, a corrected literature comparison, and a conclusion that states the retained sample size, solvent ordering, and quantitative span explicitly.
+- Evidence: the polished notebook copy now has a clear headline result, stronger abstract, more precise results discussion, a corrected literature comparison, corrected post-lab narrative, and a conclusion that states the retained sample size, solvent ordering, and quantitative span explicitly.
 - Remaining gap: fresh rendered verification is still needed before claiming there are no residual formatting or regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -58,7 +58,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: strong Excellent to Outstanding on the saved artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 8 embedded PNG figures and both inline GIFs decoded successfully, the polished copy wrapped all 10 saved HTML table outputs for safer horizontal scrolling, and the second animation panel was collapsed by default to improve initial rendering hygiene.
+- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 8 embedded PNG figures and both inline GIFs decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, and the second animation panel was collapsed by default to improve initial rendering hygiene.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the notebook from source.
 
 ## Fastest route to full marks
