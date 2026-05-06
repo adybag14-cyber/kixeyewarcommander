@@ -14,7 +14,7 @@
 
 ## Current score estimate
 
-- Estimated band: high Excellent, with some aspects pushing toward Outstanding on the visible notebook artifact in the rebuilt polished copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Estimated band: high Excellent, with some aspects pushing toward Outstanding on the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Reason this is not full sign-off yet: the notebook still needs one clean rerun and fresh render in a complete notebook environment before it can honestly be called fully verified for publication.
 
 ## Criterion tracker
@@ -34,7 +34,7 @@
 ### Experimental write-up
 
 - Current estimate: high Excellent.
-- Evidence: the polished notebook copy now has a clear headline result, stronger abstract, more precise results discussion, a corrected literature comparison, corrected post-lab narrative, and a conclusion that states the retained sample size, solvent ordering, and quantitative span explicitly.
+- Evidence: the polished notebook copy now has a clear headline result, stronger abstract, more precise results discussion, a corrected literature comparison, corrected post-lab narrative, and a reproducibility appendix that honestly states the current verification limits.
 - Remaining gap: fresh rendered verification is still needed before claiming there are no residual formatting or regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -47,7 +47,7 @@
 
 - Current estimate: strong Excellent.
 - Evidence: the notebook documents the `Data/` dependency, centralizes key parameters, writes derived outputs systematically, includes a manifest, and now includes a clearer reproducibility note about environment requirements and rerun limits.
-- Remaining gap: practical portability still depends on having the full scientific Python and Jupyter stack available, and the table-overflow fixes applied in this pass were saved-output protections rather than a fresh rerun from source.
+- Remaining gap: practical portability still depends on having the full scientific Python and Jupyter stack available, and the latest confirmation here is based on stored executed outputs rather than a fresh rerun.
 
 ### Commenting, documentation and explanation of code
 
@@ -64,5 +64,5 @@
 ## Fastest route to full marks
 
 1. Re-run the notebook end to end in a complete scientific notebook environment.
-2. Confirm that regenerated figures, tables, and both inline GIF panels remain visually clean and consistent with the corrected narrative.
+2. Confirm that regenerated figures, tables, and both GIF panels remain visually clean and consistent with the corrected narrative.
 3. Do one final publication pass focused only on captions, output sizing, and any minor regenerated prose drift.
