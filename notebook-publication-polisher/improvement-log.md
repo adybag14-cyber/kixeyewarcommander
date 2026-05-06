@@ -15,8 +15,7 @@
 - Wrapped saved HTML table outputs in horizontal overflow containers to reduce clipping risk in narrower notebook views.
 - Collapsed the second inline animation panel by default in both source and saved output while preserving the embedded GIF.
 - Verified by direct text checks that the old acetone-fastest phrasing, the stale literature summary, and the expanded second-animation markup are gone from the polished notebook copy.
-- Added a source-level `display_table` helper so future notebook reruns can render wide DataFrame outputs inside scroll containers instead of relying only on patched saved HTML.
-- Ran a static parse check across every code cell in the polished copy to confirm that the edited notebook source remains syntactically valid even though full execution is still blocked here.
+- Corrected the earlier false assumption that a polished notebook file already existed in `output/`; this run created the deliverable for real.
 
 ## Open risks after this run
 
