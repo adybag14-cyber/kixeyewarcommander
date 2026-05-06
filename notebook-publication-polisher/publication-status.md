@@ -5,7 +5,7 @@
 - Overall state: materially improved and close to publication-ready, with the highest-impact narrative contradictions and saved-output layout risks corrected in a polished notebook copy.
 - Readiness summary: the revised notebook copy now states one consistent supported result across the title card, abstract, results discussion, post-lab answers, and conclusion. The supported retained result is: **111 of 225 traces retained after quality control; Acetonitrile > Acetone > THF > Cyclohexane > Toluene; 46.5-fold spread between the fastest and slowest retained solvent means.**
 - Visual/rendering summary: the embedded saved media were rechecked directly from notebook outputs. All eight stored figure PNGs and both inline GIFs remained decodable. No broken image, broken GIF, clipping, overlap, or malformed saved-media defect was confirmed from the embedded outputs. Saved HTML tables in the polished copy now have horizontal overflow protection, and the second GIF panel no longer opens expanded by default.
-- Deliverable created this run: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
+- Deliverable created and verified on disk this run: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 
 ## Major issues resolved this run
 
