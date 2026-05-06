@@ -12,10 +12,10 @@
 - Repaired the literature-comparison wording so it now talks about the literature-benchmarked subset rather than claiming acetone is the overall fastest solvent.
 - Repaired the post-lab source and saved post-lab output so the timescale example uses acetonitrile correctly, the fast-solvent discussion names the acetonitrile/acetone pair, and the accepted solvent means appear in the correct order.
 - Strengthened the conclusion so it now states the retained trace count, final solvent ranking, and 46.5-fold span explicitly.
-- Wrapped saved HTML table outputs in horizontal overflow containers to reduce clipping risk in narrower notebook views.
-- Collapsed the second inline animation panel by default in both source and saved output while preserving the embedded GIF.
-- Verified by direct text checks that the old acetone-fastest phrasing, the stale literature summary, and the expanded second-animation markup are gone from the polished notebook copy.
-- Corrected the earlier false assumption that a polished notebook file already existed in `output/`; this run created the deliverable for real.
+- Wrapped nine saved HTML table outputs in horizontal overflow containers to reduce clipping risk in narrower notebook views.
+- Added overflow-hiding to the saved figure wrappers and confirmed that all eight embedded figure PNGs still decode cleanly after the write pass.
+- Collapsed the second inline animation panel by default in the saved output while preserving the embedded GIF.
+- Verified by direct text checks that the old acetone-fastest phrasing and the expanded second-animation markup are gone from the polished notebook copy.
 
 ## Open risks after this run
 
