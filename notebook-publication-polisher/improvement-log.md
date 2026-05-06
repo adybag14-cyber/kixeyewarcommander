@@ -13,6 +13,7 @@
 - Added a safer table-presentation rule so wide tables can scroll horizontally instead of clipping in narrower notebook views.
 - Collapsed the second inline animation panel by default so the notebook opens more cleanly while preserving the saved GIF.
 - Verified by direct text checks that the old acetone-fastest wording and the expanded second animation panel markup are gone from the polished notebook copy.
+- Re-created the polished notebook in the current workspace output folder and re-verified that the saved output still decodes as eight PNG figures and two inline GIFs after the final text updates.
 
 ## Open risks after this run
 
