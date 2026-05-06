@@ -4,6 +4,7 @@
 
 - Re-opened the attached notebook package, rubric export, and prior saved notes instead of trusting earlier summaries.
 - Confirmed that the previous saved notes were ahead of the actual attached notebook package, so this run treated the notebook file itself as the source of truth.
+- Confirmed that the earlier notes referred to a polished notebook path that was not actually present in this workspace, then rebuilt that artifact from the attached source notebook.
 - Parsed the notebook as raw JSON because the container does not include a working notebook execution stack.
 - Recovered the rubric structure from the supplied HTML-like export and confirmed the criterion set: post-labs, data analysis and plotting, experimental write-up, originality/elegance of Python code, portability, commenting/documentation, and markdown/LaTeX/HTML/general formatting.
 - Re-audited the executed notebook content and found publication-relevant inconsistencies still present in the attached notebook package:
@@ -25,6 +26,10 @@
 - Expanded the automated-checks appendix so the notebook explicitly records the media-decoding audit performed during this pass.
 - Wrapped all 9 saved HTML table outputs, including the package audit table, to reduce clipping risk.
 - Removed the default-open state from the second inline animation panel in both source and saved output.
+- Strengthened the title-card central result, abstract and conclusion so the retained trace count, accepted solvent order and 46.5-fold span are visible at the key reader waypoints.
+- Corrected the results-discussion and post-lab wording so acetonitrile, not acetone, is identified as the fastest accepted solvent.
+- Reframed the literature-comparison discussion so it stays limited to the overlapping solvent subset and no longer overstates what the benchmark comparison proves.
+- Added a clearer reproducibility note stating that this publication review used the executed notebook package and stored outputs because the current container cannot do a clean rerun.
 - Verified after writing the polished notebook that:
   - all 9 HTML table outputs are wrapped for horizontal scrolling;
   - neither inline animation panel is forced open by default;
