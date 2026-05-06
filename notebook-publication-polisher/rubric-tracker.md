@@ -46,8 +46,8 @@
 ### Portability of code
 
 - Current estimate: strong Excellent.
-- Evidence: the notebook documents the `Data/` dependency, centralizes key parameters, writes derived outputs systematically, includes a manifest, and now includes source-level safer HTML table rendering for future reruns.
-- Remaining gap: practical portability still depends on having the full scientific Python and Jupyter stack available.
+- Evidence: the notebook documents the `Data/` dependency, centralizes key parameters, writes derived outputs systematically, includes a manifest, and now includes a clearer reproducibility note about environment requirements and rerun limits.
+- Remaining gap: practical portability still depends on having the full scientific Python and Jupyter stack available, and the table-overflow fixes applied in this pass were saved-output protections rather than a fresh rerun from source.
 
 ### Commenting, documentation and explanation of code
 
