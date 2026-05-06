@@ -7,6 +7,7 @@
 - Narrative consistency summary: the stale acetone-led wording has been removed from the post-lab source, the saved post-lab output, and the discussion framing. The notebook no longer mixes an acetonitrile-led ranking with acetone-fastest explanatory text.
 - Visual/rendering summary: the eight embedded figure PNGs and both inline GIFs were decoded directly from stored notebook outputs during review. No broken-image, broken-GIF, clipping, overlap, or malformed saved-media defect was confirmed from those extracted outputs. The second inline animation panel is now saved collapsed by default, and responsive table overflow styling was added to reduce clipping risk in narrower notebook views.
 - Deliverable created this run: an updated polished notebook copy was saved locally at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Verification summary: the polished notebook source and its saved rendered Markdown outputs were re-checked after editing. The stale acetone-fastest interpretation is no longer present in the reviewed discussion or post-lab output, and the second inline animation panel no longer opens expanded by default.
 
 ## Major issues resolved this run
 
