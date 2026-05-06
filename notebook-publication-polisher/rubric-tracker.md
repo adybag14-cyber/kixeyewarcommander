@@ -9,6 +9,7 @@
 
 - Estimated band: high Excellent / near-publication-ready polished copy, pending one clean rerun and fresh render for full sign-off.
 - Latest pass effect: the notebook source and saved rendered outputs are now much better aligned on the same supported retained result. The title card, abstract, results discussion, post-lab answers, and conclusion agree on 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span. The second inline animation panel now opens collapsed by default, and wide tables now have safer overflow handling for notebook display.
+- Verification note: the current polished notebook copy was re-created locally in this run and re-checked to confirm that those source/output alignments still hold in the saved deliverable.
 
 ## Criterion tracker
 
