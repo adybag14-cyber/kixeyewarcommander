@@ -7,8 +7,8 @@
 
 ## Current score estimate
 
-- Estimated band: high Excellent / strong publication-ready draft, pending one clean rerun and fresh render for full sign-off.
-- Latest pass effect: the notebook source and stored rendered outputs are now aligned on the same supported retained result. The title card, abstract, results discussion, post-lab answers, and conclusion now agree on 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span. Both inline animation panels now open collapsed by default, which improves first-view readability.
+- Estimated band: high Excellent / near-publication-ready polished copy, pending one clean rerun and fresh render for full sign-off.
+- Latest pass effect: the notebook source and saved rendered outputs are now much better aligned on the same supported retained result. The title card, abstract, results discussion, post-lab answers, and conclusion agree on 111 retained traces, the Acetonitrile > Acetone > THF > Cyclohexane > Toluene ordering, and the 46.5-fold span. The second inline animation panel now opens collapsed by default, and wide tables now have safer overflow handling for notebook display.
 
 ## Criterion tracker
 
@@ -21,7 +21,7 @@
 ### Write-up and interpretation
 
 - Current estimate: strong after this run.
-- Evidence: the opening, abstract, results discussion, post-lab answers, and conclusion now agree on the same supported result and no longer drift into an acetone-fastest or acetone-listed-first interpretation. The narrative now states the retained sample size, explicit solvent ranking, and quantitative spread clearly enough for publication-facing readers.
+- Evidence: the opening, abstract, results discussion, post-lab answers, and conclusion now agree on the same supported result and no longer drift into an acetone-fastest or acetone-listed-first interpretation. The narrative states the retained sample size, explicit solvent ranking, and quantitative spread clearly enough for publication-facing readers, and the mechanistic discussion now explains more carefully why the solvent series cannot be reduced to a single polarity scale.
 - Remaining gap: final sign-off should still confirm after rerun that no small prose drift remains elsewhere in regenerated outputs.
 
 ### Programming structure and efficiency
@@ -39,7 +39,7 @@
 ### Markdown, LaTeX, HTML, and formatting
 
 - Current estimate: strong.
-- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers, and inline media. No broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed after extracting and reviewing all eight saved figure PNGs and both inline GIFs from the stored notebook outputs. The GIF panels decoded successfully at 84 and 70 frames, and both inline animation panels are now collapsed by default, which improves initial notebook readability without removing the media.
+- Evidence: the notebook uses structured headings, styled report panels, LaTeX equations, custom HTML figure wrappers, and inline media. No broken-image, broken-GIF, clipping, overlap, or malformed-layout defect was confirmed after extracting and reviewing all eight saved figure PNGs and both inline GIFs from the stored notebook outputs. The GIF panels decoded successfully at 84 and 70 frames, the second inline animation panel is now collapsed by default, and wide tables now have horizontal overflow protection for narrower rendered notebook views.
 - Remaining gap: a clean rerender is still required for final formatting sign-off because the full notebook execution stack and Jupyter conversion tooling are unavailable here.
 
 ## Fastest route to full marks
