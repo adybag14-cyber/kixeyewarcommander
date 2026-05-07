@@ -59,6 +59,7 @@
 
 - Current estimate: strong Excellent to Outstanding on the polished notebook artifact.
 - Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, and the inline animation panels were set to remain collapsed by default to improve initial rendering hygiene. The strongest remaining formatting risk is no longer a confirmed defect in the saved notebook package; it is only the lack of a clean rerender in this container.
+- Extra evidence: the notebook source now also includes a scroll-safe table display helper, so the table-overflow fix is no longer limited to patched saved outputs.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
