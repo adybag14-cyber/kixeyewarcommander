@@ -34,7 +34,7 @@
 ### Experimental write-up
 
 - Current estimate: high Excellent.
-- Evidence: the polished notebook copy now has a clear headline result, stronger abstract, corrected results discussion, safer literature comparison, corrected post-lab narrative, and a reproducibility appendix that honestly states the current verification limits.
+- Evidence: the polished notebook copy now has a clear headline result, stronger abstract, corrected results discussion, safer literature comparison, corrected post-lab narrative, a stronger conclusion, and a reproducibility appendix that honestly states the current verification limits.
 - Remaining gap: fresh rendered verification is still needed before claiming there are no residual formatting or regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -58,7 +58,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: strong Excellent to Outstanding on the saved artifact.
-- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 8 embedded PNG figures and both inline GIFs decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, and the second animation panel was collapsed by default to improve initial rendering hygiene.
+- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 8 embedded PNG figures and both inline GIFs decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, and both animation panels remained collapsed by default to improve initial rendering hygiene.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the notebook from source.
 
 ## Fastest route to full marks
