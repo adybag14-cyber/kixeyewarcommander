@@ -6,6 +6,7 @@
 - Readiness summary: the attached notebook was confirmed to still be the pre-polished version, and a corrected polished notebook was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Supported headline result: 111 of 225 traces retained after quality control; accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; 46.5-fold span between the fastest and slowest accepted solvent means.
 - Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads decoded successfully from stored notebook outputs during this run. No confirmed broken image, broken GIF or malformed embedded-media defect was found in the saved notebook outputs. All 9 rendered HTML tables in the polished copy are wrapped for horizontal scrolling, and both inline GIF panels are collapsed by default on first open.
+- Workspace artifact status: the polished notebook copy is present at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and was re-verified after editing.
 
 ## Major issues resolved this run
 
@@ -25,6 +26,7 @@
 - Added a reusable notebook display wrapper in the notebook source so future reruns display report tables in a horizontally scrollable container rather than clipping them in narrow notebook views.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
 - Closed the inline GIF panels by default in the polished notebook copy to improve first-open layout hygiene.
+- Regenerated the notebook source wording for the title card, abstract, conclusion and appendix notes so the publication claims now align directly with the attached stored results rather than only with sidecar notes.
 - Re-audited the rebuilt polished copy and confirmed that the updated notebook now has 8 decodable embedded PNG figures, 2 decodable inline GIF payloads, 9 wrapped HTML table outputs and no remaining confirmed broken-media or clipping defect in the stored outputs.
 
 ## Major remaining blockers
