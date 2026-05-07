@@ -25,14 +25,18 @@
 - Expanded the automated-checks appendix so the notebook explicitly records the media-decoding and layout audit performed during this pass.
 - Updated the saved HTML output for the laboratory workflow animation so the panel is no longer expanded by default; the GIF panels now open only when the reader chooses to expand them.
 - Tightened the explanatory note for the inline animation section so the polished notebook now tells the reader that the extra media stays collapsed on first open to keep the report layout tidy.
-- Generated a local visual audit sheet from all embedded PNG figures plus both GIF first frames to support quick cross-figure inspection for clipping, label crowding and layout anomalies.
-- Re-patched the notebook source so future reruns inherit the stronger headline/result framing, the corrected acetonitrile-first interpretation and the scroll-safe table helper.
 - Verified after writing the polished notebook that:
   - all 9 HTML table outputs are wrapped for horizontal scrolling;
   - all 8 embedded PNG figures still decode successfully;
   - both inline GIF payloads still decode successfully;
   - the inline GIF panels are closed by default;
   - the polished notebook source now includes the stronger headline result, revised conclusion, revised reproducibility notes and scroll-safe table helper.
+- Performed a second source-level consistency pass and found that the saved notebook still had stale acetone-first wording in the results-discussion source, in the post-lab source, and in one saved markdown output even after the earlier high-level fixes.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` again from the attached notebook so the local deliverable now contains the corrected acetonitrile-first discussion in both notebook source and saved rendered markdown output.
+- Tightened the results discussion so it now states that acetonitrile is the fastest accepted mean, notes that the acetonitrile-acetone gap is smaller than the full solvent span, and explains the literature-ordering difference without over-claiming agreement.
+- Tightened the post-lab answers so the illustrative fast-timescale example uses acetonitrile, the single-wavelength argument refers to the two fastest solvents correctly, and the solvent-order summary now lists acetonitrile before acetone.
+- Added a notebook-source helper to render DataFrame outputs inside horizontal scroll containers on future reruns, then rewired the four table-heavy analysis sections to use it.
+- Re-checked the polished notebook artifact after the second rebuild and confirmed that the saved copy still contains 8 readable PNGs, 2 readable GIFs, 9 wrapped HTML tables and a collapsed-by-default lab-workflow panel.
 
 ## Open risks after this run
 
