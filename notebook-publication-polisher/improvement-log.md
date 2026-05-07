@@ -2,6 +2,7 @@
 
 ## 2026-05-07
 
+- Confirmed that the attached notebook package still represented the older, pre-polished state rather than the already-corrected copy described in earlier notes.
 - Re-opened the attached notebook package, rubric file and saved progress notes instead of assuming the earlier summary still matched the actual notebook content.
 - Confirmed that the attached notebook package still contained publication-relevant issues:
   - the prose still contradicted the notebook's own solvent summary by naming acetone as the fastest solvent in some sections even though acetonitrile had the highest accepted mean rate;
@@ -17,17 +18,18 @@
 - Rewrote the opening title card and abstract so they now state the retained trace count, accepted solvent order and 46.5-fold span explicitly.
 - Corrected the results discussion so the solvent interpretation is consistent with the accepted summary table and no longer claims acetone has the largest measured recovery constant.
 - Corrected the rendered post-lab output so the saved notebook no longer says acetone is the fastest solvent in the timescale example or solvent-order discussion.
-- Updated the notebook CSS so report tables render with horizontal scrolling rather than risking clipping in narrower notebook views.
-- Strengthened the conclusion so the retained-trace count, solvent order and 46.5-fold span are stated plainly in the closing section.
+- Strengthened the conclusion so the headline solvent ordering and 46.5-fold span are explicit in the closing section rather than remaining implied.
+- Added a notebook-level DataFrame display wrapper in the source so future reruns render report tables inside horizontal scroll containers automatically.
+- Wrapped all 9 saved HTML table outputs in the polished notebook copy to reduce clipping risk in narrow notebook views.
 - Strengthened the reproducibility appendix with an explicit note that this review was based on the executed notebook package and stored outputs because the current container cannot perform a clean rerun.
 - Expanded the automated-checks appendix so the notebook explicitly records the media-decoding and layout audit performed during this pass.
-- Updated the saved HTML output and source for both inline animations so the panels are no longer expanded by default; the GIF panels now open only when the reader chooses to expand them.
+- Updated the saved HTML output for the laboratory workflow animation so the panel is no longer expanded by default; the GIF panels now open only when the reader chooses to expand them.
 - Verified after writing the polished notebook that:
-  - the report-table CSS now forces horizontal scrolling for large HTML tables;
+  - all 9 HTML table outputs are wrapped for horizontal scrolling;
   - all 8 embedded PNG figures still decode successfully;
   - both inline GIF payloads still decode successfully;
   - the inline GIF panels are closed by default;
-  - the polished notebook source now includes the stronger headline result, revised conclusion, revised reproducibility notes and scroll-safe table styling.
+  - the polished notebook source now includes the stronger headline result, revised conclusion, revised reproducibility notes and scroll-safe table helper.
 
 ## Open risks after this run
 
