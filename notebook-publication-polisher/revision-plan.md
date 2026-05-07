@@ -1,20 +1,9 @@
 # Revision Plan
 
-## 2026-05-06 UTC publication-polishing plan
+## 2026-05-07 publication pass
 
-1. Audit the attached executed notebook package itself, not just prior notes, for factual drift and presentation defects.
-2. Verify stored notebook media directly: embedded PNGs, inline GIFs, and rendered HTML tables.
-3. Correct the highest-impact narrative issues first:
-   - headline result in the opening card and abstract;
-   - any stale solvent-order claims in results and post-lab answers;
-   - conclusion wording that undersells the supported result.
-4. Harden notebook presentation in the saved artifact:
-   - wrap wide HTML tables for horizontal scrolling;
-   - remove the default-open state from the second animation panel;
-   - document what visual audit was actually completed.
-5. Update progress memory and GitHub persistence so the saved status matches the notebook artifact produced in this run.
-
-## Outcome
-
-- Steps 1-5 completed for `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Remaining publication blocker: one clean rerun in a complete notebook environment is still needed for final sign-off.
+1. Re-open the attached notebook package, rubric export and saved progress state. Status: completed.
+2. Audit the executed notebook outputs for publication defects, including broken images, GIF failures, clipping risk, and source/output narrative drift. Status: completed.
+3. Build a corrected polished notebook copy with the highest-impact prose and layout fixes that can be safely verified from the available files. Status: completed.
+4. Update durable progress tracking so future runs resume from the corrected state instead of re-finding the same issues. Status: completed.
+5. Finish with one clean rerun and fresh rendered verification in a complete Jupyter/scientific environment before claiming final publication sign-off. Status: remaining blocker outside the current container.
