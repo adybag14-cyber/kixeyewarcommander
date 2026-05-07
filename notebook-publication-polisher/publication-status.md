@@ -19,6 +19,7 @@
 - Rewrote the title-card central result and abstract so the notebook now foregrounds the retained trace count, explicit solvent order and 46.5-fold span.
 - Corrected the results discussion so it no longer makes the unsupported claim that acetone has the largest measured recovery constant.
 - Corrected the saved post-lab output so the timescale example and solvent-order discussion now agree with the acetonitrile-first result in both source and rendered output.
+- Final verification confirmed that the polished notebook source and the saved rendered post-lab markdown now both use acetonitrile consistently in the timescale example, rather than leaving the source cell on the older acetone wording.
 - Strengthened the conclusion so it states the quantitative headline result directly instead of leaving it implied.
 - Strengthened the reproducibility appendix with an explicit note that this review was based on the executed notebook package and stored outputs because a clean rerun is not available in the current container.
 - Expanded the automated-checks appendix so the notebook now records the direct saved-output audit of embedded PNGs, GIF panels, panel default state and table overflow handling.
