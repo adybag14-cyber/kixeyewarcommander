@@ -25,6 +25,8 @@
 - Expanded the automated-checks appendix so the notebook explicitly records the media-decoding and layout audit performed during this pass.
 - Updated the saved HTML output for the laboratory workflow animation so the panel is no longer expanded by default; the GIF panels now open only when the reader chooses to expand them.
 - Tightened the explanatory note for the inline animation section so the polished notebook now tells the reader that the extra media stays collapsed on first open to keep the report layout tidy.
+- Generated a local visual audit sheet from all embedded PNG figures plus both GIF first frames to support quick cross-figure inspection for clipping, label crowding and layout anomalies.
+- Re-patched the notebook source so future reruns inherit the stronger headline/result framing, the corrected acetonitrile-first interpretation and the scroll-safe table helper.
 - Verified after writing the polished notebook that:
   - all 9 HTML table outputs are wrapped for horizontal scrolling;
   - all 8 embedded PNG figures still decode successfully;
