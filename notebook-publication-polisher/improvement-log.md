@@ -4,6 +4,7 @@
 
 - Re-opened the attached notebook package, rubric file and saved progress notes instead of assuming the earlier summary still matched the actual notebook content.
 - Confirmed that the attached notebook package still contained publication-relevant issues:
+  - the prose still contradicted the notebook's own solvent summary by naming acetone as the fastest solvent in some sections even though acetonitrile had the highest accepted mean rate;
   - the title card and abstract still described the solvent effect too generically;
   - the conclusion still did not foreground the strongest quantitative result;
   - the reproducibility appendix still did not state that this pass was based on stored executed outputs;
@@ -14,6 +15,7 @@
 - Extracted the embedded figures and GIF first frames into a visual audit sheet to check for obvious clipping, unreadable labels and awkward aspect ratios across the saved notebook outputs.
 - Built a corrected polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Rewrote the opening title card and abstract so they now state the retained trace count, accepted solvent order and 46.5-fold span explicitly.
+- Corrected the results discussion so the solvent interpretation is consistent with the accepted summary table and no longer claims acetone has the largest measured recovery constant.
 - Added a scroll-wrapper helper to the notebook source and updated the source display calls for the report tables so future reruns render tables in a horizontally scrollable container.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy to reduce clipping risk in narrow notebook views.
 - Corrected the post-lab source and saved output so the timescale example now names acetonitrile as the fastest medium.
