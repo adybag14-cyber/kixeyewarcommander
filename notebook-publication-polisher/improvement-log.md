@@ -2,32 +2,34 @@
 
 ## 2026-05-07
 
-- Re-opened the attached notebook package, rubric file and saved progress notes instead of relying on the previous summary.
-- Confirmed that the attached notebook still contained publication-relevant defects:
-  - the title card and abstract still undersold the strongest quantitative result;
-  - the post-lab discussion still used acetone as the “fastest” recovery example in one place even though the accepted summary table showed acetonitrile was fastest;
-  - the results discussion still described the solvent pattern in a way that could be read as contradicting the accepted ranking;
-  - the conclusion still did not foreground the retained-trace count, solvent order and 46.5-fold range explicitly;
-  - the reproducibility and automated-checks appendices still did not explain that this pass was based on the executed notebook package and stored outputs;
+- Re-opened the attached notebook package, rubric file and saved progress notes instead of assuming the earlier summary still matched the actual notebook content.
+- Confirmed that the attached notebook package still contained publication-relevant issues:
+  - the prose still contradicted the notebook's own solvent summary by naming acetone as the fastest solvent in some sections even though acetonitrile had the highest accepted mean rate;
+  - the title card and abstract still described the solvent effect too generically;
+  - the conclusion still did not foreground the strongest quantitative result;
+  - the reproducibility appendix still did not state that this pass was based on stored executed outputs;
+  - the automated-checks appendix still did not document the rendering audit;
   - one inline GIF panel was still expanded by default;
-  - saved HTML table outputs still lacked horizontal overflow protection.
-- Rebuilt a corrected polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Rewrote the notebook opening so the central result is now stated directly in the title card and abstract.
-- Strengthened the conclusion with the retained trace count, accepted solvent order and 46.5-fold rate span.
-- Corrected the results discussion so the acetonitrile-first interpretation is consistent across the notebook and the solvent-pattern explanation no longer conflicts with the accepted summary table.
-- Corrected the source and saved post-lab discussion so the timescale example and final solvent list now align with the acetonitrile-first result.
-- Added a reusable scroll-safe table display helper in notebook source for future reruns.
-- Wrapped all 9 saved HTML table outputs in the polished notebook copy.
-- Updated both saved inline animation panels so they are collapsed by default on first open.
-- Expanded the reproducibility appendix and automated-checks appendix to document the saved-output audit performed in this run.
-- Re-decoded the embedded media in the polished notebook and verified:
-  - 8 embedded PNG figures open successfully;
-  - 2 inline GIF payloads open successfully;
-  - the GIF payloads contain 84 and 70 frames respectively;
-  - the 9 wide saved HTML tables are wrapped for horizontal scrolling;
-  - no saved output retains an expanded `<details>` panel by default.
+  - all rendered HTML tables in the saved notebook output still lacked horizontal overflow protection.
+- Re-decoded stored media from notebook outputs and confirmed that all 8 embedded PNG figures and both inline GIF payloads were readable. The GIFs decoded successfully from the stored notebook output and no broken-media defect was confirmed from the saved outputs.
+- Extracted the embedded figures and GIF first frames into a visual audit sheet to check for obvious clipping, unreadable labels and awkward aspect ratios across the saved notebook outputs.
+- Rebuilt a corrected polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` after confirming that the previously referenced polished copy was not actually present in the workspace.
+- Rewrote the opening title card and abstract so they now state the retained trace count, accepted solvent order and 46.5-fold span explicitly.
+- Corrected the results discussion so the solvent interpretation is consistent with the accepted summary table and no longer claims acetone has the largest measured recovery constant.
+- Corrected the rendered post-lab output so the saved notebook no longer says acetone is the fastest solvent in the timescale example or solvent-order discussion.
+- Updated the notebook CSS so report tables render with horizontal scrolling rather than risking clipping in narrower notebook views.
+- Strengthened the conclusion so the retained-trace count, solvent order and 46.5-fold span are stated plainly in the closing section.
+- Strengthened the reproducibility appendix with an explicit note that this review was based on the executed notebook package and stored outputs because the current container cannot perform a clean rerun.
+- Expanded the automated-checks appendix so the notebook explicitly records the media-decoding and layout audit performed during this pass.
+- Updated the saved HTML output and source for both inline animations so the panels are no longer expanded by default; the GIF panels now open only when the reader chooses to expand them.
+- Verified after writing the polished notebook that:
+  - the report-table CSS now forces horizontal scrolling for large HTML tables;
+  - all 8 embedded PNG figures still decode successfully;
+  - both inline GIF payloads still decode successfully;
+  - the inline GIF panels are closed by default;
+  - the polished notebook source now includes the stronger headline result, revised conclusion, revised reproducibility notes and scroll-safe table styling.
 
 ## Open risks after this run
 
-- Could not perform a fresh end-to-end notebook execution in this container.
-- Publication confidence therefore remains based on direct audit of the executed notebook package and stored outputs, not on a newly generated rerun from source.
+- Could not perform a fresh end-to-end execution of the notebook in this container.
+- Publication confidence is therefore based on direct audit of the executed notebook package and its embedded outputs, not on a newly generated rerun from source.
