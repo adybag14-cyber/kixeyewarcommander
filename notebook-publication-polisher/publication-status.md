@@ -2,31 +2,30 @@
 
 ## 2026-05-07 assessment
 
-- Overall state: strong near-publication-ready notebook package with the highest-impact narrative and rendering issues corrected in a rebuilt polished copy, but still short of final sign-off because this container cannot perform a clean end-to-end rerun.
-- Readiness summary: the attached notebook was confirmed to still be the pre-polished version, and a corrected polished notebook was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Overall state: strong near-publication-ready notebook package with the highest-impact narrative, saved-output and layout issues corrected in a rebuilt polished copy, but still short of final sign-off because this container cannot perform a clean end-to-end rerun.
+- Readiness summary: the attached notebook was confirmed to still be the pre-polished version, and a corrected polished notebook is now present at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Supported headline result: 111 of 225 traces retained after quality control; accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; 46.5-fold span between the fastest and slowest accepted solvent means.
 - Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads decoded successfully from stored notebook outputs during this run. No confirmed broken image, broken GIF or malformed embedded-media defect was found in the saved notebook outputs. All 9 rendered HTML tables in the polished copy are wrapped for horizontal scrolling, and both inline GIF panels are collapsed by default on first open.
-- Workspace artifact status: the polished notebook copy is present at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and was re-verified after editing.
 
 ## Major issues resolved this run
 
 - Re-opened the attached notebook package, rubric file and saved progress notes rather than assuming the previous summary still matched the actual notebook.
 - Confirmed that the attached notebook itself still contained the older wording and output state, so the polished notebook had to be rebuilt from the source package rather than merely re-referenced from notes.
+- Confirmed that the saved source notebook still contained a publication-significant contradiction in the discussion and post-lab sections: several sentences still treated acetone as the fastest solvent even though the executed summary table, bootstrap ranking and accepted mean rates place acetonitrile first.
 - Corrected a publication-significant internal inconsistency: the attached notebook's prose still named acetone as the fastest solvent in places even though the notebook's own summary table showed acetonitrile was fastest.
 - Confirmed that the attached notebook still undersold the main quantitative result in the title card, abstract and conclusion.
 - Confirmed that one large inline GIF panel was still expanded by default in the saved notebook output, creating a heavier and less polished first render.
 - Confirmed that all 9 rendered HTML tables in the saved notebook output still lacked horizontal overflow protection.
 - Rebuilt the polished notebook artifact when the previously referenced polished copy was missing from the workspace, then re-applied the publication fixes into the new deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Rewrote the title-card central result and abstract so the notebook now foregrounds the retained trace count, explicit solvent order and 46.5-fold span.
-- Corrected the results discussion so it no longer makes the unsupported claim that acetone has the largest measured recovery constant.
-- Corrected the saved post-lab output so the timescale example and solvent-order discussion now agree with the acetonitrile-first result in both source and rendered output.
+- Corrected the results discussion so it no longer makes the unsupported claim that acetone has the largest measured recovery constant, and so the literature-comparison paragraph now acknowledges the acetonitrile-versus-acetone ordering difference honestly.
+- Corrected the post-lab source and saved markdown output so the timescale example, single-wavelength explanation and solvent-order discussion now agree with the acetonitrile-first result.
 - Strengthened the conclusion so it states the quantitative headline result directly instead of leaving it implied.
 - Strengthened the reproducibility appendix with an explicit note that this review was based on the executed notebook package and stored outputs because a clean rerun is not available in the current container.
 - Expanded the automated-checks appendix so the notebook now records the direct saved-output audit of embedded PNGs, GIF panels, panel default state and table overflow handling.
 - Added a reusable notebook display wrapper in the notebook source so future reruns display report tables in a horizontally scrollable container rather than clipping them in narrow notebook views.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
 - Closed the inline GIF panels by default in the polished notebook copy to improve first-open layout hygiene.
-- Regenerated the notebook source wording for the title card, abstract, conclusion and appendix notes so the publication claims now align directly with the attached stored results rather than only with sidecar notes.
 - Re-audited the rebuilt polished copy and confirmed that the updated notebook now has 8 decodable embedded PNG figures, 2 decodable inline GIF payloads, 9 wrapped HTML table outputs and no remaining confirmed broken-media or clipping defect in the stored outputs.
 
 ## Major remaining blockers
