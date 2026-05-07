@@ -58,7 +58,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, and both inline animation panels were set to remain collapsed by default to improve initial rendering hygiene. The strongest remaining formatting risk is no longer a confirmed defect in the saved notebook package; it is only the lack of a clean rerender in this container.
+- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, both inline animation panels were set to remain collapsed by default, and the saved GIF outputs were simplified to one clean disclosure panel each instead of the duplicated wrapper structure seen in the attached notebook state. The strongest remaining formatting risk is no longer a confirmed defect in the saved notebook package; it is only the lack of a clean rerender in this container.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
