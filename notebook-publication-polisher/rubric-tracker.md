@@ -34,7 +34,7 @@
 ### Experimental write-up
 
 - Current estimate: high Excellent.
-- Evidence: the polished notebook copy now has a stronger title card, more explicit abstract, a stronger conclusion, clearer reproducibility note and a rendering-audit appendix that better supports publication readiness. This run also corrected internal interpretation inconsistencies so the prose and saved outputs now align with the summary-table result that acetonitrile is the fastest accepted solvent.
+- Evidence: the polished notebook copy now has a stronger title card, more explicit abstract, a stronger conclusion, clearer reproducibility note and a rendering-audit appendix that better supports publication readiness. This run also corrected internal interpretation inconsistencies so the prose and saved outputs now align with the summary-table result that acetonitrile is the fastest accepted solvent, including the post-lab answers and the discussion of literature agreement.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual formatting or regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -58,8 +58,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: strong Excellent to Outstanding on the polished notebook artifact.
-- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, and the inline animation panels were set to remain collapsed by default to improve initial rendering hygiene. The strongest remaining formatting risk is no longer a confirmed defect in the saved notebook package; it is only the lack of a clean rerender in this container.
-- Extra evidence: the notebook source now also includes a scroll-safe table display helper, so the table-overflow fix is no longer limited to patched saved outputs.
+- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, the inline animation panels were set to remain collapsed by default to improve initial rendering hygiene, and the notebook source gained a reusable scroll-safe DataFrame display helper for future reruns. The strongest remaining formatting risk is no longer a confirmed defect in the saved notebook package; it is only the lack of a clean rerender in this container.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
