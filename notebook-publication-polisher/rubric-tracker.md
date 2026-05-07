@@ -22,32 +22,32 @@
 ### Post-labs
 
 - Current estimate: strong Excellent.
-- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile correctly as the fastest medium in both the timescale example and the saved rendered post-lab output.
+- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile correctly as the fastest-solvent timescale example in the saved post-lab markdown output.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
 
 - Current estimate: strong Excellent.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; sensitivity checks and independent validation are included; all 8 saved embedded figures decoded successfully during this pass.
+- Evidence: all five solvents are analysed in the executed package; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; sensitivity checks and independent validation are included; all 8 saved embedded figures and both inline GIF payloads decoded successfully during this pass.
 - Remaining gap: a full rerun is still needed to confirm regenerated outputs after the latest source-side polishing changes.
 
 ### Experimental write-up
 
 - Current estimate: high Excellent.
-- Evidence: the polished notebook copy now has a stronger title card, more explicit abstract, a stronger conclusion, clearer reproducibility note and a rendering-audit appendix that better supports publication readiness. This run also corrected internal interpretation inconsistencies so the prose and saved outputs now align with the summary-table result that acetonitrile is the fastest accepted solvent, including the post-lab answers and the discussion of literature agreement.
+- Evidence: the polished notebook copy now has a stronger title card, more explicit abstract, stronger conclusion, clearer reproducibility note and a rendering-audit appendix that better supports publication readiness. This run also corrected source-side interpretation drift so the prose and saved outputs now align with the accepted summary-table result that acetonitrile is fastest.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual formatting or regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
 
 - Current estimate: strong Excellent.
-- Evidence: the analysis uses reusable helpers, structured quality control, validation code, provenance tracking, automated checks and custom inline media generation rather than repetitive cell-by-cell handling. The notebook source now also includes a reusable DataFrame display wrapper for safer notebook rendering.
+- Evidence: the analysis uses reusable helpers, structured quality control, validation code, provenance tracking, automated checks and custom inline media generation rather than repetitive cell-by-cell handling. The notebook source now also includes a reusable table wrapper for safer notebook rendering.
 - Remaining gap: none obvious from this pass.
 
 ### Portability of code
 
 - Current estimate: strong Excellent.
-- Evidence: the notebook documents the `Data/` dependency, centralizes key parameters, writes derived outputs systematically, includes a manifest, and now includes a clearer reproducibility note about environment requirements and rerun limits.
-- Remaining gap: practical portability still depends on having the full scientific Python and Jupyter stack available, and the latest confirmation here is based on stored executed outputs rather than a fresh rerun.
+- Evidence: the notebook documents the `Data/` dependency, centralizes key parameters, writes derived outputs systematically, includes a manifest, and now includes a clearer reproducibility note about what could and could not be rerun in the current environment.
+- Remaining gap: practical portability still depends on having the full scientific Python and Jupyter stack plus the complete raw `Data/` package available, and the latest confirmation here is based on stored executed outputs rather than a fresh rerun.
 
 ### Commenting, documentation and explanation of code
 
@@ -58,11 +58,11 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: strong Excellent to Outstanding on the polished notebook artifact.
-- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, the inline animation panels were set to remain collapsed by default to improve initial rendering hygiene, and the notebook source gained a reusable scroll-safe DataFrame display helper for future reruns. The strongest remaining formatting risk is no longer a confirmed defect in the saved notebook package; it is only the lack of a clean rerender in this container.
+- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, and neither inline animation panel opens by default anymore. The strongest remaining formatting risk is no longer a confirmed defect in the saved notebook package; it is only the lack of a clean rerender in this container.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
 
-1. Re-run the polished notebook end to end in a complete scientific notebook environment.
+1. Re-run the polished notebook end to end in a complete scientific notebook environment with the full raw `Data/` package.
 2. Confirm that regenerated figures, tables and both GIF panels remain visually clean and consistent with the corrected narrative.
 3. Do one final publication pass focused only on captions, output sizing and any minor regenerated prose drift.
