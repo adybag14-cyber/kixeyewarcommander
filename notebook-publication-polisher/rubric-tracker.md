@@ -14,7 +14,7 @@
 
 ## Current score estimate
 
-- Estimated band: high Excellent to likely Outstanding on the rebuilt polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Estimated band: high Excellent to likely Outstanding on the rebuilt polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, with the remaining uncertainty now concentrated in rerun verification rather than in known narrative or layout defects.
 - Reason this is not full sign-off yet: the notebook still needs one clean rerun in a complete notebook environment before it can honestly be called fully verified for publication.
 
 ## Criterion tracker
