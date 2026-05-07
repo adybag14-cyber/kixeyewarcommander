@@ -34,7 +34,7 @@
 ### Experimental write-up
 
 - Current estimate: high Excellent.
-- Evidence: the polished notebook copy now has a stronger title card, more explicit abstract, a stronger conclusion, clearer reproducibility note and a rendering-audit appendix that better supports publication readiness.
+- Evidence: the polished notebook copy now has a stronger title card, more explicit abstract, a stronger conclusion, clearer reproducibility note and a rendering-audit appendix that better supports publication readiness. This run also corrected an internal interpretation inconsistency so the prose now aligns with the summary-table result that acetonitrile is the fastest accepted solvent.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual formatting or regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
