@@ -1,15 +1,9 @@
 # Revision Plan
 
-## 2026-05-07 publication-polishing priorities
+## 2026-05-07 publication-polish pass
 
-1. Correct any remaining internal contradiction between the prose and the accepted solvent ranking.
-2. Strengthen the opening and closing sections so the headline quantitative result is unmistakable.
-3. Reduce notebook rendering risk by protecting wide tables from clipping and keeping large GIF panels collapsed on first open.
-4. Record exactly what was and was not verified in this container so the notebook does not over-claim reproducibility.
-5. Leave the next pass with one clear blocker only: a clean rerun in a full notebook environment.
-
-## Carried out this run
-
-- Completed items 1 through 4 in the polished notebook copy.
-- Rebuilt the polished artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and verified that all 8 saved HTML tables are wrapped, all 8 embedded PNG figures decode successfully, both inline GIF payloads decode successfully, and both animation panels are collapsed by default.
-- Confirmed that item 5 remains the only major blocker before final publication sign-off.
+- Completed: verify the attached notebook package, rubric guidance and saved progress notes against the actual source notebook.
+- Completed: audit the stored rendered outputs for broken images, GIF defects, clipping risk, awkward first-open layout and table overflow issues.
+- Completed: rebuild a polished notebook artifact with stronger headline/result framing, corrected solvent interpretation, improved appendices, scroll-safe report tables and collapsed-by-default inline GIF panels.
+- Completed: verify the polished copy directly from saved outputs: 8 embedded PNG figures decode, 2 inline GIF payloads decode and 9 HTML tables are wrapped for horizontal scrolling.
+- Remaining blocker: perform one clean end-to-end rerun in a complete Jupyter/scientific Python environment, then do a last micro-polish pass on any regenerated captions, output sizing or layout drift.
