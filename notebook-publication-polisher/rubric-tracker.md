@@ -14,7 +14,7 @@
 
 ## Current score estimate
 
-- Estimated band: high Excellent, with some aspects pressing toward Outstanding on the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Estimated band: high Excellent, with some aspects pressing toward Outstanding on the rebuilt polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Reason this is not full sign-off yet: the notebook still needs one clean rerun in a complete notebook environment before it can honestly be called fully verified for publication.
 
 ## Criterion tracker
@@ -22,7 +22,7 @@
 ### Post-labs
 
 - Current estimate: strong Excellent.
-- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile correctly as the fastest medium in the timescale example.
+- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile correctly as the fastest medium in both the timescale example and the saved rendered post-lab output.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
@@ -34,7 +34,7 @@
 ### Experimental write-up
 
 - Current estimate: high Excellent.
-- Evidence: the polished notebook copy now has a stronger title card, more explicit abstract, a stronger conclusion, clearer reproducibility note and a rendering-audit appendix that better supports publication readiness. This run also corrected an internal interpretation inconsistency so the prose now aligns with the summary-table result that acetonitrile is the fastest accepted solvent.
+- Evidence: the polished notebook copy now has a stronger title card, more explicit abstract, a stronger conclusion, clearer reproducibility note and a rendering-audit appendix that better supports publication readiness. This run also corrected internal interpretation inconsistencies so the prose and saved outputs now align with the summary-table result that acetonitrile is the fastest accepted solvent.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual formatting or regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -58,7 +58,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: strong Excellent to Outstanding on the polished notebook artifact.
-- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIFs decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, and both animation panels were set to remain collapsed by default to improve initial rendering hygiene.
+- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, and the inline animation panels were set to remain collapsed by default to improve initial rendering hygiene.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
