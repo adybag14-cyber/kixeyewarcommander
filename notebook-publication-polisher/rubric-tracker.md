@@ -14,7 +14,7 @@
 
 ## Current score estimate
 
-- Estimated band: high Excellent, with some aspects pressing toward Outstanding on the rebuilt polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Estimated band: high Excellent to borderline Outstanding on the rebuilt polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Reason this is not full sign-off yet: the notebook still needs one clean rerun in a complete notebook environment before it can honestly be called fully verified for publication.
 
 ## Criterion tracker
@@ -40,7 +40,7 @@
 ### Originality and elegance of Python code
 
 - Current estimate: strong Excellent.
-- Evidence: the analysis uses reusable helpers, structured quality control, validation code, provenance tracking, automated checks and custom inline media generation rather than repetitive cell-by-cell handling. The notebook source now also includes report-facing table handling with scroll-safe styling for safer notebook rendering.
+- Evidence: the analysis uses reusable helpers, structured quality control, validation code, provenance tracking, automated checks and custom inline media generation rather than repetitive cell-by-cell handling. The notebook source now also includes a reusable DataFrame display wrapper for safer notebook rendering.
 - Remaining gap: none obvious from this pass.
 
 ### Portability of code
@@ -58,7 +58,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: strong Excellent to Outstanding on the polished notebook artifact.
-- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, the report-table CSS was updated for safer horizontal scrolling, and the inline animation panels were set to remain collapsed by default to improve initial rendering hygiene.
+- Evidence: the polished notebook copy uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 HTML table outputs were wrapped for safer horizontal scrolling, and the inline animation panels were set to remain collapsed by default to improve initial rendering hygiene.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
