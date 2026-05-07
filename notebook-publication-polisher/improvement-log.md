@@ -20,12 +20,13 @@
 - Corrected the rendered post-lab output so the saved notebook no longer says acetone is the fastest solvent in the timescale example or solvent-order discussion.
 - Strengthened the conclusion so the headline solvent ordering and 46.5-fold span are explicit in the closing section rather than remaining implied.
 - Added a notebook-level DataFrame display wrapper in the source so future reruns render report tables inside horizontal scroll containers automatically.
-- Wrapped all 9 saved HTML table outputs in the polished notebook copy to reduce clipping risk in narrow notebook views.
+- Wrapped all 8 saved HTML table outputs in the polished notebook copy to reduce clipping risk in narrow notebook views.
 - Strengthened the reproducibility appendix with an explicit note that this review was based on the executed notebook package and stored outputs because the current container cannot perform a clean rerun.
 - Expanded the automated-checks appendix so the notebook explicitly records the media-decoding and layout audit performed during this pass.
 - Updated the saved HTML output for the laboratory workflow animation so the panel is no longer expanded by default; the GIF panels now open only when the reader chooses to expand them.
+- Tightened the animation section introduction so it now tells the reader that both inline panels are intentionally collapsed by default for cleaner first-open layout.
 - Verified after writing the polished notebook that:
-  - all 9 HTML table outputs are wrapped for horizontal scrolling;
+  - all 8 HTML table outputs are wrapped for horizontal scrolling;
   - all 8 embedded PNG figures still decode successfully;
   - both inline GIF payloads still decode successfully;
   - the inline GIF panels are closed by default;
