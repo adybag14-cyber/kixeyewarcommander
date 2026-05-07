@@ -14,7 +14,7 @@
 
 ## Current score estimate
 
-- Estimated band: high Excellent, with some aspects pushing toward Outstanding on `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Estimated band: high Excellent, with some aspects pushing toward Outstanding on the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Reason this is not full sign-off yet: the notebook still needs one clean rerun and fresh render in a complete notebook environment before it can honestly be called fully verified for publication.
 
 ## Criterion tracker
@@ -34,7 +34,7 @@
 ### Experimental write-up
 
 - Current estimate: high Excellent.
-- Evidence: the polished notebook copy now has a clear headline result, stronger abstract, a corrected results discussion, corrected post-lab narrative, a stronger conclusion, and appendix notes that honestly state the present verification limits.
+- Evidence: the polished notebook copy now has a clear headline result, stronger abstract, corrected results discussion, safer literature comparison, corrected post-lab narrative, and a reproducibility appendix that honestly states the current verification limits.
 - Remaining gap: fresh rendered verification is still needed before claiming there are no residual formatting or regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -64,5 +64,5 @@
 ## Fastest route to full marks
 
 1. Re-run the notebook end to end in a complete scientific notebook environment.
-2. Confirm that regenerated figures, tables, and both GIF panels remain visually clean and consistent with the corrected narrative.
-3. Do one final publication pass focused only on captions, output sizing, and any minor regenerated prose drift.
+2. Confirm that regenerated figures, tables and both GIF panels remain visually clean and consistent with the corrected narrative.
+3. Do one final publication pass focused only on captions, output sizing and any minor regenerated prose drift.
