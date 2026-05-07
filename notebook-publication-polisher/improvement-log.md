@@ -22,7 +22,7 @@
 - Strengthened the conclusion so the retained-trace count, solvent order and 46.5-fold span are stated plainly in the closing section.
 - Strengthened the reproducibility appendix with an explicit note that this review was based on the executed notebook package and stored outputs because the current container cannot perform a clean rerun.
 - Expanded the automated-checks appendix so the notebook explicitly records the media-decoding and layout audit performed during this pass.
-- Wrapped all 9 saved HTML table outputs to reduce clipping risk.
+- Wrapped all 9 saved HTML table outputs to reduce clipping risk and changed the second inline GIF panel so it remains collapsed on initial load.
 - Verified after writing the polished notebook that:
   - all 9 HTML table outputs are wrapped for horizontal scrolling;
   - all 8 embedded PNG figures still decode successfully;
