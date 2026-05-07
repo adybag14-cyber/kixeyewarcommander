@@ -11,4 +11,5 @@
 ## Carried out this run
 
 - Completed items 1 through 4 in the polished notebook copy.
+- Rebuilt the polished artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and verified that all 8 saved HTML tables are wrapped, all 8 embedded PNG figures decode successfully, both inline GIF payloads decode successfully, and both animation panels are collapsed by default.
 - Confirmed that item 5 remains the only major blocker before final publication sign-off.
