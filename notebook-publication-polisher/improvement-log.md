@@ -31,6 +31,7 @@
   - both inline GIF payloads still decode successfully;
   - both inline GIF panels are closed by default;
   - the polished notebook source now includes the stronger headline result, revised conclusion, revised reproducibility notes and scroll-safe table helper.
+- Confirmed that the rebuilt polished notebook now exists as a real workspace artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, rather than only as a remembered target path.
 - Re-checked the polished notebook source after writing and confirmed that the future rerun path now also uses acetonitrile consistently in the results discussion and post-lab timescale explanation rather than only correcting the saved rendered markdown output.
 
 ## Open risks after this run
