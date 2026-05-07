@@ -11,7 +11,8 @@
   - the reproducibility appendix still did not state that this pass was based on stored executed outputs;
   - the automated-checks appendix still did not document the rendering audit;
   - one inline GIF panel was still expanded by default;
-  - all rendered HTML tables in the saved notebook output still lacked horizontal overflow protection.
+  - all rendered HTML tables in the saved notebook output still lacked horizontal overflow protection;
+  - the saved inline GIF outputs also showed an awkward duplicated expandable-panel wrapper rather than one clean disclosure panel.
 - Re-decoded stored media from notebook outputs and confirmed that all 8 embedded PNG figures and both inline GIF payloads were readable. The GIFs decoded successfully from the stored notebook output and no broken-media defect was confirmed from the saved outputs.
 - Extracted the embedded figures and GIF first frames into a visual audit sheet to check for obvious clipping, unreadable labels and awkward aspect ratios across the saved notebook outputs.
 - Rebuilt a corrected polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` after confirming that the previously referenced polished copy was not actually present in the workspace.
@@ -25,14 +26,16 @@
 - Expanded the automated-checks appendix so the notebook explicitly records the media-decoding and layout audit performed during this pass.
 - Updated the saved HTML output for the laboratory workflow animation so the panel is no longer expanded by default; the GIF panels now open only when the reader chooses to expand them.
 - Tightened the explanatory note for the inline animation section so the polished notebook now tells the reader that the extra media stays collapsed on first open to keep the report layout tidy.
+- Simplified both saved inline GIF outputs so each animation now renders inside one clean expandable panel rather than the duplicated wrapper structure present in the attached notebook state.
 - Verified after writing the polished notebook that:
   - all 9 HTML table outputs are wrapped for horizontal scrolling;
   - all 8 embedded PNG figures still decode successfully;
   - both inline GIF payloads still decode successfully;
   - both inline GIF panels are closed by default;
+  - neither inline GIF output retains the duplicated expandable wrapper;
   - the polished notebook source now includes the stronger headline result, revised conclusion, revised reproducibility notes and scroll-safe table helper.
-- Confirmed that the rebuilt polished notebook now exists as a real workspace artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, rather than only as a remembered target path.
 - Re-checked the polished notebook source after writing and confirmed that the future rerun path now also uses acetonitrile consistently in the results discussion and post-lab timescale explanation rather than only correcting the saved rendered markdown output.
+- Confirmed explicitly that a clean rerun is not possible in this container because `jupyter` and several notebook/runtime dependencies required by the source notebook are unavailable here, including `matplotlib`, `scipy`, `rdkit`, `numba`, `IPython` and `nbformat`.
 
 ## Open risks after this run
 
