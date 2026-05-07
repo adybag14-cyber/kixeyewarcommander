@@ -19,6 +19,7 @@
 - Rewrote the opening title card and abstract so they now state the retained trace count, accepted solvent order and 46.5-fold span explicitly.
 - Corrected the results discussion so the solvent interpretation is consistent with the accepted summary table and no longer claims acetone has the largest measured recovery constant.
 - Corrected the rendered post-lab output so the saved notebook no longer says acetone is the fastest solvent in the timescale example or solvent-order discussion.
+- Performed a final consistency patch on the polished notebook so the post-lab source cell and the saved rendered markdown now both use the acetonitrile-first timescale example instead of leaving the source on the older acetone wording.
 - Strengthened the conclusion so the headline solvent ordering and 46.5-fold span are explicit in the closing section rather than remaining implied.
 - Added a notebook-level DataFrame display wrapper in the source so future reruns render report tables inside horizontal scroll containers automatically.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy to reduce clipping risk in narrow notebook views.
