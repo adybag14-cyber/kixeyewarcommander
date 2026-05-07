@@ -22,7 +22,7 @@
 ### Post-labs
 
 - Current estimate: strong Excellent.
-- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile correctly as the fastest medium in both the timescale example and the saved rendered post-lab output.
+- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile correctly as the fastest medium in both the post-lab source text and the saved rendered output.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
