@@ -5,7 +5,7 @@
 - Overall state: strong near-publication-ready notebook package with the highest-impact narrative, rendering and first-open layout issues corrected in a rebuilt polished copy, but still short of final sign-off because this container cannot perform a clean end-to-end rerun.
 - Readiness summary: the attached notebook was confirmed to still be the pre-polished version, and an updated corrected notebook was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Supported headline result: 111 of 225 traces retained after quality control; accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; 46.5-fold span between the fastest and slowest accepted solvent means.
-- Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads decoded successfully from stored notebook outputs during this run. No confirmed broken image, broken GIF or malformed embedded-media defect was found in the saved notebook outputs. All 9 rendered HTML tables in the polished copy are wrapped for horizontal scrolling, and both inline GIF panels are collapsed by default on first open.
+- Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads decoded successfully from stored notebook outputs during this run. No confirmed broken image, broken GIF or malformed embedded-media defect was found in the saved notebook outputs. All 9 rendered HTML tables in the polished copy are wrapped for horizontal scrolling, both inline GIF panels are collapsed by default on first open, and the rebuilt notebook file was re-audited after writing to confirm those fixes persisted in the saved artifact.
 
 ## Major issues resolved this run
 
