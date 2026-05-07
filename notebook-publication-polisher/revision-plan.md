@@ -6,5 +6,5 @@
 - Completed: audit the stored rendered outputs for broken images, GIF defects, clipping risk, awkward first-open layout and table overflow issues.
 - Completed: rebuild a polished notebook artifact with stronger headline/result framing, corrected solvent interpretation, improved appendices, scroll-safe report tables and collapsed-by-default inline GIF panels.
 - Completed: verify the polished copy directly from saved outputs: 8 embedded PNG figures decode, 2 inline GIF payloads decode and 9 HTML tables are wrapped for horizontal scrolling.
-- Completed: refresh the notebook source itself so the stronger headline framing, corrected solvent interpretation and scroll-safe table behaviour are preserved for the next rerun.
+- Completed: run a second source-and-output consistency pass to remove the remaining acetone-first wording from the discussion, post-lab answers and saved markdown outputs, and add a scroll-safe table helper for future reruns.
 - Remaining blocker: perform one clean end-to-end rerun in a complete Jupyter/scientific Python environment, then do a last micro-polish pass on any regenerated captions, output sizing or layout drift.
