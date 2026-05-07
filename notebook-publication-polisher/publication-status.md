@@ -3,9 +3,9 @@
 ## 2026-05-07 assessment
 
 - Overall state: strong near-publication-ready notebook package with the highest-impact narrative, rendering and first-open layout issues corrected in a rebuilt polished copy, but still short of final sign-off because this container cannot perform a clean end-to-end rerun.
-- Readiness summary: the attached notebook was confirmed to still be the pre-polished version, and an updated corrected notebook was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Readiness summary: the attached notebook was confirmed to still be the pre-polished version, and an updated corrected notebook was rebuilt and re-audited at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Supported headline result: 111 of 225 traces retained after quality control; accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; 46.5-fold span between the fastest and slowest accepted solvent means.
-- Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads decoded successfully from stored notebook outputs during this run. No confirmed broken image, broken GIF or malformed embedded-media defect was found in the saved notebook outputs. All 9 rendered HTML tables in the polished copy are wrapped for horizontal scrolling, both inline GIF panels are collapsed by default on first open, and the rebuilt notebook file was re-audited after writing to confirm those fixes persisted in the saved artifact.
+- Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads decoded successfully from stored notebook outputs during this run. No confirmed broken image or broken GIF defect was found in the saved notebook outputs. All 9 rendered HTML tables in the polished copy are wrapped for horizontal scrolling, both inline GIF panels are collapsed by default on first open, and the rebuilt saved outputs no longer show the awkward duplicated expandable-panel wrapper seen in the attached notebook state.
 
 ## Major issues resolved this run
 
@@ -25,11 +25,12 @@
 - Added a reusable notebook display wrapper in the notebook source so future reruns display report tables in a horizontally scrollable container rather than clipping them in narrow notebook views.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
 - Closed both inline GIF panels by default in the polished notebook copy to improve first-open layout hygiene.
-- Re-audited the rebuilt polished copy and confirmed that the updated notebook now has 8 decodable embedded PNG figures, 2 decodable inline GIF payloads, 9 wrapped HTML table outputs and no remaining confirmed broken-media or clipping defect in the stored outputs.
+- Simplified the rebuilt saved GIF outputs so each animation now sits inside one clean expandable panel instead of the duplicated wrapper structure present in the attached notebook state.
+- Re-audited the rebuilt polished copy and confirmed that the updated notebook now has 8 decodable embedded PNG figures, 2 decodable inline GIF payloads, 9 wrapped HTML table outputs, no inline animation panel left open by default and no remaining confirmed broken-media or clipping defect in the stored outputs.
 
 ## Major remaining blockers
 
-- A clean end-to-end rerun is still blocked in this container because the normal notebook execution stack used for full verification is not available here.
+- A clean end-to-end rerun is still blocked in this container because the normal notebook execution stack used for full verification is not available here. The current environment is missing `jupyter` and key notebook/runtime dependencies used by the source notebook, including `matplotlib`, `scipy`, `rdkit`, `numba`, `IPython` and `nbformat`.
 - Final publication sign-off therefore still depends on one rerun in a complete notebook environment to confirm that regenerated outputs remain visually clean and consistent with the corrected narrative.
 
 ## Next highest-value actions
