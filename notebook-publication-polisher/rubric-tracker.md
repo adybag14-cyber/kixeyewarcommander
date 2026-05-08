@@ -1,5 +1,11 @@
 # Rubric Tracker
 
+## 2026-05-08 update
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the results and post-lab prose now align with the acetonitrile-first summary table, the conclusion is more explicit, saved HTML tables are now scroll-safe, and the workflow GIF no longer opens expanded by default.
+- Main uncertainty that remains: this run still audited the executed notebook package and saved outputs directly rather than performing a fresh rerun from source in a full Jupyter/scientific Python environment.
+
 ## Rubric reconstruction
 
 - The supplied rubric is an HTML-style export rather than a clean text sheet.
