@@ -40,13 +40,13 @@
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the polished notebook now has a stronger title card, a more explicit abstract, a sharper conclusion, clearer reproducibility language and a better-documented output-audit appendix. This run also removed source/output contradictions around the fastest-solvent interpretation.
+- Evidence: the polished notebook now has a stronger title card, a more explicit abstract, a sharper conclusion, clearer reproducibility language, and a better-documented output-audit appendix. This run also removed source/output contradictions around the fastest-solvent interpretation.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
 
 - Current estimate: strong Excellent.
-- Evidence: the analysis uses reusable helpers, structured quality control, validation code, provenance tracking, automated checks and custom inline media generation rather than repetitive cell-by-cell handling.
+- Evidence: the analysis uses reusable helpers, structured quality control, validation code, provenance tracking, automated checks, and custom inline media generation rather than repetitive cell-by-cell handling.
 - Remaining gap: none obvious from this pass.
 
 ### Portability of code
@@ -64,11 +64,11 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML tables were wrapped for safer horizontal scrolling, and both inline animation panels were set to remain collapsed on first open.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML tables were wrapped for safer horizontal scrolling, and both inline animation panels were set to remain collapsed on first open.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
 
 1. Re-run the polished notebook end to end in a complete scientific notebook environment.
-2. Confirm that regenerated figures, tables and both GIF panels remain visually clean and consistent with the corrected narrative.
-3. Do one final publication pass focused only on captions, output sizing and any minor regenerated prose drift.
+2. Confirm that regenerated figures, tables, and both GIF panels remain visually clean and consistent with the corrected narrative.
+3. Do one final publication pass focused only on captions, output sizing, and any minor regenerated prose drift.
