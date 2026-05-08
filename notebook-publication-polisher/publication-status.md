@@ -2,29 +2,28 @@
 
 ## 2026-05-08 assessment
 
-- Overall state: stronger publication-ready notebook deliverable now rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, with the most visible narrative contradictions and first-open layout defects corrected in both the notebook source and the saved rendered outputs.
-- Readiness summary: the attached notebook package was confirmed to still contain several pre-polish defects, so this run produced a fresh polished copy rather than relying on the attached file.
+- Overall state: the attached notebook package still contained publication-significant narrative and layout defects, so this run rebuilt a corrected polished copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Readiness summary: the polished copy is now close to publication-ready from a presentation and interpretation standpoint, but final sign-off still depends on one clean rerun in a complete notebook environment.
 - Supported headline result: 111 of 225 traces retained after quality control; accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; 46.5-fold span between the fastest and slowest accepted solvent means.
-- Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads in the polished copy decoded successfully during this run. All 9 saved HTML table outputs are now wrapped for horizontal scrolling in the polished copy, and both inline GIF panels are collapsed by default on first open.
+- Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads in the polished copy decoded successfully during this run. All 9 saved HTML table outputs are wrapped for horizontal scrolling, and both extra animation panels are collapsed by default on first open.
 
 ## Major issues resolved this run
 
-- Re-inspected the attached notebook itself rather than assuming the previous saved notes still matched the attached package.
+- Re-inspected the attached notebook itself rather than assuming the prior saved notes still matched the actual file.
 - Confirmed that the attached notebook still understated the headline quantitative result in the title card and abstract.
-- Confirmed that the attached notebook still contained a publication-significant interpretation error in the results discussion and post-lab prose, where acetone was still described as the fastest recovery in places even though the notebook summary table ranked acetonitrile first.
-- Confirmed that the attached notebook still left one inline animation panel expanded by default in the saved output, creating an unnecessarily heavy first-open layout.
+- Confirmed that the attached notebook still contained an interpretation error in the results discussion and post-lab prose, where acetone was described as the fastest recovery in places even though the summary table ranked acetonitrile first.
+- Confirmed that the attached notebook still left one inline animation panel expanded by default in the saved output, creating a heavier first-open layout than necessary.
 - Confirmed that the attached notebook still saved 9 wide HTML table outputs without horizontal overflow protection, leaving clipping risk in narrow notebook views.
 - Built a fresh polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Rewrote the title-card central result and abstract so they now foreground the retained trace count, explicit solvent order and 46.5-fold span.
-- Corrected the source-side results discussion so it no longer claims that acetone has the largest measured recovery constant.
-- Corrected the rendered post-lab output so it no longer says acetone is the fastest solvent.
-- Strengthened the conclusion so the retained trace count, explicit solvent order and 46.5-fold dynamic range are all stated directly.
+- Corrected the source-side results discussion and post-lab answers so they no longer misidentify acetone as the fastest accepted solvent.
+- Strengthened the conclusion so the retained trace count, explicit solvent order and dynamic range are stated directly.
 - Expanded the reproducibility appendix so it now states that this publication-polishing pass was verified against stored executed outputs because this container cannot perform a clean rerun.
-- Expanded the automated-checks appendix so the notebook now records the direct saved-output audit of embedded PNGs, GIF payloads, table overflow handling and first-open panel state.
+- Expanded the automated-checks appendix so the notebook records the direct saved-output audit of embedded PNGs, GIF payloads, table overflow handling and first-open panel state.
 - Updated the source notebook so future reruns display report tables inside horizontal scroll containers instead of emitting plain wide DataFrame HTML.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
 - Closed the saved laboratory-workflow GIF panel by default so the polished notebook opens more cleanly.
-- Re-verified the polished copy after writing it: 8 embedded PNG figures decode, 2 inline GIF payloads decode, 9 HTML tables are wrapped for horizontal scrolling, and neither inline GIF panel is left open by default.
+- Re-verified the polished copy after writing it: 8 embedded PNG figures decode, 2 inline GIF payloads decode, 9 HTML tables are wrapped for horizontal scrolling, and neither extra GIF panel is left open by default.
 
 ## Major remaining blockers
 
