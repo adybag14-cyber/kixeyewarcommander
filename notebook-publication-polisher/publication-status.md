@@ -2,29 +2,33 @@
 
 ## 2026-05-08 assessment
 
-- Overall state: the attached notebook package is now close to publication-ready in its saved form, but it is not fully signed off because this container cannot perform a clean end-to-end rerun.
+- Overall state: the attached notebook package is now much closer to publication-ready because the strongest remaining narrative and presentation defects in the real saved file were corrected in a fresh polished copy.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Supported headline result: 111 of 225 traces were retained after quality control; the accepted solvent order is `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; the fastest and slowest accepted solvent means differ by 46.5-fold.
-- Visual/rendering summary: all 8 embedded PNG figures decoded successfully from the saved notebook outputs; both inline GIF payloads decoded successfully; all 9 HTML table outputs are now wrapped for horizontal scrolling; both expandable media panels are collapsed by default on first open.
+- Readiness summary: the polished copy now presents a coherent publication-level story from the saved executed notebook package, but final sign-off still depends on one clean rerun in a complete Jupyter/scientific Python environment.
+- Supported headline result: 111 of 225 traces retained after quality control; accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; 46.5-fold span between the fastest and slowest accepted solvent means.
+- Visual/rendering summary: all 8 embedded PNG figures carried inside saved HTML outputs and both inline GIF payloads in the polished copy decoded successfully during this run. All 9 saved HTML table outputs are wrapped for horizontal scrolling, and both expandable GIF panels are collapsed by default on first open.
 
 ## Major issues resolved this run
 
-- Re-audited the attached notebook package directly instead of relying on stale prior notes.
-- Created a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Strengthened the title card, abstract and conclusion so they now foreground the retained trace count, accepted solvent order and 46.5-fold kinetic span.
-- Corrected source-side and saved-output narrative inconsistencies that had incorrectly implied acetone was the fastest accepted solvent. The notebook now uses acetonitrile consistently where supported by the fitted results.
-- Patched the post-lab answers so the timescale argument, solvent-order discussion and final solvent list now agree with the accepted summary table.
-- Added scroll-safe rendering to the notebook source for displayed DataFrames and wrapped all 9 saved HTML tables in the polished notebook copy.
-- Patched the saved laboratory workflow animation panel and its source code so it no longer opens expanded by default.
-- Expanded the reproducibility and automated-checks appendices so they clearly distinguish saved-output auditing from a fresh rerun.
+- Re-opened the attached notebook package itself and verified that earlier progress memory was ahead of the real saved notebook state.
+- Built a fresh polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the title-card central result and abstract so they now foreground the retained trace count, explicit solvent order, and 46.5-fold span.
+- Corrected the remaining source-side and rendered interpretation mismatch so the notebook now names acetonitrile, not acetone, as the fastest accepted solvent where that timescale comparison matters.
+- Strengthened the conclusion with the retained-trace count, explicit solvent order, and dynamic range.
+- Expanded the reproducibility appendix so it now states that this publication-polishing pass was verified against stored executed outputs because this container cannot perform a clean rerun.
+- Expanded the automated-checks appendix so the notebook records the direct saved-output audit of embedded PNGs, GIF payloads, table overflow handling, and default panel state.
+- Added a source-side scroll-safe table helper so future reruns wrap report tables for notebook display.
+- Wrapped all 9 saved HTML table outputs in the polished notebook copy.
+- Closed the saved laboratory-workflow GIF panel by default so the notebook opens more cleanly.
+- Re-verified the polished copy after writing it: 8 embedded PNG figures decode from saved HTML outputs, 2 inline GIF payloads decode, 9 HTML tables are wrapped for horizontal scrolling, and neither extra GIF panel is left open by default.
 
 ## Major remaining blockers
 
-- A clean end-to-end rerun is still blocked in this container because the notebook's full scientific execution stack is not installed here.
-- Final publication sign-off still depends on one rerun in a complete Jupyter/scientific Python environment to confirm that regenerated figures, tables and markdown outputs remain consistent with the corrected saved notebook.
+- A clean end-to-end rerun is still blocked in this container because the scientific notebook execution stack used by the source notebook is not fully available here.
+- Final publication sign-off therefore still depends on one rerun in a complete Jupyter/scientific Python environment to confirm that regenerated outputs remain visually clean and consistent with the corrected narrative.
 
 ## Next highest-value actions
 
-1. Re-run `/workspace/output/P201_201698955_publication_ready_polished.ipynb` in a complete notebook environment with the required scientific packages installed.
-2. Confirm that regenerated figures, table outputs and both inline GIF panels remain visually clean with no clipping, overflow or default-open layout surprises.
-3. Do one final micro-polish pass on any rerendered captions, output sizing or regenerated prose drift introduced during rerun.
+1. Re-run the polished notebook in an environment with the full notebook and scientific Python stack installed.
+2. Confirm that regenerated figures, tables, and both GIF panels remain visually clean and consistent with the corrected acetonitrile-first interpretation.
+3. Do one last publication pass focused only on captions, output sizing, and any minor prose drift introduced during rerun.
