@@ -16,8 +16,7 @@
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
 - Expanded the reproducibility appendix to explain that this publication-polishing pass was checked against stored executed outputs because a clean rerun is not available in this container.
 - Expanded the automated-checks appendix to record the saved-output audit of embedded PNGs, GIF payloads, table overflow handling, and default panel state.
-- Updated the extra-animation narrative so both expandable media panels are described as collapsed by default.
-- Patched the saved workflow-animation HTML output and the source-side HTML generator so it no longer opens expanded by default.
+- Updated the extra-animation narrative so expandable media panels are collapsed by default in the saved output.
 - Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures carried inside saved HTML outputs and both inline GIF payloads still decode successfully.
 
 ## Open risks after this run
