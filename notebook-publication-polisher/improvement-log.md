@@ -1,27 +1,26 @@
 # Improvement Log
 
-## 2026-05-07
+## 2026-05-08
 
-- Re-opened the attached notebook package, rubric export and saved progress notes instead of assuming the prior summary still matched the source notebook.
-- Confirmed that the attached notebook still contained publication-relevant issues:
+- Re-opened the attached notebook package and compared it directly with the saved memory notes, rather than assuming the attached notebook had already been updated.
+- Confirmed from the attached notebook package that several publication-relevant defects still remained in the actual file:
   - the title card and abstract still undersold the strongest quantitative result;
-  - the results discussion still contained an acetone-first sentence even though the saved summary table ranked acetonitrile first;
-  - the generated post-lab answers still used acetone as the fastest-solvent example in two places;
-  - the conclusion still did not foreground the retained trace count, solvent order and rate span;
-  - the reproducibility and automated-check appendices were still too generic for publication-quality auditability;
-  - all 9 saved HTML tables still lacked horizontal overflow protection;
-  - the laboratory workflow GIF panel still opened expanded by default.
-- Rebuilt a corrected notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Rewrote the title-card central result and abstract so they now state the 111/225 retained-trace count, the accepted solvent order and the 46.5-fold span explicitly.
-- Corrected the saved and source-side results discussion so it no longer claims acetone has the largest measured recovery constant.
-- Corrected the saved and source-side post-lab answers so the characteristic-timescale example and solvent-order interpretation now use acetonitrile consistently as the fastest accepted solvent.
-- Strengthened the conclusion so the final section now states the retained-trace count, full solvent order and quantitative span directly.
-- Strengthened the reproducibility appendix with an explicit note that this review was based on the executed notebook package and stored outputs because a clean rerun is not available in this container.
-- Expanded the automated-check appendix so the notebook records the saved-output audit of figures, GIFs, table wrapping and first-open panel state.
-- Added notebook-level scroll-safe table styling and wrapped all 9 saved HTML table outputs in the polished copy.
-- Updated both inline GIF sections to remain collapsed on first open, including the laboratory workflow animation output that previously opened expanded by default.
-- Re-decoded saved media in the polished notebook and confirmed that all 8 embedded PNG figures and both inline GIF payloads remain readable after the edits.
-- Re-audited the polished notebook and confirmed there are no remaining confirmed broken-image, broken-GIF or default-open extra-panel defects in the stored outputs.
+  - the results discussion still contained the incorrect claim that acetone gave the largest measured recovery constant;
+  - the post-lab prose still described acetone as the fastest recovery in one answer even though the summary table ranked acetonitrile first;
+  - one inline workflow GIF panel was still expanded by default in the saved output;
+  - all 9 saved HTML DataFrame outputs still lacked horizontal overflow protection.
+- Rebuilt a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook source.
+- Rewrote the notebook opening so the title card and abstract now state the retained trace count, accepted solvent order and 46.5-fold span explicitly.
+- Corrected the source-side results discussion so it no longer claims acetone has the largest measured rate constant.
+- Corrected the rendered post-lab output so the saved notebook now names acetonitrile as the fastest accepted solvent.
+- Strengthened the conclusion with the explicit retained-trace count, solvent order and dynamic range.
+- Added a source-side scroll-safe table helper so future reruns wrap report tables inside a horizontal overflow container.
+- Wrapped all 9 saved HTML table outputs in the polished notebook copy.
+- Expanded the reproducibility appendix to explain that this publication-polishing pass was checked against stored executed outputs because a clean rerun is not available in this container.
+- Expanded the automated-checks appendix to record the saved-output audit of embedded PNGs, GIF payloads, table overflow handling and default panel state.
+- Updated the extra-animation narrative so both expandable media panels are described as collapsed by default.
+- Patched the saved workflow-animation HTML output so it no longer opens expanded by default.
+- Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both inline GIF payloads still decode successfully.
 
 ## Open risks after this run
 
