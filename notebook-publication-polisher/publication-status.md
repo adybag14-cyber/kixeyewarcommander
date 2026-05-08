@@ -2,7 +2,7 @@
 
 ## 2026-05-08 assessment
 
-- Overall state: the attached notebook package was not yet fully publication-ready because the saved file still contained an understated headline result, an incorrect fastest-solvent interpretation in narrative sections, wide unwrapped HTML tables, and one inline workflow GIF panel that opened expanded by default.
+- Overall state: the attached source notebook was not yet fully publication-ready because the saved file still contained an understated headline result, an incorrect fastest-solvent interpretation in narrative sections, wide unwrapped HTML tables, and one inline workflow GIF panel that opened expanded by default.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Readiness summary: the polished copy is now close to publication-ready from a narrative and presentation standpoint, but final sign-off still depends on one clean rerun in a complete Jupyter/scientific Python environment.
 - Supported headline result: 111 of 225 traces retained after quality control; accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; 46.5-fold span between the fastest and slowest accepted solvent means.
@@ -20,6 +20,7 @@
 - Updated the notebook source so future reruns will protect report tables with horizontal scrolling in notebook output.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
 - Closed the saved laboratory-workflow GIF panel by default so the notebook opens more cleanly.
+- Verified that the polished deliverable now contains both the source-side fixes and the saved-output fixes, so future reruns and first-open viewing start from the corrected state.
 - Re-verified the polished copy after writing it: 8 embedded PNG figures decode, 2 inline GIF payloads decode, 9 HTML tables are wrapped for horizontal scrolling, and neither extra GIF panel is left open by default.
 
 ## Major remaining blockers
