@@ -2,7 +2,7 @@
 
 ## 2026-05-08 assessment
 
-- Overall state: the attached notebook package is now materially closer to publication-ready because the highest-impact narrative inconsistency, headline understatement, and saved-output presentation issues were corrected in a fresh polished copy.
+- Overall state: the attached notebook package is now materially closer to publication-ready because the highest-impact narrative inconsistency, headline understatement, and saved-output presentation issues were corrected in a fresh polished copy and then re-verified directly.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Readiness summary: the polished copy now reads like a coherent publication-level notebook and its saved rendered outputs were directly re-audited, but final sign-off still depends on one clean rerun in a complete Jupyter/scientific Python environment.
 - Supported headline result: 111 of 225 traces retained after quality control; accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; 46.5-fold span between the fastest and slowest accepted solvent means.
@@ -14,11 +14,13 @@
 - Built a fresh polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Rewrote the title-card central result and abstract so they now foreground the retained trace count, explicit solvent order, and 46.5-fold span.
 - Corrected the remaining source-side and rendered interpretation mismatch so the notebook now names acetonitrile, not acetone, as the fastest accepted solvent in both the results discussion and the post-lab solvent-interpretation answer.
+- Corrected the remaining source-side literature/solvent-mechanism discussion so it no longer claims acetone is the fastest solvent anywhere in the notebook.
 - Strengthened the conclusion with the retained-trace count, explicit solvent order, and dynamic range.
 - Expanded the reproducibility appendix so it now states that this publication-polishing pass was verified against stored executed outputs because this container cannot perform a clean rerun.
 - Expanded the automated-checks appendix so the notebook records the direct saved-output audit of embedded PNGs, GIF payloads, table overflow handling, and default panel state.
 - Added collapsed-by-default guidance to both extra-animation introduction cells.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
+- Added a source-side scroll-safe table wrapper so a future rerun will preserve horizontal overflow handling instead of reverting to clip-prone raw DataFrame HTML.
 - Closed the saved laboratory-workflow GIF panel by default and removed its source-side default-open state so future reruns will not reopen it automatically.
 - Re-verified the polished copy after writing it: 8 embedded PNG figures decode from saved HTML outputs, 2 inline GIF payloads decode, 9 HTML tables are wrapped for horizontal scrolling, and neither extra GIF panel is left open by default.
 
