@@ -2,7 +2,7 @@
 
 ## 2026-05-08
 
-- Re-opened the attached notebook package and compared it directly with the saved memory notes, rather than assuming the attached notebook had already been updated.
+- Re-opened the attached notebook package and compared it directly with the saved memory notes rather than assuming the attached notebook had already been updated.
 - Confirmed from the attached notebook package that several publication-relevant defects still remained in the actual file:
   - the title card and abstract still undersold the strongest quantitative result;
   - the results discussion still contained the incorrect claim that acetone gave the largest measured recovery constant;
@@ -12,7 +12,7 @@
 - Rebuilt a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook source.
 - Rewrote the notebook opening so the title card and abstract now state the retained trace count, accepted solvent order and 46.5-fold span explicitly.
 - Corrected the source-side results discussion so it no longer claims acetone has the largest measured rate constant.
-- Corrected the rendered post-lab output so the saved notebook now names acetonitrile as the fastest accepted solvent.
+- Corrected the source-side and rendered post-lab interpretation so the notebook now names acetonitrile as the fastest accepted solvent.
 - Strengthened the conclusion with the explicit retained-trace count, solvent order and dynamic range.
 - Added a source-side scroll-safe table helper so future reruns wrap report tables inside a horizontal overflow container.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
