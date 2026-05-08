@@ -11,11 +11,10 @@
   - all 9 saved HTML DataFrame outputs still lacked horizontal overflow protection.
 - Rebuilt a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook source.
 - Rewrote the notebook opening so the title card and abstract now state the retained trace count, accepted solvent order, and 46.5-fold span explicitly.
+- Corrected the lingering interpretation drift in the generated results discussion and post-lab answers so acetonitrile is consistently treated as the fastest solvent, acetone as the close second, and the solvent-polarity discussion no longer contradicts the ranked summary table.
 - Corrected the source-side and rendered post-lab interpretation so the notebook now names acetonitrile as the fastest accepted solvent in the timescale argument and keeps the solvent-order narrative internally consistent.
-- Corrected the source-side and rendered results discussion so the solvent-effect argument no longer contradicts the accepted ranking and now describes acetone as close behind acetonitrile rather than faster than it.
 - Strengthened the conclusion with the explicit retained-trace count, solvent order, and dynamic range.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
-- Added source-side CSS that makes wide saved tables scrollable instead of risking clipping in notebook display.
 - Expanded the reproducibility appendix to explain that this publication-polishing pass was checked against stored executed outputs because a clean rerun is not available in this container.
 - Expanded the automated-checks appendix to record the saved-output audit of embedded PNGs, GIF payloads, table overflow handling, and default panel state.
 - Updated the extra-animation narrative so both expandable media panels are described as collapsed by default.
