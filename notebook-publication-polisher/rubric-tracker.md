@@ -3,7 +3,7 @@
 ## 2026-05-08 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the results discussion and post-lab prose now use acetonitrile consistently where the accepted ranking requires it, the conclusion is more explicit, saved HTML tables are now scroll-safe with an added CSS fallback for future reruns, and the workflow GIF no longer opens expanded by default in either the saved output or the source-side generator.
+- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the post-lab solvent-order prose now uses acetonitrile consistently where the accepted ranking requires it, the conclusion is more explicit, saved HTML tables are now scroll-safe with an added CSS fallback for future reruns, and the workflow GIF no longer opens expanded by default in either the saved output or the source-side generator.
 - Main uncertainty that remains: this run still audited the executed notebook package and saved outputs directly rather than performing a fresh rerun from source in a full Jupyter/scientific Python environment.
 
 ## Rubric reconstruction
@@ -28,7 +28,7 @@
 ### Post-labs
 
 - Current estimate: strong Excellent.
-- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile consistently where the accepted ranking requires it in both the results discussion and the solvent-order interpretation.
+- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile consistently where the accepted ranking requires it in the solvent-order interpretation.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
