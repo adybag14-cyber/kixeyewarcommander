@@ -1,25 +1,30 @@
 # Publication Status
 
-## 2026-05-07 assessment
+## 2026-05-08 assessment
 
-- Overall state: strong near-publication-ready notebook package with the highest-impact narrative contradictions and saved-output layout issues corrected in a rebuilt polished copy, but still short of final sign-off because this container cannot perform a clean end-to-end rerun.
-- Readiness summary: the attached notebook in `agent_files/` still contained older publication-relevant inconsistencies, so a corrected notebook was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Overall state: stronger publication-ready notebook deliverable now rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, with the most visible narrative contradictions and first-open layout defects corrected in both the notebook source and the saved rendered outputs.
+- Readiness summary: the attached notebook package was confirmed to still contain several pre-polish defects, so this run produced a fresh polished copy rather than relying on the attached file.
 - Supported headline result: 111 of 225 traces retained after quality control; accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; 46.5-fold span between the fastest and slowest accepted solvent means.
-- Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads decoded successfully from saved notebook outputs during this run. The polished copy now has all 9 saved HTML tables wrapped for horizontal scrolling, and neither inline GIF panel opens expanded by default.
+- Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads in the polished copy decoded successfully during this run. All 9 saved HTML table outputs are now wrapped for horizontal scrolling in the polished copy, and both inline GIF panels are collapsed by default on first open.
 
 ## Major issues resolved this run
 
-- Re-opened the actual attached notebook package and rubric guidance rather than relying on prior notes.
-- Confirmed that the attached notebook still contained a publication-significant interpretation problem: parts of the prose and generated post-lab answers still described acetone as the fastest solvent even though the notebook's own summary table ranked acetonitrile first.
-- Rebuilt a corrected polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Rewrote the title-card central result, abstract and conclusion so they now foreground the retained trace count, explicit solvent order and 46.5-fold kinetic span.
-- Corrected the results-discussion source and saved rendered output so the solvent-order interpretation no longer contradicts the accepted summary table.
-- Corrected the post-lab source and saved rendered output so the timescale example now uses acetonitrile as the fastest accepted solvent and the solvent-order explanation no longer makes the wrong acetone-first claim.
-- Strengthened the reproducibility appendix to state that this publication-polish pass was audited against the executed notebook package and stored outputs because a clean rerun is not available here.
-- Expanded the automated-checks appendix to document the saved-output media and layout audit.
-- Added scroll-safe table styling to the notebook source and wrapped all 9 saved HTML table outputs to reduce clipping risk in narrow notebook views.
-- Updated the extra-media sections so both inline GIF panels stay collapsed on first open, including the laboratory workflow animation that previously opened expanded by default.
-- Re-audited the polished copy after writing and confirmed: 8 decodable embedded PNG figures, 2 decodable inline GIF payloads, 9 wrapped HTML table outputs, no inline animation panel left open by default, and no remaining confirmed broken-media defect in the stored outputs.
+- Re-inspected the attached notebook itself rather than assuming the previous saved notes still matched the attached package.
+- Confirmed that the attached notebook still understated the headline quantitative result in the title card and abstract.
+- Confirmed that the attached notebook still contained a publication-significant interpretation error in the results discussion and post-lab prose, where acetone was still described as the fastest recovery in places even though the notebook summary table ranked acetonitrile first.
+- Confirmed that the attached notebook still left one inline animation panel expanded by default in the saved output, creating an unnecessarily heavy first-open layout.
+- Confirmed that the attached notebook still saved 9 wide HTML table outputs without horizontal overflow protection, leaving clipping risk in narrow notebook views.
+- Built a fresh polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the title-card central result and abstract so they now foreground the retained trace count, explicit solvent order and 46.5-fold span.
+- Corrected the source-side results discussion so it no longer claims that acetone has the largest measured recovery constant.
+- Corrected the rendered post-lab output so it no longer says acetone is the fastest solvent.
+- Strengthened the conclusion so the retained trace count, explicit solvent order and 46.5-fold dynamic range are all stated directly.
+- Expanded the reproducibility appendix so it now states that this publication-polishing pass was verified against stored executed outputs because this container cannot perform a clean rerun.
+- Expanded the automated-checks appendix so the notebook now records the direct saved-output audit of embedded PNGs, GIF payloads, table overflow handling and first-open panel state.
+- Updated the source notebook so future reruns display report tables inside horizontal scroll containers instead of emitting plain wide DataFrame HTML.
+- Wrapped all 9 saved HTML table outputs in the polished notebook copy.
+- Closed the saved laboratory-workflow GIF panel by default so the polished notebook opens more cleanly.
+- Re-verified the polished copy after writing it: 8 embedded PNG figures decode, 2 inline GIF payloads decode, 9 HTML tables are wrapped for horizontal scrolling, and neither inline GIF panel is left open by default.
 
 ## Major remaining blockers
 
