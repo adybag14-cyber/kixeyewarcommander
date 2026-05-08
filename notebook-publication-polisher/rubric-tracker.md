@@ -3,7 +3,7 @@
 ## 2026-05-08 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the results and post-lab prose now align with the acetonitrile-first summary table, the conclusion is more explicit, the reproducibility and output-audit appendices are stronger, all saved HTML tables are now scroll-safe, and both inline GIF panels now load collapsed by default.
+- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the post-lab prose now uses acetonitrile consistently in its timescale argument, the conclusion is more explicit, saved HTML tables are now scroll-safe, and the workflow GIF no longer opens expanded by default.
 - Main uncertainty that remains: this run still audited the executed notebook package and saved outputs directly rather than performing a fresh rerun from source in a full Jupyter/scientific Python environment.
 
 ## Rubric reconstruction
@@ -40,7 +40,7 @@
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the polished notebook now has a stronger title card, a more explicit abstract, a sharper conclusion, clearer reproducibility language, and a better-documented output-audit appendix. This run also removed source/output contradictions around the fastest-solvent interpretation.
+- Evidence: the polished notebook now has a stronger title card, a more explicit abstract, a sharper conclusion, clearer reproducibility language, and a better-documented output-audit appendix. This run also corrected the remaining source/output mismatch in the post-lab timescale discussion.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
