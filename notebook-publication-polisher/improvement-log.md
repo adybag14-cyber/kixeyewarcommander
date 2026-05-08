@@ -2,20 +2,24 @@
 
 ## 2026-05-08
 
-- Re-opened the attached notebook package and confirmed that the real notebook still lagged behind the earlier saved notes in several publication-facing places.
-- Built a new polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` instead of overwriting the attached source package.
-- Strengthened the title-card central result and abstract so they now state the retained-trace count, explicit solvent order, and 46.5-fold span directly.
-- Tightened the post-lab explanation of the timescale separation so it now uses acetonitrile, the fastest accepted solvent, rather than the less decisive acetone example.
-- Rewrote the conclusion to foreground the retained data count, full solvent ranking, and magnitude of the solvent effect.
-- Expanded the reproducibility appendix to explain clearly that this pass audited stored executed outputs because a clean rerun is not available in the current container.
-- Expanded the automated-checks appendix to document the direct saved-output audit of table overflow handling, embedded PNG decoding, GIF decoding, and default panel state.
-- Patched the stored workflow-animation HTML output and its source-side HTML generator so the panel is collapsed by default on first open.
-- Wrapped every audited stored HTML table output in overflow-safe containers so wide tables can scroll horizontally instead of clipping.
-- Re-audited the polished copy after patching and confirmed the following:
-  - all 8 embedded PNG figures decode successfully from notebook HTML outputs;
-  - both inline GIF payloads decode successfully;
-  - all audited stored HTML table outputs are wrapped for horizontal scrolling;
-  - both expandable GIF panels are closed by default.
+- Re-opened the attached notebook package and confirmed that the actual saved notebook still lagged behind the earlier progress notes.
+- Confirmed that the earlier progress notes were themselves stale: they referred to a polished notebook file that was not actually present in `/workspace/output`.
+- Confirmed from the attached notebook package that several publication-relevant defects still remained in the real file:
+  - the title card and abstract still undersold the strongest quantitative result;
+  - the results discussion and post-lab prose still used acetone rather than acetonitrile in places where the accepted ranking clearly put acetonitrile first;
+  - one inline workflow GIF panel was still expanded by default in the saved output;
+  - all 9 saved HTML DataFrame outputs still lacked horizontal overflow protection.
+- Rebuilt a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook source.
+- Rewrote the notebook opening so the title card and abstract now state the retained trace count, accepted solvent order, and 46.5-fold span explicitly.
+- Corrected the source-side and rendered results/post-lab interpretation so the notebook now names acetonitrile as the fastest accepted solvent where the accepted ranking requires it and keeps the solvent-order narrative internally consistent.
+- Strengthened the conclusion with the explicit retained-trace count, solvent order, and dynamic range.
+- Added a notebook-level CSS fallback so regenerated wide tables will still gain horizontal overflow protection after a future rerun.
+- Wrapped all 9 saved HTML table outputs in the polished notebook copy.
+- Expanded the reproducibility appendix to explain that this publication-polishing pass was checked against stored executed outputs because a clean rerun is not available in this container.
+- Expanded the automated-checks appendix to record the saved-output audit of embedded PNGs, GIF payloads, table overflow handling, and default panel state.
+- Updated the extra-animation narrative so both expandable media panels are described as collapsed by default.
+- Patched the saved workflow-animation HTML output and the source-side HTML generator so it no longer opens expanded by default.
+- Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures carried inside saved HTML outputs and both inline GIF payloads still decode successfully.
 
 ## Open risks after this run
 
