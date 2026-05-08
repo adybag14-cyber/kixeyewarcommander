@@ -3,9 +3,8 @@
 ## 2026-05-08 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the post-lab prose now uses acetonitrile consistently in both the timescale and solvent-order interpretation, the results discussion no longer misidentifies acetone as the fastest solvent, the conclusion is more explicit, saved HTML tables are now scroll-safe, and the workflow GIF no longer opens expanded by default in either the saved output or the source-side generator.
+- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the post-lab prose now uses acetonitrile consistently in both its timescale and solvent-order arguments, the results discussion no longer contradicts the accepted ranking, the conclusion is more explicit, saved HTML tables are now scroll-safe, and the workflow GIF no longer opens expanded by default in either the saved output or the source-side generator.
 - Main uncertainty that remains: this run still audited the executed notebook package and saved outputs directly rather than performing a fresh rerun from source in a full Jupyter/scientific Python environment.
-- Additional environment note: the current container also lacks the Jupyter export command-line tooling, so publication confidence here comes from direct saved-output inspection rather than a fresh HTML render pass.
 
 ## Rubric reconstruction
 
@@ -29,7 +28,7 @@
 ### Post-labs
 
 - Current estimate: strong Excellent.
-- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile consistently as the fastest accepted solvent in both the timescale example and the solvent-order interpretation.
+- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile consistently as the fastest accepted solvent in both the timescale example and the solvent-order interpretation while keeping the final solvent list in the correct accepted order.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
@@ -41,7 +40,7 @@
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the polished notebook now has a stronger title card, a more explicit abstract, a sharper conclusion, clearer reproducibility language, and a better-documented output-audit appendix. This run also corrected the remaining source/output mismatch in the post-lab timescale discussion.
+- Evidence: the polished notebook now has a stronger title card, a more explicit abstract, a sharper conclusion, clearer reproducibility language, and a better-documented output-audit appendix. This run also corrected the remaining source/output mismatch in both the post-lab interpretation and the results discussion.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
