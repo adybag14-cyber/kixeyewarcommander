@@ -3,7 +3,7 @@
 ## 2026-05-08 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the results discussion and post-lab prose now use acetonitrile consistently where the accepted ranking requires it, the conclusion is more explicit, saved HTML tables are now scroll-safe, and the workflow GIF no longer opens expanded by default in either the saved output or the source-side generator.
+- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the results discussion and post-lab prose now use acetonitrile consistently where the accepted ranking requires it, the conclusion is more explicit, saved HTML tables are now scroll-safe, the source-side table renderer now preserves that overflow handling on rerun, and the workflow GIF no longer opens expanded by default in either the saved output or the source-side generator.
 - Main uncertainty that remains: this run still audited the executed notebook package and saved outputs directly rather than performing a fresh rerun from source in a full Jupyter/scientific Python environment.
 
 ## Rubric reconstruction
@@ -28,7 +28,7 @@
 ### Post-labs
 
 - Current estimate: strong Excellent.
-- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile consistently where the accepted ranking requires it in both the results discussion and the solvent-order interpretation.
+- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile consistently where the accepted ranking requires it in the results discussion, literature-comparison language, and solvent-order interpretation.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
@@ -40,7 +40,7 @@
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the polished notebook now has a stronger title card, a more explicit abstract, a sharper conclusion, clearer reproducibility language, and a better-documented output-audit appendix. This run also corrected the remaining source/output mismatch in the results discussion and post-lab solvent interpretation.
+- Evidence: the polished notebook now has a stronger title card, a more explicit abstract, a sharper conclusion, clearer reproducibility language, and a better-documented output-audit appendix. This run also corrected the remaining source/output mismatch in the results discussion, post-lab solvent interpretation, and literature-comparison framing.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -64,7 +64,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML tables were wrapped for safer horizontal scrolling, and both inline animation panels were set to remain collapsed on first open.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML tables were wrapped for safer horizontal scrolling, the source-side table renderer was updated so future reruns keep that behavior, and both inline animation panels were set to remain collapsed on first open.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
