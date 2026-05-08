@@ -3,8 +3,8 @@
 ## 2026-05-08 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the saved and source-side results/post-lab prose now align with the acetonitrile-first summary table, the conclusion is more explicit, every saved table output is scroll-safe, and both supplementary GIF panels now open collapsed by default.
-- Main uncertainty that remains: this run still audited the executed notebook package and saved outputs directly rather than performing a fresh rerun from source in a full Jupyter and scientific Python environment.
+- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the results and post-lab prose now align with the acetonitrile-first summary table, the conclusion is more explicit, saved HTML tables are now scroll-safe, and the workflow GIF no longer opens expanded by default.
+- Main uncertainty that remains: this run still audited the executed notebook package and saved outputs directly rather than performing a fresh rerun from source in a full Jupyter/scientific Python environment.
 
 ## Rubric reconstruction
 
@@ -28,13 +28,13 @@
 ### Post-labs
 
 - Current estimate: strong Excellent.
-- Evidence: all questions are answered in detail, the answers are linked to the fitted data, and the polished copy now uses acetonitrile consistently as the fastest accepted solvent in both the timescale example and the solvent-order interpretation.
+- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile consistently as the fastest accepted solvent in both the timescale example and the solvent-order interpretation.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
 
 - Current estimate: strong Excellent.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; sensitivity checks and independent validation are included; the polished copy now has 9 scroll-safe table outputs, 8 verified embedded PNG figures, and 2 verified inline GIF payloads.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; sensitivity checks and independent validation are included; all 8 saved embedded PNG figures inside notebook HTML outputs decoded successfully during this pass.
 - Remaining gap: a full rerun is still needed to confirm regenerated outputs after the latest source-side polishing changes.
 
 ### Experimental write-up
@@ -52,7 +52,7 @@
 ### Portability of code
 
 - Current estimate: strong Excellent.
-- Evidence: the notebook documents the `Data/` dependency, centralizes key parameters, writes derived outputs systematically, includes a manifest, and now states the current rerun-environment limitation clearly. The report-table helper was also updated so future reruns should preserve table usability automatically.
+- Evidence: the notebook documents the `Data/` dependency, centralizes key parameters, writes derived outputs systematically, includes a manifest, and now states the current rerun-environment limitation clearly.
 - Remaining gap: practical portability still depends on having the full scientific Python and Jupyter stack available, and the latest confirmation here is based on stored executed outputs rather than a fresh rerun.
 
 ### Commenting, documentation and explanation of code
@@ -64,7 +64,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 9 saved HTML table outputs were wrapped for safer horizontal scrolling, all 8 embedded PNG figures and both inline GIF payloads decoded successfully, and both supplementary animation panels were set to remain collapsed on first open.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML tables were wrapped for safer horizontal scrolling, and both inline animation panels were set to remain collapsed on first open.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
