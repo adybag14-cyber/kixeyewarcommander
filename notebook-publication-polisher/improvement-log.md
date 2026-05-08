@@ -13,12 +13,11 @@
 - Rewrote the notebook opening so the title card and abstract now state the retained trace count, accepted solvent order, and 46.5-fold span explicitly.
 - Corrected the source-side and rendered post-lab interpretation so the notebook now names acetonitrile as the fastest accepted solvent in the timescale argument and keeps the solvent-order narrative internally consistent.
 - Strengthened the conclusion with the explicit retained-trace count, solvent order, and dynamic range.
-- Added a source-side scroll-safe table helper so future reruns wrap report tables inside a horizontal overflow container instead of emitting raw wide DataFrame HTML.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
 - Expanded the reproducibility appendix to explain that this publication-polishing pass was checked against stored executed outputs because a clean rerun is not available in this container.
 - Expanded the automated-checks appendix to record the saved-output audit of embedded PNGs, GIF payloads, table overflow handling, and default panel state.
 - Updated the extra-animation narrative so both expandable media panels are described as collapsed by default.
-- Patched the saved workflow-animation HTML output so it no longer opens expanded by default.
+- Patched the saved workflow-animation HTML output and the source-side HTML generator so it no longer opens expanded by default.
 - Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures carried inside saved HTML outputs and both inline GIF payloads still decode successfully.
 
 ## Open risks after this run
