@@ -2,27 +2,25 @@
 
 ## 2026-05-08
 
-- Re-opened the attached notebook package and confirmed that the actual saved notebook still lagged behind the earlier progress notes.
-- Confirmed from the attached notebook package that several publication-relevant defects still remained in the real file:
-  - the title card and abstract still undersold the strongest quantitative result;
-  - the results discussion still contained the incorrect claim that acetone gave the largest measured recovery constant;
-  - the post-lab prose still described acetone as the fastest recovery in one answer even though the summary table ranked acetonitrile first;
-  - one inline workflow GIF panel was still expanded by default in the saved output;
-  - all 9 saved HTML DataFrame outputs still lacked horizontal overflow protection.
-- Rebuilt a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook source.
-- Confirmed that the polished artifact now exists in the output folder and reflects the intended source-side and saved-output corrections.
-- Rewrote the notebook opening so the title card and abstract now state the retained trace count, accepted solvent order, and 46.5-fold span explicitly.
-- Corrected the source-side and rendered results discussion so it no longer claims acetone has the largest measured rate constant.
-- Corrected the source-side and rendered post-lab interpretation so the notebook now names acetonitrile as the fastest accepted solvent and keeps the solvent-order narrative internally consistent.
+- Re-opened the attached notebook package and confirmed that the live notebook file still lagged behind the earlier saved progress notes.
+- Verified the main publication-relevant defects directly in the attached notebook package:
+  - the title card and abstract still understated the strongest quantitative result;
+  - a source-side results paragraph still described acetone as giving the largest measured recovery constant;
+  - source-side post-lab text still used an acetone-first framing in places where acetonitrile is the accepted fastest solvent;
+  - 9 saved HTML table outputs still lacked horizontal overflow protection;
+  - the laboratory workflow GIF panel still opened expanded by default.
+- Built a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the notebook opening so the title card and abstract now state the retained-trace count, accepted solvent ranking, and 46.5-fold span explicitly.
+- Corrected both source-side and rendered results discussion so the notebook no longer contains the acetone-first contradiction.
+- Corrected both source-side and rendered post-lab interpretation so the notebook now uses acetonitrile consistently as the fastest accepted solvent.
 - Strengthened the conclusion with the explicit retained-trace count, solvent order, and dynamic range.
-- Added a source-side scroll-safe table helper so future reruns wrap report tables inside a horizontal overflow container.
+- Updated the source-side report-table helper so future reruns should emit horizontally scroll-safe notebook tables.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
 - Expanded the reproducibility appendix to explain that this publication-polishing pass was checked against stored executed outputs because a clean rerun is not available in this container.
 - Expanded the automated-checks appendix to record the saved-output audit of embedded PNGs, GIF payloads, table overflow handling, and default panel state.
-- Updated the extra-animation narrative so both expandable media panels are described as collapsed by default.
+- Updated the supplementary-animation narrative so both expandable media panels are described as collapsed by default.
 - Patched the saved workflow-animation HTML output so it no longer opens expanded by default.
-- Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both inline GIF payloads still decode successfully.
-- Re-verified that all 9 saved HTML tables in the polished artifact are wrapped for horizontal scrolling and that the workflow-animation panel no longer includes the default-open state.
+- Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both inline GIF payloads decode successfully, all 9 HTML table outputs are scroll-safe, and both supplementary media panels open collapsed.
 
 ## Open risks after this run
 
