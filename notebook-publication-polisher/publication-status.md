@@ -17,14 +17,13 @@
 - Strengthened the conclusion with the retained-trace count, explicit solvent order, and dynamic range.
 - Expanded the reproducibility appendix so it now states that this publication-polishing pass was verified against stored executed outputs because this container cannot perform a clean rerun.
 - Expanded the automated-checks appendix so the notebook records the direct saved-output audit of embedded PNGs, GIF payloads, table overflow handling, and default panel state.
-- Added a source-side scroll-safe table helper so future reruns wrap report tables for notebook display.
 - Wrapped all 9 saved HTML table outputs in the polished notebook copy.
-- Closed the saved laboratory-workflow GIF panel by default so the notebook opens more cleanly.
+- Closed the saved laboratory-workflow GIF panel by default and removed its source-side default-open state so future reruns will not reopen it automatically.
 - Re-verified the polished copy after writing it: 8 embedded PNG figures decode from saved HTML outputs, 2 inline GIF payloads decode, 9 HTML tables are wrapped for horizontal scrolling, and neither extra GIF panel is left open by default.
 
 ## Major remaining blockers
 
-- A clean end-to-end rerun is still blocked in this container because the scientific notebook execution stack used by the source notebook is not fully available here.
+- A clean end-to-end rerun is still blocked in this container because the scientific notebook execution stack used by the source notebook is not available here.
 - Final publication sign-off therefore still depends on one rerun in a complete Jupyter/scientific Python environment to confirm that regenerated outputs remain visually clean and consistent with the corrected narrative.
 
 ## Next highest-value actions
