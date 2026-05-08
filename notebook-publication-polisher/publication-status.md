@@ -2,7 +2,7 @@
 
 ## 2026-05-08 assessment
 
-- Overall state: the attached notebook package is now materially closer to publication-ready because the highest-impact narrative inconsistency, headline understatement, and saved-output presentation issues were corrected in a fresh polished copy.
+- Overall state: the attached notebook package is now materially closer to publication-ready because the highest-impact narrative understatement, post-lab solvent-order inconsistency, and saved-output presentation issues were corrected in a fresh polished copy.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Readiness summary: the polished copy now reads like a coherent publication-level notebook and its saved rendered outputs were directly re-audited, but final sign-off still depends on one clean rerun in a complete Jupyter/scientific Python environment.
 - Supported headline result: 111 of 225 traces retained after quality control; accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; 46.5-fold span between the fastest and slowest accepted solvent means.
@@ -13,7 +13,7 @@
 - Re-opened the attached notebook package itself and verified that earlier progress memory was ahead of the real saved notebook state.
 - Built a fresh polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Rewrote the title-card central result and abstract so they now foreground the retained trace count, explicit solvent order, and 46.5-fold span.
-- Corrected the remaining source-side and rendered interpretation mismatch so the notebook now names acetonitrile, not acetone, as the fastest accepted solvent in both the results discussion and the post-lab solvent-interpretation answer.
+- Corrected the remaining source-side and rendered interpretation mismatch so the notebook now names acetonitrile, not acetone, as the fastest accepted solvent in the post-lab solvent-interpretation answer and keeps the solvent-order narrative internally consistent.
 - Strengthened the conclusion with the retained-trace count, explicit solvent order, and dynamic range.
 - Added a notebook-level CSS safeguard for wide tables in addition to wrapping the saved HTML table outputs directly.
 - Expanded the reproducibility appendix so it now states that this publication-polishing pass was verified against stored executed outputs because this container cannot perform a clean rerun.
