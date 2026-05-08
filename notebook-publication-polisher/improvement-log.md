@@ -10,6 +10,7 @@
   - one inline workflow GIF panel was still expanded by default in the saved output;
   - all 9 saved HTML DataFrame outputs still lacked horizontal overflow protection.
 - Rebuilt a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook source.
+- Confirmed that the polished artifact now exists in the output folder and reflects the intended source-side and saved-output corrections.
 - Rewrote the notebook opening so the title card and abstract now state the retained trace count, accepted solvent order, and 46.5-fold span explicitly.
 - Corrected the source-side and rendered results discussion so it no longer claims acetone has the largest measured rate constant.
 - Corrected the source-side and rendered post-lab interpretation so the notebook now names acetonitrile as the fastest accepted solvent and keeps the solvent-order narrative internally consistent.
@@ -21,6 +22,7 @@
 - Updated the extra-animation narrative so both expandable media panels are described as collapsed by default.
 - Patched the saved workflow-animation HTML output so it no longer opens expanded by default.
 - Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both inline GIF payloads still decode successfully.
+- Re-verified that all 9 saved HTML tables in the polished artifact are wrapped for horizontal scrolling and that the workflow-animation panel no longer includes the default-open state.
 
 ## Open risks after this run
 
