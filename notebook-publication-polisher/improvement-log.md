@@ -2,6 +2,15 @@
 
 ## 2026-05-09
 
+- Re-audited the actual attached notebook package and confirmed that the current workspace did not contain the previously referenced polished output, so the publication-ready copy had to be rebuilt from the executed source package rather than assumed to exist.
+- Re-created the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the title-card result and abstract so they now state the retained-trace count, accepted solvent order and 46.5-fold span explicitly.
+- Strengthened the conclusion so it closes on the same quantitative publication result highlighted at the start.
+- Corrected the remaining source-side and rendered-output narrative mismatches so the notebook no longer says acetone is the fastest solvent or the largest measured rate constant.
+- Tightened the results discussion and post-lab explanations so the solvent story is scientifically consistent with the accepted acetonitrile-first ranking and the non-monotonic descriptor trend.
+- Added notebook-level `.table-scroll` styling, updated the source display helper for future reruns, and wrapped all 9 saved HTML table outputs so wide rendered tables are less likely to clip or overlap in notebook and HTML views.
+- Corrected the laboratory-workflow GIF panel so it is collapsed by default in both the notebook source and the saved rendered output.
+- Verified the rebuilt polished notebook structurally after editing: all code cells parse, all 8 embedded PNG figures and both inline GIF payloads decode successfully, all 9 table outputs are wrapped, and neither inline GIF panel opens by default.
 - Re-opened the attached notebook package, rubric export and saved memory notes, then treated the notebook itself as the source of truth rather than assuming prior status notes were fully current.
 - Confirmed that the attached package was still the older executed notebook rather than the polished deliverable referenced in memory, so the publication fixes had to be rebuilt.
 - Re-created the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed notebook package.
