@@ -4,7 +4,7 @@
 
 - Completed: inspect the attached notebook package itself, the rubric export and the saved progress notes to identify the highest-impact remaining publication blockers.
 - Completed: verify the rendered outputs directly so the review is grounded in the actual executed notebook rather than assumptions.
-- Completed: create a polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Completed: create a polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the older attached executed notebook package.
 - Completed: strengthen the opening publication framing with the retained-trace count, accepted solvent order and observed dynamic range.
 - Completed: correct the remaining source/output interpretation drift so the notebook consistently treats acetonitrile as the fastest accepted solvent.
 - Completed: fix the saved-output presentation issues by wrapping wide HTML tables and collapsing the second GIF panel by default.
