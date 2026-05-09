@@ -10,8 +10,10 @@
 - Corrected the post-lab solvent-interpretation answer so it now uses acetonitrile consistently and explains the non-monotonic remainder of the solvent sequence more accurately.
 - Strengthened the conclusion with the actual retained-trace count, solvent ranking and dynamic range.
 - Added notebook-level CSS overflow protection for saved and future wide tables, and updated the stored HTML table outputs accordingly.
+- Verified that the polished notebook now contains 11 stored HTML table wrappers with horizontal scrolling protection, covering the package/version table, summary/QC tables, validation tables and automated-check table.
 - Updated the reproducibility and automated-checks appendices so they honestly document that this pass audited the stored executed outputs because a clean rerun was not possible in this container.
 - Corrected the second expandable GIF panel so it is collapsed by default on first open.
+- Patched the last remaining source-template contradiction in the generated results discussion so the notebook code itself no longer says acetone is faster than acetonitrile.
 - Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both inline GIF payloads decode successfully, no expandable panel remains open by default, and the saved table outputs now include horizontal-overflow protection.
 
 ## Open risks after this run
