@@ -3,7 +3,7 @@
 ## 2026-05-09 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the current polished notebook copy now leads with the actual retained-trace count, accepted solvent ranking and 46.5-fold span; the results discussion and post-lab answers no longer contradict the accepted acetonitrile-first ordering; the conclusion is sharper and more quantitative; all 9 saved table outputs that render as HTML tables now have horizontal-scroll protection; and both inline GIF panels are collapsed by default when the notebook opens.
+- What improved this run: the polished notebook copy now leads with the actual retained-trace count, accepted solvent ranking and 46.5-fold span; the results discussion and post-lab answers no longer contradict the accepted acetonitrile-first ordering; the conclusion is sharper and more quantitative; all 9 saved HTML table outputs have horizontal-scroll protection; and both inline GIF panels are collapsed by default when the notebook opens.
 - Main uncertainty that remains: this run still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
 
 ## Rubric reconstruction
@@ -34,7 +34,7 @@
 ### Data analysis + plotting
 
 - Current estimate: strong Excellent.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; sensitivity checks and independent validation are included; and all 8 saved embedded PNG figures inside notebook HTML outputs decoded successfully during this pass.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; sensitivity checks and independent validation are included; and all 8 saved embedded PNG figures inside notebook outputs decoded successfully during this pass.
 - Remaining gap: a full rerun is still needed to confirm regenerated outputs after the latest source-side polishing changes.
 
 ### Experimental write-up
