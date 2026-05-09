@@ -12,6 +12,7 @@
 - Re-created the polished notebook artifact in `/workspace/output` from the older attached executed notebook package.
 - Rewrote the title-card result and abstract so the notebook leads with the retained-trace count, accepted solvent ranking and 46.5-fold dynamic range instead of a vague qualitative summary.
 - Corrected the remaining interpretation drift in both the notebook source and rendered markdown outputs so the notebook no longer claims acetone is the fastest solvent where the accepted data place acetonitrile first.
+- Corrected the generator-code source for the results and post-lab sections as well as the stored rendered markdown, so a future clean rerun should preserve the same acetonitrile-first interpretation.
 - Strengthened the results discussion and post-lab explanations so they now describe the solvent trend as non-monotonic with polarity rather than internally contradictory.
 - Tightened the conclusion so it closes on the actual solvent ranking, retained-trace count and chemical interpretation.
 - Added notebook-level wide-table styling and wrapped all stored HTML table outputs so they are less likely to clip in notebook or exported HTML views.
