@@ -9,6 +9,7 @@
 - Completed: correct the remaining source/output interpretation drift so the notebook consistently treats acetonitrile as the fastest accepted solvent.
 - Completed: strengthen the conclusion so the notebook closes on the same quantitative result it now foregrounds at the start.
 - Completed: fix the saved-output presentation issues by wrapping all 9 wide HTML table outputs and collapsing the second GIF panel by default.
+- Completed: repair both stored inline GIFs so they open on informative preview frames rather than nearly blank first frames.
 - Completed: correct the post-lab characteristic-time example and solvent-order examples so the saved rendered answers match the accepted acetonitrile-first result.
 - Completed: verify that the polished notebook decodes all embedded PNG and GIF payloads cleanly and that the table wrappers are present in every saved HTML table output.
-- Remaining blocker: perform one clean end-to-end rerun in a complete Jupyter and scientific Python environment, then do a final micro-polish pass on any regenerated captions, layout drift or output sizing changes.
+- Remaining blocker: perform one clean end-to-end rerun in a complete Jupyter and scientific Python environment, then do a final micro-polish pass on any regenerated captions, layout drift, preview-frame behaviour or output sizing changes.
