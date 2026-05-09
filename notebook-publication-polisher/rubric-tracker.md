@@ -3,8 +3,8 @@
 ## 2026-05-09 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the notebook now has a real polished deliverable in `/workspace/output`; the headline framing states the retained-trace count and solvent ranking explicitly; the source-side and rendered solvent-order prose now use acetonitrile consistently where the accepted ranking requires it; the conclusion and post-lab answers are sharper; saved HTML tables are now scroll-safe with an added CSS fallback for future reruns; and both inline GIF panels are collapsed by default in both the saved output and the source-side generator.
-- Main uncertainty that remains: this run still audited the executed notebook package and saved outputs directly rather than performing a fresh rerun from source in a full Jupyter/scientific Python environment.
+- What improved this run: the polished copy now exists as a real artifact; the title card and abstract foreground the retained-trace count, solvent ranking and 46.5-fold span; the results discussion and post-lab answers no longer contradict the accepted acetonitrile-first ordering; the conclusion is sharper; the saved HTML tables now have explicit overflow protection; and both inline GIF panels are collapsed by default when the notebook opens.
+- Main uncertainty that remains: this run still audited the executed notebook package and its stored outputs directly rather than performing a fresh rerun from source in a complete notebook environment.
 
 ## Rubric reconstruction
 
@@ -28,7 +28,7 @@
 ### Post-labs
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile consistently where the accepted ranking requires it in the solvent-order interpretation, characteristic-time discussion and solvent-dependence explanation.
+- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile consistently where the accepted ranking requires it.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
@@ -40,7 +40,7 @@
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the polished notebook now has a stronger title card, a more explicit abstract, a sharper conclusion, clearer reproducibility language, and a better-documented output-audit appendix. This run also corrected the remaining source/output mismatches in the results discussion, literature comparison framing and post-lab solvent interpretation.
+- Evidence: the notebook now has a stronger title card, clearer abstract, sharper conclusion, corrected solvent-order interpretation, and more honest reproducibility language.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -64,7 +64,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, the GIFs retained large display dimensions, all 9 saved HTML tables were wrapped for safer horizontal scrolling, a CSS fallback for wide tables was added, and both inline animation panels were set to remain collapsed on first open.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, the saved HTML table outputs gained horizontal-overflow protection, and neither expandable animation panel now opens by default.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
