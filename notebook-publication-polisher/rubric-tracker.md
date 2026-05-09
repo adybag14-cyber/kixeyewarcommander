@@ -3,24 +3,7 @@
 ## 2026-05-09 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the notebook opening now states the actual retained-trace count and solvent ranking, the saved and source-side results/post-lab prose now use acetonitrile consistently where the accepted ranking requires it, the conclusion is more explicit, the appendices now describe the saved-output audit more honestly, and all 9 saved HTML tables are explicitly scroll-safe.
-- Main uncertainty that remains: this run still audited the executed notebook package and saved outputs directly rather than performing a fresh rerun from source in a full Jupyter/scientific Python environment.
-
-## Current score estimate
-
-- Estimated band: high Excellent to likely Outstanding on `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Reason this is not full sign-off yet: the notebook still needs one clean rerun in a complete scientific notebook environment before it can honestly be called fully verified for publication.
-
-## Criterion tracker delta from this run
-
-- Post-labs: stronger because the solvent-order explanation and solvent-dependence answer now align with the accepted ranking in both source and saved output.
-- Experimental write-up: stronger because the opening framing, conclusion and appendix honesty are now tighter and more publication-like.
-- Use of markdown, LaTeX, HTML and general formatting: stronger because saved HTML table outputs now have explicit horizontal-overflow protection in addition to the existing styling and media checks.
-
-## 2026-05-08 update
-
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the headline framing now states the actual retained-trace count and solvent ranking, the source-side and rendered solvent-order prose now use acetonitrile consistently where the accepted ranking requires it, the conclusion is more explicit, saved HTML tables are now scroll-safe with an added CSS fallback for future reruns, and the workflow GIF no longer opens expanded by default in either the saved output or the source-side generator.
+- What improved this run: the notebook now has a real polished deliverable in `/workspace/output`; the headline framing states the retained-trace count and solvent ranking explicitly; the source-side and rendered solvent-order prose now use acetonitrile consistently where the accepted ranking requires it; the conclusion and post-lab answers are sharper; saved HTML tables are now scroll-safe with an added CSS fallback for future reruns; and both inline GIF panels are collapsed by default in both the saved output and the source-side generator.
 - Main uncertainty that remains: this run still audited the executed notebook package and saved outputs directly rather than performing a fresh rerun from source in a full Jupyter/scientific Python environment.
 
 ## Rubric reconstruction
@@ -37,15 +20,15 @@
 
 ## Current score estimate
 
-- Estimated band: high Excellent to likely Outstanding on `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Estimated band: likely Outstanding on `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, pending rerun verification.
 - Reason this is not full sign-off yet: the notebook still needs one clean rerun in a complete scientific notebook environment before it can honestly be called fully verified for publication.
 
 ## Criterion tracker
 
 ### Post-labs
 
-- Current estimate: strong Excellent.
-- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile consistently where the accepted ranking requires it in the solvent-order interpretation.
+- Current estimate: strong Excellent to Outstanding.
+- Evidence: all questions are answered in detail, the answers are data-linked, and the polished copy now uses acetonitrile consistently where the accepted ranking requires it in the solvent-order interpretation, characteristic-time discussion and solvent-dependence explanation.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
@@ -57,7 +40,7 @@
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the polished notebook now has a stronger title card, a more explicit abstract, a sharper conclusion, clearer reproducibility language, and a better-documented output-audit appendix. This run also corrected the remaining source/output mismatches in the results discussion, literature comparison framing, and post-lab solvent interpretation.
+- Evidence: the polished notebook now has a stronger title card, a more explicit abstract, a sharper conclusion, clearer reproducibility language, and a better-documented output-audit appendix. This run also corrected the remaining source/output mismatches in the results discussion, literature comparison framing and post-lab solvent interpretation.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -81,11 +64,11 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, the GIFs retained large display dimensions, all 9 saved HTML tables were wrapped for safer horizontal scrolling, and both inline animation panels were set to remain collapsed on first open.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images, and inline GIFs. During this run all 8 embedded PNG figures and both inline GIF payloads decoded successfully, the GIFs retained large display dimensions, all 9 saved HTML tables were wrapped for safer horizontal scrolling, a CSS fallback for wide tables was added, and both inline animation panels were set to remain collapsed on first open.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
 
 1. Re-run the polished notebook end to end in a complete scientific notebook environment.
-2. Confirm that regenerated figures, tables, and both GIF panels remain visually clean and consistent with the corrected narrative.
-3. Do one final publication pass focused only on captions, output sizing, and any minor regenerated prose drift.
+2. Confirm that regenerated figures, tables and both GIF panels remain visually clean and consistent with the corrected narrative.
+3. Do one final publication pass focused only on captions, output sizing and any minor regenerated prose drift.
