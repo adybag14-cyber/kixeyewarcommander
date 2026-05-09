@@ -4,7 +4,7 @@
 
 - Re-opened the attached notebook package, rubric export and saved memory notes, then treated the notebook itself as the source of truth rather than assuming prior status notes were fully current.
 - Confirmed four remaining high-impact publication defects in the attached notebook package: the opening publication framing was still too vague, one results interpretation and one post-lab explanation still contradicted the accepted acetonitrile-first ordering, and the laboratory-workflow GIF panel still opened by default.
-- Created the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Re-created the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the older attached executed notebook package so the current workspace again contains the corrected publication-ready copy.
 - Rewrote the title-card result and abstract so they now state `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` rate span explicitly.
 - Corrected the remaining source-side and rendered-output narrative mismatches so the notebook no longer says acetone is the fastest solvent or that acetone has the largest measured rate constant.
 - Strengthened the results discussion by replacing the inconsistent polarity interpretation with a more rigorous explanation of the non-monotonic solvent trend.
