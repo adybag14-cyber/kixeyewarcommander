@@ -3,7 +3,7 @@
 ## 2026-05-09 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the notebook now leads with the actual retained-trace count, accepted solvent ranking and 46.5-fold span; the results discussion and post-lab answers no longer contradict the accepted acetonitrile-first ordering; the conclusion is sharper and more quantitative; all saved table outputs that render as HTML tables now have horizontal-scroll protection; and both inline GIF panels are collapsed by default when the notebook opens.
+- What improved this run: the current polished notebook copy now leads with the actual retained-trace count, accepted solvent ranking and 46.5-fold span; the results discussion and post-lab answers no longer contradict the accepted acetonitrile-first ordering; the conclusion is sharper and more quantitative; all saved table outputs that render as HTML tables now have horizontal-scroll protection; and both inline GIF panels are collapsed by default when the notebook opens.
 - Main uncertainty that remains: this run still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
 
 ## Rubric reconstruction
