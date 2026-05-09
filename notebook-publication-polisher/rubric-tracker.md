@@ -40,7 +40,7 @@
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the notebook now has a stronger title card, clearer abstract, sharper conclusion, corrected solvent-order interpretation and more rigorous results discussion, with the main result quantified consistently in the opening and close.
+- Evidence: the notebook now has a stronger title card, clearer abstract, sharper conclusion, corrected solvent-order interpretation and more rigorous results discussion, with the main result quantified consistently in the opening, discussion, post-lab answers and close.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -64,7 +64,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML table outputs gained horizontal-scroll protection, the acetonitrile-first result now appears consistently in the opening, discussion, post-lab answers and conclusion, and neither expandable animation panel opens by default.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML table outputs gained horizontal-scroll protection, the acetonitrile-first result now appears consistently in the opening, abstract, discussion, post-lab answers and conclusion, and neither expandable animation panel opens by default.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
