@@ -40,7 +40,7 @@
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the notebook now has a stronger title card, clearer abstract, sharper conclusion, corrected solvent-order interpretation and more rigorous results discussion.
+- Evidence: the notebook now has a stronger title card, clearer abstract, sharper conclusion, corrected solvent-order interpretation and more rigorous results discussion, with the main result quantified consistently in the opening and close.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
