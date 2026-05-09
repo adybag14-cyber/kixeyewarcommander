@@ -21,7 +21,7 @@
 ## Current score estimate
 
 - Estimated band: likely Outstanding on `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, pending rerun verification.
-- Reason this is not full sign-off yet: the notebook still needs one clean rerun in a complete scientific notebook environment before it can honestly be called fully verified for publication.
+- Reason this is not full sign-off yet: the notebook still needs one clean rerun and export check in a complete scientific notebook environment before it can honestly be called fully verified for publication.
 
 ## Criterion tracker
 
@@ -64,7 +64,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML tables gained horizontal-scroll protection, and neither expandable animation panel opens by default.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all saved HTML table outputs gained horizontal-scroll protection, and neither expandable animation panel opens by default.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
