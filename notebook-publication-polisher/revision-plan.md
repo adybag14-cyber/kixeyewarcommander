@@ -8,5 +8,6 @@
 - Completed: strengthen the publication framing in the opening and conclusion with the retained trace count, accepted solvent order and observed dynamic range.
 - Completed: correct the remaining source/output interpretation drift so the notebook consistently treats acetonitrile as the fastest accepted solvent.
 - Completed: fix the saved-output presentation issues by adding wide-table overflow protection and collapsing the second GIF panel by default.
+- Completed: patch the last contradiction inside the stored narrative generator so a future rerun will keep the acetonitrile-first interpretation.
 - Completed: update the reproducibility notes so they accurately reflect the saved-output audit performed in this workspace.
 - Remaining blocker: perform one clean end-to-end rerun in a complete Jupyter and scientific Python environment, then do a final micro-polish pass on any regenerated captions, layout drift or output sizing changes.
