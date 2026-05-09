@@ -2,18 +2,18 @@
 
 ## 2026-05-09 assessment
 
-- Overall state: the attached executed notebook package was re-audited directly in the current workspace and a corrected publication-focused copy now exists at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Overall state: the attached notebook package was re-audited directly in the current workspace and a corrected publication-focused copy now exists at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Readiness summary: the polished copy now states the accepted result clearly and consistently across the opening, abstract, results discussion, post-lab answers and conclusion: `111 of 225` traces were retained, the solvent order is `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the accepted mean-rate span is `46.5-fold` from acetonitrile to toluene.
-- Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads decoded successfully during verification of the polished copy; all 9 stored HTML table outputs now use horizontal-scroll wrappers; and neither expandable GIF panel opens by default when the notebook is first viewed.
+- Visual/rendering summary: all 8 embedded PNG figures and both inline GIF payloads decoded successfully during verification of the polished copy; all 9 saved HTML table outputs now use horizontal-scroll wrappers; and neither expandable GIF panel opens by default when the notebook is first viewed.
 
 ## Major issues resolved this run
 
 - Re-created the polished notebook artifact in `/workspace/output` from the older attached executed notebook package.
-- Rewrote the title-card result and abstract so the notebook leads with the retained-trace count, accepted solvent ranking and 46.5-fold dynamic range instead of a vague qualitative summary.
-- Corrected the remaining interpretation drift in both the notebook source and rendered markdown outputs so the notebook no longer claims acetone is the fastest solvent where the accepted data place acetonitrile first.
+- Rewrote the title-card result, abstract and conclusion so the notebook leads with the retained-trace count, accepted solvent ranking and 46.5-fold dynamic range instead of a vague qualitative summary.
+- Corrected the remaining interpretation drift in both the notebook source and rendered markdown outputs so the notebook no longer claims acetone is the fastest solvent or the largest measured rate where the accepted data place acetonitrile first.
 - Strengthened the results discussion and post-lab explanations so they now describe the solvent trend as non-monotonic with polarity rather than internally contradictory.
-- Tightened the conclusion so it closes on the actual solvent ranking, retained-trace count, dynamic range and chemical interpretation.
+- Tightened the conclusion so it closes on the actual solvent ranking, retained-trace count and chemical interpretation.
 - Added notebook-level wide-table styling and wrapped all stored HTML table outputs so they are less likely to clip in notebook or exported HTML views.
 - Corrected the second expandable GIF panel so it is collapsed by default in the saved rendered output.
 - Verified the polished notebook by decoding every embedded PNG and GIF payload and checking that all table wrappers and collapsible-panel states are present in the notebook JSON.
