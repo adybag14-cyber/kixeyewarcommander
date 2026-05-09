@@ -1,5 +1,22 @@
 # Rubric Tracker
 
+## 2026-05-09 update
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this run: the notebook opening now states the actual retained-trace count and solvent ranking, the saved and source-side results/post-lab prose now use acetonitrile consistently where the accepted ranking requires it, the conclusion is more explicit, the appendices now describe the saved-output audit more honestly, and all 9 saved HTML tables are explicitly scroll-safe.
+- Main uncertainty that remains: this run still audited the executed notebook package and saved outputs directly rather than performing a fresh rerun from source in a full Jupyter/scientific Python environment.
+
+## Current score estimate
+
+- Estimated band: high Excellent to likely Outstanding on `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Reason this is not full sign-off yet: the notebook still needs one clean rerun in a complete scientific notebook environment before it can honestly be called fully verified for publication.
+
+## Criterion tracker delta from this run
+
+- Post-labs: stronger because the solvent-order explanation and solvent-dependence answer now align with the accepted ranking in both source and saved output.
+- Experimental write-up: stronger because the opening framing, conclusion and appendix honesty are now tighter and more publication-like.
+- Use of markdown, LaTeX, HTML and general formatting: stronger because saved HTML table outputs now have explicit horizontal-overflow protection in addition to the existing styling and media checks.
+
 ## 2026-05-08 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
