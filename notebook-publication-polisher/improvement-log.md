@@ -1,5 +1,22 @@
 # Improvement Log
 
+## 2026-05-09
+
+- Re-opened the attached notebook package and confirmed that the reader-facing notebook file still lagged behind the earlier saved progress notes.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook source so the current deliverable once again reflects the best available publication-polish state.
+- Rewrote the title-card central result and abstract so they now foreground the retained-trace count, accepted solvent ranking and 46.5-fold span.
+- Corrected the remaining source-side and rendered interpretation mismatches so the notebook now treats acetonitrile, not acetone, as the fastest accepted solvent everywhere that ranking matters.
+- Fixed the saved results-discussion polarity paragraph, the saved post-lab solvent explanation, the saved post-lab solvent-rate listing and the literature-comparison sentence that still implied acetone was fastest.
+- Strengthened the conclusion with the explicit retained-trace count, solvent order and dynamic range.
+- Expanded the reproducibility and automated-checks appendices so the notebook now records that this pass audited stored executed outputs and explicitly lists the saved-output checks performed.
+- Added explicit horizontal-overflow protection to all 9 saved HTML table outputs in the polished notebook copy.
+- Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures carried inside saved HTML outputs and both inline GIF payloads still decode successfully, all 9 saved HTML tables are wrapped for overflow safety, neither expandable media panel remains open by default, and the media dimensions remain comfortably large for publication-style notebook viewing.
+
+## Open risks after this run
+
+- Could not perform a fresh end-to-end execution of the notebook in this container.
+- Publication confidence is therefore still based on direct audit of the executed notebook package and its embedded outputs, not on a newly generated rerun from source.
+
 ## 2026-05-08
 
 - Re-opened the attached notebook package and confirmed that the actual saved notebook still lagged behind the earlier progress notes.
