@@ -5,7 +5,7 @@
 - Overall state: the attached notebook package was re-audited directly in the current workspace and a corrected publication-focused copy now exists at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Readiness summary: the polished copy now states the accepted result clearly and consistently across the opening, abstract, results discussion, post-lab answers and conclusion: `111 of 225` traces were retained, the solvent order is `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the accepted mean-rate span is `46.5-fold` from acetonitrile to toluene.
-- Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; all 9 saved HTML table outputs now carry horizontal-scroll protection; and neither expandable GIF panel opens by default when the notebook is first viewed.
+- Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; all 9 saved HTML table outputs now carry horizontal-scroll protection; neither expandable GIF panel opens by default when the notebook is first viewed; and both inline GIFs now open on informative preview frames instead of near-blank first frames.
 
 ## Major issues resolved this run
 
@@ -15,6 +15,7 @@
 - Strengthened the results discussion and post-lab explanations so they now describe the solvent trend as non-monotonic with polarity rather than internally contradictory.
 - Added notebook-level wide-table styling and horizontal-scroll protection to all 9 stored HTML table outputs so they are less likely to clip in notebook or exported HTML views.
 - Corrected the laboratory-workflow GIF panel so it is collapsed by default in both the notebook source and the saved rendered output.
+- Reordered both embedded GIF payloads and their source-generation logic so the notebook now opens those animations on meaningful preview frames instead of almost blank first frames.
 - Corrected the post-lab timescale example and solvent-order examples so the saved answers no longer mix acetonitrile-first rates with acetone-first wording.
 
 ## Major remaining blockers
@@ -25,5 +26,5 @@
 ## Next highest-value actions
 
 1. Re-run the polished notebook in a complete notebook environment with the required scientific dependencies installed.
-2. Confirm that regenerated figures, tables and both GIF panels remain visually clean, collapsed by default where intended, and consistent with the corrected acetonitrile-first interpretation.
+2. Confirm that regenerated figures, tables and both GIF panels remain visually clean, collapsed by default where intended, open on informative preview frames, and stay consistent with the corrected acetonitrile-first interpretation.
 3. Do one final micro-polish pass on captions, output sizing and any prose drift introduced during rerun.
