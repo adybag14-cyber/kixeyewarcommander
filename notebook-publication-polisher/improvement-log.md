@@ -13,6 +13,9 @@
 - Removed the default-open state from the laboratory workflow GIF panel in both the source code and the stored rendered HTML output.
 - Added horizontal-scroll wrappers to all 9 saved HTML dataframe/table outputs so wide tables have clipping protection in notebook and exported HTML views without depending on external CSS.
 - Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both inline GIF payloads decode successfully, all 9 saved table outputs are wrapped, and neither GIF panel opens by default.
+- Rebuilt that polished copy again in the current workspace when it was missing locally, rather than assuming the earlier artifact was still present.
+- Extended the notebook source itself so future reruns inherit the scroll-safe table behaviour through both global notebook CSS and the `report_table` helper.
+- Corrected the last saved output inconsistency in the post-lab section so the fastest-solvent timescale example now points to acetonitrile rather than acetone.
 
 ## Open risks after this run
 
