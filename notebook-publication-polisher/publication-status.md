@@ -2,24 +2,24 @@
 
 ## 2026-05-10 assessment
 
-- Overall state: the attached notebook package was re-audited again and a refreshed publication-focused copy now exists at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Overall state: the attached notebook package was audited directly and a refreshed publication-focused copy now exists at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Readiness summary: the polished copy now keeps the accepted result consistent at the source, generated-markdown and rendered-output levels. It states that `111 of 225` traces were retained, the solvent order is `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the accepted mean-rate span is `46.5-fold` from acetonitrile to toluene.
-- Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; all 9 stored HTML table outputs now carry horizontal-scroll protection; and both expandable GIF panels are collapsed by default in the saved notebook output.
+- Readiness summary: the polished copy now leads with the accepted retained-trace count (`111 of 225`), the solvent order (`Acetonitrile > Acetone > THF > Cyclohexane > Toluene`) and the `46.5-fold` mean-rate span from acetonitrile to toluene.
+- Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; all 9 stored HTML table outputs now include horizontal-scroll protection; and neither expandable GIF panel opens by default in the saved notebook output.
 
 ## Major issues resolved this run
 
-- Rebuilt the polished notebook artifact in `/workspace/output` from the attached executed notebook package because the saved deliverable was not present in the current workspace.
-- Strengthened the notebook opening so the title card and abstract lead with the retained-trace count, accepted solvent ranking and 46.5-fold dynamic range instead of a vague qualitative summary.
-- Corrected source-side interpretation drift in the generated discussion and post-lab answer cells so a future rerun will not revert to acetone-first wording where the accepted data place acetonitrile first.
-- Tightened the conclusion so the notebook closes with the same quantitative result it now presents at the start.
-- Added notebook-level wide-table styling and horizontal-scroll protection to all 9 stored HTML dataframe outputs, reducing clipping risk in notebook and exported HTML views.
-- Corrected the laboratory-workflow GIF panel in both the code source and saved rendered HTML so it no longer opens by default when the notebook is first viewed.
-- Re-verified the saved notebook media after editing: all 8 embedded PNG figures and both inline GIF payloads still decode successfully and the figure layouts remain visually clean on spot-check review.
+- Rebuilt the polished notebook artifact in `/workspace/output` from the attached executed notebook package because the attached file still carried the older publication framing and presentation issues.
+- Strengthened the title card and abstract so they foreground the retained-trace count, accepted solvent ranking and 46.5-fold dynamic range rather than a vague qualitative summary.
+- Corrected the remaining post-lab source/output wording drift so the saved notebook and any future rerun both treat acetonitrile as the fastest accepted solvent.
+- Tightened the conclusion so the notebook closes on the same quantitative result it now presents at the start.
+- Added notebook-level wide-table styling and horizontal-scroll protection to all 9 stored HTML table outputs, reducing clipping risk in notebook and exported HTML views.
+- Corrected the laboratory-workflow GIF panel in both the source cell and saved rendered HTML so it no longer opens by default when the notebook is first viewed.
+- Re-verified the saved media after editing: all 8 embedded PNG figures and both inline GIF payloads still decode successfully.
 
 ## Major remaining blockers
 
-- A clean end-to-end rerun is still blocked in this container because the scientific notebook stack used by the original analysis is not installed here; direct inspection showed `nbformat` is missing and the prior run already established that the plotting stack is incomplete for full execution.
+- A clean end-to-end rerun is still blocked in this container because the scientific notebook stack used by the original analysis is not installed here.
 - Final publication sign-off still depends on one rerun in a complete Jupyter and scientific Python environment to confirm that regenerated outputs remain visually clean and text-consistent after execution.
 
 ## Next highest-value actions
