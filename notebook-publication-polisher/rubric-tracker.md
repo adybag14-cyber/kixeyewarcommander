@@ -3,7 +3,7 @@
 ## 2026-05-10 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening, abstract and conclusion; the source and rendered outputs no longer contradict the fitted acetonitrile-first result; the results discussion and conclusion now cite the executed bootstrap-rank table as evidence for ranking stability; wide stored tables now have notebook-level overflow protection; and both inline GIF panels are closed by default in the saved notebook state.
+- What improved this run: the polished notebook artifact was rebuilt, the opening and abstract now state the main quantitative result directly, the discussion and post-lab sections no longer contradict the accepted acetonitrile-first solvent ranking, the conclusion now closes on the same numbers used earlier, and the second inline GIF panel is collapsed by default in the saved notebook state.
 - Main uncertainty that remains: this pass still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
 - Important packaging note: the attached notebook remains the audited source package, while the improved publication-ready artifact now lives at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 
@@ -35,13 +35,13 @@
 ### Data analysis + plotting
 
 - Current estimate: strong Excellent.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; the narrative now explicitly uses the executed bootstrap rank-probability output as evidence for ranking stability; sensitivity checks and independent validation are included; and the stored output state has been checked for table overflow and GIF-default-state issues.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals, sensitivity checks and solvent-level comparisons; the stored notebook state contains 8 decodable embedded PNG figures and 2 decodable inline GIFs; and the saved workflow GIF panel no longer opens by default.
 - Remaining gap: a full rerun is still needed to confirm regenerated outputs after the latest source-side polishing changes.
 
 ### Experimental write-up
 
-- Current estimate: strong Excellent to Outstanding.
-- Evidence: the notebook now has a sharper title card, a more quantitative abstract, corrected results and post-lab interpretation, and a stronger conclusion that closes on the same numbers presented at the start.
+- Current estimate: likely Outstanding after this pass.
+- Evidence: the notebook now has a sharper quantitative opening, a more specific abstract, corrected solvent-order interpretation in the discussion and post-lab sections, and a conclusion that closes on the same retained-trace count, solvent order and rate span.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -65,7 +65,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract and conclusion now present the main quantitative result consistently; wide stored tables have notebook-level overflow protection; and neither expandable animation panel opens by default in the saved notebook state.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract and conclusion now present the same quantitative result consistently; wide stored tables have notebook-level overflow protection; and neither expandable animation panel opens by default in the saved notebook state.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
