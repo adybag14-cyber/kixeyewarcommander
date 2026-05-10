@@ -2,29 +2,28 @@
 
 ## 2026-05-10 assessment
 
-- Overall state: the attached executed notebook was re-audited directly and a fresh polished publication copy was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Overall state: the attached executed notebook package was reviewed directly and a corrected polished copy was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Readiness summary: the rebuilt polished copy now states the retained-trace count (`111 of 225`), the accepted solvent order (`Acetonitrile > Acetone > THF > Cyclohexane > Toluene`) and the `46.5-fold` mean-rate span clearly in the opening, abstract and conclusion. The results-discussion and post-lab generator source plus the saved rendered outputs now consistently treat acetonitrile, not acetone, as the fastest accepted solvent.
-- Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; the saved notebook still contains 19 HTML outputs, including 9 dataframe tables now covered by notebook-level horizontal-scroll CSS; and both expandable GIF panels are closed by default in the saved notebook output.
+- Readiness summary: the polished copy now opens and closes on the real quantitative result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest solvent span.
+- Visual and rendering summary: the notebook still contains 19 stored HTML outputs and 2 inline GIF embeds; the second GIF panel no longer opens by default in the saved output state; and notebook-level CSS now protects wide stored tables against horizontal clipping in notebook and HTML views.
 
 ## Major issues resolved this run
 
-- Rebuilt the polished deliverable in `/workspace/output` so the saved progress notes now point to a real notebook file rather than a stale path.
-- Strengthened the title-card result statement and abstract so the notebook opens with the real quantitative outcome rather than a vague qualitative summary.
-- Strengthened the conclusion so the notebook closes on the same retained-trace count, solvent order and dynamic-range result presented at the start.
-- Corrected the remaining interpretation drift in both the source-side generator code and the saved rendered outputs for the results and post-lab sections, so future reruns keep acetonitrile as the fastest accepted solvent and keep the solvent-order discussion consistent with the fitted data.
-- Added a stronger results-discussion sentence tying the saved bootstrap rank-probability output to the solvent-order claim, making the ranking argument more rigorous rather than purely descriptive.
-- Removed the default-open state from the laboratory workflow GIF panel in both the source code and the saved rendered HTML output, and confirmed that the mechanism panel is also collapsed by default.
-- Added notebook-level horizontal-scroll protection to all 9 stored HTML dataframe outputs, reducing clipping risk in notebook and exported HTML views.
+- Rebuilt a real polished notebook deliverable in `/workspace/output` rather than leaving the notes pointing at a missing file.
+- Strengthened the title-card result statement, abstract and conclusion so the notebook presents one consistent quantitative story from start to finish.
+- Corrected the remaining source/output interpretation drift in the results and post-lab sections so the notebook no longer claims acetone is the fastest accepted solvent.
+- Added explicit bootstrap-rank evidence to the results discussion and conclusion, using the executed rank table to support the stability of the acetonitrile-first ordering.
+- Closed the saved laboratory-workflow GIF panel by default in both the source-side HTML generator and the stored rendered HTML output.
+- Added notebook-level horizontal-scroll protection for stored HTML tables to reduce clipping risk in notebook and exported HTML views.
 
 ## Major remaining blockers
 
-- A clean end-to-end rerun is still blocked in this container because the scientific notebook stack used by the original analysis is not installed here.
-- Final publication sign-off still depends on one rerun in a complete Jupyter and scientific Python environment to confirm that regenerated outputs remain visually clean, table-safe and text-consistent after execution.
-- The audited package was the executed notebook attachment in `agent_files/`; the improved publication-ready copy now lives in `/workspace/output`, so that rebuilt polished copy is the one that should be shared or marked.
+- A clean end-to-end rerun is still blocked in this container because the original scientific notebook stack is not installed here.
+- Final publication sign-off still depends on one rerun in a complete Jupyter and scientific Python environment to confirm that regenerated outputs remain visually clean, text-consistent and free of new layout defects.
+- The attached notebook in `agent_files/` remains the audited source package, while the corrected publication-ready copy for sharing now lives in `/workspace/output`.
 
 ## Next highest-value actions
 
-1. Re-run the polished notebook in a complete scientific notebook environment with the required dependencies installed.
-2. Confirm that regenerated figures, tables and both GIF panels remain visually clean, closed by default where intended, and consistent with the corrected acetonitrile-first interpretation.
-3. Do one final micro-polish pass on captions, output sizing and any prose drift introduced during rerun.
+1. Re-run `/workspace/output/P201_201698955_publication_ready_polished.ipynb` in a complete scientific notebook environment with the required dependencies installed.
+2. Re-check regenerated figures, tables and both GIF panels for any clipping, overlap, open-by-default behaviour or prose drift introduced during rerun.
+3. Do one final micro-polish pass focused only on captions, output sizing and any regenerated text that changes during execution.
