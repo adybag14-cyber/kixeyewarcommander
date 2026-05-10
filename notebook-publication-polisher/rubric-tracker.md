@@ -4,6 +4,7 @@
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening and conclusion; the source and rendered outputs no longer contradict the fitted acetonitrile-first result; all 9 saved HTML table outputs have horizontal-scroll protection; and both inline GIF panels are closed by default when the notebook opens.
+- Additional durability gain: the notebook source now also includes scroll-safe table rendering protections for future reruns, and the saved post-lab prose no longer contains the old acetone-first timescale example.
 - Main uncertainty that remains: this pass still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
 - Important packaging note: the attached notebook remains the audited source package, while the improved publication-ready artifact now lives at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 
@@ -66,6 +67,7 @@
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
 - Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML table outputs gained horizontal-scroll protection, the opening and conclusion now present the main quantitative result consistently, and neither expandable animation panel opens by default.
+- Evidence addendum: the notebook CSS and report-table helper were also strengthened so regenerated notebook tables are more likely to remain readable after a clean rerun.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
