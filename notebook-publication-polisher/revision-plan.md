@@ -7,7 +7,8 @@
 - Completed: create a polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed notebook package.
 - Completed: strengthen the title-card result statement, abstract and conclusion with the retained-trace count, accepted solvent order and 46.5-fold rate span.
 - Completed: correct the remaining source/output interpretation drift so the notebook consistently treats acetonitrile as the fastest accepted solvent and keeps the solvent-order discussion aligned with the fitted data.
-- Completed: fix the saved-output presentation issues by adding notebook-level scroll protection for rendered tables and ensuring the animation panels are collapsed by default in both the saved output state and future source reruns.
-- Completed: verify that the polished notebook decodes all embedded PNG and GIF payloads cleanly and that the saved notebook still contains the full embedded figure and animation set.
+- Completed: strengthen the discussion argument by pointing to the executed bootstrap rank-probability output as evidence that the solvent ordering remains stable under resampling.
+- Completed: fix the saved-output presentation issues by adding notebook-level scroll protection for all 9 stored HTML dataframe outputs and ensuring the animation panels are collapsed by default in both the saved output state and future source reruns.
+- Completed: verify that the polished notebook decodes all embedded PNG and GIF payloads cleanly and that the saved notebook still contains 19 HTML outputs, including all 9 dataframe table outputs, under the new scroll-protection rules.
 - Completed: update the durable progress notes so they now reflect the real state of the polished deliverable.
 - Remaining blocker: perform one clean end-to-end rerun in a complete Jupyter and scientific Python environment, then do a final micro-polish pass on any regenerated captions, layout drift or output sizing changes.
