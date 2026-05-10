@@ -6,9 +6,7 @@
 - Confirmed that the attached package was still the older executed notebook rather than the already-polished deliverable described in memory.
 - Re-created the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed notebook package.
 - Rewrote the title-card result and abstract so they now state `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` rate span explicitly.
-- Corrected the remaining source-side and rendered-output results/post-lab narrative mismatches so the notebook no longer says acetone is the fastest accepted solvent.
-- Repaired the results discussion paragraph that wrongly claimed acetone had the largest measured rate even though the saved summary table puts acetonitrile first.
-- Rewrote the literature-comparison interpretation so the notebook now treats the JCE benchmark as a partial overlap rather than implying that acetonitrile belongs to that older three-solvent comparison set.
+- Corrected the remaining source-side and rendered-output post-lab narrative mismatches so the notebook no longer implies acetone is the fastest accepted solvent.
 - Strengthened the conclusion by adding the retained-trace count, solvent order and dynamic range directly to the closing section.
 - Added notebook-level horizontal-scroll styling and wrapped all 9 saved HTML dataframe outputs so wide tables have clipping protection in notebook and exported HTML views.
 - Corrected the laboratory-workflow GIF panel so it is collapsed by default in both the source code and the saved rendered output.
