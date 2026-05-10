@@ -6,6 +6,7 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Readiness summary: the polished copy now states the retained-trace count (`111 of 225`), the accepted solvent order (`Acetonitrile > Acetone > THF > Cyclohexane > Toluene`) and the `46.5-fold` mean-rate span clearly in the opening and conclusion, and it no longer contains the earlier source/output contradictions that incorrectly treated acetone as the fastest solvent.
 - Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; all 9 stored HTML table outputs now have horizontal-scroll wrappers; and neither expandable GIF panel opens by default in the saved notebook output.
+- Cross-run note: the current workspace did not contain the earlier polished artifact, so this run rebuilt the polished copy directly from the attached notebook package and re-verified the repaired file after writing it.
 
 ## Major issues resolved this run
 
@@ -15,6 +16,8 @@
 - Corrected the saved rendered markdown outputs for the results and post-lab sections so the current notebook view also reflects the same acetonitrile-first interpretation.
 - Removed the default-open state from the laboratory workflow GIF panel in both the source code and the saved rendered HTML output.
 - Added horizontal-scroll protection to all 9 stored HTML table outputs to reduce clipping risk in notebook and exported HTML views.
+- Added source-side table rendering protection for future reruns by extending the notebook CSS and the report-table helper, so regenerated tables are less likely to clip after fresh execution.
+- Corrected the remaining saved post-lab timescale sentence so the visible notebook also uses acetonitrile, not acetone, as the fastest accepted solvent in the explanatory discussion.
 
 ## Major remaining blockers
 
