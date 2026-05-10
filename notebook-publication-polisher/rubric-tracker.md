@@ -3,7 +3,7 @@
 ## 2026-05-10 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening, abstract and conclusion; the source and rendered outputs no longer contradict the fitted acetonitrile-first result; rendered tables now have notebook-level horizontal-scroll protection; and both inline GIF panels are closed by default when the notebook opens.
+- What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening, abstract and conclusion; the source and rendered outputs no longer contradict the fitted acetonitrile-first result; the results discussion now points to the executed bootstrap rank-probability output as evidence that the solvent ordering is stable; all 9 saved HTML table outputs now have notebook-level horizontal-scroll protection; and both inline GIF panels are closed by default when the notebook opens.
 - Main uncertainty that remains: this pass still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
 - Important packaging note: the attached notebook remains the audited source package, while the improved publication-ready artifact now lives at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 
@@ -35,13 +35,13 @@
 ### Data analysis + plotting
 
 - Current estimate: strong Excellent.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; sensitivity checks and independent validation are included; and all 8 saved embedded PNG figures inside notebook outputs decoded successfully during this pass.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; the narrative now explicitly uses the executed bootstrap rank-probability output as evidence for ranking stability; sensitivity checks and independent validation are included; and all 8 saved embedded PNG figures inside notebook outputs decoded successfully during this pass.
 - Remaining gap: a full rerun is still needed to confirm regenerated outputs after the latest source-side polishing changes.
 
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the notebook now has a sharper title card, a more quantitative abstract, a corrected results discussion, consistent solvent-order interpretation, and a stronger conclusion that closes on the same numbers presented at the start.
+- Evidence: the notebook now has a sharper title card, a more quantitative abstract, a corrected results discussion, a stable-evidence explanation for the solvent ranking, consistent solvent-order interpretation, and a stronger conclusion that closes on the same numbers presented at the start.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -65,7 +65,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, rendered tables gained notebook-level horizontal-scroll protection, the opening, abstract and conclusion now present the main quantitative result consistently, and neither expandable animation panel opens by default.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML table outputs gained notebook-level horizontal-scroll protection, the opening, abstract and conclusion now present the main quantitative result consistently, and neither expandable animation panel opens by default.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
