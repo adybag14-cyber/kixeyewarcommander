@@ -6,6 +6,7 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Readiness summary: the polished copy now leads with the accepted retained-trace count (`111 of 225`), the solvent order (`Acetonitrile > Acetone > THF > Cyclohexane > Toluene`) and the `46.5-fold` mean-rate span from acetonitrile to toluene, and it closes on the same quantitative conclusion.
 - Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; all 9 stored HTML table outputs now include horizontal-scroll protection; and neither expandable GIF panel opens by default in the saved notebook output.
+- Source-integrity summary: all code cells in the polished notebook parse successfully after the publication-polish edits, so a future rerun will inherit the corrected wording and scroll-safe table display helpers rather than only the saved outputs.
 - Package-state summary: the attached notebook package itself was still behind the stronger polished narrative in several cells, so the current deliverable is the corrected notebook copy in `/workspace/output` rather than the untouched source attachment.
 
 ## Major issues resolved this run
@@ -17,6 +18,7 @@
 - Added horizontal-scroll protection directly to all 9 stored HTML table outputs, reducing clipping risk in notebook and exported HTML views even without a fresh rerun.
 - Corrected the laboratory-workflow GIF panel in the source cell so any future rerun keeps that animation collapsed by default, matching the already-collapsed saved notebook output.
 - Re-verified the saved media after editing: all 8 embedded PNG figures and both inline GIF payloads still decode successfully.
+- Rebuilt the polished notebook artifact on disk and confirmed that every code cell in that deliverable parses cleanly after the source-side edits.
 
 ## Major remaining blockers
 
