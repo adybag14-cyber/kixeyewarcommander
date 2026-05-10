@@ -1,15 +1,11 @@
 # Revision Plan
 
-## 2026-05-10 publication-polish pass
+## 2026-05-10 priority pass
 
-- Completed: inspect the attached notebook package, rubric export and saved progress notes to identify the highest-impact remaining publication blockers in the current workspace.
-- Completed: rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` because the previously referenced `output` copy was not present in this run.
-- Completed: strengthen the opening publication framing so the title card and abstract foreground `111 of 225` retained traces, the accepted solvent order and the `46.5-fold` rate span.
-- Completed: correct the remaining source-side interpretation drift so the results-discussion and post-lab generator cells no longer carry stale acetone-first language.
-- Completed: rewrite the conclusion so the notebook closes on the same quantitative result it now foregrounds at the start.
-- Completed: fix the saved-output presentation issues by wrapping all 9 HTML tables and collapsing the workflow GIF panel by default in the polished copy.
-- Completed: verify that both inline GIF payloads decode successfully, all 9 stored table outputs are wrapped for horizontal scroll, and the rebuilt notebook contains no previously identified stale acetone-first phrases.
-- Remaining blocker: perform one clean end-to-end rerun in a complete Jupyter and scientific Python environment, then do a final micro-polish pass on any regenerated captions, layout drift or output sizing changes.
+- Verify the attached notebook package itself rather than relying on earlier saved notes.
+- Repair any source/output drift that would cause a rerun to reintroduce wrong interpretation text.
+- Reduce visible notebook presentation risks, especially table clipping and open-by-default media panels.
+- Refresh the durable status, improvement log and rubric tracker after the notebook pass completes.
 
 ## 2026-05-09 publication-polish pass
 
