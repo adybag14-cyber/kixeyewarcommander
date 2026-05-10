@@ -3,7 +3,13 @@
 ## 2026-05-10 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the polished notebook copy now leads and closes with the actual retained-trace count, accepted solvent ranking and 46.5-fold span; the post-lab timescale argument now uses the fastest accepted solvent explicitly; all 9 stored HTML table outputs have horizontal-scroll protection; and both inline GIF panels are collapsed by default when the notebook opens.
+- What improved this run: the rebuilt polished copy now carries the quantitative result consistently in the title card, abstract and conclusion; the last source-side acetone-first wording in the results and post-lab generator cells has been removed; both saved rendered markdown answers align with the accepted acetonitrile-first ordering; all 9 stored HTML tables have horizontal-scroll protection; and both inline GIF payloads decode with their `<details>` panels closed by default.
+- Main uncertainty that remains: this run still polished and verified the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
+
+## 2026-05-09 update
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this run: the polished notebook copy now leads with the actual retained-trace count, accepted solvent ranking and 46.5-fold span; the results discussion and post-lab answers no longer contradict the accepted acetonitrile-first ordering; the conclusion is sharper and more quantitative; all 9 saved HTML table outputs have horizontal-scroll protection; and both inline GIF panels are collapsed by default when the notebook opens.
 - Main uncertainty that remains: this run still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
 
 ## Rubric reconstruction
@@ -64,7 +70,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML table outputs gained horizontal-scroll protection, the title card and conclusion now state the quantitative result explicitly, the post-lab timing example now uses the accepted fastest-to-slowest solvent bracket, and neither expandable animation panel opens by default.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML table outputs gained horizontal-scroll protection, the acetonitrile-first result now appears consistently in the opening, discussion, post-lab answers and conclusion, and neither expandable animation panel opens by default.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
