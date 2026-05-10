@@ -6,19 +6,17 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Readiness summary: the polished copy now leads with the accepted retained-trace count (`111 of 225`), the solvent order (`Acetonitrile > Acetone > THF > Cyclohexane > Toluene`) and the `46.5-fold` mean-rate span from acetonitrile to toluene, and it closes on the same quantitative conclusion.
 - Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; all 9 stored HTML table outputs now include horizontal-scroll protection; and neither expandable GIF panel opens by default in the saved notebook output.
-- Source-integrity summary: all code cells in the polished notebook parse successfully after the publication-polish edits, so a future rerun will inherit the corrected wording and scroll-safe table display helpers rather than only the saved outputs.
 - Package-state summary: the attached notebook package itself was still behind the stronger polished narrative in several cells, so the current deliverable is the corrected notebook copy in `/workspace/output` rather than the untouched source attachment.
 
 ## Major issues resolved this run
 
 - Reconfirmed that the attached notebook package itself still carried the older, vaguer publication framing, then rebuilt the polished notebook artifact in `/workspace/output` from that executed package.
 - Strengthened the title card and abstract so they foreground the retained-trace count, accepted solvent ranking and 46.5-fold dynamic range rather than a vague qualitative summary.
-- Corrected the remaining post-lab source/output wording drift so the saved notebook and any future rerun both treat acetonitrile as the fastest accepted solvent and list the solvent rates in the accepted order.
-- Tightened the conclusion so the notebook closes on the same quantitative result it now presents at the start.
+- Tightened the conclusion so the notebook closes on the same quantitative result it now presents at the start and explicitly notes that the ranking is supported by multiple accepted repeats in every solvent.
+- Added a reproducibility note that the notebook remains portable in principle but still needs the standard scientific notebook stack for a clean rerun.
 - Added horizontal-scroll protection directly to all 9 stored HTML table outputs, reducing clipping risk in notebook and exported HTML views even without a fresh rerun.
-- Corrected the laboratory-workflow GIF panel in the source cell so any future rerun keeps that animation collapsed by default, matching the already-collapsed saved notebook output.
+- Corrected the laboratory-workflow GIF panel in both the source cell and saved output so any future rerun keeps that animation collapsed by default.
 - Re-verified the saved media after editing: all 8 embedded PNG figures and both inline GIF payloads still decode successfully.
-- Rebuilt the polished notebook artifact on disk and confirmed that every code cell in that deliverable parses cleanly after the source-side edits.
 
 ## Major remaining blockers
 
