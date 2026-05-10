@@ -3,13 +3,7 @@
 ## 2026-05-10 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the rebuilt polished copy now carries the quantitative result consistently in the title card, abstract and conclusion; the last source-side acetone-first wording in the results and post-lab generator cells has been removed; both saved rendered markdown answers align with the accepted acetonitrile-first ordering; all 9 stored HTML tables have horizontal-scroll protection; and both inline GIF payloads decode with their `<details>` panels closed by default.
-- Main uncertainty that remains: this run still polished and verified the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
-
-## 2026-05-09 update
-
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the polished notebook copy now leads with the actual retained-trace count, accepted solvent ranking and 46.5-fold span; the results discussion and post-lab answers no longer contradict the accepted acetonitrile-first ordering; the conclusion is sharper and more quantitative; all 9 saved HTML table outputs have horizontal-scroll protection; and both inline GIF panels are collapsed by default when the notebook opens.
+- What improved this run: the polished notebook copy now leads with the actual retained-trace count, accepted solvent ranking and 46.5-fold span; the source code that generates the discussion and post-lab answers now preserves the accepted acetonitrile-first interpretation on rerun; the conclusion is more quantitative; all 9 saved HTML table outputs have horizontal-scroll protection; and both inline GIF panels are collapsed by default when the notebook opens.
 - Main uncertainty that remains: this run still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
 
 ## Rubric reconstruction
@@ -34,7 +28,7 @@
 ### Post-labs
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: all questions are answered in detail, the answers are linked to the fitted results, and the polished copy now uses the accepted acetonitrile-first interpretation consistently, including the timescale example and the solvent-order examples.
+- Evidence: all questions are answered in detail, the answers are linked to the fitted results, and the polished copy now uses the accepted acetonitrile-first interpretation consistently in both the saved rendered output and the source code that would regenerate those answers on rerun.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
@@ -46,7 +40,7 @@
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the notebook now has a stronger title card, clearer abstract, sharper conclusion, corrected solvent-order interpretation and more rigorous results discussion, with the main result quantified consistently in the opening and close.
+- Evidence: the notebook now has a stronger title card, clearer abstract, sharper conclusion, corrected solvent-order interpretation and more rigorous results discussion, with the main result quantified consistently in the opening and close and protected against source-side wording drift on rerun.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -70,7 +64,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML table outputs gained horizontal-scroll protection, the acetonitrile-first result now appears consistently in the opening, discussion, post-lab answers and conclusion, and neither expandable animation panel opens by default.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML table outputs gained horizontal-scroll protection, the acetonitrile-first result now appears consistently in the opening, discussion, post-lab answers and conclusion at both the source and saved-output levels, and neither expandable animation panel opens by default.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
