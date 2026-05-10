@@ -2,28 +2,26 @@
 
 ## 2026-05-10 assessment
 
-- Overall state: the attached executed notebook was reviewed directly and a new polished publication copy now exists at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Overall state: the attached executed notebook was reviewed directly and a fresh polished publication copy was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Readiness summary: the polished copy now states the retained-trace count (`111 of 225`), the accepted solvent order (`Acetonitrile > Acetone > THF > Cyclohexane > Toluene`) and the `46.5-fold` mean-rate span clearly in the opening and conclusion, and it no longer contains the earlier source/output contradictions that incorrectly treated acetone as the fastest solvent.
-- Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; all 9 stored HTML table outputs now have horizontal-scroll wrappers; and neither expandable GIF panel opens by default in the saved notebook output.
-- Cross-run note: the current workspace did not contain the earlier polished artifact, so this run rebuilt the polished copy directly from the attached notebook package and re-verified the repaired file after writing it.
+- Readiness summary: the rebuilt polished copy now states the retained-trace count (`111 of 225`), the accepted solvent order (`Acetonitrile > Acetone > THF > Cyclohexane > Toluene`) and the `46.5-fold` mean-rate span clearly in the opening, abstract and conclusion. The saved narrative no longer contradicts the fitted ranking by calling acetone the fastest solvent.
+- Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; 8 stored HTML table outputs now have horizontal-scroll wrappers; and neither expandable GIF panel opens by default in the saved notebook output.
 
 ## Major issues resolved this run
 
-- Strengthened the title-card result statement and abstract so the notebook now opens with the real quantitative outcome rather than a vague qualitative summary.
+- Rebuilt the missing polished deliverable in `/workspace/output` so the saved progress notes now point to a real notebook file rather than a stale path.
+- Strengthened the title-card result statement and abstract so the notebook opens with the real quantitative outcome rather than a vague qualitative summary.
 - Strengthened the conclusion so the notebook closes on the same retained-trace count, solvent order and dynamic-range result presented at the start.
 - Corrected the remaining interpretation drift in the results-discussion and post-lab-answer generator cells, so future reruns keep acetonitrile as the fastest accepted solvent and keep the solvent-order discussion consistent with the fitted data.
 - Corrected the saved rendered markdown outputs for the results and post-lab sections so the current notebook view also reflects the same acetonitrile-first interpretation.
 - Removed the default-open state from the laboratory workflow GIF panel in both the source code and the saved rendered HTML output.
-- Added horizontal-scroll protection to all 9 stored HTML table outputs to reduce clipping risk in notebook and exported HTML views.
-- Added source-side table rendering protection for future reruns by extending the notebook CSS and the report-table helper, so regenerated tables are less likely to clip after fresh execution.
-- Corrected the remaining saved post-lab timescale sentence so the visible notebook also uses acetonitrile, not acetone, as the fastest accepted solvent in the explanatory discussion.
+- Added horizontal-scroll protection to all stored HTML dataframe outputs that lacked it, reducing clipping risk in notebook and exported HTML views.
 
 ## Major remaining blockers
 
 - A clean end-to-end rerun is still blocked in this container because the scientific notebook stack used by the original analysis is not installed here.
 - Final publication sign-off still depends on one rerun in a complete Jupyter and scientific Python environment to confirm that regenerated outputs remain visually clean and text-consistent after execution.
-- The source attachment in `agent_files/` was treated as the audited input package; the final improved notebook currently lives in `/workspace/output`, so that polished copy is the one that should be shared or marked.
+- The audited package was the executed notebook attachment in `agent_files/`; the improved publication-ready copy now lives in `/workspace/output`, so that rebuilt polished copy is the one that should be shared or marked.
 
 ## Next highest-value actions
 
