@@ -2,10 +2,11 @@
 
 ## 2026-05-10 priority pass
 
-- Verify the attached notebook package itself rather than relying on earlier saved notes.
-- Repair any source/output drift that would cause a rerun to reintroduce wrong interpretation text.
-- Reduce visible notebook presentation risks, especially table clipping and open-by-default media panels.
-- Refresh the durable status, improvement log and rubric tracker after the notebook pass completes.
+- Completed: verify the attached notebook package itself rather than relying on earlier saved notes.
+- Completed: repair the source/output drift that would cause a rerun to reintroduce wrong interpretation text.
+- Completed: reduce visible notebook presentation risks, especially table clipping and open-by-default media panels.
+- Completed: refresh the durable status, improvement log and rubric tracker after the notebook pass completes.
+- Remaining blocker: perform one clean end-to-end rerun in a complete Jupyter and scientific Python environment, then do one last publication pass on any regenerated captions, prose drift or output sizing changes.
 
 ## 2026-05-09 publication-polish pass
 
