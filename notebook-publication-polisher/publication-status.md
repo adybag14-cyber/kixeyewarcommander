@@ -1,25 +1,25 @@
 # Publication Status
 
-## 2026-05-09 assessment
+## 2026-05-10 assessment
 
-- Overall state: the attached notebook package was re-audited directly in the current workspace and a corrected publication-focused copy now exists at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Overall state: the attached executed notebook package was reviewed again and a publication-focused deliverable now exists at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Readiness summary: the polished copy now states the accepted result clearly and consistently across the opening, abstract, results discussion, post-lab answers and conclusion: `111 of 225` traces were retained, the solvent order is `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the accepted mean-rate span is `46.5-fold` from acetonitrile to toluene.
-- Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; all 9 saved HTML table outputs now carry horizontal-scroll protection; and neither expandable GIF panel opens by default when the notebook is first viewed.
+- Readiness summary: the polished copy now foregrounds the accepted result consistently in the opening, abstract, results discussion, post-lab answers and conclusion: `111 of 225` traces were retained, the solvent order is `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the accepted mean-rate span is `46.5-fold` from acetonitrile to toluene.
+- Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; all 9 stored HTML table outputs now carry horizontal-scroll protection; and both expandable GIF panels are collapsed by default when the notebook opens.
 
 ## Major issues resolved this run
 
-- Re-created the polished notebook deliverable in `/workspace/output` from the older attached executed notebook package.
-- Rewrote the title-card result, abstract and conclusion so the notebook leads with the retained-trace count, accepted solvent order and 46.5-fold dynamic range instead of a vague qualitative summary.
-- Corrected the remaining interpretation drift in both the notebook source and the saved rendered markdown outputs so the notebook no longer treats acetone as the fastest solvent or the largest measured rate where the accepted data place acetonitrile first.
-- Strengthened the results discussion and post-lab explanations so they now describe the solvent trend as non-monotonic with polarity rather than internally contradictory.
-- Added notebook-level wide-table styling and horizontal-scroll protection to all 9 stored HTML table outputs so they are less likely to clip in notebook or exported HTML views.
-- Corrected the laboratory-workflow GIF panel so it is collapsed by default in the saved rendered output when the notebook opens.
-- Re-verified the final polished artifact after editing: the JSON opens cleanly, the strengthened narrative appears in source and stored output cells, and no broken inline media payloads were introduced during the update.
+- Confirmed that the attached notebook package itself still contained publication-quality drift relative to the saved notes, so the current pass worked from the notebook as the source of truth rather than from memory.
+- Rebuilt the polished notebook deliverable in `/workspace/output` from the attached executed package.
+- Rewrote the title-card central result, abstract and conclusion so the notebook now leads and closes with the retained-trace count, accepted solvent ranking and 46.5-fold dynamic range rather than a vague qualitative summary.
+- Corrected the saved post-lab characteristic-time framing so it now uses the fastest accepted solvent, acetonitrile, against the slowest solvent, toluene, to justify the timescale separation argument.
+- Added horizontal-scroll protection to all 9 stored HTML table outputs, reducing clipping risk in notebook and exported HTML views.
+- Corrected the saved laboratory-workflow GIF panel so it is collapsed by default in both the notebook code and the stored rendered output.
+- Re-verified the polished copy structurally after editing: all 8 embedded PNG figures and both inline GIF payloads decode cleanly, all 9 saved tables are wrapped for horizontal scrolling, and no saved expandable panel remains open by default.
 
 ## Major remaining blockers
 
-- A clean end-to-end rerun is still blocked in this container because the available runtime here does not include the same executable scientific stack used to generate the notebook outputs; even direct notebook inspection here had to avoid the usual notebook helper stack.
+- A clean end-to-end rerun is still blocked in this container because the scientific notebook stack needed to execute the original code path is not installed here.
 - Final publication sign-off therefore still depends on one rerun in a complete Jupyter and scientific Python environment to confirm that regenerated outputs remain visually clean and text-consistent after execution.
 
 ## Next highest-value actions
