@@ -12,6 +12,8 @@
 - Corrected the laboratory-workflow GIF panel so it is collapsed by default in the source code, matching the already-collapsed saved rendered output.
 - Verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both GIF payloads decode successfully, all 9 saved table outputs are wrapped, and both expandable animation panels are collapsed by default in the saved notebook output.
 - Re-verified the current polished copy on disk and confirmed again that all 8 embedded PNG figures and both inline GIF payloads decode successfully, all 9 saved table outputs are wrapped, and the source no longer contains any default-open laboratory GIF panel.
+- Added scroll-safe table-display helpers to the notebook source so future reruns inherit the same clipping protection currently present in the saved HTML outputs.
+- Parsed every code cell in the rebuilt polished notebook to confirm that the source-side publication edits did not leave behind syntax problems.
 
 ## Open risks after this run
 
