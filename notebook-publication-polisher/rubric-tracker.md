@@ -3,8 +3,7 @@
 ## 2026-05-10 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the polished notebook copy now leads with the accepted retained-trace count, solvent ranking and 46.5-fold span; the post-lab source code and saved rendered output preserve the accepted acetonitrile-first interpretation; the conclusion is more quantitative; all 9 saved HTML table outputs have horizontal-scroll protection; and both inline GIF panels are collapsed by default when the notebook opens.
-- Additional verification completed: the rebuilt polished notebook on disk has syntax-clean code cells, so the publication polish is embedded in rerunnable source as well as the saved outputs.
+- What improved this run: the polished notebook copy now leads with the accepted retained-trace count, solvent ranking and 46.5-fold span; the conclusion is more quantitative and more explicit about replicate support; the reproducibility note now states the real rerun dependency; all 9 saved HTML table outputs have horizontal-scroll protection; and both inline GIF panels are collapsed by default when the notebook opens.
 - Main uncertainty that remains: this run still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
 - Important packaging note: the audited attachment was still behind the polished narrative, so the rubric should be judged against `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, not the untouched source attachment.
 
@@ -42,7 +41,7 @@
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the notebook now has a stronger title card, clearer abstract, sharper conclusion, corrected solvent-order interpretation and more rigorous results discussion, with the main result quantified consistently in the opening, post-lab answers and close.
+- Evidence: the notebook now has a stronger title card, clearer abstract, sharper conclusion, explicit retained-trace count, explicit solvent order, explicit dynamic range, and more rigorous results discussion, with the main result quantified consistently in the opening and close.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -66,8 +65,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML table outputs gained horizontal-scroll protection, the main quantitative result now appears consistently in the opening, post-lab answers and conclusion, and neither expandable animation panel opens by default.
-- Evidence: the notebook source now also includes scroll-safe table display helpers, reducing the chance that a fresh rerun reintroduces clipped wide tables.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels, inline images and inline GIFs. During this pass all 8 embedded PNG figures and both inline GIF payloads decoded successfully, all 9 saved HTML table outputs gained horizontal-scroll protection, the main quantitative result now appears consistently in the opening and conclusion, and neither expandable animation panel opens by default.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
