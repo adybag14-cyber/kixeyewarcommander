@@ -2,19 +2,19 @@
 
 ## 2026-05-10 assessment
 
-- Overall state: the attached executed notebook package was reviewed directly and a corrected polished copy was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Overall state: the attached executed notebook package was reviewed directly and a corrected polished copy now exists at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Readiness summary: the polished copy now opens and closes on the real quantitative result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest solvent span.
-- Visual and rendering summary: the notebook still contains 19 stored HTML outputs and 2 inline GIF embeds; the second GIF panel no longer opens by default in the saved output state; and notebook-level CSS now protects wide stored tables against horizontal clipping in notebook and HTML views.
+- Readiness summary: the notebook now opens, discusses and closes on the same quantitative result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
+- Visual and rendering summary: all 8 embedded PNG figures and both inline GIFs decode successfully from the saved notebook state; the second GIF panel is closed by default; and notebook-level CSS protects wide stored tables against horizontal clipping in notebook and HTML views.
 
 ## Major issues resolved this run
 
-- Rebuilt a real polished notebook deliverable in `/workspace/output` rather than leaving the notes pointing at a missing file.
-- Strengthened the title-card result statement, abstract and conclusion so the notebook presents one consistent quantitative story from start to finish.
-- Corrected the remaining source/output interpretation drift in the results and post-lab sections so the notebook no longer claims acetone is the fastest accepted solvent.
-- Added explicit bootstrap-rank evidence to the results discussion and conclusion, using the executed rank table to support the stability of the acetonitrile-first ordering.
-- Closed the saved laboratory-workflow GIF panel by default in both the source-side HTML generator and the stored rendered HTML output.
-- Added notebook-level horizontal-scroll protection for stored HTML tables to reduce clipping risk in notebook and exported HTML views.
+- Rebuilt the missing polished notebook artifact in `/workspace/output` so the deliverable referenced in the saved notes now exists again.
+- Strengthened the title card and abstract so the notebook states the retained-trace count, accepted solvent order and rate span immediately rather than leaving the central result vague.
+- Corrected the remaining solvent-order contradictions in both the discussion and post-lab answers so the notebook consistently treats acetonitrile as the fastest accepted solvent.
+- Strengthened the conclusion so it closes on the same quantitative result presented in the opening and results sections.
+- Fixed the saved rendered laboratory-workflow GIF panel so it is collapsed by default rather than opening automatically.
+- Re-audited the stored visual outputs and confirmed that the embedded figures and GIFs are present and decodable in the saved notebook.
 
 ## Major remaining blockers
 
