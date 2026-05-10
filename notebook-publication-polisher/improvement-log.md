@@ -6,14 +6,11 @@
 - Confirmed that the attached package was still the older executed notebook rather than the already-polished deliverable described in memory.
 - Re-created the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed notebook package.
 - Rewrote the title-card result and abstract so they now state `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` rate span explicitly.
-- Corrected the remaining source-side and rendered-output post-lab narrative mismatches so the notebook no longer says acetone is the fastest accepted solvent, and reordered the solvent-rate summary to match the accepted ranking.
-- Strengthened the conclusion by adding the retained-trace count, solvent order and dynamic range directly to the closing section.
+- Strengthened the conclusion by adding the retained-trace count, solvent order and dynamic range directly to the closing section and by stating that the solvent ranking is supported by multiple accepted repeats.
+- Added a clearer reproducibility note explaining that the notebook remains portable but still requires the standard scientific notebook stack for a clean rerun.
 - Added horizontal-scroll wrappers to all 9 saved HTML dataframe outputs so wide tables have clipping protection in notebook and exported HTML views without depending on CSS alone.
-- Corrected the laboratory-workflow GIF panel so it is collapsed by default in the source code, matching the already-collapsed saved rendered output.
+- Corrected the laboratory-workflow GIF panel so it is collapsed by default in both the source code and the saved rendered output.
 - Verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both GIF payloads decode successfully, all 9 saved table outputs are wrapped, and both expandable animation panels are collapsed by default in the saved notebook output.
-- Re-verified the current polished copy on disk and confirmed again that all 8 embedded PNG figures and both inline GIF payloads decode successfully, all 9 saved table outputs are wrapped, and the source no longer contains any default-open laboratory GIF panel.
-- Added scroll-safe table-display helpers to the notebook source so future reruns inherit the same clipping protection currently present in the saved HTML outputs.
-- Parsed every code cell in the rebuilt polished notebook to confirm that the source-side publication edits did not leave behind syntax problems.
 
 ## Open risks after this run
 
