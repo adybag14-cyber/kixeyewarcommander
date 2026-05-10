@@ -28,9 +28,10 @@
 - Rewrote the title-card result and abstract so they now state the accepted retained-trace count, solvent order and 46.5-fold dynamic range explicitly.
 - Updated the conclusion so the notebook closes with the same quantitative finding it now presents in the opening.
 - Corrected the source code that generates the results discussion and post-lab answers so a future rerun will preserve the accepted acetonitrile-first interpretation instead of drifting back to older acetone-first wording.
+- Corrected the saved rendered markdown outputs for the results discussion and post-lab answers so the notebook no longer contains acetonitrile-versus-acetone interpretation drift in the visible executed report.
 - Wrapped all 9 stored HTML dataframe outputs in horizontal-scroll containers to reduce clipping risk in notebook and exported HTML views.
 - Corrected the saved laboratory-workflow animation panel so it is collapsed by default in the rendered notebook HTML.
-- Re-verified the final notebook artifact structurally after the latest pass: all 8 embedded PNG figures and both inline GIF payloads decode successfully, both GIF panels are collapsed by default, all stored dataframe outputs now include horizontal-scroll protection, and no stale acetone-first wording remains in either the saved rendered outputs or the notebook source that would regenerate them.
+- Re-verified the final notebook artifact structurally after the latest pass: all 8 embedded PNG figures and both inline GIF payloads decode successfully, both GIF panels are collapsed by default, all stored dataframe outputs now include horizontal-scroll protection, and spot-check image review did not reveal clipping or overlapping labels.
 
 ## Open risks after this run
 
