@@ -9,6 +9,8 @@
 - Completed: correct the remaining source/output interpretation drift so the notebook consistently treats acetonitrile as the fastest accepted solvent and lists the solvent means in the accepted order.
 - Completed: strengthen the conclusion so the notebook closes on the same quantitative result it now foregrounds at the start.
 - Completed: fix the saved-output presentation issues by wrapping all 9 wide HTML table outputs and ensuring the workflow GIF panel is collapsed by default in both the saved output state and future source reruns.
+- Completed: update the notebook source so future reruns use the same scroll-safe table wrappers rather than relying only on saved-output patching.
 - Completed: verify that the polished notebook decodes all embedded PNG and GIF payloads cleanly and that the table wrappers are present in every saved HTML table output.
+- Completed: verify that every code cell in the rebuilt polished notebook parses cleanly after the source-side edits.
 - Completed: update the memory notes so they reflect the real state of the attached package versus the current polished deliverable.
 - Remaining blocker: perform one clean end-to-end rerun in a complete Jupyter and scientific Python environment, then do a final micro-polish pass on any regenerated captions, layout drift or output sizing changes.
