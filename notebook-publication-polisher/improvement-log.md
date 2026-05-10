@@ -12,7 +12,7 @@
 - Corrected the source-side post-lab answers so the timescale example, solvent-order discussion and listed solvent means all match the accepted acetonitrile-first ranking.
 - Corrected the saved rendered markdown outputs for the results and post-lab sections so the visible notebook output no longer contradicts the fitted data.
 - Removed the default-open state from the laboratory workflow GIF panel in both the source code and the stored rendered HTML output.
-- Added horizontal-scroll wrappers to all stored HTML dataframe/table outputs that lacked them so wide tables have clipping protection in notebook and exported HTML views without depending on external CSS.
+- Added horizontal-scroll wrappers to all 9 stored HTML dataframe/table outputs that lacked them so wide tables have clipping protection in notebook and exported HTML views without depending on external CSS.
 - Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both inline GIF payloads decode successfully, the wrapped table outputs are present in the saved notebook, and neither GIF panel opens by default.
 
 ## Open risks after this run
