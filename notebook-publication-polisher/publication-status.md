@@ -5,7 +5,7 @@
 - Overall state: the attached executed notebook was reviewed directly and a fresh polished publication copy was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Readiness summary: the rebuilt polished copy now states the retained-trace count (`111 of 225`), the accepted solvent order (`Acetonitrile > Acetone > THF > Cyclohexane > Toluene`) and the `46.5-fold` mean-rate span clearly in the opening, abstract and conclusion. The saved narrative no longer contradicts the fitted ranking by calling acetone the fastest solvent.
-- Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; 8 stored HTML table outputs now have horizontal-scroll wrappers; and neither expandable GIF panel opens by default in the saved notebook output.
+- Visual and rendering summary: all 8 embedded PNG figures and both inline GIF payloads decode successfully in the polished copy; all 9 stored HTML table outputs now have horizontal-scroll wrappers; and neither expandable GIF panel opens by default in the saved notebook output.
 
 ## Major issues resolved this run
 
@@ -15,7 +15,7 @@
 - Corrected the remaining interpretation drift in the results-discussion and post-lab-answer generator cells, so future reruns keep acetonitrile as the fastest accepted solvent and keep the solvent-order discussion consistent with the fitted data.
 - Corrected the saved rendered markdown outputs for the results and post-lab sections so the current notebook view also reflects the same acetonitrile-first interpretation.
 - Removed the default-open state from the laboratory workflow GIF panel in both the source code and the saved rendered HTML output.
-- Added horizontal-scroll protection to all stored HTML dataframe outputs that lacked it, reducing clipping risk in notebook and exported HTML views.
+- Added horizontal-scroll protection to all 9 stored HTML dataframe outputs, reducing clipping risk in notebook and exported HTML views.
 
 ## Major remaining blockers
 
