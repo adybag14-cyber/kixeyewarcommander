@@ -2,18 +2,38 @@
 
 ## 2026-05-10
 
-- Re-opened the attached notebook package, rubric export and saved memory notes, then treated the attached notebook itself as the source of truth rather than assuming prior status notes were already reflected in the file.
-- Confirmed a real remaining mismatch between memory and the notebook package: the second saved GIF panel was still open by default and the stored HTML table outputs were still unwrapped wide tables.
+- Re-opened the attached notebook package, rubric export and saved memory notes, then confirmed that the polished `output` notebook mentioned in memory was not present in this workspace and had to be rebuilt.
 - Re-created the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed notebook package.
-- Rewrote the title-card central result, abstract and conclusion so they now state `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` rate span explicitly.
-- Corrected the saved post-lab timescale framing so the argument now uses the fastest accepted solvent, acetonitrile, against the slowest solvent, toluene, instead of a less rigorous solvent pair.
-- Added horizontal-scroll wrappers to all 9 stored HTML table outputs, reducing clipping risk in notebook and exported HTML views.
-- Corrected the laboratory-workflow GIF panel so it is collapsed by default in both the notebook code and the saved rendered output.
-- Verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both inline GIF payloads decode successfully, all 9 saved table outputs use horizontal-scroll wrappers, and no expandable animation panel remains open by default.
-- Confirmed that the revised saved output for the post-lab section now states the corrected acetonitrile-to-toluene timescale bracket directly in the rendered markdown.
+- Strengthened the title-card result and abstract so the notebook now leads with `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` mean-rate span.
+- Rewrote the conclusion so it closes on the same quantitative result it now foregrounds at the start and names the remaining verification limitation honestly.
+- Corrected the remaining source/output interpretation mismatch in the results discussion and post-lab answer generator cells so the notebook no longer contains stale acetone-first wording in code while the rendered markdown says acetonitrile is fastest.
+- Corrected the post-lab characteristic-time example so the source and rendered answer both use acetonitrile as the fastest accepted solvent.
+- Added horizontal-scroll protection to all 9 saved HTML table outputs in the rebuilt polished copy.
+- Corrected the laboratory-workflow GIF panel so it is collapsed by default, matching the other extra panel.
+- Verified the rebuilt polished copy structurally after writing it: all 9 saved table outputs are wrapped for horizontal scroll, both inline GIF payloads decode successfully, neither expandable GIF panel opens by default, and the saved notebook no longer contains the previously identified stale acetone-first phrases.
 
 ## Open risks after this run
 
 - Could not perform a fresh end-to-end execution of the notebook in this container.
-- Could not produce a fresh exported HTML render inside this container because the notebook execution stack used by the original notebook is not available here.
-- Publication confidence is therefore based on direct audit and structural verification of the attached executed notebook package plus the saved polished copy, not on a newly regenerated rerun from source.
+- Publication confidence is therefore based on direct audit and repair of the attached executed notebook package plus verification of the rebuilt polished copy, not on a newly regenerated run from source.
+
+## 2026-05-09
+
+- Re-opened the attached notebook package, rubric export and saved memory notes, then treated the notebook itself as the source of truth rather than assuming prior status notes were fully current.
+- Confirmed that the attached package was still the older executed notebook rather than the polished deliverable referenced in memory, so the publication fixes had to be rebuilt.
+- Re-created the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed notebook package.
+- Rewrote the title-card result, abstract and conclusion so they now state `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` rate span explicitly.
+- Corrected the remaining source-side and rendered-output narrative mismatches so the notebook no longer says acetone is the fastest solvent or that acetone has the largest measured rate constant.
+- Strengthened the results discussion by replacing the inconsistent polarity interpretation with a more rigorous explanation of the non-monotonic solvent trend.
+- Corrected the post-lab solvent explanations so the fastest and slowest examples, characteristic-time example and final rate ordering are consistent with the accepted data.
+- Added notebook-level horizontal-scroll styling for wide tables and horizontal-scroll protection to all 9 saved HTML table outputs, reducing clipping risk in notebook and exported HTML views.
+- Corrected the laboratory-workflow GIF panel so it is collapsed by default in both the cell source and the saved rendered output.
+- Verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both inline GIF payloads decode successfully, all 9 saved table outputs use horizontal-scroll wrappers, and no expandable animation panel remains open by default.
+- Re-verified the final saved notebook artifact structurally after the latest pass: the JSON opens cleanly, all 8 embedded PNG figures and both GIF payloads still decode, both GIF panels remain collapsed by default, all 9 saved dataframe outputs include scroll wrappers, and no stale acetone-fastest narrative remains in the saved source or rendered markdown sections.
+- Tried to execute the notebook code path directly in this container to reduce the remaining uncertainty, but the runtime available to this agent lacks the plotting stack needed even for the first import cell, so fresh execution could not be completed here.
+
+## Open risks after this run
+
+- Could not perform a fresh end-to-end execution of the notebook in this container.
+- Could not produce a fresh exported HTML render inside this container because the notebook execution stack and export tools used by the original notebook are not available here.
+- Publication confidence is therefore based on direct audit of the attached executed notebook package and the saved polished copy, not on a newly generated rerun from source.
