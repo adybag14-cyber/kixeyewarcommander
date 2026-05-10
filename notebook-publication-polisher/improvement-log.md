@@ -3,19 +3,17 @@
 ## 2026-05-10
 
 - Re-opened the attached notebook package, rubric export and saved progress notes, then treated the executed notebook JSON as the source of truth for both narrative quality and rendered-output defects.
-- Confirmed that the attached package still contained publication-quality gaps: a vague opening summary, contradictory solvent-order interpretation in both source and rendered outputs, an auto-open laboratory GIF panel, and unclipped-looking wide tables that still lacked scroll protection in the stored HTML output.
-- Built a new polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Confirmed that the attached package still contained publication-quality gaps: a vague opening summary, contradictory solvent-order interpretation in both source and rendered outputs, an auto-open laboratory GIF panel, and wide stored HTML tables that still lacked scroll protection.
+- Confirmed that the earlier notes pointed to a polished notebook in `/workspace/output`, but that file did not actually exist, so the deliverable had to be rebuilt rather than assumed.
+- Rebuilt the polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Rewrote the title-card result statement and abstract so they now state `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` rate span explicitly.
 - Strengthened the conclusion by adding the retained-trace count, solvent order and rate-span result directly to the closing section.
 - Corrected the source-side results-discussion template so it no longer claims that acetone is the fastest solvent or that the ranking is explained with the wrong polarity comparison.
 - Corrected the source-side post-lab answers so the timescale example, solvent-order discussion and listed solvent means all match the accepted acetonitrile-first ranking.
 - Corrected the saved rendered markdown outputs for the results and post-lab sections so the visible notebook output no longer contradicts the fitted data.
 - Removed the default-open state from the laboratory workflow GIF panel in both the source code and the stored rendered HTML output.
-- Added horizontal-scroll wrappers to all 9 saved HTML dataframe/table outputs so wide tables have clipping protection in notebook and exported HTML views without depending on external CSS.
-- Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both inline GIF payloads decode successfully, all 9 saved table outputs are wrapped, and neither GIF panel opens by default.
-- Rebuilt that polished copy again in the current workspace when it was missing locally, rather than assuming the earlier artifact was still present.
-- Extended the notebook source itself so future reruns inherit the scroll-safe table behaviour through both global notebook CSS and the `report_table` helper.
-- Corrected the last saved output inconsistency in the post-lab section so the fastest-solvent timescale example now points to acetonitrile rather than acetone.
+- Added horizontal-scroll wrappers to all stored HTML dataframe/table outputs that lacked them so wide tables have clipping protection in notebook and exported HTML views without depending on external CSS.
+- Re-verified the polished copy after writing it and confirmed that all 8 embedded PNG figures and both inline GIF payloads decode successfully, the wrapped table outputs are present in the saved notebook, and neither GIF panel opens by default.
 
 ## Open risks after this run
 
