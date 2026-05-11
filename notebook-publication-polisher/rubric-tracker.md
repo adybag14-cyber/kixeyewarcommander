@@ -1,9 +1,9 @@
 # Rubric Tracker
 
-## 2026-05-10 update
+## 2026-05-11 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening, abstract and conclusion; the results and post-lab sections no longer contradict the executed acetonitrile-first result; wide stored tables now have notebook-level overflow protection; the second inline GIF panel no longer opens by default; and the saved embedded visuals were re-audited directly.
+- What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening, abstract and conclusion; the source and rendered outputs no longer contradict the fitted acetonitrile-first result; the post-lab explanations now use the correct fastest solvent and a stronger timescale argument; wide stored tables now have notebook-level overflow protection; and the laboratory-workflow GIF panel is closed by default in the saved notebook state.
 - Main uncertainty that remains: this pass still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
 - Important packaging note: the attached notebook remains the audited source package, while the improved publication-ready artifact now lives at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 
@@ -29,19 +29,19 @@
 ### Post-labs
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: all questions are answered in detail and the revised post-lab source/output text now consistently matches the accepted acetonitrile-first solvent ranking.
+- Evidence: all questions are answered in detail and the revised post-lab source/output text now consistently matches the accepted acetonitrile-first solvent ranking, including the timescale and solvent-order explanations.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
 
 - Current estimate: strong Excellent.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; the narrative now explicitly uses the rank output as evidence for stability; and all stored figures plus both inline GIFs were directly checked for obvious publication defects in the saved notebook state.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; the narrative now explicitly uses the executed bootstrap rank-probability output as evidence for ranking stability; sensitivity checks and independent validation are included; and the stored output state has been checked for table overflow and GIF-default-state issues.
 - Remaining gap: a full rerun is still needed to confirm regenerated outputs after the latest source-side polishing changes.
 
 ### Experimental write-up
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: the notebook now has a sharper title card, a more quantitative abstract, corrected discussion and post-lab interpretation, and a stronger conclusion that closes on the same numbers presented at the start.
+- Evidence: the notebook now has a sharper title card, a more quantitative abstract, corrected results and post-lab interpretation, and a stronger conclusion that closes on the same numbers presented at the start.
 - Remaining gap: fresh rerender verification is still needed before claiming there are no residual regenerated-output issues anywhere in the notebook.
 
 ### Originality and elegance of Python code
@@ -53,7 +53,7 @@
 ### Portability of code
 
 - Current estimate: strong Excellent.
-- Evidence: the notebook documents the `Data/` dependency, centralizes key parameters, writes derived outputs systematically, includes validation checks, and now records the current rerun-environment limitation explicitly.
+- Evidence: the notebook documents the `Data/` dependency, centralizes key parameters, writes derived outputs systematically, includes validation checks, and makes the current rerun-environment limitation explicit.
 - Remaining gap: practical portability still depends on having the full scientific Python and Jupyter stack available, and the latest confirmation here is based on stored executed outputs rather than a fresh rerun.
 
 ### Commenting, documentation and explanation of code
@@ -65,7 +65,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract and conclusion now present the main quantitative result consistently; wide stored tables have notebook-level overflow protection; the second expandable GIF no longer opens by default; and the saved embedded visuals were directly checked rather than assumed.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract and conclusion now present the main quantitative result consistently; wide stored tables have notebook-level overflow protection; and neither expandable animation panel opens by default in the saved notebook state.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
