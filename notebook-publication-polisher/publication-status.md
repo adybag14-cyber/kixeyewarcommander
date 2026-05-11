@@ -1,5 +1,27 @@
 # Publication Status
 
+## 2026-05-11 review refresh
+
+- Overall state: the attached executed notebook package was re-audited directly and a corrected polished copy now exists at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Readiness summary: the notebook is close to publication-ready and now presents one consistent quantitative result from opening to conclusion: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
+- Visual and rendering summary: all 10 embedded media objects decoded successfully during audit; both inline GIF panels are now saved closed by default; and notebook-level CSS now adds horizontal-scroll protection for wide rendered tables to reduce clipping risk in notebook and HTML views.
+
+## Major issues resolved this run
+
+- Replaced the generic title-card `Central result` sentence with the actual retained-trace count, solvent order and rate span.
+- Expanded the abstract so it now states the accepted ordering and the stored bootstrap-rank result of probability `1.0` for every rank position.
+- Corrected the remaining solvent-order contradictions in the results discussion and post-lab answers so the visible notebook no longer implies acetone is the fastest accepted solvent.
+- Strengthened the conclusion so it closes on the same quantitative result and bootstrap-order stability used elsewhere in the report.
+- Added notebook-level CSS to make wide stored tables horizontally scrollable instead of risking clipped columns.
+- Closed the second inline GIF panel in the stored output state and re-verified that both embedded GIFs are valid Pillow-readable media.
+
+## Major remaining blockers
+
+- A clean end-to-end rerun is still blocked in this container because the full scientific Jupyter stack used by the original notebook is not installed here.
+- Final publication sign-off still depends on one rerun in a complete notebook environment to confirm that regenerated figures, tables and inline media remain visually clean and text-consistent after execution.
+- Publication confidence is therefore based on direct audit and repair of the executed notebook package plus media validation, not on a fresh execution in this environment.
+
 ## 2026-05-11 assessment
 
 - Overall state: the attached executed notebook package was reviewed again and a refreshed polished copy was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
