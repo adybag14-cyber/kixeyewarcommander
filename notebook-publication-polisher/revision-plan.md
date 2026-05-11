@@ -3,13 +3,12 @@
 ## 2026-05-11 publication-polish pass
 
 - Completed: re-audit the attached executed notebook package directly to catch any saved-output defects or stale narrative that remained after the previous pass.
-- Completed: confirm that the second inline GIF panel was still saved open by default in both source and stored output, then fix both states.
-- Completed: strengthen the opening title card and abstract so they state the exact retained-trace count, solvent ordering, rate span and bootstrap-order stability.
-- Completed: correct stale saved results-discussion and post-lab text that still implied acetone was the fastest solvent.
+- Completed: rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` after confirming the previously referenced deliverable was missing locally.
+- Completed: correct the opening title-card and abstract so they state the retained-trace count, solvent order, rate span and bootstrap-order stability explicitly.
+- Completed: fix the saved results-discussion and post-lab contradictions that still treated acetone as the fastest solvent.
 - Completed: strengthen the conclusion so it closes on the exact quantitative result rather than only a general solvent-dependence statement.
-- Completed: add notebook-level overflow protection for wide stored HTML tables in the polished notebook copy.
-- Completed: rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Completed: verify the stored embedded PNG/GIF media and saved details-panel states in the polished notebook copy.
+- Completed: add notebook-level horizontal scroll protection for wide stored HTML tables.
+- Completed: verify that both inline GIF panels are now saved closed by default and that the stored embedded PNG/GIF media decode successfully in the polished notebook.
 - Remaining blocker: perform one clean end-to-end rerun in a complete scientific notebook environment, then verify regenerated figures, tables and both inline GIF panels one final time.
 
 ## 2026-05-10 publication-polish pass
