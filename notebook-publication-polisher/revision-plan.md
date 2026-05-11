@@ -2,13 +2,21 @@
 
 ## 2026-05-11 publication-polish pass
 
+- Completed: re-check the attached notebook package itself rather than relying on prior notes, and use the saved notebook JSON as the publication-quality source of truth.
+- Completed: rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the current attached notebook package.
+- Completed: tighten the title card, abstract and conclusion so they foreground the retained-trace count, accepted solvent order, rate span and bootstrap-order stability.
+- Completed: correct the remaining source/output interpretation drift so both the visible notebook output and a future rerun consistently treat acetonitrile as the fastest accepted solvent.
+- Completed: add notebook-level overflow protection for stored HTML tables and confirm that the stored embedded PNG figures and both GIF panels remain present.
+- Completed: ensure both inline GIF panels are collapsed by default in the stored notebook state and future source-generated state.
+- Completed: verify that fresh HTML export could not be rerun here because `nbconvert` is unavailable, and record that as an environment blocker rather than claiming a full export check.
+- Remaining blocker: perform one clean end-to-end rerun in a complete scientific notebook environment, then verify regenerated figures, tables and both inline GIF panels one final time.
+
 - Completed: re-audit the attached executed notebook package directly to catch any saved-output defects or stale narrative that remained after the previous pass.
-- Completed: rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` after confirming the previously referenced deliverable was missing locally.
-- Completed: correct the opening title-card and abstract so they state the retained-trace count, solvent order, rate span and bootstrap-order stability explicitly.
-- Completed: fix the saved results-discussion and post-lab contradictions that still treated acetone as the fastest solvent.
+- Completed: confirm that the second inline GIF panel was still saved open by default in both source and stored output, then fix both states.
+- Completed: strengthen the opening title card and abstract so they state the exact retained-trace count, solvent ordering, rate span and bootstrap-order stability.
+- Completed: correct stale saved results-discussion and post-lab text that still implied acetone was the fastest solvent.
 - Completed: strengthen the conclusion so it closes on the exact quantitative result rather than only a general solvent-dependence statement.
-- Completed: add notebook-level horizontal scroll protection for wide stored HTML tables.
-- Completed: verify that both inline GIF panels are now saved closed by default and that the stored embedded PNG/GIF media decode successfully in the polished notebook.
+- Completed: rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Remaining blocker: perform one clean end-to-end rerun in a complete scientific notebook environment, then verify regenerated figures, tables and both inline GIF panels one final time.
 
 ## 2026-05-10 publication-polish pass
