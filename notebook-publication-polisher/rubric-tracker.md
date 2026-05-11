@@ -3,13 +3,29 @@
 ## 2026-05-11 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the notebook opening now states the actual retained-trace count, solvent order and rate span; the abstract now includes the final quantitative result and bootstrap-order stability; the results discussion and post-lab answers no longer contain acetone-first contradictions; the conclusion now closes on the same numbers used earlier in the report; wide stored tables now have notebook-level overflow protection; and both inline GIF panels are saved closed by default in the notebook source and stored outputs.
+- What improved this run: the opening title card, abstract and conclusion now all state the retained-trace count, accepted solvent order and 46.5-fold rate span; the results discussion and post-lab source/output states no longer contain acetone-first contradictions; notebook-level CSS now protects stored HTML tables against horizontal clipping; and both inline GIF panels are saved closed by default in the stored notebook state.
+- Main uncertainty that remains: this pass again audited and repaired the attached executed notebook package directly rather than performing a fresh rerun and fresh HTML export in a complete notebook environment.
+
+## Score estimate after latest pass
+
+- Estimated band: still likely Outstanding, with stronger support for full marks in experimental write-up, post-lab coherence and formatting robustness than before.
+- Remaining reason this is not full sign-off: one clean rerun is still needed before claiming that every regenerated output remains defect-free after execution, and `nbconvert` is not installed here for a fresh HTML export check.
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this run: the notebook opening now states the actual retained-trace count, solvent order and rate span; the abstract now includes the final quantitative result and bootstrap-order stability; the results discussion and post-lab answers no longer contain acetone-first contradictions; the conclusion now closes on the same numbers used earlier in the report; and both inline GIF panels are saved closed by default in the notebook source and stored outputs.
 - Main uncertainty that remains: this pass again audited and repaired the attached executed notebook package directly rather than performing a fresh rerun from source in a complete notebook environment.
 
 ## Score estimate after latest pass
 
 - Estimated band: still likely Outstanding, with better support for full marks in write-up quality and formatting consistency than the previous pass.
 - Remaining reason this is not full sign-off: one clean rerun is still needed before claiming that every regenerated output remains defect-free after execution.
+
+## 2026-05-10 update
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening, abstract and conclusion; the source and rendered outputs no longer contradict the fitted acetonitrile-first result; the results discussion and conclusion now cite the executed bootstrap-rank table as evidence for ranking stability; wide stored tables now have notebook-level overflow protection; and both inline GIF panels are closed by default in the saved notebook state.
+- Main uncertainty that remains: this pass still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
+- Important packaging note: the attached notebook remains the audited source package, while the improved publication-ready artifact now lives at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 
 ## Rubric reconstruction
 
@@ -26,7 +42,6 @@
 ## Current score estimate
 
 - Estimated band: likely Outstanding on `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, pending rerun verification.
-- Additional support for full marks after the latest audit: the saved notebook presentation now better matches the formatting criterion because wide tables have an explicit anti-clipping fallback and both expandable media panels now start in a tidy closed state.
 - Reason this is not full sign-off yet: the notebook still needs one clean rerun and export check in a complete scientific notebook environment before it can honestly be called fully verified for publication.
 
 ## Criterion tracker
@@ -70,7 +85,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract and conclusion now present the main quantitative result consistently; wide stored tables have notebook-level overflow protection; neither expandable animation panel opens by default in the saved notebook state; and the embedded PNG/GIF media decode successfully in the stored notebook copy.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract and conclusion now present the main quantitative result consistently; wide stored tables have notebook-level overflow protection; and neither expandable animation panel opens by default in the saved notebook state.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
