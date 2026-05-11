@@ -2,23 +2,24 @@
 
 ## 2026-05-11 assessment
 
-- Overall state: the attached notebook package was reviewed directly and the notebook itself was patched to remove remaining publication-quality inconsistencies.
+- Overall state: the attached executed notebook package was re-audited directly, and a refreshed polished copy was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Readiness summary: the notebook is close to publication-ready. Its opening title card, abstract, stored results discussion and conclusion now all present the same quantitative result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
-- Visual and rendering summary: the notebook now includes CSS-level horizontal scroll protection for stored tables, both inline GIF panels are saved closed by default, and the saved output state still contains 8 embedded PNG figures and 2 embedded GIFs with no broken inline media found in the notebook JSON audit.
+- Readiness summary: the polished notebook is now closer to publication-ready because the title card, abstract, results discussion, post-lab answers and conclusion all foreground the same evidence-backed headline result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
+- Visual and rendering summary: the polished copy now adds notebook-level horizontal scroll protection for stored tables, keeps both inline GIF panels collapsed by default, and still contains both embedded GIFs with no non-embedded image references in the saved notebook outputs.
 
 ## Major issues resolved this run
 
-- Repaired the attached notebook package itself rather than only describing a polished copy in notes.
-- Rewrote the title-card central-result statement with the exact retained-trace count, solvent order and rate span.
-- Expanded the abstract so it now states the final quantitative result and the stored bootstrap-rank stability explicitly.
-- Strengthened the conclusion so it closes on the same quantitative result and notes that the stored bootstrap ranking preserves the solvent order throughout resampling.
-- Added notebook-level table overflow protection to reduce clipping risk in notebook and HTML viewers.
-- Removed the saved open-by-default state from the second inline GIF panel in both the source generator and the stored rendered output.
-- Rebuilt the polished notebook artifact in `/workspace/output` and re-audited it after writing.
+- Rebuilt the polished notebook artifact that earlier notes referenced but that was missing from `/workspace/output`.
+- Rewrote the opening title-card `Central result` and abstract so they state the retained-trace count, accepted solvent order, quantitative rate span and bootstrap-rank stability explicitly.
+- Corrected stale acetone-fastest wording in the results discussion and post-lab answers so the notebook now treats acetonitrile as the fastest accepted solvent consistently in both source and saved output.
+- Strengthened the results discussion by linking the top-ranked solvent order to the stored bootstrap rank table rather than only to the mean rates.
+- Strengthened the conclusion so it closes on the exact retained-trace count, solvent order, rate span and rank reproducibility.
+- Added notebook-level overflow protection for stored HTML tables to reduce clipping risk in notebook and HTML viewers.
+- Closed the second inline GIF panel by default in both the source cell and stored HTML output.
+- Re-audited the saved notebook outputs and confirmed there are still 19 stored HTML outputs, 2 embedded GIF references and no saved HTML outputs with an `open` details state.
 
 ## Major remaining blockers
 
-- A clean end-to-end rerun is still blocked in this container because the original scientific Jupyter stack used by the notebook is not fully available here.
-- Final publication sign-off still depends on one rerun in a complete notebook environment to confirm that regenerated figures, tables and inline media remain visually clean after execution.
-- The current confidence is therefore based on direct audit and repair of the executed notebook package, not on a fresh execution in this container.
+- A clean end-to-end rerun is still blocked in this container because the full scientific notebook stack used by the original notebook is not installed here.
+- Final publication sign-off still depends on one rerun in a complete notebook environment to confirm that regenerated figures, tables and inline media remain visually clean and text-consistent after execution.
+- The attached notebook in `agent_files/` remains the source package that was audited; the refreshed publication candidate now lives in `/workspace/output`.
