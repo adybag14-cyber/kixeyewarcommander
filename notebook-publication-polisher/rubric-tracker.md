@@ -3,7 +3,14 @@
 ## 2026-05-11 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening, abstract and conclusion; the source and rendered outputs no longer contradict the fitted acetonitrile-first result; the post-lab explanations now use the correct fastest solvent and a stronger timescale argument; wide stored tables now have notebook-level overflow protection; and the laboratory-workflow GIF panel is closed by default in the saved notebook state.
+- What improved this run: the polished notebook now exists again in the current workspace; the title card, abstract and conclusion now state the retained-trace count, accepted solvent order and 46.5-fold span explicitly; the remaining acetone-first contradictions were removed from both source cells and saved rendered outputs; wide stored tables now have front-matter overflow protection; and both inline GIF panels are collapsed by default in the saved notebook state.
+- Main uncertainty that remains: this pass still audited and repaired the attached executed notebook package directly rather than performing a fresh end-to-end rerun in a complete scientific notebook environment.
+- Important packaging note: the attached notebook remains the audited source package, while the improved publication-ready artifact lives at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+
+## 2026-05-10 update
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening, abstract and conclusion; the source and rendered outputs no longer contradict the fitted acetonitrile-first result; the results discussion and conclusion now cite the executed bootstrap-rank table as evidence for ranking stability; wide stored tables now have notebook-level overflow protection; and both inline GIF panels are closed by default in the saved notebook state.
 - Main uncertainty that remains: this pass still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
 - Important packaging note: the attached notebook remains the audited source package, while the improved publication-ready artifact now lives at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 
@@ -29,7 +36,7 @@
 ### Post-labs
 
 - Current estimate: strong Excellent to Outstanding.
-- Evidence: all questions are answered in detail and the revised post-lab source/output text now consistently matches the accepted acetonitrile-first solvent ranking, including the timescale and solvent-order explanations.
+- Evidence: all questions are answered in detail and the revised post-lab source/output text now consistently matches the accepted acetonitrile-first solvent ranking.
 - Remaining gap: rerun once to ensure regenerated markdown output still matches the corrected source text exactly.
 
 ### Data analysis + plotting
@@ -65,7 +72,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract and conclusion now present the main quantitative result consistently; wide stored tables have notebook-level overflow protection; and neither expandable animation panel opens by default in the saved notebook state.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract, discussion, post-lab answers and conclusion now present the main quantitative result consistently; wide stored tables have notebook-level overflow protection; and neither expandable animation panel opens by default in the saved notebook state.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
