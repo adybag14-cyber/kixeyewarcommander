@@ -2,21 +2,33 @@
 
 ## 2026-05-11
 
-- Re-audited the notebook package directly after noticing that the attached file still disagreed with the earlier progress notes in a few important places.
-- Confirmed that the previously referenced polished artifact was missing locally, so rebuilt it at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed notebook.
-- Found and corrected a high-impact interpretation bug in the saved results discussion: the notebook still said acetone had the largest measured rate even though the retained ranking is acetonitrile first.
-- Found and corrected matching acetone-first drift in the saved post-lab answers, including the fastest-timescale example and the solvent-interpretation discussion.
-- Tightened the notebook opening so the title-card `Central result` statement and abstract now state `111 of 225` retained traces, the accepted solvent order and the `46.5-fold` rate span explicitly.
-- Strengthened the conclusion so it closes on the retained-trace count, accepted ordering and rate span rather than only a general solvent-dependence statement.
-- Added notebook-level horizontal-scroll protection for stored HTML tables in the front-matter CSS to reduce clipping risk for wide rendered outputs.
-- Verified that the first inline GIF panel was already saved closed, then removed the stray open-by-default state from the second GIF panel in both the source HTML generator and the stored rendered output.
-- Audited the embedded visual outputs in the polished notebook and confirmed that the saved report still contains the expected eight PNG figure panels plus two inline GIF embeds, with no broken image references detected in the stored HTML outputs.
+- Re-opened the attached executed notebook package and treated the saved notebook JSON, not the earlier notes, as the source of truth for publication quality.
+- Confirmed that the current attached notebook still contained several publication blockers: a generic title-card result statement, an underspecific abstract, a stale acetone-fastest contradiction in the results discussion source, a stale acetone-fastest example in the post-lab source, no notebook-level overflow protection for stored HTML tables, and the second GIF panel still saved open by default.
+- Rebuilt the polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the title card and abstract so they now state `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, the `46.5-fold` rate span, and the stored bootstrap-order stability result.
+- Corrected both the source templates and the stored rendered outputs for the results discussion and post-lab answers so they no longer regenerate or display acetone-first contradictions.
+- Strengthened the conclusion so it now closes on the same retained-trace count, solvent ordering, rate span and bootstrap-order reproducibility established earlier in the notebook.
+- Added notebook-level horizontal-scroll protection for stored HTML tables to reduce clipping risk in notebook and exported-HTML viewers.
+- Closed the second inline GIF panel by default in both the source generator and the stored rendered HTML output.
+- Audited the saved output state after writing the polished copy and confirmed that the notebook still contains the expected embedded PNG figures and both inline GIFs, with neither expandable media panel opening by default.
+- Confirmed that HTML export could not be re-run in this container because `nbconvert` is unavailable, so publication confidence still depends on audit of the saved executed notebook package rather than a fresh HTML build.
+
+- Re-opened the attached executed notebook and audited the stored markdown outputs and inline HTML outputs directly, rather than assuming the previous pass had fully propagated into the saved notebook state.
+- Confirmed that one visible publication bug remained in the attached package: the second inline GIF panel still opened by default in both the source generator and the stored rendered output.
+- Confirmed that several narrative cells still understated or contradicted the strongest accepted quantitative result, especially in the opening summary, the saved results discussion and the saved post-lab answers.
+- Rebuilt the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the title-card `Central result` statement to foreground `111 of 225` retained traces, the accepted solvent order and the `46.5-fold` rate span.
+- Expanded the abstract so it now states the retained-trace count, final solvent ordering and the exact bootstrap-order stability result visible in the saved rank table.
+- Corrected the saved results-discussion text so it no longer says acetone is the fastest solvent; it now treats acetonitrile as the fastest accepted solvent and frames the literature comparison accordingly.
+- Corrected the source-side post-lab generator and the saved rendered post-lab output so the fastest-timescale and solvent-order examples now use acetonitrile consistently.
+- Strengthened the conclusion with the retained-trace count, final ordering, rate span and bootstrap-order reproducibility.
+- Closed the second inline GIF panel by default in both the source code and the stored rendered HTML output, then verified that both animation panels are now saved closed.
 
 ## Open risks after this run
 
 - Could not perform a fresh end-to-end execution of the notebook in this container.
 - Could not regenerate the notebook HTML from a live rerun because the current environment still lacks the original scientific Jupyter stack.
-- Publication confidence therefore still depends on direct audit and source/output repair of the executed notebook package plus validation of the saved embedded media states, not on a newly executed rerender.
+- Publication confidence therefore still depends on direct audit and source/output repair of the executed notebook package plus validation of the saved embedded media states.
 
 ## 2026-05-10
 
