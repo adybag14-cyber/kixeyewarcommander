@@ -1,5 +1,12 @@
 # Rubric Tracker
 
+## 2026-05-11 current pass
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this pass: the notebook now states its headline quantitative result clearly in the opening and conclusion, wide stored tables have stronger overflow protection, and the second inline GIF no longer opens expanded by default.
+- Current score estimate: still likely Outstanding, with stronger evidence for full marks in experimental write-up, post-lab coherence and formatting/presentation robustness than the attached package originally provided.
+- Main uncertainty that remains: the notebook was improved and re-audited from the executed package, and key stored figures were checked directly, but it still has not been rerun end to end in a complete scientific notebook environment from this container.
+
 ## 2026-05-11 latest pass
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
