@@ -1,15 +1,5 @@
 # Revision Plan
 
-## 2026-05-11 review refresh
-
-- Completed: re-audit the attached notebook itself instead of trusting prior notes about already-applied improvements.
-- Completed: strengthen the opening title card, abstract and conclusion with the retained-trace count, accepted solvent ordering, rate span and bootstrap-order stability.
-- Completed: correct the remaining acetone-first contradictions in both the source-side narrative generators and the stored rendered markdown outputs.
-- Completed: add notebook-level horizontal-scroll protection for wide stored tables.
-- Completed: close the second saved GIF panel by default and re-validate all embedded PNG and GIF media.
-- Completed: rebuild the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Remaining blocker: perform one clean end-to-end rerun in a complete scientific notebook environment, then verify regenerated tables, figures and both inline GIF panels one final time.
-
 ## 2026-05-11 publication-polish pass
 
 - Completed: re-audit the attached executed notebook package directly to catch any saved-output defects or stale narrative that remained after the previous pass.
@@ -17,7 +7,9 @@
 - Completed: strengthen the opening title card and abstract so they state the exact retained-trace count, solvent ordering, rate span and bootstrap-order stability.
 - Completed: correct stale saved results-discussion and post-lab text that still implied acetone was the fastest solvent.
 - Completed: strengthen the conclusion so it closes on the exact quantitative result rather than only a general solvent-dependence statement.
+- Completed: add notebook-level overflow protection for wide stored HTML tables in the polished notebook copy.
 - Completed: rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Completed: verify the stored embedded PNG/GIF media and saved details-panel states in the polished notebook copy.
 - Remaining blocker: perform one clean end-to-end rerun in a complete scientific notebook environment, then verify regenerated figures, tables and both inline GIF panels one final time.
 
 ## 2026-05-10 publication-polish pass
