@@ -3,7 +3,7 @@
 ## 2026-05-11 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening, abstract, post-lab answers and conclusion; the editable source and stored rendered outputs now agree that acetonitrile is the fastest accepted solvent; the results discussion and conclusion cite the executed bootstrap-rank table as evidence for ranking stability; and both inline GIF panels are closed by default in the saved notebook state.
+- What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening and abstract; the last acetone-first contradictions were removed from both source and visible rendered markdown; wide stored tables now have explicit notebook-level overflow protection; and the second inline GIF panel is closed by default in both the source and stored output state.
 - Main uncertainty that remains: this pass still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
 - Important packaging note: the attached notebook remains the audited source package, while the improved publication-ready artifact now lives at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 
@@ -35,7 +35,7 @@
 ### Data analysis + plotting
 
 - Current estimate: strong Excellent.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; the narrative now explicitly uses the executed bootstrap rank-probability output as evidence for ranking stability; sensitivity checks and independent validation are included; and the stored output state has been checked for table overflow and GIF-default-state issues.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; the narrative explicitly uses the executed bootstrap rank-probability output as evidence for ranking stability; sensitivity checks and independent validation are included; and the stored output state has been checked for table overflow and GIF-default-state issues.
 - Remaining gap: a full rerun is still needed to confirm regenerated outputs after the latest source-side polishing changes.
 
 ### Experimental write-up
@@ -65,7 +65,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract and conclusion now present the main quantitative result consistently; wide stored tables have notebook-level overflow protection; and neither expandable animation panel opens by default in the saved notebook state.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract and conclusion now present the main quantitative result consistently; wide stored tables have notebook-level overflow protection; and neither expandable animation panel opens by default in the polished saved notebook state.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
