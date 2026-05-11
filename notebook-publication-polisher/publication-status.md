@@ -5,8 +5,8 @@
 - Overall state: rebuilt a real polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed package after re-auditing the notebook JSON directly.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Readiness summary: the polished notebook now opens and closes on the same evidence-backed result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
-- Research and explanation summary: the results discussion, post-lab answers and conclusion now explicitly match the accepted solvent ranking and use the stored bootstrap-rank table as supporting evidence instead of leaving polarity-based contradictions in place.
-- Visual and rendering summary: wide stored tables now have notebook-level horizontal overflow protection, both inline GIF panels are collapsed by default, and the saved notebook still contains `19` HTML outputs, `8` embedded PNG figures and `2` embedded GIF references with no saved open-by-default details panel.
+- Research and explanation summary: the title card, abstract, results discussion, post-lab answers and conclusion now all match the accepted acetonitrile-first ranking and cite the stored bootstrap-rank table as supporting evidence.
+- Visual and rendering summary: wide stored tables now have notebook-level horizontal overflow protection, both inline GIF panels are collapsed by default, and the saved notebook still contains `19` HTML outputs, `8` embedded PNG figures and `2` embedded GIF references with no open-by-default details panel.
 
 ## Major issues resolved this pass
 
