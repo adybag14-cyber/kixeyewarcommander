@@ -1,5 +1,16 @@
 # Rubric Tracker
 
+## 2026-05-11 review refresh
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this run: the attached notebook now opens with the real retained-trace count, solvent order and rate span; the abstract now includes the bootstrap-rank stability claim supported by the stored rank table; the stored results and post-lab prose no longer contain acetone-first contradictions; the conclusion now closes on the same quantitative story used elsewhere; both GIF panels are saved closed by default; and wide rendered tables now have notebook-level horizontal-scroll protection.
+- Main uncertainty that remains: this pass again audited and repaired the executed notebook package directly rather than performing a fresh rerun in a complete scientific notebook environment.
+
+## Score estimate after review refresh
+
+- Estimated band: still likely Outstanding, now with stronger support for top marks in experimental write-up, post-labs and formatting consistency than the previous saved state.
+- Remaining reason this is not full sign-off: one clean rerun is still needed before claiming that every regenerated output remains defect-free after execution.
+
 ## 2026-05-11 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
