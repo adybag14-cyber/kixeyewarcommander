@@ -1,5 +1,23 @@
 # Improvement Log
 
+## 2026-05-11 review refresh
+
+- Re-opened the attached executed notebook package and treated the visible notebook JSON and stored outputs as the publication source of truth.
+- Confirmed that the opening title card and abstract were still underspecific in the attached package even though earlier notes claimed they had been sharpened.
+- Confirmed that the stored results discussion still contained an acetone-first contradiction and that the stored post-lab answers still used acetone instead of acetonitrile in two key explanatory passages.
+- Confirmed that the second inline laboratory-workflow GIF panel was still saved open by default in the attached package.
+- Added notebook-level CSS so wide stored tables can scroll horizontally instead of clipping columns in notebook or HTML rendering.
+- Rewrote the title-card `Central result`, abstract and conclusion so they now foreground `111 of 225` retained traces, the accepted solvent order and the `46.5-fold` rate span, with the bootstrap-rank table cited as direct evidence for ordering stability.
+- Corrected both the source-side narrative generators and the stored rendered markdown outputs so the notebook now consistently treats acetonitrile as the fastest accepted solvent.
+- Closed the second inline GIF panel in the stored output state and verified that all 8 embedded PNG figures plus both embedded GIFs decode successfully with Pillow.
+- Rebuilt the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+
+## Open risks after this run
+
+- Could not perform a fresh end-to-end execution of the notebook in this container.
+- Could not confirm post-rerun layout behaviour for regenerated outputs because the current environment still lacks the original scientific notebook stack.
+- Publication confidence therefore still rests on direct audit of the executed notebook package, stored-output repair and embedded-media validation.
+
 ## 2026-05-11
 
 - Re-opened the attached executed notebook and audited the stored markdown outputs and inline HTML outputs directly, rather than assuming the previous pass had fully propagated into the saved notebook state.
