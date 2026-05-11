@@ -11,13 +11,6 @@
 - Estimated band: still likely Outstanding, with better support for full marks in write-up quality and formatting consistency than the previous pass.
 - Remaining reason this is not full sign-off: one clean rerun is still needed before claiming that every regenerated output remains defect-free after execution.
 
-## 2026-05-10 update
-
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the polished notebook now foregrounds the retained-trace count, accepted solvent ranking and 46.5-fold span in the opening, abstract and conclusion; the source and rendered outputs no longer contradict the fitted acetonitrile-first result; the results discussion and conclusion now cite the executed bootstrap-rank table as evidence for ranking stability; wide stored tables now have notebook-level overflow protection; and both inline GIF panels are closed by default in the saved notebook state.
-- Main uncertainty that remains: this pass still audited and polished the attached executed notebook package directly rather than performing a fresh rerun from source in a complete scientific notebook environment.
-- Important packaging note: the attached notebook remains the audited source package, while the improved publication-ready artifact now lives at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-
 ## Rubric reconstruction
 
 - The supplied rubric is an HTML-style export rather than a clean text sheet.
@@ -33,6 +26,7 @@
 ## Current score estimate
 
 - Estimated band: likely Outstanding on `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, pending rerun verification.
+- Additional support for full marks after the latest audit: the saved notebook presentation now better matches the formatting criterion because wide tables have an explicit anti-clipping fallback and both expandable media panels now start in a tidy closed state.
 - Reason this is not full sign-off yet: the notebook still needs one clean rerun and export check in a complete scientific notebook environment before it can honestly be called fully verified for publication.
 
 ## Criterion tracker
@@ -46,7 +40,7 @@
 ### Data analysis + plotting
 
 - Current estimate: strong Excellent.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; the narrative now explicitly uses the executed bootstrap rank-probability output as evidence for ranking stability; sensitivity checks and independent validation are included; and the stored output state has now been checked for table overflow, GIF-default-state issues and broken embedded media.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; the narrative now explicitly uses the executed bootstrap rank-probability output as evidence for ranking stability; sensitivity checks and independent validation are included; and the stored output state has been checked for table overflow and GIF-default-state issues.
 - Remaining gap: a full rerun is still needed to confirm regenerated outputs after the latest source-side polishing changes.
 
 ### Experimental write-up
