@@ -2,6 +2,14 @@
 
 ## 2026-05-11 latest pass
 
+- Overall state: rebuilt the polished notebook artifact again at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` after a fresh source-and-output consistency audit of the attached executed notebook package.
+- Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Readiness summary: the polished notebook now states the same evidence-backed result in the title card, abstract, results discussion, post-lab answers and conclusion: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
+- Research and explanation summary: the remaining acetone-fastest contradiction was removed from both the stored results discussion and the post-lab solvent-interpretation answers, and the opening/closing narrative now foregrounds the bootstrap-supported acetonitrile-first ranking rather than a generic solvent-dependence claim.
+- Visual and rendering summary: a direct audit of the saved notebook confirmed `19` stored HTML outputs, `8` embedded PNG figures and `2` embedded GIFs, all decodable from the notebook payload, with no `details` panel left open by default in either source or saved HTML.
+
+## 2026-05-11 earlier pass
+
 - Overall state: rebuilt a real polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed package after re-auditing the notebook JSON directly.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Readiness summary: the polished notebook now opens and closes on the same evidence-backed result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
