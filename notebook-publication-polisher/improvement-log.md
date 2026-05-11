@@ -2,6 +2,16 @@
 
 ## 2026-05-11 latest pass
 
+- Re-opened the attached executed notebook and audited both the code-cell source strings and the stored rendered markdown outputs, rather than trusting earlier notes about what had already been fixed.
+- Rebuilt the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Strengthened the title-card `Central result`, abstract and conclusion so they now state the retained-trace count, accepted solvent order and `46.5-fold` rate span explicitly instead of relying on a generic solvent-dependence summary.
+- Corrected the remaining acetonitrile-versus-acetone interpretation drift in the saved results discussion source so reruns will not regenerate the wrong narrative.
+- Corrected the stored post-lab answer text so the solvent-order explanation now says acetonitrile is the fastest accepted solvent and lists the final accepted means in the correct order.
+- Collapsed the second inline laboratory-workflow GIF panel by default in the notebook source and saved HTML output.
+- Re-audited the repaired notebook payload and confirmed `19` stored HTML outputs, `8` embedded PNG figures, `2` embedded GIFs and `0` open-by-default `details` panels.
+
+## 2026-05-11 earlier pass
+
 - Re-opened the attached executed notebook package and treated the notebook JSON itself as the publication-quality source of truth rather than relying on earlier notes.
 - Confirmed that the live workspace did not actually contain the polished notebook artifact that earlier notes referenced, then rebuilt it at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Rewrote the title-card `Central result` statement and abstract so they now state `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, the `46.5-fold` rate span and the bootstrap-rank stability result.
