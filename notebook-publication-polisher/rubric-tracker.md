@@ -1,20 +1,9 @@
 # Rubric Tracker
 
-## 2026-05-11 review refresh
-
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the attached notebook now opens with the real retained-trace count, solvent order and rate span; the abstract now includes the bootstrap-rank stability claim supported by the stored rank table; the stored results and post-lab prose no longer contain acetone-first contradictions; the conclusion now closes on the same quantitative story used elsewhere; both GIF panels are saved closed by default; and wide rendered tables now have notebook-level horizontal-scroll protection.
-- Main uncertainty that remains: this pass again audited and repaired the executed notebook package directly rather than performing a fresh rerun in a complete scientific notebook environment.
-
-## Score estimate after review refresh
-
-- Estimated band: still likely Outstanding, now with stronger support for top marks in experimental write-up, post-labs and formatting consistency than the previous saved state.
-- Remaining reason this is not full sign-off: one clean rerun is still needed before claiming that every regenerated output remains defect-free after execution.
-
 ## 2026-05-11 update
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this run: the notebook opening now states the actual retained-trace count, solvent order and rate span; the abstract now includes the final quantitative result and bootstrap-order stability; the results discussion and post-lab answers no longer contain acetone-first contradictions; the conclusion now closes on the same numbers used earlier in the report; and both inline GIF panels are saved closed by default in the notebook source and stored outputs.
+- What improved this run: the notebook opening now states the actual retained-trace count, solvent order and rate span; the abstract now includes the final quantitative result and bootstrap-order stability; the results discussion and post-lab answers no longer contain acetone-first contradictions; the conclusion now closes on the same numbers used earlier in the report; wide stored tables now have notebook-level overflow protection; and both inline GIF panels are saved closed by default in the notebook source and stored outputs.
 - Main uncertainty that remains: this pass again audited and repaired the attached executed notebook package directly rather than performing a fresh rerun from source in a complete notebook environment.
 
 ## Score estimate after latest pass
@@ -57,7 +46,7 @@
 ### Data analysis + plotting
 
 - Current estimate: strong Excellent.
-- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; the narrative now explicitly uses the executed bootstrap rank-probability output as evidence for ranking stability; sensitivity checks and independent validation are included; and the stored output state has been checked for table overflow and GIF-default-state issues.
+- Evidence: all five solvents are analysed; quality control is explicit and auditable; uncertainty is discussed with confidence intervals and bootstrap ranking; the narrative now explicitly uses the executed bootstrap rank-probability output as evidence for ranking stability; sensitivity checks and independent validation are included; and the stored output state has now been checked for table overflow, GIF-default-state issues and broken embedded media.
 - Remaining gap: a full rerun is still needed to confirm regenerated outputs after the latest source-side polishing changes.
 
 ### Experimental write-up
@@ -87,7 +76,7 @@
 ### Use of markdown, LaTeX, HTML and general formatting
 
 - Current estimate: likely Outstanding on the polished notebook artifact.
-- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract and conclusion now present the main quantitative result consistently; wide stored tables have notebook-level overflow protection; and neither expandable animation panel opens by default in the saved notebook state.
+- Evidence: the notebook uses structured markdown, LaTeX equations, custom HTML report panels and inline GIFs; the opening, abstract and conclusion now present the main quantitative result consistently; wide stored tables have notebook-level overflow protection; neither expandable animation panel opens by default in the saved notebook state; and the embedded PNG/GIF media decode successfully in the stored notebook copy.
 - Remaining gap: a clean rerender is still required for final sign-off because the current container cannot regenerate the full notebook from source here.
 
 ## Fastest route to full marks
