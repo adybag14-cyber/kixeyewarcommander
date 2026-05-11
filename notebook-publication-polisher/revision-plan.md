@@ -2,12 +2,13 @@
 
 ## 2026-05-11 latest pass
 
-- Completed: re-audit the attached executed notebook source and stored markdown outputs for any remaining narrative contradictions or open-by-default rendering defects.
+- Completed: re-audit the attached executed notebook source, static markdown, stored markdown outputs, and saved HTML panels for remaining publication blockers.
 - Completed: rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Completed: strengthen the title card, abstract and conclusion so the main result is explicit and quantitatively consistent from start to finish.
-- Completed: correct the results-discussion and post-lab solvent-interpretation text so the notebook no longer says acetone is the fastest accepted solvent.
-- Completed: verify the saved notebook payload now contains `19` HTML outputs, `8` embedded PNG figures, `2` embedded GIFs and no expanded `details` panels by default.
-- Remaining blocker: perform one clean end-to-end rerun in a complete scientific notebook environment, then verify regenerated figures, tables and inline animations one final time.
+- Completed: strengthen the title card, abstract, and conclusion so the main result is explicit and quantitatively consistent from the first screen to the closing section.
+- Completed: correct the results-discussion and post-lab solvent-interpretation text so both the source and the stored rendered output keep acetonitrile first.
+- Completed: add horizontal overflow protection for rendered tables and close the second inline GIF panel by default.
+- Completed: verify the saved notebook payload now contains `8` decodable PNG figures, `2` decodable GIFs, and no expanded `details` panels by default.
+- Remaining blocker: perform one clean end-to-end rerun in a complete scientific notebook environment, then verify regenerated figures, tables, and inline animations one final time.
 
 ## 2026-05-11 earlier pass
 
