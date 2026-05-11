@@ -2,21 +2,16 @@
 
 ## 2026-05-11
 
-- Re-opened the attached notebook package, rubric guidance and saved progress notes, then verified that the previously referenced polished notebook file was missing from the workspace and needed to be rebuilt.
-- Audited the executed notebook JSON directly again instead of assuming the prior saved state was still available locally.
-- Confirmed that the notebook still contained publication blockers in the editable source and stored rendered outputs: the opening summary remained too vague, the results discussion still contained an acetone-fastest contradiction in source text, one post-lab answer still treated acetone as the fastest solvent, and the stored laboratory-workflow animation panel still opened by default.
-- Rebuilt the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Strengthened the title-card central-result statement and abstract so they now state `111 of 225` retained traces, the accepted solvent order, and the `46.5-fold` rate span explicitly.
-- Added explicit bootstrap-rank discussion to the results narrative and conclusion so the notebook now ties the solvent-order claim to the executed resampling output rather than only to the mean-rate table.
-- Corrected the remaining source/output interpretation drift in the post-lab answers so the fastest-timescale and solvent-order explanations consistently treat acetonitrile as the fastest accepted solvent.
-- Closed the stored laboratory-workflow GIF panel by default in both the editable source cell and the saved rendered HTML output, so both inline animations now load in a collapsed state.
-- Re-synced the audited source notebook in `agent_files/` with the rebuilt polished copy in `output` so a future pass does not start from conflicting local notebook states.
-
-## Open risks after this run
-
-- Could not perform a fresh end-to-end execution of the notebook in this container.
-- Could not regenerate the PNG figure files or a fresh HTML export from source because the full scientific Jupyter environment used by the notebook is not available here.
-- Publication confidence therefore remains based on direct audit and repair of the attached executed notebook package plus verification of the saved embedded-media and rendered-output state, not on a newly executed run.
+- Re-opened the attached notebook package, rubric guidance and saved progress notes, then audited the notebook again at the stored-source and stored-output level rather than assuming the previous summary was fully reflected in the current source package.
+- Confirmed that the notebook still had publication blockers in this run: the prior polished artifact was not present locally, the second GIF panel in the attached notebook still opened by default, and the results discussion plus one post-lab answer still contained acetone-first wording that contradicted the accepted acetonitrile-first ranking.
+- Rebuilt the polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Strengthened the opening title-card result statement and abstract so they now foreground `111 of 225` retained traces, the accepted solvent order and the `46.5-fold` rate span.
+- Corrected the source-side results narrative so it no longer says acetone has the largest measured rate constant or that acetone remains the fastest solvent in the present series.
+- Corrected the stored rendered results markdown so the visible notebook discussion now matches the accepted acetonitrile-first ordering.
+- Corrected the source-side post-lab answers so the timescale example and solvatochromic interpretation now use acetonitrile consistently as the fastest accepted solvent.
+- Corrected the stored rendered post-lab markdown so the visible answer block no longer claims acetone gave the fastest recovery.
+- Added notebook-level CSS for wide rendered tables and images so stored HTML outputs are less likely to clip horizontally when opened in notebook or exported HTML views.
+- Closed the saved laboratory-workflow GIF panel by default in both the source generator and the stored rendered HTML output.
 
 ## 2026-05-10
 
@@ -31,3 +26,9 @@
 - Closed the saved laboratory-workflow GIF panel by default in both the source generator and the stored rendered HTML output.
 - Added notebook-level HTML table scroll protection through the front-matter CSS so wide stored tables are less likely to clip in notebook and exported HTML views.
 - Re-verified the polished copy after writing it and confirmed that it still contains 19 stored HTML outputs and 2 inline GIF embeds, with the second GIF panel now closed by default.
+
+## Open risks after this run
+
+- Could not perform a fresh end-to-end execution of the notebook in this container.
+- Could not generate a clean rerendered HTML export from a rerun because the current environment still lacks the full scientific Jupyter stack used by the original notebook.
+- Publication confidence therefore remains based on direct audit and source/output repair of the attached executed notebook plus validation of the saved embedded media and rendered states, not on a newly generated execution run.
