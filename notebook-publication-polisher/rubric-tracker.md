@@ -3,6 +3,13 @@
 ## 2026-05-11 latest pass
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this pass: the last high-impact narrative contradiction was removed from both the source and the stored rendered markdown; the title card, abstract and conclusion now foreground the same quantitative outcome; both inline extras are saved collapsed; and the full stored visual payload was re-audited for decodability and open-panel defects.
+- Current score estimate: still likely Outstanding, now with stronger support for full marks in post-lab coherence, experimental write-up and formatting reliability because the visible notebook no longer says acetone is the fastest solvent in any key interpretation section.
+- Main uncertainty that remains: this is still a repaired-and-audited executed notebook package rather than a fresh end-to-end rerun in a complete scientific environment.
+
+## 2026-05-11 earlier pass
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - What improved this pass: the polished notebook now presents one fully consistent quantitative story from title card to conclusion; the saved results discussion and post-lab answers now match the accepted acetonitrile-first solvent order; the bootstrap-rank table is cited as direct evidence for ordering stability; wide stored tables have notebook-level overflow protection; both inline GIF panels are saved collapsed by default; and the saved figures/GIF payloads were directly extracted and checked for readability.
 - Current score estimate: likely Outstanding, with stronger support for full marks in experimental write-up, post-lab coherence and formatting robustness than the attached package originally provided.
 - Main uncertainty that remains: the notebook was repaired from the executed package and re-audited visually from saved outputs, but it still has not been rerun end to end in a complete scientific notebook environment from this container.
