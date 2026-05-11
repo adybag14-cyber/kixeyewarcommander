@@ -1,20 +1,20 @@
 # Publication Status
 
-## 2026-05-11 final audit update
+## 2026-05-11 latest pass
 
-- Overall state: the attached executed notebook package was re-audited directly again, and a refreshed polished copy was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Overall state: rebuilt a real polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed package after re-auditing the notebook JSON directly.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Readiness summary: the polished notebook now opens, argues and concludes with the same evidence-backed result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, a `46.5-fold` fastest-to-slowest span, and a fully separated stored bootstrap rank table.
-- Visual and rendering summary: the polished copy wraps all 9 stored HTML table outputs in horizontal-scroll containers, keeps both inline GIF panels collapsed by default, and still contains 8 embedded PNG figures plus 2 embedded GIFs that decode successfully from the saved notebook state.
+- Readiness summary: the polished notebook now opens and closes on the same evidence-backed result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
+- Research and explanation summary: the results discussion, post-lab answers and conclusion now explicitly match the accepted solvent ranking and use the stored bootstrap-rank table as supporting evidence instead of leaving polarity-based contradictions in place.
+- Visual and rendering summary: wide stored tables now have notebook-level horizontal overflow protection, both inline GIF panels are collapsed by default, and the saved notebook still contains `19` HTML outputs, `8` embedded PNG figures and `2` embedded GIF references with no saved open-by-default details panel.
 
-## Major issues resolved this run
+## Major issues resolved this pass
 
-- Repaired the attached package's generic opening title-card result statement and underspecified abstract in the polished copy.
-- Corrected source-side and visible rendered discussion/post-lab text so a future rerun no longer risks reintroducing acetone-fastest contradictions.
-- Strengthened the results discussion and conclusion with explicit bootstrap-rank stability rather than only mean-rate comparisons.
-- Added notebook-level and saved-output table overflow protection so wide tables are less likely to clip in notebook or HTML viewers.
-- Closed the last inline GIF panel by default in both the source cell and stored HTML output.
-- Re-audited the polished saved notebook output and confirmed: no `details` panel opens by default, 9 stored HTML tables are wrapped for horizontal scrolling, 8 embedded PNG figures decode successfully, and both GIFs remain self-contained (`84` and `70` frames respectively).
+- Rebuilt the missing polished notebook deliverable in `/workspace/output`.
+- Tightened the title card and abstract so the publication candidate foregrounds the retained-trace count, accepted solvent order, rate span and bootstrap-rank stability immediately.
+- Corrected remaining source-and-output interpretation drift in the results discussion and post-lab answers so the notebook no longer implies acetone is the fastest accepted solvent.
+- Strengthened the conclusion so it closes on the same quantitative result used at the start of the notebook.
+- Closed the laboratory-workflow GIF panel by default in both source and stored HTML, and added notebook-level table overflow protection to reduce clipping risk in notebook and HTML viewers.
 
 ## Major remaining blockers
 
