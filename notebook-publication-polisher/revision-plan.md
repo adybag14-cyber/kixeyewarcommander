@@ -1,5 +1,13 @@
 # Revision Plan
 
+## 2026-05-12 current pass
+
+- Completed: compare the attached executed notebook, rubric guidance and saved notes directly against the live notebook JSON to identify real remaining publication blockers.
+- Completed: repair the title card, abstract, results discussion, post-lab answers and conclusion so they all present the same accepted solvent order and quantitative headline result.
+- Completed: remove the saved open-by-default state from the second inline GIF panel and add notebook-level table overflow protection for wide rendered HTML tables.
+- Completed: rebuild the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and re-audit the embedded figure/GIF payload counts plus saved panel state.
+- Remaining blocker: perform one clean end-to-end rerun in a complete scientific notebook environment, then verify regenerated figures, tables and inline animations one final time.
+
 ## 2026-05-12 latest pass
 
 - Completed: compare the attached executed notebook source, stored markdown outputs and saved memory notes directly so the next pass works from the real notebook state.
