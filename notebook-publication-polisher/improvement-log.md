@@ -14,6 +14,7 @@
 - Added explicit horizontal-scroll wrappers to the saved wide-table outputs and matching notebook CSS so large tables are less likely to clip in notebook and HTML viewers.
 - Updated the rerunnable notebook code path so future reruns return report tables inside the same scroll-safe HTML wrapper instead of falling back to bare DataFrame rendering.
 - Removed the default-open state from the second inline workflow GIF panel to improve first-view layout.
+- Audited the stored figures visually through a generated contact sheet covering all `8` PNG figures and both embedded GIF panels; no obvious clipping, broken axes, or unreadable layout defects were visible in the saved assets.
 - Revalidated the polished notebook JSON, confirmed that the edited code cells parse cleanly, and checked that the saved embedded media still decode successfully: `8` PNG figures and `2` GIFs (`84` and `70` frames).
 - Re-checked the execution blocker list in the current container rather than trusting the older status note; `matplotlib`, `scipy`, `numba`, and `rdkit` are all still unavailable here.
 
