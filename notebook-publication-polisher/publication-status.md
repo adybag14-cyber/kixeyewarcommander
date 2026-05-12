@@ -4,24 +4,23 @@
 
 - Date: 2026-05-12
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: very high-quality executed notebook and close to publication-ready as a saved artifact; final sign-off still depends on one clean rerun in the intended scientific environment
+- Publication-readiness estimate: strong publication-ready executed notebook artifact, with final full-confidence sign-off still dependent on one clean rerun in the intended scientific environment
 
 ## Notebook state
 
 - A fresh polished notebook copy was rebuilt from the attached executed source without modifying the original package in `agent_files/`.
-- The title card and abstract now foreground the exact retained-trace count (`111/225`), the accepted solvent order (`Acetonitrile > Acetone > THF > Cyclohexane > Toluene`), the `46.5-fold` fastest-to-slowest span, and the bootstrap-rank stability.
-- The results narrative no longer contains the contradictory solvent-effects sentence that said acetone had the largest measured rate even though the saved accepted order places acetonitrile first.
-- The literature-comparison discussion no longer implies that acetone both falls below the benchmark and remains the fastest solvent; it now states the supported comparison precisely.
-- The post-lab discussion now treats acetonitrile consistently as the fastest accepted solvent and uses that ordering in both the spectral and solvent-effects interpretation.
-- A new interpretive note after the main summary tables explains why unweighted solvent means are reported and why the rank order should be treated as robust rather than incidental.
-- The conclusion now closes on the same quantitative solvent sequence and `46.5-fold` rate span used at the front of the notebook.
+- The title card and abstract now foreground the exact retained-trace count (`111/225`), the accepted solvent order (`Acetonitrile > Acetone > THF > Cyclohexane > Toluene`), and the `46.5-fold` fastest-to-slowest rate span.
+- The results discussion no longer contradicts the accepted ranking: acetonitrile is treated consistently as the fastest retained solvent, while the literature comparison is framed only around the solvents actually shared with the 1990 JCE paper.
+- The post-lab answers now use the accepted solvent order throughout, including the fastest-solvent example, the rate list, and the explanation of why the kinetics are not controlled by one bulk polarity descriptor alone.
+- The conclusion now closes on the same quantitative solvent sequence and ranking-stability message stated at the front of the notebook.
 
 ## Visual/rendering state
 
 - The polished notebook still contains `8` embedded PNG figures and `2` embedded GIFs.
 - All embedded media decoded successfully in this pass, including both GIFs (`84` and `70` frames respectively); no broken-image failures or blank media payloads were found in the stored notebook.
-- Notebook CSS now adds horizontal overflow handling for rendered tables, reducing clipping risk in notebook and HTML viewers.
-- The second inline laboratory-workflow GIF panel is collapsed by default in the polished copy, improving first-view layout and reducing page-length clutter without removing the asset.
+- Wide rendered tables are now wrapped in explicit horizontal-scroll containers and the notebook CSS includes matching overflow styling, reducing clipping risk in notebook and HTML viewers.
+- The second inline laboratory-workflow GIF panel is collapsed by default in the polished copy, improving first-view layout and reducing unnecessary page-length clutter.
+- The edited code cells in the polished notebook parse cleanly after the publication-polish changes, so the saved artifact no longer carries syntax drift from the table-layout refactor.
 
 ## Remaining blockers
 
