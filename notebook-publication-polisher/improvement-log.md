@@ -1,17 +1,16 @@
 # Improvement Log
 
-## 2026-05-12 narrative-and-output repair pass
+## 2026-05-12 source-truth repair pass
 
-- Re-opened the attached executed notebook package and compared the live notebook JSON against the earlier saved notes instead of assuming the prior fixes had all landed in the source of truth.
-- Confirmed four real publication blockers still remained in the live notebook: the title-card central result and abstract were still too generic, the saved results discussion still contained acetone-fastest language, the saved post-lab answers still used acetone as the headline fast solvent in places, and the laboratory-workflow GIF panel was still saved expanded by default.
-- Extracted the stored PNG figures and first GIF frames again into a contact-sheet audit and visually checked them for clipping, unreadable labels and obvious overlap; the stored figure set remained visually clean in the audited outputs.
-- Rewrote the opening title card and abstract so they now foreground `111 of 225` retained traces, the accepted solvent order, the `0.173` to `0.00372 s^-1` rate range and the `46.5-fold` span.
-- Rewrote the results-discussion generator and the stored rendered markdown so the discussion now explicitly cites bootstrap-rank stability, fit-window sensitivity, and the limited scope of the literature benchmark table.
-- Rewrote the post-lab generator and stored rendered markdown so the answers now consistently treat acetonitrile as the fastest accepted solvent, describe acetone as the close second-fastest solvent, and keep the solvent-order interpretation aligned with the accepted summary table.
-- Rewrote the conclusion so it closes on the exact retained-trace count, solvent order, rate span and remaining rerun limitation.
-- Added notebook-level horizontal overflow protection for rendered tables and removed the saved `open` state from the laboratory-workflow GIF panel in both source and stored HTML output.
-- Rebuilt the corrected notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Re-verified the repaired notebook payload and confirmed that the remaining high-impact acetone-fastest contradiction strings are now absent from the polished notebook.
+- Re-opened the attached executed notebook package, the rubric guidance and the saved notes, then treated the live notebook JSON as the source of truth instead of assuming the previous notes were fully current.
+- Confirmed that the attached notebook still had real publication blockers: a generic title-card central result and abstract, a generic conclusion, source-level discussion and post-lab text that would regenerate acetone-fastest claims on rerun, no notebook-level horizontal overflow protection for wide rendered tables, and a saved laboratory-workflow GIF panel still opened by default.
+- Extracted and inspected the saved visual payload from the notebook outputs, confirming `19` stored HTML outputs, `8` embedded PNG figures and `2` embedded GIFs. The saved figures and both inline GIFs decoded cleanly, and spot checks on the extracted images did not show obvious clipping or unreadable axes in the stored outputs.
+- Rebuilt the polished notebook at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached package.
+- Rewrote the title card, abstract and conclusion so the notebook now foregrounds `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` fastest-to-slowest span.
+- Repaired both the source-generating text and the stored rendered markdown for the results discussion so the notebook no longer claims acetone is the fastest solvent and now states more carefully that no single bulk solvent descriptor explains the full ranking.
+- Repaired both the source-generating text and the stored rendered markdown for the post-lab answers so the timescale example uses acetonitrile as the fastest accepted solvent and the solvent-effects answer no longer contradicts the final ranking.
+- Added notebook-level CSS to make wide rendered tables scroll horizontally instead of clipping and removed the saved `open` state from the laboratory-workflow GIF panel in both the stored output and the generator source.
+- Re-verified the repaired notebook JSON after editing and confirmed `0` open-by-default `research-extra` panels, `0` remaining acetone-fastest contradiction strings, `8` embedded PNG figures and `2` embedded GIFs in the polished artifact.
 
 ## 2026-05-12 verification-and-notebook-sync pass
 
