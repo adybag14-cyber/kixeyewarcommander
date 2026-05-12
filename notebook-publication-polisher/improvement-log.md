@@ -1,15 +1,25 @@
 # Improvement Log
 
+## 2026-05-12 latest pass
+
+- Re-opened the attached executed notebook package itself instead of relying on the previous memory notes, and confirmed that the actual source notebook still contained stale generic prose plus a few contradictory solvent-order statements.
+- Repaired the title card and abstract so the publication candidate now states the retained-trace count, accepted solvent order and `46.5-fold` rate span explicitly instead of only describing a generic solvent dependence.
+- Corrected the saved results-discussion source and rendered markdown so the notebook no longer claims that acetone is faster than acetonitrile or that the literature comparison leaves acetone as the fastest solvent.
+- Corrected the saved post-lab answer source and rendered markdown so the timescale answer now uses acetonitrile as the fastest accepted solvent and the solvent-dependence answers list the final accepted means in the correct order.
+- Added notebook-level horizontal overflow protection for stored tables to reduce clipping risk in notebook and exported HTML viewers.
+- Closed the laboratory-workflow GIF panel by default in both the source code cell and the stored rendered HTML output.
+- Re-validated the edited notebook payload after patching and confirmed that the JSON still loads, all `8` embedded PNG figures and both embedded GIFs still decode cleanly, and no saved `research-extra` panel remains open by default.
+- Rebuilt the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+
 ## 2026-05-11 latest pass
 
-- Re-opened the attached executed notebook and audited the static markdown cells, the narrative-generator source, and the stored rendered outputs separately so the polished copy would be correct both now and after a future rerun.
-- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached package.
-- Rewrote the title-card `Central result`, abstract, and conclusion so they now foreground the actual result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` rate span.
-- Corrected the remaining acetone-first contradictions in the results-discussion generator, the post-lab-answer generator, and the stored rendered markdown outputs.
-- Reframed the literature-comparison discussion so acetone is treated as a close literature benchmark within the subset of solvents with comparison values, while the full class ranking still places acetonitrile slightly ahead overall.
-- Added notebook CSS that gives rendered tables horizontal overflow protection instead of risking clipped notebook or HTML output.
-- Closed the second inline laboratory-workflow GIF panel by default in both notebook source and saved HTML.
-- Re-audited the polished notebook payload and confirmed `8` embedded PNG figures, `2` embedded GIFs, and `0` saved open `details` panels; both GIFs decoded successfully with `84` and `70` frames respectively.
+- Re-opened the attached executed notebook and audited both the code-cell source strings and the stored rendered markdown outputs, rather than trusting earlier notes about what had already been fixed.
+- Rebuilt the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Strengthened the title-card `Central result`, abstract and conclusion so they now state the retained-trace count, accepted solvent order and `46.5-fold` rate span explicitly instead of relying on a generic solvent-dependence summary.
+- Corrected the remaining acetonitrile-versus-acetone interpretation drift in the saved results discussion source so reruns will not regenerate the wrong narrative.
+- Corrected the stored post-lab answer text so the solvent-order explanation now says acetonitrile is the fastest accepted solvent and lists the final accepted means in the correct order.
+- Collapsed the second inline laboratory-workflow GIF panel by default in the notebook source and saved HTML output.
+- Re-audited the repaired notebook payload and confirmed `19` stored HTML outputs, `8` embedded PNG figures, `2` embedded GIFs and `0` open-by-default `details` panels.
 
 ## 2026-05-11 earlier pass
 
