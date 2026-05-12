@@ -1,5 +1,15 @@
 # Improvement Log
 
+## 2026-05-12 current pass
+
+- Re-opened the attached executed notebook package, the rubric guidance, and the saved memory files, then checked the live notebook JSON directly instead of assuming earlier notes were still accurate.
+- Found two real publication blockers that earlier notes had overstated as resolved: the title/abstract/conclusion still used generic wording, and the stored results discussion plus post-lab answers still contained acetone-fastest interpretations that contradicted the accepted rate table.
+- Confirmed an additional rendering defect in the saved executed output: the second inline laboratory-workflow GIF panel was still stored expanded by default.
+- Patched the notebook source so the title card, abstract and conclusion now foreground the retained-trace count, accepted solvent order and `46.5-fold` rate span explicitly.
+- Patched both the narrative-generator code and the stored rendered markdown output so the results discussion and post-lab answers consistently treat acetonitrile as the fastest accepted solvent, list the solvent rates in the correct order, and describe the literature comparison as a partial benchmark check rather than a complete validation of the full ordering.
+- Added notebook-level horizontal overflow protection for HTML tables and removed the saved `open` state from the second inline GIF panel in both source and stored output.
+- Rebuilt the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and re-verified that the final artifact contains `8` embedded PNG figures, `2` embedded GIFs, and `0` open-by-default `research-extra` panels.
+
 ## 2026-05-12 latest pass
 
 - Re-opened the attached executed notebook package and compared the saved source, stored markdown outputs and prior memory notes instead of assuming they were already aligned.
