@@ -3,9 +3,9 @@
 ## 2026-05-12 latest pass
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this pass: the visible notebook now states one consistent quantitative result from title card to conclusion; the remaining acetonitrile-versus-acetone contradictions were removed from both source and stored rendered markdown; wide tables gained overflow protection; and the open-by-default workflow GIF panel was closed in the saved output.
-- Current score estimate: still likely Outstanding, with stronger support for full marks in post-lab coherence, experimental write-up and notebook formatting because the opening, discussion, post-lab section and conclusion now all align on the accepted acetonitrile-first ranking.
-- Main uncertainty that remains: this is still a repaired-and-audited executed notebook package rather than a fresh end-to-end rerun in a fully provisioned scientific notebook environment.
+- What improved this pass: the opening and closing notebook narrative now state the exact accepted result; the last acetone-versus-acetonitrile contradictions were removed from both source and stored markdown; wide rendered tables gained overflow protection; and both inline GIF extras are saved collapsed by default.
+- Current score estimate: still likely Outstanding, now with stronger support for full marks in post-lab coherence, experimental write-up and formatting reliability because the visible notebook narrative is finally aligned end to end with the accepted rate table.
+- Main uncertainty that remains: this is still a repaired-and-audited executed notebook package rather than a fresh end-to-end rerun in a complete scientific environment.
 
 ## 2026-05-11 latest pass
 
@@ -33,10 +33,10 @@
 
 ## Criterion tracker
 
-- Post-labs: likely Outstanding after the contradiction fixes; remaining gap is a clean rerun to confirm regenerated markdown stays aligned with the corrected source.
+- Post-labs: likely Outstanding after the final source-and-output contradiction fixes; remaining gap is a clean rerun to confirm regenerated markdown stays aligned with the corrected source.
 - Data analysis + plotting: strong Excellent to Outstanding; remaining gap is rerun verification of regenerated outputs.
 - Experimental write-up: likely Outstanding after the opening, discussion and conclusion revisions; remaining gap is rerender confirmation.
 - Originality and elegance of Python code: strong Excellent; no new weakness found in this pass.
 - Portability of code: strong Excellent in design, but still practically limited by the missing full scientific notebook stack in this container.
 - Commenting, documentation and explanation of code: strong Excellent; no urgent blocker found.
-- Use of markdown, LaTeX, HTML and general formatting: likely Outstanding on the polished notebook artifact, pending one clean rerender.
+- Use of markdown, LaTeX, HTML and general formatting: likely Outstanding on the polished notebook artifact after the table-overflow and collapsed-panel fixes, pending one clean rerender.
