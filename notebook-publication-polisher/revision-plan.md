@@ -16,6 +16,7 @@
 - Added safer wide-table overflow handling both in the saved outputs and in the rerunnable notebook code path.
 - Collapsed the second inline workflow GIF panel by default.
 - Revalidated the notebook JSON, checked that all code cells parse cleanly, and rechecked the saved figures and GIF payloads.
+- Reconfirmed the rerun blocker list directly in the current container so the saved status reflects the live environment.
 
 ## Remaining blocker
 
