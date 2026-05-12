@@ -1,5 +1,15 @@
 # Improvement Log
 
+## 2026-05-12 consistency-and-render pass
+
+- Re-audited the attached executed notebook JSON directly instead of trusting the earlier status notes.
+- Confirmed that several publication blockers still remained in the live notebook: the title card and abstract were still generic, the results discussion and post-lab outputs still contained acetone-fastest language, the conclusion still did not foreground the actual quantitative result, and the saved laboratory-workflow panel was still expanded by default.
+- Patched the notebook markdown cells so the opening and closing narrative now foreground `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` rate span.
+- Patched both the stored rendered markdown outputs and the code that regenerates them so the results discussion, solvatochromism answer and solvent-kinetics answer consistently treat acetonitrile as the fastest accepted solvent and describe the literature comparison as a partial scale check.
+- Added notebook-level horizontal overflow protection for rendered tables and removed the saved `open` state from both inline extra GIF panels so the notebook opens in a cleaner, less cluttered publication layout.
+- Rebuilt the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Re-verified the repaired notebook payload: `8` embedded PNG figures decoded from HTML outputs, `2` embedded GIFs decoded from inline panels, and no remaining saved `research-extra` panel opens by default.
+
 ## 2026-05-12 current pass
 
 - Re-opened the attached executed notebook package, the rubric guidance, and the saved memory files, then checked the live notebook JSON directly instead of assuming earlier notes were still accurate.
