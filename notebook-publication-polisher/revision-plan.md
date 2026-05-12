@@ -7,6 +7,16 @@
 
 ## Completed this pass
 
+- Re-reviewed the attached notebook directly against its saved source and rendered outputs.
+- Identified remaining publication blockers in the executed notebook itself: contradictory fastest-solvent wording, an inconsistent polarity interpretation sentence, and a default-open workflow GIF panel.
+- Rebuilt the polished notebook copy in `/workspace/output/` rather than editing the attached source package.
+- Rewrote the title card and abstract to foreground the exact retained-trace count, solvent order, rate span, bootstrap-rank result, and limited literature-comparison scope.
+- Repaired the results discussion source and stored rendered markdown so the narrative now stays aligned with the acetonitrile-first ranking throughout.
+- Repaired the post-lab answer source and stored rendered markdown so the timescale argument and final solvent list no longer contradict the saved summary table.
+- Added notebook-level overflow CSS to reduce clipping risk for wide rendered tables in notebook and HTML viewers.
+- Collapsed the second inline GIF panel by default in both source and saved rendered HTML output.
+- Re-audited the saved figures and GIF frames through an extracted contact sheet and found no obvious clipping, overlap, or broken-image failures in the saved outputs.
+
 - Re-audited the attached executed notebook, rubric guidance, and saved notes directly against the live notebook JSON.
 - Confirmed that the attached source notebook still contained publication-blocking contradictions and rebuilt a repaired polished copy from that source.
 - Parsed the saved notebook output tables to recover the exact solvent means, bootstrap rank probabilities, and consistency-check results from the executed artifact itself.
