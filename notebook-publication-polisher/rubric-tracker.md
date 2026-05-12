@@ -1,11 +1,11 @@
 # Rubric Tracker
 
-## 2026-05-12 narrative-and-output repair pass
+## 2026-05-12 source-truth repair pass
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this pass: the notebook opening and conclusion now state the exact quantitative result; the stored results and post-lab markdown no longer contradict the accepted acetonitrile-first ranking; the discussion now uses bootstrap stability and fit-window sensitivity as stronger evidence; the literature comparison is more rigorous about its limited coverage; wide tables gained explicit overflow protection; and the laboratory-workflow GIF panel is now saved collapsed.
-- Current score estimate: likely still in the Outstanding band overall, now with materially better evidence for the top rubric bands in post-labs, experimental write-up, and formatting because the visible notebook narrative and saved rendered outputs finally agree with the accepted numerical tables.
-- Main uncertainty that remains: this is still a repaired-and-audited executed notebook package rather than a fresh rerun in the original full scientific environment, so final top-band confidence still depends on one clean rerendered execution pass.
+- What improved this pass: the notebook opening and conclusion now state the exact retained-trace count, solvent order and rate span; the rerun-generating discussion and post-lab source now agree with the visible saved outputs; wide rendered tables now have notebook-level overflow protection; and both inline GIF extras are saved collapsed by default.
+- Current score estimate: still likely Outstanding, with stronger evidence than before for the top rubric bands in post-labs, experimental write-up and formatting because the polished notebook now tells one quantitatively consistent story from start to finish and its saved rendering state is cleaner.
+- Main uncertainty that remains: this is still a repaired-and-audited executed notebook package rather than a fresh rerun in the original full scientific environment, so final sign-off depends on one complete execution and HTML render check elsewhere.
 
 ## 2026-05-12 verification-and-notebook-sync pass
 
