@@ -1,5 +1,18 @@
 # Improvement Log
 
+## 2026-05-12 live-source repair and publication-tightening pass
+
+- Re-audited the attached notebook package directly and confirmed that the live source notebook still contained publication-blocking contradictions even though earlier status notes described a cleaner copy.
+- Confirmed the highest-impact live issues in the attached notebook: a generic opener, contradictory solvent-order statements in the results discussion and post-lab answers, and the laboratory-workflow GIF panel saved expanded by default.
+- Verified the visual payload in the repaired copy: `8` embedded PNG figures and `2` embedded GIFs decoded successfully, with the GIFs still validating at `84` and `70` frames.
+- Wrote a new polished notebook artifact to `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the opening title card and abstract so they now foreground the exact retained-trace count, solvent order, rate span, bootstrap-rank stability, and the limited scope of the literature comparison.
+- Rewrote the results discussion so it no longer contradicts itself about the fastest solvent and now states the literature-comparison limits precisely.
+- Rewrote the post-lab answers so the timescale, solvent-effects, and colour/solvatochromism answers all align with the accepted acetonitrile-first ranking.
+- Strengthened the conclusion so it closes on the exact accepted-trace count, stable rank order, and 46.5-fold rate span.
+- Added notebook-level table-scroll CSS and wrapped the stored HTML table outputs so wide tables are less likely to clip in notebook and exported HTML views.
+- Removed the default-open state from the second inline GIF panel in both the source code cell and the stored HTML output of the polished copy.
+
 ## 2026-05-12 contradiction-fix and render-hardening pass
 
 - Re-reviewed the attached executed notebook package directly instead of relying on the prior status notes alone.
