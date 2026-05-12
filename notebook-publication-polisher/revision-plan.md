@@ -1,5 +1,14 @@
 # Revision Plan
 
+## 2026-05-12 consistency-and-render pass
+
+- Completed: re-audit the attached executed notebook source, stored markdown outputs and media payload directly against the live notebook file.
+- Completed: repair the remaining source/output narrative contradictions so the notebook consistently reports the accepted acetonitrile-first ranking and the exact retained-trace count.
+- Completed: strengthen the opening and conclusion so the publication candidate leads and closes with the same quantitative headline result.
+- Completed: add notebook-level table overflow protection, collapse both inline extra panels by default, and rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Completed: re-audit the repaired notebook payload and confirm that the embedded figure and GIF set still decodes cleanly.
+- Remaining blocker: perform one clean end-to-end rerun in a complete scientific notebook environment, then visually verify the regenerated figures, tables and inline animations one final time.
+
 ## 2026-05-12 current pass
 
 - Completed: compare the attached executed notebook, rubric guidance and saved notes directly against the live notebook JSON to identify real remaining publication blockers.
