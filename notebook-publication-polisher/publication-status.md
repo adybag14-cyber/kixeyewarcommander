@@ -1,12 +1,21 @@
 # Publication Status
 
+## 2026-05-12 latest pass
+
+- Overall state: repaired the attached executed notebook itself and rebuilt the polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Readiness summary: the notebook is closer to publication-ready because the opening, results discussion, post-lab answers and conclusion now all present the same evidence-backed result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
+- Research and explanation summary: the remaining source-and-output contradictions were removed from both the discussion and post-lab interpretation, the abstract now states the retained-trace count and ranking explicitly, and the conclusion now closes on the same quantitative message used at the start of the notebook.
+- Visual and rendering summary: the polished notebook now adds notebook-level horizontal overflow protection for wide tables, both embedded GIF payloads and all `8` embedded PNG figures still decode cleanly after editing, and no inline `details` panel is left open by default.
+- Remaining blocker: full publication sign-off still depends on one clean rerun in a complete scientific notebook environment, because this container still lacks the original notebook stack required to regenerate the outputs from source.
+
 ## 2026-05-11 latest pass
 
-- Overall state: reviewed the attached executed notebook package again and rebuilt a cleaner publication-ready artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Overall state: rebuilt the polished notebook artifact again at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` after a fresh source-and-output consistency audit of the attached executed notebook package.
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Readiness summary: the polished notebook now gives one consistent quantitative story in the title card, abstract, results discussion, post-lab answers, and conclusion: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
-- Research and explanation summary: the generic headline/abstract/conclusion text was strengthened with the actual dataset result, the remaining acetone-first interpretation drift was removed from both the narrative generator and the stored post-lab output, and the literature-comparison wording now treats acetone as a benchmarked solvent rather than the overall fastest solvent.
-- Visual and rendering summary: notebook-level horizontal overflow protection was added for rendered tables, the second inline GIF panel is now saved collapsed by default, and a direct payload audit of the polished notebook confirmed `8` embedded PNG figures and `2` embedded GIFs, all decodable, with `0` saved open `details` panels.
+- Readiness summary: the polished notebook now states the same evidence-backed result in the title card, abstract, results discussion, post-lab answers and conclusion: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
+- Research and explanation summary: the remaining acetone-fastest contradiction was removed from both the stored results discussion and the post-lab solvent-interpretation answers, and the opening/closing narrative now foregrounds the bootstrap-supported acetonitrile-first ranking rather than a generic solvent-dependence claim.
+- Visual and rendering summary: a direct audit of the saved notebook confirmed `19` stored HTML outputs, `8` embedded PNG figures and `2` embedded GIFs, all decodable from the notebook payload, with no `details` panel left open by default in either source or saved HTML.
 
 ## 2026-05-11 earlier pass
 
@@ -28,4 +37,4 @@
 ## Major remaining blockers
 
 - A clean end-to-end rerun is still blocked in this container because the full scientific Jupyter stack used by the original notebook is not installed here.
-- Final publication sign-off still depends on one rerun in a complete notebook environment to confirm that regenerated figures, tables, and inline media remain visually clean and text-consistent after execution.
+- Final publication sign-off still depends on one rerun in a complete notebook environment to confirm that regenerated figures, tables and inline media remain visually clean and text-consistent after execution.
