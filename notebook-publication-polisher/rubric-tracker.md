@@ -4,7 +4,7 @@
 
 - Date: 2026-05-12
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Estimated band: likely `Outstanding`, with the main remaining uncertainty tied to rerun reproducibility rather than notebook narrative quality or internal consistency
+- Estimated band: likely `Outstanding`, with the remaining uncertainty now concentrated in rerun reproducibility rather than in the report narrative or presentation
 
 ## Rubric reconstruction
 
@@ -18,13 +18,13 @@
 
 ## Criterion status
 
-- Post-labs: very strong. The saved answers now align with the accepted solvent ranking, use the correct fastest-solvent interpretation throughout, and explain the timescale/model assumptions more rigorously.
+- Post-labs: very strong. The saved answers now align with the accepted solvent ranking and avoid contradictory claims about the fastest solvent.
 - Data analysis + plotting: strong. All five solvents are analysed with uncertainty treatment, quality-control decisions, validation checks, and saved plots that decode cleanly.
-- Experimental write-up: very strong. The notebook now opens, argues, and concludes with the same quantitative result instead of leaving the best evidence buried in later tables, and the literature framing is more careful.
+- Experimental write-up: very strong. The notebook now opens, interprets, and concludes with the same quantitative solvent result instead of burying it or weakening it with inconsistent commentary.
 - Originality and elegance of code: strong. The notebook remains function-based, self-contained, and well beyond a minimally scripted lab submission.
-- Portability of code: good to strong. The notebook is designed for reruns, but full reproducibility cannot be re-demonstrated in this container because key scientific packages are absent.
-- Commenting/documentation: strong. Functions are documented and the analysis logic remains auditable, with source cells now matching the rendered narrative fixes.
-- Markdown/LaTeX/HTML/formatting: very strong. The notebook uses advanced formatting well, and this pass removed a first-view GIF burden while adding safer wide-table and inline-media handling.
+- Portability of code: good to strong. The notebook is designed for reruns, but full reproducibility still cannot be re-demonstrated in this container because key scientific packages are absent.
+- Commenting/documentation: strong. Functions are documented and the analysis logic remains auditable.
+- Markdown/LaTeX/HTML/formatting: very strong. This pass strengthened the opener, tightened the interpretive transitions, reduced first-view GIF load, and added safer wide-table handling.
 
 ## Remaining gap to full confidence
 
