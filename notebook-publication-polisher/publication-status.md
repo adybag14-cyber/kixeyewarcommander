@@ -1,5 +1,14 @@
 # Publication Status
 
+## 2026-05-12 live-notebook correction pass
+
+- Overall state: re-audited the attached executed notebook package against the actual notebook JSON, found that several issues previously described as fixed were still live in the source file, corrected them in a fresh polished artifact, and saved the current best deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Readiness summary: the polished notebook now leads, discusses, answers the post-lab questions, and concludes with the same evidence-backed result: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
+- Research and explanation summary: the title card and abstract now foreground the exact retained-trace count and solvent order; the live results-discussion and post-lab generator source now stop claiming that acetone is the fastest solvent; the saved rendered discussion and post-lab output now match the accepted acetonitrile-first ranking; and the conclusion now frames the literature comparison more rigorously as a partial scale check rather than an exact solvent-by-solvent validation.
+- Visual and rendering summary: notebook CSS now includes explicit horizontal overflow protection for wide rendered tables, the laboratory-workflow GIF panel is saved collapsed by default in both source and stored HTML, and a direct audit of the polished notebook confirms `8` embedded PNG figures and `2` embedded GIFs with clean decodes and frame counts of `84` and `70`.
+- Verification note: the saved executed notebook package now looks publication-ready at the source-and-rendered-output level, but final sign-off still depends on one clean rerun and HTML render check in a complete notebook environment because the original scientific stack is not available in this container.
+
 ## 2026-05-12 source-truth repair pass
 
 - Overall state: re-audited the attached executed notebook package against the live notebook JSON, repaired the remaining narrative and presentation defects in a fresh polished artifact, and saved the current best deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
