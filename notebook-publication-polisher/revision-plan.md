@@ -2,10 +2,12 @@
 
 ## 2026-05-12 latest pass
 
-- Completed: re-open the attached executed notebook package, compare it against the saved progress notes, and identify the real publication blockers still present in the notebook file.
-- Completed: repair the title card, abstract, results discussion, post-lab answers and conclusion so they all present the same evidence-backed quantitative outcome.
-- Completed: reduce stored-output presentation risk by adding table overflow protection and closing the workflow GIF panel by default in both source and saved HTML.
-- Completed: re-validate the edited notebook payload and rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Completed: compare the attached executed notebook source, stored markdown outputs and saved memory notes directly so the next pass works from the real notebook state.
+- Completed: rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Completed: rewrite the title card, abstract and conclusion so the accepted retained-trace count, solvent order and rate span are explicit at the notebook start and finish.
+- Completed: remove the last acetone-fastest contradictions from the results discussion and post-lab answers in both source and stored rendered output.
+- Completed: add notebook-level table overflow protection and collapse the second inline GIF panel by default in the stored notebook output.
+- Completed: re-audit the revised notebook payload and confirm that the embedded figure and GIF set still decodes cleanly with no open-by-default `details` panels.
 - Remaining blocker: perform one clean end-to-end rerun in a complete scientific notebook environment, then verify regenerated figures, tables and inline animations one final time.
 
 ## 2026-05-11 latest pass
