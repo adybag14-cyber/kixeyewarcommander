@@ -18,11 +18,11 @@
 
 ## Criterion status
 
-- Post-labs: strong. The saved answers now align with the accepted acetonitrile-first ranking, use the correct fastest-solvent timescale, and explain the solvent trend without contradicting the results section.
-- Data analysis + plotting: strong. The saved notebook includes solvent comparison tables, bootstrap-rank evidence, validation checks, uncertainty estimates, and decodable embedded figures/GIFs.
+- Post-labs: strong. The saved answers and the underlying source cells now align with the accepted acetonitrile-first ranking, use the correct fastest-solvent timescale, and explain the solvent trend without contradiction.
+- Data analysis + plotting: strong. The saved notebook includes solvent comparison tables, bootstrap-rank evidence, validation checks, uncertainty estimates, and decodable embedded figures and GIFs.
 - Experimental write-up: strong. The opener, discussion, and conclusion now tell one coherent quantitative story with the same solvent order, rate span, and literature-comparison scope throughout.
 - Originality and elegance of code: strong. The notebook remains self-contained and analytically ambitious.
-- Portability of code: good to strong. The notebook is designed for reruns, but the current container still lacks the full original scientific execution stack and could not reproduce a fresh run.
+- Portability of code: good to strong. The notebook is designed for reruns, but the current container still lacks the full scientific execution stack and could not reproduce a fresh run.
 - Commenting/documentation: strong. Functions remain documented and the analysis path is explained.
 - Markdown/LaTeX/HTML/formatting: strong. The notebook uses advanced formatting well, and the main saved rendering defects found this pass were corrected, including safer wide-table rendering and a default-collapsed second GIF panel.
 
