@@ -1,10 +1,17 @@
 # Rubric Tracker
 
+## 2026-05-12 latest pass
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this pass: the visible notebook now states one consistent quantitative result from title card to conclusion; the remaining acetonitrile-versus-acetone contradictions were removed from both source and stored rendered markdown; wide tables gained overflow protection; and the open-by-default workflow GIF panel was closed in the saved output.
+- Current score estimate: still likely Outstanding, with stronger support for full marks in post-lab coherence, experimental write-up and notebook formatting because the opening, discussion, post-lab section and conclusion now all align on the accepted acetonitrile-first ranking.
+- Main uncertainty that remains: this is still a repaired-and-audited executed notebook package rather than a fresh end-to-end rerun in a fully provisioned scientific notebook environment.
+
 ## 2026-05-11 latest pass
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- What improved this pass: the opening and closing report narrative now state the actual dataset result; the remaining acetone-first wording was removed from both the generator source and the stored rendered answers; the literature discussion now matches the benchmark evidence; rendered tables gained overflow protection; and the saved media payload was re-audited with both GIF panels closed by default.
-- Current score estimate: still likely Outstanding, with stronger support for full marks in post-lab coherence, experimental write-up, and markdown/formatting because the notebook’s visible narrative is now quantitatively consistent from the first screen to the conclusion.
+- What improved this pass: the last high-impact narrative contradiction was removed from both the source and the stored rendered markdown; the title card, abstract and conclusion now foreground the same quantitative outcome; both inline extras are saved collapsed; and the full stored visual payload was re-audited for decodability and open-panel defects.
+- Current score estimate: still likely Outstanding, now with stronger support for full marks in post-lab coherence, experimental write-up and formatting reliability because the visible notebook no longer says acetone is the fastest solvent in any key interpretation section.
 - Main uncertainty that remains: this is still a repaired-and-audited executed notebook package rather than a fresh end-to-end rerun in a complete scientific environment.
 
 ## 2026-05-11 earlier pass
@@ -28,7 +35,7 @@
 
 - Post-labs: likely Outstanding after the contradiction fixes; remaining gap is a clean rerun to confirm regenerated markdown stays aligned with the corrected source.
 - Data analysis + plotting: strong Excellent to Outstanding; remaining gap is rerun verification of regenerated outputs.
-- Experimental write-up: likely Outstanding after the title-card, abstract, discussion, and conclusion revisions; remaining gap is rerender confirmation.
+- Experimental write-up: likely Outstanding after the opening, discussion and conclusion revisions; remaining gap is rerender confirmation.
 - Originality and elegance of Python code: strong Excellent; no new weakness found in this pass.
 - Portability of code: strong Excellent in design, but still practically limited by the missing full scientific notebook stack in this container.
 - Commenting, documentation and explanation of code: strong Excellent; no urgent blocker found.
