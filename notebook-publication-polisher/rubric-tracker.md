@@ -4,7 +4,7 @@
 
 - Date: 2026-05-12
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Estimated band: likely `Outstanding`, with the remaining uncertainty now concentrated in rerun reproducibility rather than in the report narrative or presentation
+- Estimated band: likely `Outstanding`, with the remaining uncertainty now concentrated in rerun reproducibility rather than in the report narrative, explanation quality, or presentation
 
 ## Rubric reconstruction
 
@@ -28,5 +28,5 @@
 
 ## Remaining gap to full confidence
 
-- One clean rerun is still needed in an environment with the full scientific stack.
+- One clean rerun is still needed in an environment with the full scientific stack, including `matplotlib`, `scipy`, `numba`, and `rdkit`.
 - After that rerun, one final render audit should confirm that regenerated tables, figures, and GIF panels remain publication-clean.
