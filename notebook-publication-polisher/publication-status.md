@@ -1,5 +1,13 @@
 # Publication Status
 
+## 2026-05-12 current pass
+
+- Overall state: re-audited the attached executed notebook package directly and rebuilt the polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Readiness summary: the notebook now states the same quantitative result in the title card, abstract, results discussion, post-lab answers and conclusion: `111 of 225` retained traces, solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
+- Research and explanation summary: the last acetone-fastest contradictions were removed from both the saved narrative-generator cells and the stored rendered markdown outputs, and the literature-comparison discussion now explicitly notes that the benchmark set is only a partial scale check rather than a full validation of the entire solvent ranking.
+- Visual and rendering summary: the notebook-level CSS now forces wide tables to scroll instead of clip, both inline GIF panels are saved collapsed by default, and a direct payload audit of the rebuilt notebook still confirms `8` embedded PNG figures and `2` embedded GIFs with no broken decodes.
+
 ## 2026-05-12 latest pass
 
 - Overall state: produced a new revised notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed package after a full source-versus-rendered-output audit.
