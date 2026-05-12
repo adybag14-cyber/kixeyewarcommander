@@ -22,7 +22,7 @@
 - Data analysis + plotting: strong. All five solvents are analysed with uncertainty treatment, quality-control decisions, validation checks, and saved plots that still decode cleanly.
 - Experimental write-up: very strong. The notebook now opens, interprets, and concludes with the same quantitative solvent result, and the literature comparison is more precise about which solvents are actually shared with the teaching-paper benchmark.
 - Originality and elegance of code: strong. The notebook remains function-based, self-contained, and substantially more sophisticated than a minimally scripted lab submission.
-- Portability of code: good to strong. The notebook is structured for reruns and the wide-table display path is now safer, but full reproducibility still cannot be re-demonstrated in this container because key scientific packages are absent.
+- Portability of code: good to strong. The notebook is structured for reruns and the wide-table display path is now safer in both saved outputs and source code, but full reproducibility still cannot be re-demonstrated in this container because key scientific packages are absent.
 - Commenting/documentation: strong. Functions are documented, the analysis logic remains auditable, and the explanatory markdown is better aligned with the numerical outputs.
 - Markdown/LaTeX/HTML/formatting: very strong. This pass strengthened the opener, corrected visible narrative inconsistencies, added safer wide-table handling, and improved GIF-panel layout without breaking the embedded media.
 
