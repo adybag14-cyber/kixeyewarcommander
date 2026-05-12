@@ -1,5 +1,18 @@
 # Improvement Log
 
+## 2026-05-12 live-notebook correction pass
+
+- Re-opened the attached executed notebook package, the rubric guidance and the saved notes, then treated the live notebook JSON as the source of truth instead of trusting the earlier progress records.
+- Confirmed that the actual attached notebook still had high-impact publication blockers: the title card and abstract were still generic, the live discussion and post-lab source still contained acetone-fastest claims, the second inline GIF panel was still saved open by default, and the notebook-level table overflow protection described in memory was not yet present in the file.
+- Built a corrected polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` rather than overwriting the attached source package.
+- Rewrote the opening title-card result and abstract so the notebook now foregrounds `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` rate span immediately.
+- Corrected the live results-discussion source so it no longer says acetone has the largest measured rate constant and now explains more carefully that the ranking does not follow one bulk solvent descriptor.
+- Corrected the live post-lab source so the timescale answer uses acetonitrile as the fastest accepted solvent, the one-wavelength answer names both acetonitrile and acetone as fast solvents, and the solvent-effects answers no longer imply that acetone is the fastest accepted solvent.
+- Replaced the saved rendered discussion and post-lab markdown outputs so the visible notebook now matches the corrected source rather than leaving the stale executed text in place.
+- Strengthened the conclusion so it closes on the retained-trace count, accepted solvent ranking, rate span, and the limited role of the literature comparison.
+- Added notebook-level horizontal overflow protection for rendered tables and removed the saved `open` state from the laboratory-workflow GIF panel in both source and stored HTML output.
+- Re-audited the repaired notebook payload and confirmed `8` embedded PNG figures, `2` embedded GIFs, `0` open-by-default extra panels, and no remaining acetone-fastest contradiction strings in either source or saved rendered output.
+
 ## 2026-05-12 source-truth repair pass
 
 - Re-opened the attached executed notebook package, the rubric guidance and the saved notes, then treated the live notebook JSON as the source of truth instead of assuming the previous notes were fully current.
