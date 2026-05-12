@@ -9,10 +9,11 @@
 - Rewrote the abstract to include the actual quality-control route, the accepted solvent ordering, the fitted rate range, and the interpretive caution that the solvent trend is not reducible to one bulk-polarity descriptor.
 - Strengthened the conclusion so it closes on the same quantitative solvent comparison used at the front of the notebook.
 - Added notebook-level horizontal overflow handling for wide rendered tables to reduce clipping risk in notebook and exported HTML viewers.
-- Corrected the post-lab discussion so acetonitrile is treated consistently as the fastest accepted solvent, including the timescale argument and the solvent-effects explanation.
+- Corrected the saved results discussion and post-lab answers so acetonitrile is treated consistently as the fastest accepted solvent, including the timescale argument, solvent-effects explanation, and literature-context wording.
 - Removed the default-open state from the second inline workflow GIF panel in the polished copy to improve first-view notebook layout.
 - Re-audited the embedded media payload in the polished notebook: `8` PNG figures and `2` GIFs decoded successfully, with the GIFs still validating at `84` and `70` frames.
 - Built and visually inspected a contact sheet of the saved figures and first GIF frames; the saved outputs did not show obvious clipping, overlap, unreadable labels, or broken media.
+- Updated the underlying source cells as well as the saved rendered markdown/html outputs so the same fixes survive into a future rerun instead of only patching the displayed notebook text.
 
 ## Open risk
 
