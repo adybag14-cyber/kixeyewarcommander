@@ -1,5 +1,12 @@
 # Rubric Tracker
 
+## 2026-05-12 consistency-and-render pass
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this pass: the notebook opening, stored discussion outputs, post-lab answers and conclusion now all state the same accepted solvent ranking; the benchmark comparison is more rigorous about its limited scope; wide tables gained stronger overflow protection; and both inline GIF extras now open collapsed.
+- Current score estimate: still likely Outstanding, now with materially stronger support for the top bands in post-labs, experimental write-up and formatting because the visible notebook narrative and saved rendered outputs finally agree end to end.
+- Main uncertainty that remains: this is still a repaired-and-audited executed notebook package rather than a freshly rerun notebook in the original full scientific environment.
+
 ## 2026-05-12 current pass
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
