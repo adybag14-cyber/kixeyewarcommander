@@ -1,13 +1,12 @@
 # Revision Plan
 
-## 2026-05-12 narrative-and-output repair pass
+## 2026-05-12 source-truth repair pass
 
-- Completed: re-audit the attached executed notebook source, saved rendered markdown outputs and stored media panels against the live notebook JSON.
-- Completed: strengthen the title card, abstract, results discussion, post-lab answers and conclusion so the notebook consistently foregrounds the accepted retained-trace count, solvent order and rate span.
-- Completed: tighten the discussion by using the bootstrap-rank table and fit-window sensitivity table as direct evidence, and frame the literature comparison as a partial benchmark rather than a full validation of the solvent order.
-- Completed: add notebook-level overflow protection for wide rendered tables and collapse the laboratory-workflow GIF panel by default in both the generating source and the stored HTML output.
-- Completed: rebuild the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and visually re-audit the stored figures for obvious clipping or overlap.
-- Remaining blocker: perform one clean end-to-end rerun in a complete scientific notebook environment and complete a final rendered-HTML sign-off pass.
+- Completed: re-audit the attached executed notebook, rubric guidance and saved notes directly against the live notebook JSON.
+- Completed: repair the title card, abstract, discussion generator, post-lab generator and conclusion so the notebook consistently reports the accepted acetonitrile-first ranking and exact retained-trace count in both source and saved rendered output.
+- Completed: add notebook-level overflow protection for wide rendered tables, collapse the laboratory-workflow GIF panel by default, and recheck the saved media payload for clipping or decode failures.
+- Completed: rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and confirm the repaired file contains `19` HTML outputs, `8` embedded PNG figures, `2` embedded GIFs and `0` open-by-default extra panels.
+- Remaining blocker: perform one clean end-to-end rerun and final HTML render review in a complete scientific notebook environment with the original stack available.
 
 ## 2026-05-12 verification-and-notebook-sync pass
 
