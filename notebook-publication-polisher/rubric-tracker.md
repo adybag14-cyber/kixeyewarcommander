@@ -1,5 +1,12 @@
 # Rubric Tracker
 
+## 2026-05-12 live-notebook correction pass
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this pass: the actual notebook source and saved rendered output now agree on the acetonitrile-first solvent ranking; the opening and conclusion now state the exact retained-trace count and rate span; wide rendered tables now have explicit overflow protection; and the saved laboratory-workflow GIF panel no longer opens expanded by default.
+- Current score estimate: likely back to the top `Outstanding` band, with materially stronger evidence than before for post-lab coherence, experimental write-up quality, and formatting robustness because the live notebook finally matches the quantitative result shown in its own summary table.
+- Main uncertainty that remains: the notebook is now publication-ready at the attached executed-package level, but it still has not been rerun end to end in a complete scientific notebook environment from this container.
+
 ## 2026-05-12 source-truth repair pass
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
