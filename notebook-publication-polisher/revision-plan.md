@@ -8,16 +8,14 @@
 ## Completed this pass
 
 - Re-read the attached notebook and rubric guidance directly.
-- Checked the executed notebook structure, saved narrative cells, and rendered output payloads rather than treating prior notes as ground truth.
+- Checked the executed notebook structure, saved narrative cells, generated markdown outputs, and embedded media payloads instead of relying only on prior notes.
 - Created a polished notebook copy in `/workspace/output/`.
 - Rewrote the opener and abstract so the notebook foregrounds the strongest quantitative result.
-- Tightened the results interpretation and literature-context wording.
-- Corrected saved results-discussion and post-lab explanations that still weakened or contradicted the accepted solvent ordering.
-- Strengthened the conclusion so it lands on the same numerical solvent comparison used in the opening.
+- Added a clearer interpretation bridge after the main numerical summary tables.
+- Corrected lingering narrative contradictions in the literature comparison and post-lab answers.
 - Added safer wide-table overflow handling.
 - Collapsed the second inline workflow GIF panel by default.
-- Re-audited the saved figures and GIFs and built a contact-sheet spot-check for visual review.
-- Synced the repaired rendered outputs with the underlying source cells so the next rerun preserves the same fixes.
+- Revalidated the notebook JSON and rechecked the saved figures and GIF payloads.
 
 ## Remaining blocker
 
