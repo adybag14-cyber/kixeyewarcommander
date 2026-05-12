@@ -1,5 +1,13 @@
 # Revision Plan
 
+## 2026-05-12 live-notebook correction pass
+
+- Completed: re-audit the attached executed notebook, rubric guidance and saved notes directly against the live notebook JSON instead of the earlier progress summaries.
+- Completed: repair the title card, abstract, discussion source, post-lab source, saved rendered discussion, saved rendered post-lab answers and conclusion so the notebook consistently reports the accepted acetonitrile-first ranking and exact retained-trace count in both source and visible output.
+- Completed: add notebook-level overflow protection for wide rendered tables, collapse the saved laboratory-workflow GIF panel by default, and recheck the embedded media payload for decode failures.
+- Completed: rebuild the polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and confirm the corrected file contains `8` embedded PNG figures, `2` embedded GIFs and `0` open-by-default extra panels.
+- Remaining blocker: perform one clean end-to-end rerun and final HTML render review in a complete scientific notebook environment with the original scientific stack available.
+
 ## 2026-05-12 source-truth repair pass
 
 - Completed: re-audit the attached executed notebook, rubric guidance and saved notes directly against the live notebook JSON.
