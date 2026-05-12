@@ -14,6 +14,7 @@
 - Updated the rerunnable notebook code path so future reruns use the same scroll-safe table display pattern rather than falling back to wide default DataFrame rendering.
 - Removed the default-open state from the second inline workflow GIF panel to improve first-view layout.
 - Revalidated the polished notebook JSON, confirmed that all code cells parse cleanly, and checked that the saved embedded media still decode successfully: `8` PNG figures and `2` GIFs (`84` and `70` frames).
+- Re-checked the execution blocker list in the current container rather than trusting the older status note; `matplotlib`, `scipy`, `numba`, and `rdkit` are all still unavailable here.
 
 ## Open risk
 
