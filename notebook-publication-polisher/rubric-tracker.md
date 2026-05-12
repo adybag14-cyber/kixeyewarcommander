@@ -1,5 +1,12 @@
 # Rubric Tracker
 
+## 2026-05-12 current pass
+
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- What improved this pass: the notebook opening and conclusion now state the exact accepted result; the stored discussion and post-lab sections no longer contradict the accepted acetonitrile-first order; the literature comparison is framed more rigorously; wide rendered tables now scroll instead of clipping; and both inline GIF extras are saved collapsed by default.
+- Current score estimate: still likely Outstanding, now with stronger support for the top bands in post-labs, experimental write-up and formatting because the visible notebook narrative is finally aligned with the accepted rate table and the saved rendering state is cleaner.
+- Main uncertainty that remains: this is still a repaired-and-audited executed notebook package rather than a fresh end-to-end rerun in a complete scientific environment.
+
 ## 2026-05-12 latest pass
 
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
