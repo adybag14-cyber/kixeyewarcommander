@@ -13,6 +13,7 @@
 - The results discussion no longer contradicts the accepted ranking: acetonitrile is treated consistently as the fastest retained solvent, while the literature comparison is framed only around the solvents actually shared with the 1990 JCE paper.
 - The post-lab answers now use the accepted solvent order throughout, including the fastest-solvent example, the rate list, and the explanation of why the kinetics are not controlled by one bulk polarity descriptor alone.
 - The conclusion now closes on the same quantitative solvent sequence and ranking-stability message stated at the front of the notebook.
+- The rerunnable notebook source now includes scroll-safe table display helpers, so future executions should preserve the same overflow protection instead of reverting to default wide DataFrame rendering.
 
 ## Visual/rendering state
 
@@ -25,5 +26,5 @@
 ## Remaining blockers
 
 - Final publication-ready sign-off still requires one clean end-to-end rerun in a complete scientific notebook environment.
-- The current container cannot perform that rerun because key execution dependencies are missing here: `matplotlib`, `scipy`, `numba`, and `rdkit`.
+- The current container still cannot perform that rerun because a direct dependency check in this run confirmed that `matplotlib`, `scipy`, `numba`, and `rdkit` are missing here.
 - After a successful rerun in the intended environment, one final HTML-or-notebook render check is still needed to confirm regenerated tables, figures, and inline GIF panels remain visually clean.
