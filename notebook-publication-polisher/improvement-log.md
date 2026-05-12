@@ -1,5 +1,20 @@
 # Improvement Log
 
+## 2026-05-12 contradiction-fix and render-hardening pass
+
+- Re-reviewed the attached executed notebook package directly instead of relying on the prior status notes alone.
+- Confirmed that the live attached notebook still contained publication-blocking narrative contradictions: the opener was still generic, the results discussion still said acetone was the largest measured rate, the post-lab answers still said acetone was fastest, and the laboratory-workflow GIF panel was still saved expanded by default.
+- Parsed the saved HTML tables from the executed outputs to recover the exact solvent means, bootstrap rank probabilities, and consistency-check results from the notebook itself.
+- Audited the embedded media payload and verified that the saved notebook contains `8` embedded PNG figures and `2` embedded GIFs, with both GIFs decoding successfully (`84` and `70` frames).
+- Wrote a polished notebook copy to `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the opening title card and abstract so they now foreground the exact retained-trace count, solvent order, rate span, and bootstrap-rank stability.
+- Rewrote the results discussion so it now correctly identifies acetonitrile as the fastest solvent, explains the non-monotonic solvent trend more carefully, and frames the literature comparison as partial rather than complete.
+- Rewrote the post-lab answers so the wavelength-choice, solvatochromism, and solvent-effects sections all agree with the accepted solvent ranking.
+- Rewrote the conclusion so it closes on the exact quantitative result rather than a generic solvent-dependence statement.
+- Added notebook-level CSS overflow protection for wide rendered tables in the polished copy.
+- Removed the default-open state from the laboratory-workflow GIF panel in both the source code cell and the stored HTML output of the polished copy.
+- Attempted a fresh local rerun against the supplied data, but execution failed immediately because the container lacks the required plotting stack (`matplotlib` missing at minimum), so reproducibility could not be revalidated here.
+
 ## 2026-05-12 publication-readiness tightening pass
 
 - Re-audited the attached executed notebook package, rubric guidance, and saved notes against the live notebook JSON instead of trusting earlier summaries.
