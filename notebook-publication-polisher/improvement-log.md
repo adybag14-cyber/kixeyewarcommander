@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-12 publication-alignment repair pass
+
+- Re-reviewed the attached notebook package directly against the saved notebook JSON and rendered outputs instead of relying on the prior memory summary alone.
+- Confirmed that the attached executed notebook still contained publication-blocking contradictions in the title-card summary, abstract, results discussion, post-lab answers, and the default-open laboratory-workflow GIF output.
+- Rebuilt the polished working copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the opener and abstract so the notebook now leads with exact retained-trace counts, the correct solvent order, the `46.5-fold` rate span, bootstrap-rank stability, and the limited scope of the literature comparison.
+- Repaired the results discussion in both source and stored rendered markdown so it no longer claims that acetone is the fastest solvent or that the solvent trend is explained by one simple polarity statement.
+- Repaired the post-lab answers in both source and stored rendered markdown so the timescale argument now uses acetonitrile as the fastest accepted solvent and the final solvent list is ordered correctly.
+- Added safer notebook-level CSS for wide rendered tables so saved HTML and notebook viewers are less likely to clip or overflow the summary tables.
+- Removed the default-open state from the second inline workflow GIF panel in both source and stored rendered HTML.
+- Re-ran the saved-media audit and confirmed that the polished copy still decodes to `8` PNG figures and `2` GIFs, with no obvious clipping, overlap, or broken-image failures in the contact-sheet review.
+
 ## 2026-05-12 final source-alignment and visual audit pass
 
 - Re-audited the attached notebook package, rubric guidance, and saved notes directly against the live notebook JSON instead of trusting earlier summaries.
