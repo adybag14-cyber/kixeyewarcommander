@@ -18,8 +18,8 @@
 
 ## Criterion status
 
-- Post-labs: very strong. The saved answers now align with the accepted solvent order and explain the physical meaning of the kinetic model more clearly.
-- Data analysis + plotting: strong. The stored notebook still contains all expected figures, summary tables, validation outputs and embedded animations, and the media payloads decode cleanly.
+- Post-labs: very strong. The saved answers now align with the accepted solvent order, avoid solvent-ranking contradictions and explain the physical meaning of the kinetic model more clearly.
+- Data analysis + plotting: strong to very strong. The stored notebook still contains all expected figures, summary tables, validation outputs and embedded animations, the media payloads decode cleanly, and the saved contact-sheet audit did not show obvious clipping or overlap.
 - Experimental write-up: very strong. The opener, abstract, results discussion and conclusion now tell the same quantitative story and make the literature-comparison scope clearer.
 - Originality and elegance of code: strong. The notebook remains function-based, auditable and substantially more sophisticated than a minimal lab-script submission.
 - Portability of code: good to strong. The notebook is organized for reruns, but full reproducibility still cannot be re-demonstrated in this container because the scientific stack is missing.
