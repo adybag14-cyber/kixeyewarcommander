@@ -1,5 +1,18 @@
 # Improvement Log
 
+## 2026-05-13 contradiction cleanup and render-hardening pass
+
+- Re-opened the attached notebook itself and found that the saved executed artifact still contained two publication-level ranking contradictions in the narrative source even after earlier correction notes had been written.
+- Built and updated `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the current best notebook deliverable.
+- Strengthened the title card and abstract so the notebook now foregrounds the retained-trace count (`111/225`), accepted solvent order and `46.5-fold` rate span immediately.
+- Corrected the saved results discussion so it no longer claims that acetone gives the largest measured rate and now states clearly that acetonitrile is the fastest accepted solvent, with acetone a close second.
+- Corrected the saved post-lab answers so the characteristic-timescale example and the solvent-rate list are aligned with the accepted ranking.
+- Strengthened the conclusion so the notebook closes with the same quantitative solvent-order message used in the opener.
+- Added notebook-level table CSS that allows wide tables to scroll horizontally instead of risking clipping on narrower notebook layouts.
+- Reconfirmed that the second workflow GIF panel is closed by default in the saved output and in the code that would regenerate it.
+- Re-audited the embedded media in the polished notebook and confirmed that all `8` PNG figures and both inline GIFs still decode successfully.
+- Ran a lightweight image-edge audit across the stored PNG figures and sampled GIF frames; no clipping flags were detected at the media boundaries.
+
 ## 2026-05-13 notebook correction and persistence pass
 
 - Re-inspected the attached notebook package directly and confirmed that the attached source notebook still contained internal publication-quality contradictions even though prior progress notes already described the work as nearly finished.
