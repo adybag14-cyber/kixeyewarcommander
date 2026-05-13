@@ -1,15 +1,17 @@
 # Improvement Log
 
-## 2026-05-13 literature-strengthening and output-wrapper pass
+## 2026-05-13 quantitative opener, contradiction cleanup and layout-hardening pass
 
-- Re-opened the attached notebook and confirmed that the source notebook itself still lagged behind the stronger state described in memory, so the notebook file was rebuilt again rather than treated as already finished.
-- Built and saved `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the current publication candidate.
-- Strengthened the opener, abstract and conclusion so the notebook itself now foregrounds the retained-trace count (`111/225`), accepted solvent order and `46.5-fold` rate span.
-- Corrected the remaining saved ranking contradictions so the results discussion and post-lab answers now keep acetonitrile as the fastest accepted solvent throughout.
-- Tightened the literature framing so acetone is treated as the fastest directly shared JCE benchmark while acetonitrile is treated as an additional solvent beyond that comparison subset.
-- Added two stronger primary literature references on push-pull azobenzene solvent effects and pathway changes, improving the research support behind the mechanistic discussion.
-- Wrapped the stored HTML table outputs in horizontal scroll containers and kept the notebook-level table CSS so narrower notebook views are less likely to clip wide tables.
-- Reconfirmed that both inline GIFs decode successfully and that the laboratory-workflow animation is collapsed by default in the saved notebook.
+- Re-read the attached notebook package directly and confirmed that the saved source notebook still opened with a generic central-result statement even though later progress notes already described a sharper quantitative opener.
+- Built and refreshed `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the current best notebook deliverable for this run.
+- Rewrote the title-card central result and abstract so the notebook now opens with the retained-trace count (`111/225`), accepted solvent order and `46.5-fold` rate span instead of a generic statement about solvent dependence.
+- Corrected the saved results-discussion source and rendered markdown so the solvent-effects paragraph no longer says that acetone has the largest measured rate.
+- Corrected the saved literature-comparison discussion so acetone is described as the fastest solvent only within the directly shared JCE comparison subset, while acetonitrile remains the overall fastest accepted solvent in the present data set.
+- Corrected the saved post-lab answers so the characteristic-timescale example now uses the true fastest solvent, the UV-vis interpretation no longer says acetone is fastest, and the final solvent list follows the accepted ranking.
+- Strengthened the conclusion so it restates the retained-trace count, accepted solvent order and dynamic range explicitly.
+- Added notebook-level CSS that gives wide rendered tables a horizontal-scroll fallback and reinforces image height safety in narrower notebook views.
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the stored HTML output and the source code that regenerates it.
+- Re-audited the polished notebook and confirmed that the saved executed artifact now contains `8` decodable embedded PNG figures, `2` decodable embedded GIFs and `9` rendered HTML tables with no broken media payloads detected.
 
 ## 2026-05-13 contradiction cleanup and render-hardening pass
 
