@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-13 attached-package publication rebuild and verification pass
+
+- Re-audited the attached notebook package directly and confirmed that the source notebook still lagged behind the previously saved progress notes.
+- Verified four concrete publication blockers in the attached notebook: a generic central-result opener/abstract, saved HTML tables without horizontal-scroll protection, a default-open laboratory workflow GIF panel, and residual acetone-first wording in the saved literature/post-lab text.
+- Built a fresh polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the title card, abstract and conclusion so the notebook now opens and closes with the retained-trace count (`111/225`), accepted solvent order, and `46.5-fold` fastest-to-slowest rate span.
+- Corrected the saved results-discussion and post-lab source/output wording so acetonitrile is consistently treated as the fastest accepted solvent overall, while acetone is retained only as the fastest solvent within the directly shared literature subset.
+- Wrapped all `9` saved dataframe-style HTML tables in horizontal-scroll containers in the polished artifact.
+- Removed the default-open state from the laboratory workflow GIF in both the saved source code and the saved rendered HTML output.
+- Revalidated the polished notebook and confirmed that it now contains `8` decodable PNG figures, `2` decodable GIFs, zero default-open expandable GIF panels, zero remaining acetone-first contradiction strings in the audited sections, and `9` scroll-protected rendered HTML tables.
+
 ## 2026-05-13 attached-artifact source/render correction pass
 
 - Re-audited the attached executed notebook rather than relying on the previously saved status notes.
