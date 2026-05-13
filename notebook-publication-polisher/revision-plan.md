@@ -1,5 +1,14 @@
 # Revision Plan
 
+## 2026-05-13 quantitative narrative and layout hardening run
+
+- [x] Reinspect the attached notebook package, rubric guidance and saved status notes directly.
+- [x] Confirm whether publication-facing source/output drift still remained in the opener, abstract, generated discussion, post-lab answers, conclusion, table rendering, and workflow GIF panel.
+- [x] Build a corrected polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- [x] Repair the quantitative story so acetonitrile is treated consistently as the fastest accepted solvent overall, while acetone is scoped correctly to the literature-overlap subset.
+- [x] Harden the notebook against wide-table clipping in both the saved artifact and future reruns, and close the saved workflow GIF panel by default.
+- [x] Revalidate the polished artifact for decodable media, table count, notebook integrity, and removed narrative contradictions.
+
 ## 2026-05-13 attached-package source/render alignment run
 
 - [x] Reinspect the attached notebook package, rubric guidance and saved status notes directly.
