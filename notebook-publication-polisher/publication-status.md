@@ -4,15 +4,15 @@
 
 - Date: 2026-05-13
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: very strong and close to publication-ready as a saved executed notebook, but not yet fully signed off because one clean rerun in the intended scientific environment is still missing
+- Publication-readiness estimate: very strong and close to publication-ready as a saved executed notebook, with the major publication-facing source/output drift now corrected; final sign-off is still blocked by the lack of one clean rerun in the intended scientific environment
 
 ## Notebook state
 
-- The attached source notebook still contained publication-facing drift when rechecked in this run: a generic central-result opener, one default-open workflow GIF panel, saved HTML tables without horizontal-scroll protection, and residual acetone-first wording in the literature/post-lab source text.
+- The attached source notebook contained publication-facing drift when rechecked in this run: a generic central-result opener, a conclusion that did not restate the actual accepted quantitative result, one default-open workflow GIF panel, saved HTML tables without horizontal-scroll protection, and residual acetone-first wording in the generated results/post-lab discussion.
 - A corrected polished executed notebook has been rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - The opener, abstract and conclusion now lead with the actual quantitative result: `111/225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` fastest-to-slowest rate span.
 - The saved source cells and the saved rendered markdown now tell the same story: acetonitrile is treated consistently as the fastest accepted solvent overall, while acetone is kept only as the fastest solvent within the directly shared literature subset.
-- All `9` rendered dataframe-style HTML tables in the polished notebook are now wrapped in horizontal-scroll containers so narrower renders are less likely to clip wide outputs.
+- The table helper in the notebook source now emits scroll-safe HTML, and all `9` rendered dataframe-style HTML tables in the polished notebook are wrapped in horizontal-scroll containers so narrower renders are less likely to clip wide outputs.
 - Both inline animation panels are now collapsed by default in the polished saved artifact, improving first-view layout and reducing the chance of oversized media dominating the page.
 
 ## Visual/rendering state
