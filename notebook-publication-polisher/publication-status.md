@@ -4,7 +4,7 @@
 
 - Date: 2026-05-13
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: very strong, publication-near executed notebook artifact with the main remaining risk concentrated in end-to-end rerun reproducibility
+- Publication-readiness estimate: very strong, publication-near executed notebook artifact with the main remaining risk concentrated in end-to-end rerun reproducibility rather than in the saved notebook's visible content
 
 ## Notebook state
 
