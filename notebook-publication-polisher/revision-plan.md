@@ -1,5 +1,14 @@
 # Revision Plan
 
+## 2026-05-13 final attached-package rebuild verification pass
+
+- [x] Reinspect the attached notebook package, rubric guidance and saved status notes directly.
+- [x] Rebuild the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- [x] Tighten the opener, abstract and conclusion around the accepted retained-trace count, solvent ranking and rate span.
+- [x] Repair the remaining source/output solvent-order drift so acetonitrile is treated consistently as the fastest accepted solvent overall.
+- [x] Wrap saved HTML tables, preserve source-side rerun-safe table wrapping, and close the workflow GIF panel by default.
+- [x] Revalidate the polished notebook for decodable media, wrapped tables, collapsed GIF panels and removed narrative contradictions.
+
 ## 2026-05-13 quantitative narrative and layout hardening run
 
 - [x] Reinspect the attached notebook package, rubric guidance and saved status notes directly.
