@@ -21,6 +21,7 @@
 - All embedded media decoded successfully in this pass; no broken PNG payloads, blank GIF payloads or malformed embedded-media records were found in the saved notebook.
 - A contact-sheet review of all stored figures and both animations did not show obvious clipping, overlapping labels, blank panels or truncated axes in the saved outputs.
 - The second animation panel no longer opens automatically, which improves first-view notebook layout.
+- A full static HTML export was not re-run locally because `jupyter`/`nbconvert` is unavailable in this container, so the render audit in this pass was performed directly against the saved notebook JSON, embedded media payloads and figure contact sheet.
 
 ## Remaining blockers
 
