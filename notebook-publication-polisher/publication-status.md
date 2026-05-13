@@ -12,6 +12,7 @@
 - A corrected polished executed notebook has been rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - The opener, abstract and conclusion now foreground the actual accepted result: `111 of 225` retained traces, the solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` fastest-to-slowest rate span.
 - The saved source cells and the saved rendered markdown now tell the same story: acetonitrile is treated consistently as the fastest accepted solvent overall, while acetone is treated as the fastest solvent only within the directly shared literature subset.
+- The generated results discussion and post-lab answers were also corrected in source as well as in saved output, so a future rerun will no longer reintroduce the acetone-first contradiction that was still present in the attached notebook package.
 - The notebook source now contains a publication-safe table helper for reruns, and all `9` rendered dataframe-style HTML tables in the polished artifact are wrapped in horizontal-scroll containers to reduce clipping in narrower notebook renders.
 - Both inline GIF panels now start closed in the polished artifact, which improves first-view layout and reduces the risk of oversized media dominating the notebook opening.
 
