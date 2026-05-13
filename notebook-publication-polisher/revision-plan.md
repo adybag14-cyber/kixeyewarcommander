@@ -1,5 +1,12 @@
 # Revision Plan
 
+## 2026-05-13 attached-package rebuild and verification run
+
+- [x] Reinspect the attached notebook package rather than relying on prior saved notes.
+- [x] Confirm whether the attached source notebook still contains publication-facing source/render drift.
+- [x] Build a corrected polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- [x] Verify the saved artifact for table clipping protection, collapsed GIF panels, removed wording contradictions, and decodable embedded media.
+
 ## 2026-05-13 attached-artifact correction run
 
 - [x] Reinspect the attached notebook package rather than assuming the saved notes already matched it.
