@@ -19,7 +19,7 @@
 ## Criterion status
 
 - Post-labs: very strong. The saved answers now align with the accepted solvent order, use acetonitrile consistently as the fastest accepted solvent, and explain the kinetic assumptions more clearly.
-- Data analysis + plotting: strong to very strong. The stored notebook still contains all expected figures, summary tables, validation outputs and embedded animations; `8` PNGs and `2` GIFs decoded cleanly in this pass, and the direct visual audit did not show obvious clipping or overlap.
+- Data analysis + plotting: strong to very strong. The stored notebook still contains all expected figures, summary tables, validation outputs and embedded animations; `8` PNGs and `2` GIFs decoded cleanly in this pass, and the saved workflow panel no longer opens by default.
 - Experimental write-up: very strong. The opener, abstract, results discussion and conclusion now tell the same quantitative story and scope the literature comparison more carefully.
 - Originality and elegance of code: strong. The notebook remains function-based, auditable and substantially more sophisticated than a minimal lab-script submission.
 - Portability of code: good to strong. The notebook is organized for reruns, but reproducibility still cannot be demonstrated in this container because key scientific and notebook packages are missing.
