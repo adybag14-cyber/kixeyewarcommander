@@ -1,5 +1,13 @@
 # Revision Plan
 
+## 2026-05-13 source-output sync and layout hardening run
+
+- [x] Reinspect the attached notebook package rather than relying on the previously saved assessment.
+- [x] Confirm which publication-facing issues remain in the saved source and saved outputs.
+- [x] Build a corrected polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- [x] Repair source/output drift in the opener, generated discussion, post-lab answers, conclusion, table outputs, and workflow GIF panel.
+- [x] Revalidate the polished artifact for wrapped tables, collapsed GIF panels, and corrected quantitative story.
+
 ## 2026-05-13 attached-package rebuild and verification run
 
 - [x] Reinspect the attached notebook package rather than relying on prior saved notes.
