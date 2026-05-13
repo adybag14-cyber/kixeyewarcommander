@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-13 attached-package source and render alignment pass
+
+- Re-audited the attached notebook package, rubric guidance and saved notes rather than assuming the earlier polished state was already reflected in the source artifact.
+- Confirmed that the attached notebook still carried publication-facing drift in both source and rendered content: a generic opener and abstract, an under-specific conclusion, contradictory acetone-first statements inside the generated discussion/post-lab source, unwrapped HTML tables, and one default-open laboratory workflow GIF panel.
+- Rebuilt the deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the title-card central result, abstract and conclusion so the notebook now foregrounds the retained-trace count (`111/225`), the accepted solvent order, and the `46.5-fold` fastest-to-slowest span.
+- Corrected both the generated results-discussion source and the saved rendered markdown so acetonitrile is treated consistently as the fastest accepted solvent overall, while acetone is kept only as the fastest solvent within the directly comparable literature subset.
+- Corrected both the post-lab source and saved rendered markdown so the fastest-timescale example now uses acetonitrile and the solvent-order explanation no longer conflicts with the fitted results.
+- Added source-side scroll-safe table rendering for reruns, wrapped all `9` saved dataframe-style HTML tables in scroll containers, and removed the default-open state from the laboratory workflow GIF panel in both source and saved HTML.
+- Revalidated the polished notebook and confirmed `8` decodable embedded PNG figures, `2` decodable embedded GIFs, `9` wrapped HTML tables, zero default-open expandable panels, and no remaining acetone-first contradiction strings in the saved artifact.
+
 ## 2026-05-13 attached-notebook correction and verification pass
 
 - Reinspected the attached notebook package and rubric directly rather than trusting the earlier saved progress notes.
