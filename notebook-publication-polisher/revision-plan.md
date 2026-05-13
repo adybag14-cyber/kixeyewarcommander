@@ -1,8 +1,9 @@
 # Revision Plan
 
-## 2026-05-13 run
+## 2026-05-13 source-package rebuild run
 
 - [x] Inspect the attached notebook, rubric guidance, and saved progress notes.
+- [x] Rebuild the polished notebook deliverable from the attached source package because the previously referenced polished file was not present in the workspace.
 - [x] Audit the saved notebook content for publication-facing inconsistencies.
 - [x] Check embedded figures, GIFs, and table outputs for obvious rendering defects or broken media.
 - [x] Strengthen the opener, abstract, results discussion, post-lab answers, and conclusion around the accepted quantitative result.
