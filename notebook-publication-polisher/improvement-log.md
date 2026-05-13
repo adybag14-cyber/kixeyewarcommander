@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-13 notebook correction and persistence pass
+
+- Re-inspected the attached notebook package directly and confirmed that the attached source notebook still contained internal publication-quality contradictions even though prior progress notes already described the work as nearly finished.
+- Built a corrected polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` instead of relying on the inconsistent attached source notebook.
+- Rewrote the title-card central result and abstract so the notebook now opens with the retained-trace count (`111/225`), accepted solvent order and `46.5-fold` rate span.
+- Corrected the saved results-discussion source and rendered markdown so it no longer claims that acetone gives the largest measured rate.
+- Corrected the saved post-lab source and rendered markdown so the fastest-solvent discussion, characteristic-timescale example and final solvent list are consistent with the accepted ranking.
+- Reframed the literature-comparison discussion so acetone is treated as the fastest directly shared JCE benchmark while acetonitrile is treated as an additional solvent outside that direct benchmark subset.
+- Updated the conclusion so the notebook closes with the same quantitative message it now uses in the opener.
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the stored HTML output and the code that would regenerate it.
+- Revalidated the polished notebook's embedded media after editing and confirmed that the stored notebook still contains `8` decodable PNGs and `2` decodable GIFs.
+
 ## 2026-05-13 publication synchronization and visual audit pass
 
 - Re-read the attached notebook, rubric guidance and saved progress files directly instead of relying on the earlier summary alone.
