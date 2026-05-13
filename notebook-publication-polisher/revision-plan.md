@@ -13,7 +13,7 @@
 - Strengthened the title card, central result, abstract and conclusion so the report now foregrounds the retained-trace count, accepted solvent order and `46.5-fold` rate span.
 - Corrected the saved results discussion and post-lab source/output so acetonitrile is treated consistently as the fastest accepted solvent and the literature comparison is scoped correctly.
 - Added notebook CSS so wide summary and validation tables scroll instead of clipping in narrower notebook views, and large stored media are less likely to dominate the page vertically.
-- Closed the second workflow GIF panel by default in both the saved HTML output and the code that would regenerate it.
+- Closed both workflow GIF panels by default in the saved notebook output and ensured the second panel is also closed in the source code that would regenerate it.
 - Revalidated the edited notebook JSON and confirmed that the embedded PNG and GIF payloads still decode cleanly.
 - Confirmed that a full rerun is still blocked in this container because `matplotlib`, `scipy`, `numba`, `rdkit`, and `jupyter` are unavailable.
 
