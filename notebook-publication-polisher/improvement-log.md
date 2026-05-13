@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-13 source-package rebuild and publication polish pass
+
+- Confirmed that the previously referenced polished notebook file was not actually present in the workspace, so this run re-audited the attached notebook package itself and rebuilt the deliverable from source.
+- Built a fresh polished executed deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the title-card central result and abstract so the notebook now opens with the retained-trace count (`111/225`), accepted solvent order, and `46.5-fold` rate span.
+- Corrected the saved results discussion, post-lab answers, and conclusion so acetonitrile is treated consistently as the fastest accepted solvent overall.
+- Tightened the literature-comparison framing so acetone is now described as the fastest solvent only within the directly shared literature subset, while acetonitrile remains the fastest accepted solvent in the full present data set.
+- Added a notebook-side table display helper and wrapped all saved dataframe-style HTML tables in horizontal-scroll containers to reduce clipping risk on narrower renders.
+- Collapsed the second inline GIF panel by default in both the saved source and the saved rendered output, so both animations now stay out of the reader's way on first open.
+- Revalidated the rebuilt notebook and confirmed that the saved executed artifact still contains `8` decodable PNG figures, `2` decodable GIFs, and `9` rendered HTML tables.
+
 ## 2026-05-13 publication source/render sync pass
 
 - Re-audited the attached notebook itself instead of assuming the previously saved notes were already reflected in the source package.
