@@ -7,19 +7,15 @@
 
 ## Completed this pass
 
-- Re-read the attached notebook and rubric guidance directly.
-- Checked the executed notebook structure, saved narrative cells, generated markdown outputs, rendered table HTML, and embedded media payloads instead of relying only on prior notes.
-- Confirmed and corrected drift between the earlier saved status notes and the actual notebook artifact.
-- Rebuilt the polished notebook copy in `/workspace/output/` from the attached executed source.
-- Rewrote the opener and abstract so the notebook foregrounds the retained-trace count, accepted solvent order, and `46.5-fold` rate span.
-- Corrected the remaining solvent-order contradictions in the results discussion, literature comparison, post-lab answers, and conclusion.
-- Added a clearer explanation of why the class solvent series should not be reduced to one polarity-only descriptor.
-- Added safer wide-table overflow handling both in the saved outputs and in the rerunnable notebook code path.
-- Collapsed the second inline workflow GIF panel by default.
-- Revalidated the notebook JSON, checked that the edited code cells parse cleanly, and rechecked the saved figures and GIF payloads.
-- Verified that all `9` stored HTML tables in the polished artifact are wrapped for horizontal overflow.
-- Reconfirmed the rerun blocker list directly in the current container so the saved status reflects the live environment.
+- Re-read the attached notebook, rubric guidance and saved progress files directly.
+- Confirmed drift between memory and workspace state, then recreated the polished notebook deliverable in `/workspace/output/`.
+- Rewrote the title card, abstract and conclusion so the saved artifact foregrounds the retained-trace count, accepted solvent order and `46.5-fold` rate span.
+- Removed the remaining acetonitrile-versus-acetone contradictions from the saved results discussion and post-lab outputs.
+- Clarified the literature comparison so the “fastest” statement is scoped only to the literature-shared solvent subset.
+- Strengthened table rendering by adding horizontal-overflow protection through notebook CSS.
+- Closed the second GIF panel by default in both the saved HTML output and the source used to regenerate it.
+- Revalidated the edited notebook JSON and re-audited the embedded PNG/GIF payloads.
 
 ## Remaining blocker
 
-- Perform one clean rerun in an environment that includes `matplotlib`, `scipy`, `numba`, and `rdkit`, then do one final render review of the regenerated notebook outputs.
+- Perform one clean rerun in an environment with the notebook’s full scientific stack, then do one final render review of the regenerated notebook outputs.
