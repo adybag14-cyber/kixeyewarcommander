@@ -1,17 +1,16 @@
 # Improvement Log
 
-## 2026-05-13 publication-polish pass
+## 2026-05-13 publication-alignment pass
 
-- Re-opened the attached executed notebook package and verified that the notebook itself still contained narrative drift that the prior memory notes had claimed was already fixed.
-- Rebuilt the polished working copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed source so the original package stayed untouched.
-- Rewrote the title card, abstract, and conclusion so the publication-facing narrative now states the retained-trace count (`111/225`), accepted solvent order, and `46.5-fold` rate span explicitly.
-- Corrected the remaining results-discussion contradiction where acetone was still described as the fastest solvent despite the accepted summary table ranking acetonitrile first.
-- Tightened the literature-comparison wording so it now distinguishes the three shared JCE solvents from the two additional class-data solvents rather than implying a direct literature comparator for every solvent in the series.
-- Repaired the post-lab answers so the fastest-solvent example, solvent-order discussion, and final solvent-rate list all match the accepted numerical results.
-- Updated the rerunnable `report_table` helper to emit scroll-safe HTML in notebook environments instead of relying on bare DataFrame rendering for wide tables.
-- Wrapped all saved executed HTML tables in the polished notebook with the same overflow container so the current artifact is less likely to clip in notebook and HTML viewers even before any rerun.
-- Removed the default-open state from the second inline laboratory-workflow GIF panel in both the saved HTML output and the rerunnable source.
-- Revalidated the polished notebook JSON after editing, checked that the old contradiction phrases were gone, confirmed the workflow GIF panel was no longer forced open, and re-decoded all `8` PNG figures plus both GIFs (`84` and `70` frames).
+- Re-audited the real attached notebook package, rubric guidance and saved memory files instead of trusting the previous status notes.
+- Found drift between memory and workspace state: the notes referenced a polished notebook in `/workspace/output/`, but that file was absent and only the original executed notebook remained available.
+- Recreated the polished working copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed notebook.
+- Tightened the title card, abstract and conclusion so the notebook now leads with the retained-trace count (`111/225`), accepted solvent order and `46.5-fold` rate span.
+- Removed the remaining narrative contradictions that still said acetone was fastest in the saved results discussion and post-lab answers, and replaced them with wording consistent with the accepted solvent order.
+- Clarified the literature-comparison wording so “fastest” is only claimed within the subset of solvents actually shared with the literature benchmark.
+- Improved rendered table safety by updating the notebook CSS so saved DataFrame-style HTML tables scroll horizontally instead of clipping when they exceed the viewport width.
+- Closed the second inline workflow GIF panel by default in both the saved rendered HTML output and the notebook source used to regenerate it.
+- Revalidated the edited notebook as JSON and rechecked the stored embedded media: `8` PNG figures plus `2` GIFs (`84` and `70` frames) all decoded successfully.
 
 ## 2026-05-12 publication-polish pass
 
@@ -34,4 +33,4 @@
 ## Open risk
 
 - The polished notebook is still a repaired executed artifact rather than a fresh rerun from the full scientific environment.
-- A final end-to-end rerun remains blocked in this container because `matplotlib`, `scipy`, `numba`, and `rdkit` are unavailable here.
+- A final end-to-end rerun remains blocked in this container because the intended scientific execution stack is not available here.
