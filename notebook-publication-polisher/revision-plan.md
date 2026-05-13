@@ -9,12 +9,12 @@
 
 - Re-read the attached notebook, rubric guidance and saved progress files directly.
 - Recreated the polished notebook deliverable in `/workspace/output/` so the current working artifact exists in the workspace again.
-- Audited the real saved outputs instead of trusting prior notes and found remaining contradictions around the fastest solvent plus the still-open second workflow animation panel.
-- Strengthened the title card and abstract so the report leads with the retained-trace count, accepted solvent order and `46.5-fold` rate span.
-- Corrected the saved results discussion and post-lab outputs so acetonitrile is treated consistently as the fastest accepted solvent, the worked examples use the accepted ranking, and the literature comparison is scoped correctly.
+- Audited the real saved outputs instead of trusting prior notes and found remaining publication blockers in the narrative plus the still-open second workflow animation panel.
+- Strengthened the title card, central result, abstract and conclusion so the report now foregrounds the retained-trace count, accepted solvent order and `46.5-fold` rate span.
+- Corrected the saved results discussion and post-lab outputs so acetonitrile is treated consistently as the fastest accepted solvent and the literature comparison is scoped correctly.
 - Closed the second workflow GIF panel by default in both the saved HTML output and the code that would regenerate it.
-- Revalidated the edited notebook JSON and re-audited the embedded PNG/GIF payloads.
-- Confirmed that full local HTML export is still unavailable in this container because `jupyter` is missing, so the render audit was completed directly against the saved notebook artifact.
+- Revalidated the edited notebook JSON and re-audited the embedded PNG and GIF payloads.
+- Confirmed that a full rerun is still blocked in this container because `matplotlib`, `scipy`, `numba`, `rdkit`, and `jupyter` are unavailable.
 
 ## Remaining blocker
 
