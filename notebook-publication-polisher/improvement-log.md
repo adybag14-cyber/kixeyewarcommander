@@ -6,10 +6,11 @@
 - Confirmed that the saved notebook still contained real publication issues despite the earlier near-ready assessment: the abstract still underplayed the final quantitative result, the prose still contained acetone/acetonitrile ranking contradictions, and the second GIF panel still opened by default.
 - Created a fresh polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Strengthened the abstract so it now states the retained-trace count (`111/225`), accepted solvent order and `46.5-fold` rate span directly in the opening summary.
-- Corrected the saved results discussion and post-lab answer text so acetonitrile is consistently treated as the fastest accepted solvent and the literature comparison is described without implying that acetonitrile belongs to the directly shared JCE subset.
+- Corrected the saved results discussion and post-lab answer text so acetonitrile is consistently treated as the fastest accepted solvent, the fastest-solvent examples now use the accepted ranking, and the literature comparison is described without implying that acetonitrile belongs to the directly shared JCE subset.
 - Removed the default-open state from the second inline laboratory-workflow GIF in both the saved output HTML and the notebook code that regenerates it.
 - Revalidated the polished notebook JSON and confirmed that it still contains `8` decodable PNG figures, `2` decodable GIFs and no saved error outputs.
 - Re-ran a contact-sheet style media audit and did not find obvious clipping, overlap, broken images, blank figures or malformed animations in the saved outputs.
+- Confirmed that a local static HTML export could not be regenerated in this container because `jupyter` is unavailable, so the verification in this pass was performed directly on the notebook artifact and embedded media payloads.
 
 ## 2026-05-13 publication-consistency pass
 
