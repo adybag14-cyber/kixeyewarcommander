@@ -1,5 +1,13 @@
 # Revision Plan
 
+## 2026-05-13 attached-package source/render alignment run
+
+- [x] Reinspect the attached notebook package, rubric guidance and saved status notes directly.
+- [x] Confirm whether the attached source and saved outputs still contain publication-facing narrative or layout drift.
+- [x] Build a corrected polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- [x] Repair the opener, abstract, generated discussion, post-lab answers, conclusion, wide tables and default-open workflow GIF panel in both source and rendered output.
+- [x] Revalidate the polished artifact for wrapped tables, collapsed GIF panels, decodable embedded media and removed solvent-order contradictions.
+
 ## 2026-05-13 attached-notebook correction and verification run
 
 - [x] Reinspect the attached notebook package, rubric guidance and saved status notes directly.
