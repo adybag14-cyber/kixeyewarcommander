@@ -1,5 +1,12 @@
 # Revision Plan
 
+## 2026-05-13 attached-artifact correction run
+
+- [x] Reinspect the attached notebook package rather than assuming the saved notes already matched it.
+- [x] Audit publication-facing markdown, generated answers, GIF panels and saved table outputs for residual source/render drift.
+- [x] Build a corrected polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- [x] Verify that the polished saved artifact keeps all `8` PNG figures and `2` GIFs decodable while eliminating the remaining default-open panel and adding scroll protection to `9` HTML tables.
+
 ## 2026-05-13 source-package rebuild run
 
 - [x] Inspect the attached notebook, rubric guidance, and saved progress notes.
