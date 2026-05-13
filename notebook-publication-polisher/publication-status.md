@@ -15,13 +15,14 @@
 - The post-lab answers were corrected as well, including the fastest-timescale example and the explicit solvent-order listing, so a future rerun will no longer reintroduce the acetone-first contradiction that was still present in the attached notebook package.
 - The notebook now applies scroll-safe dataframe styling at the notebook level for the current saved artifact, and the source-side `report_table` helper now emits horizontal-scroll wrappers on rerun so wide tables are less likely to clip in notebook or exported HTML views.
 - Both inline GIF panels now start closed in the polished artifact, which improves first-view layout and reduces the risk of oversized media dominating the notebook opening.
+- Final string-level verification on the rebuilt notebook found no remaining acetone-first contradiction in either the saved source cells or the saved rendered outputs.
 
 ## Visual/rendering state
 
 - The polished notebook contains `8` embedded PNG figures and `2` embedded GIFs.
 - All embedded media decoded successfully in this pass; no broken PNG payloads, blank GIF payloads, or missing inline media were found.
 - Output-level verification in this run confirmed `9` dataframe-style HTML tables, zero default-open expandable GIF panels, and source-side scroll protection for future reruns.
-- The PNG figure sizes and GIF frame counts are consistent with the saved executed report content, so there is no evidence of truncated or blank embedded media in the polished notebook.
+- The PNG figure sizes and GIF frame counts (`84` and `70` frames) are consistent with the saved executed report content, so there is no evidence of truncated or blank embedded media in the polished notebook.
 - Final visual sign-off still depends on one clean rerun followed by one render audit in the intended environment.
 
 ## Remaining blockers
