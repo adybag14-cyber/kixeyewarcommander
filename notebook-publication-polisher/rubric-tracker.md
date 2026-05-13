@@ -24,7 +24,7 @@
 - Originality and elegance of code: strong. The notebook remains function-based, auditable and substantially more sophisticated than a minimal lab-script submission.
 - Portability of code: good to strong. The notebook is organized for reruns, but full reproducibility still cannot be re-demonstrated in this container because the scientific stack is missing.
 - Commenting/documentation: strong. Functions remain documented and the explanatory prose is now better aligned with the accepted numerical results.
-- Markdown/LaTeX/HTML/formatting: very strong. The notebook uses structured sections, LaTeX, inline HTML figure panels and embedded animations cleanly, and the second workflow animation no longer opens by default.
+- Markdown/LaTeX/HTML/formatting: very strong. The notebook uses structured sections, LaTeX, inline HTML figure panels and embedded animations cleanly, the second workflow animation no longer opens by default, and the front matter now surfaces the key quantitative result immediately.
 
 ## Remaining gap to full confidence
 
