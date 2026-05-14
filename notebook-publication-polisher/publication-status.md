@@ -5,22 +5,23 @@
 - Date: 2026-05-14
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong publication-ready saved notebook artifact
-- Confidence note: the saved artifact is now internally consistent and visually clean, but full reproducibility is still blocked by the incomplete attached raw-data package in this workspace
+- Confidence note: the saved artifact is now internally consistent, visually clean and aligned with the latest progress notes, but full reproducibility is still blocked by the incomplete attached raw-data package in this workspace
 
 ## Highest-impact improvements in this run
 
 - Rebuilt a polished notebook deliverable in this workspace and saved it to `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Rewrote the title card, abstract, conclusion, reproducibility appendix and consistency-check framing so the notebook now leads with `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, the `46.5-fold` fastest-to-slowest span, and the exact rerun blocker.
 - Corrected the narrative contradictions in the results discussion and post-lab answers that had previously implied acetone was the fastest accepted solvent overall.
-- Replaced all `9` publication-facing raw dataframe outputs with captioned, index-free, scroll-safe HTML report tables.
+- Replaced all `9` publication-facing raw dataframe outputs, plus the package-audit table, with captioned, index-free, scroll-safe HTML report tables.
 - Closed the laboratory-workflow GIF panel by default and revalidated both inline GIF panels.
 
 ## Visual and rendering check
 
-- Verified `9` styled publication tables in the polished artifact; no raw dataframe table outputs remain.
+- Verified `10` styled publication tables in the polished artifact; no raw dataframe table outputs remain.
 - Verified `8` embedded PNG figures and `2` embedded GIFs; all decoded successfully in this pass.
 - Verified that no expandable media panel is default-open.
-- No broken image payloads, blank GIF payloads, visible dataframe index columns, or unfinished raw-output table dumps remain in the polished artifact.
+- No broken image payloads, blank GIF payloads, visible dataframe index columns, default-open media panels, or unfinished raw-output table dumps remain in the polished artifact.
+- A full HTML export render could not be run in this container because `nbconvert` is unavailable here, so this pass used direct notebook-output inspection rather than an exported page build.
 
 ## Remaining blockers
 
