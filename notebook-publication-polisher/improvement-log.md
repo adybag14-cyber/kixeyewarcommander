@@ -1,5 +1,15 @@
 # Improvement Log
 
+## 2026-05-14 publication-table cleanup and source-safe rerun pass
+
+- Re-audited the attached notebook package against the saved notes and confirmed that the live artifact still needed direct notebook edits, not just status-file updates.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed notebook and corrected the title-card central result, abstract and conclusion so the notebook now opens with the retained-trace count, accepted solvent order and `46.5-fold` rate span.
+- Fixed remaining source/output narrative contradictions so acetonitrile is treated consistently as the fastest accepted solvent overall in the results discussion and post-lab answers, while acetone is scoped correctly to the directly comparable literature subset and close-second position in the full series.
+- Reworked all `9` saved notebook tables so they are horizontally scrollable and no longer show the extra dataframe index column, improving publication cleanliness and reducing clipping risk in narrower notebook renders.
+- Added source-side scroll-safe table helpers so future reruns display report, benchmark, environment and consistency tables in wrapped notebook HTML rather than raw dataframe output.
+- Removed the default-open state from the saved laboratory workflow GIF panel and from the source that regenerates it, so both embedded animations now start collapsed on first view.
+- Revalidated the polished artifact and confirmed `8` decodable PNG figures, `2` decodable GIFs, `9` wrapped HTML tables without index-column clutter, and zero default-open expandable media panels.
+
 ## 2026-05-14 attached-package re-audit, contradiction cleanup, and saved-output hardening pass
 
 - Re-audited the actual attached notebook package and confirmed that the live source still lagged behind the saved notes in several publication-facing places.
