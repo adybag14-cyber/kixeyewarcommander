@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-14 source-output alignment and final publication-cleanup pass
+
+- Re-audited the attached executed notebook directly instead of trusting the previous saved summary.
+- Found and fixed remaining publication-facing drift that was still present in the live notebook package: a generic title-card result, an under-specific abstract and conclusion, a raw consistency-check dataframe output, one default-open workflow GIF panel, and stale acetone-first wording in the results discussion and post-lab answers.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as a fresh polished deliverable from the attached executed notebook.
+- Rewrote the opener, abstract and conclusion so the notebook now foregrounds `111 of 225` retained traces, the solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` fastest-to-slowest rate span.
+- Updated the source-side table helper so future reruns emit scroll-safe HTML tables without the extra dataframe index column, and routed the consistency-check table through the same publication-facing renderer.
+- Rebuilt all `9` saved table outputs as wrapped report tables, removed the visible dataframe index column from those saved outputs, and closed the saved laboratory-workflow GIF panel by default.
+- Corrected source and rendered narrative contradictions so acetonitrile is treated consistently as the fastest accepted solvent overall, acetone is framed as a close second, and the post-lab solvent listing and characteristic-timescale example now agree with the accepted ranking.
+- Revalidated the polished artifact and confirmed `8` decodable embedded PNG figures, `2` decodable embedded GIFs, `9` wrapped HTML tables, zero default-open animation panels, and zero remaining acetone-first contradiction strings in the polished notebook.
+
 ## 2026-05-14 publication-table cleanup and source-safe rerun pass
 
 - Re-audited the attached notebook package against the saved notes and confirmed that the live artifact still needed direct notebook edits, not just status-file updates.
