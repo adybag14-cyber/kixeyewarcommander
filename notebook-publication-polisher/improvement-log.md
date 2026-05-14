@@ -1,15 +1,15 @@
 # Improvement Log
 
-## 2026-05-14 source-output alignment and final publication-cleanup pass
+## 2026-05-14 final source-output alignment and render verification pass
 
-- Re-audited the attached executed notebook directly instead of trusting the previous saved summary.
-- Found and fixed remaining publication-facing drift that was still present in the live notebook package: a generic title-card result, an under-specific abstract and conclusion, a raw consistency-check dataframe output, one default-open workflow GIF panel, and stale acetone-first wording in the results discussion and post-lab answers.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as a fresh polished deliverable from the attached executed notebook.
-- Rewrote the opener, abstract and conclusion so the notebook now foregrounds `111 of 225` retained traces, the solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` fastest-to-slowest rate span.
-- Updated the source-side table helper so future reruns emit scroll-safe HTML tables without the extra dataframe index column, and routed the consistency-check table through the same publication-facing renderer.
-- Rebuilt all `9` saved table outputs as wrapped report tables, removed the visible dataframe index column from those saved outputs, and closed the saved laboratory-workflow GIF panel by default.
-- Corrected source and rendered narrative contradictions so acetonitrile is treated consistently as the fastest accepted solvent overall, acetone is framed as a close second, and the post-lab solvent listing and characteristic-timescale example now agree with the accepted ranking.
-- Revalidated the polished artifact and confirmed `8` decodable embedded PNG figures, `2` decodable embedded GIFs, `9` wrapped HTML tables, zero default-open animation panels, and zero remaining acetone-first contradiction strings in the polished notebook.
+- Re-audited the attached executed notebook itself and confirmed that earlier notes still overstated completion in three publication-facing areas: the opener remained generic, the saved tables were still raw dataframe HTML with visible index columns, and the laboratory workflow GIF still opened by default.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` with synchronized source and saved outputs rather than editing only the status notes.
+- Rewrote the opener, abstract and conclusion so the notebook now leads with `111 of 225` retained traces, the accepted solvent order, and the `46.5-fold` rate span.
+- Corrected the results discussion and post-lab section so acetonitrile is treated consistently as the fastest accepted solvent overall in both source and rendered output, while acetone is framed as the close second solvent and the directly comparable literature-overlap case.
+- Added notebook-safe HTML table rendering to the source path and rebuilt all `9` saved HTML tables with horizontal scroll wrappers and without the visible dataframe index column.
+- Closed the saved laboratory workflow GIF panel by default and removed the `open` state from the source that regenerates it.
+- Revalidated the polished artifact and confirmed `8` decodable PNG figures, `2` decodable GIFs, `9` wrapped/index-free HTML tables, zero default-open animation panels, and successful code-cell syntax parsing.
+- Checked for a final HTML export audit path and confirmed that this workspace does not provide `jupyter` or `nbconvert`, so notebook-to-HTML export verification remains a tooling-limited follow-up rather than a confirmed notebook defect.
 
 ## 2026-05-14 publication-table cleanup and source-safe rerun pass
 
@@ -81,3 +81,4 @@
 
 - The polished notebook is still an edited executed artifact rather than a fresh rerun from the full intended scientific environment.
 - One end-to-end rerun and one final render audit are still required for complete publication-ready sign-off, and the rerun is presently blocked by the incomplete raw-data package attached in this workspace.
+- A notebook-to-HTML export audit could not be repeated here because the workspace lacks `jupyter`/`nbconvert`.
