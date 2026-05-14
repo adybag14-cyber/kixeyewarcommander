@@ -8,8 +8,9 @@
 - Repaired the generated results discussion so it no longer claims that acetone has the largest measured rate constant. The source and saved output now both treat acetonitrile as the fastest accepted solvent overall, with acetone framed as the close second solvent and the closest literature-overlap case.
 - Repaired the generated post-lab answers so the timescale example, fast-solvent wording, and solvent-order discussion are all aligned with the accepted final ranking.
 - Rewrote the conclusion to foreground the accepted retained-trace count, solvent ordering, and mechanistic interpretation.
-- Added a precise reproducibility note explaining that the saved executed notebook reflects a five-solvent run, but the attached workspace snapshot currently exposes only `Data/Acetone/`, so a complete rerun is still blocked here.
+- Added a precise reproducibility note explaining that the saved executed notebook reflects a five-solvent run, but the attached workspace snapshot currently exposes only `agent_files/testing-main/Data/Acetone/`, so a complete rerun is still blocked here.
 - Upgraded the source-side table helper and rebuilt all `9` saved notebook tables with horizontal-scroll wrappers and without the visible dataframe index column.
+- Closed the laboratory-workflow animation panel by default so the notebook opens in a cleaner, less visually crowded state.
 - Revalidated the polished artifact and confirmed `9` scroll-safe index-free tables, `8` decodable PNG figures, `2` decodable GIFs, and zero default-open expandable media panels.
 
 ## Open risk
