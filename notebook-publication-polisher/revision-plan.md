@@ -1,5 +1,15 @@
 # Revision Plan
 
+## 2026-05-14 attached-notebook repair and local artifact rebuild pass
+
+- [x] Reinspect the attached notebook package, rubric guidance, GitHub-tracked notes, and memory files directly.
+- [x] Confirm whether the attached notebook still lags behind the stronger saved publication state.
+- [x] Build a corrected polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- [x] Repair the opener, abstract, conclusion, saved results discussion, saved post-lab answers, source-side table renderer, saved table outputs, and workflow GIF panel state.
+- [x] Revalidate the polished artifact for wrapped/index-free tables, collapsed GIF panels, removed solvent-order contradictions, and code-cell syntax integrity.
+- [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
+- [ ] Perform one final post-rerun render audit of regenerated tables, figures, and GIF panels.
+
 ## 2026-05-14 final source-output alignment and render verification pass
 
 - [x] Reinspect the attached notebook package, rubric guidance and saved memory files directly.
