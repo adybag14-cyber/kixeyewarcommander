@@ -4,7 +4,7 @@
 
 - Date: 2026-05-14
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Estimated band: likely `Outstanding`, with some criterion areas reading close to `Exceptional` in the saved executed artifact; the main remaining uncertainty still comes from rerun reproducibility rather than from the notebook's argument, explanation quality, or visible presentation
+- Estimated band: likely `Outstanding`, with the saved executed artifact now materially stronger because the polished notebook file actually exists, the source/output narrative is re-aligned, and the presentation layer no longer leaves wide tables bare or the workflow GIF expanded by default; the main remaining uncertainty still comes from rerun reproducibility rather than from the notebook's argument, explanation quality, or visible presentation
 
 ## Rubric reconstruction
 
@@ -22,11 +22,12 @@
 - Data analysis + plotting: very strong. The stored notebook contains all expected figures, summary tables, validation outputs, and embedded animations; `8` PNGs and `2` GIFs decoded cleanly in this pass; both expandable animation panels now start closed; all `9` saved HTML tables now carry horizontal-scroll wrappers; and the rerun path now routes report-facing, environment and consistency tables through scroll-safe notebook HTML wrappers.
 - Experimental write-up: very strong. The opener, abstract, results discussion, post-lab answers, literature comparison, and conclusion now tell the same quantitative story and lead with the retained-trace count, solvent ranking and rate span rather than a generic statement. Source and rendered markdown are now aligned, which reduces the risk of narrative regression on a future rerun.
 - Originality and elegance of code: strong. The notebook remains function-based, auditable, and substantially more sophisticated than a minimal lab-script submission.
-- Portability of code: good to strong. The notebook is organized for reruns, and the source now contains a publication-safe table helper, but reproducibility still cannot be demonstrated in this container because the full scientific environment is unavailable here.
+- Portability of code: good to strong. The notebook is organized for reruns, and the source now contains publication-safe table-display helpers, but reproducibility still cannot be demonstrated in this workspace because the attached package does not include the full five-solvent raw-data directory required for a full rerun.
 - Commenting/documentation: strong. Functions remain documented and the explanatory prose is now better aligned with the accepted numerical results.
 - Markdown/LaTeX/HTML/formatting: very strong. The notebook uses structured sections, LaTeX, inline HTML figure panels, and embedded animations cleanly; the opener is now quantitatively informative rather than generic; both animation panels open cleanly on first view; all saved tables now have explicit horizontal-scroll wrappers in the polished artifact; and the source now includes rerun-safe horizontal-scroll rendering for publication-facing tables.
 
 ## Remaining gap to full confidence
 
 - One clean rerun is still needed in an environment with the notebook's full scientific stack and Jupyter support.
-- After that rerun, one final render audit should confirm that regenerated tables, figures, and GIF panels remain publication-clean.
+- The current attached package is insufficient for that rerun because it only exposes `Data/Acetone/` rather than the full solvent set expected by the notebook.
+- After a complete rerun with the full data package, one final render audit should confirm that regenerated tables, figures, and GIF panels remain publication-clean.
