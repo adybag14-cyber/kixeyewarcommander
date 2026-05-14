@@ -1,13 +1,14 @@
 # Revision Plan
 
-## 2026-05-13 final attached-package rebuild verification pass
+## 2026-05-14 saved-artifact correction and persistence run
 
-- [x] Reinspect the attached notebook package, rubric guidance and saved status notes directly.
-- [x] Rebuild the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- [x] Tighten the opener, abstract and conclusion around the accepted retained-trace count, solvent ranking and rate span.
-- [x] Repair the remaining source/output solvent-order drift so acetonitrile is treated consistently as the fastest accepted solvent overall.
-- [x] Wrap saved HTML tables, preserve source-side rerun-safe table wrapping, and close the workflow GIF panel by default.
-- [x] Revalidate the polished notebook for decodable media, wrapped tables, collapsed GIF panels and removed narrative contradictions.
+- [x] Reinspect the attached notebook package, rubric guidance and saved memory files directly.
+- [x] Confirm whether the actual attached notebook still contains narrative contradictions, default-open media panels, or render-risk table outputs.
+- [x] Build a corrected polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- [x] Repair the opener, abstract, results discussion, post-lab answers, conclusion, saved table outputs, and workflow GIF panel in both the visible artifact and the rerun path where possible.
+- [x] Revalidate the polished artifact for decodable media, wrapped tables, and removed source/output contradictions.
+- [ ] Rerun the notebook end to end in the intended scientific environment.
+- [ ] Perform one final post-rerun render audit of regenerated tables, figures, and GIF panels.
 
 ## 2026-05-13 quantitative narrative and layout hardening run
 
