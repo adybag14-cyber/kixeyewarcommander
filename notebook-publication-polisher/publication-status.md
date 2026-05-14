@@ -13,14 +13,15 @@
 - The opener, abstract, and conclusion in the polished artifact now foreground the accepted result: `111 of 225` retained traces, the solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` fastest-to-slowest rate span.
 - The polished artifact now keeps source and rendered outputs aligned: acetonitrile is treated consistently as the fastest accepted solvent overall, while acetone is only discussed as part of the fast literature-comparison subset where that wording is explicitly scoped.
 - The post-lab answers were corrected in both source and rendered markdown, including the fastest-timescale example, the solvent-discussion wording, and the explicit solvent-order listing, so a future rerun from the polished notebook will not reintroduce the old acetone-first contradiction.
-- The rerun path in the polished notebook now includes scroll-safe report-table rendering, and all `9` saved HTML table outputs in the polished artifact are wrapped for horizontal scrolling.
+- The rerun path in the polished notebook now includes scroll-safe report-table rendering, package-audit and consistency tables are routed through the same notebook-safe display approach, and all `9` saved HTML table outputs in the polished artifact are wrapped for horizontal scrolling.
+- The saved table outputs were also rebuilt without the extra dataframe index column, so publication-facing tables now open as cleaner report tables rather than raw notebook defaults.
 - Both inline GIF panels now start closed in the polished artifact, which improves first-view layout and reduces the risk of oversized media dominating the notebook opening.
 
 ## Visual/rendering state
 
 - The polished notebook contains `8` embedded PNG figures and `2` embedded GIFs.
 - All embedded media decoded successfully in this pass; no broken PNG payloads, blank GIF payloads, or missing inline media were found.
-- Output-level verification in this run confirmed `9` dataframe-style HTML tables, zero default-open expandable GIF panels, and saved-output scroll wrappers on all `9` tables.
+- Output-level verification in this run confirmed `9` publication-facing HTML tables, zero default-open expandable GIF panels, saved-output scroll wrappers on all `9` tables, and removal of the extra visible dataframe index column from each rebuilt table.
 - Source inspection also confirmed that future reruns from the polished artifact will emit wrapped environment, report, benchmark, validation and consistency tables rather than falling back to unclipped bare dataframe HTML.
 - The PNG figure sizes and GIF frame counts are consistent with the saved executed report content, so there is no evidence of truncated or blank embedded media in the polished notebook.
 
