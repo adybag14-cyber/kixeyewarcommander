@@ -1,5 +1,15 @@
 # Revision Plan
 
+## 2026-05-14 final source-output alignment and render verification pass
+
+- [x] Reinspect the attached notebook package, rubric guidance and saved memory files directly.
+- [x] Confirm whether the live notebook still contains generic framing, source/output wording drift, raw dataframe tables, or default-open media panels.
+- [x] Build a corrected polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- [x] Repair the opener, abstract, conclusion, source-side discussion, post-lab wording, saved table outputs, source-side table renderer, and workflow GIF panel state.
+- [x] Revalidate the polished artifact for decodable media, wrapped tables, removed visible index-column clutter, collapsed GIF panels, and code-cell syntax integrity.
+- [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
+- [ ] Perform one final post-rerun render audit of regenerated tables, figures, and GIF panels.
+
 ## 2026-05-14 publication-table cleanup and source-safe rerun pass
 
 - [x] Reinspect the attached notebook package, rubric guidance and saved memory files directly.
