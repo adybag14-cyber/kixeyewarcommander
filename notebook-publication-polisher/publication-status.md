@@ -13,6 +13,7 @@
 - Corrected the narrative contradictions that previously implied acetone was the fastest accepted solvent overall; the polished copy now treats acetonitrile as the fastest retained solvent and acetone as a close second.
 - Converted all `9` rendered notebook tables to wrapped publication-safe HTML with captions and without the visible dataframe index column, eliminating the raw dataframe styling that previously looked unfinished.
 - Closed both inline GIF panels by default and revalidated the embedded media payloads.
+- Verified the saved polished notebook now contains `0` raw dataframe-style HTML outputs, `0` default-open expandable media panels, and `0` lingering solvent-order contradiction phrases in the stored content.
 
 ## Visual and rendering check
 
