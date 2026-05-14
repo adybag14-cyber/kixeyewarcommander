@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-14 attached-package re-audit, contradiction cleanup, and saved-output hardening pass
+
+- Re-audited the actual attached notebook package and confirmed that the live source still lagged behind the saved notes in several publication-facing places.
+- Built a fresh polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` instead of assuming the attached notebook was already publication-ready.
+- Rewrote the title-card central result and abstract so the notebook now opens with the retained-trace count (`111 of 225`), the accepted solvent order, and the `46.5-fold` rate span.
+- Replaced the generic conclusion with a quantitatively explicit closing section that foregrounds the accepted solvent ranking, the retained-trace count, and the real remaining reproducibility blocker.
+- Corrected the post-lab source and rendered markdown so acetonitrile is treated consistently as the fastest accepted solvent overall, the characteristic-timescale example uses acetonitrile rather than acetone, and the final explicit solvent listing is in the accepted order.
+- Clarified the results-discussion literature comparison so acetone is no longer described as the fastest solvent overall; the wording is now explicitly scoped to the directly comparable literature subset, while the full accepted class data set is stated separately with acetonitrile first.
+- Hardened notebook presentation in two layers: the polished source now emits scroll-safe report tables on future reruns, and all `9` saved HTML table outputs in the polished artifact are wrapped for horizontal scrolling.
+- Removed the default-open state from the saved laboratory workflow animation panel and from the source that regenerates it.
+- Revalidated the polished artifact and confirmed `8` decodable PNG figures, `2` decodable GIFs, `9` wrapped HTML tables, and zero default-open expandable media panels.
+
 ## 2026-05-14 polished-artifact rebuild, source-output sync, and layout hardening pass
 
 - Re-audited the attached notebook package, rubric guidance and saved notes instead of trusting the prior status summary.
