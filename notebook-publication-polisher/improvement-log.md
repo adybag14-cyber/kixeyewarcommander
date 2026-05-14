@@ -3,8 +3,8 @@
 ## 2026-05-14 notebook-sync and render-hardening pass
 
 - Re-audited the attached notebook package, rubric guidance, saved notes, and the notebook's rendered figures instead of relying on previous summaries.
-- Confirmed that the stored progress notes were ahead of the actual attached notebook: the notebook still had a generic opener, a generic reproducibility appendix, raw dataframe-style tables, and one default-open workflow GIF panel.
-- Built a corrected polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Confirmed that the stored progress notes were ahead of the actual attached notebook: the notebook still had a generic opener, a generic reproducibility appendix, raw dataframe-style tables, one default-open workflow GIF panel, and source text that still contradicted the accepted solvent ranking.
+- Created a corrected polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Replaced the generic title-card framing and abstract with a quantitative opener centered on `111 of 225` retained traces, the solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` rate span.
 - Repaired the generated results discussion so it no longer implies that acetone is the fastest accepted solvent overall. The source and saved output now both treat acetonitrile as the fastest accepted solvent, with acetone framed as the close second solvent and the closest literature-overlap case.
 - Repaired the generated post-lab answers so the fast-solvent wording and solvent-order discussion are aligned with the accepted final ranking.
