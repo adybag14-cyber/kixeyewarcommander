@@ -9,7 +9,7 @@
 ## Notebook state
 
 - The attached notebook package was re-audited directly rather than inferred from earlier notes.
-- A corrected polished executed notebook has been rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- A corrected polished executed notebook has been rebuilt again at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` because the attached notebook still lagged behind the stronger saved state.
 - The opener, abstract and conclusion now foreground the accepted quantitative result: `111 of 225` retained traces, the solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` fastest-to-slowest rate span.
 - Source and rendered narrative are now aligned around the same chemical story: acetonitrile is treated consistently as the fastest accepted solvent overall, while acetone is discussed as the close second solvent and as the directly comparable literature-overlap case where appropriate.
 - The post-lab section was corrected in both source and saved output, including the fastest-timescale example, the solvatochromic explanation, and the explicit solvent-order listing, so a future rerun from the polished notebook will not reintroduce the old acetone-first contradiction.
