@@ -9,17 +9,17 @@
 ## Highest-impact improvements in this run
 
 - Rebuilt a polished notebook deliverable in this workspace and saved it to `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Rewrote the title-card central result, abstract, conclusion and reproducibility appendix so the notebook now leads with `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, the `46.5-fold` fastest-to-slowest span, and the exact rerun blocker.
-- Corrected the post-lab solvent-order discussion so the saved notebook no longer contradicts itself by implying that acetone is the fastest accepted solvent overall.
-- Converted all `9` rendered notebook tables to wrapped publication-safe HTML without the visible dataframe index column, eliminating the raw dataframe styling that previously looked unfinished.
+- Rewrote the title-card central result, abstract, results discussion, post-lab answers, conclusion and reproducibility appendix so the notebook now leads with `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, the `46.5-fold` fastest-to-slowest span, and the exact rerun blocker.
+- Corrected the narrative contradictions that previously implied acetone was the fastest accepted solvent overall; the polished copy now treats acetonitrile as the fastest retained solvent and acetone as a close second.
+- Converted all `9` rendered notebook tables to wrapped publication-safe HTML with captions and without the visible dataframe index column, eliminating the raw dataframe styling that previously looked unfinished.
 - Closed both inline GIF panels by default and revalidated the embedded media payloads.
 
 ## Visual and rendering check
 
-- Verified `9` publication-facing HTML tables in the polished artifact, all wrapped for horizontal scrolling and all stripped of the visible dataframe index column.
+- Verified `9` publication-facing HTML tables in the polished artifact, all wrapped for horizontal scrolling, all captioned and all stripped of the visible dataframe index column.
 - Verified `8` embedded PNG figures and `2` embedded GIFs; all decoded successfully in this pass.
 - Verified that no inline animation panel is default-open.
-- No broken image payloads, blank GIF payloads or raw dataframe-style table dumps remain in the polished artifact.
+- No broken image payloads, blank GIF payloads, clipped table-index columns or raw dataframe-style table dumps remain in the polished artifact.
 
 ## Remaining blockers
 
