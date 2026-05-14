@@ -24,7 +24,7 @@
 - Originality and elegance of code: strong. The notebook remains function-based, auditable, and more sophisticated than a minimal lab-script submission.
 - Portability of code: good to strong. The notebook now contains a cleaner publication-safe table renderer, but end-to-end portability still cannot be demonstrated here because the attached package lacks the full five-solvent raw-data directory.
 - Commenting/documentation: strong. Functions remain documented and the explanatory prose is materially clearer and better linked to the accepted numerical results.
-- Markdown/LaTeX/HTML/formatting: very strong. The notebook uses structured markdown, LaTeX, inline HTML figure panels, scroll-safe index-free report tables, and cleaner first-view rendering without a default-open oversized GIF panel.
+- Markdown/LaTeX/HTML/formatting: very strong. The notebook uses structured markdown, LaTeX, inline HTML figure panels, scroll-safe index-free report tables, and cleaner first-view rendering without any default-open oversized GIF panel.
 
 ## Remaining gap to full confidence
 
