@@ -1,6 +1,6 @@
 # Revision Plan
 
-## 2026-05-14 publication-narrative and render-hardening pass
+## 2026-05-14 notebook-sync and render-hardening pass
 
 - [x] Reinspect the attached notebook package, rubric guidance, and saved memory files directly.
 - [x] Audit the live notebook for narrative contradictions, raw dataframe tables, figure readability, broken media, and default-open expandable GIF panels.
