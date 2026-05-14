@@ -1,5 +1,15 @@
 # Improvement Log
 
+## 2026-05-14 attached-notebook repair and local artifact rebuild pass
+
+- Rechecked the actual attached notebook against the saved progress files and confirmed that the attachment still lagged behind the stronger reviewed state in four publication-facing areas: the opener and abstract were still under-specific, the saved post-lab output still contained acetone-first wording, the appendix tables still rendered as raw dataframe HTML with visible index columns, and the laboratory workflow GIF still opened by default.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as a clean polished copy rather than overwriting the attached package.
+- Strengthened the opener, abstract, and conclusion so the notebook now leads with the retained-trace count (`111 of 225`), accepted solvent order, fastest and slowest accepted rates, and the `46.5-fold` span across solvents.
+- Corrected the saved results discussion and post-lab answers so acetonitrile is treated consistently as the fastest accepted solvent overall, while acetone is framed correctly as the close second solvent and the most direct literature-overlap case.
+- Updated the source-side table renderer so future reruns emit scroll-safe, index-free HTML tables, and rebuilt all `9` saved publication-facing table outputs with horizontal scroll wrappers and without the visible dataframe index column.
+- Removed the default-open state from the saved laboratory workflow animation panel and from the source that regenerates it.
+- Revalidated the polished artifact and confirmed `9` wrapped/index-free HTML tables, `2` decodable GIF panels with zero default-open states, and clean code-cell syntax parsing.
+
 ## 2026-05-14 final source-output alignment and render verification pass
 
 - Re-audited the attached executed notebook itself and confirmed that earlier notes still overstated completion in three publication-facing areas: the opener remained generic, the saved tables were still raw dataframe HTML with visible index columns, and the laboratory workflow GIF still opened by default.
