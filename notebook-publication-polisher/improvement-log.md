@@ -7,8 +7,8 @@
 - Rewrote the title-card central result, abstract and conclusion so the notebook now opens with the accepted retained-trace count (`111 of 225`), solvent order, and `46.5-fold` rate span instead of a generic statement.
 - Corrected the saved results discussion and the post-lab answers so acetonitrile is treated consistently as the fastest accepted solvent overall, while acetone is scoped correctly to the directly comparable literature subset and as a close second in the full solvent series.
 - Removed the default-open state from the saved laboratory workflow GIF panel and from the source that regenerates it.
-- Added horizontal-scroll protection in two layers: saved HTML table outputs were wrapped for safer notebook rendering, and the source-side `report_table` helper now emits wrapped HTML on rerun.
-- Revalidated the polished notebook and confirmed `8` decodable embedded PNG figures, `2` decodable embedded GIFs, `9` wrapped HTML tables, and zero default-open animation panels.
+- Added horizontal-scroll protection in two layers: saved HTML table outputs were wrapped for safer notebook rendering, and the source-side rerun path now routes report-facing tables through a dedicated scroll-safe display helper.
+- Revalidated the polished notebook and confirmed `8` decodable embedded PNG figures, `2` decodable embedded GIFs, `9` wrapped HTML tables, zero default-open animation panels, and a clean Pandoc HTML render carrying the corrected opener and table wrappers.
 
 ## 2026-05-13 quantitative narrative and layout hardening pass
 
