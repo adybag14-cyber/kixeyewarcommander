@@ -5,14 +5,15 @@
 - Date: 2026-05-15
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong publication-style executed notebook, pending one reproducibility sign-off pass with the full raw-data package
-- Confidence note: the saved notebook now presents clean captioned tables, explicit reproducibility limits, and verified embedded media, but the attached review package still lacks four solvent folders needed for a fresh end-to-end rerun
+- Confidence note: the saved notebook now presents clean captioned tables, explicit reproducibility limits, collapsed-by-default supplementary GIF panels, and verified embedded media, but the attached review package still lacks four solvent folders needed for a fresh end-to-end rerun
 
 ## Highest-impact improvements in this run
 
 - Re-audited the live attached notebook, rubric guidance, and saved notes instead of assuming the earlier memory state still matched the files in this workspace.
 - Built a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Replaced all `9` default dataframe-style rendered tables with captioned, index-free, scroll-safe publication tables in the saved notebook outputs and in the notebook source for future reruns.
+- Replaced all remaining default dataframe-style rendered tables, including the environment audit table, with captioned, index-free, scroll-safe publication tables in the saved notebook outputs and in the notebook source for future reruns.
 - Updated the configuration, reproducibility, and consistency-check sections to state clearly that only the `Acetone/` raw-data folder is present in the attached package and that `Acetonitrile/`, `THF/`, `Cyclohexane/`, and `Toluene/` are missing.
+- Added an explicit interpretation note for the fit-window sensitivity tables so the validation section explains why the adaptive robust workflow is the publication-worthy choice.
 - Closed the default-open laboratory-workflow GIF panel in both the notebook source and the saved rendered output.
 - Rechecked the embedded visual media and confirmed `8` PNG figures plus `2` GIF animations decode successfully, with no obvious clipping, overlap, blank renders, or broken payloads in the saved artifact.
 
