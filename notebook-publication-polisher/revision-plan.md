@@ -5,7 +5,7 @@
 - [x] Reinspect the attached notebook package, rubric guidance, and saved memory files directly.
 - [x] Audit the live notebook for narrative contradictions, raw dataframe tables, figure readability, broken media, and default-open expandable GIF panels.
 - [x] Build a corrected polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- [x] Strengthen the quantitative framing in the opener, abstract, conclusion, reproducibility appendix, and consistency-check section.
+- [x] Strengthen the quantitative framing in the saved results discussion, post-lab answers, conclusion, reproducibility appendix, and consistency-check section.
 - [x] Repair the remaining post-lab solvent-order contradiction in the saved rendered output.
 - [x] Replace raw dataframe-style outputs with captioned, index-free publication tables.
 - [x] Close the default-open laboratory-workflow GIF panel and recheck embedded media payloads.
