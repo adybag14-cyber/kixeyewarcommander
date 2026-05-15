@@ -2,15 +2,14 @@
 
 ## 2026-05-15 publication polish pass
 
-- Reinspected the attached notebook, rubric guidance, and saved progress notes instead of assuming the previous memory state still matched the live notebook.
-- Confirmed that the live executed notebook still had publication-facing defects: raw indexed dataframe outputs, a remaining solvent-order contradiction in the discussion, a matching contradiction in the post-lab answers, and a default-open laboratory-workflow GIF panel.
+- Reinspected the attached notebook, rubric guidance, package contents, and saved memory files directly rather than trusting stale status notes.
+- Confirmed that the live attached notebook still had publication-facing defects: raw dataframe-rendered tables in the saved outputs, a default-open laboratory-workflow GIF panel, and reproducibility wording that overstated what the partial review package could rerun.
 - Built a corrected deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` rather than editing the original attachment in place.
-- Added a reusable HTML table helper to the notebook source so future reruns render publication-style, captioned, index-free report tables instead of default dataframe output.
-- Replaced all `9` saved dataframe-style outputs with captioned, scroll-safe publication tables in the polished notebook artifact.
-- Repaired the last narrative contradiction so every publication-facing section now agrees on the accepted solvent sequence `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Updated the reproducibility appendix and consistency-check framing to state clearly that the current review package preserves saved five-solvent outputs but does not contain the full five-solvent raw-data tree needed for a fresh rerun.
+- Upgraded all `9` saved dataframe-style outputs into captioned, index-free report tables with horizontal-scroll protection and cleaner visual hierarchy.
+- Updated the notebook source so future reruns use the same publication-style table helper instead of default dataframe rendering.
+- Revised the configuration, reproducibility, and automated-check sections to match the actual attached package: the saved outputs document a full five-solvent execution, but the current workspace only contains the acetone raw-data folder.
 - Closed the default-open laboratory-workflow animation panel in both the source cell and the saved rendered output.
-- Revalidated the polished notebook and confirmed `9` styled tables, `8` decodable PNG figures, `2` decodable GIFs, zero raw dataframe outputs, and zero default-open expandable media panels.
+- Revalidated the saved visual media by extracting and checking the embedded assets: `8` PNG figures and `2` GIFs decoded cleanly, and the preview audit did not reveal obvious clipping, overlap, unreadable labels, or broken media.
 
 ## Open risk
 
