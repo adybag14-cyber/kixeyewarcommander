@@ -12,6 +12,7 @@
 - Closed the default-open laboratory-workflow animation panel in both the source cell and the saved rendered output.
 - Revalidated the saved visual set after the notebook rewrite: the `8` embedded PNG figures plus sampled mechanism/workflow GIF frames still preview cleanly, with no obvious clipping, overlap, blank panels, or unreadable labels.
 - Compiled every code cell in the polished notebook successfully to catch accidental source-level syntax damage after the rewrite.
+- Confirmed that the final polished notebook artifact contains no remaining raw dataframe HTML outputs.
 
 ## Open risk
 
