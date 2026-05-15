@@ -1,17 +1,17 @@
 # Improvement Log
 
-## 2026-05-15 scheduled publication polish pass
+## 2026-05-15 publication artifact build and validation pass
 
-- Re-audited the attached notebook package, rubric guidance, and saved progress notes instead of assuming the previous memory state still matched the live notebook.
-- Confirmed that the attached notebook still needed publication cleanup: the opener was generic, the saved narrative contradicted the accepted solvent order, the laboratory-workflow GIF panel opened by default, and several outputs still rendered as raw indexed pandas tables.
-- Built the corrected deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Replaced the generic title-card framing and abstract with a quantitative opener centred on `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the `46.5-fold` rate span.
-- Repaired the saved results discussion and post-lab answers so they no longer misidentify acetone as the fastest accepted solvent.
-- Rewrote the conclusion, reproducibility appendix, and consistency-check framing so they now state explicitly that the saved notebook reflects a five-solvent run but the attached package currently exposes only `agent_files/testing-main/Data/Acetone/`.
-- Replaced the notebook's dataframe-style outputs with `9` captioned, scroll-safe, index-free publication tables.
-- Closed the laboratory-workflow animation panel by default so both expandable GIF panels now open in a clean collapsed state.
-- Revalidated the polished artifact and confirmed `9` styled tables, `8` decodable PNG figures, `2` decodable GIFs, and zero default-open expandable media panels.
-- Confirmed that `nbconvert` is unavailable in this container, so the final render audit for this run relied on direct notebook-output inspection rather than an exported HTML build.
+- Re-audited the attached notebook package, rubric guidance, and saved memory files directly instead of assuming the previous memory state already matched the live workspace.
+- Confirmed that the attached notebook still had publication blockers: raw dataframe-style table outputs, a default-open laboratory-workflow GIF panel, and saved narrative contradictions that still described acetone as the fastest accepted solvent.
+- Created the polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Rewrote the title card, abstract, conclusion, reproducibility appendix, and consistency-check framing so they now foreground the retained-trace count, accepted solvent order, rate span, and exact current rerun blocker.
+- Repaired the saved results discussion and post-lab answers so the interpretation is consistent with the accepted ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Replaced `9` raw notebook tables with captioned, index-free, scroll-safe HTML report tables.
+- Updated the notebook source helpers so future reruns will emit the polished report-table style instead of plain dataframe dumps.
+- Closed the workflow GIF panel by default in both the saved output and the notebook source.
+- Revalidated the polished artifact and confirmed `9` styled tables, `8` decodable PNG figures, `2` decodable GIFs, zero default-open expandable media panels, and no remaining dataframe-class HTML outputs.
+- Checked that every code cell in the polished notebook compiles successfully.
 
 ## Open risk
 
