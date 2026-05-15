@@ -4,28 +4,20 @@
 
 - Date: 2026-05-15
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: strong publication-style executed notebook, pending one reproducibility sign-off pass
-- Confidence note: the saved notebook now reads consistently, uses publication-styled tables, and passes a media/render audit of the embedded figures and GIFs, but the attached package is still missing four solvent folders needed for a fresh end-to-end rerun
+- Publication-readiness estimate: strong publication-style executed notebook, pending one reproducibility sign-off pass with the full raw-data package
+- Confidence note: the saved notebook now presents clean captioned tables, explicit reproducibility limits, and verified embedded media, but the attached review package still lacks four solvent folders needed for a fresh end-to-end rerun
 
 ## Highest-impact improvements in this run
 
-- Re-reviewed the live attached notebook instead of trusting the earlier notes and confirmed that publication-facing defects still remained in the executed artifact.
-- Built a corrected polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Repaired the last solvent-order inconsistency in the saved post-lab section and research discussion so the notebook now states one consistent quantitative result: `111 of 225` retained traces, `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a `46.5-fold` fastest-to-slowest span.
-- Replaced all `9` raw dataframe outputs with captioned, index-free, scroll-safe publication tables and updated the notebook source so future reruns use the same presentation style.
-- Added a clear reproducibility note explaining that only the acetone raw-data folder is present in the attached review workspace, so a clean five-solvent rerun is still blocked.
+- Re-audited the live attached notebook, rubric guidance, and saved notes instead of assuming the earlier memory state still matched the files in this workspace.
+- Built a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Replaced all `9` default dataframe-style rendered tables with captioned, index-free, scroll-safe publication tables in the saved notebook outputs and in the notebook source for future reruns.
+- Updated the configuration, reproducibility, and consistency-check sections to state clearly that only the `Acetone/` raw-data folder is present in the attached package and that `Acetonitrile/`, `THF/`, `Cyclohexane/`, and `Toluene/` are missing.
 - Closed the default-open laboratory-workflow GIF panel in both the notebook source and the saved rendered output.
-
-## Visual and rendering check
-
-- Verified `9` styled report tables and confirmed that no raw dataframe-rendered outputs remain in the polished notebook.
-- Verified `8` embedded PNG figures and `2` embedded GIFs; all media payloads decoded successfully in this pass.
-- Reviewed extracted previews for clipping, overlap, unreadable labels, blank renders, and broken GIF/image payloads; no broken or obviously clipped visuals were found in the saved artifact.
-- Confirmed that the laboratory-workflow GIF panel is collapsed by default in the polished notebook.
-- A browser-style exported HTML audit is still not available in this container because `nbconvert` is absent here, so this run used direct notebook inspection plus embedded-media extraction instead.
+- Rechecked the embedded visual media and confirmed `8` PNG figures plus `2` GIF animations decode successfully, with no obvious clipping, overlap, blank renders, or broken payloads in the saved artifact.
 
 ## Remaining blockers
 
-- A clean end-to-end rerun of the full five-solvent notebook still cannot be demonstrated from the attached package because the acetonitrile, THF, cyclohexane, and toluene raw-data folders are missing from this workspace.
+- A clean end-to-end rerun of the full five-solvent notebook still cannot be demonstrated from the attached package because the acetonitrile, THF, cyclohexane, and toluene raw-data folders are missing.
 - Final full-confidence sign-off still needs one rerun in the intended notebook environment with the complete `Data/` tree restored.
 - After that rerun, one final render audit should confirm that regenerated tables, figures, and GIF panels remain as clean as the saved polished artifact.
