@@ -5,7 +5,7 @@
 - Date: 2026-05-15 (scheduled run, Europe/London)
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong near-publication-ready saved notebook artifact
-- Confidence note: the saved artifact is now internally consistent, visually clean, and aligned with the current review findings, but full reproducibility is still blocked by the incomplete attached raw-data package in this workspace
+- Confidence note: the saved artifact is now internally consistent, visually clean, and aligned with the live review findings, but full reproducibility is still blocked by the incomplete attached raw-data package in this workspace
 
 ## Highest-impact improvements in this run
 
@@ -13,7 +13,7 @@
 - Rewrote the title card, abstract, conclusion, reproducibility appendix, and consistency-check framing so the notebook now leads with `111 of 225` retained traces, the accepted solvent order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, the `46.5-fold` fastest-to-slowest span, and the exact rerun blocker.
 - Corrected the content contradictions in both the generated results discussion and the post-lab answers that had incorrectly described acetone as the fastest accepted solvent.
 - Replaced all publication-facing dataframe-style outputs with `9` captioned, index-free, scroll-safe HTML report tables.
-- Updated the notebook's table-rendering helper so future notebook reruns will also emit styled report tables instead of default indexed dataframe dumps.
+- Updated the notebook source so future reruns will also emit publication-style HTML tables instead of raw indexed dataframe dumps for the main report tables.
 - Closed the default-open laboratory-workflow GIF panel and kept both inline GIF panels intact.
 
 ## Visual and rendering check
