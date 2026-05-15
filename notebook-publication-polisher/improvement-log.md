@@ -9,9 +9,10 @@
 - Repaired the saved results discussion and post-lab answers so they no longer misidentify acetone as the fastest accepted solvent.
 - Rewrote the conclusion, reproducibility appendix, and consistency-check framing so they now state explicitly that the saved notebook reflects a five-solvent run but the attached package currently exposes only `agent_files/testing-main/Data/Acetone/`.
 - Replaced the notebook's dataframe-style outputs with `9` captioned, scroll-safe, index-free publication tables.
-- Updated the notebook source so the table helper now renders publication-style HTML tables during future reruns instead of falling back to raw pandas dataframe output.
+- Updated the notebook source so the main report-table helper now renders publication-style HTML tables during future reruns instead of falling back to raw pandas dataframe output.
 - Closed the laboratory-workflow animation panel by default so both expandable GIF panels now open in a clean collapsed state.
 - Revalidated the polished artifact and confirmed `9` styled tables, `8` decodable PNG figures, `2` decodable GIFs, and zero default-open expandable media panels.
+- Mirrored the updated durable notes into the GitHub system-of-record folder `notebook-publication-polisher/`.
 - Confirmed that `nbconvert` is unavailable in this container, so the final render audit for this run relied on direct notebook-output inspection rather than an exported HTML build.
 
 ## Open risk
