@@ -4,18 +4,20 @@
 
 - Date: 2026-05-15
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: strong publication-facing notebook artifact with synchronized saved outputs, captioned report tables, clearer methodological framing, improved solvent-literature grounding, and visually checked inline media; still awaiting one full rerun from the complete raw-data package before final sign-off
-- Confidence note: the saved notebook now reads more honestly and more professionally than the attached source package, but the attached QA workspace still contains only `Data/Acetone/`, so end-to-end reproducibility of the full five-solvent report cannot yet be re-demonstrated here
+- Publication-readiness estimate: strong publication-facing executed notebook with corrected science wording, captioned report tables, clearer provenance notes, stronger primary-literature grounding, and visually checked inline media; still awaiting one full rerun from the complete raw-data package before final sign-off
+- Confidence note: the rebuilt polished notebook now aligns its saved outputs with its narrative, but the attached QA workspace still contains only `agent_files/testing-main/Data/Acetone/`, so end-to-end reproducibility of the full five-solvent report cannot yet be re-demonstrated here
 
 ## Highest-impact improvements in this run
 
-- Built a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Replaced the remaining notebook-default dataframe outputs with `9` captioned, scroll-safe publication tables in both the source helper functions and the saved executed outputs, including a pass/fail visual treatment for the automated checks.
-- Added stronger section lead-ins for the execution, validation, figure, discussion, post-lab, reproducibility, and workflow-animation sections so the notebook reads like a publication-ready report rather than a code dump with headings.
-- Added explicit review-package provenance notes to the configuration, reproducibility, and consistency-check sections so the saved full five-solvent execution is no longer confused with the reduced QA package attached here.
-- Strengthened the theory and discussion framing with a more defensible primary-literature note about polarity-polarizability trends in push-pull azobenzenes, and replaced the weaker reference entry with a stronger primary source.
-- Closed the still-open laboratory-workflow GIF panel in both the notebook source and the saved rendered output.
+- Rebuilt a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached source notebook.
+- Replaced the remaining notebook-default dataframe outputs with `9` captioned, scroll-safe publication tables in both the source display logic and the saved executed outputs, including pass/fail pills for the automated checks.
+- Corrected the narrative drift that had started to contradict the saved results, especially the acetone versus acetonitrile wording in the discussion and post-lab answers.
+- Added clearer section lead-ins for execution, validation, figures, discussion, post-lab answers, reproducibility, and the workflow-animation section so the notebook reads like a report rather than a stack of headings and outputs.
+- Added explicit review-package provenance notes to the configuration, run-analysis, reproducibility, and consistency-check sections so the saved five-solvent execution is not confused with the reduced QA bundle attached here.
+- Replaced the weaker solvent-effects reference with a stronger primary paper on push-pull azobenzene solvent effects and tied the discussion more carefully to polarity, polarizability, and local solvation rather than a single bulk-polarity story.
+- Closed the default-open laboratory-workflow GIF panel in both the notebook source and the saved rendered output.
 - Rechecked the saved media after the notebook rewrite and confirmed the `8` embedded PNG figures plus sampled mechanism/workflow GIF frames render cleanly with no obvious clipping, overlap, blank panels, or unreadable labels.
+- Recompiled every code cell in the polished notebook successfully after the rewrite to catch accidental syntax damage.
 
 ## Remaining blockers
 
