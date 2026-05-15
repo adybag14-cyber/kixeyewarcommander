@@ -10,6 +10,6 @@
 - [x] Add explicit provenance notes explaining the reduced review package versus the saved full execution.
 - [x] Replace the weaker solvent-effects reference with a stronger primary-paper citation.
 - [x] Close the default-open laboratory-workflow GIF panel in both source and saved output.
-- [x] Revalidate the polished notebook by checking saved-output structure and compiling all code cells.
+- [x] Revalidate the polished notebook by checking saved-output structure, visually inspecting the saved figures, and compiling all code cells.
 - [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
 - [ ] Perform one final post-rerun render audit of regenerated tables, figures, GIF panels, and publication-table HTML.
