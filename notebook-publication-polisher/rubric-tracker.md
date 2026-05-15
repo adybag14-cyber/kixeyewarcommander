@@ -20,7 +20,7 @@
 ## Criterion status
 
 - Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and aligned with the final accepted solvent order and retained-trace count.
-- Data analysis + plotting: very strong. The figure set remains intact, all embedded PNGs and GIFs decode cleanly, and the saved tables now render as captioned publication tables rather than raw dataframe dumps.
+- Data analysis + plotting: very strong. The figure set remains intact, all embedded PNGs and GIFs decode cleanly, and the saved polished notebook file now renders captioned publication tables rather than raw dataframe dumps.
 - Experimental write-up: very strong. The notebook now explains clearly what the saved full-run outputs show, why the adaptive robust fit-window strategy is methodologically justified, and what the attached partial package can and cannot reproduce.
 - Originality and elegance of code: strong. The notebook remains function-based, clearly structured, and materially beyond a minimal lab-script submission.
 - Portability of code: good to strong. The notebook now states the exact attached-package limitation clearly, but a full five-solvent rerun still cannot be demonstrated from this workspace package.
