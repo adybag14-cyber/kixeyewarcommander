@@ -7,6 +7,7 @@
 - Built an updated deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` rather than editing the original attachment in place.
 - Added a source-level report-table helper so the notebook now renders captioned, index-free publication tables on future reruns as well as in the saved executed outputs.
 - Upgraded `9` saved dataframe-style outputs into captioned report tables with horizontal-scroll protection, clearer captions, and pass/fail pills for the automated checks.
+- Strengthened the report flow by adding explicit lead-in prose for the execution, validation, figures, discussion, and post-lab sections rather than leaving those sections as bare headings.
 - Added explicit review-package notes to the configuration, reproducibility, and automated-check sections so the saved notebook is honest about what the currently attached files can rerun.
 - Closed the default-open laboratory-workflow animation panel in both the source cell and the saved rendered output.
 - Revalidated the saved visual set after the notebook rewrite: the `8` embedded PNG figures plus sampled mechanism/workflow GIF frames still preview cleanly, with no obvious clipping, overlap, blank panels, or unreadable labels.
