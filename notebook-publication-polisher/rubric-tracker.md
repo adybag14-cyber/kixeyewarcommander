@@ -23,9 +23,9 @@
 - Data analysis + plotting: very strong. The figure set remains intact, all embedded PNGs and GIFs decode cleanly, and the saved tables now render as captioned publication tables rather than raw dataframe dumps.
 - Experimental write-up: very strong. The notebook now explains clearly what the saved full-run outputs show, why the adaptive robust fit-window strategy is methodologically justified, and what the attached partial package can and cannot reproduce.
 - Originality and elegance of code: strong. The notebook remains function-based, clearly structured, and materially beyond a minimal lab-script submission.
-- Portability of code: good to strong. The notebook now states the exact attached-package limitation clearly, but a full five-solvent rerun still cannot be demonstrated from this workspace package.
+- Portability of code: good to strong. The notebook now states the exact attached-package limitation clearly and the source can search nearby attached-package folders plus adapt to the solvent subset that is actually present, but a full five-solvent rerun still cannot be demonstrated from this workspace package.
 - Commenting/documentation: strong. Functions remain documented, and the explanatory prose is better aligned with the saved outputs and reproducibility limits.
-- Markdown/LaTeX/HTML/formatting: very strong. The notebook now uses structured markdown, LaTeX, inline HTML media, captioned report tables, cleaner appendix framing, and collapsed-by-default supplementary GIF panels, with no raw dataframe outputs left in the saved artifact.
+- Markdown/LaTeX/HTML/formatting: very strong. The notebook now uses structured markdown, LaTeX, inline HTML media, captioned report tables, cleaner appendix framing, and a collapsed-by-default workflow GIF panel, with no raw dataframe outputs left in the saved artifact.
 
 ## Remaining gap to full confidence
 
