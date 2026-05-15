@@ -8,5 +8,6 @@
 - [x] Repair the opener, abstract, generated discussion, post-lab answers, conclusion, reproducibility appendix note, saved table outputs, and default-open workflow GIF panel.
 - [x] Revalidate the polished artifact for decodable media, scroll-safe index-free tables, collapsed GIF panels, removed solvent-order contradictions, and rerun-blocker framing.
 - [x] Update memory files so they match the actual live notebook and saved polished artifact.
+- [x] Mirror the durable notes to `notebook-publication-polisher/` in the GitHub system of record.
 - [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
 - [ ] Perform one final post-rerun render audit of regenerated tables, figures, and GIF panels.
