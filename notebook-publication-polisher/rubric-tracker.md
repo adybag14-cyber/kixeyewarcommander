@@ -20,12 +20,12 @@
 ## Criterion status
 
 - Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and aligned with the accepted solvent order and retained-trace count.
-- Data analysis + plotting: very strong. The figure set remains intact, the PNG panels were visually rechecked, both GIF extras render cleanly, the workflow animation no longer opens by default, and the saved tables now read as publication tables rather than notebook-default dataframe dumps.
-- Experimental write-up: very strong. The notebook explains the fitting strategy, the mechanistic interpretation, the literature comparison, the review-package limitation, and the validation logic clearly and professionally, with better transitions between major sections and more precise solvent-literature framing.
+- Data analysis + plotting: very strong. The figure set remains intact, the PNG panels were visually rechecked, both GIF extras render cleanly, the workflow animation no longer opens by default, and the saved tables now read as captioned publication tables rather than notebook-default dataframe dumps.
+- Experimental write-up: very strong. The notebook explains the fitting strategy, the mechanistic interpretation, the literature comparison, the review-package limitation, and the validation logic clearly and professionally, with better transitions between major sections and corrected solvent-order wording.
 - Originality and elegance of code: strong. The notebook remains function-based, clearly structured, and materially beyond a minimal lab-script submission; the polished table helper also improves report-facing reuse.
 - Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because four solvent folders are missing.
-- Commenting/documentation: strong. Functions remain documented, the report prose is tighter, and the provenance limitations are now explicit rather than implied.
-- Markdown/LaTeX/HTML/formatting: very strong. The notebook now uses structured markdown, LaTeX, inline HTML media, captioned report tables, stronger section framing, cleaner appendix notes, and a collapsed-by-default workflow GIF panel, with no raw dataframe outputs left in the saved artifact.
+- Commenting/documentation: strong. Functions remain documented, the report prose is tighter, the narrative now matches the saved results more cleanly, and the provenance limitations are explicit rather than implied.
+- Markdown/LaTeX/HTML/formatting: very strong. The notebook now uses structured markdown, LaTeX, inline HTML media, captioned report tables, stronger section framing, cleaner appendix notes, pass/fail audit styling, and a collapsed-by-default workflow GIF panel, with no raw dataframe outputs left in the saved artifact.
 
 ## Remaining gap to full confidence
 
