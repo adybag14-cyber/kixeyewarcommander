@@ -5,7 +5,7 @@
 - Date: 2026-05-15
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`
-- Main uncertainty: reproducibility from the attached package, not the saved notebook's narrative, code structure, or visible presentation quality
+- Main uncertainty: reproducibility from the attached package, not the saved notebook's narrative quality, code structure, or visible presentation
 
 ## Rubric reconstruction
 
@@ -19,15 +19,15 @@
 
 ## Criterion status
 
-- Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and aligned with the accepted solvent order and retained-trace count.
-- Data analysis + plotting: very strong. The figure set remains intact, the PNG panels were visually rechecked, both GIF extras render cleanly, the workflow animation no longer opens by default, and the saved tables now read as captioned publication tables rather than notebook-default dataframe dumps.
-- Experimental write-up: very strong. The notebook explains the fitting strategy, the mechanistic interpretation, the literature comparison, the review-package limitation, and the validation logic clearly and professionally, with better transitions between major sections and corrected solvent-order wording.
-- Originality and elegance of code: strong. The notebook remains function-based, clearly structured, and materially beyond a minimal lab-script submission; the polished table helper also improves report-facing reuse.
+- Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and now avoid the residual solvent-order mismatch in the narrative.
+- Data analysis + plotting: very strong. The figure set remains intact, the GIF extras render cleanly, the workflow animation is now collapsed by default, and the main saved tables now read as captioned publication tables rather than notebook-default dataframe dumps.
+- Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature context more clearly.
+- Originality and elegance of code: strong. The notebook remains function-based, structured, and well beyond a minimal lab script; the reusable publication-table helper also improves report-facing presentation.
 - Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because four solvent folders are missing.
-- Commenting/documentation: strong. Functions remain documented, the report prose is tighter, the narrative now matches the saved results more cleanly, and the provenance limitations are explicit rather than implied.
-- Markdown/LaTeX/HTML/formatting: very strong. The notebook now uses structured markdown, LaTeX, inline HTML media, captioned report tables, stronger section framing, cleaner appendix notes, pass/fail audit styling, and a collapsed-by-default workflow GIF panel, with no raw dataframe outputs left in the saved artifact.
+- Commenting/documentation: strong. Functions remain documented, the notebook explains its review-package limitation explicitly, and the saved output now better communicates validation state.
+- Markdown/LaTeX/HTML/formatting: very strong. The notebook uses structured markdown, LaTeX, inline HTML media, captioned report tables, stronger appendix notes, and cleaner validation styling without the raw scoped dataframe blocks seen in the attached source notebook.
 
 ## Remaining gap to full confidence
 
 - One clean rerun is still needed in an environment with the complete five-solvent raw-data package.
-- After that rerun, one final render audit should confirm that regenerated tables, figures, GIF panels, and regenerated publication-table HTML remain publication-clean.
+- After that rerun, one final render audit should confirm that regenerated tables, figures, GIF panels, and generated publication-table HTML remain publication-clean.
