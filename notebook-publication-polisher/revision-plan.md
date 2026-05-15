@@ -6,8 +6,9 @@
 - [x] Audit the live notebook for narrative clarity, raw dataframe tables, figure readability, broken media, and default-open expandable GIF panels.
 - [x] Build a corrected polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - [x] Replace raw dataframe-style outputs with captioned, index-free publication tables in both the saved executed outputs and the source display helpers used on rerun.
-- [x] Make the attached-package reproducibility blocker explicit in the configuration, reproducibility, and consistency-check sections.
+- [x] Make the attached-package reproducibility blocker explicit in the configuration, reproducibility, automated-check, and conclusion sections.
 - [x] Close the default-open laboratory-workflow GIF panel and recheck embedded media payloads.
+- [x] Refresh the solvent-effects literature support with a stronger primary source.
 - [x] Update memory files so they match the actual polished notebook state.
 - [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
 - [ ] Perform one final post-rerun render audit of regenerated tables, figures, and GIF panels.
