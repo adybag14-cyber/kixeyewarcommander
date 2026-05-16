@@ -14,6 +14,7 @@
 - Converted the automated consistency audit into a clearer pass/fail status table with visual status pills.
 - Added explicit reduced-package provenance notes to the configuration section, analysis-environment note, reproducibility appendix, automated-check appendix, and saved-output framing so the embedded five-solvent execution is not confused with the current reduced audit bundle.
 - Corrected the saved discussion and post-lab wording so the prose consistently matches the reported ranking, with acetonitrile fastest and acetone close behind.
+- Corrected the methods wording so the narrative now describes the actual centred moving-average denoising used by the code rather than calling it Savitzky-Golay smoothing.
 - Replaced the weaker solvent-effects reference with the stronger primary *Chemical Physics Letters* citation by Kobayashi, Yokoyama and Kamei.
 - Closed the laboratory-workflow GIF panel by default in both the notebook source and the saved rendered output.
 - Revalidated the polished notebook structurally: all code cells compile, the saved HTML outputs no longer contain notebook-default scoped dataframe styling, the workflow GIF panel no longer opens expanded by default, and the embedded PNG and GIF payloads remain readable.
