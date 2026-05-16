@@ -1,19 +1,16 @@
 # Improvement Log
 
-## 2026-05-16 publication-artifact rebuild from the attached source notebook
+## 2026-05-16 attached-package audit and notebook rebuild
 
-- Reopened the attached notebook package itself and confirmed that the attachment still contained reviewer-visible raw dataframe outputs, a default-open workflow GIF panel, the weaker solvent-effects citation, and stale wording that still implied acetone was the fastest solvent.
+- Reopened the attached notebook package directly instead of trusting the previous memory summary.
+- Confirmed that the attachment itself still needed material polishing: raw pandas table outputs were still present, the second inline GIF panel still opened by default, the reference list still used the weaker 2017 solvent-effects source, and the saved prose still contained stale acetone-fastest wording.
 - Built the refreshed deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Replaced the saved dataframe-style outputs for the package audit, kinetic summary, QC summary, rank table, benchmark tables, validation tables, sensitivity table, and automated checks with captioned publication tables wrapped for horizontal-overflow safety.
-- Added dedicated CSS for report-table captions, overflow-safe table blocks, and pass/fail audit pills.
-- Updated the notebook source so reruns will use the same captioned report-table presentation rather than falling back to raw dataframe output.
-- Added explicit reduced-package provenance notes in the configuration, environment, reproducibility, and automated-check sections so the saved execution is framed honestly.
-- Corrected the saved discussion and post-lab outputs so the prose now states that acetonitrile is fastest and acetone is a close second, matching the saved numerical outputs.
-- Replaced the weaker solvent-effects reference with the stronger primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei and reformatted the references section into a cleaner Leeds-style HTML list.
-- Collapsed both inline animation panels by default in source and saved output.
-- Revalidated the refreshed notebook by checking that the old scoped-dataframe styling is gone, the inline extras are collapsed by default, all code cells still compile, and the embedded figure and GIF payloads remain structurally intact.
-- Extracted and visually checked the eight saved PNG figures plus representative early/middle/late frames from both inline GIFs; no obvious clipping, overlap, broken images, or unreadable labels were found in the saved report visuals.
-- Confirmed that a fresh notebook-to-HTML export could not be run in this workspace because `jupyter`/`nbconvert` is not installed, so render confidence remains based on direct saved-output inspection rather than a new exported page.
+- Replaced the saved dataframe-style outputs for the environment audit, kinetic summary, rejection audit, bootstrap ranking, benchmark tables, validation tables, sensitivity table, and automated checks with captioned publication-style HTML tables that are safer for notebook and HTML rendering.
+- Added clear reduced-bundle provenance notes to the title card, configuration section, environment note, reproducibility appendix, and automated-check appendix so the saved five-solvent execution is framed honestly.
+- Corrected the saved discussion and post-lab outputs so the narrative now matches the saved table values: acetonitrile is fastest and acetone is a close second.
+- Replaced the weaker solvent-effects reference with the stronger primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei and reformatted the references section into a cleaner ordered publication-style list.
+- Collapsed the remaining default-open inline workflow animation panel in both source and saved output.
+- Revalidated the rebuilt notebook by checking that all code cells compile, the old dataframe HTML blocks are gone, the inline extras are collapsed by default, and the embedded PNG and GIF payloads remain structurally intact.
 
 ## Open risk
 
