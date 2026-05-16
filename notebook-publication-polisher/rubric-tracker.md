@@ -20,12 +20,12 @@
 ## Criterion status
 
 - Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and now explicitly align with the reported acetonitrile > acetone ordering.
-- Data analysis + plotting: very strong. The figure set remains intact, the GIF extras render cleanly, the workflow animation is now collapsed by default, the saved tables now read as captioned publication tables rather than notebook-default dataframe dumps, and the extracted visual audit across the eight PNG figures plus representative GIF frames did not show obvious clipping or overlap.
+- Data analysis + plotting: very strong. The figure set remains intact, both GIF extras render cleanly and are now collapsed by default, the saved tables now read as captioned publication tables rather than notebook-default dataframe dumps, and the extracted visual audit across the eight PNG figures plus representative GIF frames did not show obvious clipping or overlap.
 - Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature context more clearly, with the solvent-order wording corrected across both discussion and post-lab sections.
 - Originality and elegance of code: strong. The notebook remains function-based, structured, and well beyond a minimal lab script; the added publication-table helper also improves report-facing presentation for future reruns.
 - Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because four solvent folders are missing.
 - Commenting/documentation: strong. Functions remain documented, the notebook explains its review-package limitation explicitly, and the saved output now better communicates validation state and audit scope.
-- Markdown/LaTeX/HTML/formatting: very strong. The notebook uses structured markdown, LaTeX, inline HTML media, captioned report tables, stronger appendix notes, cleaner validation styling, and a closed-by-default workflow extra without the raw scoped dataframe blocks seen in the attached source notebook.
+- Markdown/LaTeX/HTML/formatting: very strong. The notebook uses structured markdown, LaTeX, inline HTML media, captioned report tables, stronger appendix notes, cleaner validation styling, closed-by-default inline extras, and no raw scoped dataframe blocks in the polished artifact.
 
 ## Remaining gap to full confidence
 
