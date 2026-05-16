@@ -13,7 +13,7 @@
 - Collapsed both inline animation panels by default in source and saved output.
 - Revalidated the refreshed notebook by checking that the old scoped-dataframe styling is gone, the inline extras are collapsed by default, all code cells still compile, and the embedded figure and GIF payloads remain structurally intact.
 - Extracted and visually checked the eight saved PNG figures plus representative early/middle/late frames from both inline GIFs; no obvious clipping, overlap, broken images, or unreadable labels were found in the saved report visuals.
-- Rebuilt the polished notebook again when this workspace turn revealed that the previously referenced output file was missing locally, then removed a temporary parsed index column from the saved publication tables so the delivered notebook stayed publication-clean.
+- Confirmed that a fresh notebook-to-HTML export could not be run in this workspace because `jupyter`/`nbconvert` is not installed, so render confidence remains based on direct saved-output inspection rather than a new exported page.
 
 ## Open risk
 
