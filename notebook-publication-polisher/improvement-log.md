@@ -6,13 +6,14 @@
 - Built the refreshed deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Replaced the saved dataframe-style outputs for the package audit, kinetic summary, QC summary, rank table, benchmark tables, validation tables, sensitivity table, and automated checks with captioned publication tables wrapped for horizontal-overflow safety.
 - Added dedicated CSS for report-table captions, overflow-safe table blocks, and pass/fail audit pills.
-- Updated the notebook source for the main analysis section and the automated consistency appendix so future polished reruns keep the same captioned report-table presentation in the highest-visibility areas.
-- Added explicit reduced-package provenance notes in the configuration, reproducibility, and automated-check sections so the saved execution is framed honestly.
+- Updated the notebook source so reruns will use the same captioned report-table presentation rather than falling back to raw dataframe output.
+- Added explicit reduced-package provenance notes in the configuration, environment, reproducibility, and automated-check sections so the saved execution is framed honestly.
 - Corrected the saved discussion and post-lab outputs so the prose now states that acetonitrile is fastest and acetone is a close second, matching the saved numerical outputs.
-- Replaced the weaker solvent-effects reference with the stronger primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
-- Collapsed the default-open laboratory workflow animation panel in source and saved output.
-- Revalidated the refreshed notebook by checking that the old dataframe HTML blocks are gone, the inline extra is collapsed by default, all code cells still compile, and the embedded figure and GIF payloads remain structurally intact.
-- Extracted and visually checked the eight saved PNG figures plus representative early, middle, and late frames from both inline GIFs; no obvious clipping, overlap, broken images, or unreadable labels were found in the saved report visuals.
+- Replaced the weaker solvent-effects reference with the stronger primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei and reformatted the references section into a cleaner Leeds-style HTML list.
+- Collapsed both inline animation panels by default in source and saved output.
+- Revalidated the refreshed notebook by checking that the old scoped-dataframe styling is gone, the inline extras are collapsed by default, all code cells still compile, and the embedded figure and GIF payloads remain structurally intact.
+- Extracted and visually checked the eight saved PNG figures plus representative early/middle/late frames from both inline GIFs; no obvious clipping, overlap, broken images, or unreadable labels were found in the saved report visuals.
+- Rebuilt the polished notebook again when this workspace turn revealed that the previously referenced output file was missing locally, then removed a temporary parsed index column from the saved publication tables so the delivered notebook stayed publication-clean.
 
 ## Open risk
 
