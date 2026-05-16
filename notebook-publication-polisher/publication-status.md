@@ -4,8 +4,8 @@
 
 - Date: 2026-05-16
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: strong publication-ready saved-execution notebook with corrected solvent interpretation, captioned overflow-safe tables throughout, explicit reduced-package provenance notes, a stronger primary literature reference, and checked inline media; still blocked from full reproducibility sign-off by the reduced review package
-- Confidence note: the refreshed polished artifact in `/workspace/output/` now supersedes the rougher attached notebook. The saved report reads cleanly, but the attached package still only exposes `Data/Acetone/`, so a fresh end-to-end rerun cannot yet reproduce the saved five-solvent execution
+- Publication-readiness estimate: strong publication-ready saved-execution notebook with publication-safe rendered tables, corrected solvent interpretation, explicit reduced-package provenance notes, a stronger primary literature reference, and checked inline media; still blocked from full reproducibility sign-off by the reduced review package
+- Confidence note: the refreshed polished artifact in `/workspace/output/` now supersedes the rougher attached notebook. The new copy removes the remaining raw dataframe-style outputs and the default-open workflow GIF panel seen in the attachment, but the attached package still only exposes `Data/Acetone/`, so a fresh end-to-end rerun cannot yet reproduce the saved five-solvent execution
 
 ## Highest-impact improvements in this run
 
@@ -16,8 +16,8 @@
 - Corrected the saved discussion and post-lab wording so the prose consistently matches the reported ranking, with acetonitrile fastest and acetone close behind.
 - Replaced the weaker solvent-effects reference with the stronger primary *Chemical Physics Letters* citation by Kobayashi, Yokoyama and Kamei.
 - Closed the laboratory-workflow GIF panel by default in both the notebook source and the saved rendered output.
-- Revalidated the polished notebook structurally: the saved HTML outputs no longer contain notebook-default scoped dataframe styling, the workflow GIF panel no longer opens expanded by default, and the embedded PNG and GIF payloads remain readable.
-- Visually checked the extracted figure set and GIF first frames; no obvious clipping, overlap, broken images, or unreadable labels were found in the saved report figures.
+- Revalidated the polished notebook structurally: all code cells compile, the saved HTML outputs no longer contain notebook-default scoped dataframe styling, the workflow GIF panel no longer opens expanded by default, and the embedded PNG and GIF payloads remain readable.
+- Visually checked the extracted figure set and multiple GIF key frames; no obvious clipping, overlap, broken images, or unreadable labels were found in the saved report figures.
 
 ## Remaining blockers
 
