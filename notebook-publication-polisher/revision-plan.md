@@ -7,11 +7,11 @@
 - [x] Build a refreshed polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - [x] Replace the remaining saved dataframe outputs with captioned, overflow-safe publication tables.
 - [x] Add clearer reduced-bundle provenance notes where the saved five-solvent execution could otherwise be misread as a fresh rerun.
-- [x] Correct the solvent-order interpretation drift in both source text and saved output text.
+- [x] Correct the solvent-order interpretation drift in the discussion and post-lab prose.
 - [x] Replace the weaker solvent-effects source with the stronger primary-paper citation.
-- [x] Reformat the references section into a cleaner publication-style list.
-- [x] Update the notebook source helper so future report-table displays render more cleanly.
-- [x] Collapse the remaining default-open inline animation panel in the saved artifact.
-- [x] Revalidate the polished notebook by checking media integrity, key source edits, table captions, and saved-output presentation.
+- [x] Reformat the references section into a cleaner publication-style ordered list.
+- [x] Update the notebook source helper so future reruns use cleaner HTML table rendering.
+- [x] Collapse the remaining default-open inline animation panel in both source and saved output.
+- [x] Revalidate the polished notebook by parsing all code cells, removing raw dataframe HTML, and rechecking embedded figure assets plus GIF integrity.
 - [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
-- [ ] Perform one final post-rerun render audit of regenerated tables, figures, GIF panels, and report-table HTML.
+- [ ] Perform one final post-rerun render audit of regenerated tables, figures, GIF panels, and publication-table HTML.
