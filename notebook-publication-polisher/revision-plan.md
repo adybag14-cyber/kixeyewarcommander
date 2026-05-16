@@ -9,8 +9,8 @@
 - [x] Add clearer reduced-package provenance notes where the saved five-solvent execution could otherwise be misread as a fresh rerun.
 - [x] Correct the solvent-order interpretation drift in the discussion and post-lab prose.
 - [x] Replace the weaker solvent-effects source with the stronger primary-paper citation.
-- [x] Reformat the references section into a cleaner publication-style HTML list.
-- [x] Collapse the default-open inline animation panels in both source and saved output.
+- [x] Refresh the references section with the stronger primary-paper citation and updated saved wording.
+- [x] Collapse the default-open inline animation panel in source and saved output.
 - [x] Revalidate the polished notebook by checking saved-output structure, compiling all code cells, and rechecking embedded figure assets plus representative GIF key frames.
 - [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
 - [ ] Perform one final post-rerun render audit of regenerated tables, figures, GIF panels, and publication-table HTML.
