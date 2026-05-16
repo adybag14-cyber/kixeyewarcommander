@@ -10,8 +10,8 @@
 - Corrected the saved discussion and post-lab outputs so the prose now states that acetonitrile is fastest and acetone is a close second, matching the saved numerical outputs.
 - Replaced the weaker solvent-effects citation with the stronger primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
 - Closed the laboratory-workflow animation panel by default in both source and saved output.
-- Revalidated the refreshed notebook by checking that the old scoped dataframe styling is gone, the workflow panel is collapsed by default, and the saved embedded figure assets remain structurally intact.
-- Extracted and visually checked the eight saved PNG figures plus both inline GIFs; no obvious clipping, overlap, broken images, or unreadable labels were found in the saved report visuals.
+- Revalidated the refreshed notebook by checking that the old scoped dataframe styling is gone, the workflow panel is collapsed by default, all code cells still compile, and the saved embedded figure assets remain structurally intact.
+- Extracted and visually checked the eight saved PNG figures plus both inline GIFs, including later animation key frames; no obvious clipping, overlap, broken images, or unreadable labels were found in the saved report visuals.
 
 ## Open risk
 
