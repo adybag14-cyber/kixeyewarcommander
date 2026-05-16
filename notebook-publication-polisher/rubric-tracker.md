@@ -31,4 +31,4 @@
 
 - One clean rerun is still needed in an environment with the complete five-solvent raw-data package.
 - After that rerun, one final render audit should confirm that regenerated tables, figures, GIF panels, and publication-table HTML remain publication-clean.
-- Direct exported-HTML verification is still pending in this workspace even though the saved-output and embedded-media audit is clean.
+- Direct exported-HTML verification is still pending because this workspace does not currently provide `jupyter`/`nbconvert`, even though the saved-output and embedded-media audit is clean.
