@@ -8,11 +8,10 @@
 - Added pass/fail pill styling to the automated consistency audit.
 - Added explicit reduced-package provenance notes in the configuration, environment, reproducibility, and automated-check sections.
 - Corrected the saved discussion and post-lab outputs so the prose now states that acetonitrile is fastest and acetone is a close second, matching the saved numerical outputs.
-- Corrected the method description so the notebook now accurately describes the implemented centred moving-average denoising step rather than mislabelling it as Savitzky-Golay smoothing.
 - Replaced the weaker solvent-effects citation with the stronger primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
-- Closed the laboratory-workflow animation panel by default in both source and saved output.
-- Revalidated the refreshed notebook by checking that the old scoped dataframe styling is gone, the workflow panel is collapsed by default, all code cells still compile, and the saved embedded figure assets remain structurally intact.
-- Extracted and visually checked the eight saved PNG figures plus both inline GIFs, including later animation key frames; no obvious clipping, overlap, broken images, or unreadable labels were found in the saved report visuals.
+- Closed the laboratory-workflow animation panel by default in both source and saved output without removing the GIF payload.
+- Revalidated the refreshed notebook by checking that the old scoped dataframe styling is gone, the workflow panel is collapsed by default, and the saved embedded figure assets remain structurally intact.
+- Decoded and checked the eight saved PNG figures plus both inline GIFs; all ten embedded media assets open successfully and the GIF frame counts remain intact.
 
 ## Open risk
 
