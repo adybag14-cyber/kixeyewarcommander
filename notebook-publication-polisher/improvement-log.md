@@ -1,5 +1,18 @@
 # Improvement Log
 
+## 2026-05-16 attached-package publication rebuild
+
+- Reopened the attached notebook itself and confirmed that it still lagged behind the previous polished notes: several saved outputs were still raw notebook dataframe renders, the workflow GIF still opened expanded by default, the source still cited the weaker solvent-effects paper, and one post-lab paragraph still implied acetone was the fastest solvent.
+- Built a refreshed deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Replaced the saved dataframe-style outputs for the package audit, kinetic summary, QC summary, bootstrap rank table, benchmark tables, validation tables, sensitivity table, and automated checks with captioned publication tables wrapped for horizontal overflow safety.
+- Added pass/fail pill styling to the automated consistency audit.
+- Added explicit reduced-package provenance notes in the configuration, analysis-environment, reproducibility, and automated-check sections so the saved five-solvent execution is not mistaken for a fresh rerun from the reduced review bundle.
+- Corrected the remaining solvent-order wording drift in the post-lab discussion so the prose now states that acetonitrile is fastest and acetone is a close second.
+- Replaced the weaker solvent-effects citation with the primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
+- Closed the default-open laboratory-workflow animation panel in both source and saved output.
+- Revalidated the refreshed notebook by checking that all code cells compile, the old scoped dataframe styling is gone, the workflow panel is collapsed by default, and the embedded PNG and GIF payloads remain readable.
+- Attempted a direct notebook-to-HTML export check, but `jupyter`/`nbconvert` is not installed in this workspace, so render confidence comes from the saved-output structural audit rather than a fresh exported page.
+
 ## 2026-05-16 notebook publication polish refresh
 
 - Reinspected the attached notebook package against the rubric and the saved progress notes instead of assuming the previous polished state was still present in the attachment.
