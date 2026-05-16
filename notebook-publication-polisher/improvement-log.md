@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-16 visible-artifact correction pass
+
+- Reopened the attached notebook package and checked the visible notebook content instead of trusting the previous saved status.
+- Confirmed that the attachment still contained publication defects that the memory state had already described as fixed: raw dataframe HTML outputs were still present, the final workflow GIF panel still opened expanded by default, the weaker 2017 solvent-effects source was still in the references, and the rendered discussion/post-lab text still contained stale acetone-fastest wording.
+- Built a new polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Replaced every remaining dataframe-style saved output with captioned, overflow-safe publication tables and updated the source helper so future reruns will keep the cleaner table rendering.
+- Added explicit reduced-bundle provenance notes clarifying that the saved five-solvent outputs are preserved from the original full execution while the current audit bundle only contains `Data/Acetone/`.
+- Corrected the rendered solvent-order wording so the discussion and post-lab sections now match the saved results: acetonitrile is fastest and acetone is a close second.
+- Replaced the 2017 secondary/predatory-style solvent-effects citation with the stronger 1987 *Chemical Physics Letters* primary paper by Kobayashi, Yokoyama and Kamei.
+- Collapsed the final always-open inline GIF panel in both notebook source and saved output.
+- Revalidated the deliverable by compiling all code cells, confirming that no raw dataframe HTML outputs remain, and verifying that all 8 embedded PNG figures plus both inline GIF payloads still decode successfully.
+
 ## 2026-05-16 polished artifact rebuild from attached package
 
 - Reopened the attached notebook package and rebuilt a fresh polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
