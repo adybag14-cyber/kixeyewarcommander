@@ -4,23 +4,22 @@
 
 - Date: 2026-05-16
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: strong saved publication artifact, not yet fully sign-off ready for reproducibility
-- Confidence note: the polished notebook now reads cleanly as a publication-focused executed notebook, with the main remaining risk concentrated in fresh rerun reproducibility from the reduced attached package rather than in the saved presentation layer
+- Publication-readiness estimate: publication-ready as a saved executed notebook artifact, with remaining risk concentrated in reproducibility rather than visible presentation
+- Confidence note: the polished notebook now reflects the intended publication fixes inside the saved artifact itself. The main unresolved issue is that the attached audit bundle is incomplete for a fresh five-solvent rerun because only `Data/Acetone/` is present locally.
 
 ## Highest-impact improvements in this run
 
-- Built a fresh polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` directly from the attached notebook package.
-- Replaced the remaining raw dataframe-style saved outputs with captioned, overflow-safe report tables for the package audit, kinetic summary, QC audit, bootstrap ranking, performance checks, validation summary, fit-window sensitivity audit, and automated consistency checks.
-- Added explicit provenance notes to the title card, configuration section, analysis-environment note, reproducibility appendix, and automated-check appendix so the reduced attached bundle is not mistaken for a clean full-data rerun.
-- Corrected the remaining source and saved-output interpretation drift so the notebook consistently reports acetonitrile as the fastest solvent, with acetone a close second.
-- Replaced the weaker 2017 solvent-effects citation with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
-- Reformatted the references section into a cleaner publication-style list that matches the notebook's visual design.
-- Collapsed the remaining default-open laboratory workflow animation panel so both inline GIF extras now open cleanly in closed panels by default.
-- Revalidated the embedded media layer after rebuilding the deliverable: all 8 PNG figures and both inline GIFs decode successfully, and the visual contact-sheet audit did not reveal clipping, overlap, unreadable labels, or broken media.
+- Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached package and confirmed that the fixes landed in the user-facing artifact.
+- Replaced the remaining raw dataframe-style outputs with styled, captioned, overflow-safe report tables for the environment audit, kinetic summary, QC audit, bootstrap ranking, benchmark tables, validation summary, sensitivity check, and automated consistency checks.
+- Added explicit reduced-bundle provenance notes to the title card, configuration section, analysis-environment note, reproducibility appendix, and automated-check appendix so the saved five-solvent execution is not mistaken for a fresh rerun from the reduced attachment package.
+- Corrected the remaining solvent-order interpretation drift in both the results discussion and post-lab answers so the prose now matches the saved values: acetonitrile is fastest and acetone is a close second.
+- Replaced the weaker 2017 solvent-effects reference with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
+- Collapsed the last default-open laboratory workflow animation panel in both notebook source and saved output so the notebook opens more cleanly.
+- Rechecked the saved visual layer directly: all 8 embedded PNG figures and both inline GIFs decode successfully, the remaining raw pandas table HTML blocks are gone, and the rebuilt saved outputs now use publication-style table wrappers instead of default dataframe rendering.
 
 ## Remaining blockers
 
-- A clean end-to-end rerun of the full five-solvent notebook still cannot be demonstrated from the attached workspace package because only `Data/Acetone/` is present locally.
-- Final sign-off still needs one rerun in the intended notebook environment with the complete `Data/` tree restored.
-- One post-rerun render audit is still needed to confirm that regenerated tables, figures, GIF panels, and report-table HTML remain publication-clean after a true rerun.
+- A clean end-to-end rerun of the full five-solvent notebook still cannot be demonstrated from the attached package because only `Data/Acetone/` is present locally.
+- Full-confidence sign-off still needs one rerun in the intended notebook environment with the complete `Data/` tree restored.
+- One final post-rerun render audit is still needed to confirm that regenerated tables, figures, GIF panels, and publication-table HTML remain publication-clean after a true rerun.
 - Direct notebook-to-HTML export verification is still pending because this workspace does not provide `jupyter`, `nbconvert`, or equivalent notebook-export tooling.
