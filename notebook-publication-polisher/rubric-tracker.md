@@ -5,7 +5,7 @@
 - Date: 2026-05-16
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`
-- Main uncertainty: reproducibility from the reduced attached package, not the saved notebook's narrative quality, code structure, visible presentation, or saved embedded-media integrity
+- Main uncertainty: reproducibility from the reduced attached package, not the saved notebook's narrative quality, code structure, visible presentation, or embedded-media integrity
 
 ## Rubric reconstruction
 
@@ -20,7 +20,7 @@
 ## Criterion status
 
 - Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and now explicitly align with the reported acetonitrile > acetone ordering.
-- Data analysis + plotting: very strong. The figure set remains intact, both GIF extras remain readable and now open cleanly in collapsed panels, the major saved tables now render as captioned publication tables rather than notebook-default dataframe dumps, and the saved figure contact-sheet audit did not reveal new clipping or overlap problems.
+- Data analysis + plotting: very strong. The figure set remains intact, both GIF extras are readable and now open cleanly in collapsed panels, the major saved tables render as captioned publication tables rather than notebook-default dataframe dumps, and the saved figure contact-sheet audit did not reveal clipping or overlap problems.
 - Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature context more clearly, with the solvent-order wording corrected across both the discussion and post-lab sections.
 - Originality and elegance of code: strong. The notebook remains function-based, structured, and well beyond a minimal lab script; the publication-table helper also improves future rerun presentation.
 - Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because four solvent folders are missing.
