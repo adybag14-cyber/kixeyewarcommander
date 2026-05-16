@@ -8,6 +8,7 @@
 - [x] Replace the remaining saved dataframe outputs with captioned, overflow-safe publication tables.
 - [x] Add clearer reduced-package provenance notes where the saved five-solvent execution could otherwise be misread as a fresh rerun.
 - [x] Correct the solvent-order interpretation drift in the discussion and post-lab prose.
+- [x] Correct the method description where the prose mislabelled the implemented denoising step.
 - [x] Replace the weaker solvent-effects source with the stronger primary literature citation.
 - [x] Close the default-open laboratory-workflow GIF panel in both source and saved output.
 - [x] Revalidate the polished notebook by checking saved-output structure, compiling all code cells, and rechecking embedded figure assets plus later GIF key frames.
