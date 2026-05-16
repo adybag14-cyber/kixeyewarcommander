@@ -10,7 +10,7 @@
 - [x] Correct the solvent-order interpretation drift in the discussion and post-lab prose.
 - [x] Replace the weaker solvent-effects source with the stronger primary literature citation.
 - [x] Close the default-open laboratory-workflow GIF panel in both source and saved output.
-- [x] Revalidate the polished notebook by checking saved-output structure, compiling all code cells, and rechecking embedded figure assets.
+- [x] Revalidate the polished notebook by checking saved-output structure, compiling all code cells, and rechecking embedded figure assets plus later GIF key frames.
 - [x] Record the direct-render limitation in the progress notes because `jupyter`/`nbconvert` is not available in this workspace.
 - [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
 - [ ] Perform one final post-rerun render audit of regenerated tables, figures, GIF panels, and publication-table HTML.
