@@ -2,7 +2,7 @@
 
 ## Current estimate
 
-- Date: 2026-05-15
+- Date: 2026-05-16
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`
 - Main uncertainty: reproducibility from the attached package, not the saved notebook's narrative quality, code structure, or visible presentation
@@ -19,12 +19,12 @@
 
 ## Criterion status
 
-- Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and now avoid the residual solvent-order mismatch in the narrative.
+- Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and now explicitly align with the reported acetonitrile > acetone ordering.
 - Data analysis + plotting: very strong. The figure set remains intact, the GIF extras render cleanly, the workflow animation is now collapsed by default, and the main saved tables now read as captioned publication tables rather than notebook-default dataframe dumps.
-- Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature context more clearly, and the remaining solvent-order wording drift in the prose has been corrected.
+- Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature context more clearly, with the solvent-order wording corrected across both discussion and post-lab sections.
 - Originality and elegance of code: strong. The notebook remains function-based, structured, and well beyond a minimal lab script; the reusable publication-table helper also improves report-facing presentation.
 - Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because four solvent folders are missing.
-- Commenting/documentation: strong. Functions remain documented, the notebook explains its review-package limitation explicitly, and the saved output now better communicates validation state.
+- Commenting/documentation: strong. Functions remain documented, the notebook explains its review-package limitation explicitly, and the saved output now better communicates validation state and audit scope.
 - Markdown/LaTeX/HTML/formatting: very strong. The notebook uses structured markdown, LaTeX, inline HTML media, captioned report tables, stronger appendix notes, cleaner validation styling, and a closed-by-default workflow extra without the raw scoped dataframe blocks seen in the attached source notebook.
 
 ## Remaining gap to full confidence
