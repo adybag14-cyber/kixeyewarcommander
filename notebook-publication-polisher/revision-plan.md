@@ -11,6 +11,7 @@
 - [x] Replace the weaker solvent-effects source with the stronger primary literature citation.
 - [x] Close the default-open laboratory-workflow GIF panel in both source and saved output.
 - [x] Revalidate the polished notebook by checking saved-output structure, compiling all code cells, and rechecking embedded figure assets.
+- [x] Record the direct-render limitation in the progress notes because `jupyter`/`nbconvert` is not available in this workspace.
 - [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
 - [ ] Perform one final post-rerun render audit of regenerated tables, figures, GIF panels, and publication-table HTML.
 
@@ -22,7 +23,7 @@
 - [x] Replace notebook-default saved dataframe outputs with captioned, overflow-safe publication tables.
 - [x] Correct the remaining solvent-order wording drift in the post-lab section.
 - [x] Add explicit provenance notes explaining the reduced review package versus the saved full execution.
-- [x] Replace the weaker solvent-effects source with a stronger primary-paper citation.
+- [x] Replace the weaker solvent-effects reference with a stronger primary-paper citation.
 - [x] Close the default-open laboratory-workflow GIF panel in both source and saved output.
 - [x] Revalidate the polished notebook by checking saved-output structure, visually inspecting the saved figures, and compiling all code cells.
 - [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
