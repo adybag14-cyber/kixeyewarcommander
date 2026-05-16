@@ -20,8 +20,8 @@
 ## Criterion status
 
 - Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and now explicitly align with the reported acetonitrile > acetone ordering.
-- Data analysis + plotting: very strong. The figure set remains intact, both GIF extras are readable and now open cleanly in collapsed panels, the saved tables render as captioned publication tables rather than notebook-default dataframe dumps, and the direct saved-output audit plus contact-sheet check did not reveal broken media or rendering regressions.
-- Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature context more clearly, with the solvent-order wording corrected across both the discussion and post-lab sections.
+- Data analysis + plotting: very strong. The figure set remains intact, both GIF extras are readable, the final workflow panel now opens collapsed, the saved tables render as captioned publication tables rather than notebook-default dataframe dumps, and the direct saved-output audit did not reveal broken media or rendering regressions.
+- Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature context more clearly.
 - Originality and elegance of code: strong. The notebook remains function-based, structured, and well beyond a minimal lab script; the publication-table helper also improves future rerun presentation.
 - Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because four solvent folders are missing.
 - Commenting/documentation: strong. Functions remain documented, the notebook explains its review-package limitation explicitly, and the saved output communicates validation scope more honestly than before.
