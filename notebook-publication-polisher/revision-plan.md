@@ -12,5 +12,6 @@
 - [x] Replace the weaker solvent-effects source with the stronger primary-paper citation and tighten the introduction wording around that evidence.
 - [x] Collapse the remaining default-open inline animation panel in both source and saved output.
 - [x] Revalidate the polished notebook by confirming that raw dataframe HTML is gone, the stronger reference is present, the workflow panel is collapsed by default, the notebook code still compiles, and the saved media assets still decode.
+- [x] Confirm in the rebuilt output notebook that nine captioned publication tables render and that eight PNG figures plus two GIF assets decode successfully.
 - [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
 - [ ] Perform one final post-rerun render audit of regenerated tables, figures, GIF panels, and publication-table HTML.
