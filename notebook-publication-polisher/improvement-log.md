@@ -1,5 +1,19 @@
 # Improvement Log
 
+## 2026-05-17 scheduled publication-polish sync pass
+
+- Reopened the attached notebook package, rubric guidance, local memory files and GitHub persistence notes together so the repair work used the actual attachment state rather than stale assumptions.
+- Confirmed that the attached notebook was still the weaker saved state: raw dataframe-style HTML tables were visible, the 2017 solvent-effects citation remained, provenance for the reduced review bundle was missing, and the laboratory workflow GIF still opened expanded by default.
+- Reconfirmed the local data-bundle blocker: the workspace copy of the package currently contains only `Data/Acetone/`, so a true five-solvent rerun is still not possible from the attached files alone.
+- Recreated `/workspace/patch_publication_notebook.py` and rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook.
+- Added clearer reduced-bundle provenance notes to the title card, configuration section, reproducibility appendix and automated-check appendix.
+- Replaced the weaker solvent-effects source with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
+- Converted every saved notebook-default dataframe output that matters for publication quality into a captioned, overflow-safe publication table and removed inherited index columns from those visible tables.
+- Updated the notebook source so future reruns use the same publication-style HTML table wrapper for the main report tables and package audit display, while `discover_trace_files` now fails with a clearer message when solvent folders are missing.
+- Closed the workflow animation panel by default in both the notebook source and the saved output.
+- Revalidated the rebuilt notebook by checking that no raw dataframe HTML remained in outputs, no `details open` workflow panel remained, all code cells compiled, and all embedded PNG and GIF payloads still decoded cleanly.
+- Updated the memory folder notes and prepared matching GitHub persistence updates so future runs start from the repaired notebook state.
+
 ## 2026-05-17 direct attached-notebook publication repair
 
 - Reopened the attached notebook, rubric guidance and saved progress notes to confirm the actual attachment state before making any publication claim.
