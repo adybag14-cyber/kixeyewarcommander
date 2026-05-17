@@ -5,7 +5,7 @@
 - Date: 2026-05-17
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong near-publication-ready notebook artifact, with the remaining risk concentrated in reproducibility from the reduced attachment bundle rather than in the saved notebook narrative, table presentation, figure integrity, or embedded media
-- Confidence note: the current polished notebook now distinguishes saved five-solvent execution from the reduced local review bundle, uses captioned overflow-safe report tables throughout the visible outputs, cites the stronger 1987 *Chemical Physics Letters* paper, and keeps the workflow GIF panel collapsed on open. A fresh verification pass on 2026-05-17 also confirmed that the rebuilt artifact no longer contains raw dataframe HTML, no longer contains the weaker 2017 citation, and still preserves 8 embedded PNG figures plus 2 embedded GIFs without decode failures.
+- Confidence note: the current polished notebook now repairs the attached notebook itself rather than only the surrounding notes. The saved file distinguishes the earlier five-solvent execution from the reduced local review bundle, uses captioned overflow-safe report tables throughout the visible outputs, cites the stronger 1987 *Chemical Physics Letters* paper, and keeps both extra-media panels collapsed on open
 
 ## Highest-impact improvements in this run
 
@@ -16,11 +16,11 @@
 - Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Added explicit provenance notes to the title card, configuration section, reproducibility appendix and consistency-check appendix so the saved five-solvent outputs are not misread as a fresh local rerun from the reduced bundle.
 - Replaced the weaker solvent-effects citation with the stronger 1987 *Chemical Physics Letters* primary paper by Kobayashi, Yokoyama and Kamei.
-- Replaced the visible raw dataframe-style HTML outputs with captioned, overflow-safe publication tables for the package audit, solvent summary, QC decisions, bootstrap ranking, benchmark summaries, validation summaries, sensitivity summary and automated consistency checks.
+- Replaced the visible raw dataframe-style HTML outputs with nine captioned, overflow-safe publication tables covering the package audit, solvent summary, QC decisions, bootstrap ranking, benchmark summaries, validation summaries, sensitivity summary and automated consistency checks.
 - Updated the notebook source so future reruns use the same publication-style HTML table wrapper instead of notebook-default dataframe rendering for the main report tables.
 - Removed inherited dataframe index columns from the rebuilt saved tables so the publication tables read as report outputs rather than notebook dumps.
 - Collapsed the workflow animation panel by default in both the notebook source and the saved output so the notebook opens with the scientific report rather than an expanded extra-media block.
-- Revalidated the polished notebook by confirming that the 2017 citation is gone, the stronger reference is present, the workflow panel is closed by default, the code cells compile, and every embedded PNG and GIF payload still decodes successfully.
+- Revalidated the polished notebook by confirming that the 2017 citation is gone, the stronger reference is present, the workflow panel is closed by default, all code cells parse cleanly, and every embedded PNG and GIF payload still decodes successfully.
 
 ## Remaining blockers
 
