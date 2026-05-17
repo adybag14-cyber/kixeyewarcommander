@@ -1,5 +1,20 @@
 # Improvement Log
 
+## 2026-05-17 attached-notebook repair and verification pass
+
+- Reopened the attached notebook, rubric guidance and saved progress notes to confirm the actual current state of the attachment.
+- Confirmed that the attachment itself still contained raw dataframe outputs, the weaker 2017 solvent-effects citation, missing reduced-bundle provenance notes, and a workflow GIF panel expanded by default.
+- Reconfirmed the local package limitation: only `Data/Acetone/` is present in the review bundle, so a true five-solvent rerun remains blocked in this workspace.
+- Created `/workspace/patch_publication_notebook.py` so the notebook repair is reproducible instead of depending on one-off manual JSON edits.
+- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Added explicit saved-execution versus reduced-review-bundle provenance notes to the title card, configuration section, reproducibility appendix and consistency-check appendix.
+- Replaced the weaker solvent-effects citation with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
+- Converted the saved package-audit, summary, QC, ranking, benchmark, validation, sensitivity and consistency-check outputs into captioned, overflow-safe publication tables.
+- Updated the notebook source so future reruns generate the same publication-style HTML tables for the main report tables instead of raw dataframe blocks.
+- Collapsed the default-open laboratory workflow animation panel in both notebook source and saved output.
+- Verified that the rebuilt notebook no longer contains the stale 2017 citation, no longer contains raw dataframe-style HTML tables in the saved outputs, keeps the workflow panel collapsed by default, and compiles across all code cells.
+- Decoded every embedded PNG and GIF payload found in the polished notebook output and confirmed that the media remain readable.
+
 ## 2026-05-17 publication-state repair and polished rebuild
 
 - Rechecked the attached notebook, rubric guidance and memory notes because the saved state referred to a polished notebook artifact that was no longer present in `/workspace/output/`.
