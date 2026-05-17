@@ -12,8 +12,10 @@
 - Replaced the weaker 2017 solvent-effects source with the stronger 1987 *Chemical Physics Letters* primary paper by Kobayashi, Yokoyama and Kamei, and strengthened the introduction wording around that source.
 - Closed the workflow animation panel by default in the saved output so the notebook opens more cleanly.
 - Revalidated the polished notebook by confirming that raw dataframe HTML is gone, the stronger reference is present, the workflow panel is collapsed, the rebuild script compiles, and the embedded media still decode cleanly.
+- Confirmed that `nbconvert` is not available in the current container, so HTML-export verification remains a follow-up item for an environment that includes that tool.
 
 ## Open risk
 
 - The saved notebook now reads as a polished publication artifact, but full reproducibility still cannot be demonstrated from the reduced attachment bundle alone.
 - Final sign-off still requires one full rerun and one post-rerun render audit once the missing solvent folders are available.
+- A formal HTML-export pass is still desirable once an environment with `nbconvert` is available.
