@@ -1,5 +1,20 @@
 # Improvement Log
 
+## 2026-05-17 attached-package verification and rebuild pass
+
+- Rechecked the actual attached notebook against the saved memory notes and confirmed that the attachment was still behind the stronger intended publication state.
+- Verified that the main publication defects still present in the attachment were notebook-default dataframe table outputs, the weaker 2017 solvent-effects citation, missing reduced-bundle provenance notes and a workflow GIF panel that opened expanded by default.
+- Reconfirmed the local package limitation: only `Data/Acetone/` is present in the review bundle, so a true five-solvent rerun remains blocked.
+- Created `/workspace/rebuild_publication_notebook.py` so the notebook polish is reproducible inside the workspace rather than depending on ad hoc manual editing.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook package.
+- Replaced every remaining saved dataframe-style HTML report table with captioned, overflow-safe publication table blocks.
+- Updated the notebook source so future reruns use the same captioned publication-table HTML helper for the main report tables.
+- Added clearer review-bundle and saved-execution provenance notes to the opening notebook narrative and configuration section.
+- Replaced the weaker reference with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei and aligned the introduction wording to that evidence.
+- Collapsed the workflow animation panel by default in both notebook source and saved output.
+- Verified that the rebuilt notebook no longer contains the stale 2017 citation, no longer contains raw dataframe-style HTML tables in the inspected outputs, retains the stronger citation, and keeps the workflow panel collapsed by default.
+- Decoded every embedded PNG and GIF asset found in the polished notebook output and confirmed that the media payloads are readable.
+
 ## 2026-05-17 attached-package publication rebuild pass
 
 - Reopened the attached notebook package and verified that the attachment itself still lagged behind the saved progress notes.
