@@ -1,5 +1,20 @@
 # Revision Plan
 
+## 2026-05-17 scheduled publication-polish sync pass
+
+- [x] Reinspect the attached notebook package, rubric guidance, local memory, and GitHub persistence notes together.
+- [x] Confirm the highest-impact publication defects still present in the attachment.
+- [x] Confirm the local attachment-bundle limitation: only `Data/Acetone/` is available for rerun testing.
+- [x] Rebuild the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- [x] Replace the visible raw dataframe outputs with captioned, overflow-safe publication tables and remove inherited index columns.
+- [x] Add clearer reduced-bundle provenance notes where the saved five-solvent execution could otherwise be misread as a fresh rerun.
+- [x] Replace the weaker solvent-effects source with the stronger primary-paper citation and keep the introduction wording aligned to that evidence.
+- [x] Collapse the remaining default-open inline animation panel in both source and saved output.
+- [x] Revalidate the polished notebook by confirming that raw dataframe HTML is gone, the workflow panel is collapsed by default, the notebook code still compiles, and the saved media assets still decode.
+- [x] Update the memory folder files so future runs inherit the current repaired state.
+- [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
+- [ ] Perform one final post-rerun render audit of regenerated tables, figures, GIF panels, and publication-table HTML.
+
 ## 2026-05-17 direct attached-notebook publication repair
 
 - [x] Reinspect the attached notebook package, rubric guidance, and saved progress notes directly.
