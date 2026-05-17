@@ -9,6 +9,7 @@
 
 ## Highest-impact improvements in this run
 
+- Rebuilt the polished notebook directly from the attached source package at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and rechecked the attachment rather than relying on previous run notes.
 - Reinspected the attached notebook package, rubric guidance and saved progress notes directly, rather than assuming the current attachment already matched the stronger intended publication state.
 - Confirmed that the attached notebook still exposed publication defects in its saved state: notebook-default dataframe table renders, the weaker 2017 solvent-effects citation, no explicit reduced-bundle provenance note, and a workflow animation panel opened by default.
 - Confirmed again that the local review bundle exposes only `Data/Acetone/`, so a fresh five-solvent rerun still cannot be demonstrated from the attached files alone.
@@ -21,6 +22,7 @@
 - Removed inherited dataframe index columns from the rebuilt saved tables so the publication tables read as report outputs rather than notebook dumps.
 - Collapsed the workflow animation panel by default in both the notebook source and the saved output so the notebook opens with the scientific report rather than an expanded extra-media block.
 - Revalidated the polished notebook by confirming that the 2017 citation is gone, the stronger reference is present, the workflow panel is closed by default, all code cells parse cleanly, and every embedded PNG and GIF payload still decodes successfully.
+- Synced the refreshed progress state back into the memory folder and the GitHub persistence folder so future notebook-polishing runs can continue from the current repaired artifact and blocker list.
 
 ## Remaining blockers
 
