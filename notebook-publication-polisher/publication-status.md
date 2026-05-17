@@ -4,8 +4,8 @@
 
 - Date: 2026-05-17
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: strong publication-ready saved notebook artifact, with the remaining risk concentrated in full reproducibility and browser-render confirmation rather than in the current narrative, citations, table presentation, or embedded-media integrity.
-- Confidence note: the notebook source and the visible saved outputs are now aligned again. The attached notebook itself now carries the reduced-bundle provenance notes, the stronger 1987 primary citation, captioned overflow-safe report tables in place of raw dataframe renders, and both extra-media panels collapsed on open.
+- Publication-readiness estimate: strong publication-ready saved notebook artifact, with the remaining risk concentrated in full reproducibility and browser-render confirmation rather than in the current narrative, citations, table presentation, or embedded-media integrity
+- Confidence note: the notebook source and the visible saved outputs are now aligned again. The repaired notebook itself now carries the reduced-bundle provenance notes, the stronger 1987 primary citation, captioned overflow-safe report tables in place of raw dataframe renders, and both extra-media panels collapsed on open
 
 ## Highest-impact improvements in this run
 
@@ -23,4 +23,4 @@
 - A clean end-to-end rerun of the full five-solvent notebook still cannot be demonstrated from the attached package because only `Data/Acetone/` is present locally.
 - Final publication sign-off still needs one true rerun in the intended notebook environment with the complete `Data/` tree restored.
 - One final post-rerun render audit is still needed to confirm that regenerated tables, figures, GIF panels, and publication-table HTML remain clean after a true rerun.
-- Browser-style HTML screenshot verification could not be completed in this container because no Playwright browser binary is installed, so current render assurance comes from direct saved-output inspection, output-HTML review, and media decoding rather than a full browser capture.
+- Browser-style HTML screenshot verification could not be completed in this container because no Playwright browser binary is installed, so current render assurance comes from direct saved-output inspection, output-HTML review, code parsing, and media decoding rather than a full browser capture.
