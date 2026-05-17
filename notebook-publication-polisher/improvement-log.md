@@ -13,6 +13,7 @@
 - Closed the workflow animation panel by default in both notebook source and saved output so the notebook opens more cleanly.
 - Re-audited the embedded media and confirmed that the saved executed figures and both inline GIF assets still decode without obvious clipping, overlap, or layout failure.
 - Revalidated the polished notebook by confirming that the stale citation is gone, raw dataframe HTML is gone from the saved outputs, the captioned table wrappers are present, the notebook-polishing script compiles, and the embedded media still decode successfully.
+- Confirmed in the rebuilt workspace output that nine captioned publication tables render in the notebook file, the 2017 citation is absent, the workflow panel is collapsed by default, and the embedded media audit passes for eight PNG figures plus two GIF assets.
 
 ## Open risk
 
