@@ -10,7 +10,7 @@
 - Replaced the weaker 2017 solvent-effects source with the stronger 1987 *Chemical Physics Letters* primary paper by Kobayashi, Yokoyama and Kamei, and strengthened the introduction wording around that source.
 - Closed the workflow animation panel by default in both notebook source and saved output so the notebook opens more cleanly.
 - Re-audited the embedded media and confirmed that the saved executed figures and both inline GIF assets still decode without obvious clipping, overlap, or layout failure.
-- Revalidated the polished notebook by confirming that no raw dataframe HTML blocks remain in saved outputs and that the strengthened provenance and reference changes are present in source.
+- Revalidated the polished notebook by confirming that no raw dataframe HTML blocks remain in saved outputs, that the strengthened provenance and reference changes are present in source, and that a rendered HTML export also contains the new publication-table wrappers.
 
 ## Open risk
 
