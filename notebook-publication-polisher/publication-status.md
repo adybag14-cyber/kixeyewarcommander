@@ -5,7 +5,7 @@
 - Date: 2026-05-17
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong near-publication-ready notebook artifact, with the remaining risk concentrated in reproducibility from the reduced attachment bundle rather than in the saved notebook narrative, table presentation, figure integrity, or embedded media
-- Confidence note: the current polished notebook now distinguishes saved five-solvent execution from the reduced local review bundle, uses captioned overflow-safe report tables throughout the visible outputs, cites the stronger 1987 *Chemical Physics Letters* paper, and keeps the workflow GIF panel collapsed on open
+- Confidence note: the current polished notebook now distinguishes saved five-solvent execution from the reduced local review bundle, uses captioned overflow-safe report tables throughout the visible outputs, cites the stronger 1987 *Chemical Physics Letters* paper, and keeps the workflow GIF panel collapsed on open. A fresh verification pass on 2026-05-17 also confirmed that the rebuilt artifact no longer contains raw dataframe HTML, no longer contains the weaker 2017 citation, and still preserves 8 embedded PNG figures plus 2 embedded GIFs without decode failures.
 
 ## Highest-impact improvements in this run
 
