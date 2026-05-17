@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-17 attached-package verification refresh
+
+- Reinspected the actual attached notebook package, rubric file and saved memory notes before making any further publication claims.
+- Reconfirmed that the attached notebook itself still showed the same high-impact publication defects: raw dataframe-style HTML tables, the weaker 2017 solvent-effects citation, missing reduced-bundle provenance notes, and an expanded workflow GIF panel.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` directly from the attached notebook with `/workspace/patch_publication_notebook.py`.
+- Added explicit reduced-bundle provenance notes to the title card, configuration section, reproducibility appendix and consistency-check appendix.
+- Replaced the weaker citation with the stronger 1987 *Chemical Physics Letters* primary paper by Kobayashi, Yokoyama and Kamei and tightened the solvent-effects wording around that evidence.
+- Converted the saved package audit, kinetic summary, QC audit, bootstrap ranking, benchmark summaries, validation summaries, sensitivity summary and consistency-check output into captioned publication tables with overflow-safe layout and no inherited dataframe index column.
+- Updated the notebook source so future reruns generate the same publication-style HTML tables instead of notebook-default dataframe renders.
+- Collapsed the laboratory workflow animation panel by default in both notebook source and saved output.
+- Revalidated the rebuilt notebook by confirming that the stale 2017 citation is gone, raw dataframe HTML is gone, the workflow panel is closed by default, the patch script compiles, and all 10 embedded media assets still decode successfully.
+
 ## 2026-05-17 reproducible publication rebuild and output-table cleanup
 
 - Reopened the attached notebook, rubric guidance and saved progress notes to confirm the actual current state of the attachment before making further publication claims.
