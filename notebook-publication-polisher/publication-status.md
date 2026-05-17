@@ -5,7 +5,7 @@
 - Date: 2026-05-17
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong saved publication artifact, with remaining risk concentrated in rerun reproducibility from the reduced attachment bundle rather than in the visible notebook presentation
-- Confidence note: the polished deliverable now replaces the main saved-publication defects still present in the attached notebook itself. The saved notebook uses captioned publication tables instead of default dataframe HTML, carries explicit reduced-bundle provenance notes, uses the stronger 1987 *Chemical Physics Letters* primary paper in the references and introduction, and no longer opens the workflow GIF panel expanded by default.
+- Confidence note: the polished deliverable now exists in `output/` and replaces the main saved-publication defects still present in the attached notebook itself. The saved notebook uses captioned publication tables instead of default dataframe HTML, carries explicit reduced-bundle provenance notes, uses the stronger 1987 *Chemical Physics Letters* primary paper in the references and introduction, and no longer opens the workflow GIF panel expanded by default.
 
 ## Highest-impact improvements in this run
 
@@ -17,7 +17,7 @@
 - Added explicit reduced-bundle provenance notes to the title card, configuration section, reproducibility appendix, and automated-check appendix.
 - Strengthened the literature support by replacing the weaker 2017 citation with the stronger 1987 *Chemical Physics Letters* primary paper by Kobayashi, Yokoyama and Kamei, and by tightening the introduction around that evidence.
 - Collapsed the remaining default-open workflow animation panel in both notebook source and saved output.
-- Revalidated the polished notebook by confirming that no raw dataframe HTML blocks remain, the workflow panel is closed by default, the stronger reference is present, and the saved figures plus GIF assets still decode successfully.
+- Revalidated the polished notebook by confirming that no raw dataframe HTML blocks remain, the workflow panel is closed by default, the stronger reference is present, the rendered HTML contains the new publication-table wrappers, and the saved GIF assets still decode successfully.
 
 ## Remaining blockers
 
