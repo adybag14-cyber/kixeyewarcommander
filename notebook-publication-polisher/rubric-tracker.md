@@ -31,3 +31,4 @@
 
 - One clean rerun is still needed in an environment with the complete five-solvent raw-data package.
 - After that rerun, one final render audit should confirm that regenerated tables, figures, GIF panels, and publication-table HTML remain publication-clean.
+- A final exported-HTML check would still be worth doing once an environment with `nbconvert` is available.
