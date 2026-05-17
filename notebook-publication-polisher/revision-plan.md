@@ -4,6 +4,7 @@
 
 - [x] Reinspect the attached notebook package, rubric guidance, and saved progress notes directly.
 - [x] Confirm the highest-impact publication defects still present in the attachment.
+- [x] Confirm the local attachment-bundle limitation: only `Data/Acetone/` is available for rerun testing.
 - [x] Build a refreshed polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - [x] Replace the remaining saved dataframe outputs with captioned, overflow-safe publication tables.
 - [x] Update the notebook source so future reruns use publication-style HTML report tables for the main report tables.
