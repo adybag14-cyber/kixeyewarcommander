@@ -10,6 +10,6 @@
 - [x] Add clearer reduced-bundle provenance notes where the saved five-solvent execution could otherwise be misread as a fresh rerun.
 - [x] Replace the weaker solvent-effects source with the stronger primary-paper citation and tighten the introduction wording around that evidence.
 - [x] Collapse the remaining default-open inline animation panel in both source and saved output.
-- [x] Revalidate the polished notebook by parsing all code cells, removing raw dataframe HTML, and rechecking embedded figure assets plus GIF integrity.
+- [x] Revalidate the polished notebook by confirming that raw dataframe HTML is gone, the stronger reference is present, the workflow panel is collapsed by default, and the saved media assets still decode.
 - [ ] Rerun the notebook end to end from the complete five-solvent raw-data package.
 - [ ] Perform one final post-rerun render audit of regenerated tables, figures, GIF panels, and publication-table HTML.
