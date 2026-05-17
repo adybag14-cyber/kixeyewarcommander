@@ -5,7 +5,7 @@
 - Date: 2026-05-17
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`
-- Main uncertainty: reproducibility from the reduced attached package, not the saved notebook's argument quality, code structure, visible presentation, or embedded-media integrity
+- Main uncertainty: the reduced attached data bundle still prevents a fresh five-solvent rerun, so the remaining risk is reproducibility confidence rather than notebook writing quality, visible presentation, or media integrity
 
 ## Rubric reconstruction
 
@@ -20,15 +20,15 @@
 ## Criterion status
 
 - Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and consistent with the final solvent ordering.
-- Data analysis + plotting: very strong. The figure set remains intact, eight embedded PNG figures and two embedded GIF panels decode cleanly, the workflow panel no longer opens expanded by default, and the visible notebook tables now render as captioned publication tables rather than notebook-default dataframe dumps.
-- Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature basis more clearly, with the solvent-effects framing supported by a stronger primary source.
-- Originality and elegance of code: strong. The notebook remains function-based, structured, and comfortably above a minimal lab script; the reusable publication-table helper and the reproducible patch script also improve maintainability.
+- Data analysis + plotting: very strong. The figure set remains intact, all embedded PNG and GIF assets decode cleanly, the workflow panel no longer opens expanded by default, the visible tables are now captioned overflow-safe report tables, and the source now includes GIF checks alongside the existing figure checks for future reruns.
+- Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation and the literature basis more clearly, with the solvent-effects framing supported by a stronger primary source and the saved-output caveats stated explicitly.
+- Originality and elegance of code: strong. The notebook remains function-based, structured, and comfortably above a minimal lab script; the publication-table helper also makes the notebook polish reproducible rather than one-off.
 - Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because only `Data/Acetone/` is attached locally and four solvent folders are missing.
-- Commenting/documentation: strong. Functions remain documented, the review-package limitation is stated explicitly, and the saved output communicates validation scope more honestly than before.
-- Markdown/LaTeX/HTML/formatting: very strong. The notebook now combines structured markdown, LaTeX, inline HTML media, captioned report tables, clearer provenance notes, and cleaner collapsed extras without the earlier raw dataframe blocks.
+- Commenting/documentation: strong. Functions remain documented, the notebook explains the review-package limitation explicitly, and the saved output communicates validation scope more honestly than before.
+- Markdown/LaTeX/HTML/formatting: very strong. The notebook now combines structured markdown, LaTeX, inline HTML media, captioned report tables, clearer provenance notes, and cleaner collapsed extras without the earlier raw dataframe blocks or inherited index-column clutter.
 
 ## Remaining gap to full confidence
 
 - One clean rerun is still needed in an environment with the complete five-solvent raw-data package.
 - After that rerun, one final render audit should confirm that regenerated tables, figures, GIF panels, and publication-table HTML remain publication-clean.
-- A final browser-style HTML check would still be worth doing once notebook export tooling and a browser runtime are available.
+- A final exported-HTML check would still be worth doing once an environment with `nbconvert` is available.
