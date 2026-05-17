@@ -5,7 +5,7 @@
 - Date: 2026-05-17
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`
-- Main uncertainty: reproducibility from the reduced attached package, not the saved notebook's narrative quality, code structure, visible presentation, or embedded-media integrity
+- Main uncertainty: reproducibility from the reduced attached package, not the saved notebook’s narrative quality, code structure, visible presentation, or embedded-media integrity
 
 ## Rubric reconstruction
 
@@ -20,8 +20,8 @@
 ## Criterion status
 
 - Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and consistent with the final solvent ordering.
-- Data analysis + plotting: very strong. The figure set remains intact, both GIF extras decode cleanly, the second panel no longer opens expanded by default, and the saved tables now render as captioned publication tables rather than notebook-default dataframe dumps.
-- Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature context more clearly, with the introduction strengthened by a better primary solvent-effects source.
+- Data analysis + plotting: very strong. The figure set remains intact, both GIF extras decode cleanly, the workflow panel no longer opens expanded by default, and the saved tables now render as captioned publication tables rather than notebook-default dataframe dumps.
+- Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature basis more clearly, with the introduction strengthened by a better primary source.
 - Originality and elegance of code: strong. The notebook remains function-based, structured, and comfortably above a minimal lab script; the report-table helper also improves future rerun presentation.
 - Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because four solvent folders are missing.
 - Commenting/documentation: strong. Functions remain documented, the notebook explains the review-package limitation explicitly, and the saved output communicates validation scope more honestly than before.
@@ -31,4 +31,3 @@
 
 - One clean rerun is still needed in an environment with the complete five-solvent raw-data package.
 - After that rerun, one final render audit should confirm that regenerated tables, figures, GIF panels, and publication-table HTML remain publication-clean.
-- Direct exported-HTML verification is still pending because this workspace does not currently provide `jupyter` or `nbconvert`, even though the saved-output and embedded-media audit is clean.
