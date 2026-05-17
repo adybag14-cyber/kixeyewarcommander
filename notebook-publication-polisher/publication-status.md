@@ -5,7 +5,7 @@
 - Date: 2026-05-17
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong publication-ready notebook artifact, with remaining risk concentrated in rerun reproducibility from the reduced attachment bundle rather than in the visible notebook presentation
-- Confidence note: the rebuilt polished deliverable now exists in `output/` and corrects the publication defects still present in the attached notebook itself. The saved notebook now uses captioned publication tables instead of default dataframe HTML, carries explicit reduced-bundle provenance notes, uses the stronger 1987 *Chemical Physics Letters* primary paper in the references and introduction, and no longer opens the workflow GIF panel expanded by default.
+- Confidence note: the rebuilt polished deliverable now exists in `output/` and corrects the publication defects still present in the attached notebook itself. The saved notebook now uses nine captioned publication tables instead of default dataframe HTML, carries explicit reduced-bundle provenance notes, uses the stronger 1987 *Chemical Physics Letters* primary paper in the references and introduction, and no longer opens the workflow GIF panel expanded by default. The embedded media audit for this workspace pass verified eight PNG figures and two GIFs decoding cleanly from the notebook file.
 
 ## Highest-impact improvements in this run
 
