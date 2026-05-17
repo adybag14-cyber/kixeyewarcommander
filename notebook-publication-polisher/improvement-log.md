@@ -2,17 +2,17 @@
 
 ## 2026-05-17 attached-package publication correction pass
 
-- Reopened the attached notebook package and confirmed that the attachment itself still lagged behind the previous tracking notes.
+- Reopened the attached notebook package and verified the remaining publication issues from the attachment itself.
 - Built a refreshed polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Replaced the remaining raw dataframe-style saved outputs with captioned, overflow-safe publication tables, including the environment/package audit and every results-side table that previously rendered with default notebook dataframe HTML.
-- Updated the notebook source helper so future reruns use publication-style HTML report tables rather than default dataframe rendering for the main report tables.
-- Added explicit reduced-bundle provenance notes to the title card, configuration section, reproducibility appendix, and automated-check appendix so the saved five-solvent execution is not mistaken for a fresh rerun from the current attachment bundle.
-- Strengthened the notebook’s literature support by replacing the weaker 2017 solvent-effects citation with the stronger 1987 *Chemical Physics Letters* primary paper by Kobayashi, Yokoyama and Kamei and by tightening the introduction wording around that evidence.
-- Collapsed the remaining default-open inline workflow animation panel in both notebook source and saved output.
-- Performed a fresh embedded-media audit by decoding all 8 inline PNG figures plus both GIF panels and checking a generated contact sheet for obvious clipping, overlap, unreadable labels, or layout collapse.
-- Revalidated the polished notebook by parsing all code cells successfully, confirming that no raw dataframe HTML blocks remain, and verifying that the embedded media payloads still decode.
+- Replaced the saved default-dataframe outputs with captioned, overflow-safe publication tables across the summary, QC, benchmarking, validation, sensitivity, package-audit, and consistency-check sections.
+- Updated the notebook source helper so future reruns emit publication-style HTML tables instead of notebook-default dataframe rendering.
+- Added clearer reduced-bundle provenance notes to the title card, configuration section, reproducibility appendix, and automated-check appendix.
+- Replaced the weaker 2017 solvent-effects source with the stronger 1987 *Chemical Physics Letters* primary paper by Kobayashi, Yokoyama and Kamei, and strengthened the introduction wording around that source.
+- Closed the workflow animation panel by default in both notebook source and saved output so the notebook opens more cleanly.
+- Re-audited the embedded media and confirmed that the saved executed figures and both inline GIF assets still decode without obvious clipping, overlap, or layout failure.
+- Revalidated the polished notebook by confirming that no raw dataframe HTML blocks remain in saved outputs and that the strengthened provenance and reference changes are present in source.
 
 ## Open risk
 
-- The notebook is now strong as a saved executed publication artifact, but complete reproducibility still cannot be demonstrated from the attached workspace package alone.
+- The saved notebook now reads as a polished publication artifact, but full reproducibility still cannot be demonstrated from the reduced attachment bundle alone.
 - Final sign-off still requires one full rerun and one post-rerun render audit once the missing solvent folders are available.
