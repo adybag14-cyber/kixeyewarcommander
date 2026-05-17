@@ -21,7 +21,6 @@
 
 - Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and consistent with the final solvent ordering.
 - Data analysis + plotting: very strong. The figure set remains intact, the embedded PNG and GIF assets decode cleanly, the workflow panel no longer opens expanded by default, and the visible notebook tables now render as captioned publication tables rather than notebook-default dataframe dumps.
-- Verification note: the current rebuilt artifact was rechecked on 2026-05-17 and still contains 8 readable embedded PNG figures plus 2 readable embedded GIFs, with no raw dataframe HTML left in the visible saved outputs.
 - Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation and the literature basis more clearly, with the solvent-effects framing supported by a stronger primary source and the saved-output caveats stated explicitly.
 - Originality and elegance of code: strong. The notebook remains function-based, structured, and comfortably above a minimal lab script; the publication-table helper also makes the notebook polish reproducible rather than one-off.
 - Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because only `Data/Acetone/` is attached locally and four solvent folders are missing.
