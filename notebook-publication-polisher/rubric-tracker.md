@@ -4,8 +4,8 @@
 
 - Date: 2026-05-17
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Estimated band: likely `Outstanding`
-- Main uncertainty: reproducibility from the reduced attached package, not the saved notebook's narrative quality, code structure, visible presentation, or embedded-media integrity
+- Estimated band: likely `Outstanding`, with the notebook source and saved outputs now aligned to that level.
+- Main uncertainty: final reproducibility from the reduced attached package and the lack of a true browser-render pass, not the current narrative quality, source citations, visible table presentation, or embedded-media integrity.
 
 ## Rubric reconstruction
 
@@ -31,4 +31,4 @@
 
 - One clean rerun is still needed in an environment with the complete five-solvent raw-data package.
 - After that rerun, one final render audit should confirm that regenerated tables, figures, GIF panels, and publication-table HTML remain publication-clean.
-- A final exported-HTML check would still be worth doing once an environment with `nbconvert` is available.
+- A final exported-HTML check would still be worth doing once an environment with notebook export tooling is available.
