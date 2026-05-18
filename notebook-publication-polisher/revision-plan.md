@@ -6,6 +6,7 @@
 - [x] Confirm which previously noted defects still remained in the actual attachment.
 - [x] Rebuild a reproducible notebook repair script at `/workspace/patch_publication_notebook.py`.
 - [x] Generate the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- [x] Restore the missing `report_table(...)` helper in the notebook source so the saved table polish matches future reruns.
 - [x] Replace raw dataframe-style saved outputs with captioned publication-style tables.
 - [x] Strengthen provenance wording so the archived five-solvent execution is not confused with a guaranteed fresh rerun from the reduced review package.
 - [x] Replace the weaker solvent-effects citation with the 1987 *Chemical Physics Letters* paper and align the related discussion.
