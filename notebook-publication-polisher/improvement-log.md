@@ -1,5 +1,20 @@
 # Improvement Log
 
+## 2026-05-18 attached-package repair, source-output realignment and media audit
+
+- Reopened the attached notebook package, rubric guidance and saved progress notes instead of assuming the previous polished artifact still matched the attachment.
+- Confirmed that the attached notebook itself had slipped back to a weaker saved state: raw dataframe outputs were visible again, the weaker 2017 solvent-effects citation had returned, reduced-bundle provenance notes were absent, and the workflow GIF panel still opened expanded by default.
+- Reconfirmed the local package limitation: a full five-solvent rerun remains blocked because the stripped review bundle does not include the complete raw `Data/` tree.
+- Recreated `/workspace/patch_publication_notebook.py` so the repair is reproducible and auditable.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Converted all nine visible dataframe-style saved outputs into captioned, overflow-safe publication tables and removed inherited index-column clutter from those displays.
+- Updated the notebook source so future reruns generate the same publication-style report tables rather than falling back to notebook-default dataframe rendering.
+- Added explicit reduced-bundle provenance notes to the title card, configuration section and reproducibility appendix.
+- Replaced the weaker solvent-effects citation with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei and tightened the introduction wording around that evidence.
+- Updated the consistency-check source so future reruns verify both GIF assets alongside the PNG figure set.
+- Collapsed the workflow animation panel by default in both the notebook source and the saved output.
+- Revalidated the rebuilt notebook by confirming that the stale 2017 citation is gone, raw dataframe outputs are gone, the workflow panel is no longer default-open, and all eight embedded PNG figures plus both embedded GIF assets decode cleanly.
+
 ## 2026-05-17 rebuilt polished notebook artifact and source-aligned table pass
 
 - Reopened the attached notebook, rubric guidance and saved progress notes because the earlier polished notebook artifact was no longer present in `/workspace/output/`.
