@@ -1,22 +1,24 @@
 # Improvement Log
 
-## 2026-05-18 source-and-output publication rebuild from the attached notebook
+## 2026-05-18 artifact-and-output publication repair pass
 
-- Reinspected the attached notebook package directly instead of assuming the previous repair notes still matched the current file.
-- Verified that the attachment still contained several high-impact publication defects: raw dataframe-style saved tables, a weaker 2017 solvent-effects citation, limited wording about the reduced review bundle, PNG-only consistency wording, a default-open laboratory workflow GIF panel, and source cells that called `report_table(...)` without actually defining it.
-- Created `/workspace/patch_publication_notebook.py` as a reproducible notebook-repair script for this run.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` with source updates and saved-output updates applied together.
-- Replaced the visible dataframe-style outputs in cells covering the package audit, kinetic summary, QC decisions, bootstrap ranking, benchmark results, independent validation, fit-window sensitivity, and consistency checks with captioned publication-style HTML tables designed for safer notebook rendering.
-- Added a reusable `report_table(...)` helper back into the notebook source so those report cells can rerun without failing and will keep regenerating the publication-style tables instead of plain dataframe dumps.
-- Added stronger provenance language to the title card, configuration section, analysis-environment note, and reproducibility appendix so the archived full-run outputs are not confused with a guaranteed rerun from the reduced review package.
-- Replaced the weaker 2017 source with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei and tightened the theory plus conclusion wording to match that evidence more carefully.
-- Updated the source and saved output for the laboratory workflow animation so the panel stays collapsed by default.
-- Expanded the consistency-check wording and saved output so GIF assets are validated alongside PNG figures.
-- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`, decoded the saved figure set and inline GIF payloads, and checked the visible media for clipping, overlap, and obvious rendering failures.
-- Recompiled every code cell in the rebuilt notebook to confirm that the edited source still parses cleanly after the new helper and consistency-check updates.
+- Reopened the attached notebook artifact directly instead of relying on the previous status notes.
+- Confirmed that the attachment still showed publication problems in the saved outputs: raw dataframe tables, a default-open workflow GIF panel, PNG-only consistency wording, outdated reference text, and generated discussion prose that did not match the fitted solvent ordering.
+- Built `/workspace/patch_publication_notebook.py` as a repeatable repair script for this run.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` with coordinated source edits and saved-output edits.
+- Converted the saved summary, QC, bootstrap, benchmark, validation, sensitivity, and consistency outputs into captioned publication-style HTML tables with overflow-safe wrappers.
+- Corrected two high-impact factual wording errors in the generated markdown outputs and source:
+  - the notebook had implied that acetone was the fastest solvent even though the fitted ranking shows acetonitrile is fastest overall;
+  - the notebook had implied that the acetone result lay below literature even though it is actually close to the literature benchmark used here.
+- Replaced the weaker 2017 citation with the stronger 1987 *Chemical Physics Letters* source by Kobayashi, Yokoyama and Kamei.
+- Tightened provenance wording in the title card, configuration note, and reproducibility appendix so the reduced review bundle is not mistaken for a full rerunnable package.
+- Updated the workflow-animation markdown and saved HTML so the panel is collapsed by default.
+- Expanded the consistency-check section to validate GIF media alongside PNG figures.
+- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the saved embedded visuals and used it to confirm that eight PNG outputs and two inline GIF payloads decode without obvious rendering failure.
 
 ## Open risk
 
-- The notebook is now a strong saved publication artifact, but full reproducibility still cannot be demonstrated from the current attached package alone.
-- Final confidence still depends on one real rerun with the complete five-solvent raw-data archive restored.
-- A final browser-style render check remains desirable once notebook browser tooling is available.
+- The notebook is now a strong archived publication artifact, but full reproducibility still cannot be demonstrated from the currently attached raw-data bundle.
+- The local review package appears to contain only acetone raw files, while the notebook’s archived outputs reflect a five-solvent analysis.
+- The current container environment is also missing the plotting/notebook chemistry stack required for a true rerun here.
+- Final confidence still depends on one real rerun with the complete five-solvent raw-data archive and one final notebook-browser render pass.
