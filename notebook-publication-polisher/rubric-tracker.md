@@ -10,7 +10,7 @@
 ## Criterion status
 
 - Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and consistent with the final solvent ordering.
-- Data analysis + plotting: very strong. The figure set remains intact, both embedded GIF assets decode cleanly, no expandable media panel opens by default, the visible tables are now captioned overflow-safe report tables, and the saved figures look unclipped in the local contact-sheet audit.
+- Data analysis + plotting: very strong. The figure set remains intact, both embedded GIF assets decode cleanly, no expandable media panel opens by default, all visible saved tables are now captioned overflow-safe report tables, and the saved figures look unclipped in the local contact-sheet audit.
 - Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature basis more clearly, with the solvent-effects framing supported by the stronger 1987 primary paper and the saved-output caveats stated explicitly.
 - Originality and elegance of code: strong. The notebook remains function-based and structured, and the repair path is now reproducible through the rebuild script rather than one-off manual edits.
 - Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because only `Data/Acetone/` is attached locally.
