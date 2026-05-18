@@ -4,21 +4,21 @@
 
 - Date: 2026-05-18
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Estimated band: likely `Outstanding` for the rebuilt polished notebook artifact; clearly lower for the attached notebook as-delivered before this repair because the attachment still showed raw saved outputs, the weaker citation, thinner provenance notes, and a default-open workflow panel.
-- Main uncertainty: the reduced attached data bundle still prevents a fresh five-solvent rerun, so the remaining risk is reproducibility confidence rather than notebook writing quality, visible presentation, or media integrity in the polished rebuild.
+- Estimated band: likely `Outstanding` for the saved polished notebook artifact; still below full-confidence publication readiness as a package because reproducibility from the attached bundle is not yet demonstrated.
+- Main uncertainty: the visible notebook quality is now strong, but the reduced review package still prevents a fresh five-solvent rerun.
 
 ## Criterion status
 
-- Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and consistent with the final solvent ordering.
-- Data analysis + plotting: very strong. The figure set remains intact, both embedded GIF assets decode cleanly, no expandable media panel opens by default, all visible saved tables are now captioned overflow-safe report tables, and the saved figures look unclipped in the local contact-sheet audit.
-- Experimental write-up: very strong. The notebook now explains the saved-execution provenance, the reduced review bundle, the kinetic interpretation, and the literature basis more clearly, with the solvent-effects framing supported by the stronger 1987 primary paper and the saved-output caveats stated explicitly.
-- Originality and elegance of code: strong. The notebook remains function-based and structured, and the repair path is now reproducible through the rebuild script rather than one-off manual edits.
-- Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because only `Data/Acetone/` is attached locally.
-- Commenting and documentation: strong. Functions remain documented, the notebook explains the review-package limitation explicitly, and the saved output communicates validation scope honestly.
-- Markdown, LaTeX, HTML and formatting: very strong. The notebook now combines structured markdown, LaTeX, inline HTML media, captioned report tables, clearer provenance notes, collapsed-by-default expandable extras, and cleaner consistency-check presentation without the earlier raw dataframe blocks.
+- Post-labs: very strong. The saved answers remain quantitative, chemically grounded, and linked to the actual fitted solvent ordering.
+- Data analysis + plotting: very strong. All five solvents are represented in the archived outputs, saved tables are now captioned and overflow-safe, the figures and GIF assets decode cleanly, and the visual audit did not show obvious clipping or broken media.
+- Experimental write-up: very strong. The notebook now explains the saved-execution provenance more honestly, frames the solvent effects more carefully, and uses a stronger primary literature source for the mechanistic discussion.
+- Originality and elegance of code: strong. The notebook remains modular and function-based, and this run adds a reproducible patch script rather than relying on one-off manual notebook edits.
+- Portability of code: good to strong. Paths and parameters remain centralized, but a full rerun cannot yet be shown from the reduced attached package.
+- Commenting and documentation: strong. Docstrings and explanatory prose remain solid, and the archived-output caveats are now clearer.
+- Markdown, LaTeX, HTML and formatting: very strong. The notebook now combines structured markdown, LaTeX, inline HTML media, captioned publication tables, clearer provenance notes, and collapsed-by-default extras without the earlier raw dataframe look.
 
 ## Remaining gap to full confidence
 
-- One clean rerun is still needed in an environment with the complete five-solvent raw-data package.
-- After that rerun, one final render audit should confirm that regenerated tables, figures, GIF panels, and publication-table HTML remain publication-clean.
-- A final browser-style exported-notebook check would still be worth doing once notebook export or browser tooling is available.
+- Restore the complete five-solvent `Data/` tree and rerun the notebook once in the intended execution environment.
+- Repeat the visual audit after that rerun to confirm that regenerated figures, GIFs, and publication tables remain clean.
+- If possible, add one final browser-style notebook render check before final submission.
