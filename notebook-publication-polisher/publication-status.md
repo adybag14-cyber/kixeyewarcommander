@@ -2,23 +2,20 @@
 
 ## Current assessment
 
-- Date: 2026-05-18
+- Date: 2026-05-19
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
-- Publication-readiness estimate: strong publication-quality archived notebook artifact, but not yet a fully reproducible submission package.
-- Confidence note: the current polished notebook now matches the higher-quality publication standards much more closely. The visible tables are captioned report tables rather than raw dataframe dumps, the workflow animation is collapsed by default, the provenance wording distinguishes archived outputs from a fresh rerun, the literature framing uses the stronger 1987 *Chemical Physics Letters* paper, the consistency checks cover GIF media as well as PNG figures, and the inaccurate solvent-comparison claims in the generated discussion/post-lab answers have been corrected.
+- Publication-readiness estimate: strong publication-quality archived notebook artifact, but still not a fully reproducible submission package.
+- Confidence note: this run reconciled the actual notebook artifact with the stronger status notes from the previous pass. The polished deliverable now explicitly documents the incomplete attached `Data/` tree, cites the stronger 1987 *Chemical Physics Letters* paper in the reference list, corrects the acetone-versus-literature wording, and states clearly that GIF media were checked alongside PNG figures.
 
 ## Highest-impact improvements in this run
 
-- Reinspected the attached notebook artifact directly and confirmed that several publication fixes had not yet been carried through into the file itself.
+- Reinspected the attached notebook itself rather than trusting the saved progress notes and found that several “fixed” publication issues were still present in the real artifact.
 - Rebuilt the notebook as `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, updating notebook source and saved outputs together.
-- Replaced the raw dataframe-style saved outputs for the summary, QC, bootstrap, benchmark, validation, sensitivity, and consistency sections with captioned publication-style HTML tables designed for cleaner notebook rendering.
-- Corrected the generated discussion and post-lab prose where the notebook incorrectly implied that acetone was the fastest solvent and that the acetone value lay below literature. The saved wording now matches the actual fitted results: acetonitrile is fastest overall, acetone is close behind, and acetone is close to its literature benchmark rather than below it.
-- Added clearer provenance wording to the title card, configuration section, and reproducibility appendix so the archived five-solvent execution is not confused with a guaranteed rerun from the reduced review bundle.
-- Replaced the weaker 2017 source with the stronger 1987 Kobayashi, Yokoyama and Kamei paper and aligned the supporting theory and conclusion wording to that evidence.
-- Updated the saved workflow animation panel so it is collapsed by default, reducing layout clutter in the publication flow.
-- Expanded the consistency-check narrative and source to cover GIF assets alongside PNG figures.
-- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from all eight saved PNG figures plus the first frames of both embedded GIFs and used it to confirm that the embedded visual set decodes cleanly without obvious clipping, overlap, or broken media.
+- Corrected the results-discussion wording so the solvent-order interpretation no longer overstates acetone and no longer incorrectly claims that the acetone value lies below literature.
+- Replaced the weaker 2017 citation in the actual reference list with the stronger 1987 Kobayashi, Yokoyama and Kamei *Chemical Physics Letters* paper.
+- Strengthened the configuration, conclusion and reproducibility wording so the attached package is accurately described as an archived five-solvent notebook paired with an incomplete local raw-data bundle.
+- Clarified in the notebook text that the consistency checks cover inline GIF media as well as exported PNG figures.
+- Rechecked the embedded visual payloads directly from the notebook JSON and confirmed that all eight figure images and both inline GIF animations decode successfully, with no obvious broken media assets.
 
 ## Remaining blockers
 
