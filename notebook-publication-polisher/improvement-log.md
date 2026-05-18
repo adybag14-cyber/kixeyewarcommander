@@ -1,35 +1,20 @@
 # Improvement Log
 
-## 2026-05-18 full source-output repair refresh and verification pass
+## 2026-05-18 rebuilt polished notebook, package-audit table repair, and final media-state verification
 
 - Reopened the attached notebook package, rubric guidance, and saved progress notes before making any publication-readiness claim.
-- Confirmed that the attached notebook itself had regressed away from the stronger saved state: raw dataframe outputs were visible again, the weaker 2017 solvent-effects citation had returned, reduced-bundle provenance notes were missing from key sections, and the laboratory workflow GIF panel still opened expanded by default.
-- Reconfirmed the local package limitation: only `Data/Acetone/` is attached for rerun testing, so a true five-solvent rerun is still blocked in this workspace.
+- Confirmed that the attachment itself still contained the older solvent-effects citation, a default-open workflow GIF panel, missing reduced-bundle provenance notes, and one remaining raw dataframe-style saved output in the package-audit section.
 - Rebuilt `/workspace/patch_publication_notebook.py` as the durable repair path and used it to generate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Replaced all visible saved dataframe outputs with captioned, overflow-safe publication tables and removed inherited index-column clutter from the sensitivity table output.
-- Updated the notebook source so future reruns emit the same publication-style report tables for the package audit, summary, QC, bootstrap ranking, benchmark, validation, sensitivity, and consistency-check sections.
-- Added explicit reduced-bundle provenance notes to the title card, analysis-environment note, and reproducibility appendix so the saved five-solvent execution is framed honestly.
-- Replaced the weaker solvent-effects source with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama, and Kamei and aligned the introduction wording to that evidence.
-- Collapsed both expandable GIF panels by default in the saved notebook and source, and extended the future consistency-check source so reruns verify both GIF assets alongside the PNG figure set.
-- Revalidated the rebuilt notebook by confirming that the stale 2017 citation is gone, the publication-table HTML no longer carries raw dataframe-class styling, no media panel opens by default, all code cells parse successfully, and both embedded GIF assets decode cleanly.
-
-## 2026-05-18 rebuilt publication notebook from the regressed attachment state
-
-- Reopened the attached notebook package, rubric guidance and saved progress notes before making any publication claim.
-- Confirmed that the attached notebook itself was still lagging behind the stronger saved state: raw dataframe outputs were visible again, the weaker 2017 solvent-effects citation had returned, the workflow GIF panel still opened expanded by default, and the reduced-bundle provenance notes were missing from key notebook sections.
-- Reconfirmed the local package limitation: only `Data/Acetone/` is attached for rerun testing, so a true five-solvent rerun is still blocked in this workspace.
-- Recreated `/workspace/patch_publication_notebook.py` so the repair is reproducible and auditable rather than dependent on one-off notebook JSON edits.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Replaced all nine visible dataframe-style saved outputs with captioned, overflow-safe publication tables and removed inherited index columns from those displays.
-- Updated the notebook source so future reruns generate the same publication-style report tables for the package audit, main summary, QC audit, bootstrap ranking, performance checks, validation checks, sensitivity table and final consistency audit.
-- Added explicit reduced-bundle provenance notes to the title card, configuration section, analysis-environment note and reproducibility appendix.
-- Replaced the weaker solvent-effects source with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei and aligned the theory section wording to that evidence.
-- Updated the consistency-check source so future reruns verify generated GIF files alongside the PNG figure set.
-- Collapsed the workflow animation panel by default in both notebook source and saved output.
-- Revalidated the rebuilt notebook by confirming that the stale 2017 citation is gone, raw dataframe HTML is gone, captioned table blocks are present, the workflow panel is no longer default-open, all code cells compile, and every embedded PNG and GIF payload decodes cleanly.
+- Replaced the remaining plain notebook dataframe outputs with captioned, overflow-safe publication tables, including the package audit and the saved consistency-check table.
+- Updated the notebook source so future reruns render the package audit, analytical summary tables, validation tables, sensitivity table, and consistency checks with the same publication-table helper rather than default dataframe HTML.
+- Added explicit reduced-bundle provenance notes to the title card, configuration note, analysis-environment note, and reproducibility appendix so the saved five-solvent execution is framed honestly.
+- Replaced the weaker 2017 solvent-effects source with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama, and Kamei and strengthened the theory wording around that evidence.
+- Closed the remaining default-open workflow animation panel in both notebook source and saved output.
+- Extended the future consistency-check source to verify both GIF assets as well as the PNG figures, and patched the saved consistency-check output so the current polished notebook records direct inline-GIF verification too.
+- Revalidated the polished notebook by confirming that the stale citation is gone, publication-table captions are present, both GIF panels are closed by default, all code cells parse successfully, all eight embedded PNG figures decode cleanly, and both embedded GIF assets decode cleanly.
 
 ## Open risk
 
-- Full reproducibility still cannot be demonstrated from the reduced attachment bundle alone.
+- The saved notebook now reads as a polished publication artifact, but full reproducibility still cannot be demonstrated from the reduced attachment bundle alone.
 - Final sign-off still requires one full rerun and one post-rerun render audit once the missing solvent folders are available.
-- A formal HTML-export pass is still desirable once an environment with `nbconvert` is available.
+- A formal browser-style rendered notebook check is still desirable in an environment with a working Jupyter browser stack.
