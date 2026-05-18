@@ -4,8 +4,8 @@
 
 - Date: 2026-05-18
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Estimated band: likely `Outstanding` for the rebuilt polished notebook artifact.
-- Main uncertainty: the reduced attached data bundle still prevents a fresh five-solvent rerun, so the remaining risk is reproducibility confidence rather than notebook writing quality, visible presentation, or media integrity.
+- Estimated band: likely `Outstanding` for the rebuilt polished notebook artifact; lower for the attached notebook as-delivered before repair because the attachment still showed raw saved outputs, the weaker citation, thin provenance notes, and a default-open workflow panel.
+- Main uncertainty: the reduced attached data bundle still prevents a fresh five-solvent rerun, so the remaining risk is reproducibility confidence rather than notebook writing quality, visible presentation, or media integrity in the polished rebuild.
 
 ## Criterion status
 
@@ -15,10 +15,10 @@
 - Originality and elegance of code: strong. The notebook remains function-based and structured, and the repair path is now reproducible through the rebuild script rather than one-off manual edits.
 - Portability of code: good to strong. Paths and parameters remain centralized, but a full five-solvent rerun still cannot be demonstrated from this workspace package because only `Data/Acetone/` is attached locally.
 - Commenting and documentation: strong. Functions remain documented, the notebook explains the review-package limitation explicitly, and the saved output communicates validation scope honestly.
-- Markdown, LaTeX, HTML and formatting: very strong. The notebook now combines structured markdown, LaTeX, inline HTML media, captioned report tables, a cleaner Leeds-style ordered reference list, clearer provenance notes, collapsed-by-default expandable extras, and cleaner consistency-check presentation.
+- Markdown, LaTeX, HTML and formatting: very strong. The notebook now combines structured markdown, LaTeX, inline HTML media, captioned report tables, clearer provenance notes, collapsed-by-default expandable extras, and cleaner consistency-check presentation without the earlier raw dataframe blocks.
 
 ## Remaining gap to full confidence
 
 - One clean rerun is still needed in an environment with the complete five-solvent raw-data package.
 - After that rerun, one final render audit should confirm that regenerated tables, figures, GIF panels, and publication-table HTML remain publication-clean.
-- A final exported-HTML check would still be worth doing once notebook export tooling is available.
+- A final browser-style exported-notebook check would still be worth doing once notebook export or browser tooling is available.
