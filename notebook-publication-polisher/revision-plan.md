@@ -1,6 +1,6 @@
 # Revision Plan
 
-## Current state after 2026-05-18 repair
+## Current state after 2026-05-18 attachment-drift repair
 
 - [x] Reinspect the attached notebook package, rubric guidance, and saved progress notes directly.
 - [x] Confirm that the attachment still exposed raw dataframe outputs, the weaker 2017 citation, thin reduced-bundle provenance language, and a default-open workflow GIF panel.
