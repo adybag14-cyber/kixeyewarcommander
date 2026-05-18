@@ -15,7 +15,7 @@
 - Originality and elegance of code: strong to very strong. The notebook remains modular and function-based, and this run repaired source-level report generation rather than only touching presentation.
 - Portability of code: moderate to strong. The notebook documents the data-path handling well, but full portability still cannot be demonstrated until the complete five-solvent raw-data tree is restored and rerun successfully.
 - Commenting, documentation and explanation of code: strong. The code remains well documented, and the publication-facing rationale around provenance, validation, and quality control is clearer than before.
-- Markdown, LaTeX, HTML and formatting: very strong. The notebook now combines structured markdown, LaTeX, inline HTML, captioned publication tables, cleaner collapsible extras, and consistent figure presentation without the earlier raw-dataframe look.
+- Markdown, LaTeX, HTML and formatting: very strong. The notebook now combines structured markdown, LaTeX, inline HTML, captioned publication tables, cleaner collapsible extras, corrected narrative outputs, and consistent figure presentation without the earlier raw-dataframe look.
 
 ## Remaining gap to full confidence
 
