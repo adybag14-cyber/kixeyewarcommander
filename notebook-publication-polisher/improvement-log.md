@@ -1,5 +1,18 @@
 # Improvement Log
 
+## 2026-05-18 attachment drift repair, publication-table rebuild, and visual re-audit
+
+- Reopened the current attached notebook and rubric, then checked them against the saved memory notes to verify whether the prior repair state had actually survived into the attachment.
+- Found real attachment drift: the notebook still showed raw dataframe-style saved outputs, still cited the weaker 2017 solvent-polarity paper, still opened the laboratory workflow GIF panel by default, and still described the final checks as PNG-only.
+- Recreated the durable repair script at `/workspace/patch_publication_notebook.py` and used it to rebuild `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Replaced the saved package audit, summary, QC, bootstrap, benchmark, validation, sensitivity, and consistency-check outputs with captioned publication tables designed to avoid notebook overflow and default dataframe styling.
+- Updated the notebook source so those same sections render publication-style tables on future reruns instead of reverting to raw notebook dataframe blocks.
+- Restored reduced-bundle provenance language in the title card, configuration section, and reproducibility appendix so the full saved five-solvent execution is not misrepresented as a fresh rerun from the local reduced review package.
+- Replaced the weaker 2017 paper with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama, and Kamei and aligned the theory and references accordingly.
+- Updated the consistency-check source to validate both GIF assets as well as PNG figures, and removed the default-open state from the saved and source versions of the laboratory workflow animation panel.
+- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and visually checked the saved figure set plus both inline animation panels for clipping, overlap, and obvious layout defects; the saved outputs look clean in this environment.
+- Recompiled every code cell in the polished notebook and verified that the stale citation string, default-open workflow panel, and older PNG-only wording were all gone from the rebuilt deliverable.
+
 ## 2026-05-18 attachment-state repair, source-output alignment, and visual audit
 
 - Reopened the attached notebook package itself rather than assuming the previous polished state still matched the current attachment.
