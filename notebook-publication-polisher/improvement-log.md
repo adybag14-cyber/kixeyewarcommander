@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-18 attachment-state repair, captioned-table source patch and reference refresh
+
+- Reopened the attached notebook package, rubric guidance, and saved progress files instead of assuming the previous polished state still matched the notebook attachment.
+- Confirmed that the attachment still had publication-facing defects in the saved state: raw dataframe-style table renders, a weaker 2017 solvent-effects citation, reduced-bundle provenance that was still too thin, and a laboratory workflow GIF panel that opened expanded by default.
+- Rebuilt the publication repair as `/workspace/patch_publication_notebook.py` and used it to generate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Patched the notebook source so package-audit, summary, QC, benchmark, validation, sensitivity, and consistency-check tables now render as captioned publication tables on future reruns instead of plain dataframe output.
+- Replaced all nine saved dataframe outputs in the executed notebook with captioned overflow-safe table blocks and removed the remaining inherited dataframe styling from those visible outputs.
+- Added explicit reduced-bundle provenance notes to the title card, configuration section, and reproducibility appendix so the saved five-solvent execution is not mistaken for a fresh rerun from the stripped review bundle.
+- Replaced the weaker 2017 source with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei and reformatted the reference list into a cleaner Leeds-style ordered list.
+- Closed the remaining default-open laboratory workflow animation panel in both source and saved output, and extended the consistency checks so future reruns verify both GIF assets as well as the PNG figures.
+- Revalidated the rebuilt notebook by confirming that the stale citation is gone, no saved output still uses raw dataframe HTML, both expandable GIF panels are closed by default, all code cells parse, and all embedded PNG/GIF assets decode cleanly.
+
 ## 2026-05-18 full publication refresh, source-output alignment and verification pass
 
 - Reopened the attached notebook package, rubric guidance, and saved progress notes before making any publication-readiness claim.
