@@ -4,25 +4,24 @@
 
 - Date: 2026-05-18
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: the attached notebook is still not publication-ready as delivered, but the rebuilt polished notebook is now a strong publication-ready saved artifact pending one full-data rerun.
-- Confidence note: the current polished notebook passes the local verification pass. The stale 2017 citation is gone, all visible saved tables are captioned and overflow-safe, the workflow GIF panel no longer opens expanded by default, the consistency-check prose and source now validate GIF assets as well as PNG figures, all code cells compile, and the saved figure plus GIF set looks visually clean in the contact-sheet audit.
+- Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
+- Publication-readiness estimate: the attached notebook is stronger now as a polished saved artifact, but the package is still not fully publication-ready as a reproducible submission because the complete five-solvent raw `Data/` tree is not present in the review bundle.
+- Confidence note: the rebuilt notebook now reads as a publication-quality archived analysis state. The main visible blockers from the attachment have been repaired: raw dataframe-style tables have been replaced by captioned overflow-safe report tables, the weaker 2017 solvent-effects citation has been replaced by the 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei, the workflow GIF panel no longer opens by default, and the saved consistency-check presentation now covers GIF assets as well as PNG figures.
 
 ## Highest-impact improvements in this run
 
-- Reinspected the attached notebook, rubric guidance, and stored progress notes together instead of assuming the previous repair state matched the current attachment.
-- Confirmed that the attachment still lagged behind the saved repair notes: raw dataframe outputs were still visible, the weaker 2017 solvent-effects citation was still present, the workflow GIF panel still opened by default, and the consistency-check appendix still only mentioned PNG validation.
-- Rebuilt the repair path as `/workspace/patch_publication_notebook.py` and generated a fresh polished notebook at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Replaced the saved package-audit, kinetic-summary, QC, bootstrap, benchmark, validation, sensitivity, and final consistency-check outputs with captioned publication tables that are safer for notebook rendering and wide-column overflow.
-- Updated the notebook source so future reruns emit the same publication-style table rendering for all currently patched report tables instead of default notebook dataframe blocks.
-- Restored explicit reduced-bundle provenance notes in the title card, configuration section, and reproducibility appendix so the saved five-solvent execution is not misread as a fresh rerun from the stripped review package.
-- Replaced the weaker 2017 source with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama, and Kamei and aligned the theory and reference sections to that evidence.
-- Extended the consistency-check source so future reruns verify both GIF assets as well as PNG figures, and closed the laboratory workflow animation panel by default in both source and saved output.
-- Strengthened the theory and conclusion text so the solvent-effects discussion is tied more carefully to the primary cis-4A4N literature without overstating what the notebook data alone can prove.
-- Revalidated the polished notebook by compiling every code cell, confirming the stale reference and default-open panel were gone, confirming that no raw dataframe-style saved output remained, and creating a local contact sheet to inspect all saved figures and inline animation panels for clipping, overlap, or broken media.
+- Reopened the attached notebook, rubric, and saved notes together and treated the attachment itself as the source of truth.
+- Confirmed that the current attachment still lagged behind the prior notes: it still exposed raw dataframe-style outputs, the weaker 2017 citation, thinner rerun-provenance language, PNG-only consistency wording, and a default-open laboratory workflow panel.
+- Rebuilt the notebook as `/workspace/output/P201_201698955_publication_ready_polished.ipynb` with both source and saved-output repairs rather than editing prose alone.
+- Converted the saved package audit, kinetic summary, QC summary, bootstrap ranking, benchmark, validation, sensitivity, and consistency-check outputs into captioned publication-style HTML tables designed to avoid clipping and awkward notebook overflow.
+- Added stronger provenance language in the title card, configuration section, analysis-environment note, and reproducibility appendix so the saved five-solvent execution is not misread as a guaranteed fresh rerun from the reduced review bundle.
+- Replaced the weaker solvent-polarity citation with the stronger 1987 cis-azobenzene paper and aligned the theory, conclusion, and references to that evidence.
+- Updated the saved and source versions of the workflow animation panel so it stays collapsed by default, and expanded the consistency-check language to include inline GIF validation alongside PNG figures.
+- Built a contact-sheet audit of all saved figures and GIF first frames and checked the visible media set for clipping, overlap, and broken rendering in this environment.
 
 ## Remaining blockers
 
-- A clean end-to-end rerun of the full five-solvent notebook still cannot be demonstrated from the attached package because the local review bundle remains incomplete.
-- Final sign-off still needs one true rerun in the intended notebook environment with the complete `Data/` tree restored.
-- One final post-rerun render audit is still needed to confirm that regenerated tables, figures, GIF panels, and publication-table HTML remain clean after a true rerun.
-- Browser-style notebook screenshot verification is still unavailable in this container because no notebook browser stack is installed here.
+- A clean end-to-end rerun still cannot be demonstrated from the attached package because the full five-solvent raw-data tree is not available locally.
+- Final sign-off still needs one true rerun in the intended notebook environment with the complete `Data/` folder restored.
+- One final post-rerun render audit is still needed to confirm that regenerated tables, figures, GIF panels, and publication-table HTML remain clean after a real rerun.
+- A browser-style notebook render audit is still deferred in this container because there is no notebook browser stack available here.
