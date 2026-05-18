@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-18 full saved-output polish, provenance repair, and final visible-table cleanup
+
+- Reopened the attached notebook package itself and confirmed that it still showed the weaker 2017 source, default-open workflow GIF panel, PNG-only consistency language, reduced-bundle ambiguity, and multiple raw dataframe-style saved outputs.
+- Rebuilt the durable notebook repair script at `/workspace/patch_publication_notebook.py` and used it to regenerate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Replaced every still-visible raw dataframe output in the saved notebook, including the package-audit table, with captioned overflow-safe publication tables.
+- Updated the notebook source so the main report tables, consistency-check table, and package-audit table render as publication-style HTML blocks on future reruns rather than reverting to default dataframe output.
+- Restored explicit reduced-bundle provenance notes in the title card, configuration section, runtime-environment box, and reproducibility appendix so the archived five-solvent execution is not mistaken for a fresh rerun from the reduced local review package.
+- Replaced the weaker 2017 paper with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama, and Kamei, and tightened the theory plus conclusion text to use that literature more carefully.
+- Extended the automated consistency checks so the source now validates both inline GIF assets alongside the PNG figures, and removed the default-open state from the laboratory workflow animation panel in both source and saved output.
+- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`, decoded all ten embedded media items from the polished notebook, and visually checked the saved figure set plus both GIF panels for clipping, overlap, or obvious rendering defects.
+- Recompiled every code cell in the polished notebook and confirmed that the stale citation, raw dataframe-style saved tables, default-open media panel, and older PNG-only wording were all gone from the rebuilt deliverable.
+
 ## 2026-05-18 attachment drift repair, publication-table rebuild, and visual re-audit
 
 - Reopened the current attached notebook and rubric, then checked them against the saved memory notes to verify whether the prior repair state had actually survived into the attachment.
