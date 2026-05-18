@@ -1,17 +1,16 @@
 # Revision Plan
 
-## Current state after 2026-05-18 publication rebuild
+## Current state after 2026-05-18 artifact repair pass
 
 - [x] Reinspect the attached notebook, rubric guidance, and saved progress files directly.
 - [x] Confirm which previously noted defects still remained in the actual attachment.
-- [x] Rebuild a reproducible notebook repair script at `/workspace/patch_publication_notebook.py`.
+- [x] Build a repeatable notebook-repair script at `/workspace/patch_publication_notebook.py`.
 - [x] Generate the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- [x] Restore the missing `report_table(...)` helper in the notebook source so the saved table polish matches future reruns.
-- [x] Replace raw dataframe-style saved outputs with captioned publication-style tables.
-- [x] Strengthen provenance wording so the archived five-solvent execution is not confused with a guaranteed fresh rerun from the reduced review package.
+- [x] Convert the saved dataframe-style outputs into captioned publication tables.
+- [x] Correct the inaccurate solvent-order and literature-comparison wording in the generated discussion and post-lab answers.
+- [x] Strengthen provenance wording so the archived five-solvent execution is not confused with the reduced attached review bundle.
 - [x] Replace the weaker solvent-effects citation with the 1987 *Chemical Physics Letters* paper and align the related discussion.
-- [x] Collapse the laboratory workflow animation panel by default in both source and saved output.
-- [x] Expand the consistency-check presentation so GIF assets are included alongside PNG figures.
+- [x] Collapse the laboratory workflow animation by default and extend the consistency-check presentation to cover GIF media.
 - [x] Generate and inspect a visual audit contact sheet for the saved figure and GIF set.
-- [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end.
-- [ ] Perform one final post-rerun render audit of regenerated tables, figures, GIF panels, and publication-table HTML.
+- [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
+- [ ] Perform one final browser-style render audit of the regenerated notebook after that rerun.
