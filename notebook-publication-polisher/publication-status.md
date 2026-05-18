@@ -2,26 +2,24 @@
 
 ## Current assessment
 
-- Date: 2026-05-18
+- Date: `2026-05-18`
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: the attached notebook package is still not publication-ready as delivered, but the newly rebuilt polished notebook is now again close to publication-ready; the remaining blocker is still reproducibility from the reduced attachment bundle rather than notebook writing quality, visible table layout, citation quality, or embedded-media integrity
-- Confidence note: the rebuilt polished notebook now restores the full source-output repair set in one artifact: captioned overflow-safe report tables replace the raw dataframe outputs, the weaker 2017 solvent-effects citation is replaced with the stronger 1987 *Chemical Physics Letters* paper, provenance notes now explain the reduced review bundle in the opening and reproducibility sections, the workflow GIF panel is collapsed by default, future consistency checks now cover GIF files as well as PNG figures, all code cells compile, and every embedded PNG and GIF payload decodes cleanly
+- Publication-readiness estimate: the rebuilt polished notebook is now very close to publication-ready as a saved publication artifact; the remaining blocker is still reproducibility from the reduced attachment bundle rather than notebook writing quality, citation quality, table presentation, or embedded-media integrity
+- Confidence note: the latest rebuild now restores the main publication fixes directly in the output notebook created this run: the saved dataframe outputs are replaced with captioned overflow-safe publication tables, the weaker 2017 solvent-effects citation is replaced with the verified 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei, reduced-bundle provenance notes appear in the opening and reproducibility sections, the laboratory workflow GIF no longer opens expanded by default, the consistency-check source now covers both GIF assets as well as PNG figures, and all embedded PNG and GIF payloads checked in the rebuilt notebook decode cleanly
 
 ## Highest-impact improvements in this run
 
-- Reinspected the attached notebook package, rubric guidance and saved progress state directly and confirmed that the attachment itself was still behind the stronger polished state recorded in memory.
-- Rebuilt the repair as a repeatable script at `/workspace/patch_publication_notebook.py` and generated a fresh polished notebook at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Replaced all nine visible dataframe-style saved outputs with captioned, overflow-safe publication tables and removed the inherited index-column clutter from those rendered tables.
-- Updated the notebook source so future reruns emit the same publication-style report tables for the package audit, kinetic summary, QC audit, bootstrap ranking, benchmark, validation, sensitivity and consistency-check sections.
-- Added explicit reduced-bundle provenance notes to the opening title card, configuration section, analysis-environment note and reproducibility appendix so the saved five-solvent execution is not misread as a fresh rerun from the stripped review bundle.
-- Strengthened the theory section and references by replacing the weaker 2017 solvent-effects citation with the 1987 *Chemical Physics Letters* primary paper by Kobayashi, Yokoyama and Kamei.
-- Closed the workflow animation panel by default in both notebook source and saved output.
-- Extended the future consistency-check source so reruns verify the two generated GIF files alongside the PNG figure set.
-- Revalidated the polished notebook by confirming that the stale 2017 citation is gone, raw dataframe HTML is gone, captioned table blocks are present, the workflow panel is no longer default-open, all code cells compile, and all eight embedded PNG figures plus both embedded GIF assets decode cleanly.
+- Reinspected the attached notebook package, rubric guidance and saved progress notes before editing so the repair targeted the real attachment state rather than the stronger remembered state.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook through the reproducible repair script at `/workspace/patch_publication_notebook.py`.
+- Replaced the saved raw notebook-style dataframe outputs with nine captioned, overflow-safe publication tables that remove the inherited index-column clutter and reduce clipping risk in notebook and HTML rendering.
+- Added explicit reduced-bundle provenance notes to the title card, configuration section, reproducibility appendix and consistency-check appendix so the saved five-solvent execution is not misread as a fresh rerun from the stripped review bundle.
+- Strengthened the theory and references by replacing the weaker 2017 solvent-effects source with the verified 1987 *Chemical Physics Letters* primary paper by Kobayashi, Yokoyama and Kamei.
+- Collapsed the workflow animation panel by default in both notebook source and saved output, and extended the future consistency checks so reruns verify both GIF files alongside the PNG figure set.
+- Revalidated the rebuilt notebook by confirming that the stale 2017 citation is gone, raw dataframe HTML is gone, the workflow panel is no longer default-open, all eight embedded PNG figures decode cleanly, and both embedded GIF assets decode cleanly.
 
 ## Remaining blockers
 
 - A clean end-to-end rerun of the full five-solvent notebook still cannot be demonstrated from the attached package because only `Data/Acetone/` is present locally.
 - Final publication sign-off still needs one true rerun in the intended notebook environment with the complete `Data/` tree restored.
 - One final post-rerun render audit is still needed to confirm that regenerated tables, figures, GIF panels and publication-table HTML remain clean after a true rerun.
-- Browser-style screenshot verification still could not be completed in this container because no Jupyter browser stack or Playwright browser binary is installed, so current render assurance comes from direct saved-output inspection, output-HTML review, code parsing and media decoding rather than a full browser capture.
+- Browser-style screenshot verification still could not be completed in this container because no Jupyter browser stack or Playwright browser binary is installed, so current render assurance comes from direct saved-output inspection, output-HTML review and media decoding rather than a full browser capture.
