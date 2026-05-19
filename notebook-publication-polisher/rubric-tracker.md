@@ -9,13 +9,13 @@
 
 ## Criterion status
 
-- Post-labs: very strong. The answers are data-linked, chemically grounded, and corrected so the solvent-order interpretation matches the actual fitted results.
-- Data analysis + plotting: very strong. Saved figures decode cleanly, the embedded GIF extras also decode cleanly, and the saved outputs now render as captioned report tables rather than raw dataframe dumps.
-- Experimental write-up: very strong. The notebook explains the experiment and the analysis route clearly, uses stronger provenance language, and now relies on a better primary literature source for the solvent-effects discussion.
+- Post-labs: very strong. The answers are now data-linked, chemically grounded, and corrected so the solvent-order interpretation matches the actual fitted results.
+- Data analysis + plotting: very strong. Saved figures decode cleanly, the embedded GIF extras also decode cleanly, and the saved tables now render as captioned report tables rather than raw dataframe dumps.
+- Experimental write-up: very strong. The notebook explains the experiment and the analysis route clearly, uses stronger provenance language, and now relies on a better primary literature source for the solvent-effects discussion while keeping the archived-run caveat explicit.
 - Originality and elegance of code: strong to very strong. The notebook remains modular and function-based, and this run repaired source-level report generation rather than only touching presentation.
 - Portability of code: moderate to strong. The notebook documents the data-path handling well, but full portability still cannot be demonstrated until the complete five-solvent raw-data tree is restored and rerun successfully.
 - Commenting, documentation and explanation of code: strong. The code remains well documented, and the publication-facing rationale around provenance, validation, and quality control is clearer than before.
-- Markdown, LaTeX, HTML and formatting: very strong. The notebook now combines structured markdown, LaTeX, inline HTML, captioned publication tables, cleaner collapsible extras, and consistent figure presentation without the earlier raw-dataframe look.
+- Markdown, LaTeX, HTML and formatting: very strong. The notebook now combines structured markdown, LaTeX, inline HTML, captioned publication tables, cleaner collapsible extras, GIF-aware consistency checks, and consistent figure presentation without the earlier raw-dataframe look.
 
 ## Remaining gap to full confidence
 
