@@ -6,28 +6,24 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
-- Publication-readiness estimate: the notebook is now strong as a publication-ready reading artifact and rubric-facing submission notebook, but the supplied package is still not a fully reproducible archive from the files available in this workspace alone.
-- Confidence note: the rebuilt polished notebook now exists again on disk and brings the highest-impact attachment-quality issues under control. Raw dataframe dumps were replaced with captioned publication tables, figure and GIF media are wrapped with safer responsive rendering, both expandable extras are collapsed by default, the solvent-order interpretation is explicit and correct, and the references/provenance language no longer overstates rerunnability of a reduced review bundle.
+- Publication-readiness estimate: the notebook is now strong as a professional, publication-ready reading artifact and likely rubric-facing top-band submission notebook, but the supplied workspace package is still not a fully reproducible archive on its own.
+- Confidence note: the polished notebook currently on disk corrects the stale attachment defects that were still visible in the source package. Publication tables now replace raw dataframe dumps, the solvent-order explanation is internally consistent, the weaker 2017 citation is gone, both expandable GIF sections are collapsed by default, and the portability language now clearly states the limits of the reduced review bundle.
 
 ## Highest-impact improvements in this run
 
-- Rebuilt the attached notebook into a polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Added a repeatable repair workflow at `/workspace/repair_publication_notebook.py` so the publication pass can be regenerated from the attached notebook instead of maintained only by manual edits.
-- Restyled every saved dataframe-style output that still looked like a notebook dump, including the dependency snapshot, kinetic summary, QC audit, benchmark tables, validation tables and consistency-check table.
-- Corrected the internal science narrative where the notebook previously implied that acetone was the fastest solvent, despite the notebook’s own accepted ranking placing acetonitrile first.
-- Strengthened the configuration and reproducibility wording so the notebook clearly distinguishes an executed five-solvent archive from a reduced review package that still needs the full raw-data tree and intended Python environment for a true rerun.
-- Replaced the weaker 2017 solvent-effects citation with the more relevant 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
-- Extended the consistency-check presentation to cover inline GIF media and confirmed that all eight embedded PNG figures plus both GIF extras decode cleanly.
-- Generated a visual audit contact sheet from the notebook’s ten embedded visuals and found no obvious broken-image, clipping or overlap failures in the stored media themselves.
-- Recreated the polished notebook and contact-sheet artifacts in the current workspace after confirming that the previously referenced files were no longer present locally.
-- Restyled the saved dataframe outputs into captioned publication tables directly inside the rebuilt notebook artifact so the review copy no longer reads like a raw pandas dump.
-- Collapsed the second inline GIF panel by default and extended the consistency-check narrative and code so GIF media are treated as audited notebook outputs rather than informal extras.
-- Replaced the stale 2017 solvent-isomerisation citation with the 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei in the rebuilt notebook artifact.
+- Rebuilt the notebook into `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached source package.
+- Added a repeatable repair workflow at `/workspace/repair_publication_notebook.py` so the publication pass can be recreated instead of maintained by ad hoc manual edits.
+- Restyled the saved dataframe-style outputs into captioned publication tables with horizontal-overflow protection, including the dependency snapshot, kinetic summary, QC audit, benchmark tables, validation tables and consistency-check table.
+- Corrected the stale solvent-order wording so the notebook consistently states that acetonitrile is fastest overall and acetone is a close second.
+- Strengthened the reproducibility appendix and the archived-environment note so the notebook no longer overstates what can be rerun from the reduced review bundle in this workspace.
+- Replaced the weaker 2017 solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
+- Removed the open-by-default state from the second inline GIF section so the notebook reads more cleanly and loads with less visual clutter.
+- Decoded and audited all ten embedded visuals, then generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; no obvious broken-image, clipping or overlap defects were found in the stored media.
 
 ## Remaining blockers
 
-- The original attached notebook source file in `agent_files/` remains unchanged; the repaired publication-quality artifact currently lives at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- The attached local raw-data tree still appears incomplete for a true five-solvent rerun. The available `Data/` contents here contain acetone raw files only, while the executed notebook reflects a 225-trace, five-solvent analysis.
-- This container still lacks the full notebook execution stack needed for a genuine end-to-end rerun of the analysis code here, including the notebook-ready scientific stack used by the archived execution.
-- Final sign-off therefore still needs one real rerun in the intended notebook environment with the complete five-solvent raw-data archive restored.
-- A final browser-style render audit remains desirable after that rerun, even though the saved embedded media inspected cleanly in this pass.
+- The original attached notebook source file under `agent_files/` remains stale; the corrected publication copy currently lives in `/workspace/output/`.
+- The local `Data/` tree still appears incomplete for a true five-solvent rerun. The workspace data here are not sufficient to reproduce the archived 225-trace, five-solvent execution from scratch.
+- This container still lacks the original notebook execution environment needed for a genuine end-to-end rerun of the analysis cells.
+- Final sign-off still needs one real rerun in the intended environment with the complete raw-data archive restored.
+- A final browser-style notebook render audit remains desirable after that rerun, even though the archived embedded visuals inspected cleanly in this pass.
