@@ -7,7 +7,7 @@
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
 - Publication-readiness estimate: the notebook is now strong as a professional, publication-ready reading artifact and likely rubric-facing top-band submission notebook, but the supplied workspace package is still not a fully reproducible archive on its own.
-- Confidence note: this run regenerated the polished notebook from the attached source package and confirmed the highest-impact publication defects are now corrected in the rebuilt artifact. Raw dataframe dumps are replaced by captioned report tables, the stale open GIF panel is closed by default, the solvent-order wording is internally consistent, the weaker 2017 citation is gone, and the portability language no longer overstates what the reduced review bundle can rerun.
+- Confidence note: this run regenerated the polished notebook from the attached source package and reconfirmed that the highest-impact publication defects are corrected in the rebuilt artifact. Raw dataframe dumps are replaced by captioned report tables, both GIF extras are collapsed by default, the solvent-order wording is internally consistent, the weaker 2017 citation is gone, and the portability language no longer overstates what the reduced review bundle can rerun.
 
 ## Highest-impact improvements in this run
 
@@ -17,8 +17,8 @@
 - Corrected the stale solvent-order wording so the notebook consistently states that acetonitrile is fastest overall and acetone is a close second.
 - Strengthened the reproducibility appendix and the archived-environment note so the notebook no longer overstates what can be rerun from the reduced review bundle in this workspace.
 - Replaced the weaker 2017 solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
-- Removed the open-by-default state from the second inline GIF section so the notebook reads more cleanly and loads with less visual clutter.
-- Decoded and audited all ten embedded visuals, then generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; no obvious broken-image, clipping or overlap defects were found in the stored media.
+- Removed the open-by-default state from the second inline GIF section in both the saved outputs and the underlying source cell so a rerun does not reintroduce the clutter.
+- Decoded and audited all ten embedded visuals, then generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; the refreshed contact sheet now samples informative GIF frames instead of nearly blank opening frames, and no obvious broken-image, clipping or overlap defects were found in the stored media.
 
 ## Remaining blockers
 
