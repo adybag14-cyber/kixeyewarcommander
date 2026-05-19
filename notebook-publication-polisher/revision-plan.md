@@ -1,6 +1,6 @@
 # Revision Plan
 
-## Current state after 2026-05-19 attached-artifact repair pass
+## Current state after 2026-05-19 notebook artifact repair pass
 
 - [x] Reinspect the attached notebook, rubric guidance, and saved progress files directly.
 - [x] Confirm which previously noted defects still remained in the actual attachment.
