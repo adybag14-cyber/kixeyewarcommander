@@ -6,7 +6,7 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Publication-readiness estimate: strong publication-quality archived notebook artifact, but not yet a fully reproducible submission package.
-- Confidence note: the repaired deliverable now better matches publication standards than the attached source artifact. The visible tables render as captioned report tables rather than raw dataframe dumps, the workflow animation is collapsed by default, the literature framing uses the stronger 1987 *Chemical Physics Letters* paper, the consistency checks cover GIF media as well as PNG figures, and the saved discussion and post-lab answers no longer misstate the solvent ordering or the acetone literature comparison.
+- Confidence note: the repaired deliverable now better matches publication standards than the attached source artifact. The visible tables render as captioned report tables rather than raw dataframe dumps, the workflow animation is collapsed by default, the literature framing uses the stronger 1987 *Chemical Physics Letters* paper, the consistency checks cover GIF media as well as PNG figures, the reproducibility appendix is explicit about the reduced review bundle, and the saved discussion and post-lab answers no longer misstate the solvent ordering or the acetone literature comparison.
 
 ## Highest-impact improvements in this run
 
@@ -19,9 +19,11 @@
 - Updated both the saved source and the saved HTML for the laboratory workflow animation so the panel is collapsed by default.
 - Expanded the consistency-check section and code to treat inline GIF assets as first-class publication media alongside exported PNG figures.
 - Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the eight saved PNG figures plus the first frames of both embedded GIFs and used it to reconfirm that the embedded visual set decodes cleanly without obvious clipping, overlap or broken media.
+- Rechecked the rebuilt artifact after writing it and confirmed that the repaired notebook really contains the new provenance note, the 1987 DOI, the GIF-aware consistency code, the closed-by-default workflow panel and the corrected saved markdown discussion.
 
 ## Remaining blockers
 
+- The attached source notebook package itself still remains a stale pre-repair artifact; the polished notebook now lives separately at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - The attached raw-data package still appears incomplete for a real five-solvent rerun. The local `Data/` tree currently contains only an `Acetone/` folder with 49 `.dat` files, whereas the archived executed notebook reports a five-solvent, 225-trace analysis.
 - This container also does not currently provide the notebook execution stack needed for a true rerun of the analysis code here; imports such as Matplotlib, RDKit, Numba, and IPython are unavailable in the active Python environment.
 - Final sign-off therefore still needs one genuine rerun in the intended notebook environment with the complete five-solvent raw-data archive restored.
