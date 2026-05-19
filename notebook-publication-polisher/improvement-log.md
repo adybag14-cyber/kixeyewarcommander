@@ -1,21 +1,18 @@
 # Improvement Log
 
-## 2026-05-19 attached-artifact repair and visual audit pass
+## 2026-05-19 notebook-render and persistence repair pass
 
-- Re-audited the attached notebook itself instead of assuming the earlier polished artifact was still present in the workspace.
-- Confirmed that the attachment still showed publication issues in the saved artifact: raw dataframe tables in multiple sections, one inline GIF panel expanded by default, outdated provenance wording, the weaker 2017 solvent reference, and stale narrative text that no longer matched the fitted solvent ordering.
-- Built `/workspace/patch_publication_notebook.py` as a repeatable repair script for this run.
-- Generated a new polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Converted the saved environment, summary, QC, bootstrap, benchmark, validation, sensitivity, and consistency outputs into captioned publication-style HTML tables with overflow-safe wrappers.
-- Corrected the narrative/source mismatch around solvent ordering and literature comparison:
-  - the notebook had implied that acetone was the fastest solvent even though the fitted ranking shows acetonitrile is fastest overall;
-  - the notebook had implied that the acetone result lay below literature even though it is better described as close to the literature benchmark for this teaching-data context.
-- Replaced the weaker 2017 citation with the 1987 Kobayashi, Yokoyama and Kamei *Chemical Physics Letters* paper and aligned the surrounding discussion wording.
-- Tightened provenance wording in the front matter, configuration note, and reproducibility appendix so the reduced review package is not mistaken for a full rerunnable submission bundle.
-- Updated the workflow-animation source and saved HTML so the laboratory workflow panel is collapsed by default.
-- Extended the consistency-check source wording and saved output presentation to cover GIF assets alongside PNG figures.
-- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the eight saved figure outputs and two inline GIF first frames, confirming that all ten embedded visuals decode successfully without obvious media corruption.
-- Ran a syntax parse across all code cells in the polished notebook and fixed the publication-table source edits until the notebook source parsed cleanly.
+- Reopened the attached notebook artifact directly and verified that earlier repair notes had not fully propagated into the actual attachment.
+- Confirmed two visible publication problems in the attached saved outputs:
+  - several report sections still rendered as plain dataframe HTML rather than publication tables;
+  - the laboratory workflow GIF section still opened expanded by default.
+- Built `/workspace/patch_publication_notebook.py` as a repeatable repair script for this pass.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` with coordinated source-level and saved-output repairs.
+- Upgraded the notebook source so future runs emit captioned publication-style HTML tables for the major report tables instead of raw dataframe rendering.
+- Replaced the saved package-audit, summary, QC, bootstrap, benchmark, validation, sensitivity, and consistency outputs with captioned, overflow-safe report tables.
+- Updated both inline GIF extras to be collapsed by default in the polished notebook, reducing layout sprawl on first open.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the eight embedded PNG figures and the first frames of both embedded GIFs.
+- Verified from the rebuilt artifact that no raw dataframe HTML remains in saved outputs and that ten embedded visual assets decode successfully.
 
 ## 2026-05-18 artifact-and-output publication repair pass
 
