@@ -5,20 +5,24 @@
 - Date: 2026-05-19
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
-- Repair workflow: `/workspace/rebuild_publication_notebook.py`
+- Repair workflow: `/workspace/repair_publication_notebook.py`
 - Publication-readiness estimate: the notebook is now strong as a publication-ready reading artifact and rubric-facing submission notebook, but the supplied package is still not a fully reproducible archive from the files available in this workspace alone.
-- Confidence note: this workspace snapshot only contained the original attached notebook, so the polished deliverable had to be rebuilt in this run. The regenerated notebook now replaces raw dataframe-style outputs with captioned publication tables, corrects the solvent-order interpretation, keeps both expandable extras collapsed by default, upgrades the solvent-effects citation, and makes the reproducibility limits of the reduced review bundle explicit.
+- Confidence note: the rebuilt polished notebook now exists again on disk and brings the highest-impact attachment-quality issues under control. Raw dataframe dumps were replaced with captioned publication tables, figure and GIF media are wrapped with safer responsive rendering, both expandable extras are collapsed by default, the solvent-order interpretation is explicit and correct, and the references/provenance language no longer overstates rerunnability of a reduced review bundle.
 
 ## Highest-impact improvements in this run
 
 - Rebuilt the attached notebook into a polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Added a repeatable rebuild workflow at `/workspace/rebuild_publication_notebook.py` so the publication pass can be regenerated from the attached notebook instead of maintained only by manual edits.
-- Restyled the saved dataframe outputs into captioned publication tables, covering the dependency snapshot, kinetic summary, QC audit, benchmark tables, validation tables and consistency-check table.
-- Corrected the internal science narrative so the notebook now states the accepted ranking accurately: acetonitrile is fastest overall, with acetone close behind.
+- Added a repeatable repair workflow at `/workspace/repair_publication_notebook.py` so the publication pass can be regenerated from the attached notebook instead of maintained only by manual edits.
+- Restyled every saved dataframe-style output that still looked like a notebook dump, including the dependency snapshot, kinetic summary, QC audit, benchmark tables, validation tables and consistency-check table.
+- Corrected the internal science narrative where the notebook previously implied that acetone was the fastest solvent, despite the notebook’s own accepted ranking placing acetonitrile first.
 - Strengthened the configuration and reproducibility wording so the notebook clearly distinguishes an executed five-solvent archive from a reduced review package that still needs the full raw-data tree and intended Python environment for a true rerun.
 - Replaced the weaker 2017 solvent-effects citation with the more relevant 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
-- Collapsed the laboratory-workflow extra by default in both the generating code and the saved notebook output, so both extras stay closed until the reader chooses to open them.
-- Generated a fresh visual audit contact sheet from the notebook’s ten embedded visuals and found no obvious broken-image, clipping or overlap failures in the stored media themselves.
+- Extended the consistency-check presentation to cover inline GIF media and confirmed that all eight embedded PNG figures plus both GIF extras decode cleanly.
+- Generated a visual audit contact sheet from the notebook’s ten embedded visuals and found no obvious broken-image, clipping or overlap failures in the stored media themselves.
+- Recreated the polished notebook and contact-sheet artifacts in the current workspace after confirming that the previously referenced files were no longer present locally.
+- Restyled the saved dataframe outputs into captioned publication tables directly inside the rebuilt notebook artifact so the review copy no longer reads like a raw pandas dump.
+- Collapsed the second inline GIF panel by default and extended the consistency-check narrative and code so GIF media are treated as audited notebook outputs rather than informal extras.
+- Replaced the stale 2017 solvent-isomerisation citation with the 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei in the rebuilt notebook artifact.
 
 ## Remaining blockers
 
