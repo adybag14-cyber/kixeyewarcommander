@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-19 publication-polish rebuild and audit pass
+
+- Reopened the attached notebook package and confirmed that the source notebook still contained stale publication issues despite earlier saved notes.
+- Wrote `/workspace/repair_publication_notebook.py` as a repeatable post-processing workflow that rebuilds a polished notebook artifact directly from the attached executed notebook JSON.
+- Generated `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Converted the saved dataframe outputs into captioned publication tables with overflow-safe wrappers so the notebook reads like a finished report rather than a raw notebook dump.
+- Corrected the contradictory solvent-order wording in both the saved markdown outputs and the underlying source cells so the notebook consistently reports `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Rewrote the reproducibility appendix and archived-environment wording so the notebook clearly states that the current workspace package is a reduced review bundle rather than a full rerun archive.
+- Replaced reference 5 with the 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei and aligned the notebook text with that stronger source.
+- Removed the open-by-default state from the second inline GIF panel and kept both GIF extras as auditable inline outputs.
+- Decoded all eight PNG figures and both GIF extras directly from the notebook outputs and built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; no obvious broken-image, clipping or overlap defects were seen in the stored media.
+
 ## 2026-05-19 attached-notebook repair and visual polish pass
 
 - Reopened the actual attached notebook rather than relying on the previous memory summary and confirmed that the attachment still contained publication defects.
