@@ -1,6 +1,6 @@
 # Revision Plan
 
-## Current state after 2026-05-19 attached-notebook repair pass
+## Current state after 2026-05-19 publication-polish rebuild pass
 
 - [x] Reinspect the attached notebook, rubric guidance and saved progress files directly.
 - [x] Confirm which previously noted defects still remained in the actual attachment.
