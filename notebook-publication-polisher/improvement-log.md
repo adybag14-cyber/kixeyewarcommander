@@ -1,12 +1,18 @@
 # Improvement Log
 
-## 2026-05-19 final rebuild verification and persistence sync
+## 2026-05-19 artifact-verified publication polish pass
 
-- Confirmed again that the attached source notebook was still the stale version and that the rebuilt polished notebook had to be regenerated in the current workspace.
-- Recreated `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the attached notebook using `/workspace/repair_publication_notebook.py`.
-- Fixed the remaining source-level `open` state in the second GIF code cell so a future rerun will keep both extras collapsed by default instead of only correcting the saved output.
-- Refreshed the visual audit workflow so the contact sheet selects informative GIF frames rather than nearly blank opening frames, making the two inline animations genuinely inspectable during review.
-- Synced the updated status, rubric and revision notes into both the memory folder and the GitHub persistence folder `notebook-publication-polisher/`.
+- Reopened the attached notebook package, rubric file and saved memory notes, then verified the live notebook content rather than assuming the remembered fixes were already present.
+- Confirmed that the attached source notebook still contained stale problems: raw dataframe-style saved tables, the weaker 2017 solvent-effects citation, over-strong reproducibility wording, the second extra animation panel opening by default, and a post-lab solvent-order contradiction that still implied acetone was fastest.
+- Wrote `/workspace/repair_publication_notebook.py` as a repeatable JSON-level notebook repair workflow.
+- Generated `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Restyled nine saved HTML tables into captioned publication tables with overflow-safe wrappers.
+- Corrected the narrative and post-lab solvent-order wording so the notebook consistently states that acetonitrile is fastest overall, with acetone close behind.
+- Replaced reference 5 with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
+- Rewrote the configuration and reproducibility sections so the reduced review bundle is no longer described as a complete rerun-ready package.
+- Removed the open-by-default state from the second inline GIF panel.
+- Decoded all eight embedded PNG figures and both GIF extras, then generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; no obvious broken-media defect was observed in the stored notebook visuals.
+- Verified that the polished notebook no longer contains the old citation, raw dataframe HTML outputs, or an open default extra panel.
 
 ## 2026-05-19 publication-polish rebuild and audit pass
 
