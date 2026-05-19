@@ -1,16 +1,16 @@
 # Improvement Log
 
-## 2026-05-19 rebuilt publication artifact and persistence sync pass
+## 2026-05-19 regenerated publication artifact and audit refresh
 
-- Confirmed that the polished notebook artifact described in memory no longer existed on disk, while the attached notebook in `agent_files/` still contained the older publication defects.
-- Recreated `/workspace/repair_publication_notebook.py` and used it to regenerate `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached source notebook.
-- Replaced every remaining raw pandas-style HTML table with a captioned publication table that uses horizontal overflow protection and cleaner report styling.
-- Updated the saved notebook text so the solvent-order interpretation no longer implies that acetone is fastest; the notebook now states explicitly that acetonitrile is fastest overall and that the small acetonitrile/acetone gap argues against a polarity-only explanation.
-- Rewrote the configuration, portability and consistency-check appendices so the notebook is honest about the reduced review bundle and about what has actually been validated in this workspace.
-- Replaced the weaker 2017 solvent-effects citation with the 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
-- Collapsed both inline extras by default and regenerated the visual audit contact sheet from the embedded notebook media.
-- Verified from the rebuilt notebook JSON that no default pandas dataframe styling remains in stored outputs, no extra panel is left open by default, and the corrected literature reference is present.
-- Decoded and reviewed all ten embedded visuals through the new contact sheet: eight PNG figures and two GIF animations were readable, with no obvious broken-image, overlap or clipping defect visible in the stored media thumbnails.
+- Confirmed that this workspace snapshot did not include the previously rebuilt polished notebook or the earlier repair script, even though memory referred to them.
+- Reinspected the actual attached notebook and verified the highest-impact remaining publication issues directly in the notebook JSON: raw dataframe-style outputs, one still-open extra panel, a wrong solvent-order sentence in the results narrative, an overstated rerun claim, and the weaker 2017 solvent-effects citation.
+- Wrote `/workspace/rebuild_publication_notebook.py` to regenerate the polished notebook and rebuild the visual audit from the attached source notebook.
+- Generated `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Rewrapped the saved dataframe outputs as captioned publication tables so the notebook reads like a report rather than a raw execution dump.
+- Updated the results discussion to state that acetonitrile is the fastest solvent overall, with acetone close behind, and reframed the mechanistic interpretation around polarity plus specific solvation and packing effects.
+- Replaced reference 5 with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 1987, and updated the reproducibility appendices so the reduced review package is not overstated as a full rerun archive.
+- Removed the forced-open state from the saved laboratory-workflow extra so both expandable media sections are collapsed by default.
+- Extracted all ten embedded visuals into a refreshed contact-sheet audit. The saved PNG figures and both GIFs appear readable, with no obvious clipping, overlap or broken-image failures visible in the stored outputs.
 
 ## 2026-05-19 attached-notebook repair and visual polish pass
 
