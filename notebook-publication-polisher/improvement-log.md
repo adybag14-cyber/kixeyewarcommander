@@ -1,5 +1,18 @@
 # Improvement Log
 
+## 2026-05-19 rebuild and verification pass
+
+- Reopened the attached notebook package, the rubric HTML export and the saved memory files in a fresh workspace to verify the notebook state directly instead of assuming the prior repaired artifact was still present locally.
+- Wrote `/workspace/repair_publication_notebook.py` to apply the publication fixes reproducibly and regenerate a polished notebook artifact from the attached source notebook.
+- Generated `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and verified that the old saved blockers were removed from the rebuilt artifact.
+- Replaced raw dataframe-style HTML outputs with captioned publication tables for the main summary, QC, bootstrap, validation, sensitivity and consistency sections.
+- Corrected the results-discussion and post-lab wording so the notebook no longer implies that acetone is fastest; the rebuilt notebook now states consistently that acetonitrile is fastest overall and that acetone remains close behind.
+- Replaced the weaker 2017 solvent-effects citation with the 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei in the notebook source and saved output.
+- Strengthened the reproducibility appendix so the current review bundle is clearly separated from the missing full rerun package.
+- Updated the consistency-check narrative and saved table to include inline GIF media as auditable notebook outputs.
+- Fixed the saved laboratory workflow animation panel so it is collapsed by default instead of opening automatically on load.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from 10 embedded visuals and confirmed that the notebook still contains eight PNG figures and two inline GIF panels that decode successfully.
+
 ## 2026-05-19 attachment repair and rebuilt deliverable pass
 
 - Reopened the attached notebook package directly and confirmed that it still contained raw dataframe-style saved outputs, the weaker 2017 solvent-effects citation, a default-open laboratory workflow GIF panel, PNG-only consistency wording, and stale solvent-order text in the saved discussion and post-lab answers.
