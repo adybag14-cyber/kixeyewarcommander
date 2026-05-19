@@ -1,10 +1,10 @@
 # Revision Plan
 
-## Current state after 2026-05-19 rebuilt publication artifact pass
+## Current state after 2026-05-19 attached-notebook repair pass
 
 - [x] Reinspect the attached notebook, rubric guidance and saved progress files directly.
 - [x] Confirm which previously noted defects still remained in the actual attachment.
-- [x] Build a repeatable notebook-repair script at `/workspace/repair_publication_notebook.py`.
+- [x] Build a repeatable notebook-rebuild script at `/workspace/rebuild_publication_notebook.py`.
 - [x] Generate the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - [x] Convert the saved dataframe-style outputs into captioned publication tables.
 - [x] Correct the solvent-order wording so the notebook explicitly states that acetonitrile is fastest overall.
