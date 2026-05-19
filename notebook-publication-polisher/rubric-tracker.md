@@ -20,5 +20,6 @@
 ## Remaining gap to full confidence
 
 - Restore the complete five-solvent `Data/` tree and rerun the notebook once in the intended execution environment.
+- Replace the stale attached notebook file with the rebuilt polished notebook if the submission channel expects a single corrected notebook artifact rather than a separate deliverable file.
 - Repeat the visual audit after that rerun to confirm that regenerated figures, GIFs, and publication tables remain clean.
 - Perform one final browser-style notebook render check before submission if possible.
