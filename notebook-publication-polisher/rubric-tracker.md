@@ -2,7 +2,7 @@
 
 ## Current estimate
 
-- Date: 2026-05-19
+- Date: `2026-05-19`
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding` for the notebook artifact under the attached rubric, with the main remaining risk tied to reproducibility of the supplied package rather than the quality of the notebook’s analysis, explanation or presentation.
 - Main uncertainty: the polished notebook now reads like a professional final artifact, its saved visuals audit cleanly and its rendered tables are publication-ready, but the reduced attached data bundle still does not support a genuine five-solvent rerun.
