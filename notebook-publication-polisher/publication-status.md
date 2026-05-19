@@ -7,7 +7,7 @@
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
 - Publication-readiness estimate: the notebook is now strong as a professional, publication-ready reading artifact and likely rubric-facing top-band submission notebook, but the supplied workspace package is still not a fully reproducible archive on its own.
-- Confidence note: the polished notebook currently on disk corrects the stale attachment defects that were still visible in the source package. Publication tables now replace raw dataframe dumps, the solvent-order explanation is internally consistent, the weaker 2017 citation is gone, both expandable GIF sections are collapsed by default, and the portability language now clearly states the limits of the reduced review bundle.
+- Confidence note: this run regenerated the polished notebook from the attached source package and confirmed the highest-impact publication defects are now corrected in the rebuilt artifact. Raw dataframe dumps are replaced by captioned report tables, the stale open GIF panel is closed by default, the solvent-order wording is internally consistent, the weaker 2017 citation is gone, and the portability language no longer overstates what the reduced review bundle can rerun.
 
 ## Highest-impact improvements in this run
 
