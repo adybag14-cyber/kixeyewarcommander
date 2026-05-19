@@ -1,17 +1,21 @@
 # Improvement Log
 
-## 2026-05-19 notebook artifact repair and visual verification pass
+## 2026-05-19 attached-artifact repair and visual audit pass
 
-- Reopened the attached notebook package, rubric, and saved progress files together and verified that the notebook artifact still lagged behind the previously described target state.
-- Confirmed that the attachment itself still contained visible publication issues: raw dataframe-style saved tables, a default-open workflow GIF panel, weaker literature sourcing, misleading provenance wording, and solvent-discussion text that overstated acetone’s ranking.
-- Built `/workspace/repair_publication_notebook.py` to regenerate a polished notebook artifact directly from the attached file without depending on a missing older deliverable.
-- Wrote `/workspace/output/P201_201698955_publication_ready_polished.ipynb` with aligned source and saved outputs.
-- Replaced the saved dataframe outputs in the package-audit, summary, QC, bootstrap, benchmark, validation, sensitivity, and consistency sections with captioned publication-style HTML tables.
-- Corrected discussion and post-lab text so the saved notebook now states that acetonitrile is fastest overall, acetone is close behind, and acetone is close to its literature benchmark rather than below it.
-- Replaced the 2017 citation with the 1987 Kobayashi, Yokoyama and Kamei *Chemical Physics Letters* paper and updated the reference list accordingly.
-- Added stronger provenance wording clarifying that the notebook contains archived five-solvent outputs while the current review bundle may only hold a partial raw-data tree.
-- Updated the workflow animation panel to be collapsed by default in both source and saved HTML output.
-- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from all embedded PNG figures plus the first frames of both embedded GIFs and visually checked that the artifact-level media decode cleanly without obvious clipping, blank renders, or broken embeds.
+- Re-audited the attached notebook itself instead of assuming the earlier polished artifact was still present in the workspace.
+- Confirmed that the attachment still showed publication issues in the saved artifact: raw dataframe tables in multiple sections, one inline GIF panel expanded by default, outdated provenance wording, the weaker 2017 solvent reference, and stale narrative text that no longer matched the fitted solvent ordering.
+- Built `/workspace/patch_publication_notebook.py` as a repeatable repair script for this run.
+- Generated a new polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Converted the saved environment, summary, QC, bootstrap, benchmark, validation, sensitivity, and consistency outputs into captioned publication-style HTML tables with overflow-safe wrappers.
+- Corrected the narrative/source mismatch around solvent ordering and literature comparison:
+  - the notebook had implied that acetone was the fastest solvent even though the fitted ranking shows acetonitrile is fastest overall;
+  - the notebook had implied that the acetone result lay below literature even though it is better described as close to the literature benchmark for this teaching-data context.
+- Replaced the weaker 2017 citation with the 1987 Kobayashi, Yokoyama and Kamei *Chemical Physics Letters* paper and aligned the surrounding discussion wording.
+- Tightened provenance wording in the front matter, configuration note, and reproducibility appendix so the reduced review package is not mistaken for a full rerunnable submission bundle.
+- Updated the workflow-animation source and saved HTML so the laboratory workflow panel is collapsed by default.
+- Extended the consistency-check source wording and saved output presentation to cover GIF assets alongside PNG figures.
+- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the eight saved figure outputs and two inline GIF first frames, confirming that all ten embedded visuals decode successfully without obvious media corruption.
+- Ran a syntax parse across all code cells in the polished notebook and fixed the publication-table source edits until the notebook source parsed cleanly.
 
 ## 2026-05-18 artifact-and-output publication repair pass
 
