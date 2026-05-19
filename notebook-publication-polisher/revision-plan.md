@@ -10,7 +10,7 @@
 - [x] Correct the solvent-order wording so the notebook explicitly states that acetonitrile is fastest overall.
 - [x] Strengthen provenance wording so the archived five-solvent execution is not confused with the reduced attached review bundle.
 - [x] Replace the weaker solvent-effects citation with the 1987 *Chemical Physics Letters* paper and align the reference list.
-- [x] Collapse the laboratory workflow animation by default and extend the consistency-check presentation to cover GIF media.
+- [x] Collapse the inline extras by default and extend the consistency-check presentation to cover GIF media.
 - [x] Generate and inspect a visual audit contact sheet for the saved figure and GIF set.
 - [ ] Replace the stale attached notebook package with the rebuilt polished notebook if the final submission route allows overwriting the source artifact.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
