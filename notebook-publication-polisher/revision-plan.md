@@ -16,6 +16,7 @@
 - [x] Restyle saved dataframe outputs into captioned publication tables inside the rebuilt notebook.
 - [x] Remove the open-by-default state from the second inline animation panel and treat GIF media as audited outputs.
 - [x] Verify that the rebuilt artifact no longer contains the old citation, raw dataframe HTML, stale rerun wording or an open default extra panel.
+- [x] Refresh the GIF audit so the contact sheet captures informative animation frames rather than nearly blank opening frames.
 - [ ] Replace the stale attached notebook package with the rebuilt polished notebook if the final submission route allows overwriting the source artifact.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
 - [ ] Perform one final browser-style render audit of the regenerated notebook after that rerun.
