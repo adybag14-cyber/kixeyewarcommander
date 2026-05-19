@@ -3,13 +3,14 @@
 ## 2026-05-19 attached-notebook repair and visual polish pass
 
 - Reopened the actual attached notebook rather than relying on the previous memory summary and confirmed that the attachment still contained publication defects.
-- Found that several saved outputs still rendered as raw pandas tables, the workflow GIF opened by default, the provenance wording still implied easier rerunnability than the reduced review package supports, and the reference list still contained the weaker 2017 solvent-effects citation.
+- Found that several saved outputs still rendered as raw pandas tables, both expandable extras opened by default, the provenance wording still implied easier rerunnability than the reduced review package supports, one post-lab explanation still contradicted the notebook’s own solvent ranking, and the reference list still contained the weaker 2017 solvent-effects citation.
 - Wrote `/workspace/repair_publication_notebook.py` to convert the attached notebook into a publication-ready artifact reproducibly.
 - Generated `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 - Restyled the dependency table, kinetic summary, QC, bootstrap, benchmark, independent-validation, fit-window-sensitivity and consistency-check outputs into captioned publication tables with overflow-safe wrappers.
-- Updated the title, introduction, configuration, conclusion and reproducibility appendix so the notebook is explicit about the complete executed five-solvent run versus a reduced review bundle that may not rerun every saved output.
+- Updated the configuration and reproducibility appendix so the notebook is explicit about the difference between the archived executed notebook and the reduced review bundle available in this workspace.
+- Corrected the solvent-interpretation text so the narrative now matches the accepted rate order: acetonitrile is fastest overall, with acetone close behind.
 - Replaced reference 5 with the 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei and aligned the narrative wording around solvent-sensitive push-pull azobenzene recovery.
-- Collapsed the laboratory workflow GIF by default and expanded the consistency-check presentation to treat the two inline GIFs as audited notebook media alongside the eight embedded PNG figures.
+- Collapsed the inline extras by default and expanded the consistency-check presentation to treat the two inline GIFs as audited notebook media alongside the eight embedded PNG figures.
 - Decoded and inspected all ten embedded visuals through the regenerated contact sheet; no obvious broken-image, overlap or clipping defects were found in the stored media.
 
 ## Open risk
