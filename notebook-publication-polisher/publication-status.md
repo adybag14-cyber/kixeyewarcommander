@@ -2,12 +2,13 @@
 
 ## Current assessment
 
-- Date: `2026-05-19`
+- Date: 2026-05-19
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
+- Media audit log: `/workspace/output/P201_201698955_media_audit.json`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
 - Publication-readiness estimate: the notebook is now strong as a publication-ready reading artifact and rubric-facing submission notebook, but the supplied package is still not a fully reproducible archive from the files available in this workspace alone.
-- Confidence note: the polished notebook was regenerated in this run from the attached source, so the current deliverable now exists on disk again rather than being referenced only in older notes. The highest-impact attachment defects have been addressed: raw dataframe dumps were replaced with captioned publication tables, the second inline animation is collapsed by default, the solvent-order interpretation is explicit and internally consistent, the literature support is stronger, and the provenance wording no longer overstates rerunnability of a reduced review bundle.
+- Confidence note: the polished notebook was regenerated in this run from the attached source, so the current deliverable now exists on disk rather than being referenced only in earlier notes. The highest-impact attachment defects have been addressed: raw dataframe dumps were replaced with captioned publication tables, the second inline animation is collapsed by default, the solvent-order interpretation is internally consistent, the literature support is stronger, and the provenance wording no longer overstates rerunnability of the reduced review bundle.
 
 ## Highest-impact improvements in this run
 
