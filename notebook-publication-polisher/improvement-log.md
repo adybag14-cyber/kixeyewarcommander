@@ -1,5 +1,13 @@
 # Improvement Log
 
+## 2026-05-19 final rebuild verification and persistence sync
+
+- Confirmed again that the attached source notebook was still the stale version and that the rebuilt polished notebook had to be regenerated in the current workspace.
+- Recreated `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the attached notebook using `/workspace/repair_publication_notebook.py`.
+- Fixed the remaining source-level `open` state in the second GIF code cell so a future rerun will keep both extras collapsed by default instead of only correcting the saved output.
+- Refreshed the visual audit workflow so the contact sheet selects informative GIF frames rather than nearly blank opening frames, making the two inline animations genuinely inspectable during review.
+- Synced the updated status, rubric and revision notes into both the memory folder and the GitHub persistence folder `notebook-publication-polisher/`.
+
 ## 2026-05-19 publication-polish rebuild and audit pass
 
 - Reopened the attached notebook package and confirmed that the source notebook still contained stale publication issues despite earlier saved notes.
