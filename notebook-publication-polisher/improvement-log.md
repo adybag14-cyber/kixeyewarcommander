@@ -5,21 +5,12 @@
 - Reopened the attached notebook package, rubric guidance and saved status files, then verified the actual notebook JSON rather than assuming the earlier polished artifact was still present in this workspace.
 - Confirmed that the attached source notebook still contained publication defects: the weaker 2017 solvent-effects citation, over-strong rerun wording for a reduced local bundle, raw dataframe-style saved outputs, and the second inline animation panel opening by default.
 - Recreated `/workspace/repair_publication_notebook.py` as a repeatable notebook-repair workflow and used it to generate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Restyled nine saved dataframe outputs into captioned publication tables with overflow-safe wrappers and cleaner report framing.
+- Restyled eight saved dataframe outputs into captioned publication tables with overflow-safe wrappers and cleaner report framing.
 - Corrected the discussion and post-lab solvent wording so the notebook consistently states that acetonitrile is fastest overall, with acetone close behind.
-- Rewrote the front matter, configuration note, consistency-check framing and reproducibility appendix so the attached package is described honestly as a reduced review bundle rather than a complete rerun archive.
+- Rewrote the reproducibility appendix and related provenance wording so the attached package is described honestly as a reduced review bundle rather than a complete rerun archive.
 - Replaced reference 5 with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
 - Removed the open-by-default state from the second inline GIF panel.
 - Decoded all eight embedded PNG figures and both inline GIF extras, then regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; no obvious clipping, overlap or broken-media defect was observed in the stored visuals.
-
-## 2026-05-20 attached-source alignment pass
-
-- Rechecked the attached notebook itself against the saved status notes and confirmed there was still a mismatch between the prior notes and the actual source artifact.
-- Fixed the remaining contradictory discussion wording that still implied acetone was fastest overall, even though the retained solvent order was already `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Updated the post-lab answers so the timescale example, solvent-order explanation and explicit rate list all align with the final accepted ranking.
-- Restyled the archived dataframe outputs inside the notebook so the saved execution reads as publication tables rather than notebook-default HTML dumps.
-- Tightened the reproducibility wording so the notebook explicitly states that the current local package only contains acetone raw files and therefore should be treated as an archived review artifact until the full five-solvent data tree is restored.
-- Rebuilt the polished notebook and reran the visual extraction workflow, confirming that all ten embedded visuals remained readable after the wording and layout repairs.
 
 ## Open risk
 
