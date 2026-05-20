@@ -7,17 +7,18 @@
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
 - Publication-readiness estimate: strong publication-ready notebook artifact for reading, marking and submission review; still not a fully reproducible package from the attached reduced bundle alone.
-- Confidence note: this run reconciled the real notebook attachment with the previously recorded polished state, repaired the attached notebook in place, recreated the polished output copy, regenerated the contact-sheet audit for all ten inline visuals, and verified that the notebook now contains publication-style saved tables throughout, the corrected 1987 solvent-effects citation, consistent acetonitrile-first interpretation, an honest reproducibility appendix, and both extra GIF panels closed by default.
+- Confidence note: this run verified that the attached notebook still contained several high-impact publication defects, repaired the notebook in place, rebuilt the polished output copy, regenerated the contact-sheet audit for all ten inline visuals, and confirmed that the current notebook now contains publication-style saved tables throughout, the corrected 1987 solvent-effects citation, consistent acetonitrile-first interpretation, an honest reduced-bundle reproducibility appendix, and the second inline GIF panel closed by default.
 
 ## Highest-impact improvements in this run
 
 - Recreated `/workspace/repair_publication_notebook.py` as a repeatable notebook-repair workflow and used it to repair the attached source notebook as well as rebuild `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Restyled every saved dataframe-style output into captioned publication tables with horizontal-overflow protection so the numerical sections read like a finished report rather than a raw notebook dump.
-- Corrected the remaining solvent-interpretation wording so the notebook now consistently reports `Acetonitrile > Acetone > THF > Cyclohexane > Toluene` in both the underlying code cells and the saved rendered discussion/post-lab answers.
-- Rewrote the reproducibility appendix so the reduced local package is described honestly as a review bundle rather than a full rerun archive.
+- Upgraded the notebook source so future reruns in a complete environment will render the package-audit and numerical summary tables with the same publication-style table wrapper rather than plain pandas HTML.
+- Confirmed and preserved the data-linked solvent ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene` in the saved discussion and post-lab answers.
+- Rewrote the reproducibility appendix so the reduced local package is described honestly as a review bundle with acetone-only raw files rather than a complete five-solvent rerun archive.
 - Replaced the weaker 2017 solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
 - Removed the open-by-default state from the second inline GIF panel in both the source cell and the saved rendered output.
-- Decoded and audited all ten embedded visuals and regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; the stored PNG and GIF media appear readable with no obvious clipping, overlap or broken-image defects in the archived outputs.
+- Decoded and audited all ten embedded visuals and regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; the stored PNG and GIF media appear readable with no obvious broken-image defects in the archived outputs, and the new table wrappers remove the most obvious clipping risk from the saved numerical outputs.
 
 ## Remaining blockers
 
