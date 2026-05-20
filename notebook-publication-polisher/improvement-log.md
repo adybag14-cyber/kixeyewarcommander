@@ -10,7 +10,7 @@
 - Converted the saved package-audit, results, quality-control, bootstrap, benchmark, validation and consistency-check outputs into captioned publication tables with horizontal overflow handling.
 - Added reusable publication-table helpers to the notebook source so a future full rerun will preserve the improved report presentation.
 - Rewrote the scope, configuration and reproducibility sections so the reduced local bundle is not misrepresented as a complete rerunnable five-solvent package.
-- Updated the data-discovery error path so missing solvent directories are reported explicitly with a publication-review explanation.
+- Corrected the discussion and post-lab explanation where the archived numerical results had drifted out of sync with the narrative and now restored acetonitrile as the fastest solvent in the written interpretation.
 - Replaced the weaker 2017 solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
 - Removed the open-by-default state from the second inline GIF panel in both the source cell and the saved rendered output.
 - Decoded the notebook’s embedded PNG and GIF media, generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`, and confirmed 10 visual outputs were readable after repair.
