@@ -7,7 +7,7 @@
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
 - Publication-readiness estimate: strong publication-ready notebook artifact for reading, marking and submission review; not yet a fully reproducible package from the reduced attached bundle alone.
-- Confidence note: this run verified that the attached notebook itself still contained stale publication defects, repaired the source notebook directly, rebuilt the polished output copy, and confirmed that the repaired notebook now contains captioned publication tables, corrected provenance wording, the stronger 1987 solvent-effects citation, and both extra GIF panels closed by default.
+- Confidence note: this run verified that the attached notebook itself still contained stale publication defects, repaired the source notebook directly, rebuilt the polished output copy, regenerated the visual audit sheet, and then rechecked the notebook JSON to confirm that the repaired source now contains captioned publication tables, corrected provenance wording, the stronger 1987 solvent-effects citation, and both extra GIF panels closed by default.
 
 ## Highest-impact improvements in this run
 
@@ -19,6 +19,7 @@
 - Replaced the weaker 2017 citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
 - Removed the forced-open state from the second inline animation in both the source cell and the saved rendered HTML output.
 - Regenerated and manually reviewed `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; the eight embedded PNG figures and two inline GIFs appear readable with no obvious clipping, overlap or broken-media defects in the archived outputs.
+- Rechecked the post-repair notebook JSON to confirm that the saved outputs now contain publication-style figure-wrapped tables rather than plain dataframe HTML.
 
 ## Remaining blockers
 
