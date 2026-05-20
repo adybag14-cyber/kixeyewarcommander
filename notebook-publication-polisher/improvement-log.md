@@ -1,5 +1,14 @@
 # Improvement Log
 
+## 2026-05-20 workspace reconstruction and verification pass
+
+- Reopened the attached notebook package, rubric guidance and saved memory files, then confirmed that the polished notebook artifact and contact-sheet audit were not present in the fresh workspace even though the source notebook and prior notes were available.
+- Verified that the attached source notebook still contained the previously identified publication defects: raw dataframe-style saved outputs, the 2017 solvent-effects citation, over-strong reproducibility wording, and the second inline animation expanded by default.
+- Recreated `/workspace/repair_publication_notebook.py` as a repeatable repair workflow that patches the notebook JSON, replaces the stale text, converts saved dataframes into captioned publication tables, and regenerates the embedded-media audit automatically.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached source notebook in the current workspace.
+- Rebuilt `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and visually checked the extracted thumbnails for all eight PNG figures and both inline GIF extras; no obvious clipping, overlap, broken-image or unreadable-label defect was observed in the archived media.
+- Rechecked the rebuilt notebook text to confirm removal of the stale 2017 citation, correction of the acetonitrile-versus-acetone wording, closure of the second extra GIF panel by default, and replacement of the raw saved tables with publication-style HTML tables.
+
 ## 2026-05-20 rebuild-and-verify publication pass
 
 - Reopened the attached notebook package, rubric guidance and saved status files, then verified the actual notebook JSON rather than assuming the earlier polished artifact was still present in this workspace.
