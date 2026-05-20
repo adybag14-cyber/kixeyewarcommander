@@ -12,9 +12,9 @@
 ## Highest-impact improvements in this run
 
 - Recreated `/workspace/repair_publication_notebook.py` in the current workspace and used it to rebuild `/workspace/output/P201_201698955_publication_ready_polished.ipynb` directly from the attached source notebook.
-- Restyled eight saved dataframe-like outputs into captioned publication tables with horizontal-overflow protection so the numerical sections read like a finished report rather than a raw notebook dump.
+- Restyled nine saved dataframe-like outputs into captioned publication tables with horizontal-overflow protection so the numerical sections read like a finished report rather than a raw notebook dump.
 - Corrected the remaining solvent-interpretation wording so the notebook now consistently reports `Acetonitrile > Acetone > THF > Cyclohexane > Toluene` in both the underlying code cells and the saved rendered discussion/post-lab answers.
-- Rewrote the reproducibility appendix so the reduced local package is described honestly as a review bundle rather than a full rerun archive.
+- Rewrote the configuration and reproducibility sections so the reduced local package is described honestly as a review bundle rather than a full rerun archive.
 - Replaced the weaker 2017 solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
 - Removed the open-by-default state from the second inline GIF panel.
 - Decoded and audited all ten embedded visuals and regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; the stored PNG and GIF media appear readable with no obvious clipping, overlap or broken-image defects in the archived outputs.
