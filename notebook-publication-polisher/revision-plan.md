@@ -15,7 +15,7 @@
 - [x] Confirm which previously noted defects still remained in the actual attachment.
 - [x] Rebuild the repeatable notebook-repair script at `/workspace/repair_publication_notebook.py`.
 - [x] Generate the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- [x] Convert saved dataframe-style outputs into captioned publication tables.
+- [x] Convert all saved dataframe-style outputs into captioned publication tables.
 - [x] Upgrade the notebook source so reruns generate publication-style HTML tables instead of raw dataframe output.
 - [x] Correct the solvent-order wording so the notebook consistently states that acetonitrile is fastest overall.
 - [x] Strengthen provenance and reproducibility wording so the reduced bundle is not described as a full rerun archive.
