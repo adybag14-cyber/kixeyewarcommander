@@ -4,7 +4,7 @@
 
 - Reopened the attached notebook package, rubric guidance and saved status files, then verified the actual notebook JSON rather than assuming the earlier polished artifact was still present in this workspace.
 - Confirmed that the attached source notebook still contained publication defects: the weaker 2017 solvent-effects citation, over-strong rerun wording for a reduced local bundle, raw dataframe-style saved outputs, a solvent-order contradiction in the discussion and post-lab narrative, and the second inline animation panel opening by default.
-- Recreated `/workspace/repair_publication_notebook.py` as a repeatable notebook-repair workflow and used it to generate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Recreated `/workspace/repair_publication_notebook.py` as a repeatable notebook-repair workflow and used it to repair the attached notebook in place and regenerate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Upgraded the notebook source so `report_table(...)` now produces publication-style HTML tables on rerun instead of raw pandas dataframe dumps.
 - Restyled all nine saved dataframe outputs into captioned publication tables with overflow-safe wrappers and cleaner report framing, including the benchmark and consistency-check sections.
 - Corrected the discussion and post-lab solvent wording so both the code cells and saved markdown outputs consistently state that acetonitrile is fastest overall, with acetone close behind.
@@ -16,7 +16,7 @@
 
 ## Open risk
 
-- The rebuilt notebook is now a strong publication artifact, but the original attached notebook file itself still remains stale unless the polished output replaces it in the final submission path.
+- The rebuilt notebook is now a strong publication artifact and the attached notebook file has been repaired in place, but the package is still not fully reproducible from the reduced local raw-data bundle alone.
 - Full reproducibility still cannot be demonstrated from the currently attached raw-data bundle because only acetone raw files are available locally while the archived execution reflects a five-solvent analysis.
 - The current container does not provide the full notebook execution stack required for a fresh rerun here.
 - Final confidence still depends on one real rerun with the complete five-solvent raw-data archive and one final browser-style notebook render pass.
