@@ -12,6 +12,7 @@
 - [x] Replace the weaker 2017 solvent-effects citation with the 1987 *Chemical Physics Letters* paper and align the notebook wording.
 - [x] Collapse the second inline animation by default.
 - [x] Generate and inspect a visual audit contact sheet covering the eight embedded PNG figures and both inline GIF extras.
+- [x] Verify that the rebuilt notebook source and saved outputs now match on solvent interpretation, literature support and layout framing.
 - [ ] Replace the stale attached notebook package with the rebuilt polished notebook if the final submission route allows overwriting the source artifact.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
 - [ ] Perform one final browser-style render audit of the regenerated notebook after that rerun.
