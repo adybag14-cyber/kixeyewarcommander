@@ -5,17 +5,17 @@
 - Date: 2026-05-20
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding` for the notebook artifact under the attached rubric, with the main remaining risk now concentrated in portability and reproducibility of the supplied package rather than the quality of the notebook’s reasoning or presentation.
-- Main uncertainty: the polished notebook reads like a professional final artifact, the stored visuals audit cleanly and the saved tables are publication-ready, but the reduced attached data bundle still does not support a genuine five-solvent rerun and this container cannot perform a full notebook-browser render check.
+- Main uncertainty: the polished notebook reads like a professional final artifact, the stored visuals audit cleanly, the saved tables are publication-ready and the solvent-order contradictions have been removed, but the reduced attached data bundle still does not support a genuine five-solvent rerun and this container cannot perform a full notebook-browser render check.
 
 ## Criterion status
 
 - Post-labs: very strong. The answers are data-linked, chemically grounded and corrected so the solvent-order interpretation now matches the fitted ranking everywhere inspected.
-- Data analysis + plotting: very strong. The saved figures and both embedded GIF extras decode cleanly, eight saved numerical outputs now render as captioned publication tables rather than raw notebook dumps, and the notebook includes explicit validation and sensitivity checks.
-- Experimental write-up: very strong. The notebook explains the experiment, first-order analysis route, solvent interpretation, validation logic and limitations clearly while using stronger provenance wording and a better-matched literature source.
+- Data analysis + plotting: very strong. The saved figures and both embedded GIF extras decode cleanly, nine saved numerical outputs now render as captioned publication tables rather than raw notebook dumps, and the notebook includes explicit validation and sensitivity checks.
+- Experimental write-up: very strong. The notebook explains the experiment, first-order analysis route, solvent interpretation, validation logic and limitations clearly while using stronger provenance wording, a corrected solvent-order discussion and a better-matched literature source.
 - Originality and elegance of code: strong to very strong. The notebook remains modular and function-based, and this pass added a repeatable publication-repair workflow rather than relying on ad hoc manual notebook edits.
 - Portability of code: moderate to strong. The notebook now describes the reduced-bundle limitation honestly and keeps the saved outputs readable, but full portability still cannot be demonstrated until the complete five-solvent raw-data tree is restored and rerun successfully in the intended environment.
 - Commenting, documentation and explanation of code: strong. The code remains well documented, and the publication-facing explanation around validation, quality control, provenance and media auditing is clearer than before.
-- Markdown, LaTeX, HTML and formatting: very strong. The notebook now combines polished markdown, LaTeX, inline HTML, captioned publication tables, collapsible extras, consistent figure presentation and GIF-aware output auditing without the earlier raw-dataframe look.
+- Markdown, LaTeX, HTML and formatting: very strong. The notebook now combines polished markdown, LaTeX, inline HTML, captioned publication tables, collapsible extras, consistent figure presentation and GIF-aware output auditing without the earlier raw-dataframe look or the forced-open second animation panel.
 
 ## Remaining gap to full confidence
 
@@ -23,7 +23,3 @@
 - Replace the stale attached notebook file with the rebuilt polished notebook if the submission route expects a single corrected notebook artifact rather than a separate deliverable file.
 - Repeat the visual audit after that rerun to confirm that regenerated figures, GIFs and publication tables remain clean.
 - Perform one final browser-style notebook render check before submission if possible.
-
-## Additional note from this run
-
-- The current workspace now contains the rebuilt polished notebook and the regenerated visual-audit contact sheet again, so the strongest deliverable cited above is present and directly inspectable rather than only described in memory.
