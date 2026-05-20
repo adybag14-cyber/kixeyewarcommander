@@ -11,6 +11,7 @@
 - Replaced reference 5 with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
 - Removed the open-by-default state from the second inline GIF panel in both the generating code and the saved rendered HTML output.
 - Decoded all eight embedded PNG figures and both inline GIF extras, regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`, and manually checked the contact sheet for obvious clipping, overlap or broken-image defects.
+- Reran the repair workflow after a small script cleanup pass and revalidated the notebook JSON so the repaired state is confirmed in both source code and archived outputs.
 - Resynchronised the saved publication notes with the repaired notebook state so future runs do not inherit the stale assumption that these repairs had already been applied to the attachment.
 
 ## Open risk
