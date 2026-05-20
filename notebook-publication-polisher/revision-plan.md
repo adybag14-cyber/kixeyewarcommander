@@ -18,7 +18,7 @@
 - [x] Convert saved dataframe-style outputs into captioned publication tables.
 - [x] Correct the solvent-order wording so the notebook consistently states that acetonitrile is fastest overall.
 - [x] Strengthen provenance and reproducibility wording so the reduced bundle is not described as a full rerun archive.
-- [x] Replace the weaker 2017 solvent-effects citation with the 1987 *Chemical Physics Letters* paper and align the notebook wording.
+- [x] Replace the weaker 2017 *Journal of Thermodynamics & Catalysis* citation with the 1987 *Chemical Physics Letters* paper and align the notebook wording.
 - [x] Collapse the second inline animation by default.
 - [x] Generate and inspect a visual audit contact sheet covering the eight embedded PNG figures and both inline GIF extras.
 - [ ] Replace the stale attached notebook package with the rebuilt polished notebook if the final submission route allows overwriting the source artifact.
