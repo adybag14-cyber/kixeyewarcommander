@@ -23,3 +23,7 @@
 - Replace the stale attached notebook file with the rebuilt polished notebook if the submission route expects a single corrected notebook artifact rather than a separate deliverable file.
 - Repeat the visual audit after that rerun to confirm that regenerated figures, GIFs and publication tables remain clean.
 - Perform one final browser-style notebook render check before submission if possible.
+
+## Additional note from this run
+
+- The current workspace now contains the rebuilt polished notebook and the regenerated visual-audit contact sheet again, so the strongest deliverable cited above is present and directly inspectable rather than only described in memory.
