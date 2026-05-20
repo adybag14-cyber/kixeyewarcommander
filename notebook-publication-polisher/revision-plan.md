@@ -13,7 +13,7 @@
 
 - [x] Reinspect the attached notebook package, rubric guidance and saved progress files directly.
 - [x] Confirm which previously noted defects still remained in the actual attachment.
-- [x] Rebuild the repeatable notebook-repair script at `/workspace/repair_publication_notebook.py`.
+- [x] Build the repeatable notebook-repair script at `/workspace/polish_notebook_package.py`.
 - [x] Repair the attached notebook itself so the source artifact matches the polished state.
 - [x] Generate the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - [x] Convert all saved dataframe-style outputs into captioned publication tables.
@@ -23,7 +23,5 @@
 - [x] Replace the weaker 2017 solvent-effects citation with the 1987 *Chemical Physics Letters* paper and align the notebook wording.
 - [x] Collapse the second inline animation by default.
 - [x] Generate and inspect a visual audit contact sheet covering the eight embedded PNG figures and both inline GIF extras.
-- [x] Confirm and record that the attached local `Data/` tree still contains only acetone raw files.
-- [x] Record the current environment blocker that prevents a fresh notebook rerun in this container.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
 - [ ] Perform one final browser-style render audit of the regenerated notebook after that rerun.
