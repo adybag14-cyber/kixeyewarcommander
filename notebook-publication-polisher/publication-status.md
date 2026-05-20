@@ -6,19 +6,19 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
-- Publication-readiness estimate: strong publication-ready notebook artifact for reading, marking and submission review; still not a fully reproducible package from the attached reduced bundle alone.
-- Confidence note: this run repaired the attached notebook in place, recreated the polished output copy, regenerated the contact-sheet audit for all ten inline visuals, and verified that the notebook now contains publication-style saved tables throughout, a rerun-safe publication-table renderer in the source code, the corrected 1987 solvent-effects citation, consistent acetonitrile-first interpretation, an honest reproducibility appendix, and both extra GIF panels closed by default.
+- Publication-readiness estimate: strong publication-ready notebook artifact for reading, marking and submission review; not yet a fully reproducible package from the reduced attached bundle alone.
+- Confidence note: this run verified that the attached notebook itself still contained stale publication defects, repaired the source notebook directly, rebuilt the polished output copy, and confirmed that the repaired notebook now contains captioned publication tables, corrected provenance wording, the stronger 1987 solvent-effects citation, and both extra GIF panels closed by default.
 
 ## Highest-impact improvements in this run
 
-- Recreated `/workspace/repair_publication_notebook.py` as a repeatable notebook-repair workflow and used it to repair the attached source notebook as well as rebuild `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Restyled every saved dataframe-style output into captioned publication tables with horizontal-overflow protection so the numerical sections read like a finished report rather than a raw notebook dump.
-- Aligned the notebook source with the saved outputs by adding a reusable HTML table renderer and captioned `report_table(...)` calls, so future reruns keep the same publication-style table presentation.
-- Corrected the remaining solvent-interpretation wording so the notebook now consistently reports `Acetonitrile > Acetone > THF > Cyclohexane > Toluene` in both the underlying code cells and the saved rendered discussion/post-lab answers.
-- Rewrote the reproducibility appendix so the reduced local package is described honestly as a review bundle rather than a full rerun archive.
-- Replaced the weaker 2017 solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
-- Removed the open-by-default state from the second inline GIF panel in both the source cell and the saved rendered output.
-- Decoded and audited all ten embedded visuals and regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; the stored PNG and GIF media appear readable with no obvious clipping, overlap or broken-image defects in the archived outputs.
+- Reinspected the attached notebook JSON rather than relying on earlier notes and found four real publication blockers still present: raw dataframe-style saved tables, an outdated 2017 solvent-effects citation, over-strong reproducibility wording, and the second GIF panel opening by default.
+- Rebuilt `/workspace/repair_publication_notebook.py` as a repeatable repair workflow and used it to repair the attached source notebook as well as regenerate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Converted the saved package-audit, results, benchmark, validation and consistency-check outputs into captioned, scroll-safe publication tables so the executed notebook reads like a professional report instead of a raw working notebook.
+- Updated the notebook source so reruns display the same publication-style HTML tables through `report_table(...)` rather than falling back to default dataframe rendering.
+- Rewrote the title-page scope statement, configuration note and reproducibility appendix so the reduced local bundle is described honestly as a review package that still needs the full five-solvent raw-data tree for a genuine end-to-end rerun.
+- Replaced the weaker 2017 citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
+- Removed the forced-open state from the second inline animation in both the source cell and the saved rendered HTML output.
+- Regenerated and manually reviewed `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; the eight embedded PNG figures and two inline GIFs appear readable with no obvious clipping, overlap or broken-media defects in the archived outputs.
 
 ## Remaining blockers
 
