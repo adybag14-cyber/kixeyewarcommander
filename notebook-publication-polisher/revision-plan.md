@@ -2,7 +2,7 @@
 
 ## 2026-05-20 publication repair pass
 
-- Rebuild a polished notebook copy from the attached source rather than editing the uploaded original in place.
+- Repair the attached source notebook and also emit a polished notebook copy for delivery.
 - Correct the remaining discussion and post-lab wording so all ranked-rate language matches the saved numerical results.
 - Replace raw dataframe-style saved outputs with captioned, scroll-safe publication tables.
 - Downgrade over-strong reproducibility claims to match the reduced attached data bundle.
