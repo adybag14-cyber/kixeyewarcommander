@@ -9,7 +9,7 @@
 - Replace the weaker solvent-effects citation with the better-matched 1987 *Chemical Physics Letters* paper.
 - Recheck all embedded PNG and GIF outputs, regenerate the contact-sheet audit, and make sure the extra panels do not open by default.
 
-## Current state after the 2026-05-20 pass
+## Current state after the 2026-05-20 source-repair pass
 
 - [x] Reinspect the attached notebook package, rubric guidance and saved progress files directly.
 - [x] Confirm which previously recorded fixes had not actually been applied to the current attachment.
@@ -23,5 +23,6 @@
 - [x] Collapse the second inline animation by default.
 - [x] Generate and inspect a visual audit contact sheet covering the eight embedded PNG figures and both inline GIF extras.
 - [x] Resync the memory notes so they describe the repaired notebook state rather than the stale pre-repair assumption.
+- [x] Confirm from the attached directory tree that the local raw-data package is reduced to acetone only.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
 - [ ] Perform one final browser-style render audit of the regenerated notebook after that rerun.
