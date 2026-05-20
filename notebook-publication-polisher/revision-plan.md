@@ -13,7 +13,7 @@
 
 - [x] Reinspect the attached notebook package, rubric guidance and saved progress files directly.
 - [x] Confirm which previously noted defects still remained in the actual attachment.
-- [x] Build the repeatable notebook-repair script at `/workspace/polish_notebook_package.py`.
+- [x] Rebuild the repeatable notebook-repair script at `/workspace/repair_publication_notebook.py`.
 - [x] Repair the attached notebook itself so the source artifact matches the polished state.
 - [x] Generate the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - [x] Convert all saved dataframe-style outputs into captioned publication tables.
