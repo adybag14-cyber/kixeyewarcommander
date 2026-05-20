@@ -1,6 +1,6 @@
 # Revision Plan
 
-## Current state after 2026-05-19 artifact-verified publication polish pass
+## Current state after 2026-05-20 rebuild-and-verify publication pass
 
 - [x] Reinspect the attached notebook, rubric guidance and saved progress files directly.
 - [x] Confirm which previously noted defects still remained in the actual attachment.
@@ -16,6 +16,8 @@
 - [x] Restyle saved dataframe outputs into captioned publication tables inside the rebuilt notebook.
 - [x] Remove the open-by-default state from the second inline animation panel and treat GIF media as audited outputs.
 - [x] Verify that the rebuilt artifact no longer contains the old citation, raw dataframe HTML, stale rerun wording or an open default extra panel.
+- [x] Rebuild the polished notebook again in the current workspace and regenerate the 10-visual contact-sheet audit.
+- [x] Rewrite the introduction, configuration note, consistency-check framing and reproducibility appendix so the reduced local bundle is described honestly.
 - [ ] Replace the stale attached notebook package with the rebuilt polished notebook if the final submission route allows overwriting the source artifact.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
 - [ ] Perform one final browser-style render audit of the regenerated notebook after that rerun.
