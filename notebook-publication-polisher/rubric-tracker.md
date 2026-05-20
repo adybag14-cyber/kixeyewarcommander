@@ -10,7 +10,7 @@
 ## Criterion status
 
 - Post-labs: very strong. The answers are data-linked, chemically grounded and corrected so the solvent-order interpretation now matches the fitted ranking everywhere inspected.
-- Data analysis + plotting: very strong. The saved figures and both embedded GIF extras decode cleanly, eight saved numerical outputs now render as captioned publication tables rather than raw notebook dumps, and the notebook includes explicit validation and sensitivity checks.
+- Data analysis + plotting: very strong. The saved figures and both embedded GIF extras decode cleanly, nine saved numerical outputs now render as captioned publication tables rather than raw notebook dumps, and the notebook includes explicit validation and sensitivity checks.
 - Experimental write-up: very strong. The notebook explains the experiment, first-order analysis route, solvent interpretation, validation logic and limitations clearly while using stronger provenance wording and a better-matched literature source.
 - Originality and elegance of code: strong to very strong. The notebook remains modular and function-based, and this pass added a repeatable publication-repair workflow rather than relying on ad hoc manual notebook edits.
 - Portability of code: moderate to strong. The notebook now describes the reduced-bundle limitation honestly and keeps the saved outputs readable, but full portability still cannot be demonstrated until the complete five-solvent raw-data tree is restored and rerun successfully in the intended environment.
