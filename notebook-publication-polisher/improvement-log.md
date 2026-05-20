@@ -5,14 +5,14 @@
 - Reopened the attached notebook package, rubric guidance and saved status files, then verified the actual notebook JSON rather than assuming the earlier polished artifact was still present in this workspace.
 - Confirmed that the attached source notebook still contained publication defects: the weaker 2017 solvent-effects citation, over-strong rerun wording for a reduced local bundle, raw dataframe-style saved outputs, a solvent-order contradiction in the discussion and post-lab narrative, and the second inline animation panel opening by default.
 - Recreated `/workspace/repair_publication_notebook.py` as a repeatable notebook-repair workflow and used it to generate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Upgraded the notebook source so `report_table(...)` now produces publication-style HTML tables on rerun instead of raw pandas dataframe dumps.
-- Restyled nine saved dataframe outputs into captioned publication tables with overflow-safe wrappers and cleaner report framing.
+- Upgraded the notebook source so `report_table(...)` now renders publication-style HTML tables with captions and overflow-safe wrappers on rerun instead of raw pandas dataframe dumps.
+- Restyled the saved numerical outputs into captioned publication tables with cleaner report framing.
 - Corrected the discussion and post-lab solvent wording so both the code cells and saved markdown outputs consistently state that acetonitrile is fastest overall, with acetone close behind.
 - Rewrote the reproducibility appendix and related provenance wording so the attached package is described honestly as a reduced review bundle rather than a complete rerun archive.
 - Replaced reference 5 with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
 - Removed the open-by-default state from the second inline GIF panel in both the generating code and the saved rendered HTML output.
 - Decoded all eight embedded PNG figures and both inline GIF extras, then regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; no obvious clipping, overlap or broken-media defect was observed in the stored visuals.
-- Tidied the contact-sheet labeling so the eight figures and two extra GIFs are numbered cleanly for future review.
+- Improved the visual audit itself by sampling informative mid-animation GIF frames rather than blank opening frames.
 
 ## Open risk
 
