@@ -23,5 +23,6 @@
 - [x] Replace the weaker 2017 solvent-effects citation with the 1987 *Chemical Physics Letters* paper and align the notebook wording.
 - [x] Collapse the second inline animation by default.
 - [x] Generate and inspect a visual audit contact sheet covering the eight embedded PNG figures and both inline GIF extras.
+- [x] Resync the memory notes so they describe the repaired notebook state rather than the stale pre-repair assumptions.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
 - [ ] Perform one final browser-style render audit of the regenerated notebook after that rerun.
