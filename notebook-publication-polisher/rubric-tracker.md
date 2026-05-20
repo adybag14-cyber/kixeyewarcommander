@@ -5,7 +5,7 @@
 - Date: 2026-05-20
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding` for the notebook artifact under the attached rubric, with the main remaining risk concentrated in reproducibility and package completeness rather than the quality of the notebook’s scientific explanation or presentation.
-- Main uncertainty: the repaired notebook now reads like a professional final artifact, the stored visuals audit cleanly, the saved numerical outputs are captioned publication tables, and the provenance wording is now honest, but the reduced attached data bundle still does not support a genuine five-solvent rerun and this container cannot perform a full browser-style notebook render check.
+- Main uncertainty: the repaired notebook now reads like a professional final artifact, the stored visuals audit cleanly, the saved numerical outputs are captioned publication tables, the weaker solvent-effects citation has been replaced with the better-matched 1987 paper, and the provenance wording is now honest, but the reduced attached data bundle still does not support a genuine five-solvent rerun and this container cannot perform a full browser-style notebook render check.
 
 ## Criterion status
 
