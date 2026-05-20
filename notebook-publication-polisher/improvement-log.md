@@ -6,11 +6,12 @@
 - Confirmed that the attached source notebook still contained publication defects: the weaker 2017 solvent-effects citation, over-strong rerun wording for a reduced local bundle, raw dataframe-style saved outputs, and the second inline animation panel opening by default.
 - Recreated `/workspace/repair_publication_notebook.py` as a repeatable notebook-repair workflow and used it to generate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Restyled eight saved dataframe outputs into captioned publication tables with overflow-safe wrappers and cleaner report framing.
-- Corrected the discussion and post-lab solvent wording so the notebook consistently states that acetonitrile is fastest overall, with acetone close behind.
+- Corrected the discussion and post-lab solvent wording so both the code cells and saved markdown outputs consistently state that acetonitrile is fastest overall, with acetone close behind.
 - Rewrote the reproducibility appendix and related provenance wording so the attached package is described honestly as a reduced review bundle rather than a complete rerun archive.
 - Replaced reference 5 with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
 - Removed the open-by-default state from the second inline GIF panel.
 - Decoded all eight embedded PNG figures and both inline GIF extras, then regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; no obvious clipping, overlap or broken-media defect was observed in the stored visuals.
+- Tidied the contact-sheet labeling so the eight figures and two extra GIFs are numbered cleanly for future review.
 
 ## Open risk
 
