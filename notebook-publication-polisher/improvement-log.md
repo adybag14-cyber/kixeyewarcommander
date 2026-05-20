@@ -1,9 +1,21 @@
 # Improvement Log
 
+## 2026-05-20 repair-and-resync publication pass
+
+- Reopened the attached notebook package, rubric guidance and saved status files, then checked the actual notebook JSON and saved outputs against the prior notes instead of assuming the notebook was already in the repaired state.
+- Found that the attachment still contained several high-impact defects the earlier notes said were fixed: raw dataframe-style saved outputs, the older 2017 solvent-effects reference, over-strong reproducibility wording for the reduced bundle, and the second inline GIF panel still open by default.
+- Recreated `/workspace/repair_publication_notebook.py` as a repeatable notebook-repair workflow and used it to repair the attached notebook in place and regenerate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Restyled all nine saved dataframe outputs into captioned publication tables with overflow-safe wrappers and clearer journal-style framing.
+- Updated the notebook source so future reruns in a complete notebook environment will display the package audit and numerical summary tables using the same publication-style table wrapper.
+- Rewrote the reproducibility appendix to state plainly that the local review bundle contains acetone raw files only and is not a full five-solvent rerun archive.
+- Replaced reference 5 with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
+- Removed the open-by-default state from the second inline animation in both the generating code and the saved rendered HTML output.
+- Decoded all eight embedded PNG figures and both inline GIF extras, then regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; all ten stored visuals opened successfully.
+
 ## 2026-05-20 rebuild-and-verify publication pass
 
 - Reopened the attached notebook package, rubric guidance and saved status files, then verified the actual notebook JSON rather than assuming the earlier polished artifact was still present in this workspace.
-- Confirmed that the attached source notebook still contained publication defects: the weaker 2017 solvent-effects citation, over-strong rerun wording for a reduced local bundle, raw dataframe-style saved outputs, a solvent-order contradiction in the post-lab narrative, and the second inline animation panel opening by default.
+- Confirmed that the attached source notebook still contained publication defects: the weaker 2017 solvent-effects citation, over-strong rerun wording for a reduced local bundle, raw dataframe-style saved outputs, a solvent-order contradiction in the discussion and post-lab narrative, and the second inline animation panel opening by default.
 - Recreated `/workspace/repair_publication_notebook.py` as a repeatable notebook-repair workflow and used it to repair the attached notebook in place and regenerate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Upgraded the notebook source so `report_table(...)` now produces publication-style HTML tables on rerun instead of raw pandas dataframe dumps.
 - Restyled all nine saved dataframe outputs into captioned publication tables with overflow-safe wrappers and cleaner report framing, including the benchmark and consistency-check sections.
@@ -13,7 +25,6 @@
 - Removed the open-by-default state from the second inline GIF panel in both the generating code and the saved rendered HTML output.
 - Decoded all eight embedded PNG figures and both inline GIF extras, then regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; no obvious clipping, overlap or broken-media defect was observed in the stored visuals.
 - Tidied the contact-sheet labeling so the eight figures and two extra GIFs are numbered cleanly for future review.
-- Verified after repair that the attachment itself, not just the saved progress notes, now contains the updated citation, revised reproducibility wording, closed extra panel and publication-style saved tables.
 
 ## Open risk
 
