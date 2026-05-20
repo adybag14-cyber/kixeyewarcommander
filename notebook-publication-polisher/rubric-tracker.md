@@ -5,7 +5,7 @@
 - Date: 2026-05-20
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding` for the notebook artifact under the attached rubric, with the main remaining risk now concentrated in portability and reproducibility of the supplied package rather than the quality of the notebook’s reasoning or presentation.
-- Main uncertainty: the polished notebook reads like a professional final artifact, the stored visuals audit cleanly, all saved tables are now publication-ready, and the solvent-order contradictions have been removed, but the reduced attached data bundle still does not support a genuine five-solvent rerun and this container cannot perform a full notebook-browser render check.
+- Main uncertainty: the repaired notebook now reads like a professional final artifact, the stored visuals audit cleanly, all saved tables are publication-ready, and the solvent-order contradictions have been removed, but the reduced attached data bundle still does not support a genuine five-solvent rerun and this container cannot perform a full notebook-browser render check.
 
 ## Criterion status
 
@@ -20,6 +20,5 @@
 ## Remaining gap to full confidence
 
 - Restore the complete five-solvent `Data/` tree and rerun the notebook once in the intended execution environment.
-- Replace the stale attached notebook file with the rebuilt polished notebook if the submission route expects a single corrected notebook artifact rather than a separate deliverable file.
 - Repeat the visual audit after that rerun to confirm that regenerated figures, GIFs and publication tables remain clean.
 - Perform one final browser-style notebook render check before submission if possible.
