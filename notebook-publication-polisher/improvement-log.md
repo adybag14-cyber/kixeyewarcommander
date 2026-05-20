@@ -2,6 +2,7 @@
 
 ## 2026-05-20 rebuild-and-verify publication pass
 
+- Confirmed that the attached notebook file itself was still the stale pre-polish version and that the polished output from the earlier run was no longer present in the current workspace.
 - Reopened the attached notebook package, rubric guidance and saved status files, then verified the actual notebook JSON rather than assuming the earlier polished artifact was still present in this workspace.
 - Confirmed that the attached source notebook still contained publication defects: the weaker 2017 solvent-effects citation, over-strong rerun wording for a reduced local bundle, raw dataframe-style saved outputs, and the second inline animation panel opening by default.
 - Recreated `/workspace/repair_publication_notebook.py` as a repeatable notebook-repair workflow and used it to generate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
