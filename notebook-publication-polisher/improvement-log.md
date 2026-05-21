@@ -3,16 +3,16 @@
 ## 2026-05-21 publication-integrity repair pass
 
 - Reopened the attached notebook package instead of trusting the earlier progress notes and confirmed that a few high-impact fixes had still not reached the actual artifact.
-- Found a real saved-output defect: the second inline animation panel was still expanded by default in the executed notebook HTML.
+- Found a real saved-output defect: the expandable animation panels still carried open-by-default state in the executed notebook HTML.
 - Found a second integrity gap: the references cell still contained the weaker 2017 solvent paper even though the notes claimed the 1987 *Chemical Physics Letters* citation had already replaced it.
 - Found a third integrity gap: the saved results discussion and post-lab answers still contained contradictory wording that treated acetone as the fastest solvent despite the archived solvent ranking showing acetonitrile first.
-- Repaired the notebook source and saved outputs together with `/workspace/repair_publication_notebook.py` so future runs can reapply the same integrity fixes deterministically.
-- Upgraded the saved tabular outputs into captioned, scroll-safe publication tables for package audit, rate summary, rejection audit, bootstrap ranks, performance checks, independent validation, fit-window sensitivity and consistency checks.
+- Repaired the notebook source and the saved outputs directly inside the attached notebook so the artifact now matches the durable notes.
+- Confirmed that the saved tabular outputs for package audit, rate summary, rejection audit, bootstrap ranks, performance checks, independent validation, fit-window sensitivity and consistency checks still render as captioned, scroll-safe publication tables.
 - Corrected the configuration and reproducibility wording so the notebook no longer overstates the completeness of the attached raw-data bundle.
 - Replaced reference 5 with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
-- Removed the open-by-default state from the laboratory-workflow GIF panel in both the notebook source and the saved rendered HTML output.
+- Removed the open-by-default state from both inline GIF panels in both the notebook source and the saved rendered HTML output.
 - Generated `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and rebuilt `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the repaired notebook.
-- Rechecked the regenerated contact sheet visually and confirmed that the saved PNG figures and both embedded GIFs appear intact, readable and unclipped at the audit-sheet level.
+- Removed the stale reference to a nonexistent local repair script from the durable progress record so future runs do not rely on tooling that is not actually present.
 
 ## Open risk
 
