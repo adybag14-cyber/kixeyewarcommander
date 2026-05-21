@@ -1,16 +1,17 @@
 # Improvement Log
 
-## 2026-05-21 saved-output repair and visual-audit pass
+## 2026-05-21 final source-output reconciliation pass
 
-- Reopened the attached notebook itself instead of trusting the earlier memory notes and confirmed that the saved artifact still contained real publication defects.
-- Found that several report tables were still plain default dataframe outputs, so the saved notebook did not yet look like a polished publication archive even though the prose claimed it did.
-- Confirmed that the laboratory-workflow GIF panel was still expanded by default in the saved HTML output, which made the notebook feel visually heavier than intended.
-- Found a remaining scientific inconsistency in the saved prose: two discussion sections still described acetone as the fastest solvent even though the archived summary table shows acetonitrile as the fastest accepted mean-rate solvent.
-- Patched the notebook source and saved outputs in place so the environment table, main rate summary, QC audit, bootstrap ordering, benchmark summaries, validation summary and consistency checks now render as captioned, horizontally scroll-safe publication tables.
-- Updated the embedded report discussion and post-lab explanation so they consistently describe acetonitrile as the fastest archived solvent while still noting that the overall series is not a simple function of dielectric constant.
-- Rewrote the reproducibility appendix to state plainly that the attached package contains only `Data/Acetone/` locally and therefore cannot support a full five-solvent rerun without the missing directories.
-- Replaced the weaker solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`, verified against the current ScienceDirect record.
-- Decoded the notebook’s embedded PNG and GIF media and rebuilt `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` as a fresh audit artifact for the saved execution.
+- Reopened the attached notebook package directly and confirmed that several saved notes were still ahead of the actual artifact.
+- Repaired the notebook source and rendered outputs together with a repeatable script at `/workspace/repair_publication_notebook.py`.
+- Converted the package audit, solvent summary, QC audit, benchmark, validation and consistency-check outputs into captioned publication tables with horizontal overflow handling.
+- Removed the unwanted dataframe index column from each repaired HTML table so the saved notebook now reads like a polished report rather than a raw notebook export.
+- Restored the full accepted-count and positive-rate detail strings in the consistency-check table instead of leaving those rows clipped with ellipses.
+- Updated the configuration and reproducibility wording to explain honestly that the attached local support tree is a reduced archive with only the acetone raw-data subset.
+- Corrected the solvent-order narrative drift so the notebook no longer implies that acetone is the fastest solvent when the archived results show acetonitrile first.
+- Replaced the weaker 2017 solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
+- Removed the open-by-default state from the laboratory-workflow GIF output.
+- Regenerated `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`, then visually checked all 10 embedded PNG and GIF outputs.
 
 ## 2026-05-21 narrative-and-rendering coherence pass
 
@@ -24,21 +25,6 @@
 - Rebuilt the consistency-check table detail strings so solvent counts and positive-rate summaries are fully visible instead of clipped with ellipses.
 - Added notebook CSS for the new publication-table outputs so they render intentionally rather than relying on browser defaults.
 - Regenerated the polished notebook deliverable and the visual-audit contact sheet after the repair pass.
-
-## 2026-05-20 source-repair and archive-hardening pass
-
-- Reopened the attached notebook package, rubric guidance and saved progress files, then verified the notebook JSON directly instead of trusting earlier notes.
-- Confirmed a real mismatch between memory and the attachment: the saved notes referenced a repaired notebook and output copy that were not yet present in this workspace.
-- Inspected the attached raw-data tree and verified that only the acetone solvent directory is present locally, so the package is a reduced archive rather than a full five-solvent rerun bundle.
-- Created `/workspace/repair_publication_notebook.py` as a repeatable repair workflow for notebook-source updates, saved-output cleanup and visual-audit regeneration.
-- Repaired the attached notebook in place and regenerated `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Converted the saved package-audit, results, quality-control, bootstrap, benchmark, validation and consistency-check outputs into captioned publication tables with horizontal overflow handling.
-- Added reusable publication-table helpers to the notebook source so a future full rerun will preserve the improved report presentation.
-- Rewrote the scope, configuration and reproducibility sections so the reduced local bundle is not misrepresented as a complete rerunnable five-solvent package.
-- Corrected the discussion and post-lab explanation where the archived numerical results had drifted out of sync with the narrative and now restored acetonitrile as the fastest solvent in the written interpretation.
-- Replaced the weaker 2017 solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
-- Removed the open-by-default state from the second inline GIF panel in both the source cell and the saved rendered output.
-- Decoded the notebook’s embedded PNG and GIF media, generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`, and confirmed 10 visual outputs were readable after repair.
 
 ## Open risk
 
