@@ -16,10 +16,11 @@
 - [x] Build and run `/workspace/repair_publication_notebook.py` to produce a repaired notebook artifact.
 - [x] Generate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - [x] Generate `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- [x] Confirm that both generated deliverables now exist in the workspace and match the saved tracking notes.
 - [x] Repair the notebook wording so the partial local raw-data package is not described as a full rerun bundle.
 - [x] Replace the weaker supporting solvent reference with a stronger primary literature source.
 - [x] Wrap the saved table outputs in captioned, scroll-safe HTML figures.
 - [x] Close the second inline GIF panel by default in the saved notebook output.
-- [x] Verify directly that the targeted saved outputs were updated and that the repaired notebook source compiles successfully.
+- [x] Verify directly that the targeted saved outputs were updated, the figure and GIF assets decode cleanly and the second GIF panel is closed by default.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended environment.
 - [ ] Perform one final post-rerun render audit of regenerated figures, GIFs and tables.
