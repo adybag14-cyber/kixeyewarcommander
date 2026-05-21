@@ -10,7 +10,7 @@
 ## Criterion status
 
 - Post-labs: very strong. The answers are complete, chemically argued and explicitly tied to the fitted results.
-- Data analysis + plotting: very strong. The archive contains a full five-solvent executed analysis, eight verified figures, two verified inline GIF outputs and cleaner captioned table presentation.
+- Data analysis + plotting: very strong. The archive contains a full five-solvent executed analysis, eight verified figures, two verified inline GIF outputs and cleaner captioned table presentation with reduced clipping risk for wide tables.
 - Experimental write-up: very strong. The notebook now states its execution scope honestly and explains the analysis workflow clearly without overselling local reproducibility.
 - Originality and elegance of code: strong to very strong. The notebook remains modular, uses validation and benchmarking thoughtfully and now has a deterministic repair workflow for publication polishing.
 - Portability of code: moderate. Parameters remain centralized and the repaired notebook explains portability boundaries clearly, but a full five-solvent rerun still depends on restoring the missing solvent directories.
