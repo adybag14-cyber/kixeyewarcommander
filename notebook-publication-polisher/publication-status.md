@@ -13,7 +13,7 @@
 
 - Rebuilt the attached notebook into a new polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Corrected the front-matter scope, abstract, configuration note and reproducibility appendix so the notebook no longer implies that the attached local package is a complete five-solvent rerun bundle.
-- Replaced the weaker solvent-effects citation with the better-matched 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei, DOI `10.1016/0009-2614(87)80394-9`.
+- Replaced the weaker solvent-effects citation with a stronger primary literature reference on solvent effects in a related push-pull azobenzene system: Schanze, Mattox and Whitten, *Journal of Organic Chemistry* (1983), DOI `10.1021/jo00165a005`.
 - Converted the saved executed dataframe outputs into captioned publication tables with scroll-safe wrappers to reduce clipping risk in wide notebook views.
 - Closed the laboratory workflow GIF panel by default in both the notebook source and the saved executed output so the long animation no longer dominates the reading flow.
 - Generated a visual audit contact sheet from all embedded PNG figures and the first frame of each inline GIF.
