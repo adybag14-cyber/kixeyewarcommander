@@ -9,7 +9,7 @@
 - Rebuilt the notebook as `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Replaced the executed dataframe outputs in the analysis, benchmark, validation and integrity-check sections with captioned publication tables designed to reduce clipping and horizontal overflow.
 - Corrected the scope wording in the title card, abstract, configuration section, reproducibility appendix and workflow note so the notebook now distinguishes clearly between the saved executed archive and the incomplete attached rerun bundle.
-- Replaced reference 5 with the verified 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
+- Replaced reference 5 with the stronger 1983 *Journal of Organic Chemistry* paper by Schanze, Mattox and Whitten on solvent effects in a related push-pull azobenzene system.
 - Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` after decoding all embedded figures and the first frames of both inline GIFs.
 
 ## Open risk
