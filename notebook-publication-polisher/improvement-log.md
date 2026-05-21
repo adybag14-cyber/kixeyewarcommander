@@ -10,6 +10,7 @@
 - Patched the saved executed outputs directly so the polished deliverable now contains scroll-safe tables, clearer captions and the collapsed workflow animation without needing the missing raw data.
 - Generated `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 - Decoded and visually reviewed all 10 embedded visuals from the notebook outputs: 8 PNG figures and 2 GIF first frames.
+- Verified the stronger literature replacement against the DOI-linked 1987 *Chemical Physics Letters* record for push-pull cis-azobenzene solvent effects.
 
 ## Open risk
 
