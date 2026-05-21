@@ -21,6 +21,6 @@
 - [x] Correct the saved narrative and post-lab answers so acetonitrile remains the fastest solvent in both text and tables.
 - [x] Replace the weaker reference 5 entry with the verified 1987 *Chemical Physics Letters* paper.
 - [x] Update the scope and reproducibility wording so the reduced local package is not described as a full rerun bundle.
-- [x] Collapse both inline animations in the saved executed HTML and in the source that regenerates them.
+- [x] Collapse the second inline animation in the saved executed HTML and in the source that regenerates it.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
 - [ ] Perform one final browser-style render audit of the regenerated notebook after that rerun.
