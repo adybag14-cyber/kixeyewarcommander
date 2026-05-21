@@ -12,6 +12,7 @@
 - Replaced reference 5 with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
 - Removed the open-by-default state from the laboratory-workflow GIF panel in both the notebook source and the saved rendered HTML output.
 - Generated `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and rebuilt `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the repaired notebook.
+- Rechecked the regenerated contact sheet visually and confirmed that the saved PNG figures and both embedded GIFs appear intact, readable and unclipped at the audit-sheet level.
 
 ## Open risk
 
