@@ -1,18 +1,29 @@
 # Improvement Log
 
-## 2026-05-21 notebook/output resynchronisation pass
+## 2026-05-21 saved-output repair and visual-audit pass
 
-- Reopened the attached notebook, rubric guidance and saved progress files and verified that the notebook still contained several stale publication-facing defects despite the stronger notes in memory.
-- Confirmed that the notebook source and its saved outputs were out of sync: raw dataframe renders were still present, one inline animation panel still opened by default, and the solvent-order discussion still contained an acetone/acetonitrile interpretation drift.
-- Created `/workspace/repair_publication_notebook.py` as a repeatable repair workflow that updates notebook text, output HTML, contact-sheet generation and the polished output copy together.
-- Repaired the attached notebook in place and regenerated `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Restyled the saved package-audit, results, rejection-summary, bootstrap-rank, benchmark, validation and consistency-check outputs into captioned publication tables with horizontal overflow handling.
-- Added reusable publication-table helpers to the notebook source so a future full rerun preserves the improved table presentation automatically.
-- Rewrote the configuration and reproducibility wording so the reduced bundle is described honestly as an archived five-solvent execution plus an incomplete local raw-data package.
-- Corrected the discussion and post-lab explanation so they no longer claim acetone is the fastest solvent when the archived result order is acetonitrile > acetone > THF > cyclohexane > toluene.
-- Replaced the weaker 2017 solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
-- Removed the forced-open state from the laboratory-workflow GIF panel in both the source code and the saved rendered HTML output.
-- Rebuilt `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the notebook’s embedded media and confirmed ten decoded visual outputs with no obvious clipping, overlap or broken-image defects.
+- Reopened the attached notebook itself instead of trusting the earlier memory notes and confirmed that the saved artifact still contained real publication defects.
+- Found that several report tables were still plain default dataframe outputs, so the saved notebook did not yet look like a polished publication archive even though the prose claimed it did.
+- Confirmed that the laboratory-workflow GIF panel was still expanded by default in the saved HTML output, which made the notebook feel visually heavier than intended.
+- Found a remaining scientific inconsistency in the saved prose: two discussion sections still described acetone as the fastest solvent even though the archived summary table shows acetonitrile as the fastest accepted mean-rate solvent.
+- Patched the notebook source and saved outputs in place so the environment table, main rate summary, QC audit, bootstrap ordering, benchmark summaries, validation summary and consistency checks now render as captioned, horizontally scroll-safe publication tables.
+- Updated the embedded report discussion and post-lab explanation so they consistently describe acetonitrile as the fastest archived solvent while still noting that the overall series is not a simple function of dielectric constant.
+- Rewrote the reproducibility appendix to state plainly that the attached package contains only `Data/Acetone/` locally and therefore cannot support a full five-solvent rerun without the missing directories.
+- Replaced the weaker solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`, verified against the current ScienceDirect record.
+- Decoded the notebook’s embedded PNG and GIF media and rebuilt `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` as a fresh audit artifact for the saved execution.
+
+## 2026-05-21 narrative-and-rendering coherence pass
+
+- Reopened the repaired notebook itself rather than relying on the previous day’s notes and found that a few saved claims still had not fully landed in the artifact.
+- Confirmed a real saved-output defect: the second inline animation was still expanded by default in the executed HTML even though the intended polished state was collapsed.
+- Verified that the main embedded visuals remained readable by extracting all eight saved PNG figures and both inline GIF outputs into a regenerated contact sheet.
+- Repaired the title-card, configuration and reproducibility wording so the notebook now states clearly that the executed archive preserves five-solvent results while the attached local raw-data tree is reduced.
+- Corrected the results discussion and post-lab answer text where the saved notebook still contradicted its own numerical tables by describing acetone as the fastest solvent.
+- Replaced the weaker 2017 reference entry with the verified Kobayashi, Yokoyama and Kamei 1987 *Chemical Physics Letters* paper on push-pull cis-azobenzene solvent effects.
+- Converted the saved package-audit, summary, quality-control, benchmark, validation and consistency-check outputs into publication-style HTML tables with captions, notes and horizontal overflow handling.
+- Rebuilt the consistency-check table detail strings so solvent counts and positive-rate summaries are fully visible instead of clipped with ellipses.
+- Added notebook CSS for the new publication-table outputs so they render intentionally rather than relying on browser defaults.
+- Regenerated the polished notebook deliverable and the visual-audit contact sheet after the repair pass.
 
 ## 2026-05-20 source-repair and archive-hardening pass
 
