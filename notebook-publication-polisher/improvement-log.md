@@ -10,6 +10,8 @@
 - Repaired the notebook source to use captioned publication-table helpers for numerical summary sections and to state the rerun requirements more honestly in the configuration and reproducibility text.
 - Patched the saved executed outputs directly so the delivered artifact now contains the styled publication tables and the collapsed workflow animation even without a full rerun.
 - Generated `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the repaired notebook.
+- Added a tighter research statement in the introduction so the solvent-polarity trend is interpreted carefully against the mechanistic cautions in the cited literature instead of being treated as a one-step proof.
+- Verified all 10 embedded media assets directly from the notebook payload: eight PNG figures plus two inline GIFs, with the workflow animation now closed by default.
 
 ## Open risk
 
