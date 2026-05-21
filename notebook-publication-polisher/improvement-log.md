@@ -1,17 +1,18 @@
 # Improvement Log
 
-## 2026-05-21 revalidation, repair and rebuild pass
+## 2026-05-21 notebook repair and publication audit refresh
 
-- Reopened the actual attached notebook package, rubric guidance and memory files instead of trusting the previous summary.
-- Confirmed that the attached source notebook still contained plain dataframe HTML tables in several high-value executed outputs, an expanded-by-default laboratory workflow GIF panel, a misleading claim that the supplied local `Data/` tree represented a complete five-solvent rerun bundle, and the weaker 2017 solvent paper in the reference list.
-- Verified from the local attachment that only `Data/Acetone/` is present, so the bundled raw-data tree is not sufficient for a genuine five-solvent rerun.
-- Added a deterministic repair workflow at `/workspace/repair_publication_notebook.py` to patch notebook text, executed HTML outputs and audit artifacts together.
-- Repaired the notebook source so future reruns use captioned publication-table HTML, corrected archive-versus-rerun wording, imported the HTML display helper earlier in the notebook path, and swapped in the verified 1987 literature reference.
-- Patched the saved executed outputs directly so the polished deliverable now contains scroll-safe tables, clearer captions and a collapsed workflow animation without needing the missing raw data.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
-- Decoded and visually reviewed all 10 embedded visuals from the notebook outputs: 8 PNG figures and 2 GIF first frames.
+- Reopened the actual attached notebook package, rubric file and memory files instead of assuming the earlier status summary still matched the workspace.
+- Confirmed from the attachment that the notebook still overstated local rerunnability, still used plain pandas HTML tables in key executed outputs, still left the long workflow GIF open by default, and still cited the weaker 2017 solvent paper.
+- Verified from the local package that only `Data/Acetone/` is present under the attached `Data/` tree, so the full five-solvent comparison cannot currently be rerun from the supplied files alone.
+- Added `/workspace/repair_publication_notebook.py` to patch notebook wording, saved executed outputs, embedded panel state and audit artifacts in one reproducible step.
+- Rebuilt the notebook as `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Replaced the executed dataframe outputs in the analysis, benchmark, validation and integrity-check sections with captioned publication tables designed to reduce clipping and horizontal overflow.
+- Corrected the scope wording in the title card, abstract, configuration section, reproducibility appendix and workflow note so the notebook now distinguishes clearly between the saved executed archive and the incomplete attached rerun bundle.
+- Replaced reference 5 with the verified 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei.
+- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` after decoding all embedded figures and the first frames of both inline GIFs.
 
 ## Open risk
 
-- The notebook is now materially stronger as a publication archive than the attachment I started with, but the local package is still incomplete as a rerunnable analysis bundle.
-- Full reproducibility and portability still depend on restoring the missing solvent folders and rerunning once in the intended notebook environment.
+- The notebook now reads more honestly and more professionally as an executed publication artifact, but the attached local raw-data package is still incomplete.
+- Full reproducibility and portability remain blocked until the missing solvent folders are restored and the notebook is rerun end to end in the intended environment.
