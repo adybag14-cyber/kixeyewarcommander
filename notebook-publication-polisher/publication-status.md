@@ -5,17 +5,18 @@
 - Date: 2026-05-21
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
+- Repair workflow: `/workspace/repair_publication_notebook.py`
 - Publication-readiness estimate: strong publication-ready executed notebook archive, but not yet a fully reproducible standalone notebook package.
-- Confidence note: this pass reviewed the attached notebook directly, generated a real polished copy, converted the wide rendered tables into captioned scroll-safe publication tables, corrected the solvent-effects reference, and verified that all 10 embedded visuals decode cleanly from the notebook payload.
+- Confidence note: this pass audited the attached notebook directly, repaired its saved executed outputs, corrected the solvent-effects citation, and confirmed that all eight embedded PNG figures plus both GIF outputs decode cleanly from the notebook itself.
 
 ## Highest-impact improvements in this run
 
-- Created a polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Replaced the plain rendered pandas tables in the executed notebook with captioned publication tables that avoid clipping and horizontal overflow.
-- Corrected the notebook narrative so it no longer implies that the attached local package is a complete five-solvent rerun bundle.
+- Repaired the attached notebook into a new polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Replaced the plain saved dataframe outputs with captioned, scroll-safe publication tables for the summary, quality-control, benchmark, validation, sensitivity and consistency-check sections.
+- Corrected the title-page scope, introduction, reproducibility appendix and consistency-check appendix so the notebook no longer describes the reduced local attachment as a complete five-solvent rerun bundle.
 - Replaced reference 5 with the better-matched 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei, DOI `10.1016/0009-2614(87)80394-9`.
-- Closed the laboratory-workflow GIF panel by default so the long animation does not dominate initial notebook rendering.
-- Generated a visual-audit contact sheet from the eight embedded PNG figures and the first frames of both embedded GIFs.
+- Closed the laboratory-workflow GIF panel by default in both the saved executed output and the notebook source that regenerates it.
+- Generated a contact-sheet visual audit from all eight embedded PNG figures and the first frames of both inline GIFs to check for broken media, clipping or decode failures.
 
 ## Remaining blockers
 
