@@ -18,6 +18,7 @@
 - Updated the scope, configuration and reproducibility sections so the current workspace is described accurately as a reduced acetone-only raw-data bundle attached to a complete executed five-solvent notebook archive.
 - Removed the forced-open state from the laboratory-workflow GIF panel in the saved executed HTML output as well as the source code that regenerates it.
 - Regenerated a local visual-audit contact sheet from all eight embedded PNG figures plus both inline GIF outputs and confirmed that the embedded media decode cleanly.
+- Verified that both `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` now exist again on disk after the deterministic repair run.
 
 ## Remaining blockers
 
