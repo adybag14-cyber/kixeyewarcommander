@@ -1,20 +1,20 @@
 # Improvement Log
 
-## 2026-05-21 notebook repair and publication audit refresh
+## 2026-05-21 publication repair and verification refresh
 
-- Reopened the actual attached notebook package, rubric file and memory files instead of assuming the earlier status summary still matched the workspace.
-- Verified that the attached notebook itself had not yet incorporated the previously recorded publication fixes, so the local artifact and the saved progress notes had drifted apart.
-- Confirmed from the attachment that the notebook still overstated local rerunnability, still used plain pandas HTML tables in key executed outputs, still left the long workflow GIF open by default, and still cited the weaker 2017 solvent paper.
-- Verified from the local package that only `Data/Acetone/` is present under the attached `Data/` tree, so the full five-solvent comparison cannot currently be rerun from the supplied files alone.
-- Added `/workspace/repair_publication_notebook.py` to patch notebook wording, saved executed outputs, embedded panel state and audit artifacts in one reproducible step.
-- Rebuilt the notebook as `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Replaced the executed dataframe outputs in the analysis, benchmark, validation and integrity-check sections with captioned publication tables designed to reduce clipping and horizontal overflow.
-- Corrected the scope wording in the title card, abstract, configuration section, reproducibility appendix and workflow note so the notebook now distinguishes clearly between the saved executed archive and the incomplete attached rerun bundle.
-- Replaced reference 5 with the stronger 1983 *Journal of Organic Chemistry* paper by Schanze, Mattox and Whitten on solvent effects in a related push-pull azobenzene system.
-- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` after decoding all embedded figures and the first frames of both inline GIFs.
-- Confirmed by direct inspection that the polished notebook now contains 8 wrapped table figures, 8 embedded PNG figures and 2 embedded GIF outputs, with the laboratory workflow panel no longer opening by default.
+- Reopened the actual attached notebook and rubric instead of trusting the earlier saved status notes.
+- Confirmed that the workspace did not yet contain the earlier claimed polished notebook output or repair script, so the previous tracking state was ahead of the real files.
+- Identified four publication-level issues in the attached notebook: overstated rerunability, a weaker supporting solvent citation, plain wide dataframe HTML likely to clip in notebook viewers and an open-by-default laboratory workflow GIF panel.
+- Built `/workspace/repair_publication_notebook.py` to patch the notebook deterministically, create a polished deliverable and generate a visual audit asset.
+- Produced `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Produced `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Updated the notebook scope, abstract, configuration, reproducibility appendix and consistency-check explanation so they distinguish clearly between the saved executed archive and the partial raw-data subset in the attached review package.
+- Replaced reference 5 with the 1984 *Bulletin of the Chemical Society of Japan* paper by Asano, Okada and Shinkai on solvent effects in related push-pull azobenzenes.
+- Wrapped the saved table outputs in captioned, scroll-safe HTML figures to reduce clipping and horizontal overflow risk.
+- Closed the second inline GIF panel by default in the saved notebook output.
+- Verified directly from the repaired notebook that all targeted table outputs now use the new wrapped rendering, both GIFs still decode and the source compiles successfully as Python when the notebook code cells are concatenated.
 
 ## Open risk
 
-- The notebook now reads more honestly and more professionally as an executed publication artifact, but the attached local raw-data package is still incomplete.
-- Full reproducibility and portability remain blocked until the missing solvent folders are restored and the notebook is rerun end to end in the intended environment.
+- The publication artifact is now much stronger and more honest, but the attached local raw-data package is still incomplete.
+- Full reproducibility remains blocked until the missing solvent directories are restored and the notebook is rerun end to end in the intended environment.
