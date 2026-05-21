@@ -17,6 +17,7 @@
 - Converted the saved executed dataframe outputs into captioned publication tables with scroll-safe wrappers to reduce clipping risk in wide notebook views.
 - Closed the laboratory workflow GIF panel by default in both the notebook source and the saved executed output so the long animation no longer dominates the reading flow.
 - Generated a visual audit contact sheet from all embedded PNG figures and the first frame of each inline GIF.
+- Confirmed that the attached notebook itself was older than the saved progress notes, then reconciled the artifact so the local deliverable, memory files and GitHub record describe the same repaired state.
 
 ## Remaining blockers
 
