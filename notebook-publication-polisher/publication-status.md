@@ -7,7 +7,7 @@
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
 - Publication-readiness estimate: strong publication-ready executed notebook artifact for reading, marking and rubric review; still not a fully reproducible raw-data package from the attached local bundle alone.
-- Confidence note: this pass closed the remaining mismatch between the earlier notes and the actual notebook artifact. The repaired notebook now really contains the corrected 1987 solvent-effects citation, honest rerun wording for the reduced local bundle, captioned scroll-safe saved tables in the executed outputs, and both expandable GIF panels closed by default.
+- Confidence note: this pass closed the remaining mismatch between the earlier notes and the actual notebook artifact. The repaired notebook now really contains the corrected 1987 solvent-effects citation, honest rerun wording for the reduced local bundle, captioned scroll-safe saved tables in the executed outputs, and both expandable GIF panels closed by default. A direct embedded-media audit recovered 10 figure and GIF assets successfully, with no broken images detected.
 
 ## Highest-impact improvements in this run
 
@@ -17,6 +17,7 @@
 - Replaced reference 5 with the verified 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei, DOI `10.1016/0009-2614(87)80394-9`.
 - Removed the forced-open state from the laboratory-workflow GIF panel in both the notebook source and the saved rendered output.
 - Rebuilt the visual audit contact sheet from all embedded PNG figures plus the first frames of both inline GIF outputs and confirmed that the media decode cleanly.
+- Strengthened the solvent-effects discussion so the notebook now treats the polarity trend as strong evidence of solvation sensitivity without overstating it as a mechanistic proof on its own.
 
 ## Remaining blockers
 
