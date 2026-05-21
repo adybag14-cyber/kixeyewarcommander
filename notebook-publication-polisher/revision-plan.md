@@ -46,7 +46,7 @@
 - [x] Upgrade the notebook source so reruns generate publication-style HTML tables instead of raw dataframe output.
 - [x] Strengthen provenance and reproducibility wording so the reduced bundle is not described as a full rerun archive.
 - [x] Correct the written solvent-order interpretation so the narrative matches the archived results and keeps acetonitrile as the fastest solvent.
-- [x] Replace the weaker 2017 *Chemical Physics Letters* paper and align the notebook wording.
+- [x] Replace the weaker 2017 solvent-effects citation with the 1987 *Chemical Physics Letters* paper and align the notebook wording.
 - [x] Collapse the second inline animation by default.
 - [x] Generate and inspect a visual audit contact sheet covering the eight embedded PNG figures and both inline GIF extras.
 - [x] Resync the memory notes so they describe the repaired notebook state rather than the stale pre-repair assumption.
