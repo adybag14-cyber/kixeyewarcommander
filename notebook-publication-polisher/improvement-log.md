@@ -1,16 +1,18 @@
 # Improvement Log
 
-## 2026-05-20 attachment-verification and narrative-correction pass
+## 2026-05-21 notebook/output resynchronisation pass
 
-- Reopened the actual notebook attachment and compared it against the saved progress notes instead of assuming the earlier status summary was accurate.
-- Found a real mismatch between notes and artifact state: the notebook still contained the older 2017 solvent-effects citation and still had prose claiming acetone was fastest in places where the executed results clearly ranked acetonitrile first.
-- Added a repeatable repair workflow at `/workspace/repair_publication_notebook.py` to patch the notebook source, sync rendered markdown outputs, regenerate the polished notebook copy and rebuild a visual audit contact sheet.
-- Updated the title-card scope note and the reproducibility appendix so the notebook now states plainly that the executed report covers five solvents while the attached local review package currently contains only `Data/Acetone/`.
-- Corrected the results discussion so the solvent-order interpretation, literature comparison wording and polarity discussion all match the archived numerical summary.
-- Corrected the post-lab answers so the fastest-solvent discussion, characteristic timescale example and solvent-rate ordering are internally consistent with the executed analysis.
-- Replaced reference 5 with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Decoded every embedded PNG and GIF from the notebook HTML outputs, generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`, and confirmed 10 visuals were readable with no broken-image or GIF-decoding failures.
+- Reopened the attached notebook, rubric guidance and saved progress files and verified that the notebook still contained several stale publication-facing defects despite the stronger notes in memory.
+- Confirmed that the notebook source and its saved outputs were out of sync: raw dataframe renders were still present, one inline animation panel still opened by default, and the solvent-order discussion still contained an acetone/acetonitrile interpretation drift.
+- Created `/workspace/repair_publication_notebook.py` as a repeatable repair workflow that updates notebook text, output HTML, contact-sheet generation and the polished output copy together.
+- Repaired the attached notebook in place and regenerated `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Restyled the saved package-audit, results, rejection-summary, bootstrap-rank, benchmark, validation and consistency-check outputs into captioned publication tables with horizontal overflow handling.
+- Added reusable publication-table helpers to the notebook source so a future full rerun preserves the improved table presentation automatically.
+- Rewrote the configuration and reproducibility wording so the reduced bundle is described honestly as an archived five-solvent execution plus an incomplete local raw-data package.
+- Corrected the discussion and post-lab explanation so they no longer claim acetone is the fastest solvent when the archived result order is acetonitrile > acetone > THF > cyclohexane > toluene.
+- Replaced the weaker 2017 solvent-effects citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4), 333-338 (1987), DOI `10.1016/0009-2614(87)80394-9`.
+- Removed the forced-open state from the laboratory-workflow GIF panel in both the source code and the saved rendered HTML output.
+- Rebuilt `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the notebook’s embedded media and confirmed ten decoded visual outputs with no obvious clipping, overlap or broken-image defects.
 
 ## 2026-05-20 source-repair and archive-hardening pass
 
