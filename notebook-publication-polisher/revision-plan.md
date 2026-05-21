@@ -17,7 +17,7 @@
 - [x] Repair the saved executed outputs so the archive itself now shows captioned, scroll-safe tables.
 - [x] Generate the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - [x] Generate the visual-audit contact sheet at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
-- [x] Replace the weaker reference 5 entry with the verified 1987 *Chemical Physics Letters* paper.
+- [x] Replace the weaker reference 5 entry with a stronger primary literature citation for solvent-sensitive push-pull azobenzene thermal isomerisation.
 - [x] Update the scope and reproducibility wording so the reduced local package is not described as a full rerun bundle.
 - [x] Confirm that all embedded figures and GIF first frames decode cleanly from the notebook outputs.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
