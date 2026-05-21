@@ -20,5 +20,6 @@
 - [x] Collapse the second inline animation in the saved executed HTML and in the source that regenerates it.
 - [x] Replace the weaker reference 5 entry with the verified 1987 *Chemical Physics Letters* paper.
 - [x] Update the scope and reproducibility wording so the reduced local package is not described as a full rerun bundle.
+- [x] Verify that all embedded figures and GIFs decode cleanly from the notebook payload and that no rendered table still depends on plain pandas HTML output.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
 - [ ] Perform one final browser-style render audit of the regenerated notebook after that rerun.
