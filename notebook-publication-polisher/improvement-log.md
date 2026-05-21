@@ -3,6 +3,7 @@
 ## 2026-05-21 notebook repair and publication audit refresh
 
 - Reopened the actual attached notebook package, rubric file and memory files instead of assuming the earlier status summary still matched the workspace.
+- Verified that the attached notebook itself had not yet incorporated the previously recorded publication fixes, so the local artifact and the saved progress notes had drifted apart.
 - Confirmed from the attachment that the notebook still overstated local rerunnability, still used plain pandas HTML tables in key executed outputs, still left the long workflow GIF open by default, and still cited the weaker 2017 solvent paper.
 - Verified from the local package that only `Data/Acetone/` is present under the attached `Data/` tree, so the full five-solvent comparison cannot currently be rerun from the supplied files alone.
 - Added `/workspace/repair_publication_notebook.py` to patch notebook wording, saved executed outputs, embedded panel state and audit artifacts in one reproducible step.
@@ -11,6 +12,7 @@
 - Corrected the scope wording in the title card, abstract, configuration section, reproducibility appendix and workflow note so the notebook now distinguishes clearly between the saved executed archive and the incomplete attached rerun bundle.
 - Replaced reference 5 with the stronger 1983 *Journal of Organic Chemistry* paper by Schanze, Mattox and Whitten on solvent effects in a related push-pull azobenzene system.
 - Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` after decoding all embedded figures and the first frames of both inline GIFs.
+- Confirmed by direct inspection that the polished notebook now contains 8 wrapped table figures, 8 embedded PNG figures and 2 embedded GIF outputs, with the laboratory workflow panel no longer opening by default.
 
 ## Open risk
 
