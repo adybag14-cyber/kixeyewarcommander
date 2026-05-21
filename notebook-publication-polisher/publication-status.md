@@ -6,21 +6,22 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
-- Publication-readiness estimate: strong publication-ready executed notebook artifact for reading, marking and rubric review; still not a fully reproducible raw-data package from the attached local bundle alone.
-- Confidence note: this pass closed the remaining gaps between the saved notes and the actual notebook. The repaired artifact now contains the corrected 1987 solvent-effects citation, honest wording about the reduced local raw-data package, captioned scroll-safe saved tables, corrected solvent-order interpretation in the narrative and post-lab answers, and both expandable GIF panels closed by default in the executed output.
+- Publication-readiness estimate: strong publication-ready executed notebook artifact for reading, marking and rubric review.
+- Confidence note: this pass reconciled the saved notes with the actual attached notebook. The polished copy now contains honest scope wording for the reduced attachment, corrected solvent-order interpretation, captioned scroll-safe saved tables, the stronger 1987 solvent-effects citation, and both GIF panels closed by default in the executed output.
 
 ## Highest-impact improvements in this run
 
-- Repaired the actual attached notebook with `/workspace/repair_publication_notebook.py` and generated a fresh polished copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Rebuilt the saved table outputs so the package audit, kinetic summary, QC audit, rank probabilities, benchmark tables, validation summary, sensitivity audit and consistency checks all render as publication-style captioned tables with horizontal overflow handling.
-- Corrected the remaining narrative drift where the saved discussion and post-lab answers still implied acetone was the fastest solvent even though the archived results show acetonitrile is fastest overall.
-- Replaced the outdated reference 5 entry with the verified 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei, DOI `10.1016/0009-2614(87)80394-9`.
-- Updated the scope, configuration and reproducibility sections so the current workspace is described accurately as a reduced acetone-only raw-data bundle attached to a complete executed five-solvent notebook archive.
-- Removed the forced-open state from both expandable GIF panels in the saved executed HTML output as well as the source code that regenerates them.
-- Regenerated a local visual-audit contact sheet from all eight embedded PNG figures plus both inline GIF outputs and confirmed that the embedded media decode cleanly.
+- Rebuilt a polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` instead of relying on the inconsistent source attachment.
+- Converted the saved wide tables into captioned publication-style outputs with horizontal overflow handling so they no longer risk clipping in notebook or exported HTML views.
+- Corrected the saved discussion and post-lab answers so acetonitrile remains the fastest solvent everywhere the archived numbers are interpreted.
+- Replaced reference 5 with the 1987 *Chemical Physics Letters* paper on solvent effects in push-pull-substituted cis-azobenzenes, DOI `10.1016/0009-2614(87)80394-9`.
+- Rewrote the scope, configuration and reproducibility sections so the notebook accurately states that the local package currently contains only `Data/Acetone/`.
+- Removed the forced-open state from the laboratory-workflow GIF panel in the saved executed output and in the source that regenerates it.
+- Regenerated a visual-audit contact sheet from all eight embedded PNG figures plus both inline GIF outputs and confirmed that the media decode cleanly.
 
 ## Remaining blockers
 
 - The attached local raw-data package still contains only `Data/Acetone/`; the acetonitrile, cyclohexane, THF and toluene directories needed for a genuine five-solvent rerun are still missing.
 - Because of that reduced bundle, end-to-end reproducibility cannot be signed off locally even though the archived executed outputs are now internally consistent and publication-ready for reading.
-- Final portability confidence still depends on one rerun in the intended notebook environment with the complete five-solvent raw-data tree restored, followed by one final render audit of the regenerated notebook.
+- A final rerun in the intended notebook environment is still needed once the full raw-data tree is restored.
+- A true browser-style render audit of the regenerated notebook is still pending because no Jupyter/nbconvert runtime is available in this workspace.
