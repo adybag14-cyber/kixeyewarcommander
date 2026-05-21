@@ -15,7 +15,7 @@
 - Originality and elegance of code: strong to very strong. The notebook remains modular, and the new repair workflow makes artifact maintenance more reliable.
 - Portability of code: moderate. The notebook explains how it reruns, but true portability of the full solvent comparison still depends on restoring the missing solvent directories.
 - Commenting, documentation and explanation of code: strong. The notebook uses docstrings, explanatory markdown and chemically grounded interpretation effectively.
-- Markdown, LaTeX, HTML and formatting: very strong to outstanding. The repaired notebook uses polished markdown, corrected references, inline HTML, captioned scroll-safe tables, figures with captions and collapsible extras without the earlier expanded GIF defect.
+- Markdown, LaTeX, HTML and formatting: very strong to outstanding. The repaired notebook now actually contains the polished formatting state claimed by the notes: corrected references, inline HTML, captioned scroll-safe tables, figures with captions and collapsible extras without the earlier expanded GIF defect.
 
 ## Remaining gap to full confidence
 
