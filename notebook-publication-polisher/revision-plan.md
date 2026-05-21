@@ -20,5 +20,6 @@
 - [x] Replace the weaker reference 5 entry with the verified 1987 *Chemical Physics Letters* paper.
 - [x] Update the scope and reproducibility wording so the reduced local package is not described as a full rerun bundle.
 - [x] Confirm that all embedded figures and GIF first frames decode cleanly from the notebook outputs.
+- [x] Verify on the final polished notebook that the table captions, corrected reference and collapsed workflow GIF state are actually present in the saved artifact.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
 - [ ] Perform one final browser-style render audit of the regenerated notebook after that rerun.
