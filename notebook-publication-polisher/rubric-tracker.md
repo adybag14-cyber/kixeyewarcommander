@@ -22,3 +22,4 @@
 - Restore the complete five-solvent `Data/` tree.
 - Rerun the notebook end to end in the intended notebook environment.
 - Repeat the visual audit after that rerun to confirm that regenerated figures, GIFs and publication tables remain clean.
+- If a formal submission requires a fully rerunnable attachment instead of an executed archive, replace the currently attached notebook package with the rebuilt polished copy before final hand-in.
