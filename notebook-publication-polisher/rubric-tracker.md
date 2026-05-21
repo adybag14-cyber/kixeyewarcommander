@@ -10,8 +10,8 @@
 ## Criterion status
 
 - Post-labs: very strong. The post-lab section is complete, data-linked and chemically grounded.
-- Data analysis + plotting: very strong. The executed notebook includes the solvent comparison figures, saved tables now render as publication-style outputs, and the embedded media decode cleanly.
-- Experimental write-up: very strong. The notebook now states clearly that the executed archive is readable on its own while a full rerun still needs the complete five-solvent raw-data tree.
+- Data analysis + plotting: very strong. The executed notebook includes the solvent comparison figures, saved tables now render as publication-style outputs with horizontal overflow protection, and the embedded media decode cleanly.
+- Experimental write-up: very strong. The notebook now states clearly that the executed archive is readable on its own while a full rerun still needs the complete five-solvent raw-data tree, and the solvent-effects discussion is more careful about what the literature does and does not prove mechanistically.
 - Originality and elegance of code: strong to very strong. The notebook remains modular and now has a repeatable repair workflow for restoring publication-table styling and executed-output consistency.
 - Portability of code: moderate. The configuration is clearer and the rerun requirements are explicit, but genuine portability still depends on restoring the missing solvent directories and rerunning successfully.
 - Commenting, documentation and explanation of code: strong. The notebook uses docstrings, explanatory markdown and code-facing structure effectively for maintenance and assessment.
