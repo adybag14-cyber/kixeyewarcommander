@@ -7,7 +7,7 @@
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
 - Publication-readiness estimate: strong publication-ready executed notebook archive, but not yet a fully reproducible standalone notebook package.
-- Confidence note: this pass audited the actual attached notebook rather than relying on earlier notes, repaired the saved executed outputs, corrected the solvent-effects citation, and confirmed that all embedded figures plus both GIF outputs decode cleanly from the notebook itself.
+- Confidence note: this pass audited the actual attached notebook rather than relying on earlier notes, created the missing polished deliverable and audit image, corrected the solvent-effects citation, and confirmed that all 8 embedded PNG figures plus both GIF outputs decode cleanly from the notebook itself.
 
 ## Highest-impact improvements in this run
 
