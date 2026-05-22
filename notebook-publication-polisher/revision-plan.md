@@ -1,10 +1,11 @@
 # Revision Plan
 
-## 2026-05-21 verified repair pass
+## 2026-05-22 verified repair pass
 
 - Reinspect the actual attached notebook package and rubric before making any publication claim.
 - Repair the notebook artifact itself rather than only updating tracking notes.
 - Strengthen literature support with a better-matched primary source.
+- Correct interpretation text anywhere the prose drifts away from the fitted solvent ordering.
 - Replace wide plain dataframe outputs with captioned, scroll-safe report tables.
 - Verify embedded figures and inline GIF outputs after repair.
 - Update durable progress tracking so future runs inherit the real current state.
@@ -18,9 +19,9 @@
 - [x] Generate `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 - [x] Repair the notebook wording so the partial local raw-data package is not described as a full rerun bundle.
 - [x] Replace the weaker supporting solvent reference with a stronger primary literature source.
-- [x] Strengthen the stored results discussion so the solvent trend is explained more rigorously.
+- [x] Correct results-discussion and post-lab wording that conflicted with the accepted solvent ranking.
 - [x] Wrap the saved table outputs in captioned, scroll-safe HTML figures.
 - [x] Close the second inline GIF panel by default in the saved notebook output.
-- [x] Verify directly that the targeted saved outputs were updated, that ten embedded visuals decode cleanly and that the repaired notebook source compiles successfully.
+- [x] Verify directly that the targeted saved outputs were updated and that the repaired notebook source compiles successfully.
 - [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended environment.
 - [ ] Perform one final post-rerun render audit of regenerated figures, GIFs and tables.
