@@ -1,5 +1,20 @@
 # Improvement Log
 
+## 2026-05-22 executed archive rebuild and verification
+
+- Reopened the attached notebook itself and confirmed that the source package still contained the pre-polish wording errors and presentation issues rather than the previously described repaired version.
+- Rebuilt `/workspace/repair_publication_notebook.py` so the notebook repair is deterministic and repeatable from the attached source package.
+- Produced `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Produced `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Corrected the discussion sentence that incorrectly implied acetone was the fastest solvent even though the executed summary table shows acetonitrile is fastest.
+- Corrected the literature-comparison sentence that had inaccurately described the acetone result relative to the published JCE benchmark.
+- Corrected the post-lab answers so the fastest-solvent discussion, timescale argument and solvent-order listing now match the executed analysis.
+- Rewrote the scope, configuration, reproducibility and consistency-check text so the notebook is honest about the attached review package containing only a partial local raw-data subset.
+- Replaced reference 5 with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei and retained the DOI in Leeds-style formatting.
+- Wrapped the saved dataframe outputs in captioned scroll-safe HTML figure blocks and added lazy loading to embedded figures and GIFs.
+- Closed the second inline GIF panel by default in both the notebook source and the saved output.
+- Verified directly from the polished notebook JSON that all targeted fixes are present in the rebuilt artifact.
+
 ## 2026-05-22 publication polish refresh
 
 - Re-verified the attached notebook package and confirmed that the local raw-data review bundle is incomplete: only a small `Data/Acetone` subset is present under `agent_files/testing-main/Data`.
