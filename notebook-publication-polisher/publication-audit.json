@@ -1,0 +1,82 @@
+{
+  "items": [
+    {
+      "label": "Figure 1",
+      "type": "png",
+      "width_px": 8562,
+      "height_px": 3282,
+      "status": "decode OK"
+    },
+    {
+      "label": "Figure 2",
+      "type": "png",
+      "width_px": 3726,
+      "height_px": 2334,
+      "status": "decode OK"
+    },
+    {
+      "label": "Figure 3",
+      "type": "png",
+      "width_px": 2866,
+      "height_px": 1756,
+      "status": "decode OK"
+    },
+    {
+      "label": "Figure 4",
+      "type": "png",
+      "width_px": 3194,
+      "height_px": 1459,
+      "status": "decode OK"
+    },
+    {
+      "label": "Figure 5",
+      "type": "png",
+      "width_px": 2566,
+      "height_px": 1516,
+      "status": "decode OK"
+    },
+    {
+      "label": "Figure 6",
+      "type": "png",
+      "width_px": 3392,
+      "height_px": 1317,
+      "status": "decode OK"
+    },
+    {
+      "label": "Figure 7",
+      "type": "png",
+      "width_px": 2626,
+      "height_px": 1486,
+      "status": "decode OK"
+    },
+    {
+      "label": "Figure 8",
+      "type": "png",
+      "width_px": 3404,
+      "height_px": 1426,
+      "status": "decode OK"
+    },
+    {
+      "label": "GIF A",
+      "type": "gif",
+      "width_px": 1495,
+      "height_px": 828,
+      "status": "decode OK",
+      "frames": 84
+    },
+    {
+      "label": "GIF B",
+      "type": "gif",
+      "width_px": 1400,
+      "height_px": 772,
+      "status": "decode OK",
+      "frames": 70
+    }
+  ],
+  "contact_sheet": "/workspace/output/P201_201698955_visual_audit_contact_sheet.png",
+  "summary": {
+    "figure_count": 8,
+    "gif_count": 2,
+    "all_media_decoded": true
+  }
+}
