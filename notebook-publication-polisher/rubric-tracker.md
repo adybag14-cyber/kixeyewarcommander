@@ -20,5 +20,5 @@
 ## Remaining gap to full confidence
 
 - Restore the complete five-solvent `Data/` tree in the attached package.
-- Rerun the notebook end to end in the intended environment.
+- Rerun the notebook end to end in the intended notebook environment.
 - Repeat the visual audit after that rerun to confirm that regenerated tables, figures and GIFs remain clean.
