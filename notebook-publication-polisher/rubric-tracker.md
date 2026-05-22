@@ -11,12 +11,12 @@
 ## Criterion status
 
 - Post-labs: very strong. The answers are complete, chemically argued and now aligned with the executed solvent ordering in the fitted results.
-- Data analysis + plotting: very strong. The archive contains a full five-solvent executed analysis, eight verified figures, two verified inline GIF outputs, a saved contact-sheet visual audit and cleaner captioned table presentation.
-- Experimental write-up: very strong to outstanding. The notebook now states its execution scope honestly, explains the analysis workflow clearly, keeps the solvent-order discussion consistent with the executed tables and connects the interpretation to stronger primary literature support.
-- Originality and elegance of code: strong to very strong. The notebook remains modular, uses validation and benchmarking thoughtfully and now has a deterministic repair workflow for publication polishing.
+- Data analysis + plotting: very strong. The archive contains a full five-solvent executed analysis, eight decoded figures, two decoded inline GIF outputs, cleaner captioned tables and a saved visual audit record.
+- Experimental write-up: very strong to outstanding. The notebook now states its execution scope honestly, keeps the solvent-order discussion consistent with the actual table output and uses better-matched primary literature support.
+- Originality and elegance of code: strong to very strong. The notebook remains modular, includes validation and benchmarking, and now has a deterministic repair workflow for presentation polishing.
 - Portability of code: moderate. Parameters remain centralized and the repaired notebook explains portability boundaries clearly, but a full five-solvent rerun still depends on restoring the missing solvent directories.
 - Commenting, documentation and explanation of code: strong. The notebook uses docstrings, explanatory markdown and audit-oriented commentary effectively.
-- Markdown, LaTeX, HTML and formatting: outstanding. The repaired archive uses strong notebook styling, a better-matched primary literature reference, captioned scroll-safe tables, high-resolution figures, a verified contact-sheet visual audit and a closed-by-default secondary GIF panel for calmer notebook rendering.
+- Markdown, LaTeX, HTML and formatting: outstanding. The repaired archive uses strong notebook styling, captioned scroll-safe tables, controlled inline GIF disclosure, figure captions and a supporting media audit.
 
 ## Remaining gap to full confidence
 
