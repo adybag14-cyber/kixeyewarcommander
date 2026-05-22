@@ -7,11 +7,12 @@
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
 - Publication-readiness estimate: strong publication-ready executed notebook archive with cleaner research framing, safer notebook rendering and clearer honesty about local reproducibility limits.
-- Confidence note: the polished notebook copy was rebuilt from the attached source, validated as readable JSON, visually audited across all eight figures plus both GIFs, and checked to ensure the wrapped tables, updated reference and closed second GIF panel were all present in the saved output.
+- Confidence note: the polished notebook copy was rebuilt from the attached source, validated as readable JSON, visually audited across all eight figures plus both GIFs, and checked to ensure the wrapped tables, corrected solvent-order narrative, updated reference and closed second GIF panel were all present in the saved output.
 
 ## Highest-impact improvements in this run
 
 - Produced a fresh polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Corrected a publication-level interpretation mismatch where parts of the discussion and post-lab answers said acetone was the fastest solvent even though the notebook's own summary table shows acetonitrile is fastest.
 - Corrected the title page, configuration section, reproducibility appendix and consistency-check appendix so the notebook no longer overstates the completeness of the attached local raw-data package.
 - Strengthened the literature support by replacing the weaker solvent-effects citation with a stronger primary paper directly tied to push-pull azobenzene solvent-sensitive thermal isomerisation: Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* (1987), DOI `10.1016/0009-2614(87)80394-9`.
 - Wrapped the saved package-audit, summary, benchmarking, validation and consistency-check tables in captioned scroll-safe HTML figure blocks to reduce clipping and horizontal overflow in notebook viewers.
