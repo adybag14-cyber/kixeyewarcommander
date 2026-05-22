@@ -4,7 +4,7 @@
 
 - Re-verified the attached notebook and confirmed the raw-data completeness blocker from the actual local package contents.
 - Produced a fresh polished notebook artifact and a visual audit sheet that now exist in the current workspace.
-- Repaired the most important publication issues: reproducibility overstatement, weaker supporting citation, table clipping risk and the open-by-default second GIF panel.
+- Repaired the most important publication issues: solvent-order narrative inconsistency, reproducibility overstatement, weaker supporting citation, table clipping risk and the open-by-default second GIF panel.
 
 ## Next priorities
 
