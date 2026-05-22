@@ -4,8 +4,8 @@
 
 - Re-verified the attached notebook and confirmed the raw-data completeness blocker from the actual local package contents.
 - Produced a fresh polished notebook artifact and a visual audit sheet that now exist in the current workspace.
-- Repaired the most important publication issues: solvent-order narrative inconsistency, literature-comparison wording drift, reproducibility overstatement, weaker supporting citation, table clipping risk and the open-by-default second GIF panel.
-- Verified by direct media decode that the polished notebook still contains eight readable PNG figures and two readable GIFs with no broken inline assets.
+- Repaired the most important publication issues: solvent-order narrative inconsistency, literature-comparison wording drift, reproducibility overstatement, weaker supporting citation, table clipping risk and the open-by-default inline GIF panels.
+- Added a deterministic local repair script so future runs can rebuild the polished notebook and audit assets directly from the attached source notebook.
 
 ## Next priorities
 
