@@ -1,17 +1,17 @@
 # Improvement Log
 
-## 2026-05-22 notebook repair and interpretation correction
+## 2026-05-22 publication polish reconciliation pass
 
-- Reopened the attached notebook package itself and confirmed that the publication repairs needed to be applied to the artifact, not only to the tracking notes.
-- Built and ran `/workspace/repair_publication_notebook.py` to generate a fresh polished notebook copy and contact-sheet audit.
+- Reopened the attached notebook and confirmed that several fixes described in memory had not actually been applied to the notebook artifact itself.
+- Built `/workspace/notebook_publication_polish.py` to patch the notebook deterministically and save a new polished executed copy.
 - Produced `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Produced `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
-- Corrected the notebook scope, configuration, reproducibility appendix and consistency-check wording so the partial local raw-data subset is not misrepresented as a complete rerun bundle.
-- Fixed solvent-order interpretation mistakes in the saved discussion and post-lab outputs where acetone had been described as the fastest solvent despite the accepted means ranking acetonitrile first.
-- Replaced the weaker supporting solvent citation with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* 138(4) (1987), 333-338, DOI `10.1016/0009-2614(87)80394-9`.
-- Wrapped the saved dataframe outputs in captioned, scroll-safe HTML figures so wide tables are less likely to clip in notebook viewers.
-- Closed the laboratory workflow GIF panel by default in both source and saved output.
-- Rechecked the embedded PNG figures and both inline GIF payloads after repair by generating a fresh contact-sheet audit.
+- Verified from the saved notebook that every remaining dataframe-style HTML output in the analysis, benchmark, sensitivity and consistency-check sections is now wrapped in a scroll-safe captioned figure block.
+- Corrected a factual interpretation error in the post-lab and discussion text: the accepted data rank acetonitrile as the fastest solvent, not acetone.
+- Reframed the literature-comparison language to distinguish qualitative solvent-order agreement from exact numeric replication.
+- Replaced the weaker supporting citation with the 1987 *Chemical Physics Letters* push-pull azobenzene solvent-effects paper by Kamei et al.
+- Updated the reproducibility appendix so the notebook no longer overclaims fresh rerunability from the incomplete local package.
+- Closed the second inline GIF panel by default in both the source cell and the saved rendered HTML output.
+- Regenerated a media-extraction contact sheet at `/workspace/output/extracted_notebook_media/contact_sheet.png` to verify the eight embedded figures and the first frame of both GIF outputs.
 
 ## 2026-05-21 publication repair and verification refresh
 
