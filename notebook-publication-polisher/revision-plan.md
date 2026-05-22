@@ -2,13 +2,12 @@
 
 ## 2026-05-22 completed priorities
 
-- Re-verified the attached notebook and confirmed the raw-data completeness blocker from the actual local package contents.
-- Produced a fresh polished notebook artifact and a visual audit sheet that now exist in the current workspace.
-- Produced a machine-readable publication audit summary that records the confirmed repairs and the remaining reproducibility blocker.
-- Repaired the most important publication issues: solvent-order narrative inconsistency, reproducibility overstatement, weaker supporting citation, table clipping risk and the open-by-default second GIF panel.
+- Re-read the attached notebook and rubric from the actual source package.
+- Built a fresh repair workflow that produces a polished notebook, a visual audit contact sheet and a machine-readable audit summary.
+- Repaired the highest-impact publication issues: the wrong fastest-solvent wording, the weaker supporting citation, the reproducibility overstatement, the wide unwrapped tables and the open-by-default second GIF panel.
 
 ## Next priorities
 
-- Restore the missing solvent folders so the notebook can be rerun locally rather than treated only as an executed archive.
+- Restore the missing solvent folders so the notebook can be rerun locally rather than treated only as a validated executed archive.
 - Re-execute the full notebook in the intended environment and confirm that the regenerated wrapped tables, figures and GIFs remain clean.
-- If the rerun changes numerical values or figure ordering, refresh the results narrative and post-lab answers to match the new executed output exactly.
+- If the rerun changes numerical values or figure ordering, refresh the narrative and post-lab answers to match the new executed output exactly.
