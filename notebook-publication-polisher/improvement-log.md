@@ -1,49 +1,20 @@
 # Improvement Log
 
-## 2026-05-22 attached-package rebuild and audit
+## 2026-05-22 publication repair and visual audit refresh
 
-- Reopened the actual attached notebook, rubric and saved notes and confirmed that the earlier notes had drifted: they referenced a polished notebook and repair script that were not present in the current workspace.
-- Built a fresh repair script at `/workspace/repair_publication_notebook.py` to regenerate a polished notebook directly from the attached executed archive.
+- Reopened the attached notebook and rubric instead of trusting the older saved notes.
+- Confirmed that the workspace did not actually contain the previously referenced polished notebook output, so the durable state needed to be rebuilt from the source notebook.
+- Built `/workspace/repair_publication_notebook.py` to patch notebook source text and saved outputs together, then generate a fresh polished notebook copy and a visual audit sheet.
 - Produced `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Produced `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
-- Corrected the solvent-order inconsistency in both the source and executed markdown outputs so the notebook consistently reports acetonitrile, not acetone, as the fastest solvent in the retained class data.
-- Corrected the literature-comparison wording drift in the results discussion and updated the post-lab answers so the mechanistic interpretation stays aligned with the executed summary table.
-- Replaced the weaker 2017 solvent-effects citation with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on push-pull-substituted cis-azobenzenes.
-- Revised the scope, configuration, analysis-environment and reproducibility wording so the attached package is described honestly as an incomplete local rerun bundle rather than a full five-solvent raw-data archive.
-- Wrapped all major dataframe outputs in captioned scroll-safe HTML figures to reduce clipping and horizontal overflow risk in notebook viewers.
-- Added lazy-loading attributes to embedded PNG and GIF outputs and closed the second inline GIF panel by default.
-- Decoded and reviewed all ten embedded visuals through a generated contact sheet; no broken media, blank figures or obvious clipping defects were visible in the rebuilt archive.
-
-## 2026-05-22 publication polish refresh
-
-- Re-verified the attached notebook package and confirmed that the local raw-data review bundle is incomplete: only a small `Data/Acetone` subset is present under `agent_files/testing-main/Data`.
-- Built a fresh repair script at `/workspace/repair_publication_notebook.py` to generate a new polished notebook copy and a visual audit sheet directly from the attached notebook.
-- Produced `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Produced `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
-- Corrected an internal inconsistency in the publication text: the executed solvent summary shows acetonitrile is the fastest solvent, so the results discussion and post-lab answers were updated to remove the incorrect "acetone is fastest" wording.
-- Corrected a second narrative mismatch in the literature-comparison paragraph where the acetone discussion had drifted away from the actual benchmark relationship reported by the notebook.
-- Revised the scope note, configuration section, reproducibility appendix and consistency-check appendix so the notebook now describes itself honestly as a verified executed archive unless the missing solvent folders are restored.
-- Replaced the weaker supporting solvent-effects citation with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on push-pull-substituted cis-azobenzenes.
-- Wrapped the saved dataframe outputs in captioned scroll-safe figure blocks to reduce clipping and overflow risk inside notebook viewers.
-- Added lazy-loaded rendering attributes to the embedded PNG and GIF outputs.
-- Closed the second inline GIF panel by default in both the notebook source and the saved output.
-- Built and visually inspected a contact-sheet audit of all embedded figures and both GIF first frames; no broken media or obvious clipping/blank-output defects were visible in the saved archive.
-
-## 2026-05-21 publication repair and verification refresh
-
-- Reopened the actual attached notebook and rubric instead of trusting the earlier saved status notes.
-- Confirmed that the workspace did not yet contain the earlier claimed polished notebook output or repair script, so the previous tracking state was ahead of the real files.
-- Identified four publication-level issues in the attached notebook: overstated rerunability, a weaker supporting solvent citation, plain wide dataframe HTML likely to clip in notebook viewers and an open-by-default laboratory workflow GIF panel.
-- Built `/workspace/repair_publication_notebook.py` to patch the notebook deterministically, create a polished deliverable and generate a visual audit asset.
-- Produced `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Produced `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
-- Updated the notebook scope, abstract, configuration, reproducibility appendix and consistency-check explanation so they distinguish clearly between the saved executed archive and the partial raw-data subset in the attached review package.
-- Replaced reference 5 with a stronger primary paper on solvent effects in related push-pull azobenzenes.
-- Wrapped the saved table outputs in captioned, scroll-safe HTML figures to reduce clipping and horizontal overflow risk.
-- Closed the second inline GIF panel by default in the saved notebook output.
-- Verified directly from the repaired notebook that all targeted table outputs now use the new wrapped rendering, both GIFs still decode and the source compiles successfully as Python when the notebook code cells are concatenated.
+- Corrected the internal interpretation mismatch: the executed solvent summary ranks acetonitrile first, so the discussion and post-lab answers were rewritten to remove the incorrect "acetone is fastest" wording.
+- Replaced the weaker supporting solvent-effects citation with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on push-pull substituted azobenzenes.
+- Revised the title-page scope note, configuration section and reproducibility appendix so the notebook now describes itself honestly as an executed archive unless the missing solvent folders are restored.
+- Wrapped the saved dataframe outputs in captioned, scroll-safe HTML figure blocks to reduce clipping and horizontal overflow in notebook viewers.
+- Closed the second inline GIF panel by default and kept both GIFs embedded inline for notebook and exported-HTML playback.
+- Programmatically decoded and verified all ten embedded media objects in the polished notebook: eight PNG figures plus both GIFs.
 
 ## Open risk
 
-- The publication artifact is now much stronger and more honest, but the attached local raw-data package is still incomplete.
+- The publication artifact is now much stronger and visually safer, but the attached local raw-data package is still incomplete.
 - Full reproducibility remains blocked until the missing solvent directories are restored and the notebook is rerun end to end in the intended environment.
