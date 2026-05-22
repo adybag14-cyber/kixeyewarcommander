@@ -2,9 +2,10 @@
 
 ## 2026-05-22 completed priorities
 
-- Re-verified the attached notebook and rubric against the real notebook contents instead of relying only on the saved status notes.
+- Re-verified the attached notebook and confirmed the raw-data completeness blocker from the actual local package contents.
 - Produced a fresh polished notebook artifact and a visual audit sheet that now exist in the current workspace.
 - Repaired the most important publication issues: solvent-order narrative inconsistency, literature-comparison wording drift, reproducibility overstatement, weaker supporting citation, table clipping risk and the open-by-default second GIF panel.
+- Verified by direct media decode that the polished notebook still contains eight readable PNG figures and two readable GIFs with no broken inline assets.
 
 ## Next priorities
 
