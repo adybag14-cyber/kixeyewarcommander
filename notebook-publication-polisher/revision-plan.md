@@ -3,8 +3,8 @@
 ## 2026-05-22 completed priorities
 
 - Re-verified the attached notebook and confirmed the raw-data completeness blocker from the actual local package contents.
-- Rebuilt the polished notebook artifact and the visual audit sheet so they now exist again in the current workspace.
-- Repaired the most important publication issues: solvent-order narrative inconsistency, literature-comparison wording drift, reproducibility overstatement, weaker supporting citation, table clipping risk, eager media loading and the open-by-default second GIF panel.
+- Produced a fresh polished notebook artifact and a visual audit sheet that now exist in the current workspace.
+- Repaired the most important publication issues: solvent-order narrative inconsistency, literature-comparison wording drift, reproducibility overstatement, weaker supporting citation, table clipping risk and the open-by-default second GIF panel.
 
 ## Next priorities
 
