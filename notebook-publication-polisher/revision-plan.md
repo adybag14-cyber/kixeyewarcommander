@@ -1,27 +1,25 @@
 # Revision Plan
 
-## 2026-05-22 verified repair pass
+## 2026-05-22 reconciliation pass
 
-- Reinspect the actual attached notebook package and rubric before making any publication claim.
-- Repair the notebook artifact itself rather than only updating tracking notes.
-- Strengthen literature support with a better-matched primary source.
-- Correct interpretation text anywhere the prose drifts away from the fitted solvent ordering.
-- Replace wide plain dataframe outputs with captioned, scroll-safe report tables.
-- Verify embedded figures and inline GIF outputs after repair.
-- Update durable progress tracking so future runs inherit the real current state.
+- Reconcile the notebook artifact with the real current publication issues rather than trusting prior notes.
+- Correct any factual inconsistencies between the prose discussion and the accepted solvent ordering.
+- Replace weak literature support with a more defensible primary source.
+- Convert remaining raw dataframe-style outputs into scroll-safe report tables.
+- Tame inline media behaviour and verify figure rendering again.
+- Update durable tracking so future runs inherit the actual current state.
 
-## Current state after the verified repair pass
+## Current state after the reconciliation pass
 
 - [x] Reinspect the attached notebook package, rubric guidance and saved progress files directly.
-- [x] Confirm that the earlier memory state was ahead of the actual workspace files.
-- [x] Build and run `/workspace/repair_publication_notebook.py` to produce a repaired notebook artifact.
+- [x] Confirm that the earlier memory state was ahead of the actual notebook artifact.
+- [x] Build and run `/workspace/notebook_publication_polish.py` to produce a repaired notebook artifact.
 - [x] Generate `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- [x] Generate `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
-- [x] Repair the notebook wording so the partial local raw-data package is not described as a full rerun bundle.
+- [x] Generate `/workspace/output/extracted_notebook_media/contact_sheet.png`.
+- [x] Correct the prose so the solvent-order interpretation matches the accepted numerical results.
 - [x] Replace the weaker supporting solvent reference with a stronger primary literature source.
-- [x] Correct results-discussion and post-lab wording that conflicted with the accepted solvent ranking.
-- [x] Wrap the saved table outputs in captioned, scroll-safe HTML figures.
+- [x] Wrap the remaining saved table outputs in captioned, scroll-safe HTML figures.
 - [x] Close the second inline GIF panel by default in the saved notebook output.
-- [x] Verify directly that the targeted saved outputs were updated and that the repaired notebook source compiles successfully.
-- [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended environment.
+- [x] Update the reproducibility wording so the incomplete local package is not described as fully fresh-rerunnable.
+- [ ] Restore the complete five-solvent raw-data tree and rerun the notebook end to end in the intended notebook environment.
 - [ ] Perform one final post-rerun render audit of regenerated figures, GIFs and tables.
