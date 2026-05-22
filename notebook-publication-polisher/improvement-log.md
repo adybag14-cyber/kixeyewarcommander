@@ -1,22 +1,18 @@
 # Improvement Log
 
-## 2026-05-22 notebook package review and repolish
+## 2026-05-22 publication polish verification and rebuild
 
-- Reopened the attached notebook, rubric and saved progress notes from the real workspace state before editing.
-- Confirmed that the notebook still contained publication-level inconsistencies: the discussion and post-lab answers partly treated acetone as fastest even though the executed summary table shows acetonitrile is fastest.
-- Confirmed that the notebook still used the weaker 2017 solvent-effects citation rather than the stronger primary azobenzene paper mentioned in earlier notes.
-- Confirmed that the configuration and reproducibility text still overstated how easily the attached package could be rerun locally despite the missing solvent directories.
-- Confirmed that the saved dataframe outputs were still plain notebook HTML tables, leaving wide outputs vulnerable to clipping and awkward scrolling in notebook viewers.
-- Decoded all embedded figure and GIF payloads directly from the notebook to verify media integrity before editing; the archive contained eight PNG figures and two working GIFs.
-- Built `/workspace/repair_publication_notebook.py` to regenerate a polished notebook copy and a contact-sheet visual audit from the attached source notebook.
+- Reopened the attached notebook and confirmed that the earlier memory notes were ahead of the real workspace: the polished notebook copy, audit sheet and repair script were not actually present yet.
+- Built `/workspace/repair_publication_notebook.py` to patch the notebook deterministically from the attached source and regenerate the polished deliverables on demand.
 - Produced `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Produced `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
-- Updated the title-card scope note, configuration section, reproducibility appendix and consistency-check appendix so the notebook now distinguishes clearly between the executed archive and the incomplete local review bundle.
-- Replaced reference 5 with Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* (1987), DOI `10.1016/0009-2614(87)80394-9`.
-- Corrected the results discussion and post-lab answer text so the solvent ordering, timescale examples and literature-comparison wording now match the executed summary table.
-- Wrapped the summary, QC, benchmarking, validation, sensitivity and consistency-check outputs in captioned scroll-safe HTML figure blocks.
-- Added lazy-loaded GIF rendering attributes and closed the second expandable animation panel by default.
-- Re-decoded the media from the polished notebook and confirmed the finished archive still contains eight readable PNG figures and two readable GIFs with no broken inline assets.
+- Corrected the remaining narrative mismatch where the discussion and post-lab answers still described acetone as the fastest solvent even though the saved results rank acetonitrile first.
+- Corrected the literature-comparison wording so the acetone statement now matches the saved JCE benchmark comparison instead of repeating the wrong fastest-solvent claim.
+- Rewrote the scope note, configuration note, reproducibility appendix and consistency-check appendix so the notebook honestly distinguishes between the saved executed archive and the partial raw-data subset included in the review package.
+- Replaced reference 5 with the stronger primary 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on push-pull-substituted cis-azobenzenes.
+- Wrapped the existing dataframe outputs in captioned scroll-safe HTML figure containers to reduce clipping and horizontal overflow risk in notebook viewers without requiring a fresh full-data rerun.
+- Added lazy loading to embedded PNG and GIF media and closed both expandable GIF panels by default.
+- Rebuilt a visual audit sheet from the saved notebook outputs, covering all eight figures and the first frame of both inline GIFs.
 
 ## 2026-05-22 publication polish refresh
 
