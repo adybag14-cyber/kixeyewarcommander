@@ -1,13 +1,15 @@
 # Revision Plan
 
-## 2026-05-22 completed priorities
+## Completed in this run
 
-- Re-verified the attached notebook and confirmed the raw-data completeness blocker from the actual local package contents.
-- Produced a fresh polished notebook artifact and a visual audit sheet that now exist in the current workspace.
-- Repaired the most important publication issues: solvent-order narrative inconsistency, literature-comparison wording drift, reproducibility overstatement, weaker supporting citation, table clipping risk and the open-by-default second GIF panel.
+- Re-verify the attached notebook and rubric directly from source.
+- Rebuild the missing local repair workflow and publication-ready notebook copy.
+- Correct the highest-impact narrative inconsistencies and citation weakness.
+- Reduce rendering risk by wrapping wide tables and calming the inline GIF presentation.
+- Audit all saved figures and GIF first frames for obvious publication defects.
 
-## Next priorities
+## Highest-value next steps
 
-- Restore the missing solvent folders so the notebook can be rerun locally rather than treated only as an executed archive.
-- Re-execute the full notebook in the intended environment and confirm that the regenerated wrapped tables, figures and GIFs remain clean.
-- If the rerun changes numerical values or figure ordering, refresh the results narrative and post-lab answers to match the new executed output exactly.
+- Restore the missing non-acetone solvent directories in the local `Data/` package.
+- Execute one clean full rerun of the notebook against the restored five-solvent data tree.
+- Re-audit the rerun outputs and confirm that the regenerated figures, GIFs and wrapped tables still render cleanly.
