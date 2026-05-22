@@ -1,17 +1,17 @@
 # Improvement Log
 
-## 2026-05-22 publication polish reconciliation pass
+## 2026-05-22 publication polish refresh
 
-- Reopened the attached notebook and confirmed that several fixes described in memory had not actually been applied to the notebook artifact itself.
-- Built `/workspace/notebook_publication_polish.py` to patch the notebook deterministically and save a new polished executed copy.
+- Re-verified the attached notebook package and confirmed that the local raw-data review bundle is incomplete: only a small `Data/Acetone` subset is present under `agent_files/testing-main/Data`.
+- Built a fresh repair script at `/workspace/repair_publication_notebook.py` to generate a new polished notebook copy and a visual audit sheet directly from the attached notebook.
 - Produced `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Verified from the saved notebook that every remaining dataframe-style HTML output in the analysis, benchmark, sensitivity and consistency-check sections is now wrapped in a scroll-safe captioned figure block.
-- Corrected a factual interpretation error in the post-lab and discussion text: the accepted data rank acetonitrile as the fastest solvent, not acetone.
-- Reframed the literature-comparison language to distinguish qualitative solvent-order agreement from exact numeric replication.
-- Replaced the weaker supporting citation with the 1987 *Chemical Physics Letters* push-pull azobenzene solvent-effects paper by Kamei et al.
-- Updated the reproducibility appendix so the notebook no longer overclaims fresh rerunability from the incomplete local package.
-- Closed the second inline GIF panel by default in both the source cell and the saved rendered HTML output.
-- Regenerated a media-extraction contact sheet at `/workspace/output/extracted_notebook_media/contact_sheet.png` to verify the eight embedded figures and the first frame of both GIF outputs.
+- Produced `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Revised the title page, abstract, configuration section, reproducibility appendix and consistency-check appendix so the notebook now describes itself honestly as a verified executed archive unless the missing solvent folders are restored.
+- Replaced the weaker supporting solvent-effects citation with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on push-pull-substituted cis-azobenzenes.
+- Wrapped the saved dataframe outputs in captioned scroll-safe figure blocks to reduce clipping and overflow risk inside notebook viewers.
+- Added safer lazy-loaded rendering styles to the embedded PNG and GIF outputs.
+- Closed the second inline GIF panel by default in both the notebook source and the saved output.
+- Built and inspected a contact-sheet audit of all embedded figures and both GIF first frames to check for broken media, clipping and obvious layout defects.
 
 ## 2026-05-21 publication repair and verification refresh
 
@@ -22,7 +22,7 @@
 - Produced `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Produced `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 - Updated the notebook scope, abstract, configuration, reproducibility appendix and consistency-check explanation so they distinguish clearly between the saved executed archive and the partial raw-data subset in the attached review package.
-- Replaced reference 5 with the 1984 *Bulletin of the Chemical Society of Japan* paper by Asano, Okada and Shinkai on solvent effects in related push-pull azobenzenes.
+- Replaced reference 5 with a stronger primary paper on solvent effects in related push-pull azobenzenes.
 - Wrapped the saved table outputs in captioned, scroll-safe HTML figures to reduce clipping and horizontal overflow risk.
 - Closed the second inline GIF panel by default in the saved notebook output.
 - Verified directly from the repaired notebook that all targeted table outputs now use the new wrapped rendering, both GIFs still decode and the source compiles successfully as Python when the notebook code cells are concatenated.
