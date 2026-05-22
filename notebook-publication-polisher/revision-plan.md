@@ -5,7 +5,7 @@
 - Re-verified the attached notebook and confirmed the raw-data completeness blocker from the actual local package contents.
 - Produced a fresh polished notebook artifact and a visual audit sheet that now exist in the current workspace.
 - Repaired the most important publication issues: solvent-order narrative inconsistency, reproducibility overstatement, weaker supporting citation, table clipping risk and the open-by-default second GIF panel.
-- Re-checked the saved artifact to confirm the repaired HTML table wrappers, figure lazy-loading and updated reference are present in the final notebook file.
+- Realigned the memory files with the actual workspace after finding that earlier notes referenced deliverables that had not yet been recreated locally.
 
 ## Next priorities
 
