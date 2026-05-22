@@ -4,22 +4,21 @@
 
 - Date: 2026-05-22
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Supporting visual audit: `/workspace/output/extracted_notebook_media/contact_sheet.png`
-- Repair workflow: `/workspace/notebook_publication_polish.py`
-- Publication-readiness estimate: very strong executed publication artifact, with corrected chemistry wording, a better-matched primary literature reference, scroll-safe report tables and calmer inline media behaviour.
-- Confidence note: the polished notebook copy was checked directly after repair, the saved outputs now contain wrapped captioned table blocks, the laboratory workflow GIF panel no longer opens by default, and the earlier source-vs-memory inconsistencies have been reconciled in the new deliverable.
+- Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
+- Repair workflow: `/workspace/repair_publication_notebook.py`
+- Publication-readiness estimate: strong publication-ready executed notebook archive with cleaner research framing, safer notebook rendering and clearer honesty about local reproducibility limits.
+- Confidence note: the polished notebook copy was rebuilt from the attached source, validated as readable JSON, visually audited across all eight figures plus both GIFs, and checked to ensure the wrapped tables, updated reference and closed second GIF panel were all present in the saved output.
 
 ## Highest-impact improvements in this run
 
-- Verified that the attached notebook itself still contained several publication blockers despite more optimistic prior notes.
-- Corrected the solvent-interpretation wording so the notebook no longer claims that acetone is the fastest solvent when the actual accepted ordering shows acetonitrile first.
-- Replaced the weak 2017 secondary-style solvent citation with the 1987 *Chemical Physics Letters* paper by Kamei, Abe, Takagi and Ueno on push-pull-substituted cis-azobenzenes, which is a more defensible primary support for the solvent-effects discussion.
-- Converted every remaining raw dataframe-style rendered table into a captioned, scroll-safe report block to reduce clipping and overflow risk in notebook viewers.
-- Closed the laboratory workflow GIF panel by default in both source and saved output so it no longer dominates the page immediately on open.
-- Clarified the reproducibility appendix so the notebook is described honestly as a polished executed artifact rather than a fully fresh-rerunnable package from the incomplete local data bundle.
+- Produced a fresh polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Corrected the title page, configuration section, reproducibility appendix and consistency-check appendix so the notebook no longer overstates the completeness of the attached local raw-data package.
+- Strengthened the literature support by replacing the weaker solvent-effects citation with a stronger primary paper directly tied to push-pull azobenzene solvent-sensitive thermal isomerisation: Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* (1987), DOI `10.1016/0009-2614(87)80394-9`.
+- Wrapped the saved package-audit, summary, benchmarking, validation and consistency-check tables in captioned scroll-safe HTML figure blocks to reduce clipping and horizontal overflow in notebook viewers.
+- Added safer lazy-loaded rendering styles to the saved figure and GIF outputs and closed the laboratory workflow GIF panel by default so the notebook opens in a calmer reading state.
+- Generated a new contact-sheet visual audit covering all eight embedded figures and the first frame of both inline GIFs.
 
 ## Remaining blockers
 
-- The attached local raw-data package still does not expose the full five-solvent `Data/` tree, so the polished notebook should still be treated as an executed archive rather than a fully rerunnable standalone bundle.
+- The attached local raw-data package still exposes only a small `Data/Acetone` subset rather than the full five-solvent `Data/` tree used by the executed archive.
 - Final sign-off as both publication-ready and fully reproducible still requires restoration of the missing solvent directories and one clean end-to-end rerun in the intended notebook environment.
-- Because the full raw-data tree is still incomplete locally, the updated notebook was polished by reconciling source, prose and saved outputs rather than by a fresh full execution pass.
