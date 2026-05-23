@@ -6,13 +6,14 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Publication-readiness estimate: strong publication-style executed notebook artifact, now cleaner, more internally honest and visually safer to read, but still not fully sign-off ready because the attached local package cannot reproduce the full five-solvent run.
-- Confidence note: the saved notebook itself is polished and readable, with no confirmed broken embedded media, no confirmed GIF failures and safer table rendering, but full publication confidence still depends on rerunning from a restored complete raw-data bundle.
+- Confidence note: the repaired notebook copy and the progress notes are now aligned. The saved notebook itself is polished and readable, with no confirmed broken embedded media, no confirmed GIF failures and safer table rendering, but full publication confidence still depends on rerunning from a restored complete raw-data bundle.
 
 ## Highest-impact improvements in this run
 
 - Reopened the attached notebook, rubric and memory files and verified the actual notebook content against the package in hand.
 - Built a fresh polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Built a fresh visual audit contact sheet at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Brought the notebook artifact itself into line with the saved progress notes instead of leaving the notebook behind the written status.
 - Added an explicit execution-provenance note near the top of the notebook so readers can distinguish the archived five-solvent execution from the incomplete local review bundle.
 - Corrected the saved results discussion and post-lab answers so acetonitrile, not acetone, is consistently identified as the fastest solvent in the executed summary.
 - Replaced the weaker supporting citation with the stronger 1983 primary literature paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
