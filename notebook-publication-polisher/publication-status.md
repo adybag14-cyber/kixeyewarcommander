@@ -2,25 +2,30 @@
 
 ## Current assessment
 
-- Date: 2026-05-22
+- Date: 2026-05-23
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
-- Publication-readiness estimate: strong publication-ready executed notebook archive with materially stronger explanation discipline, cleaner table rendering, calmer inline media defaults and a more honest reproducibility statement.
-- Confidence note: the polished notebook copy was rebuilt directly from the attached source, validated as readable JSON, checked for the corrected solvent-order prose, checked for the stronger reference list entry, checked for wrapped wide tables, checked for lazy-loaded media and closed GIF panels, and visually audited across all eight figures plus both GIF first frames.
+- Publication-readiness estimate: strong publication-ready executed notebook archive with corrected solvent-order interpretation, stronger supporting literature, cleaner table rendering and calmer inline media behaviour.
+- Confidence note: the polished copy was rebuilt directly from the attached notebook, checked for the corrected discussion and post-lab wording, checked for the stronger primary reference, checked for wrapped captioned tables, checked for collapsed/lazy-loaded inline media and audited across all eight embedded figures plus both GIF first frames.
 
 ## Highest-impact improvements in this run
 
-- Produced a fresh polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Corrected the publication-level interpretation mismatch where parts of the discussion and post-lab answers treated acetone as fastest even though the executed summary table shows acetonitrile is fastest.
-- Corrected a second literature-comparison wording error in the discussion so the acetone benchmark language now matches the saved JCE comparison and no longer implies the wrong fastest solvent.
-- Revised the title-page scope note, configuration section, reproducibility appendix and consistency-check appendix so the notebook no longer overstates the completeness of the attached local raw-data package.
-- Strengthened the supporting literature by replacing the weaker 2017 citation with a stronger primary paper directly tied to push-pull azobenzene solvent-sensitive thermal isomerisation: Kobayashi, Yokoyama and Kamei, *Chemical Physics Letters* (1987), DOI `10.1016/0009-2614(87)80394-9`.
-- Wrapped the saved package-audit, summary, benchmarking, validation and consistency-check tables in captioned scroll-safe HTML figure blocks to reduce clipping and horizontal overflow in notebook viewers.
-- Added lazy-loaded rendering attributes to embedded images and closed both extra GIF panels by default so the notebook opens in a calmer, cleaner reading state.
-- Generated a new contact-sheet visual audit covering all eight embedded figures and the first frame of both inline GIFs.
+- Built a fresh polished notebook copy in `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Built a fresh embedded-media contact-sheet audit in `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Corrected the remaining narrative contradiction where the results discussion and post-lab answers still implied that acetone was the fastest solvent even though the executed summary table ranks acetonitrile first.
+- Replaced the weaker 2017 secondary citation with a stronger primary solvent-effects paper: Nishimura, Kosako and Sueishi, *Bulletin of the Chemical Society of Japan* (1984), DOI `10.1246/bcsj.57.1617`.
+- Rewrote the reproducibility wording so the notebook now distinguishes clearly between the executed five-solvent archive and the partial local review bundle, which currently exposes only an acetone subset under `agent_files/testing-main/Data/`.
+- Wrapped the saved dataframe outputs in captioned scroll-safe figure blocks to reduce clipping and horizontal overflow in notebook viewers.
+- Added lazy loading to embedded PNG and GIF outputs and closed the extra laboratory-workflow GIF panel by default so the notebook opens more cleanly.
 
 ## Remaining blockers
 
-- The attached local raw-data package still exposes only a small `Data/Acetone` subset rather than the full five-solvent `Data/` tree used by the executed archive.
-- Final sign-off as both publication-ready and fully reproducible still requires restoration of the missing solvent directories and one clean end-to-end rerun in the intended notebook environment.
+- The attached local raw-data package is still incomplete: only `Data/Acetone` is present locally, while the executed notebook archive depends on a full five-solvent `Data/` tree.
+- Full reproducibility sign-off still requires restoration of the missing solvent folders and one clean end-to-end rerun in the intended notebook environment.
+
+## Next highest-value improvements
+
+- Restore the missing `Acetonitrile`, `Cyclohexane`, `THF` and `Toluene` raw-data directories to the local review package.
+- Re-execute the notebook end to end from the restored raw data rather than relying on the saved archive outputs.
+- Repeat the visual audit after rerunning so the regenerated tables, figures and GIFs can be checked again for clipping, overlap and layout drift.
