@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-23 publication polish alignment pass on the actual attached notebook
+
+- Verified that the attached notebook still contained an older reference entry and stronger reproducibility language than the current file bundle supports.
+- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as a corrected publication copy rather than editing the attached notebook in place.
+- Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` by extracting the archived embedded figures and GIF first frames into one audit sheet.
+- Replaced the 2017 solvent-effects citation in the notebook reference list with the stronger 1983 *The Journal of Organic Chemistry* paper by Schanze, Mattox and Whitten.
+- Rewrote the scope, configuration and reproducibility text so the notebook now states plainly that the archived outputs are five-solvent results but the local review bundle currently contains only `Data/Acetone`.
+- Wrapped every saved dataframe-style HTML output in the polished notebook copy inside a captioned overflow-safe figure block to reduce clipping and layout breakage in narrower viewers.
+- Closed the second GIF details panel by default in the notebook source and saved output, while keeping both embedded animations self-contained.
+- Updated the manifest default notebook name so future reruns point to the polished notebook filename rather than an older validation filename.
+
 ## 2026-05-23 publication polish correction pass, visual audit and persistence refresh
 
 - Reopened the actual attached notebook package and rubric instead of relying on the previous saved assessment.
