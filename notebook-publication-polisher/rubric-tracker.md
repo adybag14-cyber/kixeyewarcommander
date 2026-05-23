@@ -4,7 +4,7 @@
 
 - Date: 2026-05-23
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Estimated band: likely `Outstanding` overall for the executed notebook artifact, with presentation and analytical explanation now approaching `Exceptional`.
+- Estimated band: likely `Outstanding` overall for the executed notebook artifact, with presentation, analytical explanation and formatting now pressing into `Exceptional`.
 - Main uncertainty: the executed notebook is strong, but the attached local review package still lacks the full five-solvent raw-data tree, so portability and true rerunnability cannot yet be scored with full confidence.
 
 ## Criterion status
@@ -15,7 +15,7 @@
 - Originality and elegance of code: strong to very strong. The notebook is modular, uses validation and benchmarking thoughtfully and now has a reproducible repair workflow for publication polishing.
 - Portability of code: moderate. Parameters and paths are centralized, but full rerunnability is still blocked by the incomplete local raw-data package.
 - Commenting, documentation and explanation of code: strong. The notebook uses docstrings and explanatory markdown well, with a clear explanation of the kinetic model and quality-control logic.
-- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses strong notebook styling, embedded figure captions, wrapped wide tables, inline media and a verified contact-sheet visual audit with no broken embedded assets found.
+- Markdown, LaTeX, HTML and formatting: outstanding to exceptional. The notebook uses strong notebook styling, embedded figure captions, wrapped wide tables, responsive inline media and a verified contact-sheet visual audit with no broken embedded assets found.
 
 ## Remaining gap to full confidence
 
