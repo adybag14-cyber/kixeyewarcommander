@@ -1,18 +1,18 @@
 # Improvement Log
 
-## 2026-05-23 notebook publication audit, rendering polish and persistence correction
+## 2026-05-23 publication polish correction pass, visual audit and persistence refresh
 
-- Reopened the actual attached notebook package and rubric instead of trusting the earlier saved assessment.
-- Confirmed that previous tracking claimed a few fixes that were not yet present in the notebook artifact itself.
+- Reopened the actual attached notebook package and rubric instead of relying on the previous saved assessment.
+- Confirmed that earlier tracking overstated a few fixes that were not yet present in the notebook itself.
 - Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
-- Replaced the weaker 2017 solvent-polarity citation with the stronger primary literature source by Schanze, Mattox and Whitten, *The Journal of Organic Chemistry* 1983, DOI `10.1021/jo00165a005`.
-- Rewrote the configuration, reproducibility and archived-check wording so the notebook now distinguishes honestly between the complete archived execution and the incomplete local review bundle.
-- Updated the saved notebook source so future reruns will render the key tables inside scroll-safe, captioned HTML blocks rather than raw wide dataframe outputs.
-- Patched the saved HTML outputs in the executed notebook so the current artifact already opens with wrapped, captioned tables instead of unclipped raw tables.
-- Closed the second GIF panel by default in both the notebook source and the saved rendered output.
+- Corrected the main results discussion so it no longer claims that acetone is the fastest solvent when the executed summary ranks acetonitrile first.
+- Corrected the post-lab solvent interpretation so the explanatory prose now matches the fitted order everywhere it appears.
+- Replaced the weaker supporting citation with the stronger 1983 *Journal of Organic Chemistry* paper on solvent effects in a closely related push-pull azobenzene system.
+- Rewrote the scope, configuration and reproducibility sections so the notebook now states honestly that the attached local bundle is incomplete and cannot yet support a full five-solvent rerun.
+- Wrapped the saved dataframe outputs in captioned scroll-safe HTML figure blocks to reduce clipping and horizontal overflow risk in notebook viewers.
+- Closed the second inline GIF panel by default and kept both embedded animations fully self-contained.
 - Extracted and rechecked all ten embedded visuals in the notebook archive: 8 PNG figures and 2 GIFs. No broken embedded media were found.
-- Ran a syntax pass over every code cell in the polished notebook copy after the edits and corrected the table-rendering cell wrappers until the source compiled cleanly.
 
 ## Open risk
 
