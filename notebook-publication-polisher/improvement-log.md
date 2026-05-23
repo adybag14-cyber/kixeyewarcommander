@@ -9,7 +9,7 @@
 - Produced `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 - Corrected the discussion and post-lab explanations so they no longer imply that acetone is the fastest solvent when the executed archive ranks acetonitrile first.
 - Replaced the weaker supporting citation with the stronger 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on solvent effects in push-pull-substituted cis-azobenzenes.
-- Rewrote the scope, configuration and reproducibility wording so the notebook now states honestly that the current local review bundle is incomplete and cannot yet support a full five-solvent rerun.
+- Rewrote the scope, configuration, conclusion and reproducibility wording so the notebook now states honestly that the current local review bundle is incomplete and cannot yet support a full five-solvent rerun.
 - Rebuilt the saved dataframe outputs as captioned scroll-safe HTML figure blocks to reduce clipping and overflow risk in notebook viewers.
 - Added responsive styling to all archived PNG figures and closed the second inline GIF panel by default.
 - Extracted and rechecked all ten embedded visuals in the notebook archive: 8 PNG figures and 2 GIFs. No broken embedded media were found.
