@@ -11,11 +11,11 @@
 
 - Post-labs: very strong. The answers are complete, data-linked and now consistent with the executed solvent ordering instead of contradicting it.
 - Data analysis + plotting: very strong. All five solvents are represented in the saved executed archive, uncertainty treatment is detailed, quality control is explicit and the embedded visual outputs remain readable after audit of all 8 PNG figures and both GIFs.
-- Experimental write-up: very strong to outstanding. The introduction, discussion and conclusion are better aligned with the fitted results, the solvent-order contradictions are removed, the literature support is stronger and the reproducibility framing is more honest.
+- Experimental write-up: very strong to outstanding. The introduction, discussion and conclusion are better aligned with the fitted results, the solvent-order contradictions are removed, the literature support is stronger and the reproducibility framing is more honest in both the notebook source and the saved executed outputs.
 - Originality and elegance of code: strong to very strong. The notebook remains modular, uses validation and benchmarking thoughtfully and now includes a clearer rerun failure path plus safer publication-facing table presentation.
 - Portability of code: moderate. Parameters and paths are centralized and the caveats are explicit, but full rerunnability is still blocked by the incomplete local raw-data package.
 - Commenting, documentation and explanation of code: strong. The notebook uses docstrings and explanatory markdown well, with clear explanation of the kinetic model, quality-control logic and current reproducibility limits.
-- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses strong notebook styling, captioned scroll-safe saved tables, responsive inline media, calmer default GIF behaviour and a verified embedded-media audit with no broken assets found.
+- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses strong notebook styling, captioned scroll-safe saved tables, responsive inline media, calmer default GIF behaviour and a verified embedded-media audit with no broken assets found across the 10 embedded media items.
 
 ## Remaining gap to full confidence
 
