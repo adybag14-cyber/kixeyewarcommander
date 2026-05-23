@@ -1,14 +1,15 @@
 # Revision Plan
 
-## 2026-05-23 completed priorities
+## Completed in this run
 
-- Re-verified the actual attached notebook, rubric and local supporting files instead of trusting the earlier saved state.
-- Built a deterministic repair workflow in `/workspace/repair_publication_notebook.py`.
-- Produced a fresh polished notebook artifact and visual audit asset in `/workspace/output/`.
-- Repaired the highest-impact publication blockers still present in the actual notebook: solvent-order wording drift, overclaimed rerunnability, plain overflow-prone table outputs, weaker supporting literature and an open-by-default GIF panel.
+- Reopen the attached notebook and rubric guidance instead of relying on earlier status notes.
+- Verify the highest-impact publication blockers in the real notebook artifact.
+- Rebuild a polished notebook copy with corrected prose, cleaner table rendering and calmer inline media behaviour.
+- Generate a concrete visual audit sheet from the embedded figures and GIF outputs.
+- Update persistent progress tracking so the next run starts from the repaired state.
 
-## Next priorities
+## Highest-value next steps
 
-- Restore the missing solvent folders in the local review package so the notebook can be rerun from raw data.
-- Re-execute the full notebook after the data package is restored.
-- Repeat the visual audit and refresh any prose that depends on regenerated numerical outputs.
+- Restore the missing solvent directories so the notebook can be rerun locally from raw data.
+- Re-execute the notebook end to end and replace the saved archive outputs with a fresh full-data run.
+- Repeat the visual audit on the regenerated figures, tables and GIFs before final publication sign-off.
