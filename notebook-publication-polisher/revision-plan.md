@@ -4,8 +4,8 @@
 
 - Reopen the attached notebook and rubric guidance instead of relying on earlier status notes.
 - Verify the highest-impact publication blockers in the real notebook artifact.
-- Rebuild a polished notebook copy with corrected prose, cleaner table rendering, responsive figure styling and calmer inline media behaviour.
-- Generate a concrete visual audit sheet from the embedded figures and GIF outputs.
+- Rebuild a polished notebook copy with corrected prose, stronger literature support, safer table rendering and calmer inline media behaviour.
+- Generate a fresh visual audit sheet from the embedded figures and GIF outputs.
 - Update persistent progress tracking so the next run starts from the repaired state.
 
 ## Highest-value next steps
