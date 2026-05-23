@@ -9,9 +9,9 @@
 - Corrected the results discussion so it no longer claims that acetone has the largest measured recovery constant when the executed summary table ranks acetonitrile first.
 - Corrected the post-lab solvent discussion so the explanatory prose matches the fitted solvent ordering.
 - Replaced the weaker supporting citation with the stronger 1987 *Chemical Physics Letters* paper on solvent effects in push-pull-substituted cis-azobenzenes.
-- Rewrote the scope, configuration, reproducibility and consistency-check sections so the notebook now states honestly that the attached local bundle is incomplete and cannot yet support a full five-solvent rerun.
-- Wrapped the saved dataframe outputs in captioned scroll-safe HTML figure blocks to reduce clipping and horizontal overflow risk in notebook viewers.
-- Closed the second inline GIF panel by default and kept the media fully embedded for notebook and HTML playback.
+- Rewrote the scope and reproducibility sections so the notebook now states honestly that the attached local bundle is incomplete and cannot yet support a full five-solvent rerun.
+- Wrapped the executed dataframe outputs in captioned scroll-safe HTML figure blocks to reduce clipping and horizontal overflow risk in notebook viewers.
+- Closed the second inline GIF panel by default in the saved executed notebook and kept the media fully embedded for notebook and HTML playback.
 - Extracted and rechecked all ten embedded visuals in the notebook archive: 8 PNG figures and 2 GIFs. No broken embedded media were found.
 
 ## Open risk
