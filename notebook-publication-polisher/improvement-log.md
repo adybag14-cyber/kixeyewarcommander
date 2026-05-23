@@ -15,6 +15,7 @@
 - Wrapped the saved HTML dataframe outputs in captioned scroll-safe figure blocks to reduce clipping and overlap risk in notebook viewers.
 - Closed the second embedded GIF panel by default while preserving both fully inline self-contained animations.
 - Extracted and audited all ten embedded visuals from the saved notebook output: 8 PNG figures and 2 GIFs. No broken embedded assets were found.
+- Verified that the repaired notebook copy now matches the saved status notes on citation choice, solvent ordering, reproducibility framing and saved-output presentation.
 
 ## Open risk
 
