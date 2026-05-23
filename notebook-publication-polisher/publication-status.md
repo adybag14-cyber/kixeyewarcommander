@@ -5,8 +5,8 @@
 - Date: 2026-05-23
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
-- Publication-readiness estimate: strong near-publication-ready executed notebook artifact with materially better narrative honesty, cleaner table rendering and a more publication-safe opening layout.
-- Confidence note: the notebook now presents itself more professionally and avoids misleading reproducibility claims, but full publication sign-off still depends on restoring the missing solvent folders and rerunning the analysis from a complete raw-data bundle.
+- Publication-readiness estimate: strong near-publication-ready executed notebook artifact with materially stronger internal consistency, more honest reproducibility framing, updated literature support, captioned scroll-safe table rendering and calmer inline-media defaults.
+- Confidence note: the notebook now reads more professionally as a publication artifact, but full publication sign-off still depends on restoring the missing solvent folders and rerunning the analysis from a complete raw-data bundle.
 
 ## Highest-impact improvements in this run
 
@@ -14,10 +14,9 @@
 - Built a fresh polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Built a fresh embedded-media contact-sheet audit at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 - Corrected the remaining narrative contradictions that still implied acetone was the fastest solvent, even though the executed summary table ranks acetonitrile first.
-- Rewrote the post-lab solvent-discussion answers so the kinetic interpretation is consistent with the actual fitted ordering.
+- Rewrote the post-lab solvent-discussion answers so the kinetic interpretation is consistent with the actual fitted ordering in both source cells and saved rendered outputs.
 - Replaced the weaker 2017 secondary citation with the more relevant 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei, DOI `10.1016/0009-2614(87)80394-9`.
-- Reframed the scope, configuration, reproducibility and consistency-check sections so they distinguish clearly between the archived five-solvent executed notebook and the partial local review bundle, which currently exposes only `Data/Acetone`.
-- Added an explicit integrity note before the consistency-audit section so readers do not mistake the archived audit for proof that the attached local package is complete.
+- Reframed the title-card scope note, configuration section, reproducibility appendix and consistency-check appendix so they distinguish clearly between the archived five-solvent executed notebook and the partial local review bundle, which currently exposes only `Data/Acetone`.
 - Wrapped the saved dataframe-style outputs in captioned scroll-safe figure blocks so wide tables are less likely to clip or overflow in notebook viewers.
 - Closed the second inline GIF panel by default so the notebook opens more cleanly while keeping both embedded animations fully self-contained.
 - Rechecked all embedded visuals in the notebook archive: 8 PNG figures plus 2 GIFs. No broken embedded media were found in the saved executed notebook.
