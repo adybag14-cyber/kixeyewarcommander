@@ -6,16 +6,16 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Repair workflow: `/workspace/repair_publication_notebook.py`
-- Publication-readiness estimate: strong publication-ready executed notebook archive with corrected solvent-order interpretation, stronger supporting literature, cleaner table rendering and calmer inline media behaviour.
-- Confidence note: the polished copy was rebuilt directly from the attached notebook, checked for the corrected discussion and post-lab wording, checked for the stronger primary reference, checked for wrapped captioned tables, checked for collapsed/lazy-loaded inline media and audited across all eight embedded figures plus both GIF first frames.
+- Publication-readiness estimate: strong publication-ready executed notebook archive with corrected solvent-order interpretation, stronger primary literature support, scroll-safe table presentation and calmer inline media behaviour.
+- Confidence note: the polished copy was rebuilt directly from the attached notebook, checked for the corrected discussion and post-lab wording, checked for the stronger primary reference, checked for wrapped captioned tables, checked for collapsed lazy-loaded inline media and audited across all eight embedded figures plus representative frames from both GIFs.
 
 ## Highest-impact improvements in this run
 
-- Built a fresh polished notebook copy in `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Built a fresh embedded-media contact-sheet audit in `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Built a fresh polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Built a fresh embedded-media contact-sheet audit at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 - Corrected the remaining narrative contradiction where the results discussion and post-lab answers still implied that acetone was the fastest solvent even though the executed summary table ranks acetonitrile first.
-- Replaced the weaker 2017 secondary citation with a stronger primary solvent-effects paper: Nishimura, Kosako and Sueishi, *Bulletin of the Chemical Society of Japan* (1984), DOI `10.1246/bcsj.57.1617`.
-- Rewrote the reproducibility wording so the notebook now distinguishes clearly between the executed five-solvent archive and the partial local review bundle, which currently exposes only an acetone subset under `agent_files/testing-main/Data/`.
+- Replaced the weaker 2017 secondary citation with the more relevant primary 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei, DOI `10.1016/0009-2614(87)80394-9`.
+- Rewrote the scope, configuration and reproducibility wording so the notebook now distinguishes clearly between the executed five-solvent archive and the partial local review bundle, which currently exposes only `testing-main/Data/Acetone`.
 - Wrapped the saved dataframe outputs in captioned scroll-safe figure blocks to reduce clipping and horizontal overflow in notebook viewers.
 - Added lazy loading to embedded PNG and GIF outputs and closed the extra laboratory-workflow GIF panel by default so the notebook opens more cleanly.
 
