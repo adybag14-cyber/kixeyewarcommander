@@ -2,11 +2,11 @@
 
 ## Completed in this run
 
-- Reopen the attached notebook and rubric guidance instead of relying on earlier status notes.
-- Verify the highest-impact publication blockers in the real notebook artifact.
-- Rebuild a polished notebook copy with corrected prose, cleaner table rendering and calmer inline media behaviour.
-- Generate a concrete visual audit sheet from the embedded figures and GIF outputs.
-- Update persistent progress tracking so the next run starts from the repaired state.
+- Reopened the attached notebook and rubric guidance instead of relying on earlier status notes.
+- Verified the highest-impact publication blockers in the real notebook artifact.
+- Rebuilt a polished notebook copy with corrected prose, stronger reference support, cleaner table rendering and calmer inline media behaviour.
+- Generated a concrete visual audit sheet from the embedded figures and GIF outputs.
+- Updated persistent progress tracking so the next run starts from the verified repaired state.
 
 ## Highest-value next steps
 
