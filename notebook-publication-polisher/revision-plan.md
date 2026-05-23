@@ -7,6 +7,7 @@
 - Build a polished notebook copy with corrected solvent-order prose, stronger literature support, more honest reproducibility framing, clearer rerun failure messaging, safer saved-table rendering and calmer inline GIF behaviour.
 - Generate a fresh visual audit sheet from the embedded figures and GIF outputs.
 - Update persistent progress tracking so the next run starts from the repaired state rather than the overstated earlier notes.
+- Verify that the repaired notebook artifact and the saved progress notes now agree on the current state.
 
 ## Highest-value next steps
 
