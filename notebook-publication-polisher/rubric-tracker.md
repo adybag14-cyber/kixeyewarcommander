@@ -15,7 +15,7 @@
 - Originality and elegance of code: strong to very strong. The notebook remains modular, uses validation and benchmarking thoughtfully and now has more publication-conscious table presentation.
 - Portability of code: moderate. Parameters and paths are centralized and the caveats are explicit, but full rerunnability is still blocked by the incomplete local raw-data package.
 - Commenting, documentation and explanation of code: strong. The notebook uses docstrings and explanatory markdown well, with clear explanation of the kinetic model and quality-control logic.
-- Markdown, LaTeX, HTML and formatting: outstanding to exceptional. The notebook uses strong notebook styling, wrapped wide tables, responsive inline media, closed-by-default auxiliary media and a verified contact-sheet visual audit with no broken embedded assets found.
+- Markdown, LaTeX, HTML and formatting: outstanding to exceptional. The notebook uses strong notebook styling, wrapped executed wide tables, responsive inline media, closed-by-default auxiliary media and a verified contact-sheet visual audit with no broken embedded assets found.
 
 ## Remaining gap to full confidence
 
