@@ -11,5 +11,5 @@
 ## Highest-value next steps
 
 - Restore the missing solvent directories so the notebook can be rerun locally from raw data.
-- Re-execute the notebook end to end and replace the saved archive outputs with a fresh full-data run.
+- Re-execute the notebook end to end and replace the saved archived outputs with a fresh full-data run.
 - Repeat the visual audit on the regenerated figures, tables and GIFs before final publication sign-off.
