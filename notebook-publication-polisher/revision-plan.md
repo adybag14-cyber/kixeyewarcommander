@@ -1,15 +1,10 @@
 # Revision Plan
 
-## Completed in this run
-
-- Reopened the attached notebook, rubric guidance and saved progress notes instead of relying on earlier summaries.
-- Verified the highest-impact publication blockers in the real notebook artifact.
-- Built a polished notebook copy with corrected solvent-order prose, stronger literature support, more honest reproducibility framing, safer saved-table rendering and calmer inline GIF behaviour.
-- Generated a fresh visual audit sheet from the embedded figures and GIF outputs.
-- Updated persistent progress tracking so the next run starts from the corrected notebook state rather than from stale notes.
-
-## Highest-value next steps
-
-- Restore the missing solvent directories so the notebook can be rerun locally from raw data.
-- Re-execute the notebook end to end and replace the saved archive outputs with a fresh full-data run.
-- Repeat the visual audit on the regenerated figures, tables and GIFs before final publication sign-off.
+- [x] Confirm the real notebook state against the saved memory files and rubric.
+- [x] Re-audit saved embedded figures, GIFs and rendered outputs for clipping or broken media.
+- [x] Correct the notebook artifact where it still lagged behind the memory notes.
+- [x] Strengthen research framing and explanation with better primary-literature support.
+- [x] Improve saved table rendering and calmer default notebook opening behaviour.
+- [x] Update memory files so future runs continue from the corrected notebook state.
+- [ ] Rerun the notebook from a restored complete five-solvent data bundle.
+- [ ] Re-verify regenerated figures, tables and GIFs after that rerun.
