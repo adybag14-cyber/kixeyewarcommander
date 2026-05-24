@@ -5,8 +5,8 @@
 - Date: 2026-05-24
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
-- Publication-readiness estimate: strong publication-facing notebook artifact. The saved narrative, references and rendered outputs are now materially more professional and internally consistent, but the notebook is still short of full sign-off because the attached local package cannot yet reproduce the archived five-solvent run.
-- Confidence note: the repaired notebook now matches the progress record. The embedded-media audit confirms 8 PNG figures and 2 GIFs decode successfully, the second GIF panel is closed by default in both source and saved output, and all archived HTML tables now sit inside captioned scroll-safe containers to reduce clipping and overlap risk in notebook viewers.
+- Publication-readiness estimate: strong publication-facing notebook artifact. The repaired notebook now presents the archived five-solvent execution much more professionally and more honestly, with stronger provenance wording, better table rendering and cleaner saved media behaviour. It is still short of full sign-off because the attached local package cannot yet reproduce the archived full run.
+- Confidence note: the live polished notebook now matches the saved progress record. The embedded-media audit confirms 8 PNG figures and 2 GIFs decode successfully, the second GIF panel is closed by default in both source and saved output, and all archived HTML tables now sit inside captioned scroll-safe containers to reduce clipping and overlap risk in notebook viewers.
 
 ## Highest-impact improvements in this run
 
@@ -16,7 +16,7 @@
 - Added a clear execution-provenance note near the start of the notebook explaining that the saved outputs come from an archived five-solvent execution while the attached local review bundle currently exposes only `Data/Acetone`.
 - Rewrote the reproducibility and automated-check appendices so the rerun blocker is stated directly and professionally.
 - Replaced the weaker secondary literature item with the stronger 1983 primary paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
-- Corrected saved narrative contradictions so acetonitrile is consistently described as the fastest retained solvent, with acetone as the close second.
+- Improved the source notebook so future reruns fail with a precise missing-solvent message instead of a vague single-folder error.
 - Wrapped every archived HTML table output in a captioned scroll-safe figure container to reduce clipping and horizontal overflow.
 - Closed the second inline GIF panel by default in both the code cell and the saved HTML output.
 
