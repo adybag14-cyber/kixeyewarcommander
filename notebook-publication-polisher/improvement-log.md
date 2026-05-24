@@ -13,6 +13,7 @@
 - Wrapped all saved HTML table outputs in captioned, scroll-safe figure containers to reduce clipping and horizontal overflow in notebook viewers.
 - Closed the second inline GIF panel by default in both the notebook source and the saved HTML output.
 - Verified that all embedded media in the polished notebook decode successfully: 8 PNG figures and 2 GIFs.
+- Reviewed the extracted audit sheet visually and found no obvious clipping, overlap or broken-image defects in the ten embedded visuals preserved in the polished artifact.
 
 ## Open risk
 
