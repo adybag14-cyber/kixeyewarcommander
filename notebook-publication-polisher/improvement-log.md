@@ -1,21 +1,22 @@
 # Improvement Log
 
-## 2026-05-24 notebook artifact alignment and render-safety pass
+## 2026-05-24 publication-artifact correction and render audit
 
-- Reopened the attached notebook package, rubric guidance and saved notes, then verified that the live notebook artifact still lagged behind the durable record in several important places.
+- Reopened the attached notebook package, rubric guidance and saved notes, then checked the actual notebook artifact instead of assuming the earlier progress record was already reflected in the file.
 - Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the repaired publication-facing notebook copy.
-- Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` by extracting every embedded notebook PNG and GIF output into a single audit sheet.
-- Found that the live notebook still contained raw DataFrame HTML outputs and an auto-opened second GIF panel, despite the earlier progress notes claiming both issues were already fixed.
-- Added an explicit execution-provenance note near the start of the notebook so readers can distinguish the archived five-solvent output from the incomplete local review bundle.
-- Rewrote the reproducibility and automated-check appendices so they state clearly that the local workspace currently contains only `Data/Acetone`.
-- Replaced the weaker 2017 citation with the stronger 1983 primary paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
-- Improved the source notebook so a future rerun on an incomplete package raises a precise missing-solvent error that lists the absent folders and keeps the main analysis tables inside the same safer publication wrappers.
-- Wrapped all saved HTML table outputs in captioned, scroll-safe figure containers to reduce clipping and horizontal overflow in notebook viewers.
-- Closed the second inline GIF panel by default in both the notebook source and the saved HTML output.
-- Verified that all embedded media in the polished notebook decode successfully: 8 PNG figures and 2 GIFs.
-- Reviewed the extracted audit sheet visually and found no obvious clipping, overlap or broken-image defects in the ten embedded visuals preserved in the polished artifact.
+- Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` by extracting every embedded figure and GIF output into a single audit sheet.
+- Added a front-matter provenance note explaining that the visible saved outputs come from an archived five-solvent execution while the current local review bundle exposes only `Data/Acetone`.
+- Strengthened the introduction so the solvent discussion is no longer written as though bulk polarity alone explains the kinetics.
+- Replaced the weaker supporting literature item with the stronger 1983 primary paper by Schanze, Mattox and Whitten.
+- Rewrote the saved results discussion so the literature comparison is more rigorous and the solvent interpretation is better connected to charge-transfer character and specific solvation.
+- Rewrote the reproducibility and automated-check appendices so they describe the archived execution honestly and do not over-claim fresh local reproducibility.
+- Wrapped all 9 saved HTML tables in captioned, scroll-safe figure containers to reduce clipping and overflow risk in notebook viewers.
+- Closed the second inline GIF panel by default in both the source cell and the saved rendered output.
+- Verified that all 10 embedded visual media outputs decode successfully: 8 PNG figures and 2 GIFs.
+- Reviewed the generated contact sheet visually and found no obvious clipping, overlap or broken-image defects in the embedded figures and GIF previews.
+- Updated the saved source notebook so the missing full-data rerun now points toward the real blocker more clearly than a generic missing-folder error.
 
 ## Open risk
 
-- The polished notebook is stronger as a publication artifact, but the attached local raw-data bundle is still incomplete.
+- The polished notebook is now much stronger as a publication artifact, but the attached local raw-data package is still incomplete.
 - Full reproducibility remains blocked until the missing solvent folders are restored and the notebook is rerun end to end from that restored local data package.
