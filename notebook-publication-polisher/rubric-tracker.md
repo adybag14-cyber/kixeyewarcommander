@@ -25,6 +25,7 @@
 
 ## This run's evidence upgrade
 
+- The durable scoring notes were rechecked against the actual corrected notebook copy rather than inferred from earlier plan notes.
 - The polished notebook artifact now actually contains the provenance note, appendix caveats, stronger reference list and safer saved-table rendering that earlier durable notes were aiming for.
 - The refreshed visual audit confirms that 9 saved tables, 8 PNG figures and 2 GIF outputs are embedded and decode successfully in the polished copy.
 - The second inline GIF panel is now closed by default, reducing viewer clutter and heavy-media surprise when the notebook is first opened.
