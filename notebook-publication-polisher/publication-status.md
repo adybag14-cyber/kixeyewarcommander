@@ -5,8 +5,8 @@
 - Date: 2026-05-24
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
-- Publication-readiness estimate: materially improved and close to publication-ready as an archived notebook artifact, with the live factual contradiction, the weak reproducibility framing and the main saved-output layout risks repaired in the polished copy. It is still not fully sign-off ready because the attached local package cannot reproduce the archived five-solvent execution.
-- Confidence note: the polished notebook now states its provenance honestly, matches the executed solvent ordering, wraps the saved wide tables in scroll-safe publication panels and keeps the second inline GIF closed by default. Full publication confidence still depends on rerunning from a restored complete raw-data bundle.
+- Publication-readiness estimate: substantially closer to a professional publication-ready notebook than the attached source package, with the main interpretation contradictions, provenance ambiguity, citation weakness and highest-risk rendering issues now repaired in the polished copy, but still not fully sign-off ready because the attached local package cannot reproduce the archived five-solvent execution.
+- Confidence note: the polished notebook now aligns with the real saved artifact rather than the stale earlier state, the embedded media audit found 8 PNG figures plus 2 GIFs with no broken assets, the second GIF now opens closed by default, and the saved tables are wrapped in scroll-safe figure containers to reduce clipping risk. Full publication confidence still depends on rerunning from a restored complete raw-data bundle.
 
 ## Highest-impact improvements in this run
 
@@ -14,12 +14,11 @@
 - Built a corrected polished notebook at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Built a fresh visual audit contact sheet at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 - Added an explicit execution-provenance note near the top of the notebook so readers can distinguish the archived five-solvent execution from the incomplete local review bundle.
-- Corrected the post-lab solvent interpretation so the executed summary is described consistently: acetonitrile, not acetone, is the fastest retained solvent in the archived run.
+- Corrected the saved discussion and post-lab answer text so acetonitrile, not acetone, is consistently identified as the fastest retained solvent in the executed summary.
 - Replaced the weaker supporting citation with the stronger 1983 primary literature paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
 - Rewrote the configuration, reproducibility and automated-check appendices so they state clearly that the current local workspace exposes only `Data/Acetone`.
-- Improved the source failure path so an incomplete local rerun now raises a more precise missing-solvent explanation instead of a vague missing-directory message.
-- Wrapped 9 saved HTML table outputs in captioned scroll-safe figure containers to reduce clipping and horizontal overflow risk in notebook viewers.
-- Wrapped both inline GIF outputs in publication-style expandable panels and kept the second panel closed by default so the notebook opens more calmly.
+- Wrapped the saved HTML table outputs in captioned scroll-safe figure containers to reduce clipping and horizontal overflow risk in notebook viewers.
+- Closed the second inline GIF panel by default so the notebook opens more calmly while keeping both embedded animations self-contained.
 - Re-extracted and audited every embedded visual in the saved notebook archive: 8 PNG figures plus 2 GIFs. No broken embedded media were found in the current audit.
 
 ## Remaining blockers
