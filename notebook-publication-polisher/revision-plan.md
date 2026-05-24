@@ -3,8 +3,8 @@
 ## Completed in this run
 
 - Reopened the attached notebook, rubric guidance and saved progress notes instead of relying on earlier summaries.
-- Verified that the live attached notebook still lagged behind the durable notes in citation quality, provenance wording and output presentation.
-- Built a polished notebook copy with explicit execution provenance, stronger literature support, safer saved-table rendering, a clearer missing-solvent rerun error and calmer inline GIF behaviour.
+- Verified that the live attached notebook still lagged behind the durable notes in output presentation, with raw tables and an auto-opened second GIF panel still present in the actual artifact.
+- Built a polished notebook copy with explicit execution provenance, safer saved-table rendering, a clearer local rerun blocker statement and calmer inline GIF behaviour.
 - Generated a fresh visual audit sheet from all embedded figures and GIF outputs.
 - Updated persistent progress tracking so the next run starts from the repaired notebook state rather than the stale earlier copy.
 
