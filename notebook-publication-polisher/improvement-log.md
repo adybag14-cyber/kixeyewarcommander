@@ -1,5 +1,18 @@
 # Improvement Log
 
+## 2026-05-24 notebook-publication correction and render-safety pass
+
+- Reopened the attached notebook package and confirmed that the notebook itself still lagged behind the saved memory notes in several important places.
+- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the corrected publication-facing notebook copy.
+- Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` by extracting and thumbnailing every embedded notebook visual.
+- Added an execution-provenance note near the front of the notebook so readers can distinguish the archived five-solvent run from the incomplete local review bundle.
+- Corrected the saved results discussion and post-lab wording so acetonitrile is consistently treated as the fastest retained solvent in the executed summary, with acetone as the close second.
+- Replaced the weaker 2017 supporting citation with Schanze, Mattox and Whitten, *The Journal of Organic Chemistry* (1983), DOI `10.1021/jo00165a005`.
+- Rewrote the configuration, reproducibility and automated-check appendices so they no longer overclaim local rerunnability.
+- Wrapped all saved dataframe-style HTML outputs in captioned scroll-safe figure containers to reduce clipping and horizontal overflow in notebook viewers.
+- Closed the second inline GIF panel by default in the saved notebook output while preserving both inline self-contained animations.
+- Verified that all ten embedded media assets decode successfully: 8 PNG figures and 2 GIFs.
+
 ## 2026-05-24 notebook artifact repair and visual-audit pass
 
 - Reopened the attached notebook, rubric and saved notes, then confirmed that the live notebook was still behind the progress notes in several important places.
