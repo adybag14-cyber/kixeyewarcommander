@@ -4,7 +4,7 @@
 
 - Reopened the attached notebook, rubric guidance and saved progress notes instead of relying on earlier summaries.
 - Verified the highest-impact publication blockers in the real notebook artifact.
-- Built a polished notebook copy with stronger provenance framing, stronger literature support, more honest reproducibility wording, clearer rerun failure messaging, safer saved-table rendering and calmer inline GIF behaviour.
+- Built a polished notebook copy with corrected solvent-order prose, stronger literature support, more honest reproducibility framing, clearer rerun failure messaging, safer saved-table rendering and calmer inline GIF behaviour.
 - Generated a fresh visual audit sheet from the embedded figures and GIF outputs.
 - Updated persistent progress tracking so the next run starts from the repaired state rather than the overstated earlier notes.
 
