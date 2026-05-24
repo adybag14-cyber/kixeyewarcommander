@@ -5,13 +5,13 @@
 - Date: 2026-05-24
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`, with several presentation and interpretation elements now closer to `Exceptional` for the archived executed artifact.
-- Main uncertainty: the notebook now presents the archived execution more professionally and more honestly, but the attached local review package still lacks the full five-solvent raw-data tree, so portability and verified rerunnability cannot yet be scored with full confidence.
+- Main uncertainty: the polished notebook now presents the archived execution more professionally and more honestly, but the attached local review package still lacks the full five-solvent raw-data tree, so portability and verified rerunnability cannot yet be scored with full confidence.
 
 ## Criterion status
 
 - Post-labs: very strong. The answers are complete, data-linked and now consistent with the executed solvent ordering instead of contradicting it.
 - Data analysis + plotting: very strong. All five solvents are represented in the archived executed output, uncertainty treatment is detailed, quality control is explicit and the embedded visual outputs remain readable after audit of all 8 PNG figures and both GIFs.
-- Experimental write-up: very strong to outstanding. The introduction, discussion and post-lab interpretation are now aligned with the fitted results in the notebook artifact itself, the solvent-order contradictions are removed, the literature support is stronger and the reproducibility framing is more honest.
+- Experimental write-up: very strong to outstanding. The introduction, discussion and conclusion are better aligned with the fitted results, the solvent-order contradictions are removed, the literature support is stronger and the reproducibility framing is more honest.
 - Originality and elegance of code: strong to very strong. The notebook remains modular, uses validation and benchmarking thoughtfully and now includes a clearer rerun failure path plus safer publication-facing table presentation.
 - Portability of code: moderate. Parameters and paths are centralized and the caveats are explicit, but full rerunnability is still blocked by the incomplete local raw-data package.
 - Commenting, documentation and explanation of code: strong. The notebook uses docstrings and explanatory markdown well, with clear explanation of the kinetic model, quality-control logic and current reproducibility limits.
