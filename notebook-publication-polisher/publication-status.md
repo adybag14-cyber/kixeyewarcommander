@@ -10,12 +10,13 @@
 
 ## Highest-impact improvements in this run
 
-- Reopened the attached notebook, rubric and saved progress notes, then checked the real notebook artifact rather than assuming the earlier summary had already been applied.
+- Reopened the attached notebook, rubric and saved progress notes, then confirmed that the live notebook artifact still lagged behind the saved status files in several high-impact places.
 - Built an updated polished notebook at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Built a fresh visual audit contact sheet at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 - Added an explicit execution-provenance note near the top of the notebook so readers can distinguish the archived five-solvent execution from the incomplete local review bundle.
 - Rewrote the reproducibility and automated-check appendices so they state clearly that the current local workspace exposes only `Data/Acetone` and that a fresh rerun is still blocked.
 - Replaced the weaker supporting citation with the stronger 1983 primary literature paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
+- Corrected the saved discussion and post-lab interpretation so acetonitrile is consistently presented as the fastest retained solvent, with acetone a close second.
 - Wrapped every saved HTML table output in a captioned scroll-safe figure container to reduce clipping and horizontal overflow risk in notebook viewers.
 - Closed the second inline GIF panel by default so the notebook opens more calmly while preserving both self-contained animations.
 - Re-extracted and audited every embedded visual in the saved notebook archive: 8 PNG figures plus 2 GIFs. No broken embedded media were found in the current audit.
