@@ -1,12 +1,24 @@
 # Improvement Log
 
-## 2026-05-24 notebook-publication repair and sync pass
+## 2026-05-24 notebook artifact correction pass
+
+- Reopened the attached notebook package and confirmed that the live notebook still contained several older strings that contradicted the saved progress notes.
+- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the corrected publication-facing copy.
+- Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` by extracting all inline notebook media from saved HTML outputs.
+- Added a provenance note that separates the archived five-solvent execution from the incomplete local review bundle.
+- Corrected saved narrative and post-lab wording so acetonitrile is consistently identified as the fastest retained solvent, with acetone as the close second.
+- Replaced the older supporting citation with Schanze, Mattox and Whitten, *The Journal of Organic Chemistry* (1983), DOI `10.1021/jo00165a005`.
+- Rewrote the configuration and reproducibility notes to state clearly that only `Data/Acetone` is available locally.
+- Wrapped saved dataframe HTML outputs in captioned scroll-safe figure containers to reduce clipping and horizontal overflow risk.
+- Closed the second embedded GIF panel by default while preserving both inline self-contained animations.
+- Confirmed the saved notebook contains 10 embedded visuals in total: 8 PNG figures and 2 GIFs.
+
+## 2026-05-23 notebook-publication polish sync pass
 
 - Reopened the attached notebook package, rubric and memory files instead of relying on earlier status claims.
-- Confirmed that the real notebook still contained the older literature citation, older reproducibility wording, plain wide tables, an open second GIF panel and several solvent-order contradictions in the saved discussion text despite the stronger saved notes.
+- Confirmed that the real notebook still contained the older literature citation, older reproducibility wording, plain wide tables, an open second GIF panel and several solvent-order contradictions in the saved discussion text.
 - Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
-- Repaired the actual notebook artifact so it now matches the documented publication-improvement state rather than leaving those corrections only in memory files.
 - Added an explicit provenance note in the notebook front matter explaining that the saved outputs come from the archived full five-solvent execution, while the local review workspace currently contains only `Data/Acetone`.
 - Rewrote the configuration, reproducibility and automated-consistency-check sections so they describe the local rerun blocker honestly.
 - Improved the notebook source so a future rerun on an incomplete package raises a clear missing-solvent message instead of a vague directory failure.
