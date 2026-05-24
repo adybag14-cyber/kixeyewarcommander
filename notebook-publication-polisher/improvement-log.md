@@ -1,16 +1,18 @@
 # Improvement Log
 
-## 2026-05-24 publication polish verification pass
+## 2026-05-24 publication-polish execution-alignment pass
 
-- Rebuilt the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached executed notebook rather than relying on stale summaries.
-- Added a front-matter provenance note that explains the difference between the archived full-data execution and the incomplete local review bundle.
-- Repaired the saved results discussion and post-lab outputs so acetonitrile is consistently described as the fastest retained solvent and acetone as the close second.
-- Replaced the weaker solvent-sensitivity citation with Schanze, Mattox and Whitten, *The Journal of Organic Chemistry* (1983), DOI `10.1021/jo00165a005`.
-- Added scroll-safe, captioned wrappers around the saved HTML table outputs to reduce clipping and horizontal overflow in notebook viewers.
-- Updated the notebook source so a future rerun on an incomplete local package raises a clear missing-solvent explanation.
-- Closed the second embedded GIF panel by default while preserving both inline self-contained animations.
-- Rebuilt `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and confirmed the notebook still contains 10 embedded visuals in total: 8 PNG figures and 2 GIFs.
-- Performed a direct visual check of the audit sheet. A full nbconvert-style HTML render check could not be repeated in this environment because the `jupyter` command is not installed.
+- Reopened the attached notebook package and confirmed that the live notebook artifact still lagged behind the saved progress notes in several publication-critical places.
+- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the updated publication-facing copy.
+- Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` by extracting every embedded notebook PNG and GIF from the saved HTML outputs.
+- Added an explicit execution-provenance note explaining that the embedded outputs come from the archived five-solvent execution while the local review bundle currently exposes only `Data/Acetone`.
+- Rewrote the configuration, reproducibility and automated-check sections so the partial local package is described honestly.
+- Improved the source code failure path so an incomplete local rerun raises a targeted missing-solvent message that reports the missing directories and any solvent folders that are actually present.
+- Corrected the post-lab solvent-order explanation so acetonitrile is consistently described as the fastest retained solvent in the executed notebook summary.
+- Replaced the weaker supporting citation with Schanze, Mattox and Whitten, *The Journal of Organic Chemistry* (1983), DOI `10.1021/jo00165a005`.
+- Wrapped 9 saved dataframe HTML outputs in captioned scroll-safe publication panels to reduce clipping and horizontal overflow risk in notebook viewers.
+- Wrapped both inline GIF outputs in expandable publication panels and kept the second panel closed by default.
+- Confirmed the saved notebook still contains 10 embedded visuals in total: 8 PNG figures and 2 GIFs, with no broken embedded media in the audited artifact.
 
 ## 2026-05-24 notebook artifact correction pass
 
