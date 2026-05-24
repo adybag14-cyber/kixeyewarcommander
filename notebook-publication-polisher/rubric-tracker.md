@@ -22,3 +22,8 @@
 - Restore the complete five-solvent `Data/` tree in the local review package.
 - Rerun the notebook end to end in the intended notebook environment.
 - Re-audit the regenerated figures, tables and GIFs after that rerun.
+
+## This run's evidence upgrade
+
+- The live attached notebook now actually matches the tracker claims about safer saved-table rendering and the closed-by-default second GIF panel, rather than only describing those fixes in the durable notes.
+- The refreshed visual audit again confirms 10 embedded visuals decode successfully from the polished notebook copy.
