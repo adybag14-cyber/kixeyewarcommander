@@ -2,15 +2,14 @@
 
 ## Completed in this run
 
-- Reopened the attached notebook, rubric guidance and saved progress notes instead of relying on earlier summaries.
-- Verified that the live attached notebook still lagged behind the durable notes in output presentation, with raw tables and an auto-opened second GIF panel still present in the actual artifact.
-- Built a polished notebook copy with explicit execution provenance, safer saved-table rendering, a clearer local rerun blocker statement and calmer inline GIF behaviour.
-- Generated a fresh visual audit sheet from all embedded figures and GIF outputs.
-- Upgraded the supporting literature reference from the weaker secondary source to the stronger 1983 primary paper by Schanze, Mattox and Whitten.
-- Updated persistent progress tracking so the next run starts from the repaired notebook state rather than the stale earlier copy.
+- Re-reviewed the attached notebook, rubric guidance and durable notes to identify the highest-impact remaining publication issues.
+- Built a polished notebook copy with explicit execution provenance, stronger solvent-effect framing, updated appendices and an improved reference list.
+- Wrapped every saved HTML table in a captioned, scroll-safe figure container to reduce clipping and overflow risk.
+- Closed the second inline GIF panel by default and generated a fresh contact-sheet audit for all embedded notebook visuals.
+- Updated the durable progress files so the next run starts from the corrected publication artifact rather than the older assumptions.
 
 ## Highest-value next steps
 
 - Restore the missing solvent directories so the notebook can be rerun locally from raw data.
-- Re-execute the notebook end to end and replace the saved archive outputs with a fresh full-data run.
+- Re-execute the notebook end to end and replace the archived saved outputs with a fresh full-data run.
 - Repeat the visual audit on the regenerated figures, tables and GIFs before final publication sign-off.
