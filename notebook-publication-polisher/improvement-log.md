@@ -5,6 +5,7 @@
 - Reopened the attached notebook package, rubric guidance and saved notes, then checked the actual notebook artifact instead of assuming the earlier progress record was already reflected in the file.
 - Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the repaired publication-facing notebook copy.
 - Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` by extracting every embedded figure and GIF output into a single audit sheet.
+- Confirmed that the durable notes now match the corrected notebook artifact and the regenerated audit image on disk.
 - Added a front-matter provenance note explaining that the visible saved outputs come from an archived five-solvent execution while the current local review bundle exposes only `Data/Acetone`.
 - Strengthened the introduction so the solvent discussion is no longer written as though bulk polarity alone explains the kinetics.
 - Replaced the weaker supporting literature item with the stronger 1983 primary paper by Schanze, Mattox and Whitten.
