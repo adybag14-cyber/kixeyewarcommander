@@ -9,7 +9,7 @@
 
 ## Criterion status
 
-- Post-labs: very strong. The answers are complete, data-linked and now consistent with the executed solvent ordering instead of contradicting it.
+- Post-labs: very strong. The answers are complete, data-linked and now consistently describe acetonitrile as the fastest retained solvent instead of contradicting the executed tables.
 - Data analysis + plotting: very strong. All five solvents are represented in the archived executed output, uncertainty treatment is detailed, quality control is explicit and the embedded visual outputs remain readable after audit of all 8 PNG figures and both GIFs.
 - Experimental write-up: very strong to outstanding. The introduction, discussion and conclusion are better aligned with the fitted results, the literature support now relies on a stronger primary source and the reproducibility framing is more honest.
 - Originality and elegance of code: strong to very strong. The notebook remains modular, uses validation and benchmarking thoughtfully and now includes a clearer rerun failure path plus safer publication-facing table presentation.
