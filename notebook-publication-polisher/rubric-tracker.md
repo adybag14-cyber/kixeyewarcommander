@@ -4,7 +4,7 @@
 
 - Date: 2026-05-24
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Estimated band: likely `Outstanding`, with several presentation and interpretation elements now closer to `Exceptional` for the archived executed artifact.
+- Estimated band: likely `Outstanding`, with several presentation and interpretation elements now close to `Exceptional` for the archived executed artifact.
 - Main uncertainty: the polished notebook now presents the archived execution more professionally and more honestly, but the attached local review package still lacks the full five-solvent raw-data tree, so portability and verified rerunnability cannot yet be scored with full confidence.
 
 ## Criterion status
