@@ -6,13 +6,14 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Publication-readiness estimate: strong publication-facing notebook artifact. The polished copy now reads more honestly, uses stronger literature framing, wraps every saved table in scroll-safe captioned figure containers, and no longer opens the second heavy GIF panel by default.
-- Confidence note: the saved artifact itself now matches the progress record. The embedded-media audit confirms 9 wrapped tables, 8 PNG figures and 2 GIF outputs are present in the polished notebook, and the audit sheet shows no obvious clipping, overlap or broken-image defects in those embedded visuals.
+- Confidence note: the saved artifact itself was re-verified in this run and now matches the progress record. The embedded-media audit confirms 9 wrapped tables, 8 PNG figures and 2 GIF outputs are present in the polished notebook, and the audit sheet shows no obvious clipping, overlap or broken-image defects in those embedded visuals.
 
 ## Highest-impact improvements in this run
 
 - Re-reviewed the attached notebook package, rubric guidance and durable notes instead of relying on earlier summaries.
 - Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the corrected publication-facing notebook copy.
 - Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` by extracting every embedded PNG and GIF output from the polished notebook into a single render-check sheet.
+- Re-synced the durable notes with the actual corrected notebook artifact instead of leaving them ahead of the file state.
 - Added an explicit execution-provenance note near the front of the notebook so readers can distinguish the archived full five-solvent execution from the incomplete local review bundle.
 - Strengthened the introduction and discussion so the solvent-dependence claim is better supported and no longer framed as a simple polarity-only effect.
 - Replaced the weaker 2017 supporting citation with the stronger 1983 primary paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
