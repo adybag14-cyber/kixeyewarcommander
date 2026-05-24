@@ -5,8 +5,8 @@
 - Date: 2026-05-24
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
-- Publication-readiness estimate: strong publication-facing notebook artifact. The repaired notebook now presents the archived five-solvent execution more honestly and more professionally, with safer table rendering, calmer inline media behaviour and clearer reproducibility wording. It is still short of full sign-off because the attached local package cannot yet reproduce the archived full run.
-- Confidence note: the live polished notebook now matches the saved progress record. The embedded-media audit confirms 8 PNG figures and 2 GIFs decode successfully, the second GIF panel is closed by default in both source and saved output, and all archived HTML tables now sit inside captioned scroll-safe containers to reduce clipping and overlap risk in notebook viewers.
+- Publication-readiness estimate: strong publication-facing notebook artifact. The polished notebook now presents the archived five-solvent execution more honestly and more professionally, with safer table rendering, calmer inline media behaviour, upgraded supporting literature and clearer reproducibility wording. It is still short of full sign-off because the attached local package cannot yet reproduce the archived full run.
+- Confidence note: the current polished copy now matches the durable progress record. The embedded-media audit confirms 8 PNG figures and 2 GIFs decode successfully, the second GIF panel is closed by default in both source and saved output, and the archived HTML tables now sit inside captioned scroll-safe containers to reduce clipping and overlap risk in notebook viewers.
 
 ## Highest-impact improvements in this run
 
