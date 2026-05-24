@@ -3,10 +3,10 @@
 ## Completed in this run
 
 - Reopened the attached notebook, rubric guidance and saved progress notes instead of relying on earlier summaries.
-- Verified the highest-impact publication blockers in the real notebook artifact.
-- Built a polished notebook copy with explicit execution provenance, stronger literature support, corrected solvent-order interpretation, more honest reproducibility framing, safer saved-table rendering and calmer inline GIF behaviour.
-- Generated a fresh visual audit sheet from the embedded figures and GIF outputs.
-- Updated persistent progress tracking so the next run starts from the repaired state rather than the stale earlier notebook copy.
+- Verified that the live attached notebook still lagged behind the durable notes in citation quality, provenance wording, solvent interpretation and output presentation.
+- Built a polished notebook copy with explicit execution provenance, stronger literature support, corrected solvent-order narrative, safer saved-table rendering and calmer inline GIF behaviour.
+- Generated a fresh visual audit sheet from all embedded figures and GIF outputs.
+- Updated persistent progress tracking so the next run starts from the repaired notebook state rather than the stale earlier copy.
 
 ## Highest-value next steps
 
