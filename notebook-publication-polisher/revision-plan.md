@@ -2,10 +2,12 @@
 
 ## Completed in this run
 
-- Re-opened the attached notebook package and confirmed that the actual notebook file still needed the narrative, citation and layout fixes already described in the durable notes.
-- Rebuilt a polished notebook artifact in `/workspace/output/` from the attached source notebook rather than assuming an older polished copy still existed.
-- Added explicit provenance and rerun-status notes, corrected the remaining acetonitrile-versus-acetone contradictions, upgraded the supporting literature citation and improved the future rerun error message.
-- Wrapped every saved HTML table in a captioned, scroll-safe figure shell, closed the second GIF panel by default and generated a fresh media audit contact sheet from the polished notebook.
+- Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
+- Confirmed that the durable notes were ahead of the actual notebook artifact, then rebuilt the polished notebook copy locally in `/workspace/output/`.
+- Built a polished notebook copy with an explicit execution-provenance note, corrected solvent-order wording in the remaining contradictory discussion, stronger solvent-effects framing, updated appendices and an improved reference list.
+- Wrapped every saved HTML table in a captioned, scroll-safe figure container to reduce clipping and horizontal overflow risk.
+- Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
+- Updated the durable progress files so the next run starts from the corrected notebook artifact rather than the older assumptions.
 
 ## Highest-value next steps
 
