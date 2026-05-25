@@ -3,6 +3,7 @@
 ## 2026-05-25 notebook correction, render hardening and provenance pass
 
 - Reopened the attached notebook package, rubric guidance and saved notes, then compared the durable notes against the notebook file itself rather than assuming they already matched.
+- Confirmed that the attached source notebook still contained the old contradictions and that `/workspace/output/` was missing, so the polished artifact had to be rebuilt in this session instead of merely referenced from memory.
 - Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the corrected publication-facing notebook copy.
 - Added a front-matter provenance note explaining that the visible notebook outputs come from an archived full five-solvent execution while the current local review bundle exposes only `Data/Acetone`.
 - Updated the source rerun guard so a future local execution now fails with a precise missing-solvent-folder message instead of a vague directory error.
