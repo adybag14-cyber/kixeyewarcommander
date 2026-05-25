@@ -2,13 +2,13 @@
 
 ## Completed in this run
 
-- Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact publication blockers.
-- Built a fresh polished notebook copy locally in `/workspace/output/`.
-- Added explicit provenance and missing-data wording so the archived outputs and current local rerun limits are easy to understand.
-- Corrected the remaining solvent-order contradiction and strengthened the literature support.
-- Wrapped each saved HTML table in a captioned, scroll-safe container and closed the second GIF panel by default.
-- Generated a fresh contact-sheet audit from the polished notebook and verified the embedded figures and GIFs still decode.
-- Updated the durable progress files so the next run starts from the corrected notebook artifact and the current reproducibility blocker.
+- Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
+- Confirmed that the durable notes were ahead of the actual notebook artifact, then rebuilt the polished notebook copy locally in `/workspace/output/`.
+- Built a polished notebook copy with an explicit execution-provenance note, corrected acetonitrile-first wording in the remaining contradictory discussion, stronger solvent-effects framing, updated appendices and an improved reference list.
+- Wrapped every saved HTML table in a captioned, scroll-safe figure container to reduce clipping and horizontal overflow risk.
+- Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
+- Aligned the editable notebook source with those rendering and narrative fixes so future reruns keep the same publication-ready behaviour.
+- Updated the durable progress files so the next run starts from the corrected notebook artifact rather than the older assumptions.
 
 ## Highest-value next steps
 
