@@ -1,15 +1,15 @@
 # Improvement Log
 
-## 2026-05-24 publication-artifact correction and render audit
+## 2026-05-25 publication-artifact correction, narrative repair and render audit
 
-- Reopened the attached notebook package, rubric guidance and saved notes, then checked the actual notebook artifact instead of assuming the earlier progress record was already reflected in the file.
+- Reopened the attached notebook package, rubric guidance and saved notes, then checked the actual notebook artifact instead of relying on the earlier status summary.
 - Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the repaired publication-facing notebook copy.
-- Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` by extracting every embedded figure and GIF output into a single audit sheet.
-- Confirmed that the durable notes now match the corrected notebook artifact and the regenerated audit image on disk.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the polished notebook itself.
 - Added a front-matter provenance note explaining that the visible saved outputs come from an archived five-solvent execution while the current local review bundle exposes only `Data/Acetone`.
-- Strengthened the introduction so the solvent discussion is no longer written as though bulk polarity alone explains the kinetics.
+- Strengthened the introduction so the solvent discussion is no longer framed as a simple polarity-only effect and now leans on a stronger primary literature source.
 - Replaced the weaker supporting literature item with the stronger 1983 primary paper by Schanze, Mattox and Whitten.
-- Rewrote the saved results discussion so the literature comparison is more rigorous and the solvent interpretation is better connected to charge-transfer character and specific solvation.
+- Corrected the saved results discussion so it no longer contradicts the notebook’s own summary table about which solvent is fastest.
+- Corrected the saved post-lab explanation so it no longer claims acetone is faster than acetonitrile.
 - Rewrote the reproducibility and automated-check appendices so they describe the archived execution honestly and do not over-claim fresh local reproducibility.
 - Wrapped all 9 saved HTML tables in captioned, scroll-safe figure containers to reduce clipping and overflow risk in notebook viewers.
 - Closed the second inline GIF panel by default in both the source cell and the saved rendered output.
