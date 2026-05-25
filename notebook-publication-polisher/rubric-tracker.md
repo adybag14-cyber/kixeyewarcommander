@@ -25,6 +25,7 @@
 
 ## This run's evidence upgrade
 
+- The polished notebook and contact-sheet audit now exist locally in `/workspace/output/`, rather than only being described in the durable notes.
 - The saved notebook artifact now contains the provenance note, corrected solvent-order discussion, stronger reference list, improved appendices and safer table rendering that the earlier durable notes were aiming for.
 - The refreshed contact-sheet audit confirms 10 embedded media outputs decode successfully from the polished notebook: 8 PNG figures and 2 GIF panels.
 - All 9 saved HTML tables are now wrapped in captioned, overflow-safe containers, directly addressing the main publication-layout risk visible in the earlier notebook file.
