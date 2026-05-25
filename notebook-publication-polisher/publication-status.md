@@ -5,19 +5,18 @@
 - Date: 2026-05-25
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
-- Publication-readiness estimate: strong publication-facing notebook copy with corrected narrative contradictions, cleaner saved-table rendering, explicit execution provenance, and verified embedded media that opens cleanly from the saved notebook.
-- Confidence note: the notebook now reads more honestly and professionally than the attached source, but final publication sign-off still depends on restoring the missing solvent folders and rerunning the analysis from a complete local raw-data bundle.
+- Publication-readiness estimate: strong publication-facing notebook copy with corrected solvent-order interpretation, stronger literature support, explicit execution provenance, scroll-safe saved-table rendering, and verified embedded media that opens cleanly from the saved notebook.
+- Confidence note: the notebook now reads more honestly and professionally than the attached source package, but final publication sign-off still depends on restoring the missing solvent folders and rerunning the analysis from a complete local raw-data bundle.
 
 ## Highest-impact improvements in this run
 
-- Added an explicit execution-provenance note near the front of the notebook so readers can distinguish the archived five-solvent outputs from the incomplete local review bundle.
-- Rebuilt the polished notebook locally in `/workspace/output/` because this session did not actually contain the previously referenced output copy.
-- Corrected the saved results discussion and post-lab answers so they no longer claim acetone is the fastest solvent when the notebook’s own summary table shows acetonitrile is fastest.
-- Strengthened the solvent-effects framing so the discussion no longer overstates a simple polarity-only explanation.
+- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as a corrected publication-facing copy of the attached notebook.
+- Added an explicit execution-provenance note to the notebook front matter and updated the environment note so readers can distinguish the archived five-solvent outputs from the incomplete local review bundle.
+- Corrected the saved results discussion and post-lab answers so they no longer imply that acetone is the fastest solvent when the notebook’s own summary table shows acetonitrile is fastest.
+- Strengthened the solvent-effects framing so the discussion now treats the ordering as more than a simple bulk-polarity story.
 - Rewrote the reproducibility and automated-check appendices so they describe the archived execution honestly and state the current local rerun blocker precisely.
 - Replaced the weaker supporting citation with the verified 1983 primary paper by Schanze, Mattox and Whitten on solvent effects in a related donor-acceptor nitroazobenzene system.
 - Wrapped all 9 saved HTML table outputs in captioned, scroll-safe containers to reduce clipping and horizontal overflow risk in notebook and HTML viewers.
-- Updated the data-discovery guard in the polished notebook copy so future reruns fail with a precise missing-solvent-folder message when the raw-data tree is incomplete.
 - Closed the second inline GIF panel by default so the extras section opens more cleanly.
 - Generated a fresh contact-sheet audit directly from the polished notebook and confirmed that all 10 embedded media items decode successfully: 8 PNG figures and 2 GIF panels.
 
