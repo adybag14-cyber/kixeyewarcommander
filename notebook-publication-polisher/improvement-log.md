@@ -6,6 +6,7 @@
 - Confirmed that the attached source notebook still contained the old contradictions and that `/workspace/output/` was missing, so the polished artifact had to be rebuilt in this session instead of merely referenced from memory.
 - Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the corrected publication-facing notebook copy.
 - Added a front-matter provenance note and updated the environment note so the notebook now states clearly that the visible five-solvent outputs are archived results while the current local review bundle exposes only `Data/Acetone`.
+- Updated the source rerun guard so a future local execution now fails with a precise missing-solvent-folder message instead of a vague single-directory error.
 - Corrected the saved results discussion so it no longer contradicts the notebook’s own summary table about which solvent is fastest.
 - Corrected the post-lab answers so they now use acetonitrile, not acetone, as the fastest fitted solvent in the current saved data.
 - Strengthened the solvent-effects explanation so it no longer implies that the fitted ordering can be reduced to bulk polarity alone.
