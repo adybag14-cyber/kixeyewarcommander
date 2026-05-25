@@ -5,20 +5,21 @@
 - Date: 2026-05-25
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
-- Publication-readiness estimate: very strong publication-facing notebook copy with corrected solvent-order interpretation, stronger primary-literature support, explicit archived-output provenance, scroll-safe rendering for all 9 saved HTML tables, a closed-by-default secondary GIF panel, and verified embedded media that opens cleanly from the saved notebook.
-- Confidence note: the polished notebook now reads and renders like a professional final submission. The main remaining risk is reproducibility rather than explanation or presentation quality, and final sign-off still depends on restoring the missing solvent folders and rerunning the analysis from a complete local raw-data bundle.
+- Publication-readiness estimate: strong publication-facing notebook copy with corrected solvent-order interpretation, stronger primary-literature support, explicit archived-output provenance, scroll-safe saved-table rendering, closed-by-default secondary GIF panel, and verified embedded media that opens cleanly from the saved notebook.
+- Confidence note: the polished notebook now reads like a professional final submission and the main remaining risk is reproducibility rather than presentation quality, but final sign-off still depends on restoring the missing solvent folders and rerunning the analysis from a complete local raw-data bundle.
 
 ## Highest-impact improvements in this run
 
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` directly from the attached source notebook so the durable notes and the actual notebook artifact now match.
-- Added an explicit execution-provenance note in the configuration section so readers can distinguish the archived five-solvent outputs from the incomplete local review bundle.
-- Corrected the saved post-lab explanation so it now identifies acetonitrile, not acetone, as the fastest fitted solvent in the archived results, while still noting that acetone is close behind.
-- Tightened the saved solvent-effects explanation so the ordering is presented as a mixed polarity and specific-solvation effect rather than as a simple dielectric trend.
-- Replaced the weaker 2017 supporting citation with the 1983 primary paper by Schanze, Mattox and Whitten and updated the notebook reference list accordingly.
-- Rewrote the reproducibility and automated-check appendices so they describe the archived execution honestly and state the current local rerun blocker precisely.
-- Wrapped all 9 saved HTML table outputs in captioned, scroll-safe figure containers to reduce clipping and horizontal overflow risk in notebook and HTML viewers.
-- Closed the second inline GIF panel by default so the extras section opens more cleanly in the saved notebook.
-- Regenerated the visual audit and confirmed that all 10 embedded media items decode successfully: 8 PNG figures and 2 GIF panels, with no extra panels left open by default.
+- Re-reviewed the attached notebook package itself and confirmed that the source notebook still lagged behind the stronger durable notes from earlier passes.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook with the saved-source contradictions corrected, rather than assuming the earlier polished artifact still existed locally.
+- Added an explicit front-matter execution-provenance note and a clearer configuration note so readers can distinguish the archived five-solvent outputs from the incomplete local rerun bundle.
+- Updated the saved analysis-environment banner, reproducibility appendix and automated-check appendix so they now state precisely that only `Data/Acetone` is present locally and that `Data/Acetonitrile`, `Data/Cyclohexane`, `Data/THF` and `Data/Toluene` are still missing.
+- Corrected the remaining solvent-order contradictions in the results discussion and post-lab answers so the notebook now consistently reports acetonitrile as the fastest fitted solvent in the saved data, with acetone close behind.
+- Replaced the weaker 2017 supporting citation with the 1983 Schanze, Mattox and Whitten primary paper and updated the reference list in the polished notebook artifact.
+- Hardened future rerun diagnostics so the trace-discovery helper now reports all missing solvent folders together instead of failing on only the first missing directory.
+- Wrapped all 9 saved HTML table outputs in captioned, scroll-safe containers to reduce clipping and horizontal overflow risk in notebook and HTML viewers.
+- Closed the second inline GIF panel by default so the extras section opens more cleanly in the polished artifact.
+- Generated a fresh contact-sheet audit directly from the polished notebook at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and confirmed that all 10 embedded media panels decode successfully: 8 PNG figures and 2 GIF panels.
 
 ## Remaining blockers
 
