@@ -4,6 +4,7 @@
 
 - Reopened the attached notebook package, rubric guidance and durable notes and confirmed that the attached source notebook still contained the older contradictions and weaker citation even though the memory notes were already ahead.
 - Built a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` directly from the attached notebook.
+- Confirmed that the rebuilt notebook artifact and the refreshed contact-sheet audit are both now present in `/workspace/output/`.
 - Added a front-matter execution-provenance note and a clearer configuration note so the polished notebook now states explicitly that the visible five-solvent outputs are archived while the current local review bundle only contains `Data/Acetone`.
 - Updated the analysis-environment banner and both reproducibility appendices so the local rerun blocker is named precisely instead of being implied.
 - Corrected the remaining saved-source contradictions in the results discussion and post-lab answers so the notebook now consistently reports acetonitrile as the fastest fitted solvent in the archived results, with acetone close behind.
