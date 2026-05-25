@@ -1,23 +1,21 @@
 # Improvement Log
 
-## 2026-05-25 publication-artifact correction, narrative repair and render audit
+## 2026-05-25 notebook correction, render hardening and provenance pass
 
-- Reopened the attached notebook package, rubric guidance and saved notes, then checked the actual notebook artifact instead of relying on the earlier status summary.
-- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the repaired publication-facing notebook copy.
-- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the polished notebook itself.
-- Added a front-matter provenance note explaining that the visible saved outputs come from an archived five-solvent execution while the current local review bundle exposes only `Data/Acetone`.
-- Strengthened the introduction so the solvent discussion is no longer framed as a simple polarity-only effect and now leans on a stronger primary literature source.
-- Replaced the weaker supporting literature item with the stronger 1983 primary paper by Schanze, Mattox and Whitten.
+- Reopened the attached notebook package, rubric guidance and saved notes, then compared the durable notes against the notebook file itself rather than assuming they already matched.
+- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the corrected publication-facing notebook copy.
+- Added a front-matter provenance note explaining that the visible notebook outputs come from an archived full five-solvent execution while the current local review bundle exposes only `Data/Acetone`.
+- Updated the source rerun guard so a future local execution now fails with a precise missing-solvent-folder message instead of a vague directory error.
 - Corrected the saved results discussion so it no longer contradicts the notebook’s own summary table about which solvent is fastest.
-- Corrected the saved post-lab explanation so it no longer claims acetone is faster than acetonitrile.
-- Rewrote the reproducibility and automated-check appendices so they describe the archived execution honestly and do not over-claim fresh local reproducibility.
-- Wrapped all 9 saved HTML tables in captioned, scroll-safe figure containers to reduce clipping and overflow risk in notebook viewers.
-- Closed the second inline GIF panel by default in both the source cell and the saved rendered output.
-- Verified that all 10 embedded visual media outputs decode successfully: 8 PNG figures and 2 GIFs.
-- Reviewed the generated contact sheet visually and found no obvious clipping, overlap or broken-image defects in the embedded figures and GIF previews.
-- Updated the saved source notebook so the missing full-data rerun now points toward the real blocker more clearly than a generic missing-folder error.
+- Corrected the post-lab answers so they now use acetonitrile, not acetone, as the fastest fitted solvent in the current saved data.
+- Strengthened the solvent-effects explanation so it no longer implies that the fitted ordering can be reduced to bulk polarity alone.
+- Replaced the weaker supporting literature item with the verified ACS primary paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
+- Rewrote the reproducibility and automated-check appendices so they describe the archived execution honestly and name the exact local rerun blocker.
+- Wrapped all 9 saved HTML table outputs in captioned, scroll-safe figure containers to reduce clipping and overflow risk.
+- Closed the second inline GIF panel by default in both the notebook source and the saved rendered output.
+- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` directly from the polished notebook and confirmed that all 10 embedded media items decode successfully: 8 PNG figures and 2 GIF panels.
 
 ## Open risk
 
-- The polished notebook is now much stronger as a publication artifact, but the attached local raw-data package is still incomplete.
+- The polished notebook is now much stronger as a publication artifact, but the local raw-data package is still incomplete.
 - Full reproducibility remains blocked until the missing solvent folders are restored and the notebook is rerun end to end from that restored local data package.
