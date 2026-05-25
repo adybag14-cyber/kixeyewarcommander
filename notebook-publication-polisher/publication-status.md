@@ -11,6 +11,7 @@
 ## Highest-impact improvements in this run
 
 - Added an explicit execution-provenance note near the front of the notebook so readers can distinguish the archived five-solvent outputs from the incomplete local review bundle.
+- Rebuilt the polished notebook locally in `/workspace/output/` because this session did not actually contain the previously referenced output copy.
 - Corrected the saved results discussion and post-lab answers so they no longer claim acetone is the fastest solvent when the notebook’s own summary table shows acetonitrile is fastest.
 - Strengthened the solvent-effects framing so the discussion no longer overstates a simple polarity-only explanation.
 - Rewrote the reproducibility and automated-check appendices so they describe the archived execution honestly and state the current local rerun blocker precisely.
