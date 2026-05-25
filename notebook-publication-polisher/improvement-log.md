@@ -1,5 +1,18 @@
 # Improvement Log
 
+## 2026-05-25 notebook-sync, table-hardening and audit-refresh pass
+
+- Reopened the attached notebook package, rubric guidance and durable notes, then checked the actual attachment instead of assuming it already matched the saved progress files.
+- Confirmed that the attached source notebook still lagged behind the stronger remembered state: it lacked the execution-provenance note, still cited the weaker 2017 paper, still contained one stale acetone-fastest explanation, and still opened the second extra GIF panel by default.
+- Built a fresh polished deliverable at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook so the current artifact now matches the durable notes.
+- Added a clear execution-provenance note in the configuration section explaining that the visible results come from an archived five-solvent execution while the current local review bundle exposes only `Data/Acetone`.
+- Corrected the saved post-lab wording so it now identifies acetonitrile, not acetone, as the fastest fitted solvent, and tightened the solvent-effects interpretation to avoid implying a simple dielectric ranking.
+- Replaced the weaker solvent-effects literature item with the 1983 Schanze, Mattox and Whitten primary paper and updated the reference list accordingly.
+- Rewrote the reproducibility and automated-check appendices so they describe the archived execution honestly and name the exact local rerun blocker.
+- Wrapped all 9 saved HTML table outputs in captioned, overflow-safe figure containers after verifying that the tables were still plain notebook tables in the attachment and therefore the main remaining clipping risk.
+- Closed the second inline GIF panel by default in both the notebook source and the saved rendered HTML output.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.md`, confirming that 10 embedded media items decode successfully, all 9 HTML tables now sit inside scroll-safe wrappers, and no extra media panels remain open by default.
+
 ## 2026-05-25 polished-artifact rebuild and visual audit pass
 
 - Reopened the attached notebook package, rubric guidance and saved notes and confirmed that the source notebook still lagged behind the durable notes.
