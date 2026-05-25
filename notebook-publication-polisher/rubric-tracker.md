@@ -29,3 +29,4 @@
 - The polished notebook now contains the explicit execution-provenance note, the stronger ACS primary-paper citation, the corrected acetonitrile-first narrative, the safer table wrappers and the closed-by-default second GIF panel in the artifact itself.
 - The updated rerun guard now reports the complete missing-folder set for a future local rerun instead of stopping at only the first absent solvent directory.
 - The refreshed contact-sheet audit confirms that all 10 embedded media outputs in the polished notebook decode successfully from the saved notebook artifact: 8 PNG figures and 2 GIF panels.
+- The local memory state now matches the GitHub persistence folder for the current polished artifact, blocker list and rubric estimate.
