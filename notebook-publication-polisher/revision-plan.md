@@ -9,6 +9,7 @@
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
 - Aligned the editable notebook source with those rendering and narrative fixes so future reruns keep the same publication-ready behaviour.
 - Updated the durable progress files so the next run starts from the corrected notebook artifact rather than the older assumptions.
+- Synced the durable progress files with the GitHub persistence folder after rebuilding the local polished notebook artifact.
 
 ## Highest-value next steps
 
