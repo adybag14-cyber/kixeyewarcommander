@@ -10,7 +10,7 @@
 
 ## Highest-impact improvements in this run
 
-- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as a corrected publication-facing copy of the attached notebook.
+- Reopened the attached source notebook, rubric guidance and saved notes, then rebuilt the polished notebook copy locally so the durable notes and the actual artifact match again.
 - Added an explicit execution-provenance note to the notebook front matter and updated the environment note so readers can distinguish the archived five-solvent outputs from the incomplete local review bundle.
 - Corrected the saved results discussion and post-lab answers so they no longer imply that acetone is the fastest solvent when the notebook’s own summary table shows acetonitrile is fastest.
 - Strengthened the solvent-effects framing so the discussion now treats the ordering as more than a simple bulk-polarity story.
