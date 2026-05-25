@@ -3,7 +3,7 @@
 ## Completed in this run
 
 - Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
-- Rebuilt the polished notebook locally after confirming the earlier output files were not present in this session.
+- Confirmed that the durable notes were ahead of the actual notebook artifact, then rebuilt the polished notebook copy locally in `/workspace/output/`.
 - Built a polished notebook copy with an explicit execution-provenance note, corrected solvent-order wording, stronger solvent-effects framing, updated appendices and an improved reference list.
 - Wrapped every saved HTML table in a captioned, scroll-safe figure container to reduce clipping and horizontal overflow risk.
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
