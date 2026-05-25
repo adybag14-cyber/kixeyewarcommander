@@ -18,6 +18,7 @@
 - Replaced the weaker supporting citation with the verified 1983 primary paper by Schanze, Mattox and Whitten on solvent effects in a related donor-acceptor nitroazobenzene system.
 - Wrapped all 9 saved HTML table outputs in captioned, scroll-safe containers to reduce clipping and horizontal overflow risk in notebook and HTML viewers.
 - Closed the second inline GIF panel by default so the extras section opens more cleanly in the saved notebook.
+- Compiled every code cell in the polished notebook to confirm that the saved source remains internally consistent after the presentation edits.
 - Generated a fresh contact-sheet audit directly from the polished notebook and confirmed that all 10 embedded media items decode successfully: 8 PNG figures and 2 GIF panels.
 
 ## Remaining blockers
