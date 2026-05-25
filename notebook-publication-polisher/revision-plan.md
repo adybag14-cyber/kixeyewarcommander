@@ -2,13 +2,12 @@
 
 ## Completed in this run
 
-- Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
-- Confirmed that the durable notes were ahead of the actual notebook artifact, then rebuilt the polished notebook copy locally in `/workspace/output/`.
-- Built a polished notebook copy with an explicit execution-provenance note, corrected acetonitrile-first wording in the remaining contradictory discussion, stronger solvent-effects framing, updated appendices and an improved reference list.
+- Re-reviewed the attached notebook, rubric guidance and durable notes to identify the highest-impact publication issues still present in the actual notebook file.
+- Rebuilt a polished notebook copy locally in `/workspace/output/` so the deliverable now matches the stronger saved assessment.
+- Added explicit execution-provenance wording, clearer local-rerun caveats, a stronger primary reference and corrected solvent-order phrasing in both source and saved rendered text.
 - Wrapped every saved HTML table in a captioned, scroll-safe figure container to reduce clipping and horizontal overflow risk.
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
-- Aligned the editable notebook source with those rendering and narrative fixes so future reruns keep the same publication-ready behaviour.
-- Updated the durable progress files so the next run starts from the corrected notebook artifact rather than the older assumptions.
+- Updated the durable progress files so future runs start from the corrected notebook artifact rather than the older source assumptions.
 
 ## Highest-value next steps
 
