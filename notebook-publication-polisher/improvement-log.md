@@ -13,7 +13,7 @@
 - Replaced the weaker supporting literature item with the verified ACS primary paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
 - Rewrote the reproducibility and automated-check appendices so they describe the archived execution honestly and name the exact local rerun blocker.
 - Wrapped all 9 saved HTML table outputs in captioned, scroll-safe figure containers to reduce clipping and overflow risk.
-- Updated the rerun guard so a missing solvent folder now raises a precise full-data-tree error instead of a vague missing-directory failure.
+- Updated the data-discovery guard in the polished notebook copy so future reruns fail with a precise missing-solvent-folder message when the raw-data tree is incomplete.
 - Closed the second inline GIF panel by default in both the notebook source and the saved rendered output.
 - Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` directly from the polished notebook and confirmed that all 10 embedded media items decode successfully: 8 PNG figures and 2 GIF panels.
 
