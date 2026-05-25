@@ -14,6 +14,7 @@
 - Rewrote the reproducibility and automated-check appendices so they describe the archived execution honestly and name the exact local rerun blocker.
 - Wrapped all 9 saved HTML table outputs in captioned, scroll-safe figure containers to reduce clipping and overflow risk.
 - Closed the second inline GIF panel by default in both the notebook source and the saved rendered output.
+- Compiled every code cell in the polished notebook after editing to confirm that the saved source remained valid.
 - Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` directly from the polished notebook and confirmed that all 10 embedded media items decode successfully: 8 PNG figures and 2 GIF panels.
 
 ## 2026-05-25 attached-artifact alignment pass
