@@ -4,27 +4,27 @@
 
 - Date: 2026-05-25
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Estimated band: likely `Outstanding`, with the polished artifact now stronger on explanation, source quality, formatting and visible output presentation than the attached notebook source.
-- Main uncertainty: the notebook now reads and renders much more professionally, but the attached local review bundle still lacks the full five-solvent raw-data tree, so portability and fully verified rerunnability cannot yet be scored with complete confidence.
+- Estimated band: likely `Outstanding` for the saved notebook artifact, especially on explanation, formatting, visual presentation and transparency about method and limits.
+- Main uncertainty: the saved notebook now presents itself much more professionally, but the attached local review package still lacks four solvent folders, so end-to-end rerunnability from the provided local raw data is not yet fully demonstrated.
 
 ## Criterion status
 
-- Post-labs: very strong. The answers remain complete, data-linked and conceptually sound, and the solvent-effect explanation no longer contradicts the notebook’s own rate ordering.
-- Data analysis + plotting: very strong. All five solvents are represented in the archived executed output, uncertainty treatment is detailed, and the embedded figures remain readable after the refreshed 8-PNG and 2-GIF audit.
-- Experimental write-up: very strong to outstanding. The introduction, results discussion and conclusion now explain the solvent effect more rigorously, use stronger primary-literature support and carry a clearer provenance note.
-- Originality and elegance of code: strong to very strong. The notebook remains modular, uses validation and benchmarking thoughtfully, and now communicates the missing-data rerun blocker more clearly.
-- Portability of code: moderate. Parameters and paths are centralized and the rerun blocker is now stated plainly, but full portability still depends on restoring the missing solvent folders.
-- Commenting, documentation and explanation of code: strong. The notebook keeps good docstrings and explanatory markdown, and the saved narrative is now more explicit about provenance and reproducibility limits.
-- Markdown, LaTeX, HTML and formatting: outstanding. The notebook now uses cleaner saved-table rendering, calmer inline media behaviour, clearer appendix framing and a verified embedded-media audit with no obvious clipping or broken-image defects.
+- Post-labs: very strong. The answers remain complete, data-linked and now match the saved solvent ordering instead of contradicting it.
+- Data analysis + plotting: very strong. All five solvents are represented in the archived execution, the figures decode cleanly, and the visual audit found no obvious broken-image or clipping defects in the saved PNG and GIF outputs.
+- Experimental write-up: very strong to outstanding. The notebook now includes a clearer provenance note, more careful solvent-effects framing, and stronger supporting literature.
+- Originality and elegance of code: strong to very strong. The notebook remains modular and explicit about quality control, and the rerun failure mode is now more informative for future users.
+- Portability of code: moderate. The notebook documents its expectations more honestly and the saved tables now render more safely, but actual local portability still depends on restoring the missing solvent directories.
+- Commenting, documentation and explanation of code: strong. The notebook still has good structure and docstrings, and the new appendix wording makes the execution limits clearer.
+- Markdown, LaTeX, HTML and formatting: outstanding. The saved tables are now wrapped in captioned, scroll-safe shells, the extras section is calmer on open, and the notebook front matter is more publication-ready.
 
 ## Remaining gap to full confidence
 
-- Restore the complete five-solvent `Data/` tree in the local review package.
-- Rerun the notebook end to end in the intended notebook environment.
-- Re-audit the regenerated tables, figures and GIFs after that rerun.
+- Restore the full five-solvent `Data/` tree in the local review package.
+- Rerun the notebook end to end in the intended environment.
+- Re-audit the regenerated figures, tables and GIFs after that rerun.
 
 ## This run's evidence upgrade
 
-- The polished notebook artifact now contains the provenance note, appendix caveats, corrected solvent-order discussion, safer saved-table rendering and stronger reference list that the earlier durable notes were aiming for.
-- The refreshed visual audit confirms that 9 saved tables, 8 PNG figures and 2 GIF outputs are embedded and decode successfully in the polished copy.
-- The second inline GIF panel is now closed by default, reducing viewer clutter and heavy-media surprise when the notebook is first opened.
+- The saved notebook artifact now contains the provenance note, corrected solvent-order discussion, stronger reference list, improved appendices and safer table rendering that the earlier durable notes were aiming for.
+- The refreshed contact-sheet audit confirms 10 embedded media outputs decode successfully from the polished notebook: 8 PNG figures and 2 GIF panels.
+- All 9 saved HTML tables are now wrapped in captioned, overflow-safe containers, directly addressing the main publication-layout risk visible in the earlier notebook file.
