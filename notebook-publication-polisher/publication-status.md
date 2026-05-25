@@ -2,25 +2,24 @@
 
 ## Current assessment
 
-- Date: 2026-05-24
+- Date: 2026-05-25
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
-- Publication-readiness estimate: strong publication-facing notebook artifact. The polished copy now reads more honestly, uses stronger literature framing, wraps every saved table in scroll-safe captioned figure containers, and no longer opens the second heavy GIF panel by default.
-- Confidence note: the saved artifact itself was re-verified in this run and now matches the progress record. The embedded-media audit confirms 9 wrapped tables, 8 PNG figures and 2 GIF outputs are present in the polished notebook, and the audit sheet shows no obvious clipping, overlap or broken-image defects in those embedded visuals.
+- Publication-readiness estimate: strong publication-facing notebook artifact with a clearer evidence trail, safer rendered tables, corrected solvent-order discussion, and no obvious broken embedded media in the saved notebook.
+- Confidence note: the polished copy now matches the main editorial intent of the progress record. The saved-media audit confirms 9 wrapped tables, 8 PNG figures and 2 GIF outputs are present in the polished notebook, and the contact sheet shows no obvious clipping, overlap or broken-image defects in those embedded visuals.
 
 ## Highest-impact improvements in this run
 
-- Re-reviewed the attached notebook package, rubric guidance and durable notes instead of relying on earlier summaries.
+- Re-reviewed the attached notebook package, rubric guidance and durable notes instead of assuming the earlier status notes were already reflected in the notebook file.
 - Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` as the corrected publication-facing notebook copy.
-- Built `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` by extracting every embedded PNG and GIF output from the polished notebook into a single render-check sheet.
-- Re-synced the durable notes with the actual corrected notebook artifact instead of leaving them ahead of the file state.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the polished notebook itself so the audit evidence matches the current deliverable.
 - Added an explicit execution-provenance note near the front of the notebook so readers can distinguish the archived full five-solvent execution from the incomplete local review bundle.
-- Strengthened the introduction and discussion so the solvent-dependence claim is better supported and no longer framed as a simple polarity-only effect.
+- Rewrote the reproducibility and automated-check appendices so they state plainly that the attached local package currently exposes only `Data/Acetone`.
 - Replaced the weaker 2017 supporting citation with the stronger 1983 primary paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
-- Rewrote the reproducibility and automated-check appendices so they clearly state that the current local package contains only `Data/Acetone`.
-- Wrapped all saved HTML table outputs in captioned, scroll-safe figure containers to reduce clipping and horizontal overflow risk in notebook viewers.
+- Corrected the results discussion and post-lab explanation so they no longer claim acetone is the fastest solvent when the saved summary table actually shows acetonitrile is fastest.
+- Wrapped all 9 saved HTML table outputs in captioned, scroll-safe figure containers to reduce clipping and horizontal overflow risk in notebook viewers.
 - Closed the second inline GIF panel by default in both the saved HTML output and the underlying source cell.
-- Improved the saved source notebook so an attempted rerun from an incomplete raw-data package can be redirected toward the real blocker rather than failing with an unhelpful generic missing-folder message.
+- Improved the saved source notebook so an attempted rerun from an incomplete raw-data package now points toward the real blocker rather than failing with a generic missing-folder message.
 
 ## Remaining blockers
 
