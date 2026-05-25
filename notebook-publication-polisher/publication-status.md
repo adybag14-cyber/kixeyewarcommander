@@ -12,6 +12,7 @@
 
 - Re-reviewed the attached notebook package itself and confirmed that the source notebook still lagged behind the stronger durable notes from earlier passes.
 - Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook with the saved-source contradictions corrected, rather than assuming the earlier polished artifact still existed locally.
+- Confirmed that the rebuilt polished notebook artifact and its visual-audit contact sheet now both exist locally in `/workspace/output/`.
 - Added an explicit front-matter execution-provenance note and a clearer configuration note so readers can distinguish the archived five-solvent outputs from the incomplete local rerun bundle.
 - Updated the saved analysis-environment banner, reproducibility appendix and automated-check appendix so they now state precisely that only `Data/Acetone` is present locally and that `Data/Acetonitrile`, `Data/Cyclohexane`, `Data/THF` and `Data/Toluene` are still missing.
 - Corrected the remaining solvent-order contradictions in the results discussion and post-lab answers so the notebook now consistently reports acetonitrile as the fastest fitted solvent in the saved data, with acetone close behind.
@@ -33,3 +34,4 @@
 - Restore the missing solvent folders in the local package.
 - Re-execute the notebook end to end from that restored raw-data bundle.
 - Re-audit the regenerated tables, figures and GIFs after the rerun so the final publication copy is both polished and reproducible from the local review package.
+- Keep the memory files and `notebook-publication-polisher/` GitHub folder aligned with the refreshed rerun evidence once the missing solvent folders are restored.
