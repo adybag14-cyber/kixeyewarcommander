@@ -17,6 +17,7 @@
 - Rewrote the reproducibility and automated-check appendices so they describe the archived execution honestly and state the current local rerun blocker precisely.
 - Replaced the weaker supporting citation with the verified 1983 primary paper by Schanze, Mattox and Whitten on solvent effects in a related donor-acceptor nitroazobenzene system.
 - Wrapped all 9 saved HTML table outputs in captioned, scroll-safe containers to reduce clipping and horizontal overflow risk in notebook and HTML viewers.
+- Updated the rerun guard so a missing solvent folder now raises a precise full-data-tree error instead of a generic directory failure.
 - Closed the second inline GIF panel by default so the extras section opens more cleanly.
 - Generated a fresh contact-sheet audit directly from the polished notebook and confirmed that all 10 embedded media items decode successfully: 8 PNG figures and 2 GIF panels.
 
