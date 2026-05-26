@@ -3,11 +3,11 @@
 ## Completed in this run
 
 - Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
-- Confirmed that the notebook itself still lagged behind the stronger publication notes, then aligned the attached source notebook and rebuilt the polished notebook copy locally in `/workspace/output/`.
-- Added explicit archived-output provenance wording in the notebook front matter, abstract, configuration section and reproducibility appendices.
+- Confirmed that the actual notebook JSON still lagged behind the stronger publication notes, then aligned the attached source notebook and rebuilt the polished notebook copy locally in `/workspace/output/`.
+- Added explicit archived-output provenance wording in the notebook configuration and reproducibility appendix so the saved five-solvent outputs are distinguished from the incomplete local review bundle.
 - Replaced the weaker supporting citation with the primary 1983 Schanze, Mattox and Whitten paper.
-- Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
-- Verified that the edited notebook JSON parses successfully and that all embedded PNG and GIF panels still decode cleanly after the edits, with no obvious clipping or overlap visible in the contact-sheet audit.
+- Closed the second inline GIF panel by default in both source and saved output, and generated a fresh contact-sheet audit from the polished notebook itself.
+- Verified that the edited notebook JSON parses successfully and that all 10 embedded PNG and GIF panels still decode cleanly after the edits, with no obvious clipping or overlap visible in the contact-sheet audit.
 
 ## Highest-value next steps
 
