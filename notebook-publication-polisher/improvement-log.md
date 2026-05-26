@@ -13,6 +13,7 @@
 - Closed the second inline GIF panel by default in both the notebook source and the saved output.
 - Verified that the polished notebook source parses successfully after editing and generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the saved notebook artifact.
 - Confirmed that 10 embedded media panels decode successfully from the polished notebook: 8 PNG figures and 2 GIF panels.
+- Updated the durable progress files after rebuilding the notebook so the ongoing status notes now describe the actual polished artifact produced in this workspace.
 
 ## 2026-05-25 source-notebook rebuild, narrative correction and media audit pass
 
