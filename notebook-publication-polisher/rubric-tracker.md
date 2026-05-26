@@ -3,19 +3,19 @@
 ## Current estimate
 
 - Date: 2026-05-26
-- Current strongest deliverable: `/workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`
-- Estimated band: likely `Outstanding` for the saved notebook artifact, especially on explanation, formatting, visual presentation and transparency about archived execution versus current local rerun limits.
-- Main uncertainty: the saved notebook now presents itself professionally and more rigorously, and the attached notebook source now matches that state, but the attached local review package still lacks four solvent folders, so end-to-end rerunnability from the supplied raw data is not yet demonstrated.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
+- Estimated band: likely `Outstanding`, with strongest evidence in explanation, formatting, visual presentation, code documentation and transparency about limitations
+- Main uncertainty: the notebook is polished and professionally argued as a saved artifact, but the supplied local review package still lacks four solvent folders, so end-to-end rerunnability from the attached raw data is not yet demonstrated.
 
 ## Criterion status
 
-- Post-labs: very strong. The answers are complete, data-linked and remain consistent with the saved solvent ordering.
-- Data analysis + plotting: very strong. All five solvents are represented in the archived execution, the figures and GIFs decode cleanly, and the visual audit found no obvious broken-image or clipping defects in the saved media outputs.
-- Experimental write-up: very strong to outstanding. The notebook now includes clearer provenance notes, more careful reproducibility framing and a stronger primary-literature anchor for the solvent-effects discussion.
-- Originality and elegance of code: strong to very strong. The notebook remains modular, and the saved artifact and executable source now agree more honestly about the local rerun limits.
-- Portability of code: moderate. The notebook documents its expectations clearly, but actual portability still depends on restoring the missing solvent directories.
-- Commenting, documentation and explanation of code: strong. The notebook has good structure and docstrings, and the appendix wording now makes the execution limits clearer.
-- Markdown, LaTeX, HTML and formatting: outstanding. The notebook front matter is publication-ready, the extras section opens more calmly, and the latest media audit confirms the embedded visuals still decode successfully after editing.
+- Post-labs: very strong. The answers are complete, data-linked and use the fitted results directly.
+- Data analysis + plotting: very strong. All five solvents are represented in the saved execution, the figure set is coherent, and the refreshed audit decoded all 10 embedded media panels successfully.
+- Experimental write-up: very strong to outstanding. The notebook now has clearer provenance wording, stronger literature support and better separation between archived execution and current local rerun limits.
+- Originality and elegance of code: strong to very strong. The notebook remains modular and auditable, with visible validation checks and publication-aware embedded media.
+- Portability of code: moderate. The notebook explains its expectations clearly, but actual portability still depends on restoring the missing solvent directories.
+- Commenting, documentation and explanation of code: strong. The notebook has clear sectioning, docstrings and explicit validation language.
+- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses advanced formatting coherently, and the default-open state of the second GIF panel has been cleaned up.
 
 ## Remaining gap to full confidence
 
@@ -25,6 +25,7 @@
 
 ## This run's evidence upgrade
 
-- The attached notebook source now agrees with the durable notes on the main publication fixes, rather than leaving the durable notes ahead of the actual file under review.
-- The notebook now contains explicit archived-output provenance notes, a stronger primary-paper citation and a closed-by-default second GIF panel in both source and saved output.
-- The latest embedded-media audit confirms that all 10 media outputs in the notebook decode successfully from the saved artifact: 8 PNG figures and 2 GIF panels.
+- The actual notebook source now matches the durable publication notes instead of lagging behind them.
+- The reference list is stronger and more defensible because it now points to a primary Journal of Organic Chemistry paper on solvent-dependent thermal isomerisation in a related push-pull azo dye system.
+- The saved notebook now states clearly that the visible figures and tables are archived five-solvent outputs while the attached local bundle used for review only contains `Data/Acetone`.
+- The second inline GIF panel no longer opens expanded by default.
