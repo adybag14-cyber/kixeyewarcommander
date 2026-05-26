@@ -5,7 +5,7 @@
 - Date: 2026-05-26
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`, with strongest evidence in explanation, formatting, visual presentation, code documentation and transparency about limitations
-- Main uncertainty: the notebook is polished and professionally argued as a saved artifact, but the supplied local review package still lacks four solvent folders, so end-to-end rerunnability from the attached raw data is not yet demonstrated.
+- Main uncertainty: the notebook is polished and professionally argued as a saved artifact, but the supplied local review package still lacks four solvent folders, so end-to-end rerunnability from the attached raw data is not yet demonstrated. A smaller secondary uncertainty is that browser-level HTML re-rendering could not be repeated in this environment because `nbconvert` is unavailable.
 
 ## Criterion status
 
@@ -26,8 +26,8 @@
 ## This run's evidence upgrade
 
 - The actual notebook source and its saved rendered outputs now match the durable publication notes instead of lagging behind them.
-- The reference list is stronger and more defensible because it now points to the primary *Journal of Organic Chemistry* paper by Schanze, Mattox and Whitten on solvent-dependent thermal cis-to-trans isomerisation and charge-transfer absorption in a related donor-acceptor azobenzene system.
-- The introduction, discussion and conclusion now use that source more carefully, supporting the solvent-effect argument without implying a one-to-one literature duplicate of the present experiment.
+- The reference list is stronger and more defensible because it now points to the primary *Journal of Organic Chemistry* paper by Schanze, Mattox and Whitten on solvent-dependent thermal cis-trans isomerisation and charge-transfer absorption in a related donor-acceptor azobenzene system.
+- The introduction and conclusion now use that source more carefully, supporting the solvent-effect argument without implying a one-to-one literature duplicate of the present experiment.
 - The saved notebook now states clearly that the visible figures, tables and GIFs are archived five-solvent outputs while the attached local bundle used for review only contains `Data/Acetone`.
-- A refreshed embedded-media contact sheet confirmed that all 10 saved visual assets decode cleanly after the source edits.
+- A refreshed embedded-media contact sheet confirmed that all 10 saved visual assets decode cleanly after the source edits: 8 PNG figures and 2 GIFs.
 - The second inline GIF panel no longer opens expanded by default.
