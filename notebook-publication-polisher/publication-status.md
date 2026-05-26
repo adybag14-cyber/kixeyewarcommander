@@ -6,15 +6,15 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Publication-readiness estimate: strong, near-publication notebook artifact
-- Confidence note: the notebook now reads like a professional final submission, the source notebook itself has been brought into line with the stronger publication notes, and all 10 embedded visual outputs decoded successfully during this run with no obvious broken-image or GIF-decoding defects in the saved artifact.
+- Confidence note: the attached notebook source is now aligned with the stronger publication notes, and all 10 embedded visual outputs decoded successfully during this run with no obvious broken-image, GIF-decoding, clipping or overlap defects visible in the audit sheet.
 
 ## Highest-impact improvements in this run
 
 - Patched the attached notebook itself so the source file now matches the stronger publication-ready standard rather than relying on separate tracking notes.
-- Replaced the weaker 2017 secondary literature reference with the 1983 primary *Journal of Organic Chemistry* paper by Schanze, Mattox and Whitten (`10.1021/jo00165a005`; 48(17), 2808-2813) and tightened the wording so it is clear that this is evidence from a related push-pull azo dye system.
+- Replaced the weaker 2017 citation with the 1983 primary *Journal of Organic Chemistry* paper by Schanze, Mattox and Whitten (`10.1021/jo00165a005`; 48(17), 2808-2813) and tightened the wording so it is clear that this is evidence from a related push-pull azo dye system.
 - Added explicit provenance and rerun wording stating that the visible five-solvent tables, figures and GIFs are archived outputs, while the attached local review bundle currently only contains `Data/Acetone`.
 - Closed the second inline GIF panel by default in both the code cell and the saved rendered output so the notebook opens in a calmer, more publication-like state.
-- Refreshed the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and regenerated the contact-sheet audit at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and regenerated the contact-sheet audit at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 
 ## Remaining blockers
 
