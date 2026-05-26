@@ -1,10 +1,21 @@
 # Improvement Log
 
+## 2026-05-26 notebook source and durable-state realignment
+
+- Re-audited the attached notebook package directly instead of assuming the prior saved notes were already reflected in the notebook source.
+- Found that the notebook still contained the weaker 2017 solvent-polarity citation, weaker reproducibility wording, and a default-open second GIF panel even though the saved memory files described those issues as fixed.
+- Patched the notebook source itself so the current artifact now matches the publication notes rather than lagging behind them.
+- Replaced the weaker secondary citation with the stronger primary paper by Schanze, Mattox and Whitten in *The Journal of Organic Chemistry* (`10.1021/jo00165a005`).
+- Added explicit wording in the configuration and reproducibility sections that the attached local review bundle currently only contains `Data/Acetone`, while the visible five-solvent results are archived executed outputs from the full notebook run.
+- Removed the default-open state from the second inline GIF panel in both the code cell and the saved HTML output.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Rechecked the embedded media payloads and confirmed that all 10 saved visual outputs still decode cleanly after the edits: 8 PNG figures and 2 GIF panels.
+
 ## 2026-05-26 notebook source correction, literature upgrade and media-state cleanup
 
 - Reopened the actual attached notebook package, rubric file and durable notes rather than assuming the notebook source already matched the latest recommendations.
-- Confirmed that the attached notebook still contained the weaker 2017 reference, did not yet explain the incomplete local review bundle clearly enough, and still opened the second inline GIF panel by default.
-- Patched the notebook source directly to replace the weaker citation with the stronger primary paper by Schanze, Mattox and Whitten in *The Journal of Organic Chemistry* (`10.1021/jo00165a005`).
+- Confirmed that the saved notebook still contained the weaker 2017 reference, did not yet explain the incomplete local review bundle clearly enough, and still opened the second inline GIF panel by default.
+- Patched the notebook source directly to replace the weaker secondary citation with the stronger primary paper by Schanze, Mattox and Whitten in *The Journal of Organic Chemistry* (`10.1021/jo00165a005`).
 - Strengthened the surrounding wording so the notebook cites the primary paper as evidence from a related push-pull azo dye system instead of implying it is an exact literature duplicate of the present compound.
 - Added explicit archived-output and reproducibility wording in the configuration section and portability appendix so the notebook now distinguishes the complete saved five-solvent execution from the current attached review bundle, which only includes `Data/Acetone`.
 - Removed the default-open state from the second inline GIF panel in both the code cell and the saved output HTML so the notebook opens more cleanly.
