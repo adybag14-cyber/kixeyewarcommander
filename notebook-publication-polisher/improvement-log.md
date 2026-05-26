@@ -1,5 +1,15 @@
 # Improvement Log
 
+## 2026-05-26 direct source repair, provenance clarification and media re-audit
+
+- Re-opened the attached notebook source and confirmed that it still contained the older reproducibility wording, the weaker 2017 citation and an open-by-default second GIF panel despite stronger durable notes from the earlier run.
+- Patched the notebook front matter, configuration section, run-analysis section and reproducibility appendices so the saved artifact now states clearly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent execution, while the attached local review package only contains `Data/Acetone`.
+- Updated the saved execution-environment output note so the notebook no longer overstates rerunnability from the incomplete local package.
+- Replaced the weaker supporting literature citation with the primary Schanze, Mattox and Whitten 1983 paper (`10.1021/jo00165a005`) on solvent effects in a related push-pull azo dye system.
+- Closed the second inline GIF panel by default in both the notebook source template and the saved HTML output embedded in the notebook.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- The refreshed contact-sheet audit again decoded all 10 embedded media panels successfully: 8 PNG figures and 2 GIF panels, with no obvious clipping, overlap or broken-rendering defects visible in the saved artifact.
+
 ## 2026-05-26 final source patch and rendered-media re-audit
 
 - Reopened the actual attached notebook source rather than relying only on the durable notes and found that three important publication fixes still needed to be applied directly in the file.
