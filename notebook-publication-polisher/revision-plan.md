@@ -4,8 +4,7 @@
 
 - Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
 - Confirmed that the notebook itself still lagged behind the stronger publication notes, then aligned the attached source notebook and rebuilt the polished notebook copy locally in `/workspace/output/`.
-- Strengthened the research narrative and interpretation with explicit quantitative statements supported by the saved outputs: solvent rank order, 46.5x rate span, bootstrap-supported ordering and the approximate 9.5 kJ mol⁻¹ apparent barrier difference.
-- Added explicit archived-output provenance wording in the notebook front matter, configuration section and reproducibility appendices.
+- Added explicit archived-output provenance wording in the notebook front matter, abstract, configuration section and reproducibility appendices.
 - Replaced the weaker supporting citation with the primary 1983 Schanze, Mattox and Whitten paper.
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
 - Verified that the edited notebook JSON parses successfully and that all embedded PNG and GIF panels still decode cleanly after the edits, with no obvious clipping or overlap visible in the contact-sheet audit.
