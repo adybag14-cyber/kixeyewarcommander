@@ -1,5 +1,15 @@
 # Improvement Log
 
+## 2026-05-26 durable-source cleanup and visual re-audit
+
+- Reopened the attached notebook JSON and confirmed that three important publication edits were still missing from the actual source notebook even though earlier notes treated them as complete.
+- Patched the notebook source so the configuration section now distinguishes between archived full-execution outputs and the incomplete attached local review bundle.
+- Expanded the reproducibility appendix to state precisely which solvent folders are missing from the current package: `Data/Acetonitrile`, `Data/Cyclohexane`, `Data/THF` and `Data/Toluene`.
+- Replaced the lingering 2017 secondary literature reference in the notebook references with the 1983 primary *Journal of Organic Chemistry* paper by Schanze, Mattox and Whitten (`10.1021/jo00165a005`).
+- Removed the default-open state from the second inline GIF panel in both the source cell and its saved rendered HTML payload.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from all 10 embedded figure and GIF assets; the refreshed audit did not reveal obvious clipping, overlap or decode failures.
+
 ## 2026-05-26 notebook source and durable-state realignment
 
 - Re-audited the attached notebook package directly instead of assuming the prior saved notes were already reflected in the notebook source.
