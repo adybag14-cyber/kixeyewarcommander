@@ -5,13 +5,12 @@
 - Reopened the attached notebook package, rubric guidance and durable notes and confirmed that the actual notebook source still lagged behind the stronger saved recommendations.
 - Built a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` directly from the attached notebook.
 - Added a front-matter execution-provenance note and a clearer configuration note so the polished notebook states explicitly that the visible five-solvent outputs are archived while the current local review bundle only contains `Data/Acetone`.
-- Updated the reproducibility appendix and automated-check appendix so the local rerun blocker is named precisely instead of being implied.
-- Corrected the remaining solvent-order contradictions in both the results discussion and the post-lab answers so the narrative now consistently reports acetonitrile as the fastest fitted solvent in the archived results, with acetone close behind.
+- Updated the analysis-environment banner plus the reproducibility and automated-check appendices so the local rerun blocker is named precisely instead of being implied.
 - Replaced the weaker 2017 supporting citation with the verified primary paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
 - Hardened the trace-discovery helper so a future rerun reports all missing solvent folders together instead of failing on only the first absent directory.
-- Added a captioned, overflow-safe table display path in the notebook source and wrapped all nine saved HTML table outputs in matching figure shells to reduce clipping and horizontal-overflow risk.
+- Added a captioned, overflow-safe table display helper in the notebook source and wrapped all nine saved HTML table outputs in matching figure shells to reduce clipping and horizontal-overflow risk.
 - Closed the second inline GIF panel by default in both the notebook source and the saved output.
-- Verified that the polished notebook source parses successfully after editing and generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the saved notebook artifact.
+- Verified that the polished notebook code cells parse successfully after editing and generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the saved notebook artifact.
 - Confirmed that 10 embedded media panels decode successfully from the polished notebook: 8 PNG figures and 2 GIF panels.
 
 ## 2026-05-25 source-notebook rebuild, narrative correction and media audit pass
