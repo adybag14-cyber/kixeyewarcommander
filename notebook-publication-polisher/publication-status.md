@@ -11,17 +11,17 @@
 ## Highest-impact improvements in this run
 
 - Re-audited the attached notebook package and confirmed that the notebook source still contained older contradictions even though the durable progress notes were already ahead.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook instead of relying on a prior local artifact.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` directly from the attached notebook and aligned the saved artifact with the stronger publication notes.
 - Added an explicit front-matter execution-provenance note and a clearer configuration note so readers can immediately distinguish archived five-solvent outputs from the incomplete local rerun bundle.
 - Updated the reproducibility and automated-check appendices so they state plainly that only `Data/Acetone` is present locally and that `Data/Acetonitrile`, `Data/Cyclohexane`, `Data/THF` and `Data/Toluene` are still missing.
-- Corrected the remaining solvent-order contradictions in the results discussion and post-lab answers so the notebook now consistently reports acetonitrile as the fastest fitted solvent in the archived data, with acetone close behind.
+- Corrected the remaining solvent-order contradictions in both the source text and the saved markdown outputs so the notebook now consistently reports acetonitrile as the fastest fitted solvent in the archived data, with acetone close behind.
 - Replaced the weaker 2017 supporting citation with the 1983 Schanze, Mattox and Whitten primary paper and updated the notebook reference list.
 - Hardened future rerun diagnostics so the trace-discovery helper now reports the full missing-folder set at once instead of failing on only the first missing solvent directory.
-- Wrapped all saved HTML table outputs in captioned, scroll-safe figure containers to reduce clipping and horizontal-overflow risk in notebook and HTML viewers.
+- Wrapped all nine saved dataframe-style HTML outputs in captioned, scroll-safe figure containers to reduce clipping and horizontal-overflow risk in notebook and HTML viewers.
+- Added source-side captioned table helpers so a future complete rerun will preserve the improved table presentation instead of falling back to plain dataframe rendering.
 - Closed the second inline GIF panel by default so the notebook opens in a cleaner, less crowded state.
 - Verified that the polished notebook source parses successfully after the edits and generated a fresh contact-sheet audit at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 - Confirmed that all 10 embedded media panels in the polished notebook decode successfully: 8 PNG figures and 2 GIF panels.
-- Realigned the local memory files with the rebuilt notebook artifact so the saved publication notes now match the deliverable that exists in `/workspace/output/`.
 
 ## Remaining blockers
 
