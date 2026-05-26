@@ -29,5 +29,5 @@
 - The reference list is stronger and more defensible because it now points to the primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on solvent effects in push-pull cis-azobenzenes, including cis-4A4N.
 - The introduction and conclusion now use that source more carefully, supporting the solvent-effect argument without implying that the present notebook alone resolves the detailed thermal-isomerisation mechanism.
 - The saved notebook now states clearly that the visible figures, tables and GIFs are archived five-solvent outputs while the attached local bundle used for review only contains `Data/Acetone`.
-- A refreshed embedded-media contact sheet confirmed that all 10 saved visual assets decode cleanly after the source edits: 8 PNG figures and 2 GIFs.
+- A direct embedded-media validation confirmed that all 10 saved visual assets decode cleanly after the source edits: 8 PNG figures and 2 GIFs.
 - The second inline GIF panel no longer opens expanded by default.
