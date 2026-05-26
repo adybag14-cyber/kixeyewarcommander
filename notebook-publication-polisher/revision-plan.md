@@ -2,14 +2,12 @@
 
 ## Completed in this run
 
-- Re-reviewed the attached notebook, rubric guidance and saved progress notes to identify the highest-impact publication blockers.
-- Confirmed that the durable notes were ahead of the actual notebook artifact, then rebuilt a corrected polished notebook copy locally in `/workspace/output/`.
-- Added explicit archived-output provenance notes plus a clearer attached-bundle reproducibility warning.
-- Corrected the remaining solvent-order contradictions in the discussion and post-lab sections.
-- Wrapped every saved dataframe-style HTML table in a captioned, scroll-safe figure container and added the matching source-side display helper to reduce clipping and horizontal-overflow risk.
-- Added a more informative missing-data guard so future reruns report the complete absent-folder set instead of failing on only the first missing solvent directory.
+- Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
+- Confirmed that the source notebook still lagged behind the stronger publication notes, then rebuilt the polished notebook copy locally in `/workspace/output/`.
+- Added explicit archived-output provenance wording in the notebook front matter, configuration section and reproducibility appendices.
+- Replaced the weaker supporting citation with the primary 1983 Schanze, Mattox and Whitten paper.
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
-- Updated the saved progress files so the next run starts from the corrected notebook artifact rather than the older assumptions.
+- Verified that the edited notebook JSON parses successfully and that all embedded PNG and GIF panels still decode cleanly after the edits.
 
 ## Highest-value next steps
 
