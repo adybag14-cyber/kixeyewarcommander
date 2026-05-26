@@ -2,12 +2,13 @@
 
 ## Completed in this run
 
-- Re-reviewed the attached notebook, rubric guidance and durable notes to identify the highest-impact publication issues still present in the actual notebook file.
-- Rebuilt a polished notebook copy locally in `/workspace/output/` so the deliverable now matches the stronger saved assessment.
-- Added explicit execution-provenance wording, clearer local-rerun caveats, a stronger primary reference and corrected solvent-order phrasing in both source and saved rendered text.
-- Wrapped every saved HTML table in a captioned, scroll-safe figure container to reduce clipping and horizontal overflow risk.
+- Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
+- Confirmed that the notebook source still lagged behind the durable notes, then updated both the source notebook and the polished deliverable in `/workspace/output/`.
+- Added explicit execution-provenance language to the notebook front matter, environment note and appendices so archived output versus current local raw-data availability is no longer ambiguous.
+- Replaced the weaker 2017 citation with the Schanze, Mattox and Whitten primary paper in the reference list.
+- Wrapped the saved HTML tables in captioned, scroll-safe figure containers and added a source helper so future runs preserve that cleaner rendering.
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
-- Updated the durable progress files so future runs start from the corrected notebook artifact rather than the older source assumptions.
+- Updated the durable progress files so the next run starts from the aligned source/output notebook pair rather than from notes that are ahead of the artifact.
 
 ## Highest-value next steps
 
