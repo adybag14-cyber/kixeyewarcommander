@@ -10,7 +10,7 @@
 ## Criterion status
 
 - Post-labs: very strong. The answers are complete, data-linked and use the fitted results directly.
-- Data analysis + plotting: very strong. All five solvents are represented in the saved execution, the figure set is coherent, and the refreshed audit decoded all 10 embedded media panels successfully.
+- Data analysis + plotting: very strong. All five solvents are represented in the saved execution, the figure set is coherent, and the refreshed audit decoded all 10 embedded media panels successfully with no obvious visual defects in the contact-sheet review.
 - Experimental write-up: very strong to outstanding. The notebook now has clearer provenance wording, stronger literature support and better separation between archived execution and current local rerun limits.
 - Originality and elegance of code: strong to very strong. The notebook remains modular and auditable, with visible validation checks and publication-aware embedded media.
 - Portability of code: moderate. The notebook explains its expectations clearly, but actual portability still depends on restoring the missing solvent directories.
