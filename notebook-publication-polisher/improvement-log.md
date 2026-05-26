@@ -1,14 +1,14 @@
 # Improvement Log
 
-## 2026-05-26 notebook-text alignment, quantitative strengthening and visual re-audit
+## 2026-05-26 notebook/source truth-alignment and fresh media audit
 
-- Reopened the attached notebook itself and confirmed that the visible notebook content still lagged behind the stronger durable assessment, especially in the references, provenance wording and reproducibility framing.
-- Updated the notebook front matter, abstract, results discussion, conclusion and reproducibility appendices so the saved artifact now states clearly that the visible five-solvent tables and figures are archived outputs from the complete executed notebook, while the attached local review bundle only contains `Data/Acetone`.
-- Strengthened the chemistry-facing narrative with quantitative statements already supported by the saved notebook outputs: the accepted solvent order, the 46.5x rate span, the bootstrap-supported ranking, and the approximate 9.5 kJ mol⁻¹ apparent barrier gap between acetonitrile and toluene.
-- Replaced the weaker 2017 supporting citation with the stronger primary 1983 Schanze, Mattox and Whitten paper (`10.1021/jo00165a005`) in the notebook reference list.
-- Closed the second inline GIF panel by default in both the notebook-generating code cell and the saved notebook output so the extras section opens in a cleaner, less cluttered state.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`, and rechecked all embedded visual outputs in the edited notebook.
-- The refreshed audit again found 10 decodable embedded media panels: 8 PNG figures and 2 GIF panels, with no obvious clipping, overlap, broken images or GIF-decoding defects visible in the saved artifact.
+- Reopened the actual attached notebook rather than trusting the prior durable notes and found that the visible source still contained weaker provenance wording, the older 2017 citation and an expanded second GIF panel.
+- Patched the notebook front matter and abstract so the artifact now tells the truth about what is archived versus what is currently rerunnable from the attached review bundle.
+- Updated the configuration section, reproducibility appendix and automated consistency-check appendix to state explicitly that the saved five-solvent outputs are archived and that the current local package contains only `Data/Acetone`.
+- Replaced the weaker secondary citation with the primary 1983 Schanze, Mattox and Whitten paper (`10.1021/jo00165a005`) in the notebook itself.
+- Closed the second inline GIF panel by default in both source and stored output HTML.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`, and confirmed that all 10 embedded visual panels still decode successfully: 8 PNG figures and 2 GIF panels.
+- The fresh contact-sheet audit did not show obvious clipping, overlap, broken-image or GIF-corruption defects in the saved notebook artifact.
 
 ## 2026-05-26 final source patch and rendered-media re-audit
 
