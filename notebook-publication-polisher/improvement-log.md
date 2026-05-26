@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-26 notebook source, research wording and persistence resync
+
+- Re-read the attached notebook instead of trusting the previous durable notes and found that the live notebook still contained the weaker 2017 secondary citation, the older environment/reproducibility wording, and the default-open second GIF panel.
+- Patched the notebook source and saved outputs so the visible notebook now matches the publication notes rather than lagging behind them.
+- Replaced reference 5 with the verified 1983 primary *Journal of Organic Chemistry* article by Schanze, Mattox and Whitten (`10.1021/jo00165a005`).
+- Tightened the introduction, generated results discussion and conclusion so the solvent-effect claim is framed as evidence from related donor-acceptor azobenzene systems, which is stronger and more defensible than the previous phrasing.
+- Updated the visible analysis-environment note, configuration section and reproducibility appendix to explain that the displayed five-solvent outputs are archived from a complete run but the attached review bundle currently only contains `Data/Acetone`.
+- Removed the default-open attribute from the second inline laboratory-workflow GIF in both the code cell and its saved HTML output.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; all 10 embedded visual assets still decoded successfully after the edits: 8 PNG figures and 2 GIFs.
+- Synced the updated publication-status, improvement-log and rubric-tracker records in both the memory folder and the fixed GitHub persistence folder.
+
 ## 2026-05-26 durable-source cleanup and visual re-audit
 
 - Reopened the attached notebook JSON and confirmed that three important publication edits were still missing from the actual source notebook even though earlier notes treated them as complete.
