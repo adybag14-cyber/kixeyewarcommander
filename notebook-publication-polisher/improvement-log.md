@@ -1,14 +1,12 @@
 # Improvement Log
 
-## 2026-05-26 notebook/source truth-alignment and fresh media audit
+## 2026-05-26 notebook/source alignment correction and rendered-media re-audit
 
-- Reopened the actual attached notebook rather than trusting the prior durable notes and found that the visible source still contained weaker provenance wording, the older 2017 citation and an expanded second GIF panel.
-- Patched the notebook front matter and abstract so the artifact now tells the truth about what is archived versus what is currently rerunnable from the attached review bundle.
-- Updated the configuration section, reproducibility appendix and automated consistency-check appendix to state explicitly that the saved five-solvent outputs are archived and that the current local package contains only `Data/Acetone`.
-- Replaced the weaker secondary citation with the primary 1983 Schanze, Mattox and Whitten paper (`10.1021/jo00165a005`) in the notebook itself.
-- Closed the second inline GIF panel by default in both source and stored output HTML.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`, and confirmed that all 10 embedded visual panels still decode successfully: 8 PNG figures and 2 GIF panels.
-- The fresh contact-sheet audit did not show obvious clipping, overlap, broken-image or GIF-corruption defects in the saved notebook artifact.
+- Reopened the actual attached notebook source and confirmed that the durable notes were ahead of the file itself: the notebook still contained the older 2017 citation, lacked the explicit incomplete-package provenance wording, and still opened the second GIF panel by default.
+- Patched the notebook JSON directly so the live source now carries the same publication fixes already described in durable memory.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the corrected source.
+- Re-ran the embedded-media audit after patching and confirmed that all 10 saved visual outputs decode successfully from the notebook artifact: 8 PNG figures and 2 GIF panels.
+- No obvious clipping, overlap, broken-image or GIF-decoding defects were visible in the refreshed contact-sheet audit of the saved artifact.
 
 ## 2026-05-26 final source patch and rendered-media re-audit
 
