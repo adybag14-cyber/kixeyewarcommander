@@ -25,8 +25,9 @@
 
 ## This run's evidence upgrade
 
-- The actual notebook source now matches the durable publication notes instead of lagging behind them.
-- The reference list is stronger and more defensible because it now points to the primary *Journal of Organic Chemistry* paper by Schanze, Mattox and Whitten on solvent- and temperature-dependent thermal cis-to-trans isomerisation in a related donor-acceptor azobenzene system.
+- The actual notebook source and its saved rendered outputs now match the durable publication notes instead of lagging behind them.
+- The reference list is stronger and more defensible because it now points to the primary *Journal of Organic Chemistry* paper by Schanze, Mattox and Whitten on solvent-dependent thermal cis-to-trans isomerisation and charge-transfer absorption in a related donor-acceptor azobenzene system.
+- The introduction, discussion and conclusion now use that source more carefully, supporting the solvent-effect argument without implying a one-to-one literature duplicate of the present experiment.
 - The saved notebook now states clearly that the visible figures, tables and GIFs are archived five-solvent outputs while the attached local bundle used for review only contains `Data/Acetone`.
 - A refreshed embedded-media contact sheet confirmed that all 10 saved visual assets decode cleanly after the source edits.
 - The second inline GIF panel no longer opens expanded by default.
