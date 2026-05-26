@@ -11,6 +11,7 @@
 
 - Post-labs: very strong. The answers are complete, data-linked and remain consistent with the saved solvent ordering.
 - Data analysis + plotting: very strong. All five solvents are represented in the archived execution, the figures and GIFs decode cleanly, and the visual audit found no obvious broken-image or clipping defects in the saved media outputs.
+- Data analysis + plotting verification note: the latest contact-sheet audit of the edited notebook again decoded all 10 embedded media panels successfully and did not show obvious overlap or layout breakage in the saved figure and GIF outputs.
 - Experimental write-up: very strong to outstanding. The notebook now includes clearer provenance notes, more careful reproducibility framing and a stronger primary-literature anchor for the solvent-effects discussion.
 - Originality and elegance of code: strong to very strong. The notebook remains modular, the saved artifact and executable source now agree more closely, and the failure mode for incomplete data is documented more honestly.
 - Portability of code: moderate. The notebook documents its expectations clearly, but actual portability still depends on restoring the missing solvent directories.
