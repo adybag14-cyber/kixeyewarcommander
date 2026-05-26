@@ -4,7 +4,7 @@
 
 - Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
 - Confirmed that the durable notes were ahead of the actual notebook artifact, then rebuilt the polished notebook copy locally in `/workspace/output/`.
-- Built a polished notebook copy with an explicit execution-provenance note, corrected solvent-order wording in the remaining contradictory discussion, stronger solvent-effects framing, updated appendices and an improved reference list.
+- Built a polished notebook copy with an explicit execution-provenance note, a clearer attached-bundle reproducibility warning, updated appendices and an improved reference list.
 - Added a more informative missing-data guard so future reruns report the complete absent-folder set instead of failing on only the first missing solvent directory.
 - Wrapped every saved dataframe-style HTML table in a captioned, scroll-safe figure container and added the matching source-side display helper to reduce clipping and horizontal-overflow risk.
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
