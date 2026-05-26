@@ -3,12 +3,13 @@
 ## Completed in this run
 
 - Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
-- Confirmed that the notebook source still lagged behind the durable notes, then updated both the source notebook and the polished deliverable in `/workspace/output/`.
-- Added explicit execution-provenance language to the notebook front matter, environment note and appendices so archived output versus current local raw-data availability is no longer ambiguous.
-- Replaced the weaker 2017 citation with the Schanze, Mattox and Whitten primary paper in the reference list.
-- Wrapped the saved HTML tables in captioned, scroll-safe figure containers and added a source helper so future runs preserve that cleaner rendering.
+- Confirmed that the durable notes were ahead of the actual notebook artifact, then rebuilt the polished notebook copy locally in `/workspace/output/`.
+- Built a polished notebook copy with an explicit execution-provenance note, corrected solvent-order wording in the remaining contradictory discussion, stronger solvent-effects framing, updated appendices and an improved reference list.
+- Added a more informative missing-data guard so future reruns report the complete absent-folder set instead of failing on only the first missing solvent directory.
+- Wrapped every saved HTML table in a captioned, scroll-safe figure container and added the matching source-side display helper to reduce clipping and horizontal-overflow risk.
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
-- Updated the durable progress files so the next run starts from the aligned source/output notebook pair rather than from notes that are ahead of the artifact.
+- Verified that the edited notebook source parses successfully after the code-level changes so the durable artifact is not only better written but also internally consistent.
+- Updated the durable progress files so the next run starts from the corrected notebook artifact rather than the older assumptions.
 
 ## Highest-value next steps
 
