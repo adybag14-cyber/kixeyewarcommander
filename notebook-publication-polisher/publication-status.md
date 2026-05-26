@@ -21,6 +21,7 @@
 - Closed the second inline GIF panel by default so the notebook opens in a cleaner, less crowded state.
 - Verified that the polished notebook source parses successfully after the edits and generated a fresh contact-sheet audit at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
 - Confirmed that all 10 embedded media panels in the polished notebook decode successfully: 8 PNG figures and 2 GIF panels.
+- Realigned the local memory files with the rebuilt notebook artifact so the saved publication notes now match the deliverable that exists in `/workspace/output/`.
 
 ## Remaining blockers
 
