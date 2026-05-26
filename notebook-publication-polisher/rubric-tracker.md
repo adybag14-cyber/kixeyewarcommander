@@ -15,7 +15,7 @@
 - Originality and elegance of code: strong to very strong. The notebook remains modular, the saved artifact and executable source now agree more closely, and the failure mode for incomplete data is documented more honestly.
 - Portability of code: moderate. The notebook documents its expectations clearly, but actual portability still depends on restoring the missing solvent directories.
 - Commenting, documentation and explanation of code: strong. The notebook has good structure and docstrings, and the appendix wording now makes the execution limits clearer.
-- Markdown, LaTeX, HTML and formatting: outstanding. The notebook front matter is more publication-ready, the extras section opens more calmly, and the visual audit confirms the embedded media still decode successfully after editing.
+- Markdown, LaTeX, HTML and formatting: outstanding. The notebook front matter is more publication-ready, the extras section opens more calmly, and the refreshed visual audit confirms the embedded media still decode successfully after editing.
 
 ## Remaining gap to full confidence
 
@@ -25,6 +25,6 @@
 
 ## This run's evidence upgrade
 
-- The attached notebook package has now been rebuilt into a corrected polished artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, rather than leaving the durable notes ahead of the deliverable.
+- The attached notebook source and the polished output artifact now agree, rather than leaving the durable notes ahead of the actual deliverable.
 - The polished notebook now contains explicit archived-output provenance notes, a stronger primary-paper citation and a closed-by-default second GIF panel in the artifact itself.
 - The refreshed contact-sheet audit confirms that all 10 embedded media outputs in the polished notebook decode successfully from the saved artifact: 8 PNG figures and 2 GIF panels.
