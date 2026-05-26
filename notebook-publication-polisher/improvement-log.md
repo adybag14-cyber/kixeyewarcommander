@@ -1,30 +1,15 @@
 # Improvement Log
 
-## 2026-05-26 source-notebook correction, rendering hardening and visual audit pass
+## 2026-05-26 notebook artifact rebuild, contradiction fix and visual hardening pass
 
-- Reopened the attached notebook package, rubric guidance and durable notes and confirmed that the actual notebook source still lagged behind the stronger saved recommendations.
+- Reopened the attached notebook package, rubric guidance and saved progress notes and confirmed that the durable notes were ahead of the actual attached notebook artifact.
 - Built a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` directly from the attached notebook.
-- Added a front-matter execution-provenance note and a clearer configuration note so the polished notebook states explicitly that the visible five-solvent outputs are archived while the current local review bundle only contains `Data/Acetone`.
-- Updated the analysis-environment banner plus the reproducibility and automated-check appendices so the local rerun blocker is named precisely instead of being implied.
-- Replaced the weaker 2017 supporting citation with the verified primary paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
-- Hardened the trace-discovery helper so a future rerun reports all missing solvent folders together instead of failing on only the first absent directory.
+- Added front-matter, configuration and appendix notes that state clearly that the visible five-solvent outputs are archived executed results while the current attached review bundle only contains `Data/Acetone`.
+- Corrected the remaining solvent-order contradictions in the saved discussion and post-lab answers so the notebook consistently reports acetonitrile as the fastest archived fitted solvent, with acetone close behind.
 - Added a captioned, overflow-safe table display helper in the notebook source and wrapped all nine saved HTML table outputs in matching figure shells to reduce clipping and horizontal-overflow risk.
+- Updated the future rerun guard so a missing-data failure now reports the full set of missing solvent folders together.
 - Closed the second inline GIF panel by default in both the notebook source and the saved output.
-- Verified that the polished notebook code cells parse successfully after editing and generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the saved notebook artifact.
-- Confirmed that 10 embedded media panels decode successfully from the polished notebook: 8 PNG figures and 2 GIF panels.
-
-## 2026-05-25 source-notebook rebuild, narrative correction and media audit pass
-
-- Reopened the attached notebook package, rubric guidance and durable notes and confirmed that the attached source notebook still contained the older contradictions and weaker citation even though the memory notes were already ahead.
-- Built a fresh polished notebook artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` directly from the attached notebook.
-- Added a front-matter execution-provenance note and a clearer configuration note so the polished notebook now states explicitly that the visible five-solvent outputs are archived while the current local review bundle only contains `Data/Acetone`.
-- Updated the analysis-environment banner and both reproducibility appendices so the local rerun blocker is named precisely instead of being implied.
-- Corrected the remaining saved-source contradictions in the results discussion and post-lab answers so the notebook now consistently reports acetonitrile as the fastest fitted solvent in the archived results, with acetone close behind.
-- Replaced the weaker 2017 supporting citation with the verified ACS primary paper by Schanze, Mattox and Whitten, DOI `10.1021/jo00165a005`.
-- Updated the future rerun guard so the notebook now reports all missing solvent folders together instead of failing on only the first missing directory.
-- Wrapped all 9 saved dataframe HTML outputs in captioned, overflow-safe figure shells and closed the second GIF panel by default.
-- Brought the executable notebook source into line with the saved rendering changes by adding the captioned table-display helper and updating the source cells that generate the corrected solvent-order discussion.
-- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the polished notebook and verified that 10 embedded media panels decode successfully: 8 PNG figures and 2 GIF panels.
+- Generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` from the polished notebook and verified that all 10 embedded media panels still decode successfully: 8 PNG figure outputs and 2 GIF panels.
 
 ## Open risk
 
