@@ -10,6 +10,7 @@
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
 - Verified that the edited notebook source parses successfully after the code-level changes so the durable artifact is not only better written but also internally consistent.
 - Updated the durable progress files so the next run starts from the corrected notebook artifact rather than the older assumptions.
+- Kept the memory record aligned with the rebuilt notebook deliverable so future review passes start from the same corrected publication copy.
 
 ## Highest-value next steps
 
