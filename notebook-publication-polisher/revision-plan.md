@@ -2,14 +2,14 @@
 
 ## Completed in this run
 
-- Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
-- Confirmed that the durable notes were ahead of the actual notebook artifact, then rebuilt the polished notebook copy locally in `/workspace/output/`.
-- Built a polished notebook copy with an explicit execution-provenance note, a clearer attached-bundle reproducibility warning, updated appendices and an improved reference list.
-- Added a more informative missing-data guard so future reruns report the complete absent-folder set instead of failing on only the first missing solvent directory.
+- Re-reviewed the attached notebook, rubric guidance and saved progress notes to identify the highest-impact publication blockers.
+- Confirmed that the durable notes were ahead of the actual notebook artifact, then rebuilt a corrected polished notebook copy locally in `/workspace/output/`.
+- Added explicit archived-output provenance notes plus a clearer attached-bundle reproducibility warning.
+- Corrected the remaining solvent-order contradictions in the discussion and post-lab sections.
 - Wrapped every saved dataframe-style HTML table in a captioned, scroll-safe figure container and added the matching source-side display helper to reduce clipping and horizontal-overflow risk.
+- Added a more informative missing-data guard so future reruns report the complete absent-folder set instead of failing on only the first missing solvent directory.
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
-- Verified that the edited notebook source parses successfully after the code-level changes so the durable artifact is not only better written but also internally consistent.
-- Updated the durable progress files so the next run starts from the corrected notebook artifact rather than the older assumptions.
+- Updated the saved progress files so the next run starts from the corrected notebook artifact rather than the older assumptions.
 
 ## Highest-value next steps
 
