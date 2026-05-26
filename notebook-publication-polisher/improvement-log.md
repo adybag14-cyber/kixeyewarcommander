@@ -11,6 +11,7 @@
 - Built a refreshed polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Re-ran the embedded-media decode audit and confirmed that all 10 saved visual outputs still decode successfully from the edited notebook artifact: 8 PNG figures and 2 GIF panels.
 - Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`; no obvious clipping, overlap, broken-image or GIF-corruption defects were visible in the audit sheet.
+- Corrected the primary-paper citation metadata to the exact *Journal of Organic Chemistry* article details surfaced during verification: 1983, 48(17), 2808-2813, DOI `10.1021/jo00165a005`.
 
 ## Open risk
 
