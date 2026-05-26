@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-26 notebook source correction, provenance clarification and visual audit refresh
+
+- Re-read the attached notebook package directly and confirmed that the live notebook still contained the older 2017 secondary citation, weaker reproducibility wording and a default-open second GIF panel despite earlier durable notes claiming those items were already fixed.
+- Patched the actual attached notebook source so the publication artifact now matches the saved review state instead of lagging behind it.
+- Replaced reference 5 with the verified 1983 primary *Journal of Organic Chemistry* article by Schanze, Mattox and Whitten (`10.1021/jo00165a005`).
+- Tightened the introduction and conclusion so the notebook describes that paper as supporting evidence from a related donor-acceptor azobenzene system, which is stronger and more defensible than the previous wording.
+- Expanded the configuration and reproducibility sections so the notebook now states plainly that the visible figures and tables are archived outputs from a complete five-solvent execution, while the attached local review bundle currently contains only `Data/Acetone`.
+- Removed the default-open state from the second inline laboratory-workflow GIF panel in both the source cell and the saved output HTML.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and reconfirmed that all 10 embedded assets decode cleanly: 8 PNG figures and 2 GIF panels.
+- Confirmed one remaining environment limitation for visual QA: `nbconvert` is not installed here, so browser-style HTML rendering could not be regenerated in this run.
+
 ## 2026-05-26 notebook source, research wording and persistence resync
 
 - Re-read the attached notebook instead of trusting the previous durable notes and found that the live notebook still contained the weaker 2017 secondary citation, the older environment/reproducibility wording, and the default-open second GIF panel.
