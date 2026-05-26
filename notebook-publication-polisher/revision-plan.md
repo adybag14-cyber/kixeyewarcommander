@@ -10,6 +10,7 @@
 - Rebuilt the polished notebook copy in `/workspace/output/` and regenerated the visual audit contact sheet.
 - Verified that the edited notebook JSON parses and that all 10 embedded PNG/GIF outputs still decode cleanly.
 - Corrected the citation metadata for the primary paper to `J. Org. Chem. 1983, 48(17), 2808-2813`.
+- Confirmed from the contact-sheet audit that no obvious clipping, overlap, broken-image or GIF-corruption defects are visible in the saved rendered outputs.
 
 ## Highest-value next steps
 
