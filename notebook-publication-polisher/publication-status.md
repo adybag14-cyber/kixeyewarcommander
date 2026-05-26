@@ -6,7 +6,7 @@
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
 - Publication-readiness estimate: strong, near-publication notebook artifact
-- Confidence note: the attached notebook source now actually matches the durable notes for the literature upgrade, provenance wording and GIF presentation state. All 10 embedded visual assets decoded successfully in this run, the refreshed contact sheet rebuilt cleanly, and both inline GIF panels now open collapsed by default.
+- Confidence note: the attached notebook source now matches the durable notes for the literature upgrade, provenance wording and GIF presentation state. All 10 embedded visual assets decoded successfully in this run, and both inline GIF panels now open collapsed by default.
 
 ## Highest-impact improvements in this run
 
@@ -15,7 +15,7 @@
 - Tightened the solvent-dependence wording in the introduction and conclusion so the notebook now cites the primary literature as direct supporting evidence for solvent-sensitive behaviour in push-pull azobenzenes and cis-4A4N without overstating what the present experiment proves mechanistically.
 - Strengthened the configuration and reproducibility sections so they now state clearly that the visible five-solvent outputs are archived from a complete execution, while the attached review bundle currently only contains `Data/Acetone`.
 - Removed the default-open state from the second inline GIF panel in both the source cell and the saved rendered HTML output, giving the notebook a cleaner opening presentation.
-- Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and regenerated the embedded-media audit sheet at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 
 ## Remaining blockers
 
