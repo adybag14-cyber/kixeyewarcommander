@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-26 source-notebook correction, primary-literature upgrade and rendered-output cleanup
+
+- Re-read the attached notebook JSON directly and confirmed that the live notebook still contained the weaker 2017 citation, the thinner configuration/reproducibility wording and an open-by-default second GIF panel despite earlier progress notes treating those items as finished.
+- Patched the actual attached notebook so the durable notes and the publication artefact now agree.
+- Replaced reference 5 with the primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`), which explicitly discusses solvent effects for push-pull cis-azobenzenes and cis-4A4N.
+- Tightened the introduction and conclusion so the solvent-dependence claim is supported by the primary literature without claiming that this notebook alone resolves the detailed thermal-isomerisation mechanism.
+- Expanded the configuration and reproducibility sections to state plainly that only `Data/Acetone` is attached locally in the current review package, while the saved five-solvent tables, figures and GIF summaries are archived outputs from a previous full execution.
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the code cell source and its saved HTML output.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and reconfirmed that all 10 embedded visual assets decode successfully: 8 PNG figures and 2 GIFs.
+
 ## 2026-05-26 notebook source correction, provenance clarification and visual audit refresh
 
 - Re-read the attached notebook package directly and confirmed that the live notebook still contained the older 2017 secondary citation, weaker reproducibility wording and a default-open second GIF panel despite earlier durable notes claiming those items were already fixed.
