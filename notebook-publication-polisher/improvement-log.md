@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-26 attached-notebook resync, literature correction and visual-state validation
+
+- Re-opened the actual attached notebook package instead of trusting the saved notes and confirmed that the live notebook still contained the weaker 2017 citation, generic rerun wording and a default-open second GIF panel.
+- Patched the notebook source directly so the artifact now matches the stronger publication notes.
+- Replaced reference 5 with the verified 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`) on substituent and solvent effects in push-pull-substituted cis-azobenzenes, including cis-4A4N.
+- Strengthened the introduction and conclusion so the solvent-dependence claim is supported by primary literature without implying that this notebook alone resolves the full thermal-isomerisation mechanism.
+- Expanded the configuration, analysis-environment and reproducibility wording so the publication copy now states clearly that only `Data/Acetone` is attached locally in the current review bundle, while the displayed five-solvent outputs are archived results from a previous full execution.
+- Removed the default-open state from the second inline workflow GIF in both the source cell and the saved HTML output.
+- Validated the edited notebook JSON, rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, and rechecked that all 10 embedded media assets still decode successfully after the edits.
+- Confirmed the remaining environment limitation for browser-style QA: `nbconvert` is still unavailable here, so a fresh standalone HTML render could not be regenerated in this run.
+
 ## 2026-05-26 source-notebook correction, primary-literature upgrade and rendered-output cleanup
 
 - Re-read the attached notebook JSON directly and confirmed that the live notebook still contained the weaker 2017 citation, the thinner configuration/reproducibility wording and an open-by-default second GIF panel despite earlier progress notes treating those items as finished.
