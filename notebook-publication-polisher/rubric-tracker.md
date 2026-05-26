@@ -26,7 +26,7 @@
 ## This run's evidence upgrade
 
 - The attached source notebook has now been rebuilt into a corrected polished artifact at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, rather than leaving the durable notes ahead of the actual notebook deliverable.
-- The polished notebook now contains the explicit execution-provenance note, the stronger primary-paper citation, the corrected acetonitrile-first narrative, the safer table wrappers and the closed-by-default second GIF panel in the artifact itself.
+- The polished notebook now contains the explicit execution-provenance note, the stronger primary-paper citation, safer captioned table wrappers, a more honest rerun explanation and the closed-by-default second GIF panel in the artifact itself.
 - The editable notebook source now parses successfully with the improved missing-folder guard and the captioned table-display helper in place for future reruns.
 - The refreshed contact-sheet audit confirms that all 10 embedded media outputs in the polished notebook decode successfully from the saved notebook artifact: 8 PNG figures and 2 GIF panels.
 - The saved rubric tracker is now aligned with the rebuilt notebook artifact, so the scoring rationale no longer runs ahead of the deliverable itself.
