@@ -1,5 +1,14 @@
 # Improvement Log
 
+## 2026-05-26 final source patch and rendered-media re-audit
+
+- Reopened the actual attached notebook source rather than relying only on the durable notes and found that three important publication fixes still needed to be applied directly in the file.
+- Patched the configuration and reproducibility appendix text so the notebook now states clearly that the saved figures, tables and GIFs are archived outputs from a complete five-solvent execution, while the attached local review bundle only contains `Data/Acetone`.
+- Replaced the weaker 2017 secondary citation with the stronger 1983 Schanze, Mattox and Whitten primary paper (`10.1021/jo00165a005`) in the notebook reference list.
+- Closed the second inline GIF panel by default in both the notebook-generating code cell and the saved output so the notebook opens in a calmer publication layout.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, generated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`, and confirmed that all 10 embedded media panels decode successfully: 8 PNG figures and 2 GIF panels.
+- The contact-sheet audit did not show obvious clipping, overlap, broken images or GIF corruption in the saved visual outputs.
+
 ## 2026-05-26 source-alignment, provenance clarification and media audit pass
 
 - Reopened the attached notebook package, rubric guidance and durable notes and confirmed that the actual notebook still lagged behind the stronger publication-ready recommendations recorded in memory.
