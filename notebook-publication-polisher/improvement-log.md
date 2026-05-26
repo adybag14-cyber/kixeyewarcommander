@@ -1,14 +1,13 @@
 # Improvement Log
 
-## 2026-05-26 direct source repair, provenance clarification and media re-audit
+## 2026-05-26 notebook source alignment and fresh artifact audit
 
-- Re-opened the attached notebook source and confirmed that it still contained the older reproducibility wording, the weaker 2017 citation and an open-by-default second GIF panel despite stronger durable notes from the earlier run.
-- Patched the notebook front matter, configuration section, run-analysis section and reproducibility appendices so the saved artifact now states clearly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent execution, while the attached local review package only contains `Data/Acetone`.
-- Updated the saved execution-environment output note so the notebook no longer overstates rerunnability from the incomplete local package.
-- Replaced the weaker supporting literature citation with the primary Schanze, Mattox and Whitten 1983 paper (`10.1021/jo00165a005`) on solvent effects in a related push-pull azo dye system.
-- Closed the second inline GIF panel by default in both the notebook source template and the saved HTML output embedded in the notebook.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
-- The refreshed contact-sheet audit again decoded all 10 embedded media panels successfully: 8 PNG figures and 2 GIF panels, with no obvious clipping, overlap or broken-rendering defects visible in the saved artifact.
+- Reopened the attached notebook itself and confirmed that the durable notes were ahead of the actual file in three important places: provenance framing, the solvent-effects citation and the default state of the second GIF panel.
+- Patched the notebook source so the front matter, configuration note and reproducibility appendix now say clearly that the saved outputs come from the archived five-solvent execution while the current local review bundle only contains `Data/Acetone`.
+- Replaced the weaker 2017 citation with the primary 1983 Schanze, Mattox and Whitten *Journal of Organic Chemistry* paper (`10.1021/jo00165a005`) on a related push-pull azo system.
+- Closed the second inline GIF panel by default in both the notebook-generating code and the saved rendered output.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` directly from the corrected source notebook and regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Extracted and audited all 10 embedded media outputs from the saved notebook artifact: 8 PNG figures and 2 GIF panels. All decoded successfully, with no obvious clipping, overlap or broken-image defects visible in the contact-sheet review.
 
 ## 2026-05-26 final source patch and rendered-media re-audit
 
