@@ -5,22 +5,22 @@
 - Date: 2026-05-26
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
-- Publication-readiness estimate: strong, near-publication notebook artifact. The notebook now truthfully distinguishes archived full-data outputs from the incomplete attached review package, uses a stronger primary literature anchor, and opens with calmer inline-media presentation.
-- Confidence note: the notebook source, the polished output copy and the durable notes are now aligned. A refreshed media audit decoded all 10 embedded visual panels successfully, and the contact sheet did not show obvious clipping, overlap, broken images or GIF corruption in the saved figures and animations. The main remaining blocker is still full rerunnability from the attached package.
+- Publication-readiness estimate: strong, near-publication notebook artifact. The notebook source and polished output now agree on the key publication fixes: explicit archived-output provenance notes, corrected rerun framing for the incomplete local package, a stronger primary-literature anchor, calmer inline-GIF presentation, and a refreshed embedded-media audit across all saved figures and GIF panels.
+- Confidence note: the notebook now reads like a professional final artifact, the attached source notebook matches the polished output copy, and the saved media audit decoded all 10 embedded visual outputs successfully with no obvious clipping, overlap, broken-image or GIF-decoding defects visible in the saved artifact. The main remaining blocker is still reproducibility from the attached package, because the local raw-data bundle is incomplete.
 
 ## Highest-impact improvements in this run
 
-- Re-reviewed the attached notebook itself and found that the durable notes were ahead of the actual source notebook in several important places.
-- Patched the notebook front matter, abstract, configuration section, reproducibility appendix and automated-checks appendix so the saved artifact now states clearly that the visible five-solvent outputs are archived from a complete execution, while the attached local review package currently contains only `Data/Acetone`.
-- Replaced the weaker 2017 citation with the primary 1983 Schanze, Mattox and Whitten paper (`10.1021/jo00165a005`) in the actual notebook reference list.
-- Closed the second inline GIF panel by default in both the generating source cell and the saved output HTML so the notebook opens in a cleaner publication layout.
-- Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Generated a fresh contact-sheet audit at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and re-verified that the saved notebook contains 10 decodable embedded media panels: 8 PNG figures and 2 GIF panels.
+- Re-audited the attached notebook package and confirmed that the actual notebook JSON still lagged behind the stronger durable notes.
+- Patched the attached notebook source and rebuilt a fresh polished copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` so the durable notes, source notebook and deliverable now agree.
+- Added explicit configuration and reproducibility wording that distinguishes the archived complete five-solvent execution from the current attached review bundle, which only contains `Data/Acetone`.
+- Replaced the weaker 2017 supporting citation with the primary 1983 Schanze, Mattox and Whitten paper (`10.1021/jo00165a005`) in the notebook reference list.
+- Closed the second inline GIF panel by default in both the notebook source and saved rendered output so the notebook opens in a cleaner state.
+- Generated a refreshed visual-audit contact sheet and re-verified that the saved notebook contains 10 decodable embedded media panels: 8 PNG figures and 2 GIF panels, with no obvious clipping or broken-rendering defects visible in the saved artifact.
 
 ## Remaining blockers
 
-- The attached local raw-data bundle is incomplete: only `Data/Acetone` is present locally, while a fresh full rerun also needs `Data/Acetonitrile`, `Data/Cyclohexane`, `Data/THF` and `Data/Toluene`.
-- Because the local data package is incomplete, the notebook still cannot be re-executed end to end in this session to replace the archived saved outputs with a fresh reproducible run from the supplied package.
+- The attached local raw-data bundle is incomplete: only `Data/Acetone` is present locally, while a fresh rerun also needs `Data/Acetonitrile`, `Data/Cyclohexane`, `Data/THF` and `Data/Toluene`.
+- Because the local data package is incomplete, the notebook still cannot be re-executed end to end in this session to replace the archived saved outputs with a fresh reproducible run.
 - Final publication sign-off for reproducibility still depends on restoring the missing solvent folders and rerunning the notebook from the complete local data tree.
 
 ## Next highest-value improvements
