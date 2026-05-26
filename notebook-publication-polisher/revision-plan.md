@@ -3,7 +3,7 @@
 ## Completed in this run
 
 - Re-reviewed the attached notebook, rubric guidance and durable notes to find the highest-impact remaining publication problems.
-- Confirmed that the source notebook still lagged behind the stronger publication notes, then rebuilt the polished notebook copy locally in `/workspace/output/`.
+- Confirmed that the notebook itself still lagged behind the stronger publication notes, then aligned the attached source notebook and rebuilt the polished notebook copy locally in `/workspace/output/`.
 - Added explicit archived-output provenance wording in the notebook front matter, configuration section and reproducibility appendices.
 - Replaced the weaker supporting citation with the primary 1983 Schanze, Mattox and Whitten paper.
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
