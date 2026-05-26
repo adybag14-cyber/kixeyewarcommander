@@ -7,7 +7,7 @@
 - Added explicit archived-output provenance wording in the notebook front matter, configuration section and reproducibility appendices.
 - Replaced the weaker supporting citation with the primary 1983 Schanze, Mattox and Whitten paper.
 - Closed the second inline GIF panel by default and generated a fresh contact-sheet audit from the polished notebook itself.
-- Verified that the edited notebook JSON parses successfully and that all embedded PNG and GIF panels still decode cleanly after the edits.
+- Verified that the edited notebook JSON parses successfully and that all embedded PNG and GIF panels still decode cleanly after the edits, with no obvious clipping or overlap visible in the contact-sheet audit.
 
 ## Highest-value next steps
 
