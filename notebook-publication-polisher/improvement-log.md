@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-27 source-resync, reference repair and notebook-opening cleanup
+
+- Re-audited the live attached notebook instead of assuming the durable notes already matched it.
+- Confirmed that the actual source still showed the older 2017 solvent-paper citation, thinner reproducibility wording, and a default-open second inline GIF panel.
+- Patched the introduction, configuration, conclusion, reproducibility appendix and reference list directly in the notebook source.
+- Replaced reference 5 with the verified 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`), which explicitly discusses substituent and solvent effects in push-pull-substituted cis-azobenzenes including cis-4A4N.
+- Clarified that the saved five-solvent tables, figures and GIFs are archived outputs from a complete prior run, while the currently attached review bundle only includes `Data/Acetone` locally.
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the generating cell source and the saved HTML output.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and regenerated the visual-audit contact sheet.
+- Revalidated the saved media payloads after the edits: all 10 embedded assets still decode successfully, with no obvious clipping, overlap or broken-image defects in the contact-sheet audit.
+
 ## 2026-05-27 live-source literature and provenance correction
 
 - Re-reviewed the attached notebook package directly instead of assuming the durable notes already matched the live source.
