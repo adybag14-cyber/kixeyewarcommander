@@ -1,5 +1,15 @@
 # Improvement Log
 
+## 2026-05-27 live-source repair, bundle-provenance correction and regenerated audit outputs
+
+- Re-opened the actual attached notebook package and confirmed that the live source still overstated rerunnability from the current bundle, still carried the weaker 2017 literature reference, and still saved the second workflow GIF in an open-by-default state.
+- Patched the notebook source and saved output directly so the scope, abstract, configuration, analysis-environment note, reproducibility appendix and automated-check wording now distinguish clearly between the archived complete five-solvent execution and the current attached review package, which only includes `Data/Acetone` locally.
+- Replaced reference 5 with the verified primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`).
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the generating source cell and the saved HTML payload.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.txt`.
+- Rechecked all embedded media directly from the notebook payload and confirmed that all 10 saved visual assets still decode successfully after the edits: 8 PNG figures and 2 GIFs.
+
 ## 2026-05-27 live-notebook resync, provenance correction and refreshed media audit
 
 - Re-opened the actual attached notebook package and confirmed that the live source had drifted back to the weaker 2017 solvent paper, the older rerun wording and an open-by-default second GIF panel despite the stronger saved notes.
