@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-27 live-source resync, evidence repair and refreshed media audit
+
+- Re-opened the live attached notebook package instead of trusting the saved notes and found that the source had drifted back to weaker provenance wording, the weaker 2017 solvent paper, and a discussion mismatch that still described acetone as the fastest solvent.
+- Patched the title-card scope, abstract, configuration section, analysis-environment note and reproducibility appendix so the notebook now states plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent execution while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally.
+- Replaced reference 5 with the stronger primary ACS paper by Joshi, Fuyuki and Wada in *The Journal of Physical Chemistry B* (`10.1021/jp4125205`).
+- Corrected both the narrative generator code and the already-saved rendered markdown so the discussion and post-lab explanation now match the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Removed the default-open state from the second inline GIF panel in both the generating source and the saved HTML payload.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.txt`.
+- Re-ran an embedded-media decode audit and confirmed that all 10 saved visual assets still decode successfully after the edits: 8 PNG figures and 2 GIFs, with no remaining default-open research panels.
+
 ## 2026-05-27 narrative-evidence resync, stronger literature anchor and full inline-media QA
 
 - Re-opened the live attached notebook package rather than trusting the earlier status notes and found two high-impact publication issues still visible in the artefact: the weaker 2017 source was back in the references, and several narrative passages still described acetone as the fastest solvent even though the executed results rank acetonitrile first.
@@ -43,6 +54,26 @@
 - Re-ran a direct embedded-media decode audit from the notebook JSON and confirmed that all 10 saved visual assets open successfully: 8 PNG figures and 2 GIFs.
 - Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.txt` from the embedded outputs as the current visual QA record.
 
-## Open risk
+## 2026-05-27 live-artifact resync, provenance repair and saved-output GIF cleanup
 
-- Full reproducibility remains blocked until the full five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
+- Re-opened the actual attached notebook package and confirmed that the live source still lagged behind the durable notes in three important ways: the weaker 2017 citation remained in the reference list, the provenance wording still implied easier rerunnability than the local package supports, and the second GIF panel still opened by default in the saved output.
+- Patched the notebook source directly so the attached artifact now matches the stronger publication guidance rather than relying on future reruns to fix the visible notebook.
+- Replaced reference 5 with the verified 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`), which directly covers substituent and solvent effects in push-pull cis-azobenzenes including cis-4A4N.
+- Strengthened the introduction and conclusion so the solvent-effect argument is grounded in primary literature while staying careful not to overclaim mechanistic proof from this notebook alone.
+- Rewrote the configuration, analysis-environment and reproducibility wording so the saved five-solvent outputs are clearly identified as archived results from a complete earlier run, while the currently attached local review bundle is stated plainly to contain only `Data/Acetone`.
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the generating code path and the saved HTML payload.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and reconfirmed that all 10 embedded visual assets decode successfully: 8 PNG figures and 2 GIFs.
+
+## 2026-05-27 source-resync, reference repair and notebook-opening cleanup
+
+- Re-audited the live attached notebook instead of assuming the durable notes already matched it.
+- Confirmed that the actual source still showed the older 2017 solvent-paper citation, thinner reproducibility wording, and a default-open second inline GIF panel.
+- Patched the introduction, configuration, conclusion, reproducibility appendix and reference list directly in the notebook source.
+- Replaced reference 5 with the verified 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`), which explicitly discusses substituent and solvent effects in push-pull-substituted cis-azobenzenes including cis-4A4N.
+- Clarified that the saved five-solvent tables, figures and GIFs are archived outputs from a complete prior run, while the currently attached review bundle only includes `Data/Acetone` locally.
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the generating cell source and the saved HTML output.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and regenerated the visual-audit contact sheet.
+- Revalidated the saved media payloads after the edits: all 10 embedded assets still decode successfully, with no obvious clipping, overlap or broken-image defects in the contact-sheet audit.
+
+## 2026-05-27 live-source literature and provenance correction
