@@ -4,28 +4,26 @@
 
 - Date: 2026-05-27
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Supporting visual audit: `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`
-- Publication-readiness estimate: strong, near-publication notebook artifact
-- Confidence note: the attached notebook source was rechecked directly and now genuinely matches the durable notes for the literature upgrade, provenance wording and GIF presentation state. All 10 embedded visual assets decoded successfully in this run, and both inline GIF panels now open collapsed by default.
+- Publication-readiness estimate: strong, near-publication notebook artifact with a clear remaining reproducibility blocker
+- Confidence note: the live attached notebook was re-audited and patched directly in this run, removing the citation drift that had reappeared in the source. All 10 embedded visual assets decoded successfully again in this run: 8 PNG figures and 2 inline GIFs.
 
 ## Highest-impact improvements in this run
 
-- Corrected the actual attached notebook after confirming that it still lagged behind the saved progress notes.
-- Replaced the lingering 2017 secondary citation with the stronger 1987 primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on push-pull cis-azobenzenes, which explicitly discusses cis-4A4N (`10.1016/0009-2614(87)80394-9`).
-- Tightened the solvent-dependence wording in the introduction and conclusion so the notebook now cites the primary literature as direct supporting evidence for solvent-sensitive behaviour in push-pull azobenzenes and cis-4A4N without overstating what the present experiment proves mechanistically.
-- Strengthened the configuration and reproducibility sections so they now state clearly that the visible five-solvent outputs are archived from a complete execution, while the attached review bundle currently only contains `Data/Acetone`.
-- Removed the default-open state from the second inline GIF panel in both the source cell and the saved rendered HTML output, giving the notebook a cleaner opening presentation.
+- Corrected the live attached notebook after confirming that the weaker 2017 citation and over-optimistic rerun wording were still present in the actual source.
+- Replaced reference 5 with the verified 1987 primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`), which explicitly covers substituent and solvent effects for push-pull cis-azobenzenes including cis-4A4N.
+- Tightened the introduction and conclusion so the solvent-sensitivity claim is grounded in primary literature without implying that the present notebook alone resolves the full thermal-isomerisation mechanism.
+- Rewrote the configuration and reproducibility sections so they state plainly that the displayed five-solvent figures, tables and GIFs are archived outputs from a complete run, while the currently attached local review bundle only contains `Data/Acetone`.
 - Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Revalidated the saved presentation layer: all 8 embedded PNG figures and both inline GIFs still decode cleanly, and the contact-sheet audit did not reveal obvious clipping, overlap or broken-image defects.
 
 ## Remaining blockers
 
 - The attached local raw-data bundle is incomplete: only `Data/Acetone` is present locally, while a true full rerun also needs `Data/Acetonitrile`, `Data/Cyclohexane`, `Data/THF` and `Data/Toluene`.
 - Because the local data package is incomplete, the notebook still cannot be re-executed end to end in this session to regenerate every saved result from raw data.
-- `nbconvert` is not installed in this environment, so I could not generate a fresh standalone HTML render for browser-level QA in this run.
 - Final publication sign-off for reproducibility still depends on restoring the missing solvent folders and rerunning the notebook from the complete local data tree.
 
 ## Next highest-value improvements
 
 - Restore the missing solvent folders in the local package.
 - Re-execute the notebook end to end from that restored raw-data bundle.
-- Re-audit the regenerated figures, tables and GIFs after that rerun so the final publication copy is both polished and fully reproducible from the supplied review package.
+- Re-audit the regenerated tables, figures and GIFs after that rerun so the final publication copy is both polished and fully reproducible from the supplied review package.
