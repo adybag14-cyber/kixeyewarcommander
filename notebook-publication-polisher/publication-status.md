@@ -10,7 +10,7 @@
 ## Highest-impact improvements in this run
 
 - Re-opened the actual attached notebook package and confirmed that the live source had drifted back to the weaker 2017 citation, over-optimistic rerun wording and an open-by-default second GIF panel despite the stronger saved notes.
-- Patched the real notebook source so the title-card scope, configuration section and reproducibility appendix now state plainly that the displayed tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review package only exposes `testing-main/Data/Acetone` locally.
+- Patched the real notebook source so the title-card scope, configuration section, analysis-environment note, reproducibility appendix and automated-check appendix now state plainly that the displayed tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review package only exposes `testing-main/Data/Acetone` locally.
 - Replaced reference 5 with the verified 1987 primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`), which directly addresses substituent and solvent effects in push-pull cis-azobenzenes.
 - Removed the default-open state from the second inline laboratory-workflow GIF in both the generating source cell and the saved HTML output.
 - Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
