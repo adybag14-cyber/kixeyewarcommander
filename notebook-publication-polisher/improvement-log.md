@@ -1,12 +1,15 @@
 # Improvement Log
 
-## 2026-05-27 live notebook truthfulness repair, primary-source restoration and embedded-media QA
+## 2026-05-27 live-artifact resync, rerun-blocker clarity and refreshed audit artifacts
 
-- Re-opened the actual attached notebook source rather than trusting earlier saved notes and confirmed that the live artifact had drifted back to three publication-facing problems: misleading rerun wording, the weaker 2017 solvent paper and an open-by-default second workflow GIF.
-- Patched the title-card scope, abstract, configuration section, saved analysis-environment note, automated-check appendix and reproducibility appendix so the notebook now tells the truth about the current review package: the visible five-solvent figures and tables are archived outputs, while only `testing-main/Data/Acetone` is presently available locally.
-- Replaced reference 5 with the verified primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`), which directly discusses solvent effects for push-pull cis-azobenzenes including cis-4A4N.
-- Removed the `open` state from the second inline laboratory-workflow GIF in both the code source and the saved HTML output so the notebook opens more cleanly.
-- Re-ran an extraction-based media audit from the notebook payload and confirmed that all 10 embedded visual assets still decode successfully after the edits: 8 PNG figures and 2 GIF panels.
+- Re-opened the attached notebook package directly and confirmed that the live source had drifted back again to the weaker 2017 citation, over-optimistic rerun wording and an open-by-default second workflow GIF panel.
+- Patched the notebook source itself so the title-card scope, configuration section, analysis-environment box and reproducibility appendix now state plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent execution while the currently attached local package only exposes `testing-main/Data/Acetone`.
+- Replaced reference 5 with the verified primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`).
+- Improved `discover_trace_files` so a future rerun now reports all missing solvent directories in one clear error message instead of failing on the first absent folder only.
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the source cell and the saved HTML output.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.txt`.
+- Re-ran the embedded-media decode audit and confirmed again that all 10 saved assets open successfully from the notebook payload: 8 PNG figures and 2 GIFs.
 
 ## 2026-05-27 live-source provenance resync, reference repair and workflow-panel cleanup
 
