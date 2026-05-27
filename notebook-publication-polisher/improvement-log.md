@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-27 live-notebook factual correction, primary-literature upgrade and reproducibility repair
+
+- Re-opened the actual attached notebook package, rubric file and durable notes instead of assuming the live notebook already matched the strongest saved state.
+- Confirmed four high-impact publication issues in the live artifact: the results/post-lab prose incorrectly treated acetone as the fastest solvent despite the reported ranking, the reference list still used the weaker 2017 paper, the configuration/reproducibility language still overclaimed what the attached local bundle can rerun, and the second inline workflow GIF still opened by default.
+- Patched the introduction, configuration note, analysis-environment callout, results discussion, post-lab answer, conclusion, reproducibility appendix and reference list directly in the notebook source.
+- Replaced reference 5 with the verified 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`), which explicitly discusses substituent and solvent effects in push-pull cis-azobenzenes including cis-4A4N.
+- Corrected the solvent-interpretation prose so it now matches the actual reported order: **Acetonitrile > Acetone > THF > Cyclohexane > Toluene**.
+- Rewrote the provenance language so the notebook now states clearly that the visible five-solvent figures, tables and GIFs are archived outputs from an earlier complete execution, while the attached local review bundle only contains `Data/Acetone`.
+- Removed the default-open state from the second inline workflow GIF in both the generating source and the saved HTML payload.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` and regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png`.
+- Revalidated the media payload after the edits: all 10 embedded visual assets still decode successfully, with 8 PNG figures and 2 GIFs, and the refreshed contact-sheet audit did not show obvious clipping, overlap or broken-image defects.
+
 ## 2026-05-27 live-artifact resync, provenance repair and saved-output GIF cleanup
 
 - Re-opened the actual attached notebook package and confirmed that the live source still lagged behind the durable notes in three important ways: the weaker 2017 citation remained in the reference list, the provenance wording still implied easier rerunnability than the local package supports, and the second GIF panel still opened by default in the saved output.
@@ -41,7 +53,7 @@
 - Expanded the configuration, analysis-environment and reproducibility wording so the publication copy now states clearly that only `Data/Acetone` is attached locally in the current review bundle, while the displayed five-solvent outputs are archived results from a previous full execution.
 - Removed the default-open state from the second inline workflow GIF in both the source cell and the saved HTML output.
 - Validated the edited notebook JSON, rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, and rechecked that all 10 embedded media assets still decode successfully after the edits.
-- Confirmed the remaining environment limitation for browser-style QA: `nbconvert` is still unavailable here, so a fresh standalone HTML render could not be regenerated in this run.
+- Confirmed the remaining environment limitation for browser-style HTML rendering: `nbconvert` is still unavailable here, so a fresh standalone HTML render could not be regenerated in this run.
 
 ## 2026-05-26 source-notebook correction, primary-literature upgrade and rendered-output cleanup
 
