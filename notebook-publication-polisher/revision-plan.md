@@ -10,6 +10,7 @@
 - Closed the second inline GIF panel by default in both the source cell and the saved output HTML.
 - Rebuilt the polished notebook copy in `/workspace/output/`.
 - Regenerated the contact-sheet-style visual audit and report, and rechecked that all 10 embedded PNG/GIF outputs still decode cleanly.
+- Confirmed that the fixed GitHub persistence folder is reachable and ready to receive the refreshed status, rubric and improvement records from this run.
 
 ## Highest-value next steps
 
