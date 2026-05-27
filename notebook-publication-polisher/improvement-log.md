@@ -1,14 +1,14 @@
 # Improvement Log
 
-## 2026-05-27 live-source repair, bundle-provenance correction and regenerated audit outputs
+## 2026-05-27 live-source provenance resync, reference repair and workflow-panel cleanup
 
-- Re-opened the actual attached notebook package and confirmed that the live source still overstated rerunnability from the current bundle, still carried the weaker 2017 literature reference, and still saved the second workflow GIF in an open-by-default state.
-- Patched the notebook source and saved output directly so the scope, abstract, configuration, analysis-environment note, reproducibility appendix and automated-check wording now distinguish clearly between the archived complete five-solvent execution and the current attached review package, which only includes `Data/Acetone` locally.
-- Replaced reference 5 with the verified primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`).
-- Removed the default-open state from the second inline laboratory-workflow GIF in both the generating source cell and the saved HTML payload.
+- Re-opened the actual attached notebook package instead of trusting the existing notes and confirmed three visible regressions in the live source: the weaker 2017 solvent paper had returned, the notebook still implied that the full raw `Data/` tree was locally attached, and the second inline workflow GIF still opened by default.
+- Patched the title-card scope, configuration section, live analysis-environment banner, reproducibility appendix and automated-check wording so the notebook now states plainly that it is being reviewed from archived five-solvent outputs while the currently attached local package only exposes `testing-main/Data/Acetone`.
+- Replaced reference 5 with the verified 1987 *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`).
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the generating source and the saved HTML output.
 - Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.txt`.
-- Rechecked all embedded media directly from the notebook payload and confirmed that all 10 saved visual assets still decode successfully after the edits: 8 PNG figures and 2 GIFs.
+- Re-ran an embedded-media audit and confirmed again that all 10 saved visual assets decode successfully after the edits: 8 PNG figures and 2 GIF panels.
 
 ## 2026-05-27 live-notebook resync, provenance correction and refreshed media audit
 
