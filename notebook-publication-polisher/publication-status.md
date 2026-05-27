@@ -5,7 +5,7 @@
 - Date: 2026-05-27
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong, near-publication notebook artifact with one clear remaining reproducibility blocker
-- Confidence note: the live attached notebook was re-audited directly in this run and brought back into line with the stronger publication state. The opening scope note, configuration guidance and reproducibility appendix now state clearly that the notebook is being reviewed from archived five-solvent outputs while the currently attached local package only contains `testing-main/Data/Acetone`. The stronger 1987 primary solvent-effects paper is now the literature anchor again, the second inline GIF panel opens in a cleaner closed state, and a refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs.
+- Confidence note: the live attached notebook was re-audited directly in this run and corrected where it had drifted back toward weaker publication wording. The opening scope note, configuration guidance and reproducibility appendix now state clearly that the notebook is being reviewed from archived five-solvent outputs while the currently attached local package only contains `testing-main/Data/Acetone`. The stronger 1987 primary solvent-effects paper is again the literature anchor, the second inline GIF panel now opens in a cleaner closed state, and a refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs.
 
 ## Highest-impact improvements in this run
 
