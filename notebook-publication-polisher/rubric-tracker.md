@@ -26,6 +26,7 @@
 ## This run's evidence upgrade
 
 - The actual notebook source and its saved rendered outputs were re-audited directly, and the live artifact no longer lags behind the durable publication notes.
+- A substantive factual inconsistency in the discussion has been removed: the narrative and post-lab explanation now agree with the reported ranking that acetonitrile is the fastest solvent, rather than incorrectly calling acetone the fastest.
 - The reference list is stronger and more defensible because it now points to the primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on substituent and solvent effects in push-pull cis-azobenzenes, including cis-4A4N.
 - The introduction and conclusion now use that source more carefully, supporting the solvent-effect argument without implying that the present notebook alone resolves the detailed thermal-isomerisation mechanism.
 - The saved notebook now states clearly that the visible figures, tables and GIFs are archived five-solvent outputs while the attached local bundle used for review only contains `Data/Acetone`, and the visible analysis-environment callout was brought into line with that same provenance language.
