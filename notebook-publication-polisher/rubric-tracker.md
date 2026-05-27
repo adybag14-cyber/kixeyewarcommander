@@ -5,7 +5,7 @@
 - Date: 2026-05-27
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`, with strongest evidence in explanation, formatting, visual presentation, code documentation and honesty about limitations
-- Main uncertainty: the notebook now reads more rigorously and transparently, and the live artifact has been resynchronised with the stronger publication notes again, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated.
+- Main uncertainty: the notebook now reads more rigorously and transparently, and the live artifact itself has been resynchronised with the stronger publication notes again, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated.
 
 ## Criterion status
 
@@ -26,8 +26,7 @@
 ## This run's evidence upgrade
 
 - The actual notebook source and its saved rendered outputs were re-audited directly, and the live artifact no longer lags behind the durable publication notes.
-- The reference list is stronger and more defensible because it now points to the primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on substituent and solvent effects in push-pull cis-azobenzenes, including cis-4A4N.
-- The scope, configuration section, analysis-environment box and reproducibility appendix now say plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally and still lacks the rest of the raw `Data/` tree needed for an end-to-end rerun in this session.
-- The rerun path is slightly more publication-ready because the source notebook now raises one explicit missing-solvent error instead of failing on the first absent folder only.
+- The reference list is stronger and more defensible because it now again points to the primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on substituent and solvent effects in push-pull cis-azobenzenes.
+- The scope note, configuration section, analysis-environment note and reproducibility appendix now say plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally and still lacks the rest of the raw `Data/` tree needed for an end-to-end rerun in this session.
 - The second inline workflow GIF no longer opens by default in the source cell or the saved HTML output.
 - A fresh embedded-media validation confirmed again that all 10 saved visual assets decode cleanly after the source edits: 8 PNG figures and 2 GIFs.
