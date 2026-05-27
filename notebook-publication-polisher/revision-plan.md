@@ -6,11 +6,10 @@
 - Audited the notebook structure, rendered-output cells and embedded media payloads directly from the notebook JSON.
 - Confirmed that the live notebook source had drifted back to older wording and then patched the actual attached notebook rather than only updating status files.
 - Replaced the weaker literature anchor with the primary Kobayashi, Yokoyama and Kamei paper (`10.1016/0009-2614(87)80394-9`).
-- Rewrote the title-card scope, configuration and reproducibility wording so the notebook distinguishes clearly between archived five-solvent outputs and the current review bundle, which does not include the full raw `Data/` tree.
+- Rewrote the title-card scope, configuration section, live environment banner, reproducibility appendix and automated-check wording so the notebook distinguishes clearly between archived five-solvent outputs and the current review bundle, which only exposes `testing-main/Data/Acetone` locally.
 - Closed the second inline GIF panel by default in both the source cell and the saved output HTML.
 - Rebuilt the polished notebook copy in `/workspace/output/`.
 - Regenerated the contact-sheet-style visual audit and report, and rechecked that all 10 embedded PNG/GIF outputs still decode cleanly.
-- Confirmed that the fixed GitHub persistence folder is reachable and ready to receive the refreshed status, rubric and improvement records from this run.
 
 ## Highest-value next steps
 
