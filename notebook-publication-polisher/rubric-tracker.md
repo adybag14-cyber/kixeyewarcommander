@@ -5,7 +5,7 @@
 - Date: 2026-05-27
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`, with strongest evidence in explanation, formatting, visual presentation, code documentation and transparency about limitations
-- Main uncertainty: the notebook is polished and professionally argued as a saved artifact, but the supplied local review package still lacks four solvent folders, so end-to-end rerunnability from the attached raw data is not yet demonstrated.
+- Main uncertainty: the notebook is polished and professionally argued as a saved artifact, but the supplied local review package still lacks four solvent folders, so end-to-end rerunnability from the attached raw data is not yet demonstrated. A smaller secondary uncertainty is that browser-level HTML re-rendering could not be repeated in this environment because `nbconvert` is unavailable.
 
 ## Criterion status
 
@@ -15,7 +15,7 @@
 - Originality and elegance of code: strong to very strong. The notebook remains modular and auditable, with visible validation checks and publication-aware embedded media.
 - Portability of code: moderate. The notebook explains its expectations clearly, but actual portability still depends on restoring the missing solvent directories.
 - Commenting, documentation and explanation of code: strong. The notebook has clear sectioning, docstrings and explicit validation language.
-- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses advanced formatting coherently, and both inline GIF panels present cleanly without obvious rendering defects in the extracted audit.
+- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses advanced formatting coherently, and the default-open state of the second GIF panel has been cleaned up.
 
 ## Remaining gap to full confidence
 
@@ -30,3 +30,4 @@
 - The introduction and conclusion now use that source more carefully, supporting the solvent-effect argument without implying that the present notebook alone resolves the detailed thermal-isomerisation mechanism.
 - The saved notebook now states clearly that the visible figures, tables and GIFs are archived five-solvent outputs while the attached local bundle used for review only contains `Data/Acetone`.
 - A direct embedded-media validation confirmed that all 10 saved visual assets decode cleanly after the source edits: 8 PNG figures and 2 GIFs.
+- The second inline GIF panel no longer opens expanded by default.
