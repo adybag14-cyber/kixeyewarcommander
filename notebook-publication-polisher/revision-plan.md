@@ -6,11 +6,9 @@
 - Audited the notebook structure, rendered-output cells and embedded media payloads directly from the notebook JSON.
 - Corrected drift between the notebook source and the durable notes by patching the actual attached notebook rather than only updating status files.
 - Replaced the weaker literature anchor with the primary Kobayashi, Yokoyama and Kamei paper (`10.1016/0009-2614(87)80394-9`).
-- Strengthened the introduction, results discussion, configuration and reproducibility sections so they now state clearly that only `Data/Acetone` is present in the attached review bundle and that the five-solvent outputs are archived executed results.
-- Collapsed the second GIF panel by default in both source and saved output.
+- Strengthened the introduction, configuration, conclusion and reproducibility sections so they distinguish clearly between archived five-solvent outputs and the incomplete current local review bundle containing only `Data/Acetone`.
 - Rebuilt the polished notebook copy in `/workspace/output/`.
 - Verified that the edited notebook JSON parses and that all 10 embedded PNG/GIF outputs still decode cleanly.
-- Confirmed that standalone HTML re-rendering could not be repeated in this environment because Jupyter and `nbconvert` are unavailable.
 
 ## Highest-value next steps
 
