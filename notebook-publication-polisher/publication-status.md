@@ -5,7 +5,7 @@
 - Date: 2026-05-27
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong, near-publication notebook artifact with one clear remaining reproducibility blocker
-- Confidence note: the live attached notebook and its saved outputs were re-audited directly in this run. The notebook source now matches the stronger publication notes again: the package-provenance wording is honest about the missing raw data, the literature support uses the stronger primary 1987 paper, and the second inline GIF panel opens in a cleaner closed state. A fresh embedded-media audit again decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs.
+- Confidence note: the live attached notebook and its saved outputs were re-audited directly in this run. The notebook source now matches the stronger publication notes again: the package-provenance wording is honest that only `Data/Acetone` is present locally in the attached review bundle, the literature support uses the stronger primary 1987 paper, and the second inline GIF panel opens in a cleaner closed state. A fresh embedded-media audit again decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs.
 
 ## Highest-impact improvements in this run
 
