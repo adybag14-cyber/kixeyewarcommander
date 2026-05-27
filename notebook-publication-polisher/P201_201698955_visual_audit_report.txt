@@ -1,10 +1,20 @@
-cell22_out0_0.png	.png	8562x3282	frames=1
-cell22_out1_0.png	.png	3726x2334	frames=1
-cell22_out2_0.png	.png	2866x1756	frames=1
-cell22_out3_0.png	.png	3194x1459	frames=1
-cell22_out4_0.png	.png	2566x1516	frames=1
-cell22_out5_0.png	.png	3392x1317	frames=1
-cell22_out6_0.png	.png	2626x1486	frames=1
-cell22_out7_0.png	.png	3404x1426	frames=1
-cell34_out0_0.gif	.gif	1495x828	frames=84
-cell36_out0_0.gif	.gif	1400x772	frames=70
+Visual audit summary
+Notebook: P201_201698955_publication_ready_FULL_OUTPUTS.ipynb
+Updated polished copy: /workspace/output/P201_201698955_publication_ready_polished.ipynb
+Embedded visual assets audited: 10
+
+- Cell 22 Out 0: PNG 8562x3282 px, frames=1
+- Cell 22 Out 1: PNG 3726x2334 px, frames=1
+- Cell 22 Out 2: PNG 2866x1756 px, frames=1
+- Cell 22 Out 3: PNG 3194x1459 px, frames=1
+- Cell 22 Out 4: PNG 2566x1516 px, frames=1
+- Cell 22 Out 5: PNG 3392x1317 px, frames=1
+- Cell 22 Out 6: PNG 2626x1486 px, frames=1
+- Cell 22 Out 7: PNG 3404x1426 px, frames=1
+- Cell 34 Out 0: GIF 1495x828 px, frames=84
+- Cell 36 Out 0: GIF 1400x772 px, frames=70
+
+Audit conclusion:
+- All embedded figures and GIFs decoded successfully from the notebook payload.
+- No clipping, overlap, or broken-image defects were obvious in the extracted contact-sheet review.
+- Full end-to-end rerendering from raw data remains blocked because only testing-main/Data/Acetone is present locally in the attached package.
