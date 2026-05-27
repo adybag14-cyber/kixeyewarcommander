@@ -6,6 +6,7 @@
 - Audited the notebook structure, rendered-output cells and embedded media payloads directly from the notebook JSON.
 - Corrected drift between the notebook source and the durable notes by patching the actual attached notebook rather than only updating status files.
 - Replaced the weaker literature anchor with the primary Kobayashi, Yokoyama and Kamei paper (`10.1016/0009-2614(87)80394-9`).
+- Removed an internal contradiction in the saved discussion and post-lab prose so the notebook now consistently reports acetonitrile, not acetone, as the fastest solvent.
 - Strengthened the introduction, configuration, conclusion and reproducibility sections so they distinguish clearly between archived five-solvent outputs and the incomplete current local review bundle containing only `Data/Acetone`.
 - Closed the second inline GIF panel by default in both the source cell and the saved output HTML.
 - Rebuilt the polished notebook copy in `/workspace/output/`.
