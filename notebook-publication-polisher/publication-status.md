@@ -4,24 +4,23 @@
 
 - Date: 2026-05-27
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: strong, near-publication notebook artifact with a clear remaining reproducibility blocker
-- Confidence note: the live attached notebook was re-audited and patched directly in this run, removing the reappeared reference drift, correcting the package-provenance wording to match the files actually attached, and closing the second GIF panel by default in both the generating source and the saved HTML output. All 10 embedded visual assets decoded successfully again in this run: 8 PNG figures and 2 inline GIFs.
+- Publication-readiness estimate: strong, near-publication notebook artifact with one clear remaining reproducibility blocker
+- Confidence note: the live attached notebook and its saved outputs were re-audited directly in this run. The notebook source now matches the stronger publication notes again: the package-provenance wording is honest about the missing raw data, the literature support uses the stronger primary 1987 paper, and the second inline GIF panel opens in a cleaner closed state. A fresh embedded-media audit again decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs.
 
 ## Highest-impact improvements in this run
 
-- Corrected the live attached notebook after confirming that the weaker 2017 citation, inaccurate raw-data provenance wording and default-open second GIF panel were still present in the actual source.
-- Replaced reference 5 with the verified 1987 primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`), which explicitly covers substituent and solvent effects for push-pull cis-azobenzenes including cis-4A4N.
-- Tightened the introduction and conclusion so the solvent-sensitivity claim is grounded in primary literature without implying that the present notebook alone resolves the full thermal-isomerisation mechanism.
-- Rewrote the scope, configuration, reproducibility and consistency-check sections so they state plainly that the displayed five-solvent figures, tables and GIFs are archived outputs from a complete run, while the currently attached review package does not include the raw `Data/` tree at all.
-- Updated the visible analysis-environment callout to match that provenance wording, so the saved executed notebook no longer over-promises local rerunnability.
-- Removed the default-open state from the second inline laboratory-workflow GIF in both the source cell and the saved rendered output, so the notebook opens in a cleaner, less visually busy state.
+- Re-opened the actual attached notebook package and confirmed that the live source had drifted back to the weaker 2017 citation, the older rerun wording and an open-by-default second GIF panel despite the stronger saved notes.
+- Patched the real notebook source so the title-card scope, configuration section and reproducibility appendix now state clearly that the displayed tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review package does not include the full raw `Data/` tree needed for end-to-end reruns in this session.
+- Replaced reference 5 with the verified 1987 primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`), which directly addresses substituent and solvent effects in push-pull cis-azobenzenes.
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the generating source cell and the saved HTML output.
 - Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Revalidated the saved presentation layer: all 8 embedded PNG figures and both inline GIFs still decode cleanly, and the refreshed contact-sheet audit did not reveal obvious clipping, overlap or broken-image defects.
+- Regenerated the visual QA artifacts at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.txt`.
+- Revalidated the saved presentation layer: all 8 embedded PNG figures and both inline GIFs decoded cleanly, with no obvious thumbnail-level clipping, overlap or broken-image defects in the refreshed audit sheet.
 
 ## Remaining blockers
 
-- The attached review package does not include the raw `Data/` directory, so the notebook cannot be re-executed end to end in this session to regenerate every saved result from raw data.
-- Final publication sign-off for reproducibility still depends on restoring the full five-solvent raw-data tree and rerunning the notebook from that local data package.
+- The attached review package still does not include the full raw `Data/` tree, so the notebook cannot be re-executed end to end in this session to regenerate every saved result from raw data.
+- Because a full rerun from raw files is blocked, final publication sign-off for reproducibility still depends on restoring the complete five-solvent raw-data package and regenerating the saved outputs from that bundle.
 
 ## Next highest-value improvements
 
