@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-27 live-notebook resync, provenance correction and refreshed media audit
+
+- Re-opened the actual attached notebook package and confirmed that the live source had drifted back to the weaker 2017 solvent paper, the older rerun wording and an open-by-default second GIF panel despite the stronger saved notes.
+- Patched the notebook source directly so the visible publication artifact now matches the stronger review state again instead of relying on future reruns or memory notes.
+- Rewrote the title-card scope, configuration section and reproducibility appendix so they state plainly that the displayed tables, figures and GIFs are archived outputs from a complete five-solvent execution, while the currently attached review package does not include the full raw `Data/` tree needed to rerun that execution in this session.
+- Replaced reference 5 with the verified 1987 primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`).
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the generating source cell and the saved HTML payload.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.txt`.
+- Re-ran an extraction-based visual audit and confirmed again that all 10 embedded assets decode successfully from the notebook payload: 8 PNG figures and 2 GIFs.
+
 ## 2026-05-27 package-provenance correction, literature repair and full embedded-media audit
 
 - Re-inspected the attached package itself and found that the durable notes were still overstating what had been supplied locally: this review bundle does not currently contain the raw `Data/` tree at all.
@@ -52,7 +63,7 @@
 - Expanded the configuration, analysis-environment and reproducibility wording so the publication copy now states clearly that only `Data/Acetone` is attached locally in the current review bundle, while the displayed five-solvent outputs are archived results from a previous full execution.
 - Removed the default-open state from the second inline workflow GIF in both the source cell and the saved HTML output.
 - Validated the edited notebook JSON, rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`, and rechecked that all 10 embedded media assets still decode successfully after the edits.
-- Confirmed the remaining environment limitation for browser-style HTML rendering: `nbconvert` is still unavailable here, so a fresh standalone HTML render could not be regenerated in this run.
+- Confirmed the remaining environment limitation for browser-style QA: `nbconvert` is still unavailable here, so a fresh standalone HTML render could not be regenerated in this run.
 
 ## 2026-05-26 source-notebook correction, primary-literature upgrade and rendered-output cleanup
 
