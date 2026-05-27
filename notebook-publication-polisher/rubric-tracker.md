@@ -3,9 +3,9 @@
 ## Current estimate
 
 - Date: 2026-05-27
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
+- Current strongest deliverable: the corrected attached notebook source at `agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`
 - Estimated band: likely `Outstanding`, with strongest evidence in explanation, formatting, visual presentation, code documentation and honesty about limitations
-- Main uncertainty: the notebook now reads more rigorously and transparently, and the live artifact has been corrected back into line with the stronger publication notes again, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated.
+- Main uncertainty: the notebook now reads more rigorously and transparently, and the live artifact has been resynchronised with the stronger publication notes again, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated.
 
 ## Criterion status
 
@@ -27,7 +27,6 @@
 
 - The actual notebook source and its saved rendered outputs were re-audited directly, and the live artifact no longer lags behind the durable publication notes.
 - The reference list is stronger and more defensible because it now points to the primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on substituent and solvent effects in push-pull cis-azobenzenes, including cis-4A4N.
-- The scope, configuration section and reproducibility appendix now say plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally and still lacks the rest of the raw `Data/` tree needed for an end-to-end rerun in this session.
+- The scope, abstract, configuration section, saved analysis-environment note, automated-check appendix and reproducibility appendix now say plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally and still lacks the rest of the raw `Data/` tree needed for an end-to-end rerun in this session.
 - The second inline workflow GIF no longer opens by default in the source cell or the saved HTML output.
 - A fresh embedded-media validation confirmed again that all 10 saved visual assets decode cleanly after the source edits: 8 PNG figures and 2 GIFs.
-- The live notebook was checked directly rather than inferred from earlier notes, which reduces the risk of future publication claims drifting away from the actual attached artifact.
