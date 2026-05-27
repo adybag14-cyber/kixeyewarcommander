@@ -4,14 +4,15 @@
 
 - Date: 2026-05-27
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
-- Publication-readiness estimate: strong, near-publication notebook artifact with a clear remaining reproducibility blocker
-- Confidence note: the live attached notebook was re-audited and patched directly in this run, removing the reappeared reference drift, tightening the reproducibility wording, and closing the second GIF panel by default in both the generating source and the saved HTML output. All 10 embedded visual assets decoded successfully again in this run: 8 PNG figures and 2 inline GIFs.
+- Publication-readiness estimate: strong, near-publication notebook artifact with one clear reproducibility blocker still preventing a full final sign-off
+- Confidence note: the live attached notebook was re-audited and patched directly in this run. The strongest remaining publication problems were real notebook-content issues rather than packaging drift: the solvent discussion contained an internal contradiction about the fastest solvent, the reference list still cited the weaker 2017 paper, and the configuration/reproducibility sections still overstated what the attached local bundle can rerun. Those issues are now corrected in the live notebook and in the rebuilt polished copy. All 10 embedded visual assets decoded successfully again in this run: 8 PNG figures and 2 inline GIFs.
 
 ## Highest-impact improvements in this run
 
-- Corrected the live attached notebook after confirming that the weaker 2017 citation, incomplete reproducibility wording and default-open second GIF panel were still present in the actual source.
+- Corrected the live attached notebook after confirming that the weaker 2017 citation, overstated reproducibility wording, an internal solvent-order contradiction and the default-open second GIF panel were still present in the actual source.
 - Replaced reference 5 with the verified 1987 primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei (`10.1016/0009-2614(87)80394-9`), which explicitly covers substituent and solvent effects for push-pull cis-azobenzenes including cis-4A4N.
 - Tightened the introduction and conclusion so the solvent-sensitivity claim is grounded in primary literature without implying that the present notebook alone resolves the full thermal-isomerisation mechanism.
+- Corrected the results-discussion and post-lab explanation cells so they no longer misidentify acetone as the fastest solvent. The narrative now matches the actual reported ordering, where acetonitrile is fastest and the broader solvent pattern is interpreted more carefully.
 - Rewrote the configuration and reproducibility sections so they state plainly that the displayed five-solvent figures, tables and GIFs are archived outputs from a complete run, while the currently attached local review bundle only contains `Data/Acetone`.
 - Updated the visible analysis-environment callout to match that provenance wording, so the saved executed notebook no longer over-promises local rerunnability.
 - Removed the default-open state from the second inline laboratory-workflow GIF in both the source cell and the saved rendered output, so the notebook opens in a cleaner, less visually busy state.
