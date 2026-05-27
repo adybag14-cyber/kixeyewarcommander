@@ -15,7 +15,7 @@
 - Originality and elegance of code: strong to very strong. The notebook remains modular and auditable, with visible validation checks and publication-aware embedded media.
 - Portability of code: moderate. The notebook explains its expectations clearly, but actual portability still depends on restoring the missing solvent directories.
 - Commenting, documentation and explanation of code: strong. The notebook has clear sectioning, docstrings and explicit validation language.
-- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses advanced formatting coherently, and the default-open state of the second GIF panel has been cleaned up.
+- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses advanced formatting coherently, the second GIF panel now opens in a cleaner closed state, and the saved figure/GIF audit did not show obvious rendering defects.
 
 ## Remaining gap to full confidence
 
@@ -29,4 +29,4 @@
 - The reference list is stronger and more defensible because it now points to the primary *Chemical Physics Letters* paper by Kobayashi, Yokoyama and Kamei on substituent and solvent effects in push-pull cis-azobenzenes, including cis-4A4N.
 - The introduction and conclusion now use that source more carefully, supporting the solvent-effect argument without implying that the present notebook alone resolves the detailed thermal-isomerisation mechanism.
 - The saved notebook now states clearly that the visible figures, tables and GIFs are archived five-solvent outputs while the attached local bundle used for review only contains `Data/Acetone`.
-- A direct embedded-media validation confirmed again that all 10 saved visual assets decode cleanly after the source edits: 8 PNG figures and 2 GIFs.
+- The second inline workflow GIF no longer opens by default, and a direct embedded-media validation confirmed again that all 10 saved visual assets decode cleanly after the source edits: 8 PNG figures and 2 GIFs.
