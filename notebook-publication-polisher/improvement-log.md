@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-28 live-source resync, panel-state fix and refreshed media audit
+
+- Re-opened the actual attached notebook package rather than trusting the stronger saved notes and confirmed four live publication regressions in the visible source artifact: the weaker 2017 solvent paper had returned, the rerun wording again overstated what the supplied package can reproduce locally, the second GIF panel was open by default again, and some science text still described acetone as the fastest solvent even though the executed results rank acetonitrile first.
+- Patched the notebook source so the title-card scope, configuration section, analysis-environment note and reproducibility appendix now state plainly that the displayed five-solvent tables, figures and GIFs are archived outputs from a complete earlier execution while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally.
+- Replaced reference 5 with the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`) on polarity-controlled thermal cis-to-trans isomerisation in the closely related 4-aminoazobenzene system.
+- Corrected both the narrative source and the saved rendered outputs so the results discussion and post-lab explanation now align with the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Removed the default-open state from the second inline laboratory-workflow GIF in both the generating source and the saved HTML payload.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.txt`.
+- Re-ran an embedded-media audit across the notebook payload and confirmed that all 10 saved visual assets still decode successfully after the edits: 8 PNG figures and 2 GIFs. Both expandable media panels now default to closed.
+
 ## 2026-05-28 live-source drift repair, interpretation correction and refreshed visual audit
 
 - Re-opened the actual attached notebook package and confirmed that the live notebook still lagged behind the stronger durable notes: the weaker 2017 citation was back in the references, the provenance wording again implied cleaner rerunnability than the supplied package supports, one workflow GIF panel still opened by default, and the chemistry discussion still contained lines that treated acetone as the fastest solvent.
