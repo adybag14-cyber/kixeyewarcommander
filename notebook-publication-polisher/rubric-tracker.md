@@ -10,12 +10,12 @@
 ## Criterion status
 
 - Post-labs: very strong. The answers are complete, data-linked and use the fitted results directly.
-- Data analysis + plotting: very strong. All five solvents are represented in the saved execution, the figure set is coherent, and the refreshed audit again decoded all 10 embedded media panels successfully.
+- Data analysis + plotting: very strong. All five solvents are represented in the saved execution, the figure set is coherent, and the refreshed audit again decoded all 10 embedded media panels successfully with no obvious clipping or overlap in the extracted review sheet.
 - Experimental write-up: very strong to outstanding. The notebook now has cleaner, more explicit provenance wording in the live source, stronger primary-literature support and a clearer separation between archived execution and current local rerun limits.
 - Originality and elegance of code: strong to very strong. The notebook remains modular, auditable and unusually publication-aware for a lab notebook, with embedded validation and custom visual explanation assets.
 - Portability of code: moderate. The notebook explains its expectations clearly, but actual portability still depends on restoring the missing raw-data package.
 - Commenting, documentation and explanation of code: strong. The notebook has clear sectioning, docstrings and explicit validation language.
-- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses advanced formatting coherently, both expandable GIF panels now remain closed by default, and the refreshed figure/GIF audit did not show decode failures or obvious rendering defects.
+- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses advanced formatting coherently, both expandable GIF panels remain closed by default, and the refreshed figure/GIF audit did not show decode failures or obvious rendering defects.
 
 ## Remaining gap to full confidence
 
