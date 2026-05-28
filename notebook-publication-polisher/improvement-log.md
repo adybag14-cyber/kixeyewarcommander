@@ -1,5 +1,21 @@
 # Improvement Log
 
+## 2026-05-28 23:15 BST scheduled publication-polish pass
+
+- Re-inspected the attached full-output notebook, the rubric guidance and existing memory before editing.
+- Confirmed the local review package still exposes only `testing-main/Data/Acetone`; the raw-data folders for acetonitrile, cyclohexane, THF and toluene remain absent, so a fresh end-to-end rerun is still blocked.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook with publication-critical fixes applied.
+- Strengthened provenance wording in the title card, abstract, configuration section, reproducibility appendix and automated-check appendix so the notebook clearly distinguishes archived five-solvent outputs from the currently incomplete local raw-data package.
+- Replaced the weaker 2017 reference with the primary ACS paper by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`).
+- Corrected the remaining discussion/post-lab mismatch so the saved source and rendered output identify acetonitrile, not acetone, as the fastest solvent in the executed order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Closed the laboratory-workflow GIF panel by default in both source and saved HTML output, reducing initial rendered-page clutter.
+- Removed negative heading letter spacing from the notebook CSS to avoid subtle publication-rendering tightness.
+- Revalidated embedded media directly from the polished notebook payload: all 8 PNG figures and both inline GIFs decoded successfully; GIF frame counts were 84 and 70, and the visual contact-sheet review did not show obvious clipping, overlap, broken images or malformed chart framing.
+
+## Open risk
+
+- Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
+
 ## 2026-05-28 scheduled publication-polish resync and visual audit
 
 - Inspected the attached notebook package, the rubric guidance and the existing progress files before editing.
