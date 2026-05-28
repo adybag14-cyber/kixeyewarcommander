@@ -15,7 +15,7 @@
 - Originality and elegance of code: strong to very strong. The notebook remains modular, auditable and unusually publication-aware for a lab notebook, with embedded validation and custom visual explanation assets.
 - Portability of code: moderate. The notebook explains its expectations clearly, but actual portability still depends on restoring the missing raw-data package.
 - Commenting, documentation and explanation of code: strong. The notebook has clear sectioning, docstrings and explicit validation language.
-- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses advanced formatting coherently, and the saved figure/GIF audit did not show obvious rendering defects.
+- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses advanced formatting coherently, the workflow GIF now opens in a cleaner closed state, and the saved figure/GIF audit did not show obvious rendering defects.
 
 ## Remaining gap to full confidence
 
@@ -27,6 +27,6 @@
 
 - The actual notebook source and its saved rendered outputs were re-audited directly, and the live artifact no longer lags behind the durable publication notes.
 - The reference list is stronger and more defensible because it now points to the primary ACS paper by Joshi, Fuyuki and Wada on thermal cis-to-trans isomerisation of 4-aminoazobenzene in organic solvents.
-- The scope, configuration section, analysis-environment note and reproducibility appendix now say plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally and still lacks the rest of the raw `Data/` tree needed for an end-to-end rerun in this session.
-- The results discussion and post-lab answers now align with the executed rate ordering and no longer misidentify acetone as the fastest solvent.
+- The scope, abstract, configuration section, analysis-environment note and reproducibility appendix now say plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally and still lacks the rest of the raw `Data/` tree needed for an end-to-end rerun in this session.
+- The saved workflow GIF panel now opens in a cleaner closed state.
 - A fresh embedded-media validation confirmed again that all 10 saved visual assets decode cleanly after the source edits: 8 PNG figures and 2 GIFs.
