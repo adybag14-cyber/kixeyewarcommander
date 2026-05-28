@@ -4,11 +4,11 @@
 
 - Re-reviewed the attached notebook package, rubric guidance and saved progress notes.
 - Audited the notebook structure, rendered-output cells and embedded media payloads directly from the notebook JSON.
-- Confirmed that the live notebook source had drifted back to older wording, a weaker citation, one open-by-default GIF panel and several evidence mismatches, then patched the actual attached notebook rather than only updating status files.
+- Confirmed that the live notebook source had drifted back to older wording, a saved-media panel state regression and a couple of evidence mismatches, then patched the actual attached notebook rather than only updating status files.
 - Replaced the weaker literature anchor with the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`).
-- Rewrote the title-card scope, configuration and reproducibility wording so the notebook distinguishes clearly between archived five-solvent outputs and the current review bundle, which only exposes `testing-main/Data/Acetone` locally.
-- Corrected the results discussion, literature-comparison wording and post-lab answers so they match the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Closed the second inline laboratory-workflow GIF panel in both the source and the saved output HTML.
+- Rewrote the title-card scope, introduction, analysis-environment note, automated-check note, configuration and reproducibility wording so the notebook distinguishes clearly between archived five-solvent outputs and the current review bundle, which only exposes `testing-main/Data/Acetone` locally.
+- Corrected the results discussion and post-lab answers so they match the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Returned the second inline workflow GIF to the cleaner closed-by-default state in both the source and the saved output payload.
 - Rebuilt the polished notebook copy in `/workspace/output/`.
 - Regenerated the contact-sheet-style visual audit and report, and rechecked that all 10 embedded PNG/GIF outputs still decode cleanly while both expandable media panels remain closed by default.
 
