@@ -4,11 +4,11 @@
 
 - Re-reviewed the attached notebook package, rubric guidance and saved progress notes.
 - Audited the notebook structure, rendered-output cells and embedded media payloads directly from the notebook JSON.
-- Confirmed that the live notebook source had drifted back to older wording and evidence mismatches, then patched the actual attached notebook rather than only updating status files.
+- Confirmed that the live notebook source had drifted back to weaker reproducibility wording, the older 2017 literature anchor and an open-by-default workflow GIF panel, then patched the actual attached notebook rather than only updating status files.
 - Replaced the weaker literature anchor with the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`).
-- Rewrote the title-card scope, analysis-environment note, configuration and reproducibility wording so the notebook distinguishes clearly between archived five-solvent outputs and the current review bundle, which only exposes `testing-main/Data/Acetone` locally.
-- Corrected the results discussion and post-lab answers so they match the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Refreshed the polished notebook copy in `/workspace/output/`.
+- Rewrote the title-card scope, abstract, analysis-environment note, configuration and reproducibility wording so the notebook distinguishes clearly between archived five-solvent outputs and the current review bundle, which only exposes `testing-main/Data/Acetone` locally.
+- Closed the workflow GIF panel by default in the source and saved HTML.
+- Rebuilt the polished notebook copy in `/workspace/output/`.
 - Regenerated the contact-sheet-style visual audit and report, and rechecked that all 10 embedded PNG/GIF outputs still decode cleanly.
 
 ## Highest-value next steps
