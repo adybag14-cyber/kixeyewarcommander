@@ -2,7 +2,7 @@
 
 ## Current estimate
 
-- Date: 2026-05-28
+- Date: `2026-05-28`
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`, with strongest evidence in explanation, formatting, visual presentation, code documentation and honesty about limitations
 - Main uncertainty: the notebook now reads more rigorously and transparently, and the live artifact has been resynchronised with the saved executed evidence again, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated.
