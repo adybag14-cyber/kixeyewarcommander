@@ -1,5 +1,22 @@
 # Improvement Log
 
+## 2026-05-29 00:15 BST scheduled publication-polish pass
+
+- Re-inspected the attached notebook, the rubric guidance and the existing memory state.
+- Confirmed the attached raw-data package still contains only `testing-main/Data/Acetone`, so a complete five-solvent rerun remains blocked until acetonitrile, cyclohexane, THF and toluene raw-data folders are restored.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` with the publication-critical fixes still needed in the attached notebook.
+- Added clearer provenance language to the title card, abstract and configuration section, explicitly separating archived five-solvent outputs from the incomplete local review data bundle.
+- Replaced the weaker 2017 reference with the primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), verified against ACS/PubMed search results.
+- Corrected stale discussion and post-lab wording so the notebook no longer says acetone is the fastest solvent; the written interpretation now matches the executed ranking `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Closed the large laboratory-workflow GIF panel by default and removed negative heading letter spacing from the notebook CSS.
+- Improved the rendered consistency-check table by replacing truncated pandas dictionary/list details with compact complete text for accepted-trace counts and solvent rate constants.
+- Revalidated the polished notebook payload: all 10 embedded media assets decoded successfully, including 8 PNG figures and 2 GIFs with 84 and 70 frames respectively. The contact-sheet review showed no obvious broken images, clipping, overlap or malformed chart framing.
+- Attempted a full HTML export, but this container lacks the `jupyter` command. Rendering confidence is therefore based on direct notebook-payload inspection and embedded-media contact-sheet review rather than nbconvert output.
+
+## Open risk
+
+- Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
+
 ## 2026-05-28 23:15 BST scheduled publication-polish pass
 
 - Re-inspected the attached full-output notebook, the rubric guidance and existing memory before editing.
