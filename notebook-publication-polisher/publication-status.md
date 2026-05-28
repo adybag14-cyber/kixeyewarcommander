@@ -5,18 +5,18 @@
 - Date: 2026-05-28
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong, near-publication notebook artifact with one clear remaining reproducibility blocker
-- Confidence note: the live attached notebook was re-audited directly in this run and repaired where it had drifted away from the saved notes. The title-card scope, configuration guidance and reproducibility appendix now say plainly that the visible five-solvent tables, figures and GIFs are archived outputs while the currently attached local review bundle only exposes `testing-main/Data/Acetone`. Reference 5 now points to the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), the rendered results and post-lab solvent-order interpretation now match the executed ranking `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and a refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs, with both expandable media panels closed by default.
+- Confidence note: the live attached notebook was re-audited directly in this run and brought back into line with the saved execution evidence. The title-card scope, introduction, configuration guidance, analysis-environment note, automated-check note and reproducibility appendix now state clearly that the notebook is being reviewed from archived five-solvent outputs while the currently attached local package only contains `testing-main/Data/Acetone`. The literature anchor now points to the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), the rendered discussion and post-lab narrative no longer contradict the executed rate ordering, and a refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs, with both expandable media panels closed by default.
 
 ## Highest-impact improvements in this run
 
-- Re-opened the actual attached notebook package and confirmed that the live source had drifted back to the weaker 2017 citation, over-optimistic rerun wording, one open-by-default GIF panel, and science-text mismatches where some prose still treated acetone as the fastest solvent even though the executed results rank acetonitrile first.
-- Patched the live notebook source so the title-card scope, configuration section and reproducibility appendix now state plainly that the displayed five-solvent tables, figures and GIFs are archived outputs from a complete earlier execution while the currently attached local review bundle only exposes `testing-main/Data/Acetone`.
+- Re-opened the actual attached notebook package and confirmed that the live source had drifted back to the weaker 2017 citation, over-optimistic rerun wording, an open-by-default second GIF panel, and a science-text mismatch where some prose still treated acetone as the fastest solvent even though the executed results rank acetonitrile first.
+- Patched the real notebook source so the title-card scope, introduction, configuration section, analysis-environment note, automated-check appendix note and reproducibility appendix now state plainly that the displayed tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review package only exposes `testing-main/Data/Acetone` locally.
 - Replaced reference 5 with the stronger primary ACS paper by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`).
-- Corrected the rendered results discussion, literature-comparison wording and post-lab answers so the explanatory text now matches the executed ranking `Acetonitrile > Acetone > THF > Cyclohexane > Toluene` and no longer overstates simple polarity trends.
-- Closed the second inline laboratory-workflow GIF panel in both the source cell and the saved rendered HTML output.
+- Corrected the rendered results discussion and post-lab answers so the explanatory text now matches the executed ranking `Acetonitrile > Acetone > THF > Cyclohexane > Toluene` and no longer overstates simple polarity trends.
+- Returned both inline GIF panels to the cleaner closed-by-default state in the saved notebook payload.
 - Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Regenerated the visual QA artifacts at `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.txt`.
-- Revalidated the saved presentation layer: all 8 embedded PNG figures and both inline GIFs decoded cleanly, and both expandable media panels are closed by default.
+- Revalidated the saved presentation layer: all 8 embedded PNG figures and both inline GIFs decoded cleanly, and the contact-sheet audit did not show obvious clipping, overlap or malformed chart exports.
 
 ## Remaining blockers
 
