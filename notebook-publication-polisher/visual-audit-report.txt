@@ -1,0 +1,18 @@
+Publication visual audit
+Notebook: /workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb
+Cells: 37
+Decoded visual assets: 10
+PNG assets: 8
+GIF assets: 2
+Open-by-default research panels found: 0
+
+cell 22 output 0: image/png 8562x3282 frames=1
+cell 22 output 1: image/png 3726x2334 frames=1
+cell 22 output 2: image/png 2866x1756 frames=1
+cell 22 output 3: image/png 3194x1459 frames=1
+cell 22 output 4: image/png 2566x1516 frames=1
+cell 22 output 5: image/png 3392x1317 frames=1
+cell 22 output 6: image/png 2626x1486 frames=1
+cell 22 output 7: image/png 3404x1426 frames=1
+cell 34 output 0: image/gif 1495x828 frames=84
+cell 36 output 0: image/gif 1400x772 frames=70
