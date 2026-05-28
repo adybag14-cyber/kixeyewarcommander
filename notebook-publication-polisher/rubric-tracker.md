@@ -2,7 +2,7 @@
 
 ## Current estimate
 
-- Date: `2026-05-28`
+- Date: 2026-05-28
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`, with strongest evidence in explanation, formatting, visual presentation, code documentation and honesty about limitations
 - Main uncertainty: the notebook now reads more rigorously and transparently, and the live artifact has again been resynchronised with the saved executed evidence, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated.
@@ -15,7 +15,7 @@
 - Originality and elegance of code: strong to very strong. The notebook remains modular, auditable and unusually publication-aware for a lab notebook, with embedded validation and custom visual explanation assets.
 - Portability of code: moderate. The notebook explains its expectations clearly, but actual portability still depends on restoring the missing raw-data package.
 - Commenting, documentation and explanation of code: strong. The notebook has clear sectioning, docstrings and explicit validation language.
-- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses advanced formatting coherently, the inline media panels now open cleanly without forcing extra vertical space on load, and the refreshed figure/GIF audit did not show decode failures or obvious rendering defects.
+- Markdown, LaTeX, HTML and formatting: outstanding. The notebook uses advanced formatting coherently, the inline media panels now open cleanly without forcing extra vertical space on load, and the refreshed figure/GIF audit did not show decode failures or obvious rendering defects in the saved media assets.
 
 ## Remaining gap to full confidence
 
