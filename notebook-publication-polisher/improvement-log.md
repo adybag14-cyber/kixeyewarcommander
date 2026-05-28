@@ -1,15 +1,14 @@
 # Improvement Log
 
-## 2026-05-28 live-artifact resync, rendered narrative correction and refreshed visual QA
+## 2026-05-28 live-notebook resync, provenance repair and full embedded-media audit
 
-- Re-opened the actual attached notebook package rather than trusting the saved notes and confirmed four visible publication regressions in the live artefact: the weaker 2017 source was back in the references, the package-provenance wording still overstated local rerunnability, one rendered discussion paragraph still treated acetone as the fastest solvent even though the executed results rank acetonitrile first, and the inline workflow GIF panel had returned to an open-by-default state.
-- Patched the title-card scope, configuration section, analysis-environment note and reproducibility appendix so the notebook now states plainly that the displayed tables, figures and GIFs are archived outputs from a complete five-solvent execution while the currently attached local review bundle only exposes `testing-main/Data/Acetone`.
+- Re-opened the actual attached notebook package rather than relying on the saved notes and confirmed three live publication regressions in the visible artifact: the weaker 2017 paper had returned to the references, the provenance/reproducibility wording again overstated what can be rerun from the supplied package, and the rendered chemistry discussion still included claims that treated acetone as the fastest solvent even though the executed results rank acetonitrile first.
+- Patched the title-card scope, introduction, configuration section, analysis-environment note and reproducibility appendix so the notebook now states plainly that the displayed five-solvent tables, figures and GIFs are archived outputs from a complete earlier execution while the currently attached local review bundle only exposes `testing-main/Data/Acetone`.
 - Replaced reference 5 with the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`) on polarity-controlled thermal cis-to-trans isomerisation in the closely related 4-aminoazobenzene system.
-- Corrected both the rendered results discussion and the generated post-lab explanation so the chemistry narrative now matches the saved execution order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene` and no longer implies that acetone is the fastest solvent.
-- Removed the default-open state from the saved inline laboratory-workflow GIF panel and preserved a closed-by-default opening state for both expandable media panels.
-- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Corrected both the generated narrative source and the saved rendered outputs so the results discussion and post-lab answers now align with the executed ranking `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
 - Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.txt`.
-- Re-ran an embedded-media audit and confirmed that all 10 saved visual assets decode successfully after the edits: 8 PNG figures and 2 GIFs. The refreshed audit also confirms that both expandable GIF panels now default to closed.
+- Re-ran an embedded-media audit across the notebook payload and confirmed that all 10 saved visual assets decode successfully after the edits: 8 PNG figures and 2 GIFs. Both expandable media panels still default to closed, and the refreshed audit did not reveal obvious clipping or overlap in the extracted assets.
 
 ## 2026-05-27 narrative-evidence resync, stronger literature anchor and full inline-media QA
 
