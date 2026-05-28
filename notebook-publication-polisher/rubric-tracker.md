@@ -11,7 +11,7 @@
 
 - Post-labs: very strong. The answers are complete, data-linked and now align cleanly with the executed solvent ordering.
 - Data analysis + plotting: very strong. All five solvents are represented in the saved execution, the figure set is coherent, and the refreshed audit again decoded all 10 embedded media panels successfully.
-- Experimental write-up: very strong to outstanding. The notebook now has cleaner, more explicit provenance wording in the live source, stronger primary-literature support and a clearer separation between archived execution and current local rerun limits.
+- Experimental write-up: very strong to outstanding. The notebook now has cleaner front-page provenance wording in the live source, stronger primary-literature support and a clearer separation between archived execution and current local rerun limits.
 - Originality and elegance of code: strong to very strong. The notebook remains modular, auditable and unusually publication-aware for a lab notebook, with embedded validation and custom visual explanation assets.
 - Portability of code: moderate. The notebook explains its expectations clearly, but actual portability still depends on restoring the missing raw-data package.
 - Commenting, documentation and explanation of code: strong. The notebook has clear sectioning, docstrings and explicit validation language.
@@ -26,8 +26,8 @@
 ## This run's evidence upgrade
 
 - The actual notebook source and its saved rendered outputs were re-audited directly, and the live artifact no longer lags behind the durable publication notes.
-- The reference list is stronger and more defensible because it now points to the primary ACS paper by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation in a closely related aminoazobenzene system.
-- The scope, abstract wording, configuration section, analysis-environment note, automated-check note and reproducibility appendix now say plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally and still lacks the rest of the raw `Data/` tree needed for an end-to-end rerun in this session.
-- The results discussion and post-lab answers now align with the executed rate ordering and no longer misidentify acetone as the fastest solvent or imply that bulk polarity alone explains the solvent series.
+- The reference list is stronger and more defensible because it now points to the primary ACS paper by Joshi, Fuyuki and Wada on solvent-dependent thermal cis-to-trans isomerisation in a closely related aminoazobenzene system.
+- The title card, abstract, configuration section, automated-check note and reproducibility appendix now say plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally and still lacks the rest of the raw `Data/` tree needed for an end-to-end rerun in this session.
+- The results discussion and post-lab answers now align with the executed rate ordering and no longer misidentify acetone as the fastest solvent.
 - The inline laboratory-workflow GIF panel now returns to a cleaner closed default state in both the generating source and the saved HTML output.
 - A fresh embedded-media validation confirmed again that all 10 saved visual assets decode cleanly after the source edits: 8 PNG figures and 2 GIFs.
