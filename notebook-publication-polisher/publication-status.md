@@ -15,7 +15,7 @@
 - Corrected both the generated narrative source and the saved rendered markdown outputs so the discussion and post-lab answers now align with the executed ranking `Acetonitrile > Acetone > THF > Cyclohexane > Toluene` and no longer overstate a simple bulk-polarity explanation.
 - Returned the laboratory-workflow GIF panel to the cleaner closed-by-default state in both the generating source and the saved HTML payload.
 - Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Revalidated the saved presentation layer: all 8 embedded PNG figures and both inline GIFs decoded cleanly, and the contact-sheet audit did not show obvious clipping, overlap or malformed chart exports.
+- Revalidated the saved presentation layer: all 8 embedded PNG figures and both inline GIFs decoded cleanly, and the embedded-media audit did not show obvious clipping, overlap or malformed chart exports.
 
 ## Remaining blockers
 
