@@ -1,5 +1,16 @@
 # Improvement Log
 
+## 2026-05-28 live notebook repair, embedded-media audit and persistence sync
+
+- Re-audited the actual attached notebook source instead of relying on prior progress notes and confirmed that the live artifact still contained publication regressions: provenance language that overstated rerunnability from the supplied package, the weaker 2017 solvent paper, solvent-order commentary that still implied acetone was fastest, and an open-by-default second workflow GIF panel in the saved rendered output.
+- Patched the notebook source directly so the title-card scope, introduction, configuration section, reproducibility appendix and automated-check appendix now state clearly that the displayed five-solvent figures, tables and GIFs are archived outputs from a complete earlier execution, while the currently attached local package only exposes `testing-main/Data/Acetone`.
+- Replaced reference 5 with the stronger primary ACS paper by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`).
+- Corrected the results discussion and post-lab interpretation so the narrative now matches the executed rate ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene` and no longer describes acetone as the fastest solvent.
+- Restored the second inline laboratory-workflow GIF to a cleaner closed-by-default state in both the generating source and the saved HTML payload.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- Regenerated `/workspace/output/P201_201698955_visual_audit_contact_sheet.png` and `/workspace/output/P201_201698955_visual_audit_report.txt`, then manually reviewed the contact sheet after extraction.
+- Reconfirmed that all 10 embedded visual assets decode successfully from the notebook payload: 8 PNG figures and 2 GIFs, with no obvious clipping, overlap or broken-media defects in the extracted audit view.
+
 ## 2026-05-28 live-source resync, provenance repair and saved-media state cleanup
 
 - Re-opened the actual attached notebook package rather than relying on the stronger saved notes and confirmed four live publication regressions in the visible artifact: the weaker 2017 paper had returned to the references, the provenance/reproducibility wording again overstated what can be rerun from the supplied package, the rendered chemistry discussion still included claims that treated acetone as the fastest solvent even though the executed results rank acetonitrile first, and the second inline workflow GIF had drifted back to an open-by-default state.
