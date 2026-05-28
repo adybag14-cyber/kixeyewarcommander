@@ -8,7 +8,7 @@
 - Corrected the generated results-discussion and post-lab source cells and their saved rendered markdown outputs so the chemistry narrative now matches the executed ranking `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
 - Removed the default-open state from the inline laboratory-workflow GIF panel in both the generating source cell and its saved rendered HTML output.
 - Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Re-ran the embedded-media audit and reconfirmed that all 10 saved visual assets decode successfully from the edited notebook artifact: 8 PNG figures and 2 GIF panels.
+- Re-ran the embedded-media audit directly against the saved notebook payloads and reconfirmed that all 10 visual assets decode successfully from the edited notebook artifact: 8 PNG figures and 2 GIF panels.
 
 ## Open risk
 
