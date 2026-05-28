@@ -2,10 +2,10 @@
 
 ## Current assessment
 
-- Date: 2026-05-28
+- Date: `2026-05-28`
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong, near-publication notebook artifact with one clear remaining reproducibility blocker
-- Confidence note: the live attached notebook was re-audited directly in this run and brought back into line with the saved execution evidence. The title-card scope, introduction, configuration guidance, automated-check note and reproducibility appendix now state clearly that the notebook is being reviewed from archived five-solvent outputs while the currently attached local package only contains `testing-main/Data/Acetone`. The literature anchor now points to the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), the rendered discussion and post-lab narrative no longer contradict the executed rate ordering, and a refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs. The extracted contact-sheet review did not show obvious clipping, overlap or broken-media defects, and both expandable media panels now default to closed.
+- Confidence note: the live attached notebook was re-audited directly in this run and brought back into line with the saved execution evidence. The title-card scope, introduction, configuration guidance, analysis-environment note, automated-check note and reproducibility appendix now state clearly that the notebook is being reviewed from archived five-solvent outputs while the currently attached local package only contains `testing-main/Data/Acetone`. The literature anchor now points to the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), the rendered discussion and post-lab narrative no longer contradict the executed rate ordering, and a refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs, with both expandable media panels closed by default. The extracted contact-sheet review did not show obvious clipping, overlap or broken-media defects.
 
 ## Highest-impact improvements in this run
 
