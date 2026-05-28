@@ -10,7 +10,7 @@
 - Corrected the results discussion and post-lab answers so they match the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
 - Returned the second inline workflow GIF to the cleaner closed-by-default state in both the source and the saved output payload.
 - Rebuilt the polished notebook copy in `/workspace/output/`.
-- Regenerated the contact-sheet-style visual audit and rechecked that all 10 embedded PNG/GIF outputs still decode cleanly while both expandable media panels remain closed by default.
+- Regenerated the contact-sheet-style visual audit and rechecked that all 10 embedded PNG/GIF outputs still decode cleanly while both expandable media panels remain closed by default and the saved rendered media show no obvious clipping or overlap.
 
 ## Highest-value next steps
 
