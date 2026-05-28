@@ -5,7 +5,7 @@
 - Date: 2026-05-28
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong, near-publication notebook artifact with one remaining reproducibility blocker
-- Confidence note: the live attached notebook and the saved polished copy now agree on the key publication-critical points. The visible artifact states clearly that the displayed five-solvent tables, figures and GIFs are archived outputs from a complete earlier execution while the currently attached review package only exposes `testing-main/Data/Acetone` locally. The references now use the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), the post-lab and discussion text now match the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the inline laboratory workflow panel no longer opens by default. A refreshed embedded-media audit again decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs.
+- Confidence note: the live attached notebook and the saved polished copy now agree on the key publication-critical points. The visible artifact states clearly that the displayed five-solvent tables, figures and GIFs are archived outputs from a complete earlier execution while the currently attached review package only exposes `testing-main/Data/Acetone` locally. The references now use the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), the post-lab and discussion text match the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the inline laboratory workflow panel no longer opens by default. A refreshed embedded-media audit again decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs, with no obvious clipping, overlap or broken-image defects in the saved outputs.
 
 ## Highest-impact improvements in this run
 
@@ -15,7 +15,7 @@
 - Corrected both the generated narrative source and the saved rendered markdown outputs so the discussion and post-lab answers now align with the executed ranking `Acetonitrile > Acetone > THF > Cyclohexane > Toluene` and no longer overstate a simple bulk-polarity explanation.
 - Returned the laboratory-workflow GIF panel to the cleaner closed-by-default state in both the generating source and the saved HTML payload.
 - Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Revalidated the saved presentation layer directly from the notebook payloads: all 8 embedded PNG figures and both inline GIFs decoded cleanly, and the embedded-media audit plus contact-sheet review did not show obvious clipping, overlap or malformed chart exports in the saved assets.
+- Revalidated the saved presentation layer directly from the notebook payloads: all 8 embedded PNG figures and both inline GIFs decoded cleanly, and the embedded-media audit plus contact-sheet review did not show obvious clipping, overlap, malformed chart exports or broken media panels in the saved assets.
 
 ## Remaining blockers
 
