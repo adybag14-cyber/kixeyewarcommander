@@ -1,5 +1,17 @@
 # Improvement Log
 
+## 2026-05-29 16:15 BST scheduled publication-polish pass
+
+- Re-inspected the attached full-output notebook, simple-exercise rubric guidance, current memory notes and local raw-data package.
+- Confirmed the local raw-data package still exposes only `testing-main/Data/Acetone`; acetonitrile, cyclohexane, THF and toluene folders remain absent, so a fresh five-solvent rerun from the current attachment remains blocked.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached source notebook during this pass.
+- Corrected remaining source and saved-rendered narrative contradictions that described acetone as fastest even though the executed table shows `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Strengthened provenance wording in the title card, abstract, configuration section, reproducibility appendix and automated-check appendix so the polished copy distinguishes archived complete five-solvent outputs from the incomplete current local data package.
+- Replaced the weaker 2017 reference with Joshi, Fuyuki and Wada's primary ACS/PubMed-indexed paper (`10.1021/jp4125205`), verified through ACS/PubMed search results.
+- Improved presentation hygiene by removing negative heading letter spacing from the notebook-controlled CSS.
+- Revalidated the polished notebook payload: no known stale fastest-solvent wording remains; the old DOI is absent; all 10 embedded media assets decode successfully, including 8 PNG figures and 2 inline GIFs with 84 and 70 frames. Contact-sheet inspection showed no obvious clipping, overlap, broken image payloads, malformed chart framing or GIF corruption.
+- Verification limitation remains: this container does not provide `jupyter`/`nbconvert`, so a full HTML export could not be generated during this pass.
+
 ## 2026-05-29 15:15 BST scheduled publication-polish pass
 
 - Re-inspected the attached full-output notebook, simple-exercise rubric guidance, current memory notes and GitHub-persisted status.
