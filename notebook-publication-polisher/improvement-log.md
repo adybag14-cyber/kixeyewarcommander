@@ -1,15 +1,17 @@
 # Improvement Log
 
-## 2026-05-29 13:15 BST scheduled publication-polish pass
+## 2026-05-29 14:15 BST scheduled publication-polish pass
 
-- Re-inspected the attached full-output notebook, rubric guidance, local source package and existing progress memory.
-- Confirmed live notebook drift had reintroduced several publication blockers: the weaker 2017 DOI/reference, negative heading letter spacing, default-open animation panels, over-optimistic raw-data wording, and stale rendered discussion/post-lab text that still implied acetone was fastest despite the executed order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook and patched both notebook source and saved rendered outputs.
-- Strengthened provenance wording in the title card, abstract and configuration section so the artifact clearly distinguishes archived five-solvent saved outputs from the currently attached acetone-only raw-data package.
-- Corrected the research narrative so acetonitrile is consistently identified as the fastest solvent, with acetone close behind, and removed residual acetone-fastest contradictions.
-- Restored the stronger primary ACS reference by Joshi, Fuyuki and Wada (`10.1021/jp4125205`) and verified the DOI/source details against ACS/PubMed search results; the old `10.4172/2157-7544.1000181` DOI is absent from the polished notebook.
-- Removed negative heading letter spacing and ensured no inline research-animation `<details>` panels are open by default.
-- Revalidated the polished notebook payload: no code-cell error outputs; no default-open details panels; 8 PNG figures decoded; 2 inline GIFs decoded with 84 and 70 frames. Static contact-sheet review plus first/middle/final GIF frame samples showed no obvious clipping, overlap, broken images, malformed chart framing or GIF corruption.
+- Re-inspected the attached full-output notebook, simple-exercise rubric guidance, current memory notes and local source package.
+- Confirmed the local raw-data package still exposes only `testing-main/Data/Acetone`; acetonitrile, cyclohexane, THF and toluene folders remain absent, so a fresh five-solvent rerun from the current attachment remains blocked.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached source notebook.
+- Corrected live-notebook drift: the source notebook still contained the weaker 2017 DOI/reference and stale text saying acetone was fastest despite the saved execution ranking acetonitrile first.
+- Strengthened provenance wording in the title card, abstract, configuration section, reproducibility appendix and automated-check appendix so the polished copy distinguishes archived complete five-solvent outputs from the incomplete current local data package.
+- Replaced the weaker 2017 reference with Joshi, Fuyuki and Wada's primary ACS paper (`10.1021/jp4125205`).
+- Corrected the generated results-discussion and post-lab source and saved rendered markdown so they consistently report `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, with acetone close behind rather than fastest.
+- Improved presentation hygiene by removing negative heading letter spacing and reducing the visual bulk of the inline GIF wrappers.
+- Revalidated the polished notebook payload: no code-cell error outputs; no default-open `<details>` panels; the old DOI is absent; all 10 embedded media assets decode successfully, including 8 PNG figures and 2 inline GIFs with 84 and 70 frames. Contact-sheet inspection showed no obvious clipping, overlap, broken image payloads, malformed chart framing or GIF corruption.
+- Verification limitation remains: this container does not provide `jupyter`/`nbconvert`, so a full HTML export could not be generated during this pass.
 
 ## Open risk
 
@@ -19,4 +21,4 @@
 ## Recent prior context
 
 - Earlier scheduled passes repeatedly found the same underlying package limitation: the notebook contains saved five-solvent outputs, but the attached local raw-data tree is acetone-only.
-- Prior passes established the key publication polish direction: use transparent provenance language, keep the executed solvent ordering aligned in both source and rendered outputs, prefer the primary ACS literature anchor over the weaker 2017 source, close large GIF panels by default, and verify all embedded PNG/GIF payloads after edits.
+- Prior passes established the key publication polish direction: use transparent provenance language, keep the executed solvent ordering aligned in both source and rendered outputs, prefer the primary ACS literature anchor over the weaker 2017 source, keep large GIF panels from dominating first render, and verify all embedded PNG/GIF payloads after edits.
