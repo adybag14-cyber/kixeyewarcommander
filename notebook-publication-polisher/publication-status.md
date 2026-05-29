@@ -2,8 +2,8 @@
 
 ## Current readiness assessment
 
-- Date: 2026-05-29 19:15 BST scheduled pass
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished_1915.ipynb`
+- Date: 2026-05-29 20:15 BST scheduled pass
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished_2015.ipynb`
 - Publication-readiness estimate: very strong / near publishable from the saved executed notebook, with one major reproducibility blocker outside the notebook itself.
 - Rubric band estimate: likely Outstanding if the grader accepts the archived complete five-solvent execution; full confidence still requires the complete raw-data tree and an end-to-end rerun in a notebook-capable environment.
 
@@ -18,6 +18,8 @@
 - The notebook CSS now avoids negative heading letter spacing, tightens prominent box/figure radii, and includes overflow protection for wide notebook outputs and DataFrame tables.
 - Direct embedded-media inspection succeeded for all 10 saved visuals: 8 PNG figures and 2 GIF animations. GIF frame counts remain 84 and 70.
 - Contact-sheet review of PNGs and sampled GIF frames did not reveal broken media, obvious clipping, overlapping chart boundaries, corrupted frames or malformed visual exports.
+- The notebook source now explicitly documents the five-solvent data requirement in the configuration and reproducibility sections.
+- The raw-data discovery function now reports all missing or empty solvent directories together, preventing a partial-data rerun from silently weakening the five-solvent solvent-ranking argument.
 
 ## Remaining blockers
 
