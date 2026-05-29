@@ -1,5 +1,36 @@
 # Improvement Log
 
+## 2026-05-29 20:15 BST scheduled pass
+
+### Inspection performed
+
+- Re-inspected the attached notebook package and rubric guidance from `agent_files/`.
+- Confirmed the local raw-data tree still contains only `testing-main/Data/Acetone`, while the executed notebook contains complete saved outputs for five solvents.
+- Parsed the notebook and confirmed 37 cells, no saved error outputs, 8 embedded PNG figures and 2 embedded GIF animations.
+- Decoded all embedded visual payloads with Pillow. The GIFs remain readable with 84 and 70 frames.
+- Checked the current container again for execution/export tooling; Jupyter/nbconvert and key scientific dependencies are still unavailable, so a fresh rerun was not possible in this scheduled pass.
+
+### Improvements made
+
+- Created the updated deliverable notebook at `/workspace/output/P201_201698955_publication_ready_polished_2015.ipynb`.
+- Strengthened the configuration section so readers know a valid rerun requires non-empty `Data/Acetone`, `Data/Acetonitrile`, `Data/Cyclohexane`, `Data/THF` and `Data/Toluene` folders.
+- Updated `discover_trace_files` so a rerun with incomplete raw data fails with a single clear diagnostic listing all missing or empty solvent folders.
+- Strengthened the reproducibility appendix to distinguish the self-contained analysis code from the external full five-solvent raw-data requirement.
+- Tightened the notebook CSS by removing negative heading letter spacing and reducing prominent box/figure radii for cleaner exported rendering.
+
+### Validation and visual audit findings
+
+- The revised notebook JSON validates after editing.
+- Saved outputs still contain no error outputs.
+- All embedded PNG and GIF media payloads decode successfully.
+- No broken image or GIF payload was detected in the saved notebook.
+- Full browser/HTML rendering remains unverified because the current container lacks the necessary notebook export stack.
+
+### Unresolved risks
+
+- End-to-end reproducibility remains blocked until the complete five-solvent `Data/` directory is supplied.
+- A fresh Jupyter rerun is still needed to regenerate tables, figures, GIFs and rendered markdown from the updated source.
+
 ## 2026-05-29 19:15 BST scheduled pass
 
 ### Inspection performed
