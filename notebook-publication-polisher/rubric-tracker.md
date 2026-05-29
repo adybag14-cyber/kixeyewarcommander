@@ -2,7 +2,7 @@
 
 ## Current estimate
 
-- Date: 2026-05-29 07:15 BST scheduled pass
+- Date: 2026-05-29 08:15 BST scheduled pass
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`, with strongest evidence in explanation, formatting, visual presentation, code documentation and honesty about limitations
 - Main uncertainty: the polished notebook reads rigorously and transparently, and the saved executed evidence is visually intact, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated. This run also could not create a full nbconvert HTML render because `jupyter`/`nbconvert` are unavailable in the container.
@@ -33,4 +33,4 @@
 - The title card, abstract, configuration section, automated-check note and reproducibility appendix say plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally and still lacks the rest of the raw `Data/` tree needed for an end-to-end rerun in this session.
 - A fresh embedded-media validation confirmed that all 10 saved visual assets decode cleanly after the source edits: 8 PNG figures and 2 GIFs.
 - The PNG and GIF contact-sheet review did not reveal obvious clipping, overlap or broken media framing in the archived rendered outputs.
-- Full HTML export remains unavailable because the current container lacks `jupyter`/`nbconvert`; this is a verification limitation rather than a notebook-content defect.
+- Full HTML export remains unavailable because the current container lacks the `jupyter` command; this is a verification limitation rather than a notebook-content defect.
