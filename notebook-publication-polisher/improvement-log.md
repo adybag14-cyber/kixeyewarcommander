@@ -1,5 +1,39 @@
 # Improvement Log
 
+## 2026-05-29 18:15 BST scheduled pass
+
+### Inspection performed
+
+- Re-inspected the attached notebook package in `agent_files/`, including the rubric export and the executed notebook.
+- Confirmed the current attached raw-data tree still exposes only `testing-main/Data/Acetone`, while the saved notebook outputs preserve a complete five-solvent execution.
+- Parsed the notebook cell inventory and confirmed 37 cells with no saved error outputs.
+- Extracted and decoded all rich HTML visual outputs: 8 embedded PNG figures and 2 embedded GIF animations.
+- Built and reviewed a visual contact sheet from all PNG figures plus sampled first/last GIF frames.
+- Parsed rendered DataFrame outputs to review table shapes, solvent ordering, accepted trace counts, validation checks and benchmark/sensitivity summaries.
+
+### Improvements made
+
+- Created the revised deliverable notebook at `/workspace/output/P201_201698955_publication_polished_reviewed.ipynb`.
+- Added concise explanatory lead-ins under the `Data reader`, `Fast fitting functions`, `Quality control and summary functions`, `Run the analysis`, `Independent validation and fit-window sensitivity`, `Figures`, `Results and discussion`, and `Answers to post-lab questions` sections.
+- Added notebook CSS safeguards so wide outputs and DataFrame tables can scroll horizontally instead of clipping in notebook/HTML views.
+- Preserved all existing executed outputs while improving source markdown and display styling.
+- Validated the revised notebook JSON, confirmed no saved error outputs, and verified all 10 embedded image payloads decode after editing.
+
+### Visual audit findings
+
+- Embedded PNG count: 8.
+- Embedded GIF count: 2.
+- GIF frame counts: 84 and 70.
+- All embedded PNG and GIF payloads decoded successfully after editing.
+- Contact-sheet review did not show obvious clipping, chart overlap, broken image payloads, malformed figure framing or corrupted GIF frames.
+- Wide tabular outputs remain a layout risk in narrow displays, but the revised CSS now provides overflow protection.
+- Full browser/HTML rendering remains unverified because `jupyter`/`nbconvert` is unavailable in the current container.
+
+### Unresolved risks
+
+- End-to-end reproducibility remains blocked until the complete five-solvent `Data/` directory is supplied.
+- A fresh Jupyter rerun is still needed to regenerate outputs from source and confirm no source/output drift remains after execution.
+
 ## 2026-05-29 17:15 BST scheduled pass
 
 ### Inspection performed
