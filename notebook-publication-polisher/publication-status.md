@@ -2,18 +2,18 @@
 
 ## Current assessment
 
-- Date: 2026-05-29 08:15 BST scheduled pass
+- Date: 2026-05-29 09:15 BST scheduled pass
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong, near-publication notebook artifact with one remaining reproducibility blocker
-- Confidence note: this pass rebuilt the polished notebook from the attached full-output source in the fresh scheduled workspace and corrected publication-critical source plus saved rendered outputs. The notebook now explicitly separates archived five-solvent executed outputs from the currently attached local raw-data package, which only exposes `testing-main/Data/Acetone`. Source and saved rendered outputs consistently report the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; the residual acetone-fastest wording is absent; the old 2017 DOI is absent; and the reference list now uses the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`). A refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs with 84 and 70 frames.
+- Confidence note: this pass rebuilt the polished notebook from the attached full-output source in the fresh scheduled workspace and corrected publication-critical source plus saved rendered outputs. The attached source had drifted back to over-broad raw-data wording, the weaker 2017 reference, negative heading letter spacing, an open-by-default laboratory-workflow GIF panel, and stale interpretation that treated acetone as fastest in places. The polished copy now explicitly separates archived five-solvent executed outputs from the currently attached local raw-data package, which only exposes `testing-main/Data/Acetone`. Source and saved rendered outputs consistently report the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; the residual acetone-fastest wording is absent; the old 2017 DOI is absent; and the reference list now uses the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`). A refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs with 84 and 70 frames.
 
 ## Highest-impact improvements in this run
 
 - Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` because the fresh scheduled workspace did not contain the prior polished output file.
-- Reapplied and verified provenance wording in the title card, abstract, configuration section, analysis-environment note, reproducibility appendix and automated-check appendix so readers understand that the saved five-solvent outputs are archived and the attached local data package is incomplete.
+- Reapplied and verified provenance wording in the title card, abstract, analysis-environment note, reproducibility appendix and automated-check appendix so readers understand that the saved five-solvent outputs are archived and the attached local data package is incomplete.
 - Corrected source and rendered narrative text so acetonitrile is consistently treated as the fastest measured solvent, with acetone close behind and second-fastest in the executed data set.
 - Replaced the weaker 2017 reference with the primary ACS paper by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`) and verified that the old DOI no longer appears in the polished notebook.
-- Improved presentation hygiene by removing all nonzero letter-spacing declarations from notebook-controlled CSS and closing both large extra animation panels by default.
+- Improved presentation hygiene by removing tight/negative letter-spacing declarations from notebook-controlled CSS and closing both large extra animation panels by default.
 - Revalidated the saved presentation layer directly from the polished notebook payloads: all 8 embedded PNG figures and both inline GIFs decoded cleanly; GIF first, middle and final frames rendered as expected in contact-sheet review, with no obvious clipping, overlap, broken images, malformed chart framing or GIF corruption visible.
 
 ## Remaining blockers
