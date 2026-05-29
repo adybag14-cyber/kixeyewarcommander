@@ -1,33 +1,15 @@
 # Revision Plan
 
-## Completed in 2026-05-29 01:15 BST run
-
-- Re-reviewed the attached notebook package, rubric guidance and saved progress notes.
-- Confirmed the current support package still contains only acetone raw traces, so full rerun reproducibility remains blocked until the other four solvent folders are restored.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` with corrected provenance language across the title card, abstract, configuration section, reproducibility appendix and automated-check appendix.
-- Replaced the weaker 2017 citation with the primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`) after source lookup.
-- Corrected the residual post-lab/source-output mismatch so acetonitrile is identified as the fastest solvent and the prose matches `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Closed the laboratory-workflow GIF panel by default, removed negative heading letter spacing, and cleaned the validation table details so they no longer render with pandas ellipses.
-- Rechecked all embedded media payloads: 8 PNG figures and 2 GIFs decoded successfully, with GIF frame counts of 84 and 70 and no obvious contact-sheet evidence of clipping, overlap or broken images.
-- Attempted HTML export, but this container lacks the `jupyter` command; direct notebook/media validation is the available rendering evidence for this run.
-
-## Highest-value next steps from 2026-05-29
-
-- Restore the full five-solvent raw-data tree under `Data/`.
-- Re-execute the notebook end to end in an environment with Jupyter/nbconvert installed.
-- Re-audit the regenerated tables, figures and GIFs after that clean rerun, then mark the notebook publication-ready if no new rendering or reproducibility defects appear.
-
 ## Completed in this run
 
-- Re-reviewed the attached notebook package, rubric guidance and saved progress notes.
-- Audited the notebook structure, rendered-output cells and embedded media payloads directly from the notebook JSON.
-- Confirmed that the live notebook source had drifted back to older provenance wording, a saved-media panel state regression and a couple of evidence mismatches, then patched the actual attached notebook rather than only updating status files.
-- Replaced the weaker literature anchor with the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`).
-- Rewrote the title-card scope, abstract, automated-check note, configuration and reproducibility wording so the notebook distinguishes clearly between archived five-solvent outputs and the current review bundle, which only exposes `testing-main/Data/Acetone` locally.
+- Re-reviewed the attached notebook package, rubric guidance, local memory files and GitHub-persisted status.
+- Confirmed the attached raw-data package still contains only `testing-main/Data/Acetone`, blocking a fresh five-solvent raw-data rerun.
+- Rebuilt the polished notebook copy in `/workspace/output/` from the attached full-output notebook.
+- Reapplied provenance wording that distinguishes archived five-solvent outputs from the incomplete local review bundle.
 - Corrected the results discussion and post-lab answers so they match the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Returned the second inline workflow GIF to the cleaner closed-by-default state in both the source and the saved output payload.
-- Rebuilt the polished notebook copy in `/workspace/output/`.
-- Regenerated the contact-sheet-style visual audit and rechecked that all 10 embedded PNG/GIF outputs still decode cleanly while both expandable media panels remain closed by default.
+- Retained the stronger Joshi, Fuyuki and Wada ACS reference (`10.1021/jp4125205`) and verified it against current ACS/PubMed search results.
+- Closed both large extra animation panels by default, tightened visual styling and removed negative heading letter spacing.
+- Regenerated a contact-sheet-style visual audit and rechecked that all 10 embedded PNG/GIF outputs decode cleanly with no obvious clipping, overlap, broken media, or malformed chart framing.
 
 ## Highest-value next steps
 
