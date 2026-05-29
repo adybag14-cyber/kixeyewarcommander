@@ -1,5 +1,24 @@
 # Improvement Log
 
+## 2026-05-29 01:15 BST scheduled publication-polish pass
+
+- Re-inspected the attached full-output notebook, rubric guidance, existing progress memory and the local supporting package before editing.
+- Confirmed the local package still exposes only `testing-main/Data/Acetone`; the raw-data folders for acetonitrile, cyclohexane, THF and toluene remain absent, so a clean end-to-end rerun from the attached files is still blocked.
+- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook with publication-critical corrections applied.
+- Strengthened front-page, configuration, reproducibility and automated-check wording so the notebook clearly distinguishes archived five-solvent executed outputs from the currently incomplete local raw-data package.
+- Replaced the weaker 2017 reference with the primary ACS paper by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`), verified against ACS/PubMed search results.
+- Corrected the residual post-lab interpretation so the saved source and rendered markdown identify acetonitrile, not acetone, as the fastest solvent in the executed order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Closed the laboratory-workflow GIF panel by default in both source and saved HTML output, reducing initial rendered-page clutter.
+- Removed negative heading letter spacing from the notebook CSS to avoid tight or clipped-looking publication headings.
+- Cleaned the automated consistency-check table so accepted-trace counts and solvent rate constants render as complete compact strings rather than truncated pandas ellipses.
+- Revalidated the polished notebook payload: the old `10.4172/2157-7544.1000181` DOI is absent, the ACS DOI is present, no residual "acetone fastest" wording remains, the lab GIF panel is closed by default, and all 10 embedded visual assets still decode successfully.
+- Visual audit summary: 8 embedded PNG figures and 2 inline GIFs decoded cleanly; GIF frame counts remain 84 and 70; contact-sheet review did not reveal obvious clipping, overlap, broken image payloads, malformed chart framing or GIF corruption.
+- Verification limitation: full nbconvert HTML export was attempted but could not run because the current container does not have the `jupyter` package installed.
+
+## Open risk
+
+- Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
+
 ## 2026-05-29 00:15 BST scheduled publication-polish pass
 
 - Re-inspected the attached notebook, the rubric guidance and the existing memory state.
