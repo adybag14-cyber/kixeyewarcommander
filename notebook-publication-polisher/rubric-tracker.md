@@ -2,10 +2,10 @@
 
 ## Current estimate
 
-- Date: 2026-05-29 09:15 BST scheduled pass
+- Date: 2026-05-29 10:15 BST scheduled pass
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`, with strongest evidence in explanation, formatting, visual presentation, code documentation and honesty about limitations
-- Main uncertainty: the polished notebook reads rigorously and transparently, and the saved executed evidence is visually intact, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated. This run also could not create a full nbconvert HTML render because `jupyter`/`nbconvert` are unavailable in the container. Direct embedded-media inspection remains positive: all 8 PNG figures and both GIF panels decode, with GIF frame counts of 84 and 70.
+- Main uncertainty: the polished notebook reads rigorously and transparently, and the saved executed evidence is visually intact, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated. This run also could not create a full nbconvert HTML render because `jupyter`/`nbconvert` are unavailable in the container. Direct embedded-media inspection remains positive: all 8 PNG figures and both GIF panels decode, with GIF frame counts of 84 and 70, and the contact-sheet review did not reveal clipping, overlap, broken media or malformed chart framing.
 
 ## Criterion status
 
