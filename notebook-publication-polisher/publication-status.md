@@ -2,19 +2,18 @@
 
 ## Current assessment
 
-- Date: 2026-05-29 02:15 BST scheduled pass
+- Date: 2026-05-29 03:15 BST scheduled pass
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong, near-publication notebook artifact with one remaining reproducibility blocker
-- Confidence note: this pass rebuilt the polished notebook from the attached source package in the fresh workspace. The new copy explicitly separates archived five-solvent executed outputs from the currently attached local raw-data package, which only exposes `testing-main/Data/Acetone`. The most important remaining narrative defect was corrected in both editable code/source cells and saved rendered markdown: the notebook no longer says acetone was the fastest solvent, and now consistently reports the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`. The reference list now uses the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`). A refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs, with no obvious clipping, overlap, broken-image, or GIF decoding defects in the saved outputs.
+- Confidence note: this pass rebuilt the polished notebook in the fresh workspace from the attached full-output notebook. The notebook now explicitly separates archived five-solvent executed outputs from the currently attached local raw-data package, which only exposes `testing-main/Data/Acetone`. The main science-text risk remains controlled: source and saved rendered outputs consistently report the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and no residual acetone-fastest wording remains. The reference list uses the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), verified this run against ACS/PubMed search results. A refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs.
 
 ## Highest-impact improvements in this run
 
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` because the previous polished file was not present in this fresh scheduled workspace.
-- Corrected the saved discussion output that still said acetone was the fastest solvent; it now says acetonitrile is fastest and acetone remains close behind despite its lower dielectric constant.
-- Corrected the post-lab answer output and source so the solvent-order explanation matches the executed ranking `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Added clearer provenance wording to the title card, abstract, configuration section, reproducibility appendix, automated consistency-check note, and analysis-environment panel so readers understand that the displayed five-solvent results are archived outputs until the missing raw solvent folders are restored.
-- Replaced the weaker 2017 reference with the primary ACS paper by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`), verified against ACS/PubMed search results.
-- Improved presentation hygiene by removing negative heading letter spacing, reducing oversized rounded corners in notebook styling, keeping the laboratory-workflow GIF panel closed by default, and replacing truncated validation-table detail strings with complete compact accepted-trace counts and solvent rate constants.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` because the fresh scheduled workspace did not contain the prior polished output file.
+- Reapplied and verified the provenance wording that distinguishes archived complete five-solvent results from the currently incomplete local review package.
+- Corrected source and rendered narrative text so acetonitrile is consistently treated as the fastest measured solvent, with acetone close behind and second-fastest in the executed data set.
+- Replaced the weaker 2017 reference with the primary ACS paper by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`).
+- Improved presentation hygiene by removing negative heading letter spacing, tightening oversized rounded corners, closing both large extra animation panels by default, and preserving compact consistency-check detail strings in the notebook source.
 - Revalidated the saved presentation layer directly from the polished notebook payloads: all 8 embedded PNG figures and both inline GIFs decoded cleanly; GIF first, middle and final frames rendered as expected in contact-sheet review.
 
 ## Remaining blockers
