@@ -1,84 +1,22 @@
 # Improvement Log
 
-## 2026-05-29 01:15 BST scheduled publication-polish pass
+## 2026-05-29 04:15 BST scheduled publication-polish pass
 
-- Re-inspected the attached full-output notebook, rubric guidance, existing progress memory and the local supporting package before editing.
-- Confirmed the local package still exposes only `testing-main/Data/Acetone`; the raw-data folders for acetonitrile, cyclohexane, THF and toluene remain absent, so a clean end-to-end rerun from the attached files is still blocked.
-- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook with publication-critical corrections applied.
-- Strengthened front-page, configuration, reproducibility and automated-check wording so the notebook clearly distinguishes archived five-solvent executed outputs from the currently incomplete local raw-data package.
-- Replaced the weaker 2017 reference with the primary ACS paper by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`), verified against ACS/PubMed search results.
-- Corrected the residual post-lab interpretation so the saved source and rendered markdown identify acetonitrile, not acetone, as the fastest solvent in the executed order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Closed the laboratory-workflow GIF panel by default in both source and saved HTML output, reducing initial rendered-page clutter.
-- Removed negative heading letter spacing from the notebook CSS to avoid tight or clipped-looking publication headings.
-- Cleaned the automated consistency-check table so accepted-trace counts and solvent rate constants render as complete compact strings rather than truncated pandas ellipses.
-- Revalidated the polished notebook payload: the old `10.4172/2157-7544.1000181` DOI is absent, the ACS DOI is present, no residual "acetone fastest" wording remains, the lab GIF panel is closed by default, and all 10 embedded visual assets still decode successfully.
-- Visual audit summary: 8 embedded PNG figures and 2 inline GIFs decoded cleanly; GIF frame counts remain 84 and 70; contact-sheet review did not reveal obvious clipping, overlap, broken image payloads, malformed chart framing or GIF corruption.
-- Verification limitation: full nbconvert HTML export was attempted but could not run because the current container does not have the `jupyter` package installed.
-
-## Open risk
-
-- Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
-
-## 2026-05-29 00:15 BST scheduled publication-polish pass
-
-- Re-inspected the attached notebook, the rubric guidance and the existing memory state.
-- Confirmed the attached raw-data package still contains only `testing-main/Data/Acetone`, so a complete five-solvent rerun remains blocked until acetonitrile, cyclohexane, THF and toluene raw-data folders are restored.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` with the publication-critical fixes still needed in the attached notebook.
-- Added clearer provenance language to the title card, abstract and configuration section, explicitly separating archived five-solvent outputs from the incomplete local review data bundle.
-- Replaced the weaker 2017 reference with the primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), verified against ACS/PubMed search results.
-- Corrected stale discussion and post-lab wording so the notebook no longer says acetone is the fastest solvent; the written interpretation now matches the executed ranking `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Closed the large laboratory-workflow GIF panel by default and removed negative heading letter spacing from the notebook CSS.
-- Improved the rendered consistency-check table by replacing truncated pandas dictionary/list details with compact complete text for accepted-trace counts and solvent rate constants.
-- Revalidated the polished notebook payload: all 10 embedded media assets decoded successfully, including 8 PNG figures and 2 GIFs with 84 and 70 frames respectively. The contact-sheet review showed no obvious broken images, clipping, overlap or malformed chart framing.
-- Attempted a full HTML export, but this container lacks the `jupyter` command. Rendering confidence is therefore based on direct notebook-payload inspection and embedded-media contact-sheet review rather than nbconvert output.
-
-## Open risk
-
-- Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
-
-## 2026-05-28 23:15 BST scheduled publication-polish pass
-
-- Re-inspected the attached full-output notebook, the rubric guidance and existing memory before editing.
+- Re-inspected the attached full-output notebook, the rubric guidance and the existing progress files before editing.
 - Confirmed the local review package still exposes only `testing-main/Data/Acetone`; the raw-data folders for acetonitrile, cyclohexane, THF and toluene remain absent, so a fresh end-to-end rerun is still blocked.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook with publication-critical fixes applied.
-- Strengthened provenance wording in the title card, abstract, configuration section, reproducibility appendix and automated-check appendix so the notebook clearly distinguishes archived five-solvent outputs from the currently incomplete local raw-data package.
-- Replaced the weaker 2017 reference with the primary ACS paper by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`).
-- Corrected the remaining discussion/post-lab mismatch so the saved source and rendered output identify acetonitrile, not acetone, as the fastest solvent in the executed order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Closed the laboratory-workflow GIF panel by default in both source and saved HTML output, reducing initial rendered-page clutter.
-- Removed negative heading letter spacing from the notebook CSS to avoid subtle publication-rendering tightness.
-- Revalidated embedded media directly from the polished notebook payload: all 8 PNG figures and both inline GIFs decoded successfully; GIF frame counts were 84 and 70, and the visual contact-sheet review did not show obvious clipping, overlap, broken images or malformed chart framing.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook with the current run's publication-critical fixes applied.
+- Strengthened provenance wording in the title card, abstract, configuration section, reproducibility appendix and automated-check note so the notebook clearly distinguishes archived five-solvent outputs from the currently incomplete local raw-data package.
+- Corrected the generated results-discussion and post-lab source cells plus saved rendered markdown outputs so the chemistry narrative matches the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Replaced the weaker 2017 reference with Joshi, Fuyuki and Wada's primary ACS paper (`10.1021/jp4125205`), verified against ACS/PubMed search results, and confirmed the older DOI is absent from the polished notebook.
+- Removed negative heading letter spacing, reduced oversized rounded corners in notebook HTML styling, and kept both large extra animation panels closed by default to reduce initial rendered-page clutter.
+- Revalidated embedded media directly from the polished notebook payload: all 8 PNG figures and both inline GIFs decoded successfully; GIF frame counts remain 84 and 70, and contact-sheet review did not show obvious clipping, overlap, broken images, malformed chart framing or GIF defects.
 
 ## Open risk
 
 - Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
 
-## 2026-05-28 scheduled publication-polish resync and visual audit
+## Recent prior context
 
-- Inspected the attached notebook package, the rubric guidance and the existing progress files before editing.
-- Confirmed the package still contains the full-output notebook plus acetone-only local raw data under `testing-main/Data/Acetone`; the remaining raw folders for acetonitrile, cyclohexane, THF and toluene are still absent from the local package.
-- Audited the saved notebook outputs directly and extracted all inline media payloads. The polished artifact contains 10 embedded visual assets: 8 PNG figures plus 2 inline GIFs. All decoded successfully, with GIF frame counts of 84 and 70.
-- Reviewed the visual contact sheet for figure/GIF presentation problems. The saved outputs did not show obvious clipping, overlap, malformed framing, unreadable labels or broken media defects.
-- Built `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook with publication-critical fixes applied.
-- Updated the title-card scope, abstract, configuration text, reproducibility appendix and automated-check note so the notebook distinguishes archived five-solvent outputs from the currently incomplete local raw-data package.
-- Replaced the weaker 2017 reference with Joshi, Fuyuki and Wada's primary ACS paper on solvent-polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene derivatives (`10.1021/jp4125205`).
-- Corrected the post-lab and discussion wording so the narrative matches the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; the saved rendered markdown no longer states that acetone is the fastest solvent.
-- Closed the laboratory-workflow GIF panel by default in both source and saved HTML output to reduce initial vertical clutter in rendered notebook views.
-- Revalidated the polished notebook after edits: the stronger DOI is present, the old DOI is absent, the acetone-fastest regression is absent from source and outputs, the lab GIF panel is closed by default, and all 10 embedded media assets still decode.
-
-## Open risk
-
-- Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
-
-## 2026-05-28 live-notebook drift repair, provenance correction and post-lab resync
-
-- Re-opened the actual attached notebook package and confirmed that the live artifact had drifted back to the weaker 2017 citation, over-optimistic rerun wording, an open-by-default laboratory-workflow GIF panel, and a residual science-text mismatch where some saved prose still treated acetone as the fastest solvent even though the executed results rank acetonitrile first.
-- Patched the visible title-card scope, abstract wording, configuration section, automated-check note and reproducibility appendix so the notebook now states plainly that the displayed five-solvent tables, figures and GIFs are archived outputs from a complete earlier execution while the currently attached review package only exposes `testing-main/Data/Acetone`.
-- Replaced reference 5 with the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`) on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene.
-- Corrected the generated results-discussion and post-lab source cells and their saved rendered markdown outputs so the chemistry narrative now matches the executed ranking `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Removed the default-open state from the inline laboratory-workflow GIF panel in both the generating source cell and its saved rendered HTML output.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
-- Re-ran the embedded-media audit directly against the saved notebook payloads, generated a contact-sheet review image, and reconfirmed that all 10 visual assets decode successfully from the edited notebook artifact: 8 PNG figures and 2 GIF panels.
-
-## Open risk
-
-- Full reproducibility remains blocked until the full five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
+- Earlier scheduled passes repeatedly found the same underlying package limitation: the notebook contains saved five-solvent outputs, but the attached local raw-data tree is acetone-only.
+- Prior passes established the key publication polish direction: use transparent provenance language, keep the executed solvent ordering aligned in both source and rendered outputs, prefer the primary ACS literature anchor over the weaker 2017 source, close large GIF panels by default, and verify all embedded PNG/GIF payloads after edits.
+- The memory folder contains the longer dated history of these repeated checks and has been updated for this 04:15 pass as well.
