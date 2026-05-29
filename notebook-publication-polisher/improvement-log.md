@@ -1,20 +1,20 @@
 # Improvement Log
 
-## 2026-05-29 11:15 BST scheduled publication-polish pass
+## 2026-05-29 12:15 BST scheduled publication-polish pass
 
-- Re-inspected the attached full-output notebook, the simple-exercise rubric guidance, existing memory files and the current local source package.
-- Confirmed the attached raw-data package still contains only `testing-main/Data/Acetone`; the acetonitrile, cyclohexane, THF and toluene raw folders remain absent, so a complete fresh five-solvent rerun remains blocked.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook source and repaired the live attached copy's publication-critical drift.
-- Reapplied provenance language in the title card, abstract, configuration section, reproducibility appendix and automated-check appendix so the notebook is explicit that saved five-solvent outputs are archived while the current review package is incomplete.
-- Corrected source and saved rendered markdown so the notebook consistently identifies acetonitrile as fastest, acetone as close behind/second-fastest, and the executed order as `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Replaced the weaker 2017 DOI/reference with Joshi, Fuyuki and Wada's primary ACS paper on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`), verified through ACS-indexed search results.
-- Improved notebook presentation hygiene by removing negative heading letter spacing and keeping both large inline animation panels closed by default.
-- Revalidated the polished notebook payload: no code-cell error outputs; old DOI absent; stronger ACS DOI present; no stale acetone-fastest claims; no default-open research panels; all 8 PNG figures decoded; both inline GIFs decoded with 84 and 70 frames.
-- Visual review of figure contact sheets and first/middle/final GIF frames showed no obvious clipping, overlap, broken image payloads, malformed chart framing or GIF corruption.
+- Re-inspected the attached notebook package, rubric guidance and existing memory files before editing.
+- Confirmed the fresh workspace again lacks the prior polished output file, so rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached full-output source notebook.
+- Confirmed the attached local raw-data package still exposes only `testing-main/Data/Acetone`; acetonitrile, cyclohexane, THF and toluene raw-data folders remain absent, so a fresh end-to-end rerun from the current package is still blocked.
+- Tightened publication-facing provenance language in the title card, abstract, reproducibility appendix and automated-check appendix so the notebook states that the saved five-solvent outputs are an executed archive and that final rerun confidence requires the complete five-solvent raw-data tree.
+- Strengthened the research support by replacing the weaker 2017 reference with Joshi, Fuyuki and Wada's primary ACS paper, verified from ACS/PubMed search results as `10.1021/jp4125205`; the old `10.4172/2157-7544.1000181` DOI is absent from the polished notebook.
+- Confirmed the executed results narrative still reports the rate ordering as `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, with no residual acetone-fastest wording found in the polished notebook payload.
+- Removed negative heading letter spacing from the notebook-controlled CSS to improve rendering consistency across notebook and exported HTML contexts.
+- Revalidated embedded media directly from the polished notebook payload: all 10 assets decode successfully, including 8 PNG figures and 2 GIFs with 84 and 70 frames. Contact-sheet review did not reveal obvious clipping, overlap, broken image payloads, malformed chart framing or GIF corruption.
+- Verification limitation remains: this container does not provide `jupyter`/`nbconvert`, so a full HTML export could not be generated during this pass.
 
 ## Open risk
 
-- Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package in an environment with Jupyter/nbconvert available for full HTML render verification.
+- Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
 
 ## Recent prior context
 
