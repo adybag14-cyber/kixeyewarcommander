@@ -1,5 +1,39 @@
 # Improvement Log
 
+## 2026-05-29 23:15 BST scheduled pass
+
+### Inspection performed
+
+- Re-inspected the attached executed notebook, rubric export, supporting data package and prior memory state.
+- Confirmed the attached local raw-data tree still exposes only `testing-main/Data/Acetone`, while the saved notebook outputs preserve the complete five-solvent execution.
+- Parsed notebook structure: 37 cells, 14 code cells, 23 markdown cells and no saved error outputs.
+- Revalidated embedded visuals directly: 8 PNG figures and 2 GIF animations. GIF frame counts remain 84 and 70.
+- Searched both source and saved rendered outputs for stale solvent-ordering claims and presentation-risk styling.
+
+### Improvements made
+
+- Created `/workspace/output/P201_201698955_publication_polished_2026-05-29.ipynb`.
+- Corrected remaining source and saved-output contradictions around the solvent ranking, including the results discussion and post-lab answers. The text now consistently reports Acetonitrile > Acetone > THF > Cyclohexane > Toluene.
+- Updated the post-lab timescale explanation so acetonitrile, not acetone, is identified as the shortest characteristic recovery time.
+- Added reader-facing lead-ins to all previously bare markdown headings before code or generated narrative sections.
+- Added CSS overflow safeguards for notebook outputs and DataFrame tables, removed negative heading letter spacing, and restrained prominent figure/card/GIF radii.
+
+### Visual audit findings
+
+- Embedded PNG count: 8.
+- Embedded GIF count: 2.
+- GIF frame counts: 84 and 70.
+- All embedded PNG and GIF payloads decoded successfully after editing.
+- No saved error outputs were present.
+- All 14 code cells parse without syntax errors.
+- Searches found no remaining `acetone gives the largest measured`, `remains the fastest solvent`, `Acetone, for example, gave the fastest`, negative heading letter spacing, `border-radius:18px`, or `border-radius:11px`.
+- Full browser/HTML rendering remains unverified because a complete notebook rerun/export stack is unavailable in the current container.
+
+### Unresolved risks
+
+- End-to-end reproducibility remains blocked until the complete five-solvent `Data/` directory is supplied.
+- A fresh Jupyter rerun is still needed to regenerate outputs from source and confirm no source/output drift remains after execution.
+
 ## 2026-05-29 22:15 BST scheduled pass
 
 ### Inspection performed
