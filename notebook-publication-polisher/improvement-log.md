@@ -1,5 +1,20 @@
 # Improvement Log
 
+## 2026-05-29 08:15 BST scheduled publication-polish pass
+
+- Re-inspected the attached full-output notebook, rubric guidance, raw-data folder and current progress memory in a fresh scheduled workspace.
+- Confirmed the local review package still exposes only `testing-main/Data/Acetone`; acetonitrile, cyclohexane, THF and toluene raw-data folders remain absent, so full end-to-end regeneration from the attached files is still blocked.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook with the publication-critical fixes reapplied.
+- Strengthened provenance wording in the title card, abstract, configuration section, reproducibility appendix and automated-check appendix so readers understand that the five-solvent outputs are archived from a complete execution while the current package is incomplete for reruns.
+- Corrected the discussion and post-lab narrative in source and saved rendered outputs so the executed rate order is consistently `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; residual acetone-fastest wording is absent.
+- Replaced the weaker 2017 reference with Joshi, Fuyuki and Wada's primary ACS paper on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`), and verified the old DOI is absent from the polished notebook.
+- Closed the large inline research/laboratory GIF panels by default and removed negative heading letter spacing from notebook-controlled CSS.
+- Re-audited the embedded media payloads directly from the polished notebook: all 10 visual assets decoded successfully, including 8 PNG figures and 2 GIFs with 84 and 70 frames. Contact-sheet review did not reveal obvious clipping, overlap, malformed chart framing, broken images or GIF corruption.
+
+## Open risk
+
+- Full reproducibility and final publication sign-off still require restoring the complete five-solvent raw-data tree and rerunning the notebook in an environment with Jupyter/nbconvert available.
+
 ## 2026-05-29 07:15 BST scheduled publication-polish pass
 
 - Re-inspected the attached full-output notebook, rubric guidance, memory state and GitHub-persisted status before making changes.
