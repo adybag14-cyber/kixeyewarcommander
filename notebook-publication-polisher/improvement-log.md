@@ -1,20 +1,20 @@
 # Improvement Log
 
-## 2026-05-29 12:15 BST scheduled publication-polish pass
+## 2026-05-29 13:15 BST scheduled publication-polish pass
 
-- Re-inspected the attached notebook package, rubric guidance and existing memory files before editing.
-- Confirmed the fresh workspace again lacks the prior polished output file, so rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached full-output source notebook.
-- Confirmed the attached local raw-data package still exposes only `testing-main/Data/Acetone`; acetonitrile, cyclohexane, THF and toluene raw-data folders remain absent, so a fresh end-to-end rerun from the current package is still blocked.
-- Tightened publication-facing provenance language in the title card, abstract, reproducibility appendix and automated-check appendix so the notebook states that the saved five-solvent outputs are an executed archive and that final rerun confidence requires the complete five-solvent raw-data tree.
-- Strengthened the research support by replacing the weaker 2017 reference with Joshi, Fuyuki and Wada's primary ACS paper, verified from ACS/PubMed search results as `10.1021/jp4125205`; the old `10.4172/2157-7544.1000181` DOI is absent from the polished notebook.
-- Confirmed the executed results narrative still reports the rate ordering as `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, with no residual acetone-fastest wording found in the polished notebook payload.
-- Removed negative heading letter spacing from the notebook-controlled CSS to improve rendering consistency across notebook and exported HTML contexts.
-- Revalidated embedded media directly from the polished notebook payload: all 10 assets decode successfully, including 8 PNG figures and 2 GIFs with 84 and 70 frames. Contact-sheet review did not reveal obvious clipping, overlap, broken image payloads, malformed chart framing or GIF corruption.
-- Verification limitation remains: this container does not provide `jupyter`/`nbconvert`, so a full HTML export could not be generated during this pass.
+- Re-inspected the attached full-output notebook, rubric guidance, local source package and existing progress memory.
+- Confirmed live notebook drift had reintroduced several publication blockers: the weaker 2017 DOI/reference, negative heading letter spacing, default-open animation panels, over-optimistic raw-data wording, and stale rendered discussion/post-lab text that still implied acetone was fastest despite the executed order `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook and patched both notebook source and saved rendered outputs.
+- Strengthened provenance wording in the title card, abstract and configuration section so the artifact clearly distinguishes archived five-solvent saved outputs from the currently attached acetone-only raw-data package.
+- Corrected the research narrative so acetonitrile is consistently identified as the fastest solvent, with acetone close behind, and removed residual acetone-fastest contradictions.
+- Restored the stronger primary ACS reference by Joshi, Fuyuki and Wada (`10.1021/jp4125205`) and verified the DOI/source details against ACS/PubMed search results; the old `10.4172/2157-7544.1000181` DOI is absent from the polished notebook.
+- Removed negative heading letter spacing and ensured no inline research-animation `<details>` panels are open by default.
+- Revalidated the polished notebook payload: no code-cell error outputs; no default-open details panels; 8 PNG figures decoded; 2 inline GIFs decoded with 84 and 70 frames. Static contact-sheet review plus first/middle/final GIF frame samples showed no obvious clipping, overlap, broken images, malformed chart framing or GIF corruption.
 
 ## Open risk
 
 - Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
+- Full HTML export verification remains blocked in this container because `jupyter`/`nbconvert` are not installed.
 
 ## Recent prior context
 
