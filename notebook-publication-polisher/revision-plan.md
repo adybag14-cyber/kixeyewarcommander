@@ -5,12 +5,12 @@
 - Re-reviewed the attached notebook package, rubric guidance and local memory files.
 - Confirmed the attached raw-data package still contains only `testing-main/Data/Acetone`, blocking a fresh five-solvent raw-data rerun.
 - Rebuilt the polished notebook copy in `/workspace/output/` from the attached full-output notebook.
+- Repaired live drift in the attached notebook: weaker 2017 DOI/reference, over-optimistic raw-data wording, negative heading letter spacing, default-open animation panels and stale acetone-fastest interpretation.
 - Reapplied provenance wording that distinguishes archived five-solvent outputs from the incomplete local review bundle.
-- Confirmed the results discussion and post-lab answers in the rebuilt notebook match the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
-- Retained the stronger Joshi, Fuyuki and Wada ACS reference (`10.1021/jp4125205`) and verified it against current ACS/PubMed search results.
-- Closed the remaining default-open laboratory workflow animation panel in both source and saved rendered output.
-- Removed all nonzero `letter-spacing` declarations from saved notebook CSS to avoid title and label compression in publication rendering.
-- Regenerated contact-sheet visual audits and rechecked that all 10 embedded PNG/GIF outputs decode cleanly with no obvious clipping, overlap, broken media, or malformed chart framing.
+- Corrected the results discussion and post-lab answers so source and saved rendered outputs match the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Restored the stronger Joshi, Fuyuki and Wada ACS reference (`10.1021/jp4125205`) and verified it against current ACS/PubMed search results.
+- Closed all extra animation panels by default, tightened visual styling and removed negative heading letter spacing.
+- Regenerated contact-sheet-style visual audits and rechecked that all 10 embedded PNG/GIF outputs decode cleanly with no obvious clipping, overlap, broken media, or malformed chart framing. GIF first/middle/final frame samples confirm both animations populate correctly after fade-in.
 
 ## Highest-value next steps
 
