@@ -1,5 +1,22 @@
 # Improvement Log
 
+## 2026-05-29 09:15 BST scheduled publication-polish pass
+
+- Re-inspected the attached notebook package, rubric guidance, local memory and GitHub-persisted publication status.
+- Confirmed the package still contains only `testing-main/Data/Acetone` locally, with 49 acetone files and no acetonitrile, cyclohexane, THF or toluene raw-data folders; a complete raw-data rerun remains blocked.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached full-output notebook.
+- Found fresh drift in the attached source: over-broad complete-`Data/` provenance wording, the weaker 2017 polarity reference, tight/negative heading letter spacing, an open-by-default laboratory-workflow GIF panel and stale wording that could still imply acetone was fastest.
+- Corrected the polished notebook source and saved rendered markdown so acetonitrile is consistently fastest and acetone second-fastest in the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Strengthened the title-card, abstract, analysis-environment, reproducibility and automated-check notes so readers can distinguish archived five-solvent outputs from the incomplete local review package.
+- Replaced the weaker 2017 citation with the primary ACS/PubMed-verifiable paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`).
+- Removed tight/negative notebook CSS letter spacing and kept both large extra animation panels closed by default to reduce first-render clutter.
+- Re-audited all embedded visuals directly from the polished notebook payload: 8 PNG figures and 2 inline GIFs decoded successfully; GIF frame counts were 84 and 70. Contact-sheet review of PNGs plus first/middle/final GIF frames did not show obvious clipping, overlap, broken-image payloads, malformed chart framing or GIF corruption.
+- Verification limitation: full nbconvert HTML export still could not run because this container lacks `nbformat`/`nbconvert`/`jupyter`.
+
+## Open risk
+
+- Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
+
 ## 2026-05-29 08:15 BST scheduled publication-polish pass
 
 - Re-inspected the attached full-output notebook, rubric guidance, raw-data folder and current progress memory in a fresh scheduled workspace.
