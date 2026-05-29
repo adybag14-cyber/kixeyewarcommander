@@ -2,20 +2,20 @@
 
 ## Current readiness assessment
 
-- Date: 2026-05-29 17:15 BST scheduled pass
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
+- Date: 2026-05-29 18:15 BST scheduled pass
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_reviewed.ipynb`
 - Publication-readiness estimate: very strong / near publishable from the saved executed notebook, with one major reproducibility blocker outside the notebook itself.
-- Rubric band estimate: likely Outstanding if the grading accepts the archived complete five-solvent execution; full confidence still requires the complete raw-data tree and an end-to-end rerun in a notebook-capable environment.
+- Rubric band estimate: likely Outstanding if the grader accepts the archived complete five-solvent execution; full confidence still requires the complete raw-data tree and an end-to-end rerun in a notebook-capable environment.
 
 ## Major strengths now present
 
 - The notebook has a coherent article-style structure with title card, abstract, aims, theory, method, results, post-lab answers, conclusion, reproducibility appendix, AI statement and references.
 - The saved outputs contain a complete five-solvent analysis: acetone, acetonitrile, cyclohexane, THF and toluene.
-- The numerical interpretation now consistently identifies the accepted mean-rate sequence as Acetonitrile > Acetone > THF > Cyclohexane > Toluene.
-- The previous acetone-fastest prose contradiction has been removed from both notebook source and saved rendered markdown outputs.
-- Research support is stronger after replacing the weaker 2017 reference with Joshi, Fuyuki and Wada's primary ACS/PubMed-indexed paper on solvent-dependent thermal cis-to-trans isomerisation of 4-aminoazobenzene, DOI `10.1021/jp4125205`.
-- The notebook now includes an explicit review-package provenance note: the saved outputs come from a complete five-solvent execution, but the currently attached local raw-data tree exposes only `testing-main/Data/Acetone`.
-- Heading CSS no longer uses negative letter spacing, and the main notebook box/card radius was tightened for cleaner publication rendering.
+- The numerical interpretation consistently identifies the accepted mean-rate sequence as Acetonitrile > Acetone > THF > Cyclohexane > Toluene.
+- The previously noted acetone-fastest prose contradiction remains absent from the reviewed notebook source and saved rendered markdown outputs.
+- The notebook uses stronger research support than the original weaker 2017 reference, including the primary ACS/PubMed-indexed Joshi, Fuyuki and Wada paper on solvent-dependent thermal cis-to-trans isomerisation of 4-aminoazobenzene, DOI `10.1021/jp4125205`.
+- The revised notebook now includes concise reader-facing lead-in text for every section that previously jumped directly from a heading into code.
+- The notebook CSS now avoids negative heading letter spacing and includes overflow protection for wide notebook outputs and DataFrame tables.
 - Direct embedded-media inspection succeeded for all 10 saved visuals: 8 PNG figures and 2 GIF animations. GIF frame counts remain 84 and 70.
 - Contact-sheet review of PNGs and sampled GIF frames did not reveal broken media, obvious clipping, overlapping chart boundaries, corrupted frames or malformed visual exports.
 
