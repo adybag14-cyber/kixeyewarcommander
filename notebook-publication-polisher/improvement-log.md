@@ -1,5 +1,46 @@
 # Improvement Log
 
+## 2026-05-29 19:15 BST scheduled pass
+
+### Inspection performed
+
+- Re-inspected the attached notebook package in `agent_files/`, including the rubric export and the executed notebook.
+- Confirmed the current attached raw-data tree still exposes only `testing-main/Data/Acetone`, while the saved notebook outputs preserve a complete five-solvent execution.
+- Checked the runtime environment and confirmed that fresh execution/export remains blocked by missing Jupyter, nbconvert, IPython, matplotlib, SciPy, RDKit, imageio and numba.
+- Parsed the notebook cell inventory and confirmed 37 cells with no saved error outputs.
+- Extracted and decoded all rich HTML visual outputs: 8 embedded PNG figures and 2 embedded GIF animations.
+- Built and reviewed a visual contact sheet from all PNG figures plus sampled GIF frames.
+- Searched the source and saved rendered markdown for solvent-ordering contradictions, stale reference text, negative heading spacing and oversized figure/card radii.
+
+### Improvements made
+
+- Created the revised deliverable notebook at `/workspace/output/P201_201698955_publication_ready_polished_1915.ipynb`.
+- Corrected the remaining acetone-fastest contradiction in the results discussion source and saved rendered markdown output.
+- Corrected the post-lab timescale answer so acetonitrile is named as the shortest characteristic recovery time, with acetone close behind and toluene much slower.
+- Replaced the weaker 2017 solvent-polarity reference with the primary ACS paper by Joshi, Fuyuki and Wada: `Polarity controlled reaction path and kinetics of thermal cis-to-trans isomerization of 4-aminoazobenzene`, *The Journal of Physical Chemistry B*, 2014, 118(7), 1891-1899, DOI `10.1021/jp4125205`.
+- Added concise explanatory lead-ins under every previously bare code-section heading.
+- Added a visible reproducibility/provenance note explaining that the saved outputs come from a complete five-solvent execution while the currently attached local raw-data package exposes only acetone.
+- Removed negative heading letter spacing, tightened prominent notebook box/figure/GIF radii, and added overflow protection for wide notebook outputs and DataFrame tables.
+
+### Validation and visual audit findings
+
+- Revised notebook JSON validates and still contains 37 cells.
+- All code cells parse without syntax errors.
+- There are no saved error outputs.
+- No markdown cell is now only a bare section heading.
+- Searches found no remaining `acetone gives the largest measured`, `remains the fastest solvent`, `fast solvents such as acetone`, negative heading letter spacing, `border-radius:18`, or stale `2017, 8, article` reference text.
+- Embedded PNG count: 8.
+- Embedded GIF count: 2.
+- GIF frame counts: 84 and 70.
+- All embedded PNG and GIF payloads decoded successfully after editing.
+- Contact-sheet review did not show obvious clipping, chart overlap, broken image payloads, malformed figure framing or corrupted GIF frames.
+- Full browser/HTML rendering remains unverified because `jupyter`/`nbconvert` is unavailable in the current container.
+
+### Unresolved risks
+
+- End-to-end reproducibility remains blocked until the complete five-solvent `Data/` directory is supplied.
+- A fresh Jupyter rerun is still needed to regenerate outputs from source and confirm no source/output drift remains after execution.
+
 ## 2026-05-29 18:15 BST scheduled pass
 
 ### Inspection performed
