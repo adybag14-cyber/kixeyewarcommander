@@ -2,8 +2,8 @@
 
 ## Current estimate
 
-- Date: 2026-05-29 19:15 BST scheduled pass
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished_1915.ipynb`
+- Date: 2026-05-29 20:15 BST scheduled pass
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished_2015.ipynb`
 - Estimated band: likely Outstanding for narrative quality, technical explanation, formatting, visual presentation and code documentation, subject to the reproducibility caveat below.
 - Main uncertainty: the attached local package still exposes only acetone raw data, while the saved notebook outputs preserve a complete five-solvent execution. Full marks for portability/reproducibility require restoring the complete raw-data tree and rerunning in a full Jupyter/scientific Python environment.
 
@@ -17,6 +17,7 @@
 - Commenting, documentation and explanation of code: strong to very strong. Functions are named clearly, comments are purposeful and added section lead-ins explain why each analysis block exists.
 - Markdown, LaTeX, HTML and formatting: very strong. The publication-style formatting is coherent; negative heading letter spacing is absent, prominent radii are restrained, and wide outputs now have display overflow protection.
 - Publication-rendering hygiene: strong based on direct embedded-media inspection. All 8 PNGs and both GIFs decode; sampled contact sheets show no obvious clipping, overlap, broken images or GIF corruption. Full HTML export still needs verification in a Jupyter environment.
+- Reproducibility safeguards: improved. The notebook now documents the complete five-solvent raw-data requirement and fails clearly if a rerun is attempted with missing or empty solvent folders.
 
 ## Evidence from this run
 
@@ -28,6 +29,7 @@
 - The parsed summary table reports five solvents with accepted trace counts: Acetonitrile 20/35, Acetone 37/92, THF 33/61, Cyclohexane 13/21 and Toluene 8/16.
 - The parsed automated checks table contains 33 checks, all marked passed in the saved output.
 - The revised source contains CSS overflow protection for notebook outputs and DataFrame tables.
+- This pass additionally verified 37 cells, no saved error outputs, 8 embedded PNGs, 2 embedded GIFs and readable GIF frame counts of 84 and 70 after the latest source edits.
 
 ## Remaining gap to full confidence
 
