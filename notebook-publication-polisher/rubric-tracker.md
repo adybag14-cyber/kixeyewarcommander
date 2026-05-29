@@ -2,14 +2,14 @@
 
 ## Current estimate
 
-- Date: 2026-05-29 04:15 BST scheduled pass
+- Date: 2026-05-29 05:15 BST scheduled pass
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`, with strongest evidence in explanation, formatting, visual presentation, code documentation and honesty about limitations
 - Main uncertainty: the polished notebook reads rigorously and transparently, and the saved executed evidence is visually intact, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated.
 
 ## Criterion status
 
-- Post-labs: very strong. The answers are complete, data-linked and now align cleanly with the executed solvent ordering, including the corrected acetonitrile-fastest interpretation.
+- Post-labs: very strong. The answers are complete, data-linked and now align cleanly with the executed solvent ordering, including the corrected acetonitrile-fastest interpretation, characteristic-time example and final-rate ordering.
 - Data analysis + plotting: very strong. All five solvents are represented in the saved execution, the figure set is coherent, and the refreshed audit decoded all 10 embedded media panels successfully without obvious clipping, overlap, broken-image or GIF defects.
 - Experimental write-up: very strong to outstanding. The notebook has clear front-page provenance wording, stronger primary-literature support, no remaining acetone-fastest contradiction in source or rendered outputs, and a transparent separation between archived execution and current local rerun limits.
 - Originality and elegance of code: strong to very strong. The notebook remains modular, auditable and unusually publication-aware for a lab notebook, with embedded validation and custom visual explanation assets.
