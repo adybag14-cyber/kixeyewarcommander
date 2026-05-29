@@ -2,10 +2,10 @@
 
 ## Current estimate
 
-- Date: 2026-05-29 15:15 BST scheduled pass
+- Date: 2026-05-29 16:15 BST scheduled pass
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Estimated band: likely `Outstanding`, with strongest evidence in explanation, formatting, visual presentation, code documentation and honesty about limitations
-- Main uncertainty: the polished notebook reads rigorously and transparently, and the saved executed evidence is visually intact, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated. This run also could not create a full nbconvert HTML render because `jupyter`/`nbconvert` are unavailable in the container. Direct embedded-media inspection remains positive: all 8 PNG figures and both GIF panels decode, with GIF frame counts of 84 and 70, and contact-sheet review did not reveal clipping, overlap, broken media or malformed chart framing. The research-source quality is stronger after replacing the weaker 2017 reference with the primary ACS/PubMed-indexed paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), and the generated discussion/post-lab narrative now consistently matches the executed acetonitrile-fastest ordering.
+- Main uncertainty: the polished notebook reads rigorously and transparently, and the saved executed evidence is visually intact, but the supplied review package still does not include the full raw `Data/` tree, so end-to-end rerunnability from the attached materials is not yet demonstrated. This run also could not create a full nbconvert HTML render because `jupyter`/`nbconvert` are unavailable in the container. Direct embedded-media inspection remains positive: all 8 PNG figures and both GIF panels decode, with GIF frame counts of 84 and 70, and contact-sheet review did not reveal clipping, overlap, broken media or malformed chart framing. The research-source quality is stronger after replacing the weaker 2017 reference with the primary ACS/PubMed-indexed paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), and the generated discussion/post-lab narrative now consistently matches the executed acetonitrile-fastest ordering in both source and saved rendered output.
 
 ## Criterion status
 
@@ -26,8 +26,8 @@
 
 ## This run's evidence upgrade
 
-- The actual attached notebook source and its saved rendered outputs were re-audited directly in a fresh workspace.
-- The polished output notebook was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb`.
+- The actual attached notebook source and its saved rendered outputs were re-audited directly in the current scheduled run.
+- The polished output notebook was rebuilt at `/workspace/output/P201_201698955_publication_ready_polished.ipynb` during the 16:15 BST pass.
 - The discussion and post-lab rendered outputs now consistently identify acetonitrile as the fastest measured solvent and no longer contradict the executed rate table.
 - The reference list is stronger and more defensible because it points to the primary ACS/PubMed-indexed paper by Joshi, Fuyuki and Wada on solvent-dependent thermal cis-to-trans isomerisation in a closely related aminoazobenzene system; the older 2017 DOI was removed from the polished notebook.
 - The title card, abstract, configuration section and automated-check note say plainly that the visible tables, figures and GIFs are archived outputs from a complete five-solvent run, while the currently attached review bundle only exposes `testing-main/Data/Acetone` locally and lacks the rest of the raw `Data/` tree needed for an end-to-end rerun in this session.
