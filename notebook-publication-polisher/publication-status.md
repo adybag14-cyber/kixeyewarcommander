@@ -2,19 +2,18 @@
 
 ## Current assessment
 
-- Date: 2026-05-29 05:15 BST scheduled pass
+- Date: 2026-05-29 06:15 BST scheduled pass
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong, near-publication notebook artifact with one remaining reproducibility blocker
-- Confidence note: this pass rebuilt the polished notebook in the fresh workspace from the attached full-output notebook and corrected the attached source rather than relying on prior saved claims. The notebook now explicitly separates archived five-solvent executed outputs from the currently attached local raw-data package, which only exposes `testing-main/Data/Acetone`. Source and saved rendered outputs consistently report the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, the residual post-lab wording now uses acetonitrile as the fastest case and lists final rates in executed order, the old 2017 DOI is absent, and the reference list now uses the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), verified this run against ACS/PubMed search results. A refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs.
+- Confidence note: this pass rebuilt the polished notebook in the fresh workspace from the attached full-output notebook and corrected the actual saved source and rendered outputs rather than relying on prior saved claims. The notebook now explicitly separates archived five-solvent executed outputs from the currently attached local raw-data package, which only exposes `testing-main/Data/Acetone`. Source and saved rendered outputs consistently report the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, the old 2017 DOI is absent, and the reference list now uses the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), verified against ACS search results. A refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs. The saved HTML payload now has zero default-open `<details>` panels and zero nonzero `letter-spacing` declarations.
 
 ## Highest-impact improvements in this run
 
 - Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` because the fresh scheduled workspace did not contain the prior polished output file.
-- Reapplied and verified the provenance wording that distinguishes archived complete five-solvent results from the currently incomplete local review package.
-- Corrected source and rendered narrative text so acetonitrile is consistently treated as the fastest measured solvent, with acetone close behind and second-fastest in the executed data set; also corrected the post-lab characteristic-time example and final-rate ordering.
+- Tightened the opening scope, abstract and configuration section so they clearly distinguish archived complete five-solvent results from the incomplete local review package.
 - Replaced the weaker 2017 reference with the primary ACS paper by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`) and verified that the old DOI no longer appears in the polished notebook.
-- Improved presentation hygiene by removing negative heading letter spacing, tightening oversized rounded corners, closing both large extra animation panels by default, and preserving compact consistency-check detail strings in the notebook source.
-- Revalidated the saved presentation layer directly from the polished notebook payloads: all 8 embedded PNG figures and both inline GIFs decoded cleanly; GIF first, middle and final frames rendered as expected in contact-sheet review.
+- Improved presentation hygiene by removing all saved nonzero letter spacing declarations and closing the laboratory workflow animation by default in both source and rendered output.
+- Revalidated the saved presentation layer directly from the polished notebook payloads: all 8 embedded PNG figures and both inline GIFs decoded cleanly; PNG contact-sheet review and GIF first/middle/final frame review showed no obvious clipping, overlap, broken media, or malformed chart framing.
 
 ## Remaining blockers
 
