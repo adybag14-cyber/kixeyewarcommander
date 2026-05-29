@@ -1,20 +1,21 @@
 # Improvement Log
 
-## 2026-05-29 06:15 BST scheduled pass
+## 2026-05-29 07:15 BST scheduled publication-polish pass
 
-- Re-inspected the attached full-output notebook, rubric guidance and existing progress memory.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook because the scheduled workspace did not already contain the polished output artifact.
-- Tightened the opening scope, abstract and configuration wording to make the archived five-solvent execution versus the currently attached acetone-only raw-data subset explicit.
-- Replaced the weaker 2017 solvent-polarity reference with the primary ACS/JPCB source by Joshi, Fuyuki and Wada on polarity-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene (`10.1021/jp4125205`), verified against current ACS search results.
-- Fixed a confirmed presentation defect: the laboratory setup/workflow GIF panel was still saved as default-open. It is now closed by default in both the source cell and saved rendered HTML output.
-- Removed all saved nonzero `letter-spacing` CSS declarations from the notebook to avoid compressed headings or labels in publication rendering.
-- Re-audited the polished notebook payload directly: there are zero default-open details panels, zero nonzero letter-spacing declarations, the old DOI is absent, and the new ACS DOI is present.
-- Revalidated all embedded visual assets: 8 PNG figures and 2 GIF animations decode successfully. PNG contact-sheet review and first/middle/final GIF frame review showed no obvious clipping, overlap, broken media, malformed chart framing, or GIF failure.
+- Re-inspected the attached full-output notebook, rubric guidance, memory state and GitHub-persisted status before making changes.
+- Confirmed the attached package still contains only `testing-main/Data/Acetone`; acetonitrile, cyclohexane, THF and toluene raw-data folders remain absent, so complete raw-data rerun remains blocked.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_polished.ipynb` from the attached notebook source.
+- Strengthened provenance wording in the title card, abstract, configuration section, analysis-environment note, reproducibility appendix and automated-check appendix to separate archived five-solvent outputs from the incomplete current local package.
+- Corrected source and saved rendered outputs so the narrative consistently identifies acetonitrile as the fastest solvent, acetone as close behind/second-fastest, and the executed order as `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`.
+- Replaced the weaker 2017 reference with Joshi, Fuyuki and Wada's primary ACS paper (`10.1021/jp4125205`) and verified the source by web search against ACS/PubMed results.
+- Removed all nonzero notebook-controlled CSS `letter-spacing` declarations and closed both large extra animation panels by default to reduce rendered-page clutter.
+- Revalidated the polished notebook payload: no error outputs; ACS DOI present; old DOI absent; stale acetone-fastest wording absent; expected solvent order present; partial-package caveat present; default-open research panels absent; all 10 embedded visuals decoded successfully.
+- Visual audit summary: 8 PNG figures plus 2 inline GIFs decoded successfully. GIF frame counts remain 84 and 70. Contact-sheet review of figures plus first/middle/final GIF frames did not reveal obvious clipping, overlap, broken image payloads, malformed chart framing or GIF corruption.
+- Verification limitation: full nbconvert HTML export could not run because this container does not provide `jupyter`/`nbconvert`.
 
-### Remaining risk
+## Open risk
 
-- Full end-to-end rerun remains blocked because the attached package still lacks the complete five-solvent raw `Data/` tree; only `testing-main/Data/Acetone` is available locally.
-- Full HTML/nbconvert verification remains unavailable in this container because the `jupyter` command is not installed; current visual verification is direct notebook-payload and contact-sheet based.
+- Full reproducibility remains blocked until the complete five-solvent raw-data tree is restored and the notebook is rerun from that local data package.
 
 ## Recent prior context
 
