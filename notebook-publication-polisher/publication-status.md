@@ -2,7 +2,7 @@
 
 ## Current assessment
 
-- Date: 2026-05-29 00:15 BST scheduled pass
+- Date: 2026-05-29 01:15 BST scheduled pass
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong, near-publication notebook artifact with one remaining reproducibility blocker
 - Confidence note: the polished notebook copy now corrects the live source drift found in the attached notebook. It states that the displayed five-solvent tables, figures and GIFs are archived outputs from a complete earlier execution while the currently attached local package only exposes `testing-main/Data/Acetone`. The references now use the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), the post-lab and discussion text align with the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`, and the inline laboratory-workflow panel no longer opens by default. A refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs, with no obvious clipping, overlap or broken-image defects in the saved outputs. The validation-check table was also cleaned so key details are no longer hidden behind pandas ellipses.
