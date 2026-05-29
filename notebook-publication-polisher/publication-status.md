@@ -2,23 +2,22 @@
 
 ## Current readiness assessment
 
-- Date: 2026-05-29 22:15 BST scheduled pass
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_reviewed.ipynb`
+- Date: 2026-05-29 23:15 BST scheduled pass
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-29.ipynb`
 - Publication-readiness estimate: very strong / near publishable from the saved executed notebook, with one major reproducibility blocker outside the notebook itself.
-- Rubric band estimate: likely Outstanding if the grader accepts the archived complete five-solvent execution; full confidence still requires the complete raw-data tree and an end-to-end rerun in a notebook-capable environment.
+- Rubric band estimate: likely Outstanding for narrative quality, technical explanation, formatting, visual presentation and code documentation if the grader accepts the archived complete five-solvent execution. Full confidence still requires the complete raw-data tree and an end-to-end rerun in a notebook-capable environment.
 
 ## Major strengths now present
 
 - The notebook has a coherent article-style structure with title card, abstract, aims, theory, method, results, post-lab answers, conclusion, reproducibility appendix, AI statement and references.
 - The saved outputs contain a complete five-solvent analysis: acetone, acetonitrile, cyclohexane, THF and toluene.
-- The numerical interpretation consistently identifies the accepted mean-rate sequence as Acetonitrile > Acetone > THF > Cyclohexane > Toluene in both source code and saved rendered markdown outputs.
-- The stale acetone-fastest contradiction has been removed from the results discussion and post-lab answers. Acetonitrile is now described as fastest, with acetone close behind.
-- The notebook now uses both a primary ACS/PubMed-indexed azobenzene solvent-kinetics paper by Joshi, Fuyuki and Wada, DOI `10.1021/jp4125205`, and the 4A4N-specific solvent-polarity source, so the research context is stronger without dropping the compound-specific evidence.
+- The numerical interpretation now consistently identifies the accepted mean-rate sequence as Acetonitrile > Acetone > THF > Cyclohexane > Toluene in both source code and saved rendered markdown outputs.
+- This pass removed remaining stale acetone-fastest/largest-rate contradictions from the results discussion and post-lab answers. Acetonitrile is now described as fastest, with acetone close behind where appropriate.
 - Reader-facing lead-in text is present for every section that previously jumped directly from a heading into code or generated markdown.
 - The notebook CSS avoids negative heading letter spacing, restrains prominent box/figure/GIF radii, and includes overflow protection for wide notebook outputs and DataFrame tables.
 - Direct embedded-media inspection succeeded for all 10 saved visuals: 8 PNG figures and 2 GIF animations. GIF frame counts remain 84 and 70, and the revised notebook has no saved error outputs.
-- The source now explicitly documents the five-solvent data requirement in the configuration and reproducibility sections.
-- The raw-data discovery function now reports all missing or empty solvent directories together, preventing a partial-data rerun from silently weakening the five-solvent solvent-ranking argument.
+- All 14 code cells parse without syntax errors in the revised notebook.
+- The source documents the five-solvent data requirement and the raw-data discovery path is designed to prevent a partial-data rerun from silently weakening the five-solvent solvent-ranking argument.
 
 ## Remaining blockers
 
