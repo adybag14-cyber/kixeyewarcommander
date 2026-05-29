@@ -2,8 +2,8 @@
 
 ## Current readiness assessment
 
-- Date: 2026-05-29 20:15 BST scheduled pass
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_ready_polished_2015.ipynb`
+- Date: 2026-05-29 21:15 BST scheduled pass
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_reviewed.ipynb`
 - Publication-readiness estimate: very strong / near publishable from the saved executed notebook, with one major reproducibility blocker outside the notebook itself.
 - Rubric band estimate: likely Outstanding if the grader accepts the archived complete five-solvent execution; full confidence still requires the complete raw-data tree and an end-to-end rerun in a notebook-capable environment.
 
@@ -13,10 +13,11 @@
 - The saved outputs contain a complete five-solvent analysis: acetone, acetonitrile, cyclohexane, THF and toluene.
 - The numerical interpretation now consistently identifies the accepted mean-rate sequence as Acetonitrile > Acetone > THF > Cyclohexane > Toluene in both source code and saved rendered markdown outputs.
 - The old acetone-fastest contradiction has been removed from the results discussion and post-lab answers. Acetonitrile is now described as slightly fastest, with acetone close behind.
-- The notebook uses stronger research support than the original weaker 2017 reference, including the primary ACS paper by Joshi, Fuyuki and Wada on solvent-dependent thermal cis-to-trans isomerisation of 4-aminoazobenzene, DOI `10.1021/jp4125205`.
+- The notebook now uses both a primary ACS/PubMed-indexed azobenzene solvent-kinetics paper by Joshi, Fuyuki and Wada, DOI `10.1021/jp4125205`, and the 4A4N-specific solvent-polarity source, so the research context is stronger without dropping the compound-specific evidence.
+- This pass rechecked the source and saved rendered markdown for stale acetone-fastest wording and corrected the remaining source-level contradiction that still said acetone gave the largest measured rate.
 - Concise reader-facing lead-in text is now present for every section that previously jumped directly from a heading into code.
 - The notebook CSS now avoids negative heading letter spacing, tightens prominent box/figure radii, and includes overflow protection for wide notebook outputs and DataFrame tables.
-- Direct embedded-media inspection succeeded for all 10 saved visuals: 8 PNG figures and 2 GIF animations. GIF frame counts remain 84 and 70.
+- Direct embedded-media inspection succeeded for all 10 saved visuals: 8 PNG figures and 2 GIF animations. GIF frame counts remain 84 and 70, and the revised notebook has no saved error outputs.
 - Contact-sheet review of PNGs and sampled GIF frames did not reveal broken media, obvious clipping, overlapping chart boundaries, corrupted frames or malformed visual exports.
 - The notebook source now explicitly documents the five-solvent data requirement in the configuration and reproducibility sections.
 - The raw-data discovery function now reports all missing or empty solvent directories together, preventing a partial-data rerun from silently weakening the five-solvent solvent-ranking argument.
