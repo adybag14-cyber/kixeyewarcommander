@@ -2,10 +2,10 @@
 
 ## Current assessment
 
-- Date: 2026-05-29 07:15 BST scheduled pass
+- Date: 2026-05-29 08:15 BST scheduled pass
 - Current best deliverable: `/workspace/output/P201_201698955_publication_ready_polished.ipynb`
 - Publication-readiness estimate: strong, near-publication notebook artifact with one remaining reproducibility blocker
-- Confidence note: this pass rebuilt the polished notebook from the attached full-output source in the fresh scheduled workspace and corrected publication-critical source plus saved rendered outputs. The notebook now explicitly separates archived five-solvent executed outputs from the currently attached local raw-data package, which only exposes `testing-main/Data/Acetone`. Source and saved rendered outputs consistently report the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; the residual acetone-fastest wording is absent; the old 2017 DOI is absent; and the reference list now uses the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`), verified this run against ACS/PubMed search results. A refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs with 84 and 70 frames.
+- Confidence note: this pass rebuilt the polished notebook from the attached full-output source in the fresh scheduled workspace and corrected publication-critical source plus saved rendered outputs. The notebook now explicitly separates archived five-solvent executed outputs from the currently attached local raw-data package, which only exposes `testing-main/Data/Acetone`. Source and saved rendered outputs consistently report the executed ordering `Acetonitrile > Acetone > THF > Cyclohexane > Toluene`; the residual acetone-fastest wording is absent; the old 2017 DOI is absent; and the reference list now uses the stronger primary ACS paper by Joshi, Fuyuki and Wada (`10.1021/jp4125205`). A refreshed embedded-media audit decoded all 10 saved visual assets successfully: 8 PNG figures and 2 inline GIFs with 84 and 70 frames.
 
 ## Highest-impact improvements in this run
 
