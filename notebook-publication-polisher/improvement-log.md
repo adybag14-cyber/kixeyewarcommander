@@ -1,24 +1,24 @@
 # Improvement Log
 
-## 2026-05-29 21:15 BST scheduled pass
+## 2026-05-29 22:15 BST scheduled pass
 
 ### Inspection performed
 
-- Re-inspected the attached executed notebook, rubric export, supporting data package and prior memory state.
+- Re-inspected the attached executed notebook, rubric export, supporting data package, prior memory state and GitHub persistence folder.
 - Confirmed the attached local raw-data tree still exposes only `testing-main/Data/Acetone`, while the saved notebook outputs preserve the complete five-solvent execution.
-- Parsed notebook structure: 37 cells, no saved error outputs, and saved tables for five solvents.
+- Parsed notebook structure: 37 cells, 14 code cells, 23 markdown cells and no saved error outputs.
 - Revalidated embedded visuals directly: 8 PNG figures and 2 GIF animations. GIF frame counts remain 84 and 70.
 - Searched both source and saved rendered outputs for stale solvent-ordering claims and presentation-risk styling.
 
 ### Improvements made
 
 - Created `/workspace/output/P201_201698955_publication_polished_reviewed.ipynb`.
-- Corrected the remaining source-level contradiction that still said acetone gave the largest measured rate; the narrative now consistently reports Acetonitrile > Acetone > THF > Cyclohexane > Toluene.
-- Kept saved rendered markdown aligned with the corrected source so the notebook reads correctly before a fresh rerun.
-- Added reader-facing lead-ins to previously bare code-section headings.
-- Added a visible provenance note explaining that the archived outputs are complete but the attached local raw-data folder is incomplete for rerun.
+- Corrected stale acetone-fastest/largest-rate wording in both notebook source and saved rendered markdown outputs so the text consistently reports Acetonitrile > Acetone > THF > Cyclohexane > Toluene.
+- Added reader-facing lead-ins to all previously bare markdown headings before code or generated narrative sections.
+- Added/retained a visible provenance note explaining that the archived outputs are complete but the attached local raw-data folder is incomplete for rerun.
 - Added CSS overflow safeguards for notebook outputs and DataFrame tables, removed negative heading letter spacing, and restrained prominent figure/card/GIF radii.
-- Expanded the reference list to include the primary ACS/PubMed-indexed Joshi, Fuyuki and Wada paper while retaining the compound-specific 4A4N source.
+- Improved `discover_trace_files` so an incomplete rerun reports all missing or empty configured solvent folders at once.
+- Kept the expanded reference list with the primary ACS/PubMed-indexed Joshi, Fuyuki and Wada paper while retaining the compound-specific 4A4N source.
 
 ### Visual audit findings
 
@@ -27,8 +27,8 @@
 - GIF frame counts: 84 and 70.
 - All embedded PNG and GIF payloads decoded successfully after editing.
 - No saved error outputs were present.
-- Searches found no remaining `acetone gives the largest measured`, `remains the fastest solvent`, `fast solvents such as acetone`, negative heading letter spacing, `border-radius:18`, or stale `2017, 8` reference text.
-- Full browser/HTML rendering remains unverified because `jupyter`/`nbconvert` is unavailable in the current container.
+- Searches found no remaining `acetone gives the largest measured`, `remains the fastest solvent`, `gave the fastest recovery`, negative heading letter spacing, `border-radius:18px`, `border-radius:11px`, stale `2017, 8, article no:` reference text, stale RDKit `(6)` figure text, or stale Numba citation numbering.
+- Full browser/HTML rendering remains unverified because a complete notebook rerun/export stack is unavailable in the current container.
 
 ### Unresolved risks
 
@@ -100,40 +100,6 @@
 - GIF frame counts: 84 and 70.
 - All embedded PNG and GIF payloads decoded successfully after editing.
 - Contact-sheet review did not show obvious clipping, chart overlap, broken image payloads, malformed figure framing or corrupted GIF frames.
-- Full browser/HTML rendering remains unverified because `jupyter`/`nbconvert` is unavailable in the current container.
-
-### Unresolved risks
-
-- End-to-end reproducibility remains blocked until the complete five-solvent `Data/` directory is supplied.
-- A fresh Jupyter rerun is still needed to regenerate outputs from source and confirm no source/output drift remains after execution.
-
-## 2026-05-29 18:15 BST scheduled pass
-
-### Inspection performed
-
-- Re-inspected the attached notebook package in `agent_files/`, including the rubric export and the executed notebook.
-- Confirmed the current attached raw-data tree still exposes only `testing-main/Data/Acetone`, while the saved notebook outputs preserve a complete five-solvent execution.
-- Parsed the notebook cell inventory and confirmed 37 cells with no saved error outputs.
-- Extracted and decoded all rich HTML visual outputs: 8 embedded PNG figures and 2 embedded GIF animations.
-- Built and reviewed a visual contact sheet from all PNG figures plus sampled first/last GIF frames.
-- Parsed rendered DataFrame outputs to review table shapes, solvent ordering, accepted trace counts, validation checks and benchmark/sensitivity summaries.
-
-### Improvements made
-
-- Created the revised deliverable notebook at `/workspace/output/P201_201698955_publication_polished_reviewed.ipynb`.
-- Added concise explanatory lead-ins under the `Data reader`, `Fast fitting functions`, `Quality control and summary functions`, `Run the analysis`, `Independent validation and fit-window sensitivity`, `Figures`, `Results and discussion`, and `Answers to post-lab questions` sections.
-- Added notebook CSS safeguards so wide outputs and DataFrame tables can scroll horizontally instead of clipping in notebook/HTML views.
-- Preserved all existing executed outputs while improving source markdown and display styling.
-- Validated the revised notebook JSON, confirmed no saved error outputs, and verified all 10 embedded image payloads decode after editing.
-
-### Visual audit findings
-
-- Embedded PNG count: 8.
-- Embedded GIF count: 2.
-- GIF frame counts: 84 and 70.
-- All embedded PNG and GIF payloads decoded successfully after editing.
-- Contact-sheet review did not show obvious clipping, chart overlap, broken image payloads, malformed figure framing or corrupted GIF frames.
-- Wide tabular outputs remain a layout risk in narrow displays, but the revised CSS now provides overflow protection.
 - Full browser/HTML rendering remains unverified because `jupyter`/`nbconvert` is unavailable in the current container.
 
 ### Unresolved risks
