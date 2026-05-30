@@ -2,20 +2,21 @@
 
 ## Current assessment
 
-- Date: 2026-05-30 01:21 BST scheduled pass.
+- Date: 2026-05-30 02:23 BST scheduled pass.
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30.ipynb`.
 - Readiness: strong publication candidate from the saved full-output notebook, but not yet fully rerun-verified in this environment.
-- Estimated rubric band: likely Outstanding for narrative, interpretation, code documentation and visual presentation, subject to the reproducibility blocker below.
+- Estimated rubric band: likely Outstanding for explanation, analysis, code documentation and visual presentation, subject to the reproducibility blocker below.
 
 ## Improvements completed in this pass
 
+- Rebuilt the polished notebook artifact from the attached full-output notebook because the previous output artifact was not present in this fresh workspace.
 - Corrected stale solvent-ordering language so the narrative and post-lab answers now match the saved results: Acetonitrile > Acetone > THF > Cyclohexane > Toluene.
-- Removed remaining statements implying acetone was the fastest solvent or had the largest measured rate constant.
-- Added explanatory lead-ins to formerly bare section headings so code-heavy sections now have publication-quality transitions.
+- Removed statements implying acetone was the fastest solvent or had the largest measured rate constant.
+- Added explanatory lead-ins to all formerly bare section-heading cells, including data reading, fitting, quality control, execution, validation, figures, results and post-lab sections.
 - Strengthened reproducibility handling by improving the missing/empty solvent-folder diagnostic in `discover_trace_files`.
 - Added a visible provenance note explaining that the cached outputs preserve a complete five-solvent run, while the currently attached local raw-data tree exposes only acetone.
 - Tightened notebook CSS and embedded figure/GIF HTML: removed negative heading letter spacing, reduced prominent radii, and added horizontal-overflow protection for wide outputs.
-- Updated the references section: corrected the Smith and Bou-Abdallah article formatting/DOI text and added the primary Joshi, Fuyuki and Wada 2014 mechanistic paper on solvent-controlled thermal cis-to-trans isomerization.
+- Updated the references section: corrected the Smith and Bou-Abdallah article formatting and added the primary Joshi, Fuyuki and Wada 2014 ACS mechanistic paper on solvent-controlled thermal cis-to-trans isomerization.
 
 ## Validation completed
 
@@ -23,8 +24,8 @@
 - All 14 code cells parse without syntax errors.
 - No saved error outputs are present.
 - No markdown cell is only a bare heading.
-- Searches found no remaining stale phrases: `Acetone, for example, gave the fastest recovery`, `acetone gives the largest measured`, `remains the fastest`, or `fast solvents such as acetone`.
-- Searches found no remaining negative heading letter spacing or old `border-radius:18px` / `border-radius:11px` styling.
+- Searches found no remaining stale phrases: `Acetone, for example, gave the fastest recovery`, `acetone gives the largest measured`, `remains the fastest solvent`, or `fast solvents such as acetone`.
+- Searches found no remaining negative heading letter spacing, old `border-radius:18px` / `border-radius:11px` styling, stale `article no: 181`, or stale `RDKit (6)` figure-citation text.
 - Saved embedded media in rendered outputs decode successfully: 8 PNG figures and 2 GIFs.
 - GIF frame counts remain intact at 84 and 70 frames.
 - Contact-sheet review of saved figures and sampled GIF frames showed no obvious clipping, overlap, broken images, corrupt frames, unreadable labels or malformed visual framing.
