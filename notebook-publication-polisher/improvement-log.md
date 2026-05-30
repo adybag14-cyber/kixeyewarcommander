@@ -87,3 +87,48 @@
 - Clean execution and regenerated numerical verification require the complete five-solvent raw data package and missing scientific Python dependencies.
 - HTML/PDF export-render QA requires Jupyter/nbconvert or equivalent notebook export tooling.
 - Cached numerical outputs remain plausible and internally audited, but not rederived in this run.
+
+## 2026-05-30 16:15 BST scheduled pass
+
+### Package reviewed
+
+- Notebook: `/workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- Rubric: `/workspace/agent_files/marking rubric for simple exercise.txt`.
+- Supporting data in current package: acetone-only raw files under `/workspace/agent_files/testing-main/Data/Acetone`.
+- Current output created: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1615.ipynb`.
+- Output SHA-256: `0a53bfd66368aec25cc79c33ee2a8f6ef0be7f9b5c3d13fb4022c10dbb2552ee`.
+
+### Findings
+
+- The source notebook still had publication-facing polish gaps: several Markdown cells were heading-only, the literature framing leaned too heavily on the teaching experiment and one solvent-polarity paper, and inline styling included negative heading letter spacing, 18 px media wrappers and heavy shadows.
+- The saved full-output notebook remains strong against the simple-exercise rubric: cached outputs include five solvents, uncertainty, quality control, validation checks, figures, post-lab answers and references.
+- The current package still cannot support a clean five-solvent rerun because only acetone raw data are attached.
+- This runtime still lacks the key scientific and notebook-rendering dependencies needed for clean execution or HTML/PDF export QA.
+- Embedded visuals are intact: 8 PNG figures and 2 GIF animations decode successfully; the mechanism GIF has 84 frames and the laboratory workflow GIF has 70 frames.
+
+### Improvements made
+
+- Produced a fresh polished notebook copy in `/workspace/output`.
+- Added two verified literature sources: Bandara and Burdette, *Chemical Society Reviews*, 2012, DOI `10.1039/C1CS15179G`, and Schanze, Mattox and Whitten, *The Journal of Organic Chemistry*, 1983, DOI `10.1021/jo00165a005`.
+- Strengthened the introduction and conclusion so solvent effects are framed as medium-sensitive substituted-azobenzene kinetics rather than as a simple polarity-only ranking.
+- Replaced heading-only Markdown sections with concise explanatory transitions before parser, fitting, QC, execution, validation, figure, discussion and post-lab sections.
+- Reduced export-risk styling in source and cached HTML outputs: removed negative heading letter spacing, replaced 18 px wrappers with 8 px radii, softened heavy shadows, and added table/output overflow protection.
+- Renumbered RDKit and Numba references after adding the new literature sources and patched stale cached caption/text references.
+- Clarified in the automated-check appendix that direct asset checks complement but do not replace final HTML/PDF render inspection.
+
+### Validation performed
+
+- Loaded revised notebook JSON successfully.
+- Parsed all revised code cells with Python `ast.parse` successfully.
+- Checked saved outputs for error objects: none found.
+- Checked Markdown cells for empty or heading-only sections: none found.
+- Decoded all embedded visual assets with Pillow: all valid.
+- Confirmed embedded media inventory: 8 PNG figures and 2 GIF animations.
+- Confirmed mechanism GIF has 84 frames and laboratory workflow GIF has 70 frames.
+- Confirmed revised source and cached outputs contain no `letter-spacing:-`, no `border-radius:18px`, no `border-radius: 18px`, no stale `using RDKit (6)` and no stale `whole workflow (7)` text.
+
+### Unresolved risks
+
+- Clean execution and regenerated numerical verification require the complete five-solvent raw data package and missing scientific Python dependencies.
+- HTML/PDF export-render QA requires Jupyter/nbconvert or an equivalent notebook export environment.
+- Cached numerical outputs remain plausible and internally audited, but were not rederived in this run.
