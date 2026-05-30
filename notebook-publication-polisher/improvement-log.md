@@ -1,5 +1,34 @@
 # Improvement Log
 
+## 2026-05-30 04:15 BST scheduled pass
+
+### Improvements made
+
+- Created `/workspace/output/P201_201698955_publication_polished_2026-05-30_pass2.ipynb` from the attached full-output notebook.
+- Added narrative lead-ins to every remaining bare heading-only markdown cell so each code-heavy section now has a clear purpose and transition.
+- Strengthened the research framing in the introduction and conclusion by adding the Joshi, Fuyuki and Wada ACS paper on polarity-controlled aminoazobenzene thermal isomerisation and by making the solvent-mechanism interpretation more nuanced.
+- Renumbered affected RDKit and Numba references after adding the new primary literature source.
+- Tightened both source CSS and already-saved cached HTML outputs: negative heading letter spacing is gone, old `18px`/`11px` radii are gone, and figure/card radii are restrained to `8px`.
+- Re-extracted all embedded inline PNG/GIF assets and built a contact sheet for visual review.
+
+### Validation and visual audit findings
+
+- Polished notebook JSON validates and still contains 37 cells.
+- All 14 code cells parse without syntax errors.
+- There are no saved error outputs.
+- No markdown cell is now only a bare section heading.
+- Searches across source and cached outputs found no remaining negative heading letter spacing, `border-radius:18px`, `border-radius: 18px`, `border-radius:11px`, or `border-radius: 11px`.
+- Saved rendered-output media decode successfully: 8 PNGs plus 2 GIFs.
+- GIF frame counts are intact: 84 and 70 frames.
+- Contact-sheet review of 8 PNGs and sampled first/middle/final GIF frames did not show obvious clipping, chart overlap, broken image payloads, malformed figure framing, corrupted GIF frames or unreadable labels.
+- Web source check confirmed the new ACS reference metadata for DOI `10.1021/jp4125205`.
+
+### Unresolved risks
+
+- The complete five-solvent raw `Data/` package is still unavailable in this workspace, preventing a clean rerun.
+- Full browser/HTML/PDF rendering remains unverified because Jupyter/`nbconvert` is unavailable in the current container.
+- Cached outputs remain the strongest available evidence until the full raw data can be restored and rerun.
+
 ## 2026-05-30 03:15 BST scheduled pass
 
 ### Improvements made
