@@ -1,5 +1,49 @@
 # Improvement Log
 
+## 2026-05-30 19:15 BST scheduled pass
+
+### Package reviewed
+
+- Notebook: `/workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- Rubric: `/workspace/agent_files/marking rubric for simple exercise.txt`.
+- Supporting data in current package: acetone-only raw files under `/workspace/agent_files/testing-main/`; no complete five-solvent `Data/` tree is attached.
+- Current output created: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1915.ipynb`.
+- Output SHA-256: `0985d3847af2b08df8397d97952713e98045737c64c292151ce9fe36ed4ea0de`.
+
+### Findings
+
+- The attached full-output notebook remains high quality against the rubric because it contains cached five-solvent analysis outputs, uncertainty summaries, trace-level quality control, validation checks, publication figures, post-lab answers and references.
+- This attached copy still had publication-facing issues that matter in rendered notebooks: eight bare Markdown section headings, negative heading letter spacing, 18 px media wrappers, heavy media shadows, stale RDKit/Numba citation numbering in cached text and very large embedded PNG dimensions.
+- The literature frame needed one more tightening pass so the solvent trend is presented as mechanism- and solvent-class-sensitive rather than as a simple bulk-polarity ranking.
+- The runtime still cannot complete a clean execution or export-render QA because matplotlib, SciPy, RDKit, Numba, IPython, nbformat and nbconvert are unavailable here.
+
+### Improvements made
+
+- Produced a fresh polished notebook copy in `/workspace/output`.
+- Strengthened the introduction and generated results discussion with a more careful mechanism interpretation, including Bandara and Burdette for azobenzene classes and Marcandalli et al. for solvent/substituent effects in donor-acceptor amino/nitro azobenzenes.
+- Replaced eight bare headings with explanatory transitions before parsing, fitting, quality control, execution, validation, figures, results and post-lab sections.
+- Renumbered references after adding the two research sources: RDKit is now reference 8 and Numba is now reference 9 in source and cached outputs.
+- Reduced visual export risk by removing negative heading tracking, replacing 18 px media radii with 8 px radii, reducing heavy shadows and downsampling all embedded PNG outputs to a maximum width of 2400 px.
+- Preserved both GIF animations and validated their frame counts.
+
+### Validation performed
+
+- Loaded revised notebook JSON successfully.
+- Parsed all revised code cells with Python `ast.parse` successfully.
+- Checked saved outputs for error objects: none found.
+- Checked Markdown cells for empty or heading-only sections: none found.
+- Decoded all embedded visual assets with Pillow: all valid.
+- Confirmed 10 embedded assets: 8 PNG figures and 2 GIFs.
+- Confirmed maximum embedded PNG width is now 2400 px.
+- Confirmed mechanism GIF has 84 frames and laboratory workflow GIF has 70 frames.
+- Confirmed revised source and cached outputs contain no `letter-spacing:-`, no `border-radius:18px`, no `border-radius: 18px`, no `box-shadow:0 18px`, no `box-shadow:0 12px 30px`, no stale `using RDKit (6)`, no stale `whole workflow (7)` and no stale `(3, 5)` solvent-mechanism citation.
+
+### Unresolved risks
+
+- Clean execution and regenerated numerical verification require the complete five-solvent data package and missing scientific Python dependencies.
+- HTML/PDF export-render QA requires Jupyter/nbconvert or equivalent notebook export tooling.
+- Cached numerical outputs remain plausible and internally audited, but not rederived in this run.
+
 ## 2026-05-30 18:15 BST scheduled pass
 
 ### Package reviewed
