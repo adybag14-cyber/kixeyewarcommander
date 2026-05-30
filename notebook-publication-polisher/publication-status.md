@@ -2,9 +2,9 @@
 
 ## Current assessment
 
-- Date: 2026-05-30 14:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1415.ipynb`.
-- Notebook SHA-256: `7964aa42ab46438cc3f85e7df52b85510ae1819a2907c8f2650f015dafc51031`.
+- Date: 2026-05-30 15:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1515.ipynb`.
+- Notebook SHA-256: `73cf77ff41762b1ca02e7754bf7ac318d4917301bb35594f6e66d10aeac7c13b`.
 - Readiness estimate: near publication-ready from the cached full-output notebook. The revised notebook has a coherent article-style structure, five-solvent cached analysis outputs, trace-level quality control, uncertainty treatment, validation checks, publication figures, post-lab answers, a stronger mechanism-linked research frame and safer export styling.
 - Confidence caveat: the attached source package still includes only acetone raw files, while the executed notebook output covers acetone, acetonitrile, cyclohexane, THF and toluene. A fully reproducible clean rerun remains blocked until the complete five-solvent `Data/` tree and a compatible scientific Python/RDKit/Jupyter environment are available.
 
@@ -15,7 +15,7 @@
 - Strengthened the introduction and conclusion with a peer-reviewed azobenzene mechanism source: Bandara and Burdette, *Chemical Society Reviews*, 2012, DOI `10.1039/C1CS15179G`, verified against the Royal Society of Chemistry listing.
 - Added the new reference in Leeds Numeric order and corrected downstream RDKit/Numba citation numbering in source text and cached outputs.
 - Improved incomplete-data diagnostics in `discover_trace_files` so missing solvent folders produce counts for every expected solvent and exact remediation guidance.
-- Added an explicit reproducibility boundary in the appendix distinguishing cached five-solvent outputs from a clean rerun using the currently attached acetone-only package.
+- Added static-export fallback notes around the GIF sections so the intended still-frame meaning is preserved in non-animated formats.
 - Tightened notebook/export styling in source and cached HTML outputs: removed negative heading letter spacing, removed 18 px wrappers, reduced heavy shadows, softened embedded image/GIF frame radii and made preformatted text more export-safe.
 - Added static-export fallback notes for the two embedded animation sections so PDF/static viewers still have an interpretable first-frame summary.
 
