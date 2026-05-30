@@ -2,7 +2,7 @@
 
 ## Current estimate
 
-- Date: 2026-05-30 02:23 BST scheduled pass.
+- Date: 2026-05-30 03:15 BST scheduled pass.
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30.ipynb`.
 - Estimated band: likely Outstanding for explanation, analysis, visual presentation and code documentation, with one material reproducibility caveat.
 - Main uncertainty: the available local raw-data package contains only acetone, while the saved notebook outputs preserve a complete five-solvent execution. Full marks for reproducibility require restoring all raw data and rerunning from source.
@@ -28,7 +28,7 @@
 - Embedded media validation found 10 rendered visual assets: 8 PNGs plus GIFs with 84 and 70 frames.
 - Contact-sheet review of PNGs and sampled GIF frames found no obvious clipping, chart overlap, broken image payloads, malformed visual framing or corrupted GIF frames.
 - Searches found no remaining stale fastest-solvent wording, negative heading letter spacing, old large-radius styling, stale `article no: 181`, or stale `RDKit (6)` figure-citation text.
-- The attached raw-data tree still contains only `testing-main/Data/Acetone`, confirming the remaining rerun blocker.
+- The attached raw-data tree still contains only `testing-main/Data/Acetone` with 49 `.dat` files, confirming the remaining rerun blocker.
 - The saved output reports five solvents with accepted trace counts: Acetonitrile 20/35, Acetone 37/92, THF 33/61, Cyclohexane 13/21 and Toluene 8/16.
 
 ## Remaining gap to full confidence
