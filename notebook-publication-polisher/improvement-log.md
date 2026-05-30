@@ -1,78 +1,45 @@
 # Improvement Log
 
-## 2026-05-30 08:15 BST scheduled pass
+## 2026-05-30 09:15 BST scheduled pass
 
-### Review findings
+### Package reviewed
 
-- The attached package still contains the executed notebook and rubric guidance, but no raw five-solvent `Data/` directory for a clean rerun.
-- The notebook had eight heading-only Markdown sections in the attached source, which created weak transitions around core methods, validation, figures, discussion and post-lab answers.
-- Static embedded PNG figures decoded correctly and appeared readable in a visual contact-sheet review.
-- The two inline GIF animations decoded correctly, but their first frames were sparse fade-in states. Renderers or exports that show only the first GIF frame could therefore make the visuals look blank or broken.
-- Publication styling still included export-risk choices such as negative heading letter spacing, large rounded containers and heavier shadows.
+- Notebook: `/workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- Rubric: `/workspace/agent_files/marking rubric for simple exercise.txt`.
+- Supporting data in current package: acetone-only raw files under `/workspace/agent_files/testing-main/Data/Acetone`.
+- Current output created: `/workspace/output/P201_201698955_publication_polished_2026-05-30_0915.ipynb`.
 
-### Improvements made
+### Findings
 
-- Created `/workspace/output/P201_201698955_publication_polished_2026-05-30_0815.ipynb` from the attached full-output notebook.
-- Added explanatory publication-style lead-ins to the eight previously heading-only Markdown sections.
-- Tightened notebook CSS for cleaner export behaviour: zero heading letter spacing, restrained radii, softer shadows and overflow protection for rendered outputs, figures, images and tables.
-- Added Joshi, Fuyuki and Wada, *The Journal of Physical Chemistry B*, 2014, 118(7), 1891-1899, DOI `10.1021/jp4125205`, to strengthen the solvent-polarity and mechanism discussion.
-- Updated citation numbering in affected discussion, figure-caption, RDKit and Numba references.
-- Improved `discover_trace_files` so incomplete raw data packages report every missing or empty expected solvent directory and discovered per-solvent file counts.
-- Added an explicit reproducibility note naming the required `Data/Acetone`, `Data/Acetonitrile`, `Data/Cyclohexane`, `Data/THF` and `Data/Toluene` folders.
-- Rebuilt the two embedded GIF outputs with informative poster frames prepended, so static previews no longer open on blank-looking fade-in frames.
-
-### Validation evidence
-
-- Revised notebook JSON loads successfully and contains 37 cells.
-- All 14 code cells parse with Python `ast.parse`.
-- No saved error outputs were found.
-- No empty or heading-only Markdown cells remain.
-- No stale `using RDKit (6)` or `whole workflow (7)` citation references remain.
-- Embedded media decode successfully: 8 PNG figures and 2 GIF animations.
-- GIF frame counts after poster-frame insertion: mechanism GIF 85 frames; laboratory workflow GIF 71 frames.
-- Visual contact-sheet review confirmed the static figures are readable at notebook scale and the revised GIF first frames show meaningful content.
-
-### Unresolved risks
-
-- Full source reproducibility remains blocked by the missing five-solvent raw `Data/` directory.
-- Clean execution remains blocked in this container because RDKit is unavailable.
-- HTML/PDF export rendering remains unverified because `nbformat`, `nbconvert` and Jupyter export tooling are unavailable.
-- The executed five-solvent outputs should be treated as cached-but-audited until a clean rerun from complete source data is possible.
-
-## 2026-05-30 07:15 BST scheduled pass
-
-### Review findings
-
-- The current attached package contains a full-output notebook and rubric guidance, but no raw `Data/` directory for a clean rerun.
-- The notebook's cached outputs cover five solvents and contain no saved error outputs.
-- Eight Markdown sections were only bare headings, which weakened publication flow around important code and interpretation sections.
-- Opening and inline output styling still contained export-risk choices: negative heading letter spacing, large 18px rounded containers and heavier shadows than needed for a technical notebook.
-- Embedded media were present in HTML outputs: 8 PNG figures and 2 GIF animations.
+- The full-output notebook is already strong against the rubric: it analyses all five solvents in cached outputs, includes uncertainty, outlier handling, validation checks, figures, post-lab answers, references and reproducibility notes.
+- The current source package cannot support a clean five-solvent rerun because four raw solvent folders are absent.
+- The runtime cannot execute the notebook end to end because RDKit is not installed; it also cannot verify exported HTML/PDF because `nbconvert` is not installed.
+- Visual payloads are intact: 8 PNGs and 2 GIF animations decode successfully, with GIF frame counts preserved.
+- Publication polish issues remained in the source: bare heading-only sections, export-risk CSS choices and a weaker-than-ideal solvent-mechanism research frame.
 
 ### Improvements made
 
-- Created `/workspace/output/P201_201698955_publication_polished_2026-05-30_0715.ipynb`.
-- Added concise publication-style lead-ins before the data reader, fitting functions, quality-control functions, run cell, validation section, figure section, results discussion and post-lab answers.
-- Tightened export-safe styling by setting heading letter spacing to zero, reducing large radii, reducing heavy shadows and adding overflow protection around output areas, images and tables.
-- Added Joshi, Fuyuki and Wada, *The Journal of Physical Chemistry B*, 2014, 118(7), 1891-1899, DOI `10.1021/jp4125205`, to strengthen the solvent-polarity/mechanism discussion.
-- Updated citation numbering in the introduction, conclusion, figure captions and performance discussion after adding the new reference.
-- Improved `discover_trace_files` so a partial data package reports exactly which solvent directories are missing or empty and which directories were actually found.
-- Added an explicit reproducibility note naming the required five solvent subdirectories for a clean rerun.
+- Produced a fresh polished notebook copy in `/workspace/output`.
+- Added Bandara and Burdette, *Chemical Society Reviews*, 2012, DOI `10.1039/C1CS15179G`, to strengthen interpretation of solvent-sensitive azobenzene isomerisation pathways.
+- Updated discussion language to frame the observed solvent sequence as a combined effect of polarity, specific solvation, local viscosity/packing and inversion/rotation pathway balance.
+- Replaced bare headings with explanatory transitions before key code and interpretation sections.
+- Improved incomplete-data diagnostics in `discover_trace_files` with all-solvent file counts and explicit remediation instructions.
+- Added a reproducibility note listing all required five-solvent data folders and the `P201_DATA_DIR` configuration route.
+- Reduced styling risks: no negative letter spacing, no 18px-radius source wrappers, reduced shadows, and added overflow-safe rendered output rules.
+- Renumbered references and cached captions for RDKit and Numba after inserting the new literature source.
 
-### Validation evidence
+### Validation performed
 
-- Notebook JSON validates by direct load.
-- All code cells parse with Python `ast.parse`.
-- No saved error outputs were found.
-- No empty or heading-only Markdown cells remain.
-- No stale `using RDKit (6)` or `whole workflow (7)` citation references remain.
-- Embedded images and GIFs decode successfully.
-- Mechanism GIF: 84 frames. Workflow GIF: 70 frames.
-- All embedded visual payloads report valid dimensions and intact image data.
+- Loaded revised notebook JSON successfully.
+- Parsed all revised code cells with Python `ast.parse` successfully.
+- Checked saved outputs for error objects: none found.
+- Checked Markdown cells for empty or heading-only sections: none found.
+- Decoded all embedded visual assets with Pillow: all valid.
+- Confirmed mechanism GIF has 84 frames and laboratory workflow GIF has 70 frames.
+- Confirmed revised source contains no `letter-spacing:-`, no `border-radius:18px`, no stale `using RDKit (6)` citation text and no stale `whole workflow (7)` citation text.
 
 ### Unresolved risks
 
-- Full source reproducibility remains blocked by the missing five-solvent raw `Data/` directory.
-- Clean execution remains blocked in this container because RDKit is unavailable.
-- HTML/PDF export rendering remains unverified because `nbconvert` is unavailable.
-- The executed five-solvent outputs should be treated as cached-but-audited until a clean rerun from complete source data is possible.
+- Clean execution and regenerated numerical verification require complete five-solvent data plus RDKit.
+- Export-render QA requires nbconvert or an equivalent Jupyter export environment.
+- Cached numerical outputs remain plausible and internally audited, but not rederived in this run.
