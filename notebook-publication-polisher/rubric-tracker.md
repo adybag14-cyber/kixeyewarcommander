@@ -2,8 +2,8 @@
 
 ## Current estimate
 
-- Date: 2026-05-30 07:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_0715.ipynb`.
+- Date: 2026-05-30 08:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_0815.ipynb`.
 - Estimated band: high / likely outstanding for explanation, analysis, figure quality, Markdown/LaTeX formatting and code documentation.
 - Main scoring uncertainty: full reproducibility cannot be demonstrated from the current attachment because no raw five-solvent `Data/` directory is present, and exported HTML/PDF rendering could not be tested because `nbconvert` is unavailable.
 
@@ -16,7 +16,7 @@
 - Portability of code: improved but still limited by missing raw data and absent runtime dependencies. `P201_DATA_DIR` support exists, and incomplete data packages now produce clearer diagnostics.
 - Commenting, documentation and explanation of code: very strong after this pass. Previously heading-only code sections now explain purpose, assumptions and audit value.
 - Markdown, LaTeX, HTML and formatting: very strong. Heading flow is complete, equations are clear, citation numbering is consistent and export-risk styling has been reduced.
-- Publication-rendering hygiene: strong based on embedded-media audit. All PNGs and GIFs decode, and saved GIF frame counts are intact. Full exported HTML/PDF rendering still needs verification.
+- Publication-rendering hygiene: strong based on embedded-media audit and contact-sheet review. All PNGs and GIFs decode, static figures are readable, and the GIFs now include informative poster frames for static previews. Full exported HTML/PDF rendering still needs verification.
 - Reproducibility safeguards: moderate to strong. The notebook documents requirements and validates cached outputs, but a full clean rerun needs the complete raw data and RDKit-capable environment.
 
 ## Evidence from this run
@@ -26,7 +26,8 @@
 - No saved error outputs are present.
 - No Markdown cell is empty or only a bare heading.
 - Visual audit found 10 embedded assets: 8 PNGs and 2 GIFs.
-- GIF frame counts are intact: 84 and 70 frames.
+- GIF frame counts are intact after poster-frame insertion: 85 and 71 frames.
+- The visual contact-sheet review confirmed that revised GIF first frames are meaningful rather than blank-looking fade-in states.
 - The current attachment includes the notebook and rubric guidance but no raw `Data/` tree.
 - `rdkit`, `nbformat` and `nbconvert` are unavailable in this runtime, so clean execution and HTML/PDF export checks could not be run.
 
