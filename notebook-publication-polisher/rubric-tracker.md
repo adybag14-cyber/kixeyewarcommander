@@ -2,8 +2,8 @@
 
 ## Current estimate
 
-- Date: 2026-05-30 13:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1315.ipynb`.
+- Date: 2026-05-30 14:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1415.ipynb`.
 - Estimated band: high, likely outstanding to exceptional for the executed notebook if the cached outputs are accepted as the evaluated artifact.
 - Main uncertainty: full reproducibility cannot be demonstrated from the current package because only acetone raw files are attached, RDKit/matplotlib/Numba/Jupyter/nbconvert are unavailable here and HTML/PDF export rendering could not be tested.
 
@@ -13,7 +13,7 @@
 - Criterion 2, Data analysis and plotting, 20%: very strong from cached outputs. The notebook analyses five solvents, reports uncertainty, removes failed/outlier traces with reasons, includes residual/quality diagnostics, compares fit-window choices and uses captioned labelled plots with Guggenheim-style notation.
 - Criterion 3, Experimental write-up, 15%: very strong. The introduction, method, results, limitations and conclusion are coherent. This pass strengthened the literature basis for solvent-sensitive azobenzene recovery using Bandara and Burdette's *Chemical Society Reviews* article on azobenzene photoisomerisation classes and mechanisms.
 - Criterion 4, Originality and elegance of Python code, 20%: strong to very strong. The notebook uses modular parsing, fitting, quality control, validation, bootstrap ranking, benchmark checks and figure generation rather than repeated manual cells.
-- Criterion 5, Portability of code, 10%: moderate to strong. `P201_DATA_DIR` support helps portability, but a complete clean rerun is still blocked by missing raw data and dependencies in this runtime.
+- Criterion 5, Portability of code, 10%: moderate to strong. `P201_DATA_DIR` support and improved missing-folder diagnostics help portability, but a complete clean rerun is still blocked by missing raw data and dependencies in this runtime.
 - Criterion 6, Commenting, documentation and explanation of code, 10%: very strong. This pass replaced bare code-section headings with concise explanations of purpose, assumptions and audit value.
 - Criterion 7, Markdown, LaTeX, HTML and general formatting, 10%: very strong. The notebook has coherent section flow, equations, captions, references and safer export styling after this pass.
 - Publication-rendering hygiene: strong based on direct embedded-media inspection. All PNGs and GIFs decode, there are no saved error outputs, no heading-only Markdown cells and no remaining high-risk source/cached-output styling strings. Final HTML/PDF rendering still needs verification in a notebook export environment.
