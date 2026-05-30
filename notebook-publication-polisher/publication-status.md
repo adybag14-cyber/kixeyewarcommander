@@ -2,19 +2,21 @@
 
 ## Current assessment
 
-- Date: 2026-05-30 13:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1315.ipynb`.
-- Notebook SHA-256: `a09a3040f1f9c8c10c8c4c21f8fad1798d7070e992287df8746f4fadd4e81fb6`.
-- Readiness estimate: near publication-ready from the cached full-output notebook. The notebook has a strong article-style structure, five-solvent cached analysis outputs, trace-level quality control, uncertainty treatment, validation checks, publication figures, post-lab answers and a clearer mechanism-linked research frame.
-- Confidence caveat: the attached source package still includes only acetone raw files, while the executed notebook output covers acetone, acetonitrile, cyclohexane, THF and toluene. A fully reproducible clean rerun remains blocked until the complete five-solvent `Data/` tree and compatible scientific Python/RDKit environment are available.
+- Date: 2026-05-30 14:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1415.ipynb`.
+- Notebook SHA-256: `7964aa42ab46438cc3f85e7df52b85510ae1819a2907c8f2650f015dafc51031`.
+- Readiness estimate: near publication-ready from the cached full-output notebook. The revised notebook has a coherent article-style structure, five-solvent cached analysis outputs, trace-level quality control, uncertainty treatment, validation checks, publication figures, post-lab answers, a stronger mechanism-linked research frame and safer export styling.
+- Confidence caveat: the attached source package still includes only acetone raw files, while the executed notebook output covers acetone, acetonitrile, cyclohexane, THF and toluene. A fully reproducible clean rerun remains blocked until the complete five-solvent `Data/` tree and a compatible scientific Python/RDKit/Jupyter environment are available.
 
 ## Highest-impact improvements made in this run
 
 - Created a fresh polished notebook copy in `/workspace/output` from the attached full-output notebook.
-- Replaced eight bare Markdown headings with concise publication-style transitions explaining the purpose of parsing, fitting, quality control, batch execution, validation, figures, discussion and post-lab answers.
-- Strengthened the introduction, conclusion and references with the peer-reviewed azobenzene review by Bandara and Burdette, *Chemical Society Reviews*, 2012, DOI `10.1039/C1CS15179G`, verified against the Royal Society of Chemistry listing.
-- Corrected downstream citation numbering after adding the new review reference, including RDKit and Numba references in source and cached outputs.
-- Tightened notebook/export styling in both source and cached HTML outputs: removed negative heading letter spacing, removed 18 px wrappers, reduced heavy shadows and softened embedded image/GIF frame radii.
+- Replaced eight bare Markdown headings with concise publication-style transitions explaining parsing, fitting, quality control, batch execution, validation, figures, discussion and post-lab answers.
+- Strengthened the introduction and conclusion with a peer-reviewed azobenzene mechanism source: Bandara and Burdette, *Chemical Society Reviews*, 2012, DOI `10.1039/C1CS15179G`, verified against the Royal Society of Chemistry listing.
+- Added the new reference in Leeds Numeric order and corrected downstream RDKit/Numba citation numbering in source text and cached outputs.
+- Improved incomplete-data diagnostics in `discover_trace_files` so missing solvent folders produce counts for every expected solvent and exact remediation guidance.
+- Added an explicit reproducibility boundary in the appendix distinguishing cached five-solvent outputs from a clean rerun using the currently attached acetone-only package.
+- Tightened notebook/export styling in source and cached HTML outputs: removed negative heading letter spacing, removed 18 px wrappers, reduced heavy shadows, softened embedded image/GIF frame radii and made preformatted text more export-safe.
 - Added static-export fallback notes for the two embedded animation sections so PDF/static viewers still have an interpretable first-frame summary.
 
 ## Visual and rendered-output audit
