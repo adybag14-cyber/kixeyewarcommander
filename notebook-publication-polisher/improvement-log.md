@@ -1,12 +1,12 @@
 # Improvement Log
 
-## 2026-05-30 02:23 BST scheduled pass
+## 2026-05-30 03:15 BST scheduled pass
 
 ### Improvements made
 
-- Recreated `/workspace/output/P201_201698955_publication_polished_2026-05-30.ipynb` from the attached full-output notebook because this workspace did not contain the earlier polished output artifact.
+- Recreated `/workspace/output/P201_201698955_publication_polished_2026-05-30.ipynb` from the attached full-output notebook and reconciled it with the existing progress notes.
 - Corrected stale interpretation text that contradicted the saved rate table. The notebook now consistently reports Acetonitrile > Acetone > THF > Cyclohexane > Toluene.
-- Updated source and cached Markdown outputs where they previously implied acetone was fastest or had the largest measured rate.
+- Updated source cells and cached Markdown outputs where they previously implied acetone was fastest or had the largest measured rate.
 - Added explanatory lead-ins below every formerly bare section heading: data reader, fitting functions, quality control, run analysis, independent validation, figures, results/discussion and post-lab answers.
 - Improved `discover_trace_files` so incomplete raw-data packages raise one clear error listing missing and empty solvent folders and recommending `P201_DATA_DIR`.
 - Added a provenance note to the reproducibility appendix explaining the difference between the cached complete five-solvent outputs and the incomplete local raw-data package available in this run.
@@ -23,10 +23,10 @@
 - Saved rendered-output media decode successfully: 8 PNGs plus 2 GIFs.
 - GIF frame counts are intact: 84 and 70 frames.
 - Contact-sheet review of 8 PNGs and sampled first/middle/final GIF frames did not show obvious clipping, chart overlap, broken image payloads, malformed figure framing, corrupted GIF frames or unreadable labels.
-- `nbconvert` is unavailable in this container, so HTML/PDF export rendering could not be tested here.
+- Jupyter/`nbconvert` is unavailable in this container, so HTML/PDF export rendering could not be tested here.
 
 ### Unresolved risks
 
 - The attached raw-data tree still exposes only `testing-main/Data/Acetone`; missing solvent folders prevent a clean five-solvent rerun.
-- Full browser/HTML/PDF rendering remains unverified because `nbconvert` is unavailable in the current container.
+- Full browser/HTML/PDF rendering remains unverified because Jupyter/`nbconvert` is unavailable in the current container.
 - The cached notebook outputs appear internally consistent, but final publication confidence requires rerunning from the complete raw-data tree and inspecting a newly exported render.
