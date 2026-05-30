@@ -2,8 +2,8 @@
 
 ## Current estimate
 
-- Date: 2026-05-30 23:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_2315.ipynb`.
+- Date: 2026-05-31 00:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0015.ipynb`.
 - Estimated band: high, likely outstanding to exceptional for the executed notebook if the cached outputs are accepted as the evaluated artifact.
 - Main uncertainty: full reproducibility cannot be demonstrated from the current package because only acetone raw files are attached and this runtime lacks key execution/rendering dependencies.
 
@@ -21,13 +21,14 @@
 ## Evidence from this run
 
 - Revised notebook contains 37 cells.
-- Latest polished notebook SHA-256: `43917f98e32dd5d9c11d5f825691669d92ffd80672dba4247ae068e1eccb5026`.
+- Latest polished notebook SHA-256: `2bbca5ae73e07b1ce5b965a7151f07cde66550996b95c1b102ec1b0c30736543`.
 - All code cells compile syntactically with `ast.parse`.
 - Saved output audit found zero error outputs.
 - Markdown audit found zero empty or heading-only sections.
 - Embedded visual audit found 10 assets: 8 PNGs and 2 GIFs.
 - GIF frame counts: 84 frames for the mechanism animation and 70 frames for the laboratory workflow animation.
 - Styling audit found no remaining `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `box-shadow:0 18px`, `box-shadow:0 12px 30px`, `box-shadow: 0 12px 28`, `max-width:1080px` or `width:1080px` strings.
+- Results/discussion and reproducibility wording now explicitly warn that the attached data package is acetone-only while cached outputs cover five solvents.
 - Current raw-data package includes 49 acetone files only, so five-solvent reproducibility cannot be proven from the attached data.
 - Jupyter/nbconvert, IPython, matplotlib, SciPy, Numba and RDKit are absent in this runtime, so clean execution and final HTML/PDF export-render QA remain unverified.
 
