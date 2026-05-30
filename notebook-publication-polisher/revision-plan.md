@@ -4,13 +4,14 @@
 
 The notebook is close to publication-ready as an executed cached artifact. The remaining high-impact work is no longer editorial polish; it is reproducibility and final rendered-output verification.
 
-## Completed in 2026-05-30 23:15 BST pass
+## Completed in 2026-05-31 00:15 BST pass
 
 - Added explanatory text below previously bare implementation/reporting headings.
 - Added a package audit note to the reproducibility appendix documenting the acetone-only raw-data package limitation.
+- Added an explicit results/discussion caveat that the cached five-solvent interpretation requires the missing raw solvent folders for clean rerun reproducibility.
 - Patched source and cached HTML styling for safer notebook/export rendering.
 - Added an output overflow guard for report figures and rendered HTML.
-- Revalidated notebook JSON, code syntax, cached outputs and embedded media for `/workspace/output/P201_201698955_publication_polished_2026-05-30_2315.ipynb`.
+- Revalidated notebook JSON, code syntax, cached outputs and embedded media for `/workspace/output/P201_201698955_publication_polished_2026-05-31_0015.ipynb`.
 
 ## Next actions
 
