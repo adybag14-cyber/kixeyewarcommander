@@ -1,47 +1,32 @@
 # Publication Status
 
-## Current assessment
+## Current readiness assessment
 
-- Date: 2026-05-30 15:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1515.ipynb`.
-- Notebook SHA-256: `73cf77ff41762b1ca02e7754bf7ac318d4917301bb35594f6e66d10aeac7c13b`.
-- Readiness estimate: near publication-ready from the cached full-output notebook. The revised notebook has a coherent article-style structure, five-solvent cached analysis outputs, trace-level quality control, uncertainty treatment, validation checks, publication figures, post-lab answers, a stronger mechanism-linked research frame and safer export styling.
-- Confidence caveat: the attached source package still includes only acetone raw files, while the executed notebook output covers acetone, acetonitrile, cyclohexane, THF and toluene. A fully reproducible clean rerun remains blocked until the complete five-solvent `Data/` tree and a compatible scientific Python/RDKit/Jupyter environment are available.
+- Date: 2026-05-30 16:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1615.ipynb`.
+- Output SHA-256: `0a53bfd66368aec25cc79c33ee2a8f6ef0be7f9b5c3d13fb4022c10dbb2552ee`.
+- Readiness: high and close to publication-ready as an executed notebook with cached outputs, assuming the cached numerical outputs are accepted for evaluation.
+- Main blocker to full publication certainty: a clean five-solvent rerun and final HTML/PDF render QA cannot be completed from the current package because the attached raw data tree contains acetone files only and this runtime lacks matplotlib, SciPy, RDKit, Numba, IPython, nbformat and nbconvert.
 
-## Highest-impact improvements made in this run
+## Major strengths now present
 
-- Created a fresh polished notebook copy in `/workspace/output` from the attached full-output notebook.
-- Replaced eight bare Markdown headings with concise publication-style transitions explaining parsing, fitting, quality control, batch execution, validation, figures, discussion and post-lab answers.
-- Strengthened the introduction and conclusion with a peer-reviewed azobenzene mechanism source: Bandara and Burdette, *Chemical Society Reviews*, 2012, DOI `10.1039/C1CS15179G`, verified against the Royal Society of Chemistry listing.
-- Added the new reference in Leeds Numeric order and corrected downstream RDKit/Numba citation numbering in source text and cached outputs.
-- Improved incomplete-data diagnostics in `discover_trace_files` so missing solvent folders produce counts for every expected solvent and exact remediation guidance.
-- Added static-export fallback notes around the GIF sections so the intended still-frame meaning is preserved in non-animated formats.
-- Tightened notebook/export styling in source and cached HTML outputs: removed negative heading letter spacing, removed 18 px wrappers, reduced heavy shadows, softened embedded image/GIF frame radii and made preformatted text more export-safe.
-- Added static-export fallback notes for the two embedded animation sections so PDF/static viewers still have an interpretable first-frame summary.
+- Clear article-style narrative with aims, theory, method, quality control, results, post-lab answers, conclusion, reproducibility appendix and references.
+- Five-solvent cached analysis outputs remain embedded in the notebook, including uncertainty summaries, trace-level quality-control decisions, independent validation, sensitivity checks and publication figures.
+- Research framing is stronger after adding primary/review support for substituted azobenzene photoisomerisation and donor-acceptor nitroazobenzene solvent effects.
+- Section flow is cleaner: previously heading-only sections now contain short explanatory transitions that make the code blocks easier to audit.
+- Cached visual assets are intact: 8 PNG figures and 2 inline GIF animations decode successfully, with mechanism GIF at 84 frames and laboratory workflow GIF at 70 frames.
+- Export-risk styling has been reduced: no negative heading letter spacing, no 18 px wrappers, softer shadows, smaller frame radii, and wider table/HTML overflow protection.
 
-## Visual and rendered-output audit
+## Major remaining blockers
 
-- Notebook JSON loads successfully.
-- All 14 code cells parse syntactically with `ast.parse`.
-- No saved error outputs are present.
-- No Markdown cell is empty or only a bare heading after this pass.
-- Embedded visual payload audit found 10 assets: 8 PNG figures and 2 GIF animations.
-- All embedded PNGs and GIFs decode successfully with Pillow.
-- GIF frame counts remain intact: mechanism animation 84 frames; laboratory workflow animation 70 frames.
-- Contact-sheet inspection of cached visuals showed no broken images, blank figures or obvious overlap/clipping in the embedded payloads.
-- Confirmed source and cached output styling no longer contain `letter-spacing:-`, `border-radius:18px` or `border-radius: 18px`.
-- Confirmed stale citation text was removed: no `using RDKit (6)`, `whole workflow (7)` or `formula C16H15N3O2 (6)` strings remain.
+1. Complete raw-data package is missing. Current attached files include acetone raw traces only, while the cached notebook reports acetone, acetonitrile, cyclohexane, THF and toluene.
+2. Dependency-complete execution is unavailable in this runtime. Required packages missing here include matplotlib, SciPy, RDKit, Numba, IPython, nbformat and nbconvert.
+3. Final export-render QA is still needed in a notebook environment that can render/export HTML or PDF. The direct media audit found no broken embedded assets, but wide tables, CSS interactions and GIF fallback behaviour still need target-render inspection.
+4. Cached numerical results have not been rederived in this run, so they should be treated as internally audited saved outputs rather than freshly reproduced calculations.
 
-## Remaining blockers
+## Next highest-value actions
 
-- Full clean execution remains blocked because RDKit, matplotlib, Numba, Jupyter and nbconvert are unavailable in this container.
-- HTML/PDF export rendering remains unverified because `nbconvert`/Jupyter is unavailable in this container.
-- Full source reproducibility remains blocked because the attached raw data tree includes only 49 acetone files, while the executed notebook output covers five solvents.
-- The numerical results should be treated as cached-but-audited until a clean rerun from the complete raw source package is possible.
-
-## Next highest-value improvements
-
-1. Supply the complete raw data package with `Data/Acetone`, `Data/Acetonitrile`, `Data/Cyclohexane`, `Data/THF` and `Data/Toluene`.
-2. Rerun the polished notebook from a clean kernel in an environment with RDKit, matplotlib, pandas, NumPy, Pillow and optional Numba.
-3. Export the rerun notebook to HTML and PDF, then inspect figure scaling, table overflow, GIF fallback/playback, caption spacing, clipping and overlap.
-4. Compare regenerated summaries against the cached full-output values to confirm the polished notebook is numerically reproducible.
+1. Restore the complete five-solvent `Data/` tree and rerun the polished notebook from a clean kernel.
+2. Export the rerun notebook to HTML and PDF, then inspect all tables, figures, GIF panels, captions and equations for clipping, overflow, overlap and broken media.
+3. Compare regenerated CSV summaries and figures against the cached outputs to confirm that final rates, confidence intervals, rejection counts, rank probabilities and validation checks match.
+4. If export issues remain, tune CSS/table wrapping against the actual exported HTML/PDF rather than guessing from the notebook JSON alone.
