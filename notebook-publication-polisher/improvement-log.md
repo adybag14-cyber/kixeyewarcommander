@@ -1,5 +1,42 @@
 # Improvement Log
 
+## 2026-05-30 23:15 BST scheduled pass
+
+### Artifact
+
+- Produced `/workspace/output/P201_201698955_publication_polished_2026-05-30_2315.ipynb`.
+- Output SHA-256: `43917f98e32dd5d9c11d5f825691669d92ffd80672dba4247ae068e1eccb5026`.
+
+### Findings
+
+- The attached source package still contains the executed full-output notebook and rubric guidance.
+- The available raw-data tree still contains 49 acetone `.dat` files only, while the executed notebook reports five solvents.
+- The original attached notebook still had heading-only implementation/reporting sections and export-risk styling strings in source/cached HTML.
+- Jupyter/nbconvert is not installed in this runtime, so final HTML/PDF export-render QA remains unavailable here.
+
+### Improvements made
+
+- Produced a fresh polished notebook copy in `/workspace/output`.
+- Added explanatory transitions under the data reader, fast fitting, quality-control, analysis run, validation, figures, results/discussion and post-lab sections.
+- Added an explicit package audit note to the reproducibility appendix documenting the acetone-only raw-data limitation.
+- Reduced export/layout risk by removing negative heading letter spacing, replacing 18 px wrappers, softening heavy media shadows, reducing inline GIF display max width from 1080 px to 920 px and adding overflow guards.
+- Preserved cached analysis outputs, numerical results and visual assets.
+
+### Validation performed
+
+- Loaded revised notebook JSON successfully.
+- Parsed all revised code cells with `ast.parse` successfully.
+- Checked saved outputs for error objects: none found.
+- Checked Markdown cells for empty or heading-only sections: none found.
+- Decoded all embedded visual assets with Pillow: all valid.
+- Confirmed 10 embedded assets: 8 PNG figures, one 84-frame mechanism GIF and one 70-frame laboratory workflow GIF.
+- Confirmed revised source/cached outputs contain no `letter-spacing:-`, no `border-radius:18px`, no `border-radius: 18px`, no `box-shadow:0 18px`, no `box-shadow:0 12px 30px`, no `box-shadow: 0 12px 28`, no `max-width:1080px` and no `width:1080px` strings.
+
+### Unresolved risks
+
+- Clean five-solvent execution still requires the complete raw data and scientific dependencies.
+- HTML/PDF export-render QA still requires a notebook export environment; direct media decoding is useful but not a substitute for inspecting final exported pages.
+
 ## 2026-05-30 22:15 BST scheduled pass
 
 ### Artifact
