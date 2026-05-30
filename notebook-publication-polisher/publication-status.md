@@ -1,34 +1,43 @@
 # Publication Status
 
-## Current readiness assessment
+## Current assessment
 
-- Date: 2026-05-30 00:15 BST scheduled pass
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30.ipynb`
-- Publication-readiness estimate: very strong / near publishable from the saved executed notebook, with one major reproducibility blocker outside the notebook itself.
-- Rubric band estimate: likely Outstanding for narrative quality, technical explanation, formatting, visual presentation and code documentation if the grader accepts the archived complete five-solvent execution. Full confidence still requires the complete raw-data tree and an end-to-end rerun in a notebook-capable environment.
+- Date: 2026-05-30 01:21 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30.ipynb`.
+- Readiness: strong publication candidate from the saved full-output notebook, but not yet fully rerun-verified in this environment.
+- Estimated rubric band: likely Outstanding for narrative, interpretation, code documentation and visual presentation, subject to the reproducibility blocker below.
 
-## Major strengths now present
+## Improvements completed in this pass
 
-- The notebook has a coherent article-style structure with title card, abstract, aims, theory, method, results, post-lab answers, conclusion, reproducibility appendix, AI statement and references.
-- The saved outputs contain a complete five-solvent analysis: acetone, acetonitrile, cyclohexane, THF and toluene.
-- The numerical interpretation now consistently identifies the accepted mean-rate sequence as Acetonitrile > Acetone > THF > Cyclohexane > Toluene in both source code and saved rendered markdown outputs.
-- This pass rebuilt a polished notebook copy from the attached source package, corrected stale acetone-fastest/largest-rate contradictions, and aligned the post-lab wording with acetonitrile as the fastest accepted mean-rate solvent.
-- Reader-facing lead-in text is present for every section that previously jumped directly from a heading into code or generated markdown.
-- The notebook CSS avoids negative heading letter spacing, restrains prominent box/figure/GIF radii, and includes overflow protection for wide notebook outputs and DataFrame tables.
-- Direct embedded-media inspection succeeded for all 10 saved visuals: 8 PNG figures and 2 GIF animations. GIF frame counts remain 84 and 70, and contact-sheet review showed no obvious clipping, overlap, broken media, corrupted GIF frames or malformed figure framing.
-- All 14 code cells parse and compile without syntax errors or syntax warnings in the revised notebook.
-- The reference list now retains the 4A4N-specific teaching/literature benchmark and adds the primary ACS/PubMed-indexed Joshi, Fuyuki and Wada mechanistic solvent-dependence paper.
-- The source documents the five-solvent data requirement and the raw-data discovery path is designed to prevent a partial-data rerun from silently weakening the five-solvent solvent-ranking argument.
+- Corrected stale solvent-ordering language so the narrative and post-lab answers now match the saved results: Acetonitrile > Acetone > THF > Cyclohexane > Toluene.
+- Removed remaining statements implying acetone was the fastest solvent or had the largest measured rate constant.
+- Added explanatory lead-ins to formerly bare section headings so code-heavy sections now have publication-quality transitions.
+- Strengthened reproducibility handling by improving the missing/empty solvent-folder diagnostic in `discover_trace_files`.
+- Added a visible provenance note explaining that the cached outputs preserve a complete five-solvent run, while the currently attached local raw-data tree exposes only acetone.
+- Tightened notebook CSS and embedded figure/GIF HTML: removed negative heading letter spacing, reduced prominent radii, and added horizontal-overflow protection for wide outputs.
+- Updated the references section: corrected the Smith and Bou-Abdallah article formatting/DOI text and added the primary Joshi, Fuyuki and Wada 2014 mechanistic paper on solvent-controlled thermal cis-to-trans isomerization.
+
+## Validation completed
+
+- Notebook JSON loads successfully and still contains 37 cells.
+- All 14 code cells parse without syntax errors.
+- No saved error outputs are present.
+- No markdown cell is only a bare heading.
+- Searches found no remaining stale phrases: `Acetone, for example, gave the fastest recovery`, `acetone gives the largest measured`, `remains the fastest`, or `fast solvents such as acetone`.
+- Searches found no remaining negative heading letter spacing or old `border-radius:18px` / `border-radius:11px` styling.
+- Saved embedded media in rendered outputs decode successfully: 8 PNG figures and 2 GIFs.
+- GIF frame counts remain intact at 84 and 70 frames.
+- Contact-sheet review of saved figures and sampled GIF frames showed no obvious clipping, overlap, broken images, corrupt frames, unreadable labels or malformed visual framing.
 
 ## Remaining blockers
 
-- The attached package still lacks the full raw `Data/` tree for acetonitrile, cyclohexane, THF and toluene, so the notebook cannot be independently rerun end to end from only the supplied local files.
-- This container does not include the full notebook execution/export stack needed for a fresh execution and HTML/PDF export, so this pass audited and revised the saved executed notebook rather than regenerating all outputs.
-- Because no full rerun was possible, final publication sign-off still needs a rerun in the intended Jupyter/scientific Python environment.
+- The attached local raw-data package still contains only `testing-main/Data/Acetone`; the other configured solvent folders are missing.
+- Because the complete five-solvent `Data/` tree is unavailable, the notebook cannot be rerun end-to-end from source in this environment.
+- `nbconvert` is not installed in the container, so a fresh HTML/PDF export render could not be produced here.
 
-## Next highest-value actions
+## Next highest-value work
 
-1. Restore the complete five-solvent raw-data package under `Data/`.
-2. Rerun the polished notebook in the intended Jupyter environment.
-3. Export to HTML/PDF and recheck every figure, table and GIF after rerun for clipping, overlap, truncation and broken media.
-4. If the rerun changes accepted trace counts or rates, regenerate the discussion and post-lab rendered outputs from the notebook source rather than editing archived markdown.
+1. Restore the complete five-solvent raw `Data/` directory.
+2. Rerun the polished notebook from a clean kernel.
+3. Export to HTML and PDF, then visually inspect the fresh render for table overflow, figure clipping, GIF playback and caption spacing.
+4. Confirm regenerated tables and figures match the cached full-output results before calling the notebook fully publication-ready.
