@@ -2,8 +2,8 @@
 
 ## Current assessment
 
-- Date: 2026-05-30 07:15 BST scheduled pass.
-- Current polished notebook: `/workspace/output/P201_201698955_publication_polished_2026-05-30_0715.ipynb`.
+- Date: 2026-05-30 08:15 BST scheduled pass.
+- Current polished notebook: `/workspace/output/P201_201698955_publication_polished_2026-05-30_0815.ipynb`.
 - Readiness: strong and close to publication-ready as an executed notebook, with two material blockers: clean-source reproducibility and exported HTML/PDF rendering verification.
 - Estimated rubric band: likely high / outstanding for narrative structure, analysis transparency, figure/caption quality, Markdown/LaTeX use and code documentation. Full confidence on reproducibility remains blocked because the current attached package does not include the raw five-solvent `Data/` tree needed for a clean rerun.
 
@@ -15,6 +15,7 @@
 - Improved raw-data discovery diagnostics so an incomplete `Data/` tree reports missing solvent directories, empty solvent directories and the directories actually found.
 - Reduced export-risk styling: removed negative heading letter spacing, changed large rounded visual containers to restrained radii, softened heavy shadows and added overflow protection for notebook outputs, images and tables.
 - Added an explicit reproducibility note that clean five-solvent execution requires Acetone, Acetonitrile, Cyclohexane, THF and Toluene subdirectories.
+- Updated the two embedded GIF outputs so their first displayed frame is an informative poster frame rather than a sparse fade-in frame, reducing the risk that static notebook or HTML previews look broken.
 
 ## Validation completed
 
@@ -24,8 +25,9 @@
 - No Markdown cell is empty or only a bare section heading.
 - Searches confirmed no remaining `letter-spacing:-0.015em`, `border-radius:18px`, `border-radius:11px`, stale `using RDKit (6)` citation text or stale `whole workflow (7)` Numba citation text.
 - Embedded visual media decode successfully: 8 PNG figures plus 2 GIF animations.
-- GIF frame counts remain intact: 84 frames for the mechanism animation and 70 frames for the laboratory workflow animation.
+- GIF frame counts remain intact after adding poster frames: 85 frames for the mechanism animation and 71 frames for the laboratory workflow animation.
 - Programmatic image inspection found valid dimensions for all embedded visuals and no broken image payloads.
+- A visual contact-sheet review found the static PNG figures readable and confirmed the revised GIF first frames now show meaningful content instead of blank-looking opening states.
 
 ## Remaining blockers
 
