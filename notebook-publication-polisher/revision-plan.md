@@ -1,10 +1,10 @@
 # Revision Plan
 
-## 2026-05-30 14:15 BST
+## 2026-05-30 15:15 BST
 
 ## Completed this run
 
-- Created a polished notebook copy in `/workspace/output/`.
+- Created the latest polished notebook copy in `/workspace/output/P201_201698955_publication_polished_2026-05-30_1515.ipynb`.
 - Removed all bare-heading publication flow gaps.
 - Added a stronger peer-reviewed azobenzene photoisomerisation citation and fixed downstream citation numbering.
 - Improved missing-data diagnostics for partial packages.
