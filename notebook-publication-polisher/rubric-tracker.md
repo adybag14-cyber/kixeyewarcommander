@@ -2,8 +2,8 @@
 
 ## Current estimate
 
-- Date: 2026-05-30 19:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1915.ipynb`.
+- Date: 2026-05-30 20:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_2015.ipynb`.
 - Estimated band: high, likely outstanding to exceptional for the executed notebook if the cached outputs are accepted as the evaluated artifact.
 - Main uncertainty: full reproducibility cannot be demonstrated from the current package because only acetone raw files are attached and this runtime lacks key execution/rendering dependencies.
 
@@ -14,9 +14,9 @@
 - Criterion 3, Experimental write-up, 15%: very strong. The introduction, method, results, limitations and conclusion are coherent. This pass strengthened the mechanism-sensitive solvent interpretation and added/retained two azobenzene solvent/substituent sources.
 - Criterion 4, Originality and elegance of Python code, 20%: strong to very strong. The notebook uses modular parsing, fitting, quality control, validation, bootstrap ranking, benchmark checks and figure generation rather than repeated manual cells.
 - Criterion 5, Portability of code, 10%: moderate to strong. `P201_DATA_DIR` support and explicit reproducibility notes help portability, but a complete clean rerun is still blocked by missing raw data and dependencies in this runtime.
-- Criterion 6, Commenting, documentation and explanation of code, 10%: very strong. This pass expanded the remaining bare implementation headings into concise explanatory transitions before core code blocks.
-- Criterion 7, Markdown, LaTeX, HTML and general formatting, 10%: very strong. The notebook has coherent section flow, equations, captions, references and safer export styling after this pass, including patched cached HTML outputs, no bare headings and smaller embedded PNGs.
-- Publication-rendering hygiene: strong based on direct embedded-media inspection. All PNGs and GIFs decode, there are no saved error outputs, no bare-heading Markdown cells and no remaining high-risk source/cached-output strings for negative heading tracking, 18 px wrappers or heavy image/GIF shadows. Final HTML/PDF rendering still needs verification in a notebook export environment.
+- Criterion 6, Commenting, documentation and explanation of code, 10%: very strong. This pass expanded eight bare implementation and interpretation headings into concise explanatory transitions before core code blocks and generated sections.
+- Criterion 7, Markdown, LaTeX, HTML and general formatting, 10%: very strong. The notebook has coherent section flow, equations, captions, references and safer export styling after this pass, including patched cached HTML outputs, no bare headings, smaller embedded PNGs, reduced panel radii and lighter shadows.
+- Publication-rendering hygiene: strong based on direct embedded-media inspection. All PNGs and GIFs decode, there are no saved error outputs, no bare-heading Markdown cells and no remaining high-risk source/cached-output strings for negative heading tracking, 18 px wrappers, 1080 px GIF display widths or heavy image/GIF shadows. Final HTML/PDF rendering still needs verification in a notebook export environment.
 
 ## Evidence from this run
 
@@ -27,7 +27,7 @@
 - Embedded visual audit found 10 assets: 8 PNGs and 2 GIFs.
 - PNG outputs now have maximum width 2400 px.
 - GIF frame counts: 84 frames for the mechanism animation and 70 frames for the laboratory workflow animation.
-- Styling audit found no remaining `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `box-shadow:0 18px` or `box-shadow:0 12px 30px` strings.
+- Styling audit found no remaining `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `box-shadow:0 18px`, `box-shadow:0 12px 30px` or `max-width:1080px` strings.
 - Citation/text audit found no stale `using RDKit (6)`, no stale `(3, 5)` solvent-mechanism citation, and no stale acetone-fastest contradiction strings.
 - Current raw-data package includes 49 acetone files only, so five-solvent reproducibility cannot be proven from the attached data.
 
