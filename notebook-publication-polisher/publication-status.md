@@ -2,21 +2,21 @@
 
 ## Current assessment
 
-- Date: 2026-05-30 02:23 BST scheduled pass.
+- Date: 2026-05-30 03:15 BST scheduled pass.
 - Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30.ipynb`.
 - Readiness: strong publication candidate from the saved full-output notebook, but not yet fully rerun-verified in this environment.
 - Estimated rubric band: likely Outstanding for explanation, analysis, code documentation and visual presentation, subject to the reproducibility blocker below.
 
 ## Improvements completed in this pass
 
-- Rebuilt the polished notebook artifact from the attached full-output notebook because the previous output artifact was not present in this fresh workspace.
+- Rechecked the attached full-output notebook against the existing memory notes and found the workspace artifact still contained older publication issues; rebuilt the polished notebook so the artifact now matches the durable progress record.
 - Corrected stale solvent-ordering language so the narrative and post-lab answers now match the saved results: Acetonitrile > Acetone > THF > Cyclohexane > Toluene.
 - Removed statements implying acetone was the fastest solvent or had the largest measured rate constant.
 - Added explanatory lead-ins to all formerly bare section-heading cells, including data reading, fitting, quality control, execution, validation, figures, results and post-lab sections.
 - Strengthened reproducibility handling by improving the missing/empty solvent-folder diagnostic in `discover_trace_files`.
 - Added a visible provenance note explaining that the cached outputs preserve a complete five-solvent run, while the currently attached local raw-data tree exposes only acetone.
 - Tightened notebook CSS and embedded figure/GIF HTML: removed negative heading letter spacing, reduced prominent radii, and added horizontal-overflow protection for wide outputs.
-- Updated the references section: corrected the Smith and Bou-Abdallah article formatting and added the primary Joshi, Fuyuki and Wada 2014 ACS mechanistic paper on solvent-controlled thermal cis-to-trans isomerization.
+- Updated the references section: corrected the Smith and Bou-Abdallah article formatting and added the primary Joshi, Fuyuki and Wada 2014 ACS mechanistic paper on solvent-controlled thermal cis-to-trans isomerization after checking the DOI metadata online.
 
 ## Validation completed
 
@@ -34,7 +34,7 @@
 
 - The attached local raw-data package still contains only `testing-main/Data/Acetone`; the other configured solvent folders are missing.
 - Because the complete five-solvent `Data/` tree is unavailable, the notebook cannot be rerun end-to-end from source in this environment.
-- `nbconvert` is not installed in the container, so a fresh HTML/PDF export render could not be produced here.
+- `nbconvert` / Jupyter is not installed in the container, so a fresh HTML/PDF export render could not be produced here.
 
 ## Next highest-value work
 
