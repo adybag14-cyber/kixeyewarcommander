@@ -2,41 +2,40 @@
 
 ## Current assessment
 
-- Date: 2026-05-30 04:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_pass2.ipynb`.
-- Readiness: strong publication candidate from the saved full-output notebook, but not yet fully rerun-verified in this environment.
-- Estimated rubric band: likely Outstanding for explanation, analysis, code documentation and visual presentation, with one material reproducibility caveat.
+- Date: 2026-05-30 05:15 BST scheduled pass.
+- Current polished notebook: `/workspace/output/P201_201698955_publication_polished_2026-05-30.ipynb`.
+- Readiness: strong, close to publication-ready as an executed notebook, with one material reproducibility blocker and one export-verification blocker.
+- Estimated rubric band: likely high / outstanding for narrative, analysis transparency, visual clarity and code documentation; reproducibility cannot be scored at full confidence until the complete five-solvent raw-data tree is available and the notebook is rerun from source.
 
-## Improvements completed in this pass
+## Improvements completed in this run
 
-- Created a new polished notebook copy from the attached full-output source rather than overwriting the original package.
-- Replaced all remaining bare heading-only markdown cells with short publication-quality transitions explaining the evidence role of each section.
-- Strengthened the introduction and conclusion so the solvent interpretation is more cautious and better grounded in primary literature: bulk polarity is treated as important but not sufficient on its own.
-- Added the primary ACS reference by Joshi, Fuyuki and Wada on solvent-controlled thermal cis-to-trans isomerisation of 4-aminoazobenzene and adjusted downstream RDKit/Numba citation numbering.
-- Cleaned notebook-level CSS and saved cached HTML outputs: removed negative heading letter spacing, removed old large `18px`/`11px` radii, restrained figure/card rounding to `8px`, and preserved horizontal overflow protection for wide tables and outputs.
-- Re-extracted embedded visual assets and reviewed a contact sheet of all static figures plus first/middle/final GIF frames.
+- Created a fresh polished notebook copy from the attached full-output notebook.
+- Replaced export-risk styling: removed negative heading letter spacing, reduced large rounded corners, softened heavy shadows and added horizontal overflow protection for rendered outputs, tables and images.
+- Added explanatory transition text to previously heading-only sections: data reader, fitting functions, quality control, run analysis, validation, figures, results discussion and post-lab answers.
+- Strengthened research context by adding a peer-reviewed ACS source on polarity-controlled thermal cis-to-trans isomerisation in aminoazobenzene, and updated the related citations in the theory and conclusion.
+- Improved the raw-data discovery function so an incomplete `Data/` tree fails with a clear five-solvent diagnostic listing missing or empty solvent folders and the folders actually found.
+- Updated inline extra-animation styling to be less likely to crowd exported notebook pages.
 
 ## Validation completed
 
-- Polished notebook JSON loads successfully and still contains 37 cells.
+- Revised notebook JSON loads successfully and still contains 37 cells.
 - All 14 code cells parse without syntax errors.
 - No saved error outputs are present.
-- No markdown cell is only a bare heading.
-- Searches across source and cached outputs found no remaining negative heading letter spacing or old `border-radius:18px` / `border-radius:11px` styling.
-- Saved embedded media in rendered outputs decode successfully: 8 PNG figures and 2 GIFs.
-- GIF frame counts remain intact at 84 and 70 frames.
-- Contact-sheet review showed no obvious clipping, overlap, broken images, corrupt frames, unreadable labels or malformed visual framing.
-- Online source check confirmed the Joshi/Fuyuki/Wada DOI metadata: *The Journal of Physical Chemistry B*, 2014, 118(7), 1891-1899, DOI `10.1021/jp4125205`.
+- No markdown cell is now only a bare section heading.
+- Searches confirmed no remaining negative heading letter spacing, `border-radius:18px`, `border-radius:11px`, stale `using RDKit (6)` citation text or stale `whole workflow (7)` Numba citation text.
+- Embedded visual media decode successfully: 8 PNGs plus 2 GIFs.
+- GIF frame counts remain intact: 84 frames for the mechanism animation and 70 frames for the workflow animation.
+- Contact-sheet inspection of all PNGs and sampled GIF frames found no obvious clipping, overlap, broken media payloads, malformed figure framing or corrupted GIF frames.
 
 ## Remaining blockers
 
-- The currently attached package does not include the complete five-solvent raw `Data/` tree, so a clean five-solvent rerun from source still cannot be verified here.
-- `nbconvert` / Jupyter is not installed in the container, so a fresh HTML/PDF export render could not be produced in this environment.
-- The saved outputs appear visually healthy and internally consistent, but final publication confidence still requires rerunning with the complete raw data and inspecting an exported browser/PDF render.
+- The available raw-data package still contains only `testing-main/Data/Acetone` with 49 `.dat` files. A full five-solvent rerun requires Acetone, Acetonitrile, Cyclohexane, THF and Toluene folders.
+- `nbconvert` is not installed in the current container, so fresh HTML/PDF export rendering could not be verified here.
+- Because the complete raw-data tree is missing, the cached five-solvent outputs can be audited but not regenerated from the attached files in this run.
 
-## Next highest-value work
+## Next highest-value steps
 
 1. Restore the complete five-solvent raw `Data/` directory.
 2. Rerun the polished notebook from a clean kernel.
-3. Export to HTML and PDF, then visually inspect table overflow, figure clipping, GIF playback and caption spacing.
-4. Confirm regenerated tables and figures match the cached full-output results before calling the notebook fully publication-ready.
+3. Export to HTML and PDF, then visually inspect the exported pages for table overflow, image scaling, GIF embedding behaviour, clipped axes and caption spacing.
+4. Confirm regenerated tables, figures, animations and generated post-lab answers match the polished notebook's archived outputs.
