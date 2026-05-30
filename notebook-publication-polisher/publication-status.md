@@ -2,9 +2,9 @@
 
 ## Current readiness assessment
 
-- Date: 2026-05-30 16:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1615.ipynb`.
-- Output SHA-256: `0a53bfd66368aec25cc79c33ee2a8f6ef0be7f9b5c3d13fb4022c10dbb2552ee`.
+- Date: 2026-05-30 17:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1715.ipynb`.
+- Output SHA-256: `542ef183e3ea30bd19a82f23f10fdb15531319072e5df0a44c24e6265a8be5f0`.
 - Readiness: high and close to publication-ready as an executed notebook with cached outputs, assuming the cached numerical outputs are accepted for evaluation.
 - Main blocker to full publication certainty: a clean five-solvent rerun and final HTML/PDF render QA cannot be completed from the current package because the attached raw data tree contains acetone files only and this runtime lacks matplotlib, SciPy, RDKit, Numba, IPython, nbformat and nbconvert.
 
@@ -13,9 +13,9 @@
 - Clear article-style narrative with aims, theory, method, quality control, results, post-lab answers, conclusion, reproducibility appendix and references.
 - Five-solvent cached analysis outputs remain embedded in the notebook, including uncertainty summaries, trace-level quality-control decisions, independent validation, sensitivity checks and publication figures.
 - Research framing is stronger after adding primary/review support for substituted azobenzene photoisomerisation and donor-acceptor nitroazobenzene solvent effects.
-- Section flow is cleaner: previously heading-only sections now contain short explanatory transitions that make the code blocks easier to audit.
+- Section flow is cleaner: the remaining bare or near-bare implementation and interpretation headings now contain explanatory transitions that make the code blocks easier to audit.
 - Cached visual assets are intact: 8 PNG figures and 2 inline GIF animations decode successfully, with mechanism GIF at 84 frames and laboratory workflow GIF at 70 frames.
-- Export-risk styling has been reduced: no negative heading letter spacing, no 18 px wrappers, softer shadows, smaller frame radii, and wider table/HTML overflow protection.
+- Export-risk styling has been reduced in both source and cached HTML outputs: no negative heading letter spacing, no 18 px wrappers, no heavy 18 px GIF/image shadows, smaller frame radii, and wider table/HTML overflow protection.
 
 ## Major remaining blockers
 
