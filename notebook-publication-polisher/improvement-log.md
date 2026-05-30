@@ -67,3 +67,47 @@
 - Clean execution and regenerated numerical verification require the complete five-solvent data package and missing dependencies.
 - Export-render QA requires nbconvert/Jupyter or an equivalent notebook export environment.
 - Cached numerical outputs remain plausible and internally audited, but not rederived in this run.
+
+## 2026-05-30 13:15 BST scheduled pass
+
+### Package reviewed
+
+- Notebook: `/workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- Rubric: `/workspace/agent_files/marking rubric for simple exercise.txt`.
+- Supporting data in current package: 49 acetone-only raw files under `/workspace/agent_files/testing-main/Data/Acetone`.
+- Current output created: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1315.ipynb`.
+- Output SHA-256: `a09a3040f1f9c8c10c8c4c21f8fad1798d7070e992287df8746f4fadd4e81fb6`.
+
+### Findings
+
+- The cached full-output notebook remains strong against the rubric: it includes five-solvent cached outputs, uncertainty, trace-level quality control, validation checks, figures, post-lab answers and references.
+- The attached notebook still contained eight bare heading-only Markdown cells and export-risk styling in source/cached HTML; these were corrected in the fresh polished copy.
+- The current source package still cannot support a clean five-solvent rerun because only acetone raw data are attached.
+- This runtime cannot perform clean execution or HTML/PDF export QA because RDKit/matplotlib/Numba/Jupyter/nbconvert are unavailable.
+- Visual payloads are intact: 8 PNGs and 2 GIF animations decode successfully, and contact-sheet inspection showed no obvious blank, broken, clipped or overlapping visuals in cached outputs.
+
+### Improvements made
+
+- Produced a fresh polished notebook copy in `/workspace/output`.
+- Added Bandara and Burdette, *Chemical Society Reviews*, 2012, DOI `10.1039/C1CS15179G`, to strengthen the mechanism-sensitive interpretation of solvent effects in azobenzene recovery.
+- Replaced eight bare headings with explanatory transitions before key code and interpretation sections.
+- Removed high-risk styling strings from source and cached HTML outputs: negative heading letter spacing and 18 px radius wrappers.
+- Reduced heavy inline shadows and softened embedded figure/GIF image frame radii for cleaner export behaviour.
+- Renumbered RDKit and Numba references after adding the new literature source and patched cached captions/text to remove stale citation numbers.
+- Added static-export fallback notes for the inline mechanism and laboratory workflow GIFs.
+
+### Validation performed
+
+- Loaded revised notebook JSON successfully.
+- Parsed all revised code cells with Python `ast.parse` successfully.
+- Checked saved outputs for error objects: none found.
+- Checked Markdown cells for empty or heading-only sections: none found.
+- Decoded all embedded visual assets with Pillow: all valid.
+- Confirmed mechanism GIF has 84 frames and laboratory workflow GIF has 70 frames.
+- Confirmed revised source and cached outputs contain no `letter-spacing:-`, no `border-radius:18px`, no `border-radius: 18px`, no stale `using RDKit (6)`, no stale `whole workflow (7)` and no stale `formula C16H15N3O2 (6)` text.
+
+### Unresolved risks
+
+- Clean execution and regenerated numerical verification require the complete five-solvent data package and missing dependencies.
+- Export-render QA requires nbconvert/Jupyter or an equivalent notebook export environment.
+- Cached numerical outputs remain plausible and internally audited, but not rederived in this run.
