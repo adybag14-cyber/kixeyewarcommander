@@ -1,13 +1,16 @@
 # Revision Plan
 
-## 2026-05-30 13:15 BST
+## 2026-05-30 14:15 BST
 
 ## Completed this run
 
 - Created a polished notebook copy in `/workspace/output/`.
 - Removed all bare-heading publication flow gaps.
 - Added a stronger peer-reviewed azobenzene photoisomerisation citation and fixed downstream citation numbering.
+- Improved missing-data diagnostics for partial packages.
+- Added a clear reproducibility boundary for cached five-solvent outputs versus clean reruns.
 - Reduced CSS and inline HTML choices that increase export/rendering risk.
+- Added static-export notes for both GIF animation sections.
 - Audited embedded PNG and GIF payloads programmatically and by contact-sheet inspection.
 - Updated persistent progress files locally and in the GitHub persistence folder.
 
