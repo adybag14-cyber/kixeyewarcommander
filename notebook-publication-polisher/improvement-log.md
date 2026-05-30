@@ -1,5 +1,43 @@
 # Improvement Log
 
+## 2026-05-31 00:15 BST scheduled pass
+
+### Artifact
+
+- Produced `/workspace/output/P201_201698955_publication_polished_2026-05-31_0015.ipynb`.
+- Output SHA-256: `2bbca5ae73e07b1ce5b965a7151f07cde66550996b95c1b102ec1b0c30736543`.
+
+### Findings
+
+- The attached package still contains the executed full-output notebook and rubric guidance, but the available raw-data tree remains acetone-only.
+- The cached notebook continues to report five-solvent outputs, so the full numerical story remains reviewable as saved output but not cleanly reproducible from the attached data alone.
+- The runtime still lacks Jupyter/nbconvert, IPython, matplotlib, SciPy, Numba and RDKit, preventing clean execution and final HTML/PDF export QA.
+- Direct notebook-source inspection found remaining publication risks in bare section headings and cached/source HTML styling.
+
+### Improvements made
+
+- Produced a fresh polished notebook copy in `/workspace/output`.
+- Added explanatory transitions below the data reader, fast fitting, quality-control, analysis run, validation, figures, results/discussion and post-lab headings.
+- Added a direct results/discussion caveat explaining that cached five-solvent conclusions require restoration of the missing raw solvent folders for clean rerun reproducibility.
+- Added or retained the reproducibility appendix package audit note documenting the acetone-only support tree.
+- Reduced export/layout risk by removing negative heading letter spacing, 18 px wrappers, heavy media shadows and 1080 px GIF display widths from source and cached HTML outputs.
+- Added an HTML overflow guard for rendered notebook output and report figures.
+
+### Validation performed
+
+- Loaded revised notebook JSON successfully.
+- Parsed all revised code cells with `ast.parse` successfully.
+- Checked saved outputs for error objects: none found.
+- Checked Markdown cells for empty or heading-only sections: none found.
+- Decoded all embedded visual assets with Pillow: all valid.
+- Confirmed 10 embedded assets: 8 PNG figures, one 84-frame mechanism GIF and one 70-frame laboratory workflow GIF.
+- Confirmed revised source/cached outputs contain no `letter-spacing:-`, no `border-radius:18px`, no `border-radius: 18px`, no `box-shadow:0 18px`, no `box-shadow:0 12px 30px`, no `box-shadow: 0 12px 28`, no `max-width:1080px` and no `width:1080px` strings.
+
+### Unresolved risks
+
+- Clean five-solvent execution still requires the complete raw data and scientific dependencies.
+- HTML/PDF export-render QA still requires a notebook export environment; direct media decoding is useful but not a substitute for inspecting final exported pages.
+
 ## 2026-05-30 23:15 BST scheduled pass
 
 ### Artifact
