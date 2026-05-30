@@ -1,17 +1,14 @@
 # Revision Plan
 
-## 2026-05-30 15:15 BST
+## 2026-05-30 17:15 BST
 
 ## Completed this run
 
-- Created the latest polished notebook copy in `/workspace/output/P201_201698955_publication_polished_2026-05-30_1515.ipynb`.
-- Removed all bare-heading publication flow gaps.
-- Added a stronger peer-reviewed azobenzene photoisomerisation citation and fixed downstream citation numbering.
-- Improved missing-data diagnostics for partial packages.
-- Added a clear reproducibility boundary for cached five-solvent outputs versus clean reruns.
-- Reduced CSS and inline HTML choices that increase export/rendering risk.
-- Added static-export notes for both GIF animation sections.
-- Audited embedded PNG and GIF payloads programmatically and by contact-sheet inspection.
+- Created the latest polished notebook copy in `/workspace/output/P201_201698955_publication_polished_2026-05-30_1715.ipynb`.
+- Expanded the remaining bare or near-bare implementation headings into concise publication-ready transitions for the data reader, fitting layer, quality-control summaries, analysis execution, validation, figures, discussion and post-lab answer sections.
+- Patched source and cached HTML styling to remove negative heading letter spacing, all 18 px radius wrappers and heavy 18 px image/GIF shadows.
+- Re-audited notebook JSON, code-cell syntax, cached error outputs, short Markdown cells and embedded PNG/GIF payloads.
+- Confirmed the package still contains only acetone raw files, so complete five-solvent reproducibility remains blocked.
 - Updated persistent progress files locally and in the GitHub persistence folder.
 
 ## Still needed
