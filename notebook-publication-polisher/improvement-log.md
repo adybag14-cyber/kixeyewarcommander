@@ -132,3 +132,43 @@
 - Clean execution and regenerated numerical verification require the complete five-solvent raw data package and missing scientific Python dependencies.
 - HTML/PDF export-render QA requires Jupyter/nbconvert or an equivalent notebook export environment.
 - Cached numerical outputs remain plausible and internally audited, but were not rederived in this run.
+
+## 2026-05-30 17:15 BST scheduled pass
+
+### Package reviewed
+
+- Notebook: `/workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- Rubric: `/workspace/agent_files/marking rubric for simple exercise.txt`.
+- Supporting data in current package: acetone-only raw files under `/workspace/agent_files/testing-main/Data/Acetone`.
+- Current output created: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1715.ipynb`.
+- Output SHA-256: `542ef183e3ea30bd19a82f23f10fdb15531319072e5df0a44c24e6265a8be5f0`.
+
+### Findings
+
+- The cached executed notebook remains close to publication-ready against the rubric if cached outputs are accepted.
+- Remaining presentation defects were concentrated in narrative transitions around implementation sections and export-risk inline styling.
+- The current source package still cannot support a clean five-solvent rerun because only acetone raw data are present.
+- This runtime still lacks Jupyter/nbconvert, matplotlib, SciPy, RDKit and Numba, so clean execution and export-render QA remain blocked.
+
+### Improvements made
+
+- Expanded the remaining bare or near-bare headings into concise publication-ready transitions for the parser, fitting, quality-control, execution, validation, figures, discussion and post-lab sections.
+- Patched source and cached HTML outputs to remove negative heading letter spacing, all 18 px radius wrappers and heavy 18 px image/GIF shadows.
+- Preserved the cached calculations, figures, tables and animations while making the notebook easier to audit as a professional article-style notebook.
+
+### Validation performed
+
+- Loaded revised notebook JSON successfully; it contains 37 cells.
+- Parsed all revised code cells with Python `ast.parse` successfully.
+- Checked cached outputs for error objects: none found.
+- Checked Markdown cells for empty or bare-heading sections: none found.
+- Decoded all embedded visual assets with Pillow: all valid.
+- Confirmed embedded media inventory: 8 PNG figures and 2 GIF animations.
+- Confirmed mechanism GIF has 84 frames and laboratory workflow GIF has 70 frames.
+- Confirmed revised notebook contains no `letter-spacing:-`, no `border-radius:18px`, no `border-radius: 18px`, no `box-shadow:0 18px` and no `box-shadow:0 12px 30px` strings.
+
+### Unresolved risks
+
+- Clean execution and regenerated numerical verification require the complete five-solvent raw data package and missing scientific Python dependencies.
+- HTML/PDF export-render QA requires Jupyter/nbconvert or an equivalent notebook export environment.
+- Cached numerical outputs remain plausible and internally audited, but were not rederived in this run.
