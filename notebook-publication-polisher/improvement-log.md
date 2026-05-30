@@ -1,5 +1,41 @@
 # Improvement Log
 
+## 2026-05-30 20:15 BST scheduled pass
+
+### Artifact
+
+- Produced `/workspace/output/P201_201698955_publication_polished_2026-05-30_2015.ipynb`.
+- Output SHA-256: `0ffcc1fbc3911aaeaee882540779768775ca9ca1074a212f4f14da506ae407fa`.
+
+### Findings
+
+- The attached package still contains a strong full-output notebook and rubric guidance, but only acetone raw traces are present in the attached `Data/` tree while the cached report covers five solvents.
+- The notebook could not be rerun or exported in this runtime because `matplotlib`, `SciPy`, `RDKit`, `Numba`, `IPython`, `nbformat` and `nbconvert` are not installed.
+- Direct notebook JSON and cached-output inspection found no saved execution errors and no broken embedded images or GIFs.
+- The source notebook still contained eight heading-only Markdown cells and old export-risk styling strings in source/cached HTML outputs.
+
+### Improvements made
+
+- Replaced eight bare headings with concise transitions before the data reader, fast fitting functions, quality-control summaries, analysis run, validation checks, figures, results/discussion and post-lab sections.
+- Reduced source and cached-output styling risk by removing negative heading letter spacing, replacing 18 px media/panel radii with 8 px radii, softening heavy shadows and reducing GIF display max width from 1080 px to 960 px.
+- Downsampled all cached embedded PNG figure outputs to a maximum width of 2400 px to reduce render/export load while preserving readable figure content.
+- Preserved both inline GIF animations and verified their frame counts after the cached-output patch.
+
+### Validation performed
+
+- Loaded revised notebook JSON successfully.
+- Parsed all revised code cells with `ast.parse` successfully.
+- Checked saved outputs for error objects: none found.
+- Checked Markdown cells for empty or heading-only sections: none found.
+- Decoded all embedded visual assets with Pillow: all valid.
+- Confirmed revised embedded assets: 8 PNG figures capped at 2400 px width, one 84-frame mechanism GIF and one 70-frame laboratory workflow GIF.
+- Confirmed revised source/cached outputs contain no `letter-spacing:-`, no `border-radius:18px`, no `border-radius: 18px`, no `box-shadow:0 18px`, no `box-shadow:0 12px 30px` and no `max-width:1080px` strings.
+
+### Unresolved risks
+
+- Clean five-solvent execution still requires the missing raw solvent folders and scientific dependencies.
+- HTML/PDF export-render QA still requires a notebook export environment; direct media decoding is a strong check, but it is not a substitute for inspecting the final exported notebook pages.
+
 ## 2026-05-30 19:15 BST scheduled pass
 
 ### Package reviewed
