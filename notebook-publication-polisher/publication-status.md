@@ -2,9 +2,9 @@
 
 ## Current readiness assessment
 
-- Date: 2026-05-30 19:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1915.ipynb`.
-- Output SHA-256: `0985d3847af2b08df8397d97952713e98045737c64c292151ce9fe36ed4ea0de`.
+- Date: 2026-05-30 20:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_2015.ipynb`.
+- Output SHA-256: `0ffcc1fbc3911aaeaee882540779768775ca9ca1074a212f4f14da506ae407fa`.
 - Readiness: high and close to publication-ready as an executed notebook with cached outputs, assuming the cached numerical outputs are accepted for evaluation.
 - Main blocker to full publication certainty: a clean five-solvent rerun and final HTML/PDF render QA cannot be completed from the current package because the attached raw data tree contains acetone files only and this runtime lacks matplotlib, SciPy, RDKit, Numba, IPython, nbformat and nbconvert.
 
@@ -14,9 +14,9 @@
 - Five-solvent cached analysis outputs remain embedded in the notebook, including uncertainty summaries, trace-level quality-control decisions, independent validation, sensitivity checks and publication figures.
 - Research framing is stronger after adding literature support from Bandara and Burdette (azobenzene photoisomerisation classes) and Marcandalli et al. (solvent/substituent effects in donor-acceptor amino/nitro azobenzenes), and the introduction now explicitly warns against reducing the solvent series to one bulk-polarity rule.
 - A results-discussion contradiction was fixed: the narrative no longer says acetone has the largest measured rate; it now correctly identifies acetonitrile as fastest while explaining why acetone remains close despite lower dielectric constant.
-- Section flow is cleaner: the remaining bare implementation and interpretation headings now contain explanatory transitions.
-- Cached visual assets are intact and lighter: 8 PNG figures and 2 inline GIF animations decode successfully; PNGs were downsampled to a maximum 2400 px width for notebook/export friendliness; mechanism GIF has 84 frames and laboratory workflow GIF has 70 frames.
-- Export-risk styling has been reduced in both source and cached HTML outputs: no negative heading letter spacing, no 18 px wrappers, no heavy 18 px or 12 px media shadows, and wider table/HTML overflow protection.
+- Section flow is cleaner: eight heading-only implementation and interpretation sections now contain explanatory transitions that make the notebook read as a report rather than as disconnected code blocks.
+- Cached visual assets are intact and lighter: 8 PNG figures and 2 inline GIF animations decode successfully; PNGs are capped at 2400 px width for notebook/export friendliness; the mechanism GIF has 84 frames and the laboratory workflow GIF has 70 frames.
+- Export-risk styling has been reduced in both source and cached HTML outputs: no negative heading letter spacing, no 18 px wrappers, no heavy 18 px or 12 px media shadows, and narrower GIF display widths for safer HTML/PDF rendering.
 
 ## Major remaining blockers
 
