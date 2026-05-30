@@ -2,9 +2,9 @@
 
 ## Current readiness assessment
 
-- Date: 2026-05-30 22:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_2215.ipynb`.
-- Output SHA-256: `d897e64e213a549940210e745625473957be5d1f1285d4a6b76034f113fbee57`.
+- Date: 2026-05-30 23:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_2315.ipynb`.
+- Output SHA-256: `43917f98e32dd5d9c11d5f825691669d92ffd80672dba4247ae068e1eccb5026`.
 - Readiness: high and close to publication-ready as an executed notebook with cached outputs, assuming the cached numerical outputs are accepted for evaluation.
 - Main blocker to full publication certainty: a clean five-solvent rerun and final HTML/PDF render QA cannot be completed from the current package because the attached raw data tree contains acetone files only and this runtime lacks Jupyter/nbconvert and the scientific dependencies needed to execute the notebook cleanly.
 
@@ -13,7 +13,7 @@
 - Clear article-style narrative with aims, theory, method, quality control, results, post-lab answers, conclusion, reproducibility appendix and references.
 - Five-solvent cached analysis outputs remain embedded in the notebook, including uncertainty summaries, trace-level quality-control decisions, independent validation, sensitivity checks and publication figures.
 - Research framing is strong for the available evidence: the introduction and results discussion avoid overclaiming a single bulk-polarity explanation and present the solvent trend as mechanism- and solvent-class-sensitive.
-- Previously bare implementation/reporting headings now include explanatory transitions before parsing, fitting, quality control, execution, validation, figure generation, discussion and post-lab answers.
+- Previously bare implementation/reporting headings now include explanatory transitions before parsing, fitting, quality control, execution, validation, figure generation, discussion and post-lab answers in the latest polished copy.
 - Cached visual assets are intact: 8 PNG figures and 2 inline GIF animations decode successfully; the mechanism GIF has 84 frames and the laboratory workflow GIF has 70 frames.
 - Export-risk styling has been reduced in both source and cached HTML outputs: no negative heading letter spacing, no 18 px wrappers, no heavy 18 px/12 px media-shadow strings, no 1080 px GIF display widths, and report figures include overflow guards.
 - The reproducibility appendix now explicitly records that the currently attached raw-data tree is acetone-only, while the cached executed notebook reports five solvents.
