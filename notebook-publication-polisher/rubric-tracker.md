@@ -2,8 +2,8 @@
 
 ## Current estimate
 
-- Date: 2026-05-30 16:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1615.ipynb`.
+- Date: 2026-05-30 17:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-30_1715.ipynb`.
 - Estimated band: high, likely outstanding to exceptional for the executed notebook if the cached outputs are accepted as the evaluated artifact.
 - Main uncertainty: full reproducibility cannot be demonstrated from the current package because only acetone raw files are attached and this runtime lacks key execution/rendering dependencies.
 
@@ -14,9 +14,9 @@
 - Criterion 3, Experimental write-up, 15%: very strong. The introduction, method, results, limitations and conclusion are coherent. This pass strengthened the literature basis with a broad azobenzene photoisomerisation review and a primary solvent-effect paper on a closely related donor-acceptor nitroazobenzene.
 - Criterion 4, Originality and elegance of Python code, 20%: strong to very strong. The notebook uses modular parsing, fitting, quality control, validation, bootstrap ranking, benchmark checks and figure generation rather than repeated manual cells.
 - Criterion 5, Portability of code, 10%: moderate to strong. `P201_DATA_DIR` support and explicit reproducibility notes help portability, but a complete clean rerun is still blocked by missing raw data and dependencies in this runtime.
-- Criterion 6, Commenting, documentation and explanation of code, 10%: very strong. This pass removed the remaining heading-only sections and added concise explanatory transitions before core code blocks.
-- Criterion 7, Markdown, LaTeX, HTML and general formatting, 10%: very strong. The notebook has coherent section flow, equations, captions, references and safer export styling after this pass.
-- Publication-rendering hygiene: strong based on direct embedded-media inspection. All PNGs and GIFs decode, there are no saved error outputs, no heading-only Markdown cells and no remaining high-risk source/cached-output styling strings. Final HTML/PDF rendering still needs verification in a notebook export environment.
+- Criterion 6, Commenting, documentation and explanation of code, 10%: very strong. This pass expanded the remaining bare or near-bare implementation headings into concise explanatory transitions before core code blocks.
+- Criterion 7, Markdown, LaTeX, HTML and general formatting, 10%: very strong. The notebook has coherent section flow, equations, captions, references and safer export styling after this pass, including patched cached HTML outputs.
+- Publication-rendering hygiene: strong based on direct embedded-media inspection. All PNGs and GIFs decode, there are no saved error outputs, no bare-heading Markdown cells and no remaining high-risk source/cached-output strings for negative heading tracking, 18 px wrappers or heavy 18 px image/GIF shadows. Final HTML/PDF rendering still needs verification in a notebook export environment.
 
 ## Evidence from this run
 
@@ -26,7 +26,7 @@
 - Markdown audit found zero empty or bare-heading cells.
 - Embedded visual audit found 10 assets: 8 PNGs and 2 GIFs.
 - GIF frame counts: 84 frames for the mechanism animation and 70 frames for the laboratory workflow animation.
-- Styling/citation audit found no remaining `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, stale `using RDKit (6)` or stale `whole workflow (7)` strings.
+- Styling audit found no remaining `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `box-shadow:0 18px` or `box-shadow:0 12px 30px` strings.
 - Current raw-data package includes 49 acetone files only, so five-solvent reproducibility cannot be proven from the attached data.
 
 ## Needed for full marks confidence
