@@ -1,61 +1,36 @@
 # Improvement Log
 
-## 2026-05-30 04:15 BST scheduled pass
+## 2026-05-30 05:15 BST scheduled pass
+
+### Review findings
+
+- The attached package contains a full-output notebook, rubric guidance and an incomplete raw-data tree containing only Acetone `.dat` files.
+- The notebook already contains strong saved five-solvent analysis outputs, but the attached source data are insufficient to rerun those outputs cleanly.
+- Several markdown sections were only bare headings, which weakened publication flow and made code-heavy blocks feel abrupt.
+- Opening CSS still used negative heading letter spacing and large rounded presentation blocks, both of which are avoidable export/readability risks.
+- The visual payloads were intact: 8 PNGs and 2 GIFs decoded successfully, with GIF frame counts preserved.
 
 ### Improvements made
 
-- Created `/workspace/output/P201_201698955_publication_polished_2026-05-30_pass2.ipynb` from the attached full-output notebook.
-- Added narrative lead-ins to every remaining bare heading-only markdown cell so each code-heavy section now has a clear purpose and transition.
-- Strengthened the research framing in the introduction and conclusion by adding the Joshi, Fuyuki and Wada ACS paper on polarity-controlled aminoazobenzene thermal isomerisation and by making the solvent-mechanism interpretation more nuanced.
-- Renumbered affected RDKit and Numba references after adding the new primary literature source.
-- Tightened both source CSS and already-saved cached HTML outputs: negative heading letter spacing is gone, old `18px`/`11px` radii are gone, and figure/card radii are restrained to `8px`.
-- Re-extracted all embedded inline PNG/GIF assets and built a contact sheet for visual review.
+- Created `/workspace/output/P201_201698955_publication_polished_2026-05-30.ipynb`.
+- Added concise publication-style lead-ins before the data reader, fitting functions, quality-control functions, run cell, validation section, figure section, results discussion and post-lab answers.
+- Tightened export-safe styling by setting heading letter spacing to zero, reducing large radii to restrained values, reducing heavy shadows and adding overflow protection around output areas, images and tables.
+- Added Joshi, Fuyuki and Wada, *The Journal of Physical Chemistry B*, 2014, 118(7), 1891-1899, DOI `10.1021/jp4125205`, to strengthen the solvent-polarity/mechanism discussion.
+- Updated theory and conclusion citations to connect the 4A4N result with both the 4A4N-specific article and broader aminoazobenzene polarity literature.
+- Improved `discover_trace_files` so a partial data package reports exactly which solvent directories are missing or empty.
 
-### Validation and visual audit findings
+### Validation evidence
 
-- Polished notebook JSON validates and still contains 37 cells.
-- All 14 code cells parse without syntax errors.
-- There are no saved error outputs.
-- No markdown cell is now only a bare section heading.
-- Searches across source and cached outputs found no remaining negative heading letter spacing, `border-radius:18px`, `border-radius: 18px`, `border-radius:11px`, or `border-radius: 11px`.
-- Saved rendered-output media decode successfully: 8 PNGs plus 2 GIFs.
-- GIF frame counts are intact: 84 and 70 frames.
-- Contact-sheet review of 8 PNGs and sampled first/middle/final GIF frames did not show obvious clipping, chart overlap, broken image payloads, malformed figure framing, corrupted GIF frames or unreadable labels.
-- Web source check confirmed the new ACS reference metadata for DOI `10.1021/jp4125205`.
+- Notebook JSON validates by direct load.
+- All code cells parse with Python `ast.parse`.
+- No saved error outputs were found.
+- No heading-only markdown cells remain.
+- Embedded images and GIFs decode successfully.
+- Mechanism GIF: 84 frames. Workflow GIF: 70 frames.
+- Contact-sheet audit showed no obvious clipping, chart overlap, broken image payloads or malformed visual framing.
 
 ### Unresolved risks
 
-- The complete five-solvent raw `Data/` package is still unavailable in this workspace, preventing a clean rerun.
-- Full browser/HTML/PDF rendering remains unverified because Jupyter/`nbconvert` is unavailable in the current container.
-- Cached outputs remain the strongest available evidence until the full raw data can be restored and rerun.
-
-## 2026-05-30 03:15 BST scheduled pass
-
-### Improvements made
-
-- Recreated `/workspace/output/P201_201698955_publication_polished_2026-05-30.ipynb` from the attached full-output notebook and reconciled it with the existing progress notes.
-- Corrected stale interpretation text that contradicted the saved rate table. The notebook now consistently reports Acetonitrile > Acetone > THF > Cyclohexane > Toluene.
-- Updated source cells and cached Markdown outputs where they previously implied acetone was fastest or had the largest measured rate.
-- Added explanatory lead-ins below every formerly bare section heading: data reader, fitting functions, quality control, run analysis, independent validation, figures, results/discussion and post-lab answers.
-- Improved `discover_trace_files` so incomplete raw-data packages raise one clear error listing missing and empty solvent folders and recommending `P201_DATA_DIR`.
-- Added a provenance note to the reproducibility appendix explaining the difference between the cached complete five-solvent outputs and the incomplete local raw-data package available in this run.
-- Tightened the CSS/HTML presentation by removing negative heading letter spacing, reducing large radii, and adding overflow protection for wide notebook outputs and tables.
-- Updated reference quality: corrected the Smith/Bou-Abdallah article formatting and added Joshi, Fuyuki and Wada, *The Journal of Physical Chemistry B*, 2014, 118(7), 1891-1899, DOI `10.1021/jp4125205`.
-
-### Validation and visual audit findings
-
-- Revised notebook JSON validates and still contains 37 cells.
-- All 14 code cells parse without syntax errors.
-- There are no saved error outputs.
-- No markdown cell is now only a bare section heading.
-- Searches found no remaining stale fastest-solvent wording, negative heading letter spacing, `border-radius:18px`, `border-radius:11px`, stale `article no: 181`, or stale `RDKit (6)` figure-citation text.
-- Saved rendered-output media decode successfully: 8 PNGs plus 2 GIFs.
-- GIF frame counts are intact: 84 and 70 frames.
-- Contact-sheet review of 8 PNGs and sampled first/middle/final GIF frames did not show obvious clipping, chart overlap, broken image payloads, malformed figure framing, corrupted GIF frames or unreadable labels.
-- Jupyter/`nbconvert` is unavailable in this container, so HTML/PDF export rendering could not be tested here.
-
-### Unresolved risks
-
-- The attached raw-data tree still exposes only `testing-main/Data/Acetone`; missing solvent folders prevent a clean five-solvent rerun.
-- Full browser/HTML/PDF rendering remains unverified because Jupyter/`nbconvert` is unavailable in the current container.
-- The cached notebook outputs appear internally consistent, but final publication confidence requires rerunning from the complete raw-data tree and inspecting a newly exported render.
+- Full source reproducibility remains blocked by missing Acetonitrile, Cyclohexane, THF and Toluene raw data folders.
+- HTML/PDF export rendering remains unverified because `nbconvert` is unavailable in this runtime.
+- The executed five-solvent outputs should be treated as cached-but-audited until a clean rerun from complete source data is possible.
