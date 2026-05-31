@@ -2,10 +2,10 @@
 
 ## Current Assessment
 
-- Date: 2026-05-31 13:15 BST scheduled pass.
+- Date: 2026-05-31 14:15 BST scheduled pass.
 - Current polished deliverable: `/workspace/output/P201_201698955_publication_ready_POLISHED.ipynb`.
 - Current readiness: strong publication-ready executed-notebook draft if the cached outputs are accepted, with full reproducibility and final export rendering still blocked by missing external materials/dependencies.
-- This pass reviewed the attached full-output notebook, made a new polished notebook copy, strengthened the explanatory narrative around key code sections, and reduced notebook/export layout risk in cached tables, figures and animations.
+- This pass reviewed the attached full-output notebook and rubric guidance, made a refreshed polished notebook copy, strengthened the explanatory narrative around key code sections, improved helper-function documentation, and reduced notebook/export layout risk in cached tables, figures and animations.
 
 ## Major Strengths
 
@@ -17,10 +17,11 @@
 
 ## Latest Visual Audit
 
-- Revised notebook SHA-256: `900d173ac087532c6df5125b074bfae738d02293f9916c3ae2f08fb97cd21e02`.
+- Revised notebook SHA-256: `e0171a1f6a72f7d7abd7c361f490e4f8705016001d701e7556b925e99acbadea`.
 - Notebook structure: 38 cells.
 - Saved execution errors: 0.
 - Code-cell syntax parse check: passed for all code cells.
+- Function docstring audit: passed for all detected Python functions, including local animation helpers.
 - Bare heading-only Markdown cells: 0.
 - Cached HTML outputs: 19 total.
 - Wrapped cached table outputs: 9.
@@ -37,13 +38,14 @@
 - Patched figure embedding source code so future reruns regenerate notebook-friendly PNG payloads capped at 2400 px maximum width.
 - Patched cached figure outputs so the current saved notebook benefits immediately from the same 2400 px cap.
 - Reduced high-risk visual styling in source and cached outputs: large radii, heavy shadows, fixed 1080 px GIF caps, negative heading letter spacing and hidden overflow.
+- Added compact docstrings to remaining local animation helper functions so the code-maintenance rubric is better supported.
 
 ## Remaining Blockers
 
-- The available package for this run contains the executed notebook but no complete raw five-solvent `Data/` tree, so the cached five-solvent result set cannot be reproduced end to end from the currently attached materials.
+- The available package for this run contains the executed notebook and an `agent_files/testing-main/Data/` tree with 49 Acetone `.dat` files only; it does not include the complete five-solvent raw `Data/` tree, so the cached five-solvent result set cannot be reproduced end to end from the currently attached materials.
 - This runtime lacks several notebook execution/export dependencies needed for a clean rerun and export QA, including `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`.
 - Because final HTML/PDF export was unavailable, page-break behaviour, table overflow in exported documents and animation fallback/playback in exported documents remain verification items rather than fully closed risks.
-- No separate rubric guidance file was present in the current workspace; rubric alignment is therefore based on the existing tracker and notebook content, not a newly attached rubric document.
+- Rubric guidance was present as an HTML/text export. It supports the current focus on post-lab evidence, analysis/plot quality, experimental write-up, code clarity/commenting and advanced Markdown/HTML/LaTeX formatting.
 
 ## Next Highest-Value Work
 
