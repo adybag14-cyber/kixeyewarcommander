@@ -1,36 +1,40 @@
 # Publication Status
 
-## Current Readiness Assessment
+## Current Assessment
 
-- Date: 2026-05-31 05:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0515.ipynb`.
-- Output SHA-256: `c130740782be1c8ab46b7f11eff0116bacfda165770976bdde44c6ca716421f4`.
-- Readiness: high and close to publication-ready as an executed notebook with cached outputs, assuming the cached numerical outputs are accepted for evaluation.
-- This pass found that the attached notebook still contained several publication-formatting risks that prior notes expected to be resolved: heading-only Markdown sections, large cached PNGs, 1080 px GIF display widths, 18 px media/card radii, heavy media shadows and negative heading letter spacing.
-- Main blocker to full publication certainty remains unchanged: a clean five-solvent rerun and final HTML/PDF render QA cannot be completed from the current package because the attached raw-data tree contains acetone files only and this runtime lacks Jupyter/nbconvert plus the scientific dependencies needed to execute the notebook cleanly.
+- Date: 2026-05-31 06:15 BST scheduled pass.
+- Current polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0615.ipynb`.
+- Current readiness: strong publication-ready draft from the cached full-output notebook, with one major reproducibility blocker still outside the notebook itself.
+- The notebook now reads as a coherent article-style analysis rather than a sequence of code headings. The latest pass added explanatory lead-ins to previously bare section headers, tightened export-oriented CSS, capped oversized embedded PNG payloads and reduced high-risk GIF display styling.
 
-## Major Strengths Now Present
+## Major Strengths
 
-- Clear article-style narrative with aims, theory, method, quality control, results, post-lab answers, conclusion, reproducibility appendix and references.
-- Five-solvent cached analysis outputs remain embedded in the notebook, including uncertainty summaries, trace-level quality-control decisions, independent validation, sensitivity checks and publication figures.
-- Research framing is strong for the available evidence: the introduction and results discussion avoid overclaiming a single bulk-polarity explanation and present the solvent trend as mechanism- and solvent-class-sensitive.
-- The configuration section now explicitly warns that the current attached raw-data tree is acetone-only while the executed cached outputs cover five solvents.
-- All formerly bare implementation/reporting headings now include short explanatory transitions before parsing, fitting, quality control, execution, validation, figure generation, discussion and post-lab answers.
-- Cached visual assets are intact: 8 PNG figures and 2 inline GIF animations decode successfully; the mechanism GIF has 84 frames and the laboratory workflow GIF has 70 frames.
-- Cached PNG outputs are downsampled to a maximum width of 2400 px to reduce notebook render weight while preserving export-quality detail.
-- Export-risk styling has been reduced in both source and cached HTML outputs: no negative heading letter spacing, no 18 px figure/card radii, no 1080 px GIF display widths, no heavy 12/18 px media-shadow strings, and figure/output overflow guards are present.
-- Figure generation code now includes a rerun-safe `downsample_png_for_notebook` helper and lower save DPI so regenerated cached figures should remain notebook/export friendly.
+- The report has a clear chemical narrative: flash excitation perturbs a donor-acceptor azo dye, and the measured first-order recovery is interpreted as a solvent-sensitive thermal return to the trans-rich state.
+- The analysis is methodologically explicit: raw trace parsing, first-order fitting, quality control, solvent summaries, uncertainty intervals, bootstrap ranking, benchmark checks, fit-window sensitivity and consistency checks are all visible in the notebook.
+- Saved notebook outputs contain no execution-error outputs.
+- The visual package is self-contained: 8 embedded PNG figures and 2 embedded GIF animations decode successfully from the saved notebook.
+- Latest visual audit found no heading-only Markdown cells, no negative heading letter spacing, no 18 px or 12 px rounded wrappers, no 1080 px GIF display caps and no heavy high-offset media shadows in the revised notebook.
 
-## Major Remaining Blockers
+## Latest Visual Audit
 
-1. Complete raw-data package is missing. Current attached files include 49 acetone raw traces only, while the cached notebook reports acetone, acetonitrile, cyclohexane, THF and toluene.
-2. Dependency-complete execution is unavailable in this runtime. A clean rerun needs the notebook's scientific stack and an IPython/Jupyter environment.
-3. Final export-render QA is still needed in a notebook environment that can render/export HTML or PDF. Direct media decoding found no broken embedded assets, but wide tables, CSS interactions, GIF playback/fallback behaviour and caption spacing still need target-render inspection.
-4. Cached numerical results have not been rederived in this run, so they should be treated as internally audited saved outputs rather than freshly reproduced calculations.
+- Revised notebook SHA-256: `9297884ea0e5d1825c8069ef18e6d482296df878998941a819423df32020c2a0`.
+- Notebook structure: 37 cells, including 23 Markdown cells and 14 code cells.
+- Saved execution errors: 0.
+- Bare heading-only Markdown cells: 0.
+- Embedded media assets: 10 total, comprising 8 PNGs and 2 GIFs.
+- PNG dimensions after cached-output downsampling: 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
+- GIF validation from saved notebook: 84 frames for the mechanism/research animation and 70 frames for the laboratory workflow animation.
+- Code-cell syntax parse check: passed for all code cells.
 
-## Next Highest-Value Actions
+## Remaining Blockers
 
-1. Restore the complete five-solvent `Data/` tree and rerun the polished notebook from a clean kernel.
-2. Export the rerun notebook to HTML and PDF, then inspect all tables, figures, GIF panels, captions and equations for clipping, overflow, overlap and broken media.
-3. Compare regenerated CSV summaries and figures against the cached outputs to confirm that final rates, confidence intervals, rejection counts, rank probabilities and validation checks match.
-4. If export issues remain, tune CSS/table wrapping against the actual exported HTML/PDF rather than guessing from the notebook JSON alone.
+- The attached raw-data tree still contains acetone files only: 49 `.dat` files under `Data/Acetone`. The cached notebook reports five solvents, but full five-solvent reproducibility cannot be verified from the currently attached raw files.
+- This runtime lacks several notebook execution/export dependencies: `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy` and `rdkit`. Therefore I could not rerun the notebook from a clean kernel or perform final HTML/PDF export-render QA here.
+- Because final HTML/PDF export was unavailable, table overflow, page-break behaviour and animation fallback/playback in exported documents remain verification items rather than fully closed risks.
+
+## Next Highest-Value Work
+
+1. Attach or restore the complete five-solvent raw `Data/` tree.
+2. Rerun the polished notebook in a dependency-complete environment.
+3. Export to HTML and PDF, then visually inspect every page for clipping, overlap, table overflow, image scaling and GIF/fallback behaviour.
+4. Confirm regenerated rates, rejection counts, confidence intervals, bootstrap rankings and validation checks match the cached full-output notebook.
