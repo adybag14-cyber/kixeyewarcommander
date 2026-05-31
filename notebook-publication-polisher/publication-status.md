@@ -2,36 +2,35 @@
 
 ## Current Assessment
 
-- Date: 2026-05-31 07:15 BST scheduled pass.
-- Current polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0715.ipynb`.
+- Date: 2026-05-31 08:15 BST scheduled pass.
+- Current polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0815.ipynb`.
 - Current readiness: strong publication-ready draft from the cached full-output notebook, with one major reproducibility blocker still outside the notebook itself.
-- This pass regenerated a polished notebook from the currently attached source package, tightened export-oriented styling, reduced high-risk embedded-media dimensions and strengthened section-level explanatory flow.
+- This pass regenerated a polished notebook from the currently attached source package, tightened export-oriented styling, added explanatory text to code-section headings, reduced embedded PNG payload dimensions and added a clear reproducibility note about the incomplete raw-data package.
 
 ## Major Strengths
 
 - The report has a clear chemical narrative: flash excitation perturbs a donor-acceptor azo dye, and the measured first-order recovery is interpreted as a solvent-sensitive thermal return to the trans-rich state.
 - The analysis is methodologically explicit: raw trace parsing, first-order fitting, quality control, solvent summaries, uncertainty intervals, bootstrap ranking, benchmark checks, fit-window sensitivity and consistency checks are all visible in the notebook.
-- Saved notebook outputs contain no execution-error outputs.
+- Saved notebook outputs contain no execution-error outputs, and all code cells pass a syntax parse check.
 - The visual package is self-contained: 8 embedded PNG figures and 2 embedded GIF animations decode successfully from the saved notebook.
-- Latest visual audit found no heading-only Markdown cells, no negative heading letter spacing, no 18 px or 12 px rounded wrappers, no 1080 px GIF display caps and no heavy high-offset media shadows in the revised notebook.
+- Latest polish removed bare heading-only Markdown cells and high-risk fixed/stylized media strings associated with notebook export clipping: negative heading letter spacing, 18 px and 12 px rounded wrappers, 1080 px GIF caps, heavy media shadows and hidden overflow.
 
 ## Latest Visual Audit
 
-- Revised notebook SHA-256: `7ffd2e805799962971167f5acff46c5e15006272d7f91cb6d00fc4e9cfd29fb7`.
+- Revised notebook SHA-256: `33052ae86d4ba4927e27aa817ce2ac901989ae5005e437db39d471b0fd14994e`.
 - Notebook structure: 37 cells, including 23 Markdown cells and 14 code cells.
 - Saved execution errors: 0.
 - Code-cell syntax parse check: passed for all code cells.
 - Bare heading-only Markdown cells: 0.
 - Embedded media assets: 10 total, comprising 8 PNGs and 2 GIFs.
-- PNG dimensions after cached-output downsampling: 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
+- PNG figure payloads after downsampling: 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
 - GIF validation from saved notebook: 84 frames for the mechanism/research animation and 70 frames for the laboratory workflow animation.
-- Static figure contact-sheet review found no broken or blank figures; labels and captions remain present in the saved output. Full export-render QA is still required to confirm page-level clipping and table overflow.
+- Styling audit found zero remaining instances of `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `border-radius:12px`, `border-radius: 12px`, `width:1080`, `max-width:1080`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px`, `font-size: 12px` and `overflow: hidden`.
 
 ## Remaining Blockers
 
 - The attached raw-data tree still contains acetone files only: 49 `.dat` files under `Data/Acetone`. The cached notebook reports five solvents, but full five-solvent reproducibility cannot be verified from the currently attached raw files.
 - This runtime lacks several notebook execution/export dependencies: `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`. Therefore I could not rerun the notebook from a clean kernel or perform final HTML/PDF export-render QA here.
-- Playwright is installed as a Node package, but its browser binary is not present, so browser-based layout overflow inspection could not be completed in this container.
 - Because final HTML/PDF export was unavailable, table overflow, page-break behaviour and animation fallback/playback in exported documents remain verification items rather than fully closed risks.
 
 ## Next Highest-Value Work
