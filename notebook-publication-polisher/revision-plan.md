@@ -4,12 +4,12 @@
 
 The notebook is close to publication-ready as an executed artifact. The remaining high-value work is reproducibility and final export QA: rerun from the complete raw data package, then inspect HTML/PDF exports in a full notebook environment.
 
-## Completed in 2026-05-31 22:15 BST Pass
+## Completed in 2026-05-31 23:15 BST Pass
 
 - Reviewed the attached full-output notebook and rubric guidance.
-- Rebuilt `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached full-output notebook available in this run.
 - Replaced heading-only Markdown sections with explanatory transitions.
-- Added explicit reproducibility and export-QA guidance to the notebook.
+- Added explicit reproducibility, complete-data and export-QA guidance to the notebook.
 - Added rerunnable table display helpers that wrap report tables in horizontal-scroll containers.
 - Patched all 9 cached table outputs so wide tables no longer rely on page width and should not clip in notebook display.
 - Downsampled all 8 cached embedded PNG figures to a maximum width of 2400 px.
