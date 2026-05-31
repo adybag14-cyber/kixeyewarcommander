@@ -1,5 +1,45 @@
 # Improvement Log
 
+## 2026-05-31 05:15 BST scheduled pass
+
+### Artifact
+
+- Produced `/workspace/output/P201_201698955_publication_polished_2026-05-31_0515.ipynb`.
+- Output SHA-256: `c130740782be1c8ab46b7f11eff0116bacfda165770976bdde44c6ca716421f4`.
+
+### Findings
+
+- The attached package still contains the full-output notebook, rubric and an acetone-only raw-data tree.
+- Direct notebook inspection found zero saved execution errors and all embedded media decoded successfully.
+- The notebook source still had eight bare heading-only Markdown sections, weakening publication flow and rubric-facing documentation quality.
+- Cached figure/media styling still contained export-risk strings: negative heading letter spacing, 18 px radii, heavy shadow rules and 1080 px GIF display widths.
+- The cached HTML report figures included very large embedded PNGs, including one 8562 px wide asset, which increased the risk of slow rendering, clipping or awkward HTML/PDF export.
+- The runtime lacks `nbformat`, `nbconvert`, IPython, matplotlib, SciPy and RDKit, so clean notebook execution and final HTML/PDF render QA could not be performed here.
+
+### Improvements made
+
+- Added concise explanatory prose under the former heading-only sections: Data reader, Fast fitting functions, Quality control and summary functions, Run the analysis, Independent validation and fit-window sensitivity, Figures, Results and discussion, and Answers to post-lab questions.
+- Added a cached-output review note to the configuration section explaining the mismatch between the acetone-only attached raw-data tree and the cached five-solvent outputs.
+- Reworked notebook/source styling to remove negative heading tracking, 18 px radii, 1080 px GIF display widths and heavy media-shadow strings.
+- Added or retained overflow-safe styling for rendered notebook outputs, report figures and inline GIF panels.
+- Added a rerun-safe `downsample_png_for_notebook` helper to the figure-generation cell and reduced PNG save DPI so regenerated figures stay export-friendly.
+- Downsampled all eight cached embedded PNG figures to a maximum width of 2400 px.
+- Preserved both inline GIF animations and verified their frame counts: 84 frames for the mechanism animation and 70 frames for the laboratory workflow animation.
+
+### Verification
+
+- Revised notebook contains 37 cells.
+- Saved output audit found zero error outputs.
+- Bare-heading audit found zero heading-only Markdown cells after patching.
+- Embedded visual audit found 10 assets: 8 PNGs and 2 GIFs.
+- Cached PNG sizes after downsampling: 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
+- Styling audit found no remaining `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `width:1080`, `max-width:1080`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px` or `font-size: 12px` strings.
+
+### Unresolved risks
+
+- Clean five-solvent execution still requires the complete raw data and scientific dependencies.
+- HTML/PDF export-render QA still requires a notebook export environment; direct media decoding is useful but not a substitute for inspecting final exported pages.
+
 ## 2026-05-31 04:15 BST scheduled pass
 
 ### Artifact
