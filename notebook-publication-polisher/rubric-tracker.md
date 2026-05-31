@@ -2,8 +2,8 @@
 
 ## Current Estimate
 
-- Date: 2026-05-31 06:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0615.ipynb`.
+- Date: 2026-05-31 07:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0715.ipynb`.
 - Estimated band: high, likely outstanding to exceptional for the executed notebook if the cached outputs are accepted as the evaluated artifact.
 - Main uncertainty: full reproducibility cannot be demonstrated from the current package because only acetone raw files are attached and this runtime lacks key execution/rendering dependencies.
 
@@ -21,15 +21,16 @@
 ## Evidence From This Run
 
 - Revised notebook contains 37 cells.
-- Latest polished notebook SHA-256: `9297884ea0e5d1825c8069ef18e6d482296df878998941a819423df32020c2a0`.
+- Latest polished notebook SHA-256: `7ffd2e805799962971167f5acff46c5e15006272d7f91cb6d00fc4e9cfd29fb7`.
 - Saved output audit found zero error outputs.
+- Code-cell syntax parse check passed for all code cells.
 - Bare-heading audit found zero heading-only Markdown cells after patching.
 - Embedded visual audit found 10 assets: 8 PNGs and 2 GIFs.
 - Cached PNG figures are capped at 2400 px maximum width; resulting figure sizes are 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
 - GIF frame counts: 84 frames for the mechanism animation and 70 frames for the laboratory workflow animation.
 - Styling audit found no remaining `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `border-radius:12px`, `border-radius: 12px`, `width:1080`, `max-width:1080`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px` or `font-size: 12px` strings.
 - Current raw-data package includes 49 acetone files only, so five-solvent reproducibility cannot be proven from the attached data.
-- `nbformat`, `nbconvert`, IPython, matplotlib, SciPy and RDKit are absent in this runtime, so clean execution and final HTML/PDF export-render QA remain unverified.
+- `nbformat`, `nbconvert`, IPython, matplotlib, SciPy, Numba and RDKit are absent in this runtime, so clean execution and final HTML/PDF export-render QA remain unverified.
 
 ## Needed For Full Marks Confidence
 
