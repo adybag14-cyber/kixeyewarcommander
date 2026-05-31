@@ -1,6 +1,6 @@
 # Rubric Tracker
 
-Last updated: 2026-05-31 22:15 BST scheduled pass.
+Last updated: 2026-05-31 23:15 BST scheduled pass.
 
 ## Rubric interpretation
 
@@ -20,17 +20,17 @@ Estimated status: high Good to Excellent as an executed notebook artifact, but n
 - Code quality: strong. The notebook uses dataclasses, centralized configuration, typed helper functions, aggregation rather than repeated manual code, explicit QC functions, independent validation and automated consistency checks. All functions/classes in the polished notebook now have docstrings.
 - Formatting and presentation: strong for the cached notebook artifact. Cached tables are scroll-wrapped, embedded images/GIFs decode, oversized PNGs were capped at 2400 px, and tracked risky clipping CSS was removed. Full excellence still requires static HTML/PDF visual QA in a complete environment.
 
-## Evidence from 22:15 verification
+## Evidence from 23:15 verification
 
 - Polished notebook: `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
-- Polished SHA-256: `f6b6334df28df2414fb79a1c56605773a32e67c5cfa5c8718ead5173fe8555e8`.
+- Polished SHA-256: `a342d5a6cea717b16365deab6da453c53ac0449fb80de81973445706b3c0eb62`.
 - 37 cells total: 23 Markdown and 14 code.
 - 0 heading-only Markdown cells.
 - 0 saved execution-error outputs.
 - 0 code syntax parse failures.
 - 0 functions/classes missing docstrings.
 - 9 of 9 cached HTML table outputs wrapped.
-- 8 embedded PNGs decode successfully; dimensions after downsampling are 2400 px wide with proportional heights.
+- 8 embedded PNGs decode successfully; dimensions after downsampling are 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
 - 2 embedded GIFs decode successfully, with 84 and 70 frames.
 - Tracked high-risk CSS strings remaining: 0 for hidden overflow, negative letter spacing, fixed 1080 px media caps, large 18 px/12 px radii, old heavy shadow patterns and 12 px font-size patterns.
 
