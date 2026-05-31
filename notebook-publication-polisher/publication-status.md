@@ -1,54 +1,45 @@
 # Publication Status
 
-## Current Assessment
+Last updated: 2026-05-31 20:15 BST scheduled pass.
 
-- Date: 2026-05-31 19:15 BST scheduled pass.
-- Current polished deliverable: `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
-- Current readiness: strong publication-ready executed-notebook draft if the cached outputs are accepted. Full publication readiness still depends on a clean rerun from the complete raw data package and an HTML/PDF export audit in a dependency-complete notebook environment.
-- Rubric guidance was reviewed and supports the current priority: clear post-lab answers, rigorous analysis and plotting, strong experimental write-up, elegant and portable code, well-commented methods, and clean Markdown/HTML/LaTeX formatting.
+## Current readiness assessment
 
-## Major Strengths
+The notebook is close to publication-ready as an executed, cached-output artifact. It now has a professional narrative structure, explicit methodological rationale, reproducible code organization, visible quality-control logic, statistical uncertainty treatment, independent validation, a clear discussion, and visually safer cached outputs.
 
-- The notebook presents a coherent chemical story: flash photolysis perturbs 4A4N and first-order thermal recovery is compared across acetone, acetonitrile, cyclohexane, THF and toluene.
-- The cached executed artifact is methodologically strong: parsing, fitting, quality control, replicate summaries, uncertainty estimates, bootstrap ranking, performance checks, independent validation and fit-window sensitivity are all visible.
-- The narrative is publication-facing rather than just computational: aims, theory, experimental context, kinetic model, results, post-lab answers, conclusion, reproducibility notes, AI statement and references are all present.
-- The saved polished notebook contains no execution-error outputs, and every code cell passes Python syntax parsing.
-- The visual package is self-contained: 8 embedded PNG figures and 2 embedded GIF animations decode successfully from the saved notebook.
+It is not yet fully publication-certified because two external checks remain blocked: the attached raw-data package contains only Acetone traces, while the executed notebook reports a five-solvent analysis; and this runtime does not include the scientific/Jupyter stack needed for a clean rerun or HTML/PDF export inspection.
 
-## Latest Visual Audit
+## Major resolved issues
 
-- Revised notebook SHA-256: `0442253681846cb875057d1663e3fd0d9617d8eec6e1fb29c17603b157723e20`.
+- Rebuilt the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
+- Replaced all heading-only Markdown sections with explanatory transitions that connect parsing, fitting, quality control, validation, figures, discussion and post-lab interpretation.
+- Added rerunnable table-display helpers so regenerated DataFrame outputs are wrapped in horizontal-scroll containers.
+- Wrapped all 9 cached HTML table outputs in export-safe scroll containers.
+- Downsampled all 8 cached embedded PNG figures to a maximum width of 2400 px to reduce clipping and static-export payload risk while preserving visual readability.
+- Verified both embedded GIF animations decode correctly: 84 frames for the mechanism/research animation and 70 frames for the laboratory workflow animation.
+- Removed tracked high-risk presentation patterns from the polished notebook: hidden overflow, fixed 1080 px media caps, negative heading letter spacing, large 18 px and 12 px radii, heavy old shadows and tiny 12 px font-size patterns.
+- Strengthened the reproducibility appendix with the exact requirements for a clean rerun and a static export QA reminder.
+
+## Verification completed
+
+- Polished notebook SHA-256: `6a1e2212173712865dd3a88f21de9e4eac241a49a71996c126618240699a34ab`.
 - Source notebook SHA-256: `d09834cf0f52e0ec28bae4c0a796a3abda6e94b36a82e5f61012ec7a299e0b84`.
-- Notebook structure: 38 cells: 24 Markdown cells and 14 code cells.
-- Saved execution errors: 0.
-- Code-cell syntax parse check: passed for all code cells.
-- Cached HTML outputs: 19 total.
-- Cached table outputs: 9, all wrapped in horizontal-scroll containers.
-- Embedded media assets: 10 total, comprising 8 PNG figures and 2 GIF animations.
-- PNG figure payloads after downsampling: 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
-- GIF validation from saved notebook: 84 frames for the mechanism/research animation and 70 frames for the laboratory workflow animation.
-- Styling audit found zero remaining instances of the tracked high-risk strings: `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `border-radius:12px`, `border-radius: 12px`, `width:1080`, `max-width:1080`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px`, `font-size: 12px`, `max-height`, `overflow: hidden` and `overflow:hidden`.
+- Notebook structure: 37 cells, including 23 Markdown cells and 14 code cells.
+- Heading-only Markdown sections remaining: 0.
+- Saved execution-error outputs: 0.
+- Code-cell syntax parse errors: 0.
+- Cached HTML table outputs: 9, all wrapped.
+- Embedded PNG figures: 8, all decoded successfully after downsampling.
+- Embedded GIF animations: 2, both decoded successfully.
+- Confirmed absent in the polished notebook: `overflow: hidden`, `overflow:hidden`, `letter-spacing:-`, `max-width:1080`, `width:1080`, `border-radius:18px`, `border-radius: 18px`, `border-radius:12px`, `border-radius: 12px`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px` and `font-size: 12px`.
 
-## Improvements Completed This Pass
+## Major remaining blockers
 
-- Created a polished notebook copy at `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
-- Added a publication-facing reproducibility note explaining that this review package contains only the Acetone raw data folder, while the cached notebook reports a full five-solvent analysis.
-- Added reusable HTML table display helpers so rerun tables are generated inside publication-safe horizontal-scroll wrappers.
-- Patched every cached DataFrame HTML output so current saved tables scroll instead of clipping in narrow notebook or export views.
-- Added a figure-width capping helper to the figure-generation code so reruns downsample oversized report PNGs before embedding.
-- Patched cached figure outputs so the current saved notebook uses PNG payloads capped at 2400 px maximum width.
-- Normalized high-risk visual styling in source and cached outputs, including fixed GIF width caps, hidden overflow, large radii, heavy shadows and negative heading letter spacing.
-- Rechecked all embedded PNG/GIF media from the saved notebook after patching.
+- The attached raw-data tree contains only `Data/Acetone/` with 49 `.dat` files. The Acetonitrile, Cyclohexane, THF and Toluene raw trace folders are missing, so the cached five-solvent result cannot be reproduced end to end from the current package.
+- The runtime is missing `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`. Full rerun, regenerated figures and HTML/PDF export QA therefore remain blocked here.
+- Static export page-break behaviour, final table widths in exported HTML/PDF, and GIF fallback behaviour still need inspection in a dependency-complete environment.
 
-## Remaining Blockers
+## Next highest-value improvements
 
-- The available package for this run contains the executed notebook and a rubric text file, but not the complete five-solvent raw `Data/` tree. The cached five-solvent result set therefore cannot be reproduced end to end from the currently attached materials.
-- This runtime lacks notebook execution/export dependencies needed for a clean rerun and export QA, including `nbformat`, `nbconvert`, Jupyter, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`.
-- Because HTML/PDF export tooling was unavailable, page-break behaviour, static table width in exported documents and GIF playback/fallback behaviour in exported documents remain verification items rather than fully closed risks.
-
-## Next Highest-Value Work
-
-1. Attach or restore the complete five-solvent raw `Data/` tree.
-2. Rerun the polished notebook in a dependency-complete environment.
-3. Export to HTML and PDF, then visually inspect every rendered page for clipping, overlap, table overflow, image scaling and GIF/fallback behaviour.
-4. Confirm regenerated rates, rejection counts, confidence intervals, bootstrap rankings and validation checks match the cached full-output notebook.
+1. Attach or restore the complete five-solvent `Data/` directory and rerun the polished notebook from a clean kernel.
+2. Export the rerun notebook to HTML and PDF, then inspect the rendered pages for clipping, overlap, wide-table behaviour, GIF display/fallback and page breaks.
+3. If the export is clean, mark the notebook publication-ready; if not, make final export-specific CSS/page-break adjustments.
