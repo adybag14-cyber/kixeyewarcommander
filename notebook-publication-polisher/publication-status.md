@@ -1,10 +1,10 @@
 # Publication Status
 
-Last updated: 2026-05-31 20:15 BST scheduled pass.
+Last updated: 2026-05-31 21:15 BST scheduled pass.
 
 ## Current readiness assessment
 
-The notebook is close to publication-ready as an executed, cached-output artifact. It now has a professional narrative structure, explicit methodological rationale, reproducible code organization, visible quality-control logic, statistical uncertainty treatment, independent validation, a clear discussion, and visually safer cached outputs.
+The notebook is close to publication-ready as an executed, cached-output artifact. It now has a professional narrative structure, explicit methodological rationale, reproducible code organization, visible quality-control logic, statistical uncertainty treatment, independent validation, a clear discussion, complete helper docstrings, and visually safer cached outputs.
 
 It is not yet fully publication-certified because two external checks remain blocked: the attached raw-data package contains only Acetone traces, while the executed notebook reports a five-solvent analysis; and this runtime does not include the scientific/Jupyter stack needed for a clean rerun or HTML/PDF export inspection.
 
@@ -18,15 +18,18 @@ It is not yet fully publication-certified because two external checks remain blo
 - Verified both embedded GIF animations decode correctly: 84 frames for the mechanism/research animation and 70 frames for the laboratory workflow animation.
 - Removed tracked high-risk presentation patterns from the polished notebook: hidden overflow, fixed 1080 px media caps, negative heading letter spacing, large 18 px and 12 px radii, heavy old shadows and tiny 12 px font-size patterns.
 - Strengthened the reproducibility appendix with the exact requirements for a clean rerun and a static export QA reminder.
+- Added docstrings to the remaining animation helper functions so all functions/classes in the polished notebook now have docstrings.
+- Tightened notebook-level CSS that still used negative heading letter spacing, large 18 px/12 px radii and heavier old shadows.
 
 ## Verification completed
 
-- Polished notebook SHA-256: `6a1e2212173712865dd3a88f21de9e4eac241a49a71996c126618240699a34ab`.
+- Polished notebook SHA-256: `d57ee67b1b4375302b0362956fdc5dfd2cda0077bbc6d89667031241aee30f80`.
 - Source notebook SHA-256: `d09834cf0f52e0ec28bae4c0a796a3abda6e94b36a82e5f61012ec7a299e0b84`.
 - Notebook structure: 37 cells, including 23 Markdown cells and 14 code cells.
 - Heading-only Markdown sections remaining: 0.
 - Saved execution-error outputs: 0.
 - Code-cell syntax parse errors: 0.
+- Functions/classes without docstrings: 0.
 - Cached HTML table outputs: 9, all wrapped.
 - Embedded PNG figures: 8, all decoded successfully after downsampling.
 - Embedded GIF animations: 2, both decoded successfully.
@@ -36,7 +39,7 @@ It is not yet fully publication-certified because two external checks remain blo
 
 - The attached raw-data tree contains only `Data/Acetone/` with 49 `.dat` files. The Acetonitrile, Cyclohexane, THF and Toluene raw trace folders are missing, so the cached five-solvent result cannot be reproduced end to end from the current package.
 - The runtime is missing `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`. Full rerun, regenerated figures and HTML/PDF export QA therefore remain blocked here.
-- Static export page-break behaviour, final table widths in exported HTML/PDF, and GIF fallback behaviour still need inspection in a dependency-complete environment.
+- Static export page-break behaviour, final table widths in exported HTML/PDF, screenshot-level overlap/clipping review, and GIF fallback behaviour still need inspection in a dependency-complete environment. Playwright is installed in this runtime, but no Chromium browser binary is available, so browser screenshot QA could not be completed here.
 
 ## Next highest-value improvements
 
