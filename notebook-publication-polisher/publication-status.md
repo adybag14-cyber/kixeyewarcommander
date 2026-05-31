@@ -2,22 +2,22 @@
 
 ## Current Assessment
 
-- Date: 2026-05-31 09:15 BST scheduled pass.
-- Current polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0915.ipynb`.
-- Current readiness: strong publication-ready draft from the cached full-output notebook, with one major reproducibility blocker still outside the notebook itself.
-- This pass regenerated a polished notebook from the currently attached source package, tightened source and cached-output styling, added explanatory text to formerly heading-only methodology sections, reduced embedded PNG payload dimensions, and added a clear reproducibility note about the incomplete raw-data package.
+- Date: 2026-05-31 10:15 BST scheduled pass.
+- Current polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_1015.ipynb`.
+- Current readiness: strong publication-ready executed-notebook draft, with one major reproducibility blocker still outside the notebook itself.
+- This pass regenerated a polished notebook from the attached full-output source, strengthened eight formerly heading-only methodology/report sections, patched notebook and cached-output styling to reduce clipping/overflow risk, downsampled oversized cached figures and added an explicit data-package limitation note.
 
 ## Major Strengths
 
-- The report has a clear chemical narrative: flash excitation perturbs a donor-acceptor azo dye, and the measured first-order recovery is interpreted as a solvent-sensitive thermal return to the trans-rich state.
-- The analysis is methodologically explicit: raw trace parsing, first-order fitting, quality control, solvent summaries, uncertainty intervals, bootstrap ranking, benchmark checks, fit-window sensitivity and consistency checks are all visible in the notebook.
-- Saved notebook outputs contain no execution-error outputs, and all code cells pass a syntax parse check.
+- The notebook has a clear chemical narrative: flash excitation perturbs a donor-acceptor azo dye, and first-order recovery is interpreted as solvent-sensitive thermal return toward the trans-rich state.
+- The analysis is methodologically explicit: raw trace parsing, first-order fitting, quality control, solvent summaries, confidence intervals, bootstrap ranking, benchmark checks, fit-window sensitivity and consistency checks are visible in the notebook.
+- The saved notebook contains no execution-error outputs, and all code cells pass a syntax parse check.
 - The visual package is self-contained: 8 embedded PNG figures and 2 embedded GIF animations decode successfully from the saved notebook.
-- Latest polish removed bare heading-only Markdown cells and high-risk fixed/stylized media strings associated with notebook export clipping: negative heading letter spacing, 18 px and 12 px rounded wrappers, 1080 px GIF caps, heavy media shadows, 12 px note text and hidden overflow.
+- This polish pass removed bare heading-only Markdown cells and high-risk fixed/stylized media strings associated with notebook export clipping: negative heading letter spacing, 18 px and 12 px rounded wrappers, 1080 px GIF caps, heavy media shadows, 12 px note text and hidden overflow.
 
 ## Latest Visual Audit
 
-- Revised notebook SHA-256: `916e1af1b775994bcfbf22a50f7d7cab95e41aa7a4b7e1cd8f2746a8c19fcab2`.
+- Revised notebook SHA-256: `81017cc823640010534cd097eca38560dddfbcc2557c18333216e1ce7cf2886d`.
 - Notebook structure: 37 cells, including 23 Markdown cells and 14 code cells.
 - Saved execution errors: 0.
 - Code-cell syntax parse check: passed for all code cells.
