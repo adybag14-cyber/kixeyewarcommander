@@ -2,39 +2,50 @@
 
 ## Current Score Estimate
 
-- Estimated score band: strong distinction / publication-ready draft if cached executed outputs are accepted as the evaluated artifact.
-- Main uncertainty: full reproducibility cannot be demonstrated from the current package because only Acetone raw `.dat` files are attached and the complete five-solvent raw data plus execution/export dependencies are not available in this runtime.
+Estimated range: high distinction / publication-ready draft, conditional on accepting the cached executed outputs. Full-mark confidence still requires clean rerun from the complete raw-data tree and exported HTML/PDF visual QA.
 
-## Criterion Status
+## Criterion 1: Post-lab Questions and Literature Context, 10%
 
-- Criterion 1, Post-labs, 15%: very strong. Answers are tied to final results tables and linked to uncertainty, quality control and experiment-specific limitations rather than written as detached prose.
-- Criterion 2, Data analysis and plotting, 20%: very strong from cached outputs. The notebook analyses five solvents, reports uncertainty, removes failed/outlier traces with reasons, includes residual/quality diagnostics, compares fit-window choices and uses labelled captioned plots. Latest pass capped cached PNG display payloads at 2400 px maximum width and wrapped wide cached tables to reduce clipping risk.
-- Criterion 3, Experimental write-up, 15%: very strong. The introduction, method, results, limitations and conclusion are coherent, and the solvent interpretation is careful about mechanism-specific evidence rather than overclaiming a single polarity descriptor.
-- Criterion 4, Originality and elegance of Python code, 20%: strong to very strong. The notebook uses modular parsing, fitting, quality control, validation, bootstrap ranking, benchmark checks and figure generation rather than repeated manual cells. The latest pass improves section-level explanation around reusable code blocks and patches source-level media embedding for future reruns.
-- Criterion 5, Portability of code, 10%: moderate to strong. `P201_DATA_DIR` support and explicit reproducibility notes help portability. Full portability still needs the complete five-solvent data and dependency-complete rerun.
-- Criterion 6, Commenting, documentation and explanation of code, 10%: very strong. Latest pass replaced eight bare section headings with concise explanations of why each code block matters to the analysis and added docstrings to the remaining local animation helper functions, so all detected Python functions now have docstrings.
-- Criterion 7, Markdown, LaTeX, HTML and general formatting, 10%: very strong. The notebook has coherent section flow, equations, captions, references and safer export styling, including patched cached HTML outputs, no bare headings, reduced wrapper radii, lighter media styling, narrower inline GIF display widths, capped PNG payload dimensions, figure overflow protection and table overflow guards.
-- Publication-rendering hygiene: strong based on direct embedded-media inspection. All PNGs and GIFs decode, there are no saved error outputs, high-risk source/cached-output styling strings were removed, and cached wide tables now have overflow protection. Final HTML/PDF rendering still needs verification in a notebook export environment.
+- Current status: strong.
+- Evidence: post-lab answers are generated from the accepted fit table and solvent summaries, and the report uses a numbered reference list including teaching material, the Journal of Chemical Education flash-photolysis article and solvent/property sources.
+- Remaining need: verify all citations and post-lab claims after a clean rerun/export; do not add new mechanistic claims without direct evidence.
 
-## Evidence From This Run
+## Criterion 2: Data Analysis and Plotting, 25%
 
-- Revised notebook contains 38 cells.
-- Latest polished notebook SHA-256: `e0171a1f6a72f7d7abd7c361f490e4f8705016001d701e7556b925e99acbadea`.
-- Saved output audit found zero error outputs.
-- Code-cell syntax parse check passed for all code cells.
-- Function docstring audit passed for all detected Python functions.
-- Bare-heading audit found zero heading-only Markdown cells after patching.
-- Embedded visual audit found 10 assets: 8 PNGs and 2 GIFs.
-- Cached PNG figures are capped at 2400 px maximum width; resulting figure sizes are 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
-- GIF frame counts: 84 frames for the mechanism animation and 70 frames for the laboratory workflow animation.
-- Cached HTML audit found 19 HTML outputs, including 9 wrapped table outputs, 8 figure outputs and 2 GIF animation outputs.
-- Styling audit found no remaining `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `border-radius:12px`, `border-radius: 12px`, `width:1080`, `max-width:1080`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px`, `font-size: 12px`, `overflow: hidden` or `overflow:hidden` strings.
-- Current attached package includes only 49 Acetone raw `.dat` files, not the complete five-solvent data tree, so five-solvent reproducibility cannot be proven from the attached files.
-- `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit` are absent in this runtime, so clean execution and final HTML/PDF export-render QA remain unverified.
+- Current status: very strong in cached notebook.
+- Evidence: automated raw-file parsing, first-order fitting, quality-control rules, uncertainty intervals, bootstrap ranking, validation tables, fit-window sensitivity checks and multiple captioned figures are all included.
+- Latest polish: cached tables are wrapped, eight embedded PNG figures are capped at 2400 px width and high-risk styling was removed.
+- Remaining need: reproduce the five-solvent output from the complete raw `Data/` tree and visually inspect HTML/PDF exports.
 
-## Needed For Full Marks Confidence
+## Criterion 3: Experimental Write-up, 15%
 
-1. Attach or restore the complete five-solvent raw `Data/` tree.
-2. Rerun the polished notebook from a clean kernel in a dependency-complete environment.
-3. Export to HTML/PDF and visually inspect the rendered notebook for table overflow, figure clipping, GIF playback/fallback behaviour, caption spacing and overlap.
-4. Confirm regenerated final rates, uncertainty intervals, rejection counts and validation tables match the cached full-output notebook.
+- Current status: very strong.
+- Evidence: the notebook includes aims, theory, experimental context, kinetic model, results/discussion, conclusion, reproducibility notes and AI statement.
+- Latest polish: bare code-section headings were replaced with explanatory transitions that clarify why each implementation block supports the experimental argument.
+- Remaining need: final export-readability check.
+
+## Criterion 4: Originality and Elegance of Python Code, 20%
+
+- Current status: strong to very strong.
+- Evidence: code uses typed records, modular parsing/fitting/summarisation functions, robust quality control, validation checks, generated narrative and generated figures rather than manual spreadsheet-style analysis.
+- Verification: all code cells in the polished notebook pass Python syntax parsing.
+- Remaining need: execute in a dependency-complete notebook environment to confirm runtime behaviour from a clean kernel.
+
+## Criterion 5: Portability of Code, 10%
+
+- Current status: moderate to strong.
+- Evidence: the notebook supports a `P201_DATA_DIR` data path and contains the analysis code in-notebook.
+- Remaining blocker: portability cannot be fully demonstrated from this package because only Acetone raw files are attached and required scientific/Jupyter packages are missing in this runtime.
+
+## Criterion 6: Commenting, Documentation and Explanation, 10%
+
+- Current status: very strong.
+- Evidence: Markdown explanations connect analysis stages to the scientific question, and the latest pass removed heading-only sections that previously gave code blocks too little narrative context.
+- Remaining need: keep future code edits equally documented and avoid adding unintroduced helper functions.
+
+## Criterion 7: Markdown, LaTeX, HTML and General Formatting, 10%
+
+- Current status: very strong at notebook-output level; final export still needs verification.
+- Evidence: the notebook uses Markdown structure, LaTeX kinetic equations, styled HTML callouts, captioned visuals, wrapped tables and embedded self-contained media.
+- Latest polish: removed tracked high-risk styling strings and verified all embedded media decodes from the saved notebook.
+- Remaining need: export to HTML/PDF and inspect every rendered page for clipping, overlap, table overflow and GIF/fallback behaviour.
