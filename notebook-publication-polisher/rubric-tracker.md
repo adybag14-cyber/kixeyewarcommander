@@ -2,8 +2,8 @@
 
 ## Current Estimate
 
-- Date: 2026-05-31 08:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0815.ipynb`.
+- Date: 2026-05-31 09:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0915.ipynb`.
 - Estimated band: high, likely outstanding to exceptional for the executed notebook if the cached outputs are accepted as the evaluated artifact.
 - Main uncertainty: full reproducibility cannot be demonstrated from the current package because only acetone raw files are attached and this runtime lacks key execution/rendering dependencies.
 
@@ -12,7 +12,7 @@
 - Criterion 1, Post-labs, 15%: very strong. Answers are generated from final results tables and linked to uncertainty, quality control and experiment-specific limitations rather than written as detached prose.
 - Criterion 2, Data analysis and plotting, 20%: very strong from cached outputs. The notebook analyses five solvents, reports uncertainty, removes failed/outlier traces with reasons, includes residual/quality diagnostics, compares fit-window choices and uses labelled captioned plots. Latest pass capped cached PNG display payloads at 2400 px maximum width to reduce export clipping risk.
 - Criterion 3, Experimental write-up, 15%: very strong. The introduction, method, results, limitations and conclusion are coherent, and the solvent interpretation is careful about mechanism-specific evidence rather than overclaiming a single polarity descriptor.
-- Criterion 4, Originality and elegance of Python code, 20%: strong to very strong. The notebook uses modular parsing, fitting, quality control, validation, bootstrap ranking, benchmark checks and figure generation rather than repeated manual cells. The latest pass improves section-level explanation around the reusable code blocks.
+- Criterion 4, Originality and elegance of Python code, 20%: strong to very strong. The notebook uses modular parsing, fitting, quality control, validation, bootstrap ranking, benchmark checks and figure generation rather than repeated manual cells. The latest pass improves section-level explanation around the reusable code blocks and patches source-level media embedding for future reruns.
 - Criterion 5, Portability of code, 10%: moderate to strong. `P201_DATA_DIR` support and explicit reproducibility notes help portability. Full portability still needs the complete five-solvent data and dependencies.
 - Criterion 6, Commenting, documentation and explanation of code, 10%: very strong. Latest pass replaced eight bare section headings with concise explanations of why each code block matters to the analysis.
 - Criterion 7, Markdown, LaTeX, HTML and general formatting, 10%: very strong. The notebook has coherent section flow, equations, captions, references and safer export styling, including patched cached HTML outputs, no bare headings, reduced wrapper radii, lighter media styling, narrower inline GIF display widths, capped PNG payload dimensions, figure overflow protection and an output overflow guard.
@@ -21,7 +21,7 @@
 ## Evidence From This Run
 
 - Revised notebook contains 37 cells.
-- Latest polished notebook SHA-256: `33052ae86d4ba4927e27aa817ce2ac901989ae5005e437db39d471b0fd14994e`.
+- Latest polished notebook SHA-256: `916e1af1b775994bcfbf22a50f7d7cab95e41aa7a4b7e1cd8f2746a8c19fcab2`.
 - Saved output audit found zero error outputs.
 - Code-cell syntax parse check passed for all code cells.
 - Bare-heading audit found zero heading-only Markdown cells after patching.
