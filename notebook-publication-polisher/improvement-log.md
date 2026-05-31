@@ -1,5 +1,21 @@
 # Improvement Log
 
+## 2026-05-31 18:15 BST Scheduled Pass
+
+- Reviewed the attached full-output notebook and rubric guidance.
+- Created `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` as the current polished executed-notebook artifact.
+- Fixed a confirmed publication-rendering issue: the 9 cached DataFrame HTML outputs were not wrapped for horizontal scrolling. All 9 are now wrapped in `.table-scroll` containers, and rerunnable helper functions were added so future table outputs regenerate safely.
+- Reduced export-clipping risk by adding a rerunnable PNG width cap and downsampling all 8 cached embedded PNG figures to a maximum width of 2400 px.
+- Verified the saved notebook has 0 execution-error outputs and all 14 code cells parse successfully as Python.
+- Verified all 10 embedded media assets decode from the saved notebook: 8 PNG figures and 2 GIF animations. The GIFs contain 84 and 70 frames respectively.
+- Removed tracked high-risk styling patterns from source and cached outputs, including hidden overflow, fixed 1080 px image caps, large 18 px/12 px radii, heavier old shadows, 12 px font-size patterns and negative heading letter spacing.
+- Attempted HTML export QA, but `nbconvert`, `nbformat` and `jupyter` are unavailable in this runtime, so static HTML/PDF export inspection remains blocked.
+
+### Unresolved Risks
+
+- The complete five-solvent raw `Data/` tree is still not attached, so the cached five-solvent results cannot be reproduced end to end here.
+- Full notebook rerun and HTML/PDF export QA remain blocked by missing notebook/scientific dependencies in this runtime.
+
 ## 2026-05-31 17:15 BST Scheduled Pass
 
 ### Reviewed
