@@ -13,19 +13,20 @@
 - Criterion 4, Originality and elegance of Python code, 20%: strong to very strong. The notebook uses modular parsing, fitting, quality control, validation, bootstrap ranking, benchmark checks and figure generation rather than repeated manual cells. The latest pass improves section-level explanation around the reusable code blocks and patches source-level media embedding for future reruns.
 - Criterion 5, Portability of code, 10%: moderate to strong. `P201_DATA_DIR` support and explicit reproducibility notes help portability. Full portability still needs the complete five-solvent data and dependencies.
 - Criterion 6, Commenting, documentation and explanation of code, 10%: very strong. Latest pass replaced eight bare section headings with concise explanations of why each code block matters to the analysis.
-- Criterion 7, Markdown, LaTeX, HTML and general formatting, 10%: very strong. The notebook has coherent section flow, equations, captions, references and safer export styling, including patched cached HTML outputs, no bare headings, reduced wrapper radii, lighter media styling, narrower inline GIF display widths, capped PNG payload dimensions, figure overflow protection and output/table overflow guards.
-- Publication-rendering hygiene: strong based on direct embedded-media inspection. All PNGs and GIFs decode, there are no saved error outputs, and high-risk source/cached-output styling strings were removed. Final HTML/PDF rendering still needs verification in a notebook export environment.
+- Criterion 7, Markdown, LaTeX, HTML and general formatting, 10%: very strong. The notebook has coherent section flow, equations, captions, references and safer export styling, including patched cached HTML outputs, no bare headings, reduced wrapper radii, lighter media styling, narrower inline GIF display widths, capped PNG payload dimensions, figure overflow protection and table overflow guards.
+- Publication-rendering hygiene: strong based on direct embedded-media inspection. All PNGs and GIFs decode, there are no saved error outputs, high-risk source/cached-output styling strings were removed, and cached wide tables now have overflow protection. Final HTML/PDF rendering still needs verification in a notebook export environment.
 
 ## Evidence From This Run
 
 - Revised notebook contains 37 cells.
-- Latest polished notebook SHA-256: `c96ab41d28b01fb5842cf80fb63b1c76ea94b0e237a21fdde0b4383bc496cc24`.
+- Latest polished notebook SHA-256: `6d8e01ef160097995af721cf8b1d8f9e29d7f6ba29e96907f72f1dc7bf417fc5`.
 - Saved output audit found zero error outputs.
 - Code-cell syntax parse check passed for all code cells.
 - Bare-heading audit found zero heading-only Markdown cells after patching.
 - Embedded visual audit found 10 assets: 8 PNGs and 2 GIFs.
 - Cached PNG figures are capped at 2400 px maximum width; resulting figure sizes are 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
 - GIF frame counts: 84 frames for the mechanism animation and 70 frames for the laboratory workflow animation.
+- Cached HTML table audit parsed 9 table outputs; the widest parsed table has 12 columns.
 - Styling audit found no remaining `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `border-radius:12px`, `border-radius: 12px`, `width:1080`, `max-width:1080`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px`, `font-size: 12px`, `overflow: hidden` or `overflow:hidden` strings.
 - Current raw-data package includes 49 acetone files only, so five-solvent reproducibility cannot be proven from the attached data.
 - `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit` are absent in this runtime, so clean execution and final HTML/PDF export-render QA remain unverified.
