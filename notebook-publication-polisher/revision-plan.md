@@ -1,21 +1,19 @@
 # Revision Plan
 
-## Current priority
+## Completed In 2026-05-31 01:15 BST Pass
 
-The notebook is close to publication-ready as an executed cached artifact. The remaining high-impact work is no longer editorial polish; it is reproducibility and final rendered-output verification.
+- Created polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0115.ipynb`.
+- Added short explanatory transitions under all previously heading-only implementation and reporting sections.
+- Added a package-verification note to the configuration section and strengthened the reproducibility appendix around the acetone-only raw-data limitation.
+- Hardened notebook styling for publication export by removing negative heading letter spacing, large rounded wrappers, heavy shadows and 1080 px GIF display widths.
+- Wrapped cached Pandas HTML tables with overflow protection.
+- Downsampled cached embedded PNG figures to a maximum width of 2400 px for lighter notebook rendering.
+- Validated notebook JSON, code-cell syntax, saved output status, embedded media decoding and high-risk styling-string removal.
 
-## Completed in 2026-05-31 00:15 BST pass
+## Remaining Highest-Value Work
 
-- Added explanatory text below previously bare implementation/reporting headings.
-- Added a package audit note to the reproducibility appendix documenting the acetone-only raw-data package limitation.
-- Added an explicit results/discussion caveat that the cached five-solvent interpretation requires the missing raw solvent folders for clean rerun reproducibility.
-- Patched source and cached HTML styling for safer notebook/export rendering.
-- Added an output overflow guard for report figures and rendered HTML.
-- Revalidated notebook JSON, code syntax, cached outputs and embedded media for `/workspace/output/P201_201698955_publication_polished_2026-05-31_0015.ipynb`.
-
-## Next actions
-
-1. Restore complete raw data for acetonitrile, cyclohexane, THF and toluene.
-2. Install or use an environment with Jupyter/IPython, matplotlib, SciPy, RDKit, Numba, nbformat and nbconvert.
-3. Rerun the notebook from a clean kernel and compare regenerated numerical outputs against cached outputs.
-4. Export HTML/PDF and perform final visual QA for clipping, overlap, table overflow and GIF fallback behaviour.
+1. Restore the complete five-solvent raw-data package.
+2. Rerun the polished notebook in an environment with Jupyter, IPython, matplotlib, SciPy, Numba and RDKit.
+3. Export the rerun notebook to HTML and PDF.
+4. Visually inspect every rendered figure, table, equation, GIF panel and caption for clipping, overlap, broken media or awkward spacing.
+5. Compare regenerated outputs with the cached notebook outputs before declaring full reproducibility.
