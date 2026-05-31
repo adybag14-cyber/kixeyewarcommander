@@ -4,12 +4,13 @@
 
 Estimated range: high distinction / publication-ready draft, conditional on accepting the cached executed outputs. Full-mark confidence still requires clean rerun from the complete raw-data tree and exported HTML/PDF visual QA.
 
-Latest pass: 2026-05-31 16:15 BST. The current polished notebook rebuild removes heading-only narrative gaps, adds a clearer reproducibility note, wraps all cached wide tables, downscales cached PNG figures and removes tracked high-risk styling strings that could cause clipping or awkward export rendering.
+Latest pass: 2026-05-31 17:15 BST. The current polished notebook rebuild removes heading-only narrative gaps, adds a clearer reproducibility note, wraps all cached wide tables, downscales cached PNG figures and removes tracked high-risk styling strings that could cause clipping or awkward export rendering.
 
 ## Criterion 1: Post-lab Questions and Literature Context, 10%
 
 - Current status: strong.
 - Evidence: post-lab answers are generated from the accepted fit table and solvent summaries, and the report uses a numbered reference list including teaching material, the Journal of Chemical Education flash-photolysis article and solvent/property sources.
+- Latest polish: the post-lab section now has a stronger lead-in that frames answers as evidence-tied rather than purely theoretical.
 - Remaining need: verify all citations and post-lab claims after a clean rerun/export; do not add new mechanistic claims without direct evidence.
 
 ## Criterion 2: Data Analysis and Plotting, 25%
@@ -38,6 +39,7 @@ Latest pass: 2026-05-31 16:15 BST. The current polished notebook rebuild removes
 
 - Current status: moderate to strong.
 - Evidence: the notebook supports a `P201_DATA_DIR` data path and contains the analysis code in-notebook.
+- Latest polish: the reproducibility appendix explicitly names the complete five-solvent raw-data tree and imported dependency stack as the rerun requirements.
 - Remaining blocker: portability cannot be fully demonstrated from this package because only Acetone raw files are attached and required scientific/Jupyter packages are missing in this runtime.
 
 ## Criterion 6: Commenting, Documentation and Explanation, 10%
@@ -50,5 +52,5 @@ Latest pass: 2026-05-31 16:15 BST. The current polished notebook rebuild removes
 
 - Current status: very strong at notebook-output level; final export still needs verification.
 - Evidence: the notebook uses Markdown structure, LaTeX kinetic equations, styled HTML callouts, captioned visuals, wrapped tables and embedded self-contained media.
-- Latest polish: removed tracked high-risk styling strings, capped cached PNG output widths at 2400 px, and verified all embedded media decodes from the saved notebook.
+- Latest polish: removed tracked high-risk styling strings, capped cached PNG output widths at 2400 px, wrapped every cached HTML table, and verified all embedded media decodes from the saved notebook.
 - Remaining need: export to HTML/PDF and inspect every rendered page for clipping, overlap, table overflow and GIF/fallback behaviour.
