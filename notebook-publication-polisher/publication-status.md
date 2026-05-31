@@ -2,10 +2,10 @@
 
 ## Current Assessment
 
-- Date: 2026-05-31 08:15 BST scheduled pass.
-- Current polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0815.ipynb`.
+- Date: 2026-05-31 09:15 BST scheduled pass.
+- Current polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0915.ipynb`.
 - Current readiness: strong publication-ready draft from the cached full-output notebook, with one major reproducibility blocker still outside the notebook itself.
-- This pass regenerated a polished notebook from the currently attached source package, tightened export-oriented styling, added explanatory text to code-section headings, reduced embedded PNG payload dimensions and added a clear reproducibility note about the incomplete raw-data package.
+- This pass regenerated a polished notebook from the currently attached source package, tightened source and cached-output styling, added explanatory text to formerly heading-only methodology sections, reduced embedded PNG payload dimensions, and added a clear reproducibility note about the incomplete raw-data package.
 
 ## Major Strengths
 
@@ -13,11 +13,11 @@
 - The analysis is methodologically explicit: raw trace parsing, first-order fitting, quality control, solvent summaries, uncertainty intervals, bootstrap ranking, benchmark checks, fit-window sensitivity and consistency checks are all visible in the notebook.
 - Saved notebook outputs contain no execution-error outputs, and all code cells pass a syntax parse check.
 - The visual package is self-contained: 8 embedded PNG figures and 2 embedded GIF animations decode successfully from the saved notebook.
-- Latest polish removed bare heading-only Markdown cells and high-risk fixed/stylized media strings associated with notebook export clipping: negative heading letter spacing, 18 px and 12 px rounded wrappers, 1080 px GIF caps, heavy media shadows and hidden overflow.
+- Latest polish removed bare heading-only Markdown cells and high-risk fixed/stylized media strings associated with notebook export clipping: negative heading letter spacing, 18 px and 12 px rounded wrappers, 1080 px GIF caps, heavy media shadows, 12 px note text and hidden overflow.
 
 ## Latest Visual Audit
 
-- Revised notebook SHA-256: `33052ae86d4ba4927e27aa817ce2ac901989ae5005e437db39d471b0fd14994e`.
+- Revised notebook SHA-256: `916e1af1b775994bcfbf22a50f7d7cab95e41aa7a4b7e1cd8f2746a8c19fcab2`.
 - Notebook structure: 37 cells, including 23 Markdown cells and 14 code cells.
 - Saved execution errors: 0.
 - Code-cell syntax parse check: passed for all code cells.
