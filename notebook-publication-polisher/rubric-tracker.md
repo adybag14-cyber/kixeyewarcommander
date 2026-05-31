@@ -2,8 +2,8 @@
 
 ## Current Estimate
 
-- Date: 2026-05-31 09:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0915.ipynb`.
+- Date: 2026-05-31 10:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_1015.ipynb`.
 - Estimated band: high, likely outstanding to exceptional for the executed notebook if the cached outputs are accepted as the evaluated artifact.
 - Main uncertainty: full reproducibility cannot be demonstrated from the current package because only acetone raw files are attached and this runtime lacks key execution/rendering dependencies.
 
@@ -21,7 +21,7 @@
 ## Evidence From This Run
 
 - Revised notebook contains 37 cells.
-- Latest polished notebook SHA-256: `916e1af1b775994bcfbf22a50f7d7cab95e41aa7a4b7e1cd8f2746a8c19fcab2`.
+- Latest polished notebook SHA-256: `81017cc823640010534cd097eca38560dddfbcc2557c18333216e1ce7cf2886d`.
 - Saved output audit found zero error outputs.
 - Code-cell syntax parse check passed for all code cells.
 - Bare-heading audit found zero heading-only Markdown cells after patching.
