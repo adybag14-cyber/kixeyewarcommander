@@ -1,29 +1,28 @@
 # Publication Status
 
-Last updated: 2026-05-31 21:15 BST scheduled pass.
+Last updated: 2026-05-31 22:15 BST scheduled pass.
 
 ## Current readiness assessment
 
-The notebook is close to publication-ready as an executed, cached-output artifact. It now has a professional narrative structure, explicit methodological rationale, reproducible code organization, visible quality-control logic, statistical uncertainty treatment, independent validation, a clear discussion, complete helper docstrings, and visually safer cached outputs.
+The notebook is close to publication-ready as an executed, cached-output artifact. This pass rebuilt the polished notebook deliverable from the attached full-output notebook and carried forward the high-impact publication fixes: stronger section transitions, export-safer tables, capped embedded figure sizes, reduced clipping-prone CSS, complete helper docstrings and a clearer reproducibility/export-QA appendix.
 
-It is not yet fully publication-certified because two external checks remain blocked: the attached raw-data package contains only Acetone traces, while the executed notebook reports a five-solvent analysis; and this runtime does not include the scientific/Jupyter stack needed for a clean rerun or HTML/PDF export inspection.
+It is not yet fully publication-certified because the attached raw-data package is incomplete and this runtime does not include the scientific/Jupyter dependencies needed for a clean rerun or static HTML/PDF export inspection. The cached executed results are strong, but end-to-end reproducibility and screenshot/page-export QA remain external blockers.
 
 ## Major resolved issues
 
 - Rebuilt the polished notebook deliverable at `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
-- Replaced all heading-only Markdown sections with explanatory transitions that connect parsing, fitting, quality control, validation, figures, discussion and post-lab interpretation.
+- Replaced all heading-only Markdown sections with explanatory transitions linking parsing, fitting, quality control, validation, figures, discussion and post-lab interpretation.
 - Added rerunnable table-display helpers so regenerated DataFrame outputs are wrapped in horizontal-scroll containers.
-- Wrapped all 9 cached HTML table outputs in export-safe scroll containers.
-- Downsampled all 8 cached embedded PNG figures to a maximum width of 2400 px to reduce clipping and static-export payload risk while preserving visual readability.
+- Wrapped all 9 cached HTML table outputs in export-safer scroll containers.
+- Downsampled all 8 cached embedded PNG figures to a maximum width of 2400 px to reduce clipping and static-export payload risk while preserving readability.
 - Verified both embedded GIF animations decode correctly: 84 frames for the mechanism/research animation and 70 frames for the laboratory workflow animation.
-- Removed tracked high-risk presentation patterns from the polished notebook: hidden overflow, fixed 1080 px media caps, negative heading letter spacing, large 18 px and 12 px radii, heavy old shadows and tiny 12 px font-size patterns.
-- Strengthened the reproducibility appendix with the exact requirements for a clean rerun and a static export QA reminder.
+- Removed tracked high-risk presentation patterns from the polished notebook: hidden overflow, fixed 1080 px media caps, negative heading letter spacing, large 18 px and 12 px radii, old heavy shadow patterns and tiny 12 px font-size patterns.
+- Strengthened the reproducibility appendix with explicit clean-rerun and static-export QA requirements.
 - Added docstrings to the remaining animation helper functions so all functions/classes in the polished notebook now have docstrings.
-- Tightened notebook-level CSS that still used negative heading letter spacing, large 18 px/12 px radii and heavier old shadows.
 
 ## Verification completed
 
-- Polished notebook SHA-256: `d57ee67b1b4375302b0362956fdc5dfd2cda0077bbc6d89667031241aee30f80`.
+- Polished notebook SHA-256: `f6b6334df28df2414fb79a1c56605773a32e67c5cfa5c8718ead5173fe8555e8`.
 - Source notebook SHA-256: `d09834cf0f52e0ec28bae4c0a796a3abda6e94b36a82e5f61012ec7a299e0b84`.
 - Notebook structure: 37 cells, including 23 Markdown cells and 14 code cells.
 - Heading-only Markdown sections remaining: 0.
@@ -31,15 +30,15 @@ It is not yet fully publication-certified because two external checks remain blo
 - Code-cell syntax parse errors: 0.
 - Functions/classes without docstrings: 0.
 - Cached HTML table outputs: 9, all wrapped.
-- Embedded PNG figures: 8, all decoded successfully after downsampling.
-- Embedded GIF animations: 2, both decoded successfully.
+- Embedded PNG figures: 8, all decoded successfully after downsampling. Dimensions are 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
+- Embedded GIF animations: 2, both decoded successfully. Dimensions/frame counts are 1495 x 828 with 84 frames and 1400 x 772 with 70 frames.
 - Confirmed absent in the polished notebook: `overflow: hidden`, `overflow:hidden`, `letter-spacing:-`, `max-width:1080`, `width:1080`, `border-radius:18px`, `border-radius: 18px`, `border-radius:12px`, `border-radius: 12px`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px` and `font-size: 12px`.
 
 ## Major remaining blockers
 
 - The attached raw-data tree contains only `Data/Acetone/` with 49 `.dat` files. The Acetonitrile, Cyclohexane, THF and Toluene raw trace folders are missing, so the cached five-solvent result cannot be reproduced end to end from the current package.
 - The runtime is missing `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`. Full rerun, regenerated figures and HTML/PDF export QA therefore remain blocked here.
-- Static export page-break behaviour, final table widths in exported HTML/PDF, screenshot-level overlap/clipping review, and GIF fallback behaviour still need inspection in a dependency-complete environment. Playwright is installed in this runtime, but no Chromium browser binary is available, so browser screenshot QA could not be completed here.
+- Static export page-break behaviour, final table widths in exported HTML/PDF, screenshot-level overlap/clipping review and GIF fallback behaviour still need inspection in a dependency-complete environment. Browser screenshot QA also remains blocked because this runtime has no installed browser executable.
 
 ## Next highest-value improvements
 
