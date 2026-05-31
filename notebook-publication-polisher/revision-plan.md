@@ -4,18 +4,18 @@
 
 The notebook is close to publication-ready as an executed artifact. The remaining high-value work is reproducibility and final export QA: rerun from the complete raw data package, then inspect HTML/PDF exports in a full notebook environment.
 
-## Completed in 2026-05-31 19:15 BST Pass
+## Completed in 2026-05-31 22:15 BST Pass
 
 - Reviewed the attached full-output notebook and rubric guidance.
-- Created `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
-- Added an explicit reproducibility note to the notebook stating that the attached raw-data package contains only Acetone, while the cached results report five solvents.
+- Rebuilt `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
+- Replaced heading-only Markdown sections with explanatory transitions.
+- Added explicit reproducibility and export-QA guidance to the notebook.
 - Added rerunnable table display helpers that wrap report tables in horizontal-scroll containers.
 - Patched all 9 cached table outputs so wide tables no longer rely on page width and should not clip in notebook display.
-- Added a rerunnable PNG width cap for generated report figures.
 - Downsampled all 8 cached embedded PNG figures to a maximum width of 2400 px.
 - Verified both cached GIF animations decode from the saved notebook: 84 frames and 70 frames.
 - Removed tracked high-risk styling patterns associated with clipping or brittle exports: hidden overflow, fixed 1080 px image caps, large 18 px/12 px radii, heavier old shadows, 12 px font-size patterns and negative heading letter spacing.
-- Verified no saved execution errors and no code-cell syntax errors.
+- Verified no saved execution errors, no code-cell syntax errors and no functions/classes missing docstrings.
 
 ## Remaining Work
 
