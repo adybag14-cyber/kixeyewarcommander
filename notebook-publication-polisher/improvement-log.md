@@ -1,5 +1,42 @@
 # Improvement Log
 
+## 2026-05-31 12:15 BST Scheduled Pass
+
+### Package Reviewed
+
+- Source notebook: `/workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- Rubric guidance: `/workspace/agent_files/marking rubric for simple exercise.txt`.
+- Raw data package: `/workspace/agent_files/testing-main/Data/Acetone`, containing 49 acetone `.dat` files only.
+- Revised notebook created: `/workspace/output/P201_201698955_publication_polished_2026-05-31_1215.ipynb`.
+
+### Improvements Made
+
+- Re-reviewed the attached notebook artifact and found that this fresh copy still contained publication-risk display styling despite earlier progress notes.
+- Replaced eight bare heading-only Markdown cells with concise explanations that connect each code section to the report's reproducibility, quality control, validation or interpretation goals.
+- Tightened notebook-wide CSS and cached HTML outputs to reduce clipping and export risk: removed negative heading letter spacing, large rounded wrappers, heavy media shadows, 1080 px GIF caps and hidden overflow.
+- Added table overflow protection to the global notebook styling for wide DataFrame outputs.
+- Patched figure and GIF embedding source code so future reruns regenerate safer wrappers.
+- Downsampled all eight embedded PNG payloads to a maximum width of 2400 px while preserving both embedded GIFs and their frame counts.
+
+### Verification Completed
+
+- Revised notebook contains 37 cells.
+- Revised notebook SHA-256: `6d8e01ef160097995af721cf8b1d8f9e29d7f6ba29e96907f72f1dc7bf417fc5`.
+- Saved output audit found zero error outputs.
+- Code-cell syntax parse check passed for all code cells.
+- Bare-heading audit found zero heading-only Markdown cells after patching.
+- Embedded visual audit found 10 assets: 8 PNGs and 2 GIFs.
+- PNG sizes after downsampling: 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
+- GIF frame counts: 84 frames for the mechanism animation and 70 frames for the laboratory workflow animation.
+- Table audit parsed 9 cached HTML table outputs; the widest parsed table has 12 columns.
+- Styling audit found no remaining `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `border-radius:12px`, `border-radius: 12px`, `width:1080`, `max-width:1080`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px`, `font-size: 12px`, `overflow: hidden` or `overflow:hidden` strings.
+
+### Remaining Risks
+
+- The attached raw-data package contains only acetone files, so the cached five-solvent result set cannot be reproduced end to end from the available package.
+- The runtime lacks `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`; clean notebook execution and final HTML/PDF export-render QA remain blocked.
+- Export-specific layout behaviour remains a verification item even though the embedded media and source-level styling now look robust in notebook form.
+
 ## 2026-05-31 11:15 BST Scheduled Pass
 
 ### Package Reviewed
