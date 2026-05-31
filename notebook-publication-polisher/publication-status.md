@@ -2,7 +2,7 @@
 
 ## Current Assessment
 
-- Date: 2026-05-31 18:15 BST scheduled pass.
+- Date: 2026-05-31 19:15 BST scheduled pass.
 - Current polished deliverable: `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
 - Current readiness: strong publication-ready executed-notebook draft if the cached outputs are accepted. Full publication readiness still depends on a clean rerun from the complete raw data package and an HTML/PDF export audit in a dependency-complete notebook environment.
 - Rubric guidance was reviewed and supports the current priority: clear post-lab answers, rigorous analysis and plotting, strong experimental write-up, elegant and portable code, well-commented methods, and clean Markdown/HTML/LaTeX formatting.
@@ -17,9 +17,9 @@
 
 ## Latest Visual Audit
 
-- Revised notebook SHA-256: `ddd056a68241f05b64c67d42741c789ce21a3ee5eef3f5953db03362b75aab8a`.
+- Revised notebook SHA-256: `0442253681846cb875057d1663e3fd0d9617d8eec6e1fb29c17603b157723e20`.
 - Source notebook SHA-256: `d09834cf0f52e0ec28bae4c0a796a3abda6e94b36a82e5f61012ec7a299e0b84`.
-- Notebook structure: 37 cells: 23 Markdown cells and 14 code cells.
+- Notebook structure: 38 cells: 24 Markdown cells and 14 code cells.
 - Saved execution errors: 0.
 - Code-cell syntax parse check: passed for all code cells.
 - Cached HTML outputs: 19 total.
@@ -32,6 +32,7 @@
 ## Improvements Completed This Pass
 
 - Created a polished notebook copy at `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
+- Added a publication-facing reproducibility note explaining that this review package contains only the Acetone raw data folder, while the cached notebook reports a full five-solvent analysis.
 - Added reusable HTML table display helpers so rerun tables are generated inside publication-safe horizontal-scroll wrappers.
 - Patched every cached DataFrame HTML output so current saved tables scroll instead of clipping in narrow notebook or export views.
 - Added a figure-width capping helper to the figure-generation code so reruns downsample oversized report PNGs before embedding.
