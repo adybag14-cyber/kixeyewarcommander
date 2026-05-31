@@ -2,11 +2,11 @@
 
 ## Current Readiness Assessment
 
-- Date: 2026-05-31 04:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0415.ipynb`.
-- Output SHA-256: `888de81d7123664f190ea5af04f82cd797f2cf03f3003059e7aec04a1cb45d6d`.
+- Date: 2026-05-31 05:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0515.ipynb`.
+- Output SHA-256: `c130740782be1c8ab46b7f11eff0116bacfda165770976bdde44c6ca716421f4`.
 - Readiness: high and close to publication-ready as an executed notebook with cached outputs, assuming the cached numerical outputs are accepted for evaluation.
-- This pass found and fixed one important narrative inconsistency in the post-lab solvent discussion: the text now correctly identifies acetonitrile as the fastest accepted mean recovery, with acetone as a close second.
+- This pass found that the attached notebook still contained several publication-formatting risks that prior notes expected to be resolved: heading-only Markdown sections, large cached PNGs, 1080 px GIF display widths, 18 px media/card radii, heavy media shadows and negative heading letter spacing.
 - Main blocker to full publication certainty remains unchanged: a clean five-solvent rerun and final HTML/PDF render QA cannot be completed from the current package because the attached raw-data tree contains acetone files only and this runtime lacks Jupyter/nbconvert plus the scientific dependencies needed to execute the notebook cleanly.
 
 ## Major Strengths Now Present
@@ -14,13 +14,12 @@
 - Clear article-style narrative with aims, theory, method, quality control, results, post-lab answers, conclusion, reproducibility appendix and references.
 - Five-solvent cached analysis outputs remain embedded in the notebook, including uncertainty summaries, trace-level quality-control decisions, independent validation, sensitivity checks and publication figures.
 - Research framing is strong for the available evidence: the introduction and results discussion avoid overclaiming a single bulk-polarity explanation and present the solvent trend as mechanism- and solvent-class-sensitive.
-- The post-lab answer on solvatochromism/kinetics now aligns with the notebook's own accepted rate order: acetonitrile > acetone > THF > cyclohexane > toluene.
-- Bare implementation/reporting headings remain replaced with explanatory transitions before parsing, fitting, quality control, execution, validation, figure generation, discussion and post-lab answers.
-- The configuration and reproducibility sections explicitly record the package limitation: the attached tree is acetone-only while cached outputs cover five solvents.
+- The configuration section now explicitly warns that the current attached raw-data tree is acetone-only while the executed cached outputs cover five solvents.
+- All formerly bare implementation/reporting headings now include short explanatory transitions before parsing, fitting, quality control, execution, validation, figure generation, discussion and post-lab answers.
 - Cached visual assets are intact: 8 PNG figures and 2 inline GIF animations decode successfully; the mechanism GIF has 84 frames and the laboratory workflow GIF has 70 frames.
 - Cached PNG outputs are downsampled to a maximum width of 2400 px to reduce notebook render weight while preserving export-quality detail.
 - Export-risk styling has been reduced in both source and cached HTML outputs: no negative heading letter spacing, no 18 px figure/card radii, no 1080 px GIF display widths, no heavy 12/18 px media-shadow strings, and figure/output overflow guards are present.
-- The mechanism animation panel is open by default, avoiding a hidden visual abstract in exported/static notebook review.
+- Figure generation code now includes a rerun-safe `downsample_png_for_notebook` helper and lower save DPI so regenerated cached figures should remain notebook/export friendly.
 
 ## Major Remaining Blockers
 
