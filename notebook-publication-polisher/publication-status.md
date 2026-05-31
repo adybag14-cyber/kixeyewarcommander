@@ -1,10 +1,10 @@
 # Publication Status
 
-Last updated: 2026-05-31 22:15 BST scheduled pass.
+Last updated: 2026-05-31 23:15 BST scheduled pass.
 
 ## Current readiness assessment
 
-The notebook is close to publication-ready as an executed, cached-output artifact. This pass rebuilt the polished notebook deliverable from the attached full-output notebook and carried forward the high-impact publication fixes: stronger section transitions, export-safer tables, capped embedded figure sizes, reduced clipping-prone CSS, complete helper docstrings and a clearer reproducibility/export-QA appendix.
+The notebook is close to publication-ready as an executed, cached-output artifact. This pass rebuilt the polished notebook deliverable from the attached full-output notebook and applied the highest-impact publication fixes again in the current workspace: stronger section transitions, export-safer tables, capped embedded figure sizes, reduced clipping-prone CSS, complete helper docstrings and a clearer reproducibility/export-QA appendix.
 
 It is not yet fully publication-certified because the attached raw-data package is incomplete and this runtime does not include the scientific/Jupyter dependencies needed for a clean rerun or static HTML/PDF export inspection. The cached executed results are strong, but end-to-end reproducibility and screenshot/page-export QA remain external blockers.
 
@@ -17,12 +17,12 @@ It is not yet fully publication-certified because the attached raw-data package 
 - Downsampled all 8 cached embedded PNG figures to a maximum width of 2400 px to reduce clipping and static-export payload risk while preserving readability.
 - Verified both embedded GIF animations decode correctly: 84 frames for the mechanism/research animation and 70 frames for the laboratory workflow animation.
 - Removed tracked high-risk presentation patterns from the polished notebook: hidden overflow, fixed 1080 px media caps, negative heading letter spacing, large 18 px and 12 px radii, old heavy shadow patterns and tiny 12 px font-size patterns.
-- Strengthened the reproducibility appendix with explicit clean-rerun and static-export QA requirements.
+- Strengthened the reproducibility appendix with explicit clean-rerun, complete-data and static-export QA requirements.
 - Added docstrings to the remaining animation helper functions so all functions/classes in the polished notebook now have docstrings.
 
 ## Verification completed
 
-- Polished notebook SHA-256: `f6b6334df28df2414fb79a1c56605773a32e67c5cfa5c8718ead5173fe8555e8`.
+- Polished notebook SHA-256: `a342d5a6cea717b16365deab6da453c53ac0449fb80de81973445706b3c0eb62`.
 - Source notebook SHA-256: `d09834cf0f52e0ec28bae4c0a796a3abda6e94b36a82e5f61012ec7a299e0b84`.
 - Notebook structure: 37 cells, including 23 Markdown cells and 14 code cells.
 - Heading-only Markdown sections remaining: 0.
@@ -32,7 +32,7 @@ It is not yet fully publication-certified because the attached raw-data package 
 - Cached HTML table outputs: 9, all wrapped.
 - Embedded PNG figures: 8, all decoded successfully after downsampling. Dimensions are 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
 - Embedded GIF animations: 2, both decoded successfully. Dimensions/frame counts are 1495 x 828 with 84 frames and 1400 x 772 with 70 frames.
-- Confirmed absent in the polished notebook: `overflow: hidden`, `overflow:hidden`, `letter-spacing:-`, `max-width:1080`, `width:1080`, `border-radius:18px`, `border-radius: 18px`, `border-radius:12px`, `border-radius: 12px`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px` and `font-size: 12px`.
+- Confirmed absent in the polished notebook: `overflow: hidden`, `letter-spacing:-`, `max-width:1080px`, `border-radius:18px`, `border-radius: 18px`, `box-shadow:0 12px`, `box-shadow: 0 12px`, `box-shadow:0 18px` and `font-size:12px`.
 
 ## Major remaining blockers
 
