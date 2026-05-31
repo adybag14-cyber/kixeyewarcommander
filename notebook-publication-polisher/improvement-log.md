@@ -1,47 +1,40 @@
 # Improvement Log
 
-## 2026-05-31 07:15 BST Scheduled Pass
+## 2026-05-31 08:15 BST Scheduled Pass
 
-### Inputs Reviewed
+### Package Reviewed
 
-- Attached notebook: `/workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- Source notebook: `/workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
 - Rubric guidance: `/workspace/agent_files/marking rubric for simple exercise.txt`.
-- Attached raw-data package: `/workspace/agent_files/testing-main/Data`.
-- Prior memory files and GitHub-persisted status files.
-
-### Highest-Impact Findings
-
-- The current attached notebook still contained eight heading-only Markdown transition cells. This weakened publication flow around important methods and results-generating code.
-- The cached notebook outputs contained very large embedded PNG payloads, including a mechanism figure over 8000 px wide. These increase notebook size and create avoidable clipping/overflow risk in exported HTML/PDF contexts.
-- The animation wrappers still used 1080 px display caps, 18 px radii and heavy shadows. These are visually dominant and more fragile in export than the rest of the notebook styling.
-- Saved outputs decoded successfully, with 8 PNG figures and 2 GIF animations. No saved execution-error outputs were found.
-- The attached raw-data package remains acetone-only, so the cached five-solvent output cannot be independently regenerated from the current attachments.
+- Raw data package: `/workspace/agent_files/testing-main/Data/Acetone`, containing 49 acetone `.dat` files only.
+- Revised notebook created: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0815.ipynb`.
 
 ### Improvements Made
 
-- Created revised notebook: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0715.ipynb`.
-- Added concise explanatory lead-ins to the Data reader, Fast fitting functions, Quality control and summary functions, Run the analysis, Independent validation, Figures, Results and discussion, and Post-lab answers sections.
-- Updated global notebook CSS to remove negative heading letter spacing, reduce oversized radii to 8 px or less, lighten figure/card shadows, add output overflow protection and keep image dimensions responsive.
-- Patched future figure-generation code to use a reusable publication PNG payload helper that caps embedded display images at 2400 px width while preserving the high-resolution source figure files.
-- Downsampled the eight cached embedded PNG outputs to a maximum width of 2400 px.
-- Updated cached HTML outputs and GIF source wrappers to use 860 px display caps, 8 px radii and lighter shadows.
+- Added explanatory Markdown under eight code-section headings that were previously heading-only cells: data reader, fitting functions, quality control, run analysis, validation/sensitivity, figures, results discussion and post-lab answers.
+- Tightened notebook-wide CSS for publication export by removing negative heading letter spacing, reducing large rounded wrappers to 8 px, removing heavy figure/card shadows and adding safer image/table overflow constraints.
+- Updated figure embedding code to use lower-risk export dimensions and smaller visual chrome.
+- Patched cached HTML outputs so the already-executed notebook display reflects the safer styling without requiring a rerun.
+- Downsampled all eight embedded PNG payloads to a maximum width of 2400 px, reducing export and browser-layout risk while preserving readable cached figures.
+- Reduced inline GIF display caps from 1080 px to 960 px, removed heavy shadows, and changed hidden overflow to horizontal auto overflow for safer export rendering.
+- Added a reproducibility note to the appendix explaining that the attached raw-data package is acetone-only while the cached notebook reports five solvents.
 
 ### Verification Completed
 
-- Parsed the revised notebook as JSON successfully.
-- Confirmed all code cells parse with Python `ast.parse`.
-- Confirmed zero saved error outputs.
-- Confirmed zero heading-only Markdown cells.
-- Decoded all embedded media from saved outputs: 8 PNGs and 2 GIFs.
-- Confirmed PNG dimensions after downsampling: 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
+- Revised notebook contains 37 cells: 23 Markdown cells and 14 code cells.
+- Revised notebook SHA-256: `33052ae86d4ba4927e27aa817ce2ac901989ae5005e437db39d471b0fd14994e`.
+- Saved output audit found zero error outputs.
+- Code-cell syntax parse check passed for all code cells.
+- Bare-heading audit found zero heading-only Markdown cells.
+- Embedded visual audit found 10 assets: 8 PNGs and 2 GIFs.
+- PNG payload dimensions after downsampling: 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
 - Confirmed GIF frame counts: 84 and 70 frames.
-- Confirmed revised notebook contains none of the following high-risk strings: `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `border-radius:12px`, `border-radius: 12px`, `width:1080`, `max-width:1080`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px`, `font-size: 12px`.
+- Confirmed revised notebook contains none of the following high-risk strings: `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `border-radius:12px`, `border-radius: 12px`, `width:1080`, `max-width:1080`, `box-shadow:0 18`, `box-shadow: 0 12`, `font-size:12px`, `font-size: 12px`, `overflow: hidden`.
 
 ### Unresolved Risks
 
 - Clean execution is blocked by missing dependencies in this runtime and incomplete raw data.
 - Final exported HTML/PDF visual QA is still required in a full notebook environment.
-- Browser-level visual overflow QA could not be completed because the Playwright browser binary is not installed in this container.
 - Scientific claims were not expanded beyond the evidence already present in the notebook because adding new claims without rerun access and complete raw data would be unsafe.
 
 ## Prior Resolved Highlights
