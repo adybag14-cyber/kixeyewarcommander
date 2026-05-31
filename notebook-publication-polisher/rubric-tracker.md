@@ -2,8 +2,8 @@
 
 ## Current Estimate
 
-- Date: 2026-05-31 01:15 BST scheduled pass.
-- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0115.ipynb`.
+- Date: 2026-05-31 02:15 BST scheduled pass.
+- Current strongest deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0215.ipynb`.
 - Estimated band: high, likely outstanding to exceptional for the executed notebook if the cached outputs are accepted as the evaluated artifact.
 - Main uncertainty: full reproducibility cannot be demonstrated from the current package because only acetone raw files are attached and this runtime lacks key execution/rendering dependencies.
 
@@ -15,13 +15,13 @@
 - Criterion 4, Originality and elegance of Python code, 20%: strong to very strong. The notebook uses modular parsing, fitting, quality control, validation, bootstrap ranking, benchmark checks and figure generation rather than repeated manual cells.
 - Criterion 5, Portability of code, 10%: moderate to strong. `P201_DATA_DIR` support and explicit reproducibility notes help portability, and the appendix now states the exact limitation of an acetone-only attached raw-data tree. Full portability still needs the complete five-solvent data and dependencies.
 - Criterion 6, Commenting, documentation and explanation of code, 10%: very strong. Previously bare implementation/reporting sections now include explanatory transitions before core code blocks and generated sections.
-- Criterion 7, Markdown, LaTeX, HTML and general formatting, 10%: very strong. The notebook has coherent section flow, equations, captions, references and safer export styling after this pass, including patched cached HTML outputs, no bare headings, reduced panel radii, lighter shadows, narrower inline GIF display widths, table overflow wrappers and an output overflow guard.
+- Criterion 7, Markdown, LaTeX, HTML and general formatting, 10%: very strong. The notebook has coherent section flow, equations, captions, references and safer export styling after this pass, including patched cached HTML outputs, no bare headings, reduced panel radii, lighter shadows, narrower inline GIF display widths, figure overflow protection and an output overflow guard.
 - Publication-rendering hygiene: strong based on direct embedded-media inspection. All PNGs and GIFs decode, there are no saved error outputs, no bare-heading Markdown cells and no remaining high-risk source/cached-output strings for negative heading tracking, 18 px wrappers, 1080 px GIF display widths or heavy media shadows. Final HTML/PDF rendering still needs verification in a notebook export environment.
 
 ## Evidence From This Run
 
 - Revised notebook contains 37 cells.
-- Latest polished notebook SHA-256: `7a5ceb7874bc370ef86766361676f39ae8255f90573a5186d51646fb7f92a308`.
+- Latest polished notebook SHA-256: `fe711eaaa416ce0641d6e98eb896fbc4595aa98c133de7008204d0925b82cae1`.
 - All code cells compile syntactically with `ast.parse`.
 - Saved output audit found zero error outputs.
 - Markdown audit found zero empty or heading-only sections.
@@ -29,7 +29,7 @@
 - Cached PNG figures were downsampled to 2400 px maximum width; resulting figure sizes are 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
 - GIF frame counts: 84 frames for the mechanism animation and 70 frames for the laboratory workflow animation.
 - Styling audit found no remaining `letter-spacing:-`, `border-radius:18px`, `border-radius: 18px`, `box-shadow:0 18px`, `box-shadow:0 12px 30px`, `box-shadow: 0 12px 28`, `max-width:1080px` or `width:1080px` strings.
-- Cached Pandas HTML table outputs now have 9 overflow wrappers.
+- Cached report figures now include responsive overflow protection; the high-risk styling strings checked in this pass are absent from both source and cached outputs.
 - Configuration and reproducibility wording now explicitly warn that the attached data package is acetone-only while cached outputs cover five solvents.
 - Current raw-data package includes 49 acetone files only, so five-solvent reproducibility cannot be proven from the attached data.
 - Jupyter/nbconvert, IPython, matplotlib, SciPy, Numba and RDKit are absent in this runtime, so clean execution and final HTML/PDF export-render QA remain unverified.
