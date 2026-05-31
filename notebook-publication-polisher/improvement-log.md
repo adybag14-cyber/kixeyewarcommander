@@ -1,5 +1,30 @@
 # Improvement Log
 
+## 2026-05-31 19:15 BST Scheduled Pass
+
+### Reviewed
+
+- Source notebook: `/workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- Rubric guidance: `/workspace/agent_files/marking rubric for simple exercise.txt`.
+- Supporting raw-data package: `/workspace/agent_files/testing-main/Data/`, which still contains only the Acetone folder and 49 `.dat` files.
+- Existing memory notes from the previous scheduled pass.
+
+### Improvements Made
+
+- Recreated `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached full-output notebook because the prior polished output was not present in this workspace at run start.
+- Added a visible reproducibility note to the notebook explaining that the attached raw-data package is incomplete for reproducing the cached five-solvent results.
+- Wrapped all 9 cached DataFrame HTML outputs in `.table-scroll` containers and added a rerunnable `display_table` helper for future table displays.
+- Added rerunnable figure-saving logic that caps oversized embedded PNGs at 2400 px width.
+- Downsampled all 8 cached PNG report figures to 2400 px maximum width while preserving aspect ratios.
+- Reduced brittle visual styling in source and cached HTML outputs: removed tracked hidden overflow, fixed 1080 px image caps, 18 px radii, old heavy shadows and negative heading letter spacing.
+- Verified there are no saved execution-error outputs, all 14 code cells parse successfully, all 8 cached PNGs decode, and both GIFs decode with 84 and 70 frames.
+
+### Unresolved Risks
+
+- Clean rerun remains blocked because the package does not include raw acetonitrile, cyclohexane, THF or toluene data.
+- HTML/PDF export QA remains blocked because this runtime lacks `nbformat`, `nbconvert`, Jupyter, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`.
+- The notebook is a strong executed artifact, but full publication readiness still depends on a dependency-complete rerun and exported-page inspection.
+
 ## 2026-05-31 18:15 BST Scheduled Pass
 
 - Reviewed the attached full-output notebook and rubric guidance.
