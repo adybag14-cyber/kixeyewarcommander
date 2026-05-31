@@ -4,10 +4,11 @@
 
 The notebook is close to publication-ready as an executed artifact. The remaining high-value work is reproducibility and final export QA: rerun from the complete raw data package, then inspect HTML/PDF exports in a full notebook environment.
 
-## Completed in 2026-05-31 18:15 BST Pass
+## Completed in 2026-05-31 19:15 BST Pass
 
 - Reviewed the attached full-output notebook and rubric guidance.
 - Created `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
+- Added an explicit reproducibility note to the notebook stating that the attached raw-data package contains only Acetone, while the cached results report five solvents.
 - Added rerunnable table display helpers that wrap report tables in horizontal-scroll containers.
 - Patched all 9 cached table outputs so wide tables no longer rely on page width and should not clip in notebook display.
 - Added a rerunnable PNG width cap for generated report figures.
