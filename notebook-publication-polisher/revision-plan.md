@@ -1,11 +1,11 @@
 # Revision Plan
 
-## Completed In 2026-05-31 06:15 BST Pass
+## Completed In 2026-05-31 07:15 BST Pass
 
-- Created polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0615.ipynb`.
+- Created polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_0715.ipynb`.
 - Added explanatory transitions below all formerly bare heading-only Markdown sections.
 - Hardened notebook styling for publication export by removing negative heading tracking, 18 px and 12 px wrapper radii, heavy media shadows and 1080 px GIF display widths.
-- Added/retained responsive overflow protection for cached report figures, output areas and inline GIF panels.
+- Added or retained responsive overflow protection for cached report figures, output areas and inline GIF panels.
 - Added a rerun-safe publication PNG payload helper to the figure-generation source cell.
 - Downsampled cached embedded PNG figures to a maximum width of 2400 px for lighter notebook rendering and lower export-clipping risk.
 - Validated saved output status, code-cell syntax, embedded media decoding, GIF frame counts, bare-heading removal and high-risk styling-string removal.
