@@ -4,7 +4,7 @@
 
 Estimated range: high distinction / publication-ready executed-notebook draft, conditional on accepting the cached outputs. Full-mark confidence still requires a clean rerun from the complete raw-data tree and exported HTML/PDF visual QA.
 
-Latest pass: 2026-05-31 18:15 BST. The current polished notebook now fixes the confirmed cached-output presentation issue: all 9 wide table outputs are scroll-wrapped, all 8 embedded PNG figures are capped at 2400 px width, both GIFs decode, code cells parse successfully and saved execution errors are absent.
+Latest pass: 2026-05-31 19:15 BST. The current polished notebook fixes the confirmed cached-output presentation issues and adds an explicit reproducibility note for the incomplete attached raw-data tree: all 9 wide table outputs are scroll-wrapped, all 8 embedded PNG figures are capped at 2400 px width, both GIFs decode, code cells parse successfully and saved execution errors are absent.
 
 ## Criterion 1: Post-lab Questions and Literature Context, 10%
 
@@ -16,7 +16,7 @@ Latest pass: 2026-05-31 18:15 BST. The current polished notebook now fixes the c
 
 - Current status: very strong in cached notebook.
 - Evidence: automated raw-file parsing, first-order fitting, quality-control rules, uncertainty intervals, bootstrap ranking, validation tables, fit-window sensitivity checks and multiple captioned figures are all included.
-- Latest polish: 9 cached tables are wrapped in horizontal-scroll containers; 8 embedded PNG figures are capped at 2400 px maximum width; 2 GIF animations decode with 84 and 70 frames.
+- Latest polish: 9 cached tables are wrapped in horizontal-scroll containers; 8 embedded PNG figures are capped at 2400 px maximum width; 2 GIF animations decode with 84 and 70 frames; the notebook now flags that this review package contains only Acetone raw data and cannot regenerate the cached five-solvent analysis without the missing solvent folders.
 - Remaining need: reproduce the five-solvent output from the complete raw `Data/` tree and visually inspect HTML/PDF exports.
 
 ## Criterion 3: Experimental Write-up, 15%
@@ -36,7 +36,7 @@ Latest pass: 2026-05-31 18:15 BST. The current polished notebook now fixes the c
 ## Criterion 5: Portability of Code, 10%
 
 - Current status: moderate to strong.
-- Evidence: the notebook supports a `P201_DATA_DIR` data path and contains the analysis code in-notebook.
+- Evidence: the notebook supports a `P201_DATA_DIR` data path, contains the analysis code in-notebook and now includes a visible reproducibility note about the incomplete attached `Data/` tree.
 - Remaining blocker: portability cannot be fully demonstrated from this package because the complete raw data set is not attached and required scientific/Jupyter packages are missing in this runtime.
 
 ## Criterion 6: Commenting, Documentation and Explanation, 10%
