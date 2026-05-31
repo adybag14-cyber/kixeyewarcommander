@@ -1,14 +1,14 @@
 # Revision Plan
 
-## Completed In 2026-05-31 11:15 BST Pass
+## Completed In 2026-05-31 12:15 BST Pass
 
-- Created polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_1115.ipynb`.
-- Added explanatory transitions below all formerly bare heading-only Markdown sections.
-- Hardened notebook styling for publication export by removing negative heading tracking, 18 px and 12 px wrapper radii, heavy media shadows, hidden overflow, 12 px text fragments and 1080 px GIF display widths.
-- Added or retained responsive overflow protection for cached report figures, output areas, tables and inline GIF panels.
+- Created polished deliverable: `/workspace/output/P201_201698955_publication_polished_2026-05-31_1215.ipynb`.
+- Added explanatory transitions below all formerly bare heading-only Markdown sections found in the attached notebook.
+- Hardened notebook styling for publication export by removing negative heading tracking, 18 px and 12 px wrapper radii, heavy media shadows, hidden overflow and 1080 px GIF display widths.
+- Added responsive overflow protection for cached DataFrame tables.
 - Patched figure and GIF embedding source code so future reruns regenerate safer media wrappers.
+- Patched cached HTML outputs so the current saved notebook immediately reflects the safer visual styling.
 - Downsampled cached embedded PNG figures to a maximum width of 2400 px for lighter notebook rendering and lower export-clipping risk.
-- Added an appendix note documenting that the current attached raw-data package is acetone-only while cached outputs report five solvents.
 - Validated saved output status, code-cell syntax, embedded media decoding, GIF frame counts, bare-heading removal, table widths and high-risk styling-string removal.
 
 ## Remaining Highest-Value Work
