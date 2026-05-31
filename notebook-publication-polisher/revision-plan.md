@@ -1,10 +1,10 @@
 # Revision Plan
 
-## Current Priority
+## Current priority
 
 The notebook is close to publication-ready as an executed artifact. The remaining high-value work is reproducibility and final export QA: rerun from the complete raw data package, then inspect HTML/PDF exports in a full notebook environment.
 
-## Completed in 2026-05-31 23:15 BST Pass
+## Completed in 2026-06-01 00:15 BST pass
 
 - Reviewed the attached full-output notebook and rubric guidance.
 - Rebuilt `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached full-output notebook available in this run.
@@ -14,10 +14,10 @@ The notebook is close to publication-ready as an executed artifact. The remainin
 - Patched all 9 cached table outputs so wide tables no longer rely on page width and should not clip in notebook display.
 - Downsampled all 8 cached embedded PNG figures to a maximum width of 2400 px.
 - Verified both cached GIF animations decode from the saved notebook: 84 frames and 70 frames.
-- Removed tracked high-risk styling patterns associated with clipping or brittle exports: hidden overflow, fixed 1080 px image caps, large 18 px/12 px radii, heavier old shadows, 12 px font-size patterns and negative heading letter spacing.
+- Removed tracked high-risk styling patterns associated with clipping or brittle exports: hidden overflow, fixed 1080 px image caps, large 18 px radii, heavier old shadows, 12 px font-size patterns and negative heading letter spacing.
 - Verified no saved execution errors, no code-cell syntax errors and no functions/classes missing docstrings.
 
-## Remaining Work
+## Remaining work
 
 1. Restore or attach the complete raw `Data/` directory for acetone, acetonitrile, cyclohexane, THF and toluene.
 2. Install or use an environment containing the notebook's imported dependencies: `nbformat`, `nbconvert`, Jupyter, `IPython`, `matplotlib`, `scipy`, `numba`, `rdkit`, `numpy`, `pandas` and `Pillow`.
