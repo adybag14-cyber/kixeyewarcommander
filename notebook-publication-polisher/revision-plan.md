@@ -1,28 +1,30 @@
 # Revision Plan
 
-Last updated: 2026-06-01 12:15 BST scheduled run.
+Last updated: 2026-06-01 17:25 BST scheduled run.
 
 ## Completed This Run
 
-- Rebuilt the polished cached-output notebook.
-- Improved section transitions and research framing.
-- Added one supporting literature reference and a conclusion caveat.
-- Made table output scroll-safe in both source helper code and cached HTML outputs.
-- Reduced oversized embedded PNG payloads.
-- Verified embedded GIFs decode through their final frames.
-- Removed high-risk style patterns associated with clipping and cramped notebook rendering.
-- Added missing function/class docstrings.
-- Updated publication status, improvement log and rubric tracker.
+- Inspected the attached notebook, rubric file and prior memory.
+- Optimized all cached embedded PNG/GIF assets in the notebook package.
+- Hardened source cells so future reruns optimize PNGs and render lower-DPI GIFs before embedding.
+- Removed clipping-prone overflow styling from animation panels.
+- Added a reusable publication table helper for scroll-safe, index-free HTML tables.
+- Replaced direct DataFrame displays in major result sections with the publication table helper.
+- Wrapped all cached table outputs in scroll-safe publication containers.
+- Exported a standalone HTML version with Pandoc and ran structural checks.
+- Created updated notebook and HTML deliverables in `/workspace/output/`.
 
 ## Next Run Plan
 
-1. If the full five-solvent `Data/` folder is available, run a clean execution pass and compare regenerated outputs with the cached polished notebook.
-2. If dependencies are available, export to HTML and PDF, then inspect every rendered page for clipping, overlap, broken images, GIF fallback defects, unreadable labels and malformed tables.
-3. If execution is still blocked, focus on targeted source-level improvements that can be safely made from notebook JSON and cached outputs.
-4. Verify literature-comparison constants directly against cited papers before declaring final publication readiness.
+1. If the full five-solvent `Data/` folder is available, execute the polished notebook from a clean kernel.
+2. If dependencies are available, export executed notebook to HTML and PDF using nbconvert.
+3. Run browser-based screenshot QA on desktop and mobile widths; inspect for horizontal overflow, clipping, overlap, broken images, GIF fallback behavior and unreadable labels.
+4. If execution remains blocked, continue source-level and cached-output publication polish only where changes are evidence-preserving.
+5. Verify cited literature values directly before final publication signoff.
 
 ## Current Blockers
 
 - Missing complete raw data for acetonitrile, cyclohexane, THF and toluene.
-- Missing notebook execution/export dependencies in the local environment.
-- Export-level visual QA not yet possible.
+- Missing local execution/export dependencies.
+- Browser screenshot QA blocked by absent Chromium binary and package-registry restrictions.
+- Exported PDF visual QA not yet possible in this environment.
