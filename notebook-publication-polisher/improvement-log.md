@@ -1,21 +1,39 @@
 # Improvement Log
 
-## 2026-06-01 20:15 BST scheduled run
+## 2026-06-01 21:15 BST Scheduled Run
 
-- Re-reviewed the attached notebook package and rubric guidance from a publication-polishing perspective, with emphasis on cached rendering quality.
-- Confirmed the local environment cannot perform a clean notebook rerun because core scientific/notebook packages are missing: `nbformat`, `nbclient`, `IPython`, `matplotlib`, `scipy`, `rdkit`, and `numba`.
-- Patched the notebook source to add `publication_table_html()` and `display_publication_table()` helpers for index-free, horizontally scroll-safe, publication-styled tables.
-- Updated the notebook source display calls for environment audit, summary, QC, rank-probability, benchmark, validation, sensitivity and consistency-check tables to use the publication table helper.
-- Converted all nine cached pandas table outputs into publication-safe HTML wrappers. Validation found no cached `class="dataframe"` markup and no blank index-header cells remaining.
-- Removed clipping-prone `overflow: hidden` from source and cached research-panel CSS.
-- Added source-side image/GIF embedding helpers to cap browser-facing media dimensions, lowered future figure save DPI, and optimized cached inline media.
-- Downsampled cached inline PNGs from widths as high as 8562 px to 2400 px, and GIFs from 1495/1400 px wide to 1080 px wide while preserving 84 and 70 frames respectively.
-- Exported the improved notebook to standalone HTML with Pandoc and structurally checked it: no `Traceback`, no `overflow: hidden`, 9 tables, publication wrappers present, 9 PNG data images, 4 GIF data-image references, and no legacy pandas table class.
-- Created and visually inspected an embedded-media contact sheet. At contact-sheet scale, figures and GIF first frames rendered without obvious broken images, severe clipping, overlapping labels or malformed chart layout.
-- Copied the improved notebook and HTML export into `output/` for delivery.
+### Review Findings
 
-Unresolved risk: browser/PDF visual QA and clean-kernel execution remain blocked until the intended notebook/runtime stack is available.
+- Inspected the attached notebook package, rubric guidance, prior memory files, and available supporting data.
+- Confirmed the rubric prioritizes: post-lab correctness and understanding; five-solvent analysis; uncertainty treatment; fit/outlier reasoning; readable Pandas tables; Guggenheim notation; concise experimental write-up; efficient reusable code; portability; and polished Markdown/HTML formatting.
+- Found 37 notebook cells: 23 markdown and 14 code.
+- Cached outputs contained 22 display outputs and 1 stream output, with no cached error outputs.
+- Found 19 rich HTML/media outputs, including 9 tables and 10 embedded PNG/GIF media payloads.
+- Identified publication-presentation defects in the actual attached notebook despite prior notes claiming they were resolved: legacy Pandas table markup, blank row-index headers, oversized cached figures, one `overflow: hidden` rule, negative heading letter spacing, and weak GIF first-frame fallbacks.
 
-## Earlier Run Summary
+### Improvements Made
 
-Previous scheduled runs on 2026-06-01 focused on correcting a cached post-lab solvent-ordering contradiction, adding and preserving publication-safe table helpers, downscaling oversized PNG/GIF payloads, removing clipping-prone CSS patterns, producing standalone HTML exports, and tracking unresolved blockers around clean execution, incomplete/raw data availability, browser screenshot QA, PDF/static GIF fallback QA, and literature-source verification.
+- Wrote a polished notebook copy to `output/P201_201698955_publication_polished_2026-06-01.ipynb`.
+- Updated the working attached notebook file with the same presentation fixes.
+- Added an early `publication_table_html` / `report_table` helper so the dependency audit and later result tables can render as index-free, scroll-safe publication tables on rerun.
+- Patched cached table HTML so all 9 cached tables are wrapped in `.publication-table-wrap` and no longer expose legacy Pandas index scaffolding.
+- Bounded cached PNG widths to 2400 px and cached GIF widths to 1080 px for more reliable notebook, HTML, and PDF rendering.
+- Preserved the GIF animations' frame counts: 84 frames for the research/mechanism animation and 70 frames for the laboratory workflow animation.
+- Replaced the first embedded GIF frames with complete preview frames so static and PDF renderers show meaningful visual content.
+- Replaced clipping-prone and brittle styling patterns: 0 remaining cached `overflow: hidden`, 0 negative heading letter-spacing matches, 0 legacy `class="dataframe"` matches, and 0 blank row-index header matches.
+- Generated `output/polished_visual_contact_sheet_2026-06-01.png` and visually reviewed every cached figure and animation first frame for obvious clipping, overlap, broken media, malformed visuals, and unreadable layout.
+
+### Validation Completed
+
+- Notebook JSON parsed successfully.
+- All code cells parse with Python `ast.parse`.
+- Cached outputs contain no execution errors.
+- All embedded PNG/GIF media payloads decode with Pillow.
+- Visual contact sheet showed no obvious clipping, overlap, broken media, or unreadable chart layout.
+
+### Unresolved Risks
+
+- Clean execution was not possible in this workspace because several required notebook/scientific packages are unavailable.
+- Actual browser/PDF page-level rendering was not possible in this workspace.
+- Complete raw data for all five solvents was not available under the visible `agent_files/testing-main/Data/` package.
+- Literature constants and original post-lab wording remain to be checked against primary/source documents.
