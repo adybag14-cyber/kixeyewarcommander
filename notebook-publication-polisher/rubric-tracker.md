@@ -1,26 +1,25 @@
 # Rubric Tracker
 
-Last updated: 2026-06-01 04:15 BST scheduled pass.
+Last updated: 2026-06-01 05:15 BST scheduled run.
 
-## Current score estimate
+## Overall estimate
 
-Estimated band: high excellent / outstanding as an executed notebook artifact, with full publication-readiness withheld until complete-data reproducibility and static export QA are available.
-
-The notebook appears strong against the provided simple-exercise rubric: it analyses all five solvents in the cached outputs, presents uncertainty and quality-control reasoning, uses portable functions and configuration, includes post-lab answers and literature comparison, and now has cleaner Markdown/HTML formatting plus docstrings on all functions/classes. This pass also confirmed scroll-safe cached table outputs, decoded embedded figures/GIFs and removed tracked high-risk presentation styles from source and cached outputs. It should not be claimed as fully publishable or full-mark certified until the missing raw data and export-render checks are resolved.
+Current estimate: high excellent / outstanding as an executed notebook artifact, conditional on final reproducibility and export QA. The notebook is strong against the supplied simple-exercise rubric because it analyses all five solvents in the cached outputs, reports uncertainty, documents quality control, links post-lab answers to the results, uses reusable functions and includes advanced Markdown/HTML/LaTeX presentation. Full-mark certification should wait until the missing raw-data and rendered-export checks are complete.
 
 ## Criterion evidence
 
-- Post-labs: strong to excellent. The notebook includes dedicated post-lab answers tied to fitted solvent trends and quality-control evidence. Remaining check: compare against the original question sheet if it differs from the rubric extract.
-- Data analysis and plotting: excellent in the cached notebook. All five solvents are represented, uncertainties are reported, outlier/failed-measurement handling is explicit, residual and validation checks go beyond a minimal analysis, and figures are polished. Remaining blocker: only Acetone raw files are attached, so the five-solvent analysis cannot yet be rerun from source data here.
-- Experimental write-up: excellent. The report has aims, theory, method, configuration, model, parsing, fitting, QC, inference, validation, figures, discussion, post-lab answers, conclusion, reproducibility, checks, AI statement and references. This pass recreated the polished notebook, strengthened weak section transitions, added rerunnable scroll-safe table displays near setup, downsampled cached figures, removed remaining high-risk visual styling patterns and documented the raw-data completeness requirement.
-- Originality and elegance of Python code: strong to excellent. The notebook uses typed helpers, dataclasses, centralized configuration, reusable parsing/fitting/QC functions, bootstrap ranking, independent validation and automated consistency checks.
-- Portability of code: strong. Data paths and analysis settings are centralized and the pipeline discovers trace files. Full portability still needs confirmation once the complete five-solvent data directory is available.
-- Commenting, documentation and explanation of code: excellent. All functions/classes in the polished notebook now have docstrings, and code comments are generally targeted to maintenance-relevant decisions.
-- Markdown, LaTeX, HTML and formatting: strong to excellent for the cached artifact. The polished notebook has no heading-only sections, uses explanatory Markdown transitions, scroll-wraps tables, embeds verified GIFs and caps large figures. Final HTML/PDF export inspection is still required before marking this criterion flawless; the cached notebook now has wrapped tables, decoded GIFs, no tracked high-risk CSS patterns and no undocumented functions/classes.
+- Post-labs: strong to excellent. Dedicated answers address the conceptual questions and connect them to the fitted solvent trends, trace retention and first-order-model evidence. Remaining check: compare against the original post-lab question sheet if it differs from the rubric extract.
+- Data analysis and plotting: excellent in the cached notebook. The executed analysis covers acetone, acetonitrile, cyclohexane, THF and toluene; reports confidence intervals, quality-control decisions, rejection reasons, bootstrap ranking, relative barrier comparison and independent validation. Remaining blocker: the full raw `Data/` directory is not visible here, so clean rerun reproducibility is not certified.
+- Experimental write-up: excellent. The report includes aim, theory, method, model, parsing, fitting, quality control, inference, validation, figures, results, post-lab answers, conclusion, reproducibility appendix, automated checks, AI statement and references. This run improved section transitions and clarified the publication-readiness boundary.
+- Originality and elegance of Python code: strong to excellent. The notebook uses typed helpers, dataclasses, centralized configuration, reusable parsing/fitting/QC functions, independent validation and generated narrative. This run removed the remaining undocumented helper-function issue.
+- Portability of code: strong, conditional. The notebook supports a configurable `Data/` path and contains all analysis logic. Full portability still requires a clean rerun in an environment with the listed scientific and notebook dependencies.
+- Commenting, documentation and explanation of code: excellent. All functions/classes now have docstrings, and code comments are focused on reproducibility or implementation choices rather than obvious line-by-line narration.
+- Markdown, LaTeX, HTML and formatting: strong to excellent for the saved notebook. This run removed heading-only sections, wrapped cached tables, downsampled oversized PNGs, verified embedded GIFs and removed tracked high-risk clipping styles. Final HTML/PDF export inspection is still needed before marking formatting flawless.
 
-## Remaining full-mark blockers
+## Needed for full confidence
 
-- Provide complete raw data for Acetonitrile, Cyclohexane, THF and Toluene.
-- Rerun the polished notebook in a dependency-complete environment.
-- Export the rerun notebook to HTML and PDF and inspect every rendered output for clipping, overlap, broken images, GIF fallback behaviour, table overflow and page-break defects.
-- Confirm all literature comparisons are supported by the cited sources after final rerun/export.
+- Supply the complete raw `Data/` directory for all five solvents.
+- Rerun the polished notebook from a clean kernel.
+- Export to HTML and PDF in a full Jupyter environment.
+- Inspect every rendered output for clipping, overlap, table overflow, broken images, GIF fallback behavior and print page-break defects.
+- Reconfirm literature comparisons after rerun/export.
