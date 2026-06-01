@@ -1,5 +1,43 @@
 # Improvement Log
 
+## 2026-06-01 10:15 BST scheduled run
+
+### Review performed
+
+- Inspected the attached notebook package and rubric guidance in `/workspace/agent_files/`.
+- Compared the attached notebook against existing memory and found that several prior recorded fixes were not present in the current attached notebook copy.
+- Programmatically scanned the notebook for saved errors, syntax errors, missing function/class docstrings, cached table rendering, embedded PNG/GIF payloads and high-risk layout patterns.
+- Checked local execution/export capability and confirmed that clean rerun and nbconvert export QA remain blocked by missing dependencies.
+
+### Improvements made
+
+- Created `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
+- Converted all 9 cached table outputs into horizontally scroll-safe HTML containers.
+- Removed displayed notebook index columns from cached table outputs.
+- Updated the source-level `report_table` helper so future reruns produce index-free, scroll-safe tables.
+- Updated the consistency-check output to use the report-table helper on rerun.
+- Downsampled all 8 oversized embedded PNG figures to a maximum width of 2400 px.
+- Replaced brittle cached/source display styling: no remaining negative heading letter spacing, hidden overflow, 18 px display radii, or 2600 px width patterns.
+- Added missing docstrings to animation helper functions.
+- Added a publication QA note to the reproducibility appendix to make the remaining clean-rerun/export requirement explicit.
+
+### Validation results
+
+- Polished notebook SHA-256: `98aa3225be5a5e02b36a3936ea55d34c503baac437228ef3fb25814a35c8a46a`.
+- Saved execution errors: none found.
+- Code-cell syntax errors: none found.
+- Functions/classes without docstrings: none found.
+- Cached table outputs: 9; all include overflow protection and no `Unnamed:` index columns.
+- Cached embedded PNG figures: 8; maximum width after polishing is 2400 px.
+- Cached embedded GIFs: 2; both decode successfully. Mechanism/results animation: 1495 x 828 px, 84 frames. Lab workflow animation: 1400 x 772 px, 70 frames.
+- High-risk cached/source style patterns checked after polishing: no remaining `letter-spacing:-`, `overflow: hidden`, `border-radius:18`, `border-radius: 18`, `width:2600`, or `max-width:2600` patterns.
+
+### Unresolved risks
+
+- Full clean rerun is blocked by the missing raw `Data/` directory and missing dependencies in the current environment.
+- Export-level visual QA is still required because cached notebook inspection cannot prove HTML/PDF page-break behavior.
+- Literature-comparison values should be rechecked directly against the cited papers during final review.
+
 ## 2026-06-01 09:15 BST scheduled run
 
 ### Review performed
