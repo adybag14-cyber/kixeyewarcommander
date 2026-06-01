@@ -1,25 +1,54 @@
 # Rubric Tracker
 
-Last updated: 2026-06-01 07:15 BST scheduled run.
+Last updated: 2026-06-01 08:15 BST scheduled run.
 
-## Overall estimate
+## Current score estimate
 
-Current estimate: high excellent / outstanding as an executed notebook artifact, conditional on final reproducibility and export QA. The notebook is strong against the supplied simple-exercise rubric because it analyses all five solvents in the cached outputs, reports uncertainty, documents quality control, links post-lab answers to the results, uses reusable functions and includes advanced Markdown/HTML/LaTeX presentation. This run further strengthened the research framing around solvent-dependent push-pull azobenzene recovery and improved cached visual robustness. Full-mark certification should wait until the missing raw-data and rendered-export checks are complete.
+Estimated level: high / near full-score for the executed notebook artifact, subject to final rerun and export verification.
 
-## Criterion evidence
+The notebook now strongly addresses the likely top-band criteria visible in the rubric: clear report structure, advanced Markdown/HTML/LaTeX formatting, full-function docstring coverage, reproducible code organization, data-linked discussion, solvent-level uncertainty reporting, quality control, validation checks and publication-style visual presentation.
 
-- Post-labs: strong to excellent. Dedicated answers address the conceptual questions and connect them to the fitted solvent trends, trace retention and first-order-model evidence. Remaining check: compare against the original post-lab question sheet if it differs from the rubric extract.
-- Data analysis and plotting: excellent in the cached notebook. The executed analysis covers acetone, acetonitrile, cyclohexane, THF and toluene; reports confidence intervals, quality-control decisions, rejection reasons, bootstrap ranking, relative barrier comparison and independent validation. This run confirmed all 8 embedded PNG figure outputs remain readable after being capped at 2400 px width and both embedded GIFs decode successfully. Remaining blocker: the full raw `Data/` directory is not visible here, so clean rerun reproducibility is not certified.
-- Experimental write-up: excellent. The report includes aim, theory, method, model, parsing, fitting, quality control, inference, validation, figures, results, post-lab answers, conclusion, reproducibility appendix, automated checks, AI statement and references. This run improved technical section transitions, strengthened the solvent-effect interpretation and reduced presentation risk in cached outputs.
-- Originality and elegance of Python code: strong to excellent. The notebook uses typed helpers, dataclasses, centralized configuration, reusable parsing/fitting/QC functions, independent validation and generated narrative. This run removed the remaining undocumented helper-function issue detected by AST inspection.
-- Portability of code: strong, conditional. The notebook supports a configurable `Data/` path and contains all analysis logic. Full portability still requires a clean rerun in an environment with the listed scientific and notebook dependencies.
-- Commenting, documentation and explanation of code: excellent. All detected functions/classes now have docstrings, and code comments are focused on reproducibility or implementation choices rather than obvious line-by-line narration.
-- Markdown, LaTeX, HTML and formatting: strong to excellent for the saved notebook. This run removed heading-only sections, wrapped cached tables, downsampled oversized PNGs, verified embedded GIFs and removed tracked high-risk clipping styles in both source and cached outputs. Final HTML/PDF export inspection is still needed before marking formatting flawless.
+## Rubric evidence
 
-## Needed for full confidence
+### Scientific aim and context
 
-- Supply the complete raw `Data/` directory for all five solvents.
-- Rerun the polished notebook from a clean kernel.
-- Export to HTML and PDF in a full Jupyter environment.
-- Inspect every rendered output for clipping, overlap, table overflow, broken images, GIF fallback behavior and print page-break defects.
-- Reconfirm literature comparisons after rerun/export.
+Evidence: The title, abstract, aims, introduction and kinetic model clearly identify flash photolysis of 4A4N, first-order thermal recovery and solvent-dependent rate comparison. This run strengthened the research framing so the interpretation treats polarity, specific solvation, hydrogen-bond accepting ability, viscosity and local packing as interacting solvent effects rather than relying on a simplistic polarity ranking.
+
+Remaining need for full marks: Recheck cited literature comparisons against the original papers during final export review.
+
+### Methodology and reproducibility
+
+Evidence: The notebook contains raw-file parsing, dataclass-based trace representation, explicit fitting functions, quality-control thresholds, solvent summaries, bootstrap rank probabilities, apparent barrier comparisons, independent validation and consistency checks. The reproducibility appendix now distinguishes cached-output review from final clean-rerun certification.
+
+Remaining need for full marks: Provide the complete five-solvent raw `Data/` directory and rerun from a clean kernel with all dependencies installed.
+
+### Analysis quality
+
+Evidence: The cached analysis reports 111 accepted traces out of 225, solvent-level means and standard deviations, confidence intervals, bootstrap rank probabilities, fit-window sensitivity and literature comparisons. The discussion links the fitted rate sequence to the molecular recovery process and avoids overclaiming full activation energies from a single-temperature experiment.
+
+Remaining need for full marks: Confirm the full cached numerical result by rerunning with the complete raw data set.
+
+### Visual and rendering quality
+
+Evidence: This run wrapped all cached tables in overflow-safe containers, downsampled all oversized cached PNG figures to <= 2400 px width, verified both embedded GIFs decode, replaced large/brittle figure radii, removed hidden-overflow risks and found no saved execution errors. The figures and animations are captioned and inline.
+
+Remaining need for full marks: Generate HTML and PDF exports after clean rerun and inspect every page for clipping, overlap, broken images, GIF fallback behavior, table overflow and page-break defects.
+
+### Code quality and maintainability
+
+Evidence: The notebook now has no detected syntax errors and no functions/classes without docstrings, including nested animation helpers. The report-table helper has been improved for future reruns, and the source code is organized into parsing, fitting, quality control, inference, validation, figures and narrative generation.
+
+Remaining need for full marks: Add a dependency/version file or setup cell so another reader can reproduce the environment without guesswork.
+
+### Markdown and report formatting
+
+Evidence: The notebook has no heading-only Markdown cells after this run. Technical sections now have explanatory transitions, equations are presented in LaTeX, references are formatted, and advanced HTML is used for title cards, tables, figures and animations.
+
+Remaining need for full marks: Export-level inspection remains required because notebook JSON checks cannot fully verify PDF/HTML layout.
+
+## Blockers to final full-score confidence
+
+1. Complete five-solvent raw data is missing from the visible package; only Acetone raw traces are present here.
+2. Key dependencies are unavailable in this environment, blocking clean rerun.
+3. HTML/PDF exports have not yet been generated and visually checked after rerun.
+4. Literature-comparison values need final source-level verification.
