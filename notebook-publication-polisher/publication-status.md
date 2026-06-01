@@ -1,44 +1,41 @@
 # Publication Status
 
-Last updated: 2026-06-01 16:15 BST scheduled run.
+Last updated: 2026-06-01 17:25 BST scheduled run.
 
-## Current Readiness Assessment
+## Current Readiness
 
-The attached notebook is now in strong cached-notebook publication condition for presentation and narrative structure. This run re-reviewed the supplied notebook and rubric, found that the current attached package still contained clipping-prone CSS and oversized inline PNG payloads, then patched the notebook so the saved outputs render more safely in notebook and exported HTML contexts.
+The notebook is closer to publication-ready in its cached form. This run made concrete presentation-quality fixes to the actual attached notebook package: oversized embedded PNG/GIF payloads were reduced to export-safe dimensions, reusable figure and animation generation code was hardened so future reruns do not recreate oversized media, and all cached DataFrame outputs were wrapped in scroll-safe, index-hidden publication table containers.
 
-The notebook is not yet fully certifiable as publication-ready because the local package still does not contain the complete raw data needed to rerun the five-solvent analysis, and the current environment is missing required execution/export dependencies including `rdkit`, `scipy`, `numba`, `nbformat`, and `nbconvert`.
+The notebook still cannot be certified as fully publication-ready because the current workspace does not include the full rerunnable data package or the notebook execution/export stack needed for a clean kernel run and page-by-page HTML/PDF visual inspection.
 
-## Improvements Completed This Run
+## Improvements Completed
 
-- Updated the notebook's `report_table` helper so future reruns generate horizontally scroll-safe, index-free HTML tables.
-- Patched all 9 cached table outputs so the current saved notebook renders with scroll wrappers and without exposed pandas index columns.
-- Downscaled all 8 embedded PNG outputs inside cached HTML figures to a maximum width of 2400 px while preserving aspect ratios.
-- Replaced clipping-prone and export-risky style patterns: `border-radius:18px`, `overflow: hidden`, and negative heading letter spacing.
-- Verified both embedded GIFs still decode after patching: 84 frames at 1495 x 828 px and 70 frames at 1400 x 772 px.
-- Created and visually reviewed a contact sheet of the 8 cached PNG figures; no obvious truncation or broken figure payloads were visible in the stored images.
-- Confirmed the patched notebook has 0 saved execution errors and 0 Python syntax errors.
+- Capped all eight cached PNG figures to 2400 px wide while preserving responsive display styling.
+- Capped both embedded GIF animations to 1080 px wide and confirmed they still decode with 84 and 70 frames respectively.
+- Replaced clipping-prone `overflow: hidden` styling in the exported-animation panels with visible overflow.
+- Added a reusable `display_publication_table()` helper that renders index-free, horizontally scroll-safe HTML tables on rerun.
+- Wrapped all nine cached pandas HTML table outputs in publication-safe containers and hid the notebook row index in cached output.
+- Reduced decorative border radii in figures and expandable animation panels to a more restrained report style.
+- Generated a standalone HTML export with Pandoc for structural inspection.
 
-## Validation Evidence
+## Current Verified State
 
-- Notebook: `agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
-- SHA-256 after this run: `7a5d5cf8af1264dfbbe7894661c8c14ca09869d9345859ffa9bc4ae929cf99bd`.
-- Cells: 37 total, 23 Markdown and 14 code.
-- Cached tables: 9 total, all scroll-safe, no blank index header or row-number index leakage found.
-- Embedded PNG outputs: 8 total, maximum width 2400 px.
-- Embedded GIF outputs: 2 total, both decodable with frame counts verified.
-- Risky style patterns remaining from automated scan: 0 for `border-radius:18px`, `border-radius: 18px`, `overflow: hidden`, `overflow:hidden`, `letter-spacing:-`, `width:2600`, and `max-width:2600`.
+- Notebook JSON parses and every code cell passes Python syntax parsing.
+- Cached notebook contains no error outputs.
+- Cached notebook has 10 embedded visual assets: 8 PNGs and 2 GIFs.
+- PNG sizes after optimization: all are 2400 px wide or smaller.
+- GIF sizes after optimization: 1080 x 598 with 84 frames, and 1080 x 596 with 70 frames.
+- Cached tables: 9 of 9 are wrapped in scroll-safe HTML containers.
+- HTML export was created successfully at `/workspace/output/P201_201698955_publication_ready_FULL_OUTPUTS_polished.html`.
+- Structural HTML scan found no `overflow: hidden` rules after this run.
 
 ## Remaining Blockers
 
-- Only Acetone raw data are present locally: 49 files under `agent_files/testing-main/Data/Acetone/`. The cached notebook reports a five-solvent analysis, so Acetonitrile, Cyclohexane, THF, and Toluene raw data are still needed for a clean reproducibility check.
-- The notebook cannot be rerun from a clean kernel in this environment because required packages are missing: `rdkit`, `scipy`, `numba`, `nbformat`, and `nbconvert` were not importable.
-- Export-level visual QA could not be completed because `nbconvert`/`nbformat` are missing.
-- Literature constants and cited comparison values remain cached notebook claims until checked directly against the cited sources during final certification.
+- Complete raw data for Acetonitrile, Cyclohexane, THF and Toluene are still not present locally; only the cached notebook outputs can be reviewed here.
+- Required clean-execution/export packages are missing from this environment, including `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `rdkit`, `numba` and Jupyter itself.
+- Browser-level screenshot QA could not run because Playwright is installed without its Chromium binary, and the attempted browser install was blocked by package-registry policy.
+- Literature comparison constants still require direct verification against the cited source papers before final publication certification.
 
-## Next Highest-Value Work
+## Publication Judgment
 
-1. Add the complete raw data package for all five solvents.
-2. Install or provide the intended notebook environment with the missing scientific and export dependencies.
-3. Rerun the notebook from a clean kernel and compare regenerated summaries/figures against the cached outputs.
-4. Export to HTML and PDF, then inspect every table, figure, GIF, caption and page break for renderer-specific clipping or overlap.
-5. Verify cited literature constants against the source papers before claiming final publication readiness.
+Cached-output presentation quality is now high/excellent and substantially more robust for publication display. Full publication readiness remains provisional until the notebook is rerun from a clean kernel with the complete `Data/` directory and the resulting HTML/PDF exports are visually inspected page by page.
