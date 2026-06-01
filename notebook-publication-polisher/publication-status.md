@@ -1,6 +1,6 @@
 # Publication Status
 
-Last updated: 2026-06-01 02:15 BST scheduled pass.
+Last updated: 2026-06-01 03:15 BST scheduled pass.
 
 ## Current readiness assessment
 
@@ -22,8 +22,8 @@ It is still not fully publication-certified because the attached support package
 
 ## Verification completed
 
-- Polished notebook SHA-256: `a8e3649d0111cde485f9be6ac5bf2b454956394d75854ac9e264321eb22f2de6`.
-- Polished notebook size: 10,408,717 bytes.
+- Polished notebook SHA-256: `b970a339ebedee5e3086977dcd6c018bb5318807c56030294b0b1e59770e01d9`.
+- Polished notebook size: 10,400,690 bytes.
 - Notebook structure: 37 cells, including 23 Markdown cells and 14 code cells.
 - Heading-only Markdown sections remaining: 0.
 - Saved execution-error outputs: 0.
