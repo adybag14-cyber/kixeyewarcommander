@@ -1,5 +1,44 @@
 # Improvement Log
 
+## 2026-06-01 02:15 BST scheduled pass
+
+### Inputs reviewed
+
+- Attached full-output notebook: `/workspace/agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- Rubric guidance: `/workspace/agent_files/marking rubric for simple exercise.txt`.
+- Supporting raw-data tree: `/workspace/agent_files/testing-main/Data/`, which still contains only the `Acetone` solvent folder with 49 `.dat` files.
+- Existing durable progress notes in memory and the required GitHub persistence folder.
+
+### Improvements made
+
+- Recreated `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` in this fresh scheduled workspace.
+- Replaced all heading-only Markdown sections with publication-style explanatory transitions.
+- Added an explicit reproducibility caveat inside the notebook appendix noting that the attached support tree lacks Acetonitrile, Cyclohexane, THF and Toluene raw-data folders.
+- Added and wired a rerunnable `display_table` helper so regenerated report tables render inside horizontal-scroll containers.
+- Wrapped all 9 cached HTML table outputs in scroll containers.
+- Downsampled all 8 cached HTML-embedded PNG figures to a maximum width of 2400 px.
+- Removed tracked high-risk CSS/output patterns associated with clipping or brittle export rendering.
+- Added docstrings to remaining animation helper functions.
+
+### Verification evidence
+
+- Polished notebook SHA-256: `a8e3649d0111cde485f9be6ac5bf2b454956394d75854ac9e264321eb22f2de6`.
+- 37 cells total: 23 Markdown and 14 code.
+- 0 heading-only Markdown cells.
+- 0 saved execution-error outputs.
+- 0 code syntax parse failures.
+- 0 functions/classes missing docstrings.
+- 9 of 9 cached HTML table outputs wrapped.
+- 8 embedded PNGs decode successfully; dimensions after downsampling are 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
+- 2 embedded GIFs decode successfully: 1495 x 828 with 84 frames and 1400 x 772 with 70 frames.
+- Tracked high-risk CSS strings remaining: 0 for hidden overflow, negative letter spacing, fixed 1080 px media caps, large 18 px radii, old heavy shadow patterns and 12 px font-size patterns.
+
+### Remaining risks
+
+- The source package still lacks raw trace folders for Acetonitrile, Cyclohexane, THF and Toluene, preventing end-to-end reproduction of the cached five-solvent results.
+- This runtime still lacks `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`, preventing clean rerun, regenerated-figure verification and HTML/PDF export inspection.
+- The notebook should remain conditionally publication-ready, not fully certified, until complete-data rerun and static export visual QA pass.
+
 ## 2026-06-01 01:15 BST scheduled pass
 
 ### Inputs reviewed
@@ -30,7 +69,7 @@
 - 9 of 9 cached HTML table outputs wrapped.
 - 8 embedded PNGs decode successfully; dimensions after downsampling are 2400 x 920, 2400 x 1503, 2400 x 1470, 2400 x 1096, 2400 x 1418, 2400 x 932, 2400 x 1358 and 2400 x 1005 px.
 - 2 embedded GIFs decode successfully: 1495 x 828 with 84 frames and 1400 x 772 with 70 frames.
-- Tracked high-risk CSS strings remaining: 0 for hidden overflow, negative heading letter spacing, fixed 1080 px media caps, large 18 px radii, old heavy shadow patterns and 12 px font-size patterns.
+- Tracked high-risk CSS strings remaining: 0 for hidden overflow, negative letter spacing, fixed 1080 px media caps, large 18 px radii, old heavy shadow patterns and 12 px font-size patterns.
 
 ### Remaining risks
 
