@@ -1,10 +1,10 @@
 # Rubric Tracker
 
-Last updated: 2026-06-01 15:15 BST scheduled run.
+Last updated: 2026-06-01 16:15 BST scheduled run.
 
 ## Overall Estimate
 
-The cached notebook is likely in the high/excellent band for structure, Markdown/HTML presentation, explanation, code organization and analytical clarity. This run materially improved the formatting criterion by hardening table rendering, embedded figure sizing and clipping-prone CSS. Full marks cannot be certified until the complete raw data, clean execution environment and exported HTML/PDF visual inspection are available.
+The cached notebook is likely in the high/excellent band for structure, Markdown/HTML presentation, explanation, code organization and analytical clarity. This run materially improved the formatting and data-presentation criteria by hardening table rendering, embedded figure sizing and clipping-prone CSS in the actual attached notebook package. Full marks cannot be certified until the complete raw data, clean execution environment and exported HTML/PDF visual inspection are available.
 
 ## Evidence By Criterion
 
@@ -20,7 +20,7 @@ Needed for full confidence: confirm the exact post-lab question wording against 
 
 Current estimate: high but provisional.
 
-Evidence: the saved notebook includes five-solvent summaries, trace quality control, rate inference, bootstrap ranking, barrier comparison, validation checks and diagnostic figures. This run fixed cached-output table overflow risk and reduced all embedded PNG widths to publication-safe dimensions.
+Evidence: the saved notebook includes five-solvent summaries, trace quality control, rate inference, bootstrap ranking, barrier comparison, validation checks and diagnostic figures. This run fixed cached-output table overflow risk and reduced all embedded PNG widths to publication-safe dimensions. A visual contact-sheet review found no obvious broken or truncated cached PNG figures.
 
 Needed for full confidence: complete five-solvent raw data and clean rerun from source.
 
@@ -60,7 +60,7 @@ Needed for full confidence: none beyond clean rerun verification.
 
 Current estimate: high/excellent cached-notebook quality.
 
-Evidence: this run verified 9 cached tables are scroll-safe and index-free, all 8 embedded PNGs are capped at 2400 px wide, both GIFs decode, and no risky scan patterns remain for known clipping/spacing hazards.
+Evidence: this run verified 9 cached tables are scroll-safe and index-free, all 8 embedded PNGs are capped at 2400 px wide, both GIFs decode, no risky scan patterns remain for known clipping/spacing hazards, and the cached PNG figures pass a visual contact-sheet review.
 
 Needed for full confidence: exported HTML/PDF inspection to confirm no renderer-specific clipping, overlap, broken page breaks or animation fallback defects.
 
