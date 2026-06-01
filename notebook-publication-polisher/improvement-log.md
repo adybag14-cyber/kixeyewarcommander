@@ -1,48 +1,49 @@
 # Improvement Log
 
-## 2026-06-01 11:15 BST scheduled run
+## 2026-06-01 12:15 BST scheduled run
 
 ### Review performed
 
-- Inspected the attached notebook package and the rubric guidance in `/workspace/agent_files/`.
-- Compared the current workspace with prior memory and GitHub-persisted notes; the previous polished notebook output was not present locally, so this run regenerated it from the attached executed notebook.
-- Programmatically scanned the notebook for saved execution errors, syntax errors, undocumented functions/classes, bare heading-only Markdown cells, cached table rendering, embedded PNG/GIF payloads and high-risk style patterns.
-- Verified the visible raw-data package contains only acetone traces, while the executed notebook contains cached five-solvent results.
+- Inspected the attached notebook, rubric guidance and visible raw-data package in `/workspace/agent_files/`.
+- Compared the attached notebook with prior progress notes and confirmed the attached source still needed the polish pass described in memory.
+- Programmatically scanned the notebook for saved execution errors, code syntax errors, heading-only Markdown cells, undocumented functions/classes, cached HTML tables, embedded PNG/GIF payloads and risky style patterns.
+- Confirmed the visible raw-data package contains only acetone traces, while the executed notebook contains cached results for five solvents.
 - Checked local package availability and confirmed clean rerun/export remains blocked by missing `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`.
-- Cross-checked the literature framing against accessible records for the 4A4N flash-photolysis paper and a supporting polarity-controlled aminoazobenzene paper.
+- Verified both embedded GIF payloads decode with Pillow through the final frame.
 
 ### Improvements made
 
-- Regenerated `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
-- Rewrote bare section headings into short explanatory transitions so each code block has publication-facing context.
-- Strengthened the introduction, discussion and conclusion with a more cautious research framing: the notebook now distinguishes solvent sensitivity supported by the present traces from mechanism-level interpretation supported by published azobenzene literature.
-- Added a Leeds-style supporting reference for Joshi, Fuyuki and Wada, *The Journal of Physical Chemistry B*, 2014, DOI `10.1021/jp4125205`.
-- Converted all 9 cached HTML tables into horizontally scroll-safe containers and updated the source-level `report_table` helper for future reruns.
-- Updated the automated consistency-check display to use the same report-table helper.
-- Downsampled all 8 cached PNG figures wider than 2400 px while preserving inline display.
-- Verified both embedded GIFs decode through their final frame.
-- Removed brittle cached/source display styles: negative heading letter spacing, hidden overflow, 18 px radii and 2600 px width patterns.
-- Added docstrings to all previously undocumented animation helper functions.
-- Added a reproducibility appendix note that separates cached-output polish from final clean-rerun/export certification.
+- Created `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached executed notebook.
+- Rewrote all bare heading-only Markdown cells into short explanatory transitions.
+- Added a more cautious research framing around solvent effects and mechanism-level interpretation.
+- Added a supporting reference on polarity-controlled aminoazobenzene thermal isomerisation.
+- Updated `report_table` so future reruns produce index-free, scroll-safe HTML table outputs.
+- Updated the final consistency-check output to use the same report-table helper.
+- Wrapped all 9 cached table outputs in scroll-safe containers.
+- Reduced 8 oversized cached PNG figures to a maximum width of 2400 px.
+- Reduced high-risk visual style patterns that can cause clipping or cramped rendering.
+- Added missing docstrings to all functions/classes identified by the scan, including nested animation helpers.
+- Added a reproducibility appendix note clarifying that cached notebook QA is not a substitute for clean rerun/export certification.
 
 ### Validation results
 
-- Polished notebook SHA-256: `094e3f3d8c9044f06688a467cefa44fe70d7e38694efc18e654a6ef674ae5874`.
-- Saved execution errors: none found.
-- Code-cell syntax errors: none found.
-- Bare heading-only Markdown cells: none found.
-- Functions/classes without docstrings: none found.
-- Cached table outputs: 9; all include overflow protection and no `Unnamed:` index columns.
-- Cached embedded PNG figures: 8; maximum width after this pass is 2400 px.
-- Cached embedded GIFs: 2; mechanism/results animation is 1495 x 828 px with 84 frames; lab workflow animation is 1400 x 772 px with 70 frames.
-- High-risk cached/source style patterns checked after polishing: no remaining `letter-spacing:-`, `overflow: hidden`, `border-radius:18`, `border-radius: 18`, `width:2600`, or `max-width:2600` patterns.
+- SHA-256: `26f5466bf88f1a402394febe4be33e4b806343d06e106b249dcebaf312369f2f`.
+- Saved execution errors: 0.
+- Syntax errors: 0.
+- Missing function/class docstrings: 0.
+- Bare heading-only Markdown cells: 0.
+- Cached HTML outputs: 19.
+- Cached table outputs: 9; scroll-safe table outputs: 9.
+- Embedded PNG payloads: 8; maximum width after polish: 2400 px.
+- Embedded GIF payloads: 2; frame counts: 84 and 70.
+- Remaining risky style/string patterns: none found for `letter-spacing:-`, `overflow: hidden`, `border-radius:18`, `border-radius: 18`, `width:2600`, `max-width:2600`, or `Unnamed:`.
 
 ### Unresolved risks
 
-- Full clean rerun is blocked by missing dependencies and incomplete raw data in the visible package.
-- Export-level visual QA is still needed because cached notebook inspection cannot prove HTML/PDF page-break behavior, animation fallback behaviour, or renderer-specific clipping.
-- Literature-comparison values should be rechecked directly against the cited papers during final review.
+- The complete five-solvent raw data package is still unavailable in the workspace.
+- The local environment still lacks execution/export dependencies, so the notebook could not be rerun from a clean kernel or exported to HTML/PDF for page-level visual QA.
+- Literature comparison values remain cached results and should be checked directly against the cited papers during final certification.
 
-## Earlier runs
+## 2026-06-01 11:15 BST scheduled run
 
-Earlier 2026-06-01 scheduled runs established the same core direction: the executed notebook is strong, but final publication certification requires complete five-solvent raw data, a dependency-complete rerun and export-level visual inspection. Prior polish passes also targeted scroll-safe tables, oversized embedded PNGs, GIF integrity, docstrings and brittle display styling; the current run regenerated and revalidated those fixes against the attached notebook package.
+- Prior run regenerated a polished cached-output notebook, improved narrative transitions, verified embedded media, and identified the same clean-rerun/export blockers.
