@@ -1,48 +1,41 @@
 # Publication Status
 
-Last updated: 2026-06-01 19:15 BST scheduled run.
+Last updated: 2026-06-01 20:15 BST scheduled run.
 
 ## Current Readiness
 
-The notebook is strong and close to publication-ready in cached-output form. This run rebuilt the polished notebook and standalone HTML export from the currently attached package, then revalidated the presentation-critical areas: cached figures, GIFs, table rendering, saved errors, source syntax, and high-risk CSS/string patterns.
+The notebook is close to publication-ready as a cached-output notebook. This run found and fixed several remaining display-level risks: large embedded media payloads, stale plain pandas tables with row-index columns, and clipping-prone CSS in the research animation panel. The notebook now has cleaner publication-table rendering, smaller embedded PNG/GIF assets, and a successful standalone HTML export with no cached error outputs.
 
-The notebook cannot yet be certified as fully publication-ready because the clean execution stack is unavailable in this workspace and browser-level screenshot QA is blocked. The attached raw-data support is also incomplete for a full five-solvent rerun from source.
+The work cannot be certified as fully publication-ready from this environment because the scientific execution stack is not installed here. A clean rerun, browser-level notebook/HTML visual QA, and PDF/static-GIF fallback QA are still required before final publication sign-off.
 
-## Improvements Completed This Run
+## Resolved Or Improved In This Run
 
-- Recreated the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_FULL_OUTPUTS_polished.ipynb`.
-- Recreated the standalone HTML export at `/workspace/output/P201_201698955_publication_ready_FULL_OUTPUTS_polished.html`.
-- Corrected the cached post-lab output so it no longer says acetone gave the fastest recovery; it now identifies acetonitrile as fastest, with acetone close behind, matching the reported rate sequence.
-- Added or preserved reusable `publication_table_html()` and `display_publication_table()` helpers for index-free, horizontally scroll-safe tables on future reruns.
-- Wrapped all nine cached pandas table outputs in publication-safe containers and removed blank/index-heavy pandas headers.
-- Downscaled all eight cached PNG figures to a maximum width of 2400 px to reduce notebook/HTML rendering load without making labels unreadable.
-- Downscaled both embedded GIF animations to 1080 px width while preserving the original frame counts: 84 and 70 frames.
-- Replaced clipping-prone style patterns in the polished notebook and exported HTML: `overflow: hidden`, 18 px/11 px figure border radii, negative heading letter spacing, and blank pandas index headers.
-- Built and visually inspected a contact sheet of all cached PNG figures and GIF first frames. No obvious clipping, overlap, corrupt images, malformed charts, or unreadable panel layout was visible at the cached-output level.
-
-## Current Verified State
-
-- Polished notebook SHA-256: `44a4f3134f19e6aa5ea463fff0779a9ea31d75883410a7de3ca1fd152cc7b0ee`.
-- HTML export SHA-256: `4167adb5b133f5d94afbfdb4b0d32ac832c9624b5770012fd9c235d7908fa8b0`.
-- Notebook JSON parses successfully.
-- Every code cell in the polished notebook passes Python syntax parsing.
-- Saved execution errors: 0.
-- Cached HTML outputs: 19.
-- Cached table outputs: 9 of 9 wrapped in `publication-table-wrap`; blank pandas index headers: 0.
-- Cached visual assets: 8 PNGs and 2 GIFs.
-- PNG dimensions after polish: all are 2400 px wide or smaller.
-- GIF dimensions and frame counts: 1080 x 598 with 84 frames, and 1080 x 596 with 70 frames.
-- Structural scan found zero occurrences of `overflow: hidden`, `border-radius:18px`, `border-radius:11px`, negative heading letter spacing, blank pandas index headers, or the incorrect phrase `gave the fastest recovery`.
-- Pandoc produced a standalone HTML export. The only warning was a missing explicit HTML title, which Pandoc filled automatically from the notebook filename.
+- Added publication-table helpers to the notebook source so future reruns display compact, index-free, horizontally scroll-safe tables.
+- Replaced cached plain pandas table outputs with styled publication tables; structural validation found 9 tables, 18 wrapper/style occurrences, no legacy `dataframe` class markup, and no blank row-index headers.
+- Removed cached and source `overflow: hidden` CSS from the research panel to reduce clipping risk in notebook and HTML export.
+- Added source-side media optimization helpers for PNG and GIF embedding.
+- Downsampled cached inline report PNGs to a maximum width of 2400 px and cached inline GIFs to 1080 px wide while preserving frame counts.
+- Exported the notebook to standalone HTML with Pandoc; structural scan found no `Traceback`, no `overflow: hidden`, and all expected table/image/GIF payloads present.
+- Built and visually inspected an embedded-media contact sheet; the figures and first GIF frames rendered, and no obvious broken images, major clipping, or overlapping chart labels were visible at contact-sheet scale.
 
 ## Remaining Blockers
 
-- The workspace cannot cleanly rerun the notebook because required packages are missing, including Jupyter execution support, `nbformat`, `nbclient`, `IPython`, `matplotlib`, `scipy`, and `rdkit`.
-- Browser-level screenshot QA could not be completed because the Playwright package is present but its Chromium binary is absent, and package policy blocked installing it.
-- The attached raw data under `agent_files/testing-main/Data/` appears incomplete for a full five-solvent rerun; it contains many Acetone files but not the complete five-solvent directory expected by the notebook.
-- Literature comparison constants still require direct verification against the cited sources before final publication certification.
-- The rubric is supplied as an exported HTML-like rubric canvas, so scoring remains an evidence-based estimate rather than a precise mark.
+- Clean execution is blocked in the current environment: `nbformat`, `nbclient`, `IPython`, `matplotlib`, `scipy`, `rdkit`, and `numba` are missing.
+- Browser screenshot QA remains unavailable because no browser automation/runtime is installed in this workspace.
+- The complete publication claim still depends on rerunning from a clean kernel using the intended scientific environment and comparing regenerated outputs against the polished cached notebook.
+- PDF export and static GIF fallback behavior have not been visually verified.
+- Literature constants and any course-specific experimental details still need final checking against the original practical sheet and cited sources.
 
-## Publication Judgment
+## Current Deliverables In Workspace
 
-The cached notebook presentation is now high/excellent and suitable for serious review. Final publication approval should wait for a clean rerun with the complete data and intended environment, followed by browser/PDF page inspection.
+- Improved notebook: `output/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`
+- Standalone HTML export: `output/P201_201698955_publication_ready_FULL_OUTPUTS.html`
+- Scratch visual QA contact sheet: `output/embedded_media_contact_sheet.png`
+
+## Next Highest-Value Actions
+
+1. Install or provide the intended notebook environment and rerun the notebook from a clean kernel.
+2. Compare regenerated CSVs, figures, GIFs and tables with the cached polished outputs.
+3. Open the notebook and HTML export in a browser at desktop and narrow widths to verify no clipping, overlap, broken images, GIF problems or malformed tables.
+4. Export to PDF and verify table overflow, figure scaling, and GIF fallback behavior.
+5. Re-check literature comparisons and post-lab wording against the original source material.
