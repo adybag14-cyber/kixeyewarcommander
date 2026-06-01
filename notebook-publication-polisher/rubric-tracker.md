@@ -1,6 +1,6 @@
 # Rubric Tracker
 
-Last updated: 2026-06-01 22:15 BST scheduled run.
+Last updated: 2026-06-01 23:15 BST scheduled run.
 
 ## Rubric Basis
 
@@ -18,7 +18,7 @@ Needed for full confidence: compare directly with the original post-lab question
 
 Current estimate: high for cached outputs, provisional for clean rerun.
 
-Evidence: cached outputs include five-solvent summaries, trace-level quality control, rate inference, bootstrap ranking, relative barrier comparison, validation checks, fit-window sensitivity, and diagnostic figures. This run confirmed no cached execution errors, all embedded media decode, figure rasters are bounded to publication-manageable sizes, GIF frame counts are preserved, and the contact sheet shows no obvious clipping or overlap.
+Evidence: cached outputs include five-solvent summaries, trace-level quality control, rate inference, bootstrap ranking, relative barrier comparison, validation checks, fit-window sensitivity, and diagnostic figures. This run confirmed no cached execution errors, all embedded media decode, figure rasters are bounded to publication-manageable sizes, GIF frame counts are preserved, and the refreshed contact sheet shows no obvious clipping, overlap, broken media, malformed plots, unreadable labels, or weak static animation previews.
 
 Needed for full confidence: clean rerun from the complete raw data package and page-level browser/PDF visual QA of regenerated outputs.
 
@@ -34,7 +34,7 @@ Needed for full confidence: verify course-specific experimental details and lite
 
 Current estimate: high.
 
-Evidence: the notebook uses dataclasses, parser functions, reusable fitting/QC/statistical helpers, validation functions, plotting functions, and now reusable publication-table/media display patterns rather than repeated one-off display code.
+Evidence: the notebook uses dataclasses, parser functions, reusable fitting/QC/statistical helpers, validation functions, plotting functions, and now reusable publication-table display patterns rather than repeated one-off display code. The polished source routes report tables through a scroll-safe `display_report_table(...)` helper for future reruns.
 
 Needed for full confidence: execute from a clean kernel in the intended environment to confirm dependency-specific behavior.
 
@@ -58,7 +58,7 @@ Needed for full confidence: review warnings or runtime messages from a clean rer
 
 Current estimate: high/excellent for cached notebook output.
 
-Evidence: this run removed confirmed presentation defects from the cached notebook: no cached `overflow: hidden`, no negative heading tracking, no legacy Pandas dataframe classes, no blank table index headers, no `border="1"` table markup, and all report tables are wrapped for horizontal overflow. PNG/GIF media are bounded and decodable, and GIF first frames now work as meaningful static/PDF previews.
+Evidence: this run removed confirmed presentation defects from the cached notebook: no cached `overflow: hidden` / `overflow:hidden`, no negative heading tracking, no legacy Pandas dataframe classes, no blank table index headers, no `border="1"` table markup, and all report tables are wrapped for horizontal overflow. PNG/GIF media are bounded and decodable, and GIF first frames plus separate PNG fallbacks now show final-state previews for static/PDF rendering.
 
 Needed for full confidence: browser and PDF export QA across normal and narrow viewports.
 
