@@ -1,5 +1,20 @@
 # Improvement Log
 
+## 2026-06-01 23:15 BST scheduled run
+
+- Re-inspected the attached notebook package, supplied rubric export, prior progress notes, and available raw data folder.
+- Confirmed the clean-rerun blockers persist in this runtime: `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `rdkit`, `numba`, and Jupyter/notebook are unavailable.
+- Confirmed the visible raw data package remains incomplete for a full five-solvent rerun: only Acetone files are present under `agent_files/testing-main/Data/`.
+- Created `output/P201_201698955_publication_polished_2026-06-01_2315BST.ipynb` from the attached notebook.
+- Added rerun-safe publication table helpers and changed report-table display calls to use index-free, horizontally scroll-safe HTML.
+- Patched cached table outputs by rewriting 9 legacy Pandas dataframe tables into publication-table wrappers.
+- Removed cached presentation defects: legacy dataframe classes, blank table index headers, `border="1"`, negative heading letter-spacing, `overflow: hidden`, and `overflow:hidden`.
+- Reduced cached embedded PNG figures to a maximum width of 2200 px for cleaner notebook and export display.
+- Reduced cached embedded GIFs to 1080 px width while preserving the 84-frame mechanism animation and 70-frame workflow animation.
+- Replaced cached GIF first frames with final-state poster frames and added static PNG fallbacks for print/PDF/static rendering.
+- Generated `output/polished_visual_contact_sheet_2026-06-01_2315BST.png` and visually checked all cached visuals for clipping, overlap, broken media, malformed plots, unreadable labels, and weak GIF static previews.
+- Lightweight validation results: all code cells parse, cached outputs contain no error outputs, 12 embedded media payloads decode, 8 source report-table display calls now route through `display_report_table(...)`, and the polished notebook is about 8.88 MB.
+
 ## 2026-06-01 22:15 BST scheduled run
 
 - Inspected the attached notebook, supplied rubric file, available raw data folder, and prior memory notes.
