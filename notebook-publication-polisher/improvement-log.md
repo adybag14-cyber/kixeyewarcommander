@@ -1,38 +1,42 @@
 # Improvement Log
 
-## 2026-06-01 17:25 BST Scheduled Run
+## 2026-06-01 18:15 BST scheduled run
 
 ### Review Focus
 
-Reviewed the attached notebook package, rubric guidance and existing progress memory. Focused on remaining publication issues that could be safely improved from the cached notebook without inventing new results: heavy embedded media, clipping-prone HTML/CSS, table overflow and renderer portability.
+Inspected the fresh attached notebook package, the rubric guidance, and existing progress memory. The attached package had regressed relative to the prior persisted status: cached pandas tables were not publication-wrapped, figure and animation outputs were oversized, clipping-prone CSS was present, and a post-lab explanation contradicted the reported solvent-rate ordering.
 
 ### Improvements Made
 
-- Optimized all cached embedded PNG/GIF assets in the notebook package.
-- Hardened source cells so future reruns optimize PNGs and render lower-DPI GIFs before embedding.
-- Removed clipping-prone `overflow: hidden` styling from animation panels.
-- Added `publication_table_html()` and `display_publication_table()` for scroll-safe, index-free HTML tables.
-- Replaced direct DataFrame displays in the result, QC, rank-probability, performance, validation, sensitivity and consistency-check sections with the publication table helper.
-- Wrapped all nine cached pandas table outputs in scroll-safe publication containers and hid row indices in cached output.
-- Reduced large decorative border radii in figure and animation containers to a restrained report style.
-- Exported a standalone HTML version with Pandoc and ran structural checks.
+- Produced a polished notebook copy at `/workspace/output/P201_201698955_publication_ready_FULL_OUTPUTS_polished.ipynb` and a standalone HTML export at `/workspace/output/P201_201698955_publication_ready_FULL_OUTPUTS_polished.html`.
+- Corrected the post-lab solvent interpretation so acetonitrile is identified as the fastest mean recovery and acetone as close behind, matching the summary table and reported rate sequence.
+- Added reusable `publication_table_html()` and `display_publication_table()` helpers for future reruns.
+- Replaced direct DataFrame displays with publication-safe table rendering in the package audit, summary, QC, ranking, performance, validation, sensitivity, and consistency-check sections.
+- Patched all nine cached table outputs so they are horizontally scroll-safe and no longer show pandas row-index columns.
+- Downscaled eight cached PNG figures to a maximum width of 2400 px.
+- Downscaled both cached GIFs to 1080 px wide while preserving 84 and 70 frames.
+- Improved cached GIF static fallback frames so PDF/static previews show meaningful content instead of a nearly blank fade-in frame.
+- Removed publication-risk style patterns from the polished notebook and HTML export: `overflow: hidden`, oversized 18 px / 11 px border radii, negative heading letter spacing, and blank pandas index headers.
+- Built a visual contact sheet of all cached PNGs and GIF first frames and inspected it for obvious clipping, overlap, broken images, malformed figures, or unreadable labels.
 
 ### Validation Results
 
-- Notebook JSON parses and every code cell passes Python syntax parsing.
+- Polished notebook SHA-256: `cec97ccdc850f881d9df4185876ad95d9a45220f3f86193e4d9869b059cc8a98`.
+- HTML export SHA-256: `39ca7c59a6e5c63ff76f667bf20b1ba817a56b66dee0b9ab940b5c5b0bb2373f`.
 - Saved execution errors: 0.
-- Cached table outputs: 9; scroll-safe wrappers: 9.
-- Embedded PNG payloads: 8; maximum width after polish: 2400 px.
-- Embedded GIF payloads: 2; final sizes/frame counts: 1080 x 598 with 84 frames, and 1080 x 596 with 70 frames.
-- Standalone HTML export succeeded.
-- Structural HTML scan found no remaining `overflow: hidden` rules.
+- Python syntax errors: 0.
+- Cached table outputs: 9; scroll-safe wrappers: 9; blank pandas index headers: 0.
+- Embedded visual assets: 8 PNGs and 2 GIFs.
+- Maximum PNG width after polish: 2400 px.
+- GIF dimensions and frame counts: 1080 x 598 with 84 frames; 1080 x 596 with 70 frames.
+- Structural scan found zero occurrences of `overflow: hidden`, `border-radius:18px`, `border-radius:11px`, negative letter spacing, blank pandas index headers, or the old incorrect phrase `gave the fastest recovery`.
 
 ### Unresolved Risks
 
-- Complete raw data for the five-solvent analysis are not present locally.
-- Required execution/export packages are missing: `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `rdkit`, `numba` and Jupyter.
-- Browser screenshot QA could not run because the Playwright Chromium binary is absent and package-registry policy blocked installation.
-- Literature comparison values still need direct source verification before final publication certification.
+- Complete raw data are not available in the attached package, so the notebook could not be rerun from source.
+- Required execution/export packages are missing in the workspace: `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `rdkit`, `numba`, and Jupyter/notebook.
+- Browser/PDF screenshot QA remains blocked by the absence of a browser runtime.
+- Literature comparison constants still need direct source verification before final certification.
 
 ## 2026-06-01 16:15 BST Scheduled Run
 
@@ -98,3 +102,16 @@ Reviewed the attached notebook package, rubric guidance, existing memory state a
 - Required execution/export packages are missing: `rdkit`, `scipy`, `numba`, `nbformat`, and `nbconvert` were not importable in the current environment.
 - Clean rerun and HTML/PDF export QA remain blocked.
 - Literature comparison values still need direct source verification before final publication certification.
+
+## 2026-06-01 17:25 BST scheduled run
+
+- Inspected the attached notebook package and existing progress memory against the rubric guidance.
+- Found one high-impact cached-output issue that remained fixable without inventing results: large embedded visual payloads could make notebook/HTML rendering heavy and clipping-prone.
+- Updated the notebook so the RDKit mechanism PNG and all report figures are optimized before embedding; cached PNGs now decode at no more than 2400 px wide.
+- Updated the animation generation cells to lower GIF render DPI; cached GIFs now decode at 1080 px wide while preserving expected frame counts.
+- Removed clipping-prone `overflow: hidden` from research-extra panels and hardened the laboratory animation cell with its own CSS block for portable HTML export.
+- Added `publication_table_html()` and `display_publication_table()` helper functions so future reruns render index-free, scroll-safe tables.
+- Replaced direct table displays with `display_publication_table()` in the summary, QC, rank-probability, performance, validation, sensitivity and consistency-check sections.
+- Wrapped all nine cached pandas table outputs in publication-safe scrolling containers and hid row indices in cached output.
+- Exported the polished notebook to standalone HTML using Pandoc. Structural scan found nine tables, wrapped table styling, no cached error outputs and no remaining `overflow: hidden` rules.
+- Browser screenshot QA remains blocked because the Playwright Chromium binary is absent and package-registry policy blocked installation.
