@@ -1,79 +1,33 @@
 # Improvement Log
 
-## 2026-06-01 14:15 BST scheduled run
+## 2026-06-01 15:15 BST Scheduled Run
 
-### Review performed
+### Review Focus
 
-- Inspected the attached executed notebook, rubric guidance, visible raw-data package and prior progress memory.
-- Confirmed the attached notebook package still contains only acetone raw `.dat` files locally, while the executed notebook contains cached outputs for five solvents.
-- Programmatically scanned the notebook for saved execution errors, syntax errors, heading-only Markdown cells, undocumented functions/classes, cached HTML tables, embedded PNG/GIF payloads and high-risk style strings.
-- Checked local package availability and confirmed clean rerun/export remains blocked by missing `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`.
-- Decoded all embedded cached visuals: 8 PNG figures and 2 GIF animations. Both GIFs decode through their final frame.
+Reviewed the attached notebook package, rubric guidance, existing memory state and cached notebook outputs with emphasis on publication-blocking presentation defects: table overflow, figure size, GIF health, clipping-prone CSS, saved execution errors and reproducibility blockers.
 
-### Improvements made
+### Improvements Made
 
-- Created `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached executed notebook.
-- Rewrote all bare heading-only Markdown cells into short explanatory transitions.
-- Added a publication QA status note to the reproducibility appendix.
-- Updated `report_table` so future reruns produce index-free, scroll-safe HTML table outputs.
-- Wrapped all 9 cached table outputs in scroll-safe containers.
-- Reduced 8 oversized cached PNG figures to a maximum width of 2400 px.
-- Reduced high-risk visual style patterns that can cause clipping or cramped rendering.
-- Added missing docstrings to all functions/classes identified by AST inspection, including nested animation helpers.
+- Revised the notebook's table-display helper so future reruns emit index-free HTML tables inside horizontally scroll-safe wrappers.
+- Patched all cached table outputs in the saved notebook to match the improved rendering helper.
+- Removed visible pandas index columns from cached report tables.
+- Downscaled oversized embedded PNG outputs from widths as high as 8562 px to a maximum width of 2400 px.
+- Replaced notebook-level CSS patterns that can cause export defects or cramped typography: `border-radius:18px`, `overflow: hidden`, and negative heading letter spacing.
+- Revalidated embedded GIFs after patching; both remain readable and frame-complete.
 
-### Validation results
+### Validation Results
 
-- SHA-256: `17e79d8f1d7d7f4127180abb01ba3cf1888bc0d68700abb368242202875bbdef`.
+- Notebook SHA-256: `3f420cc76222b6efe1fe44d7946f40546389ba9486a2b2db826dc46e370b31cc`.
 - Saved execution errors: 0.
-- Syntax errors: 0.
-- Missing function/class docstrings: 0.
-- Bare heading-only Markdown cells: 0.
-- Cached table outputs: 9; scroll-safe table outputs: 9.
+- Python syntax errors: 0.
+- Cached table outputs: 9; scroll-safe: 9; exposed index leakage found: 0.
 - Embedded PNG payloads: 8; maximum width after polish: 2400 px.
 - Embedded GIF payloads: 2; frame counts: 84 and 70.
-- Remaining risky style/string patterns: none found for `letter-spacing:-`, `overflow: hidden`, `border-radius:18`, `border-radius: 18`, `width:2600`, `max-width:2600`, or `Unnamed:`.
+- Remaining risky style/string patterns from automated scan: 0.
 
-### Unresolved risks
+### Unresolved Risks
 
-- The complete five-solvent raw data package is still unavailable in the workspace.
-- The local environment still lacks execution/export dependencies, so the notebook could not be rerun from a clean kernel or exported to HTML/PDF for page-level visual QA.
-- Literature comparison values remain cached results and should be checked directly against the cited papers during final certification.
-
-## 2026-06-01 13:19 BST scheduled run
-
-### Review performed
-
-- Inspected the attached notebook, rubric guidance, visible raw-data package and prior progress memory.
-- Programmatically scanned the notebook for saved execution errors, code syntax errors, heading-only Markdown cells, undocumented functions/classes, cached HTML tables, embedded PNG/GIF payloads and risky style patterns.
-- Confirmed the visible raw-data package contains only `Data/Acetone/` with 49 `.dat` files, while the executed notebook contains cached results for five solvents.
-- Checked local package availability and confirmed clean rerun/export remains blocked by missing `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`.
-- Verified both embedded GIF payloads decode with Pillow through the final frame.
-
-### Improvements made
-
-- Created `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached executed notebook.
-- Rewrote all bare heading-only Markdown cells into short explanatory transitions.
-- Updated `report_table` so future reruns produce index-free, scroll-safe HTML table outputs.
-- Wrapped all 9 cached table outputs in scroll-safe containers.
-- Reduced 8 oversized cached PNG figures to a maximum width of 2400 px.
-- Reduced high-risk visual style patterns that can cause clipping or cramped rendering.
-- Added missing docstrings to all functions/classes identified by the scan, including nested animation helpers.
-- Added a reproducibility appendix note clarifying that cached notebook QA is not a substitute for clean rerun/export certification.
-
-### Validation results
-
-- SHA-256: `75ee104b5ddb2dfd7c9578a462c92ee80e5d0d6d4192c63e6f8509b7c84d4352`.
-- Saved execution errors: 0.
-- Syntax errors: 0.
-- Missing function/class docstrings: 0.
-- Bare heading-only Markdown cells: 0.
-- Cached table outputs: 9; scroll-safe table outputs: 9.
-- Embedded PNG payloads: 8; maximum width after polish: 2400 px.
-- Embedded GIF payloads: 2; frame counts: 84 and 70.
-- Remaining risky style/string patterns: none found for `letter-spacing:-`, `overflow: hidden`, `border-radius:18`, `border-radius: 18`, `width:2600`, `max-width:2600`, or `Unnamed:`.
-
-### Unresolved risks
-
-- The complete five-solvent raw data package is still unavailable in the workspace.
-- The local environment still lacks execution/export dependencies, so the notebook could not be rerun from a clean kernel or exported to HTML/PDF for page-level visual QA.
-- Literature comparison values remain cached results and should be checked directly against the cited papers during final certification.
+- Complete raw data for the five-solvent analysis are not present; only Acetone files are available locally.
+- Required execution/export packages are missing: `rdkit`, `scipy`, `numba`, `nbformat`, and `nbconvert` were not importable in the current environment.
+- Clean rerun and HTML/PDF export QA remain blocked.
+- Literature comparison values still need direct source verification before final publication certification.
