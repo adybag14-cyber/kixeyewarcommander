@@ -1,5 +1,39 @@
 # Improvement Log
 
+## 2026-06-01 17:25 BST Scheduled Run
+
+### Review Focus
+
+Reviewed the attached notebook package, rubric guidance and existing progress memory. Focused on remaining publication issues that could be safely improved from the cached notebook without inventing new results: heavy embedded media, clipping-prone HTML/CSS, table overflow and renderer portability.
+
+### Improvements Made
+
+- Optimized all cached embedded PNG/GIF assets in the notebook package.
+- Hardened source cells so future reruns optimize PNGs and render lower-DPI GIFs before embedding.
+- Removed clipping-prone `overflow: hidden` styling from animation panels.
+- Added `publication_table_html()` and `display_publication_table()` for scroll-safe, index-free HTML tables.
+- Replaced direct DataFrame displays in the result, QC, rank-probability, performance, validation, sensitivity and consistency-check sections with the publication table helper.
+- Wrapped all nine cached pandas table outputs in scroll-safe publication containers and hid row indices in cached output.
+- Reduced large decorative border radii in figure and animation containers to a restrained report style.
+- Exported a standalone HTML version with Pandoc and ran structural checks.
+
+### Validation Results
+
+- Notebook JSON parses and every code cell passes Python syntax parsing.
+- Saved execution errors: 0.
+- Cached table outputs: 9; scroll-safe wrappers: 9.
+- Embedded PNG payloads: 8; maximum width after polish: 2400 px.
+- Embedded GIF payloads: 2; final sizes/frame counts: 1080 x 598 with 84 frames, and 1080 x 596 with 70 frames.
+- Standalone HTML export succeeded.
+- Structural HTML scan found no remaining `overflow: hidden` rules.
+
+### Unresolved Risks
+
+- Complete raw data for the five-solvent analysis are not present locally.
+- Required execution/export packages are missing: `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `rdkit`, `numba` and Jupyter.
+- Browser screenshot QA could not run because the Playwright Chromium binary is absent and package-registry policy blocked installation.
+- Literature comparison values still need direct source verification before final publication certification.
+
 ## 2026-06-01 16:15 BST Scheduled Run
 
 ### Review Focus
