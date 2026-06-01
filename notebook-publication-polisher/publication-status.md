@@ -1,49 +1,43 @@
 # Publication Status
 
-Last updated: 2026-06-01 14:15 BST scheduled run.
+Last updated: 2026-06-01 15:15 BST scheduled run.
 
 ## Current Readiness Assessment
 
-The attached executed source notebook has been rebuilt into a polished cached-output notebook at `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb`.
+The attached notebook has moved closer to publication-ready cached-notebook quality. This run fixed the highest-risk presentation defects still visible in the saved notebook: wide pandas tables, exposed index columns, oversized embedded PNG payloads, and clipping-prone CSS patterns around notebook callouts and GIF panels.
 
-As a cached notebook artifact, it is now close to publication-ready: the section narrative is clearer, the rubric-facing structure is strong, all saved tables and visual outputs passed automated presentation checks, and no saved execution errors, syntax errors or undocumented functions/classes remain in the polished copy. Full publication certification is still blocked because the visible package only contains acetone raw traces while the executed notebook reports five solvents, and the local environment is missing the dependencies needed for a clean rerun plus HTML/PDF export inspection.
+The notebook is not yet fully certifiable as publication-ready because the local package does not contain the complete raw data needed to rerun the five-solvent analysis, and the current environment is missing execution/export dependencies including `rdkit`, `scipy`, `numba`, `nbformat`, and `nbconvert`.
 
-## Improvements Completed In This Run
+## Improvements Completed This Run
 
-- Rebuilt the polished notebook from `agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
-- Replaced all bare heading-only Markdown cells with explanatory transitions, including the post-lab section.
-- Added an explicit publication QA status note to the reproducibility appendix.
-- Updated the source-level `report_table` helper so future reruns produce index-free, horizontally scroll-safe HTML tables.
-- Wrapped all 9 cached HTML table outputs in scroll-safe containers to reduce clipping risk in notebook display and export.
-- Downsampled all 8 cached embedded PNG figures to a maximum width of 2400 px while preserving aspect ratios.
-- Removed source and cached-output style patterns associated with presentation defects: negative heading letter spacing, hidden-overflow containers, large 18 px radii, fixed 2600 px widths and stray `Unnamed:` index text.
-- Added missing docstrings to all detected functions/classes, including nested animation and GIF helper functions.
-- Verified both embedded GIF payloads decode through their final frames.
+- Updated `report_table` so future notebook reruns generate horizontally scroll-safe, index-free HTML tables.
+- Patched all 9 cached table outputs so the current saved notebook renders with scroll wrappers and without exposed pandas index columns.
+- Downscaled all 8 embedded PNG outputs in the cached notebook to a maximum width of 2400 px while preserving aspect ratios.
+- Replaced remaining high-risk CSS patterns: `border-radius:18px`, `overflow: hidden`, and negative heading letter spacing.
+- Verified both embedded GIFs still decode: 84 frames at 1495 x 828 px and 70 frames at 1400 x 772 px.
+- Confirmed the notebook has 0 saved execution errors and 0 Python syntax errors after patching.
 
-## Validation Results For The Polished Copy
+## Validation Evidence
 
-- Polished notebook SHA-256: `17e79d8f1d7d7f4127180abb01ba3cf1888bc0d68700abb368242202875bbdef`.
-- File size: 9.93 MB.
-- Saved execution errors: none found.
-- Code-cell syntax errors: none found.
-- Bare heading-only Markdown cells: none found.
-- Functions/classes without docstrings: none found.
-- Cached HTML table outputs: 9; all 9 are scroll-safe.
-- Cached embedded PNG figures: 8; largest width after polishing is 2400 px.
-- Cached embedded GIFs: 2; mechanism animation is 1495 x 828 px with 84 frames, and lab workflow animation is 1400 x 772 px with 70 frames.
-- High-risk cached/source style patterns checked after polishing: no remaining `letter-spacing:-`, `overflow: hidden`, `border-radius:18`, `border-radius: 18`, `width:2600`, `max-width:2600`, or `Unnamed:` patterns.
+- Notebook: `agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- SHA-256 after this run: `3f420cc76222b6efe1fe44d7946f40546389ba9486a2b2db826dc46e370b31cc`.
+- Cells: 37 total, 23 Markdown and 14 code.
+- Cached tables: 9 total, all scroll-safe, no blank index header or row-number index leakage found.
+- Embedded PNG outputs: 8 total, maximum width 2400 px.
+- Embedded GIF outputs: 2 total, both decodable with frame counts verified.
+- Risky style patterns remaining from automated scan: 0 for `border-radius:18px`, `border-radius: 18px`, `overflow: hidden`, `letter-spacing:-`, `width:2600`, and `max-width:2600`.
 
 ## Remaining Blockers
 
-1. The visible package includes only `Data/Acetone/` with 49 `.dat` files, so the five-solvent analysis cannot be clean-rerun from source in this environment.
-2. Required notebook dependencies are unavailable locally, including `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `numba` and `rdkit`, so clean execution and export generation remain blocked.
-3. HTML/PDF export-level visual QA remains required because cached notebook inspection cannot prove page-break behavior, animation fallback behavior, browser-specific clipping or renderer-specific overlap.
-4. Literature-comparison values in the cached notebook should be checked directly against the cited papers during final review before claiming full publication certification.
+- Only Acetone raw data are present locally: 49 files under `agent_files/testing-main/Data/Acetone/`. The cached notebook reports a five-solvent analysis, so Acetonitrile, Cyclohexane, THF, and Toluene raw data are still needed for a clean reproducibility check.
+- The notebook cannot be rerun from a clean kernel in this environment because required packages are missing.
+- Export-level visual QA could not be completed because `nbconvert`/`nbformat` are missing.
+- Literature constants and cited comparison values remain cached notebook claims until checked directly against the cited sources during final certification.
 
-## Next Highest-Value Improvements
+## Next Highest-Value Work
 
-1. Provide the complete five-solvent raw `Data/` folder and install the intended notebook environment.
-2. Rerun the polished notebook from a clean kernel.
-3. Export to HTML and PDF with the same environment used for publication.
-4. Inspect every exported page for clipping, overlap, broken images, GIF fallback defects, unreadable labels, malformed tables and page-break issues.
-5. Verify cited literature constants against the source papers before final publication certification.
+1. Add the complete raw data package for all five solvents.
+2. Install or provide the intended notebook environment with the missing scientific and export dependencies.
+3. Rerun the notebook from a clean kernel and compare regenerated summaries/figures against the cached outputs.
+4. Export to HTML and PDF, then inspect every table, figure, GIF, caption and page break for renderer-specific clipping or overlap.
+5. Verify cited literature constants against the source papers before claiming final publication readiness.
