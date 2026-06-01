@@ -1,53 +1,57 @@
 # Rubric Tracker
 
-Last updated: 2026-06-01 11:15 BST scheduled run.
+Last updated: 2026-06-01 12:15 BST scheduled run.
 
-## Rubric Basis
+## Overall Estimate
 
-The attached rubric is an HTML export of a marking grid with scale levels from Unacceptable through higher performance bands. The notebook is being polished against the practical criteria implied by the rubric and the publication-polishing role: scientific accuracy, reproducible analysis, clear interpretation, professional presentation, robust visuals, clean rendered outputs and maintainable code.
+The polished cached notebook is likely in the high band for presentation, code commenting, structure and analytical explanation, but the score cannot be certified as full marks until a clean five-solvent rerun and exported visual inspection are completed.
 
-## Current Score Estimate
+## Evidence By Criterion
 
-Estimated band: high, but not final full-mark confidence.
+### Report structure and Markdown formatting
 
-Reason: the executed notebook contains a strong scientific narrative, batch analysis, quality control, uncertainty estimates, validation checks, figures, references and inline animations. This run fixed concrete presentation and code-quality issues in the attached notebook and added a stronger literature-backed mechanism caveat. Full-score confidence is still blocked by incomplete visible raw data, missing execution/export dependencies and lack of export-level visual inspection after a clean rerun.
+Current estimate: high.
 
-## Scientific Argument And Research Quality
+Evidence: the notebook uses clear report sections, publication-facing transitions, equations, references, figure captions, styled callouts and appendices. This run removed all heading-only Markdown cells and high-risk style patterns found in the attached source.
 
-Evidence: The notebook frames 4A4N as a donor-acceptor azo dye, connects flash photolysis to first-order thermal recovery, compares five solvents, reports uncertainty, uses bootstrap rank probabilities and discusses the limits of dielectric-only interpretation. This run added a supporting reference on polarity-controlled aminoazobenzene thermal isomerisation and clarified that pathway-level claims are literature-supported rather than proven solely by the present fixed-temperature traces.
+Needed for full confidence: inspect exported HTML/PDF to confirm no renderer-specific clipping, overlap, broken page breaks or animation fallback defects.
 
-Current risk: Literature-comparison values are cached and should be rechecked against the cited papers before final publication certification.
+### Code documentation and maintainability
 
-Needed for full marks: Verify the literature comparison directly against the cited sources and ensure the final discussion only claims what the rerun data supports.
+Current estimate: high.
 
-## Methodology And Reproducibility
+Evidence: all detected functions/classes now have docstrings, including nested helper functions in the animation sections. Comments are focused on reproducibility and implementation choices rather than line-by-line narration.
 
-Evidence: The notebook contains parsing, fitting, QC, summary statistics, validation and consistency checks. This run improved rerun table rendering and added a clearer cached-output versus clean-rerun QA note.
+Needed for full confidence: clean rerun in the intended environment to confirm the updated helper code executes without dependency-specific display issues.
 
-Current risk: The visible package contains only acetone raw traces, and the local environment lacks key dependencies.
+### Analysis quality and interpretation
 
-Needed for full marks: Provide the full five-solvent raw data package, install the intended scientific environment, rerun from a clean kernel and preserve the resulting manifest.
+Current estimate: high but provisional.
 
-## Visual And Rendering Quality
+Evidence: the notebook uses explicit quality-control criteria, independent validation, fit-window sensitivity checks, confidence intervals, bootstrap rank probabilities, literature comparisons and a solvent-effect discussion that is now more carefully qualified.
 
-Evidence: This run wrapped all 9 cached tables in overflow-safe containers, downsampled all 8 oversized PNG figures to <= 2400 px width, verified both embedded GIFs decode through their final frame, removed hidden-overflow and negative-letter-spacing style risks, and replaced brittle 18 px visual radii.
+Needed for full confidence: complete raw data for all five solvents and direct verification of cached literature-comparison constants.
 
-Current risk: HTML/PDF renderer behavior has not been inspected because export tooling is unavailable.
+### Visual quality and rendered outputs
 
-Needed for full marks: Generate HTML and PDF exports after clean rerun and inspect every page for clipping, overlap, broken images, GIF fallback defects, unreadable labels, malformed tables and page-break issues.
+Current estimate: strong cached-notebook quality, not final export-certified.
 
-## Code Quality And Maintainability
+Evidence: all cached table outputs are scroll-safe; all embedded PNGs are reduced to a maximum width of 2400 px; both GIFs decode successfully; no saved execution errors were found; no risky strings remain for negative heading tracking, hidden overflow, 18 px radii, 2600 px widths or unnamed index columns.
 
-Evidence: The polished copy has no detected syntax errors and no functions/classes without docstrings. The source-level report-table helper now preserves the cached table polish on future reruns.
+Needed for full confidence: HTML and PDF export review from the intended execution environment.
 
-Current risk: No project-level environment file is available.
+### Reproducibility
 
-Needed for full marks: Add a reproducible dependency/environment file once the intended execution environment is known.
+Current estimate: medium-high for notebook design, blocked for full verification.
 
-## Markdown And Report Formatting
+Evidence: the notebook contains parsing, fitting, validation, figure generation and consistency-check code, plus a reproducibility appendix and output manifest logic.
 
-Evidence: The notebook has a coherent article-style structure with aims, theory, methodology, results/discussion, appendices, AI statement and references. This run removed bare heading-only cells by adding short transitions, added a publication QA note and fixed cached display issues that reduced professional polish.
+Needed for full confidence: complete five-solvent raw `Data/` directory, full dependency installation and clean-kernel execution.
 
-Current risk: Some final polish remains contingent on export-level inspection.
+## Highest-Value Remaining Work
 
-Needed for full marks: Confirm exported HTML/PDF pagination, table wrapping, figure scaling and animation fallback behavior.
+1. Provide the complete raw data package for all five solvents.
+2. Install the intended notebook environment.
+3. Rerun the notebook from a clean kernel.
+4. Export to HTML/PDF and inspect every rendered table, figure, GIF and page break.
+5. Verify cited literature constants against the source papers before final publication certification.
