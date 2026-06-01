@@ -1,18 +1,21 @@
 # Improvement Log
 
-## 2026-06-01 05:15 BST scheduled run
+## 2026-06-01 08:15 BST scheduled run
 
 ### Review performed
 
 - Inspected the attached notebook package in `/workspace/agent_files/` and the rubric guidance file.
 - Reviewed existing memory state before editing so this pass continued the prior publication-polishing thread.
-- Programmatically scanned the notebook for cell counts, saved errors, image/GIF payloads, table outputs, high-risk CSS patterns, heading-only Markdown cells and undocumented functions/classes.
-- Checked the runtime environment for export capability; `jupyter`, `nbformat` and `nbconvert` are not installed, so true HTML/PDF export rendering could not be performed in this run.
+- Checked the visible raw-data folder and confirmed it contains only Acetone traces, not the full five-solvent data set required for clean rerun certification.
+- Verified the local execution environment is missing several required notebook/scientific packages, so final rerun and nbconvert export QA could not be performed here.
+- Used source lookups for the cited 4A4N flash-photolysis literature to confirm the notebook's interpretation should avoid treating bulk polarity as the only explanatory variable.
+- Programmatically scanned the notebook for saved errors, syntax errors, heading-only Markdown cells, undocumented functions/classes, cached tables, embedded PNG dimensions, embedded GIF decoding and high-risk cached/source styling patterns.
 
 ### Improvements made
 
 - Created `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached full-output notebook.
-- Rewrote 8 bare section headings into short, publication-facing transitions:
+- Strengthened the introduction's solvent-effects framing: polarity remains important, but the explanation now explicitly includes specific solvation, hydrogen-bond accepting ability, viscosity and local packing.
+- Rewrote 8 bare section headings into short publication-facing transitions:
   - Data reader
   - Fast fitting functions
   - Quality control and summary functions
@@ -21,104 +24,32 @@
   - Figures
   - Results and discussion
   - Answers to post-lab questions
-- Added a reproducibility appendix note that clearly separates cached-output confidence from final raw-data reproducibility certification.
-- Updated the source `report_table` helper so rerun report tables render as horizontally scrollable HTML in Jupyter.
-- Wrapped all cached HTML table outputs in scroll-safe containers.
-- Downsampled cached PNG figures wider than 2400 px to reduce notebook bloat and lower export-clipping risk.
-- Hardened cached and source-level visual styling for the GIF panels by removing brittle overflow and large fixed-width/radius patterns.
+- Added a reproducibility appendix note separating cached-output inspection from final clean-rerun/export certification.
+- Updated source-level `report_table` to return scroll-safe HTML tables during notebook display while preserving a DataFrame fallback outside Jupyter.
+- Wrapped all cached table outputs in scroll-safe containers.
+- Downsampled all cached PNG figure payloads wider than 2400 px.
+- Restrained cached and source-level figure/GIF styling by replacing large radii and removing hidden-overflow risks.
 - Added docstrings to remaining private/nested animation helpers.
+- Updated the cached discussion output to clarify that polarity is one explanatory variable rather than a complete mechanism.
 
 ### Validation results
 
-- Polished notebook SHA-256: `77270597da4167c3654f1a0b05cbcd84665f2d367cec8df8208e764c9a8a671b`.
+- Polished notebook SHA-256: `25108e053d274af4c5731708b7469ecacb5d4ef170121806d7f462b536204517`.
 - Saved execution errors: none found.
 - Code-cell syntax errors: none found.
 - Heading-only Markdown cells: none found.
 - Functions/classes without docstrings: none found.
 - Cached table outputs: 9; all include horizontal overflow protection.
 - Cached embedded PNG figures: 8; maximum width after this pass is 2400 px.
-- Cached embedded GIFs: 2; decoded successfully with 84 and 70 frames.
-- Tracked high-risk cached HTML style patterns: none found for `overflow: hidden`, `max-width:1080px`, `border-radius:18px`, old heavy GIF shadows, `font-size:12px` or negative letter spacing.
+- Cached embedded GIFs: 2; both decode successfully. Mechanism/results animation: 1495 x 828 px, 84 frames. Lab workflow animation: 1400 x 772 px, 70 frames.
+- High-risk cached/source style patterns checked after polishing: no remaining `border-radius:18`, `overflow: hidden;`, `letter-spacing:-`, `width:2600`, or `max-width:2600` patterns.
 
 ### Unresolved risks
 
-- Full raw data were not present in the visible package, so the five-solvent analysis could not be rerun from source files.
-- The current environment lacks Jupyter/nbconvert, so HTML/PDF export visual QA remains a blocker.
-- Cached outputs are internally well-formed, but final publication sign-off needs a rendered export review in a dependency-complete environment.
+- Full clean rerun is blocked by missing dependencies and incomplete raw data in the visible package.
+- Export-level visual QA is still needed because cached notebook inspection does not prove HTML/PDF page-break behavior.
+- The cited literature comparisons should be rechecked against the original papers during final review.
 
-## 2026-06-01 06:15 BST scheduled run
+## Earlier runs
 
-### Review performed
-
-- Inspected the attached notebook package in `/workspace/agent_files/` and the rubric guidance file.
-- Reviewed existing memory state before editing so this pass continued the prior publication-polishing thread.
-- Programmatically scanned the notebook for saved errors, image/GIF payloads, table outputs, high-risk CSS patterns, heading-only Markdown cells and undocumented functions/classes.
-- Checked export capability; `jupyter`, `nbformat` and `nbconvert` are not installed, so true HTML/PDF export rendering could not be performed in this run.
-
-### Improvements made
-
-- Created `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached full-output notebook.
-- Rewrote 8 bare section headings into short, publication-facing transitions.
-- Tightened global and cached visual styling by removing negative heading letter spacing, hidden overflow, fixed 1080 px GIF widths, large 18 px figure radii and heavy GIF panel shadows.
-- Wrapped all cached HTML table outputs in scroll-safe containers.
-- Downsampled cached PNG figures wider than 2400 px to reduce notebook bloat and lower export-clipping risk.
-- Verified cached GIF animations with Pillow and preserved both embedded animations.
-- Added docstrings to all detected helper functions/classes, including nested animation helpers.
-
-### Validation results
-
-- Polished notebook SHA-256: `db690332acb5bd42a76c9d20ff7fe60ce322b6bf1e63e9652c2649e35b7d08b5`.
-- Saved execution errors: none found.
-- Code-cell syntax errors: none found.
-- Heading-only Markdown cells: none found.
-- Functions/classes without docstrings: none found.
-- Cached table outputs: 9; all include horizontal overflow protection.
-- Cached embedded PNG figures: 8; maximum width after this pass is 2400 px.
-- Cached embedded GIFs: 2; decoded successfully with 84 and 70 frames.
-- Tracked high-risk style patterns: none found for `overflow: hidden`, `max-width:1080px`, `width:1080px`, `border-radius:18px`, `border-radius:11px`, old heavy GIF shadows, `font-size:12px` or negative letter spacing.
-
-### Unresolved risks
-
-- Full raw data were not present in the visible package, so the five-solvent analysis could not be rerun from source files.
-- The current environment lacks Jupyter/nbconvert, so HTML/PDF export visual QA remains a blocker.
-- Cached outputs are internally well-formed, but final publication sign-off needs a rendered export review in a dependency-complete environment.
-
-## 2026-06-01 07:15 BST scheduled run
-
-### Review performed
-
-- Inspected the attached notebook package in `/workspace/agent_files/`, including `P201_201698955_publication_ready_FULL_OUTPUTS.ipynb` and the simple-exercise rubric guidance.
-- Reviewed existing memory and GitHub persistence state before editing so this pass continued the prior publication-polishing thread.
-- Confirmed the previous `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` artifact was not present in this fresh workspace, so the polished artifact was recreated from the attached source notebook.
-- Programmatically scanned the notebook for saved execution errors, syntax errors, heading-only Markdown cells, undocumented functions/classes, table outputs, embedded PNG dimensions, embedded GIF validity and high-risk clipping/export styles.
-- Checked export capability; `jupyter`, `nbformat` and `nbconvert` are still not installed, so true HTML/PDF export rendering could not be performed in this run.
-
-### Improvements made
-
-- Created `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached full-output notebook.
-- Strengthened the introduction's research framing by explaining that 4A4N solvent effects should be interpreted through dielectric stabilization, specific solvation, hydrogen-bond accepting ability, viscosity and local packing, not polarity alone.
-- Rewrote 8 bare section headings into short, publication-facing transitions.
-- Added a reproducibility appendix note that clearly separates cached-output confidence from final raw-data reproducibility certification.
-- Updated the source `report_table` helper so rerun report tables render as horizontally scrollable HTML in Jupyter.
-- Wrapped all cached HTML table outputs in scroll-safe containers.
-- Downsampled cached embedded PNG figures wider than 2400 px to reduce notebook bloat and lower export-clipping risk.
-- Hardened cached and source-level visual styling for figures and GIF panels by removing brittle fixed-width, hidden-overflow, negative-letter-spacing and large-radius style patterns.
-- Added docstrings to remaining private/nested animation helpers.
-
-### Validation results
-
-- Polished notebook SHA-256: `fffb8241e1fde704c6479aab2e805f2809d4944f2d5ec51b2a7355fb43fb2cc1`.
-- Saved execution errors: none found.
-- Code-cell syntax errors: none found.
-- Heading-only Markdown cells: none found.
-- Functions/classes without docstrings: none found.
-- Cached table outputs: 9; all include horizontal overflow protection.
-- Cached embedded PNG figures: 8; maximum width after this pass is 2400 px.
-- Cached embedded GIFs: 2; decoded successfully with 84 and 70 frames.
-- Tracked high-risk cached/source style patterns: none found for `overflow: hidden`, `max-width:1080px`, `width:1080px`, `border-radius:18px`, `border-radius:11px`, `font-size:12px` or negative letter spacing.
-
-### Unresolved risks
-
-- Full raw data were not present in the visible package, so the five-solvent analysis could not be rerun from source files.
-- The current environment lacks Jupyter/nbconvert, so HTML/PDF export visual QA remains a blocker.
-- Cached outputs are internally well-formed, but final publication sign-off needs a rendered export review in a dependency-complete environment.
+Earlier entries are superseded by the current status summary above. The durable conclusion remains that the executed notebook is strong, but final publication certification requires complete data, a dependency-complete rerun and export-level visual inspection.
