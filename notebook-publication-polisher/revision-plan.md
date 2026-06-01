@@ -1,10 +1,25 @@
 # Revision Plan
 
-Last updated: 2026-06-01 06:15 BST scheduled run.
+Last updated: 2026-06-01 07:15 BST scheduled run.
 
 ## Current priority
 
 The notebook is close to publishable as an executed artifact. The next highest-value work is reproducibility and export proof: rerun from the complete raw data package, then inspect HTML/PDF exports in a full notebook environment.
+
+## Completed in the 2026-06-01 07:15 BST pass
+
+- Recreated `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached full-output notebook because no previous polished output file was present in this workspace.
+- Strengthened the introduction's literature framing around solvent-dependent recovery of push-pull azobenzenes, explicitly avoiding an unsupported polarity-only explanation.
+- Replaced all remaining heading-only Markdown sections with explanatory transitions.
+- Added a reproducibility appendix note clarifying that cached-output inspection is not the same as raw-data rerun certification.
+- Updated the source `report_table` helper so rerun tables render inside scroll-safe HTML wrappers.
+- Wrapped all 9 cached table outputs with horizontal overflow protection.
+- Downsampled all 8 cached embedded PNG figures to a maximum width of 2400 px.
+- Verified both cached GIF animations decode from the saved notebook: 84 frames and 70 frames.
+- Removed tracked high-risk cached/source HTML styling patterns associated with clipping or brittle exports.
+- Added docstrings to all detected undocumented helper functions/classes.
+- Verified no saved execution errors, no code-cell syntax errors, no heading-only Markdown cells, no missing function/class docstrings, no unwrapped cached tables and no tracked high-risk style patterns.
+- Recorded the final polished notebook checksum as `fffb8241e1fde704c6479aab2e805f2809d4944f2d5ec51b2a7355fb43fb2cc1`.
 
 ## Completed in the 2026-06-01 06:15 BST pass
 
