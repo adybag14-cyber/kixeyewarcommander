@@ -1,5 +1,43 @@
 # Improvement Log
 
+## 2026-06-01 19:15 BST scheduled run
+
+### Review Focus
+
+Reviewed the current attached notebook package, rubric guidance, existing memory, cached notebook outputs, and rendered visual payloads. The immediate priority was to realign the fresh workspace with the persisted polish state and confirm publication risks in the actual cached outputs rather than relying on prior-run notes.
+
+### Improvements Made
+
+- Rebuilt the polished notebook copy at `/workspace/output/P201_201698955_publication_ready_FULL_OUTPUTS_polished.ipynb`.
+- Rebuilt the standalone HTML export at `/workspace/output/P201_201698955_publication_ready_FULL_OUTPUTS_polished.html` using Pandoc.
+- Corrected both source and cached post-lab output so the discussion now identifies acetonitrile as the fastest mean recovery and acetone as close behind.
+- Added or preserved publication-safe table helpers and routed report tables through index-free, horizontally scroll-safe HTML.
+- Wrapped all nine cached pandas tables in publication-safe scrolling containers and removed blank/index-heavy table headers.
+- Downscaled all eight cached PNG figures to a maximum width of 2400 px.
+- Downscaled both GIF animations to 1080 px wide while preserving 84 and 70 frames.
+- Removed high-risk presentation patterns from the polished notebook and HTML export: `overflow: hidden`, 18 px/11 px figure border radii, negative heading letter spacing, blank pandas index headers, and the stale phrase `gave the fastest recovery`.
+- Built and reviewed a visual contact sheet of all cached PNGs and GIF first frames; no obvious clipping, broken images, overlap, malformed figures, or unreadable panel layout was visible.
+
+### Validation Results
+
+- Polished notebook SHA-256: `44a4f3134f19e6aa5ea463fff0779a9ea31d75883410a7de3ca1fd152cc7b0ee`.
+- HTML export SHA-256: `4167adb5b133f5d94afbfdb4b0d32ac832c9624b5770012fd9c235d7908fa8b0`.
+- Notebook JSON parses successfully.
+- Python syntax errors across code cells: 0.
+- Saved execution errors: 0.
+- Cached table outputs: 9; publication-safe wrappers: 9; blank pandas index headers: 0.
+- Embedded visual assets: 8 PNGs and 2 GIFs.
+- Maximum PNG width after polish: 2400 px.
+- GIF dimensions and frame counts: 1080 x 598 with 84 frames; 1080 x 596 with 70 frames.
+- Pandoc HTML export succeeded with only a missing-title warning; it defaulted the title to the notebook filename.
+
+### Unresolved Risks
+
+- Clean execution remains blocked by missing packages: Jupyter execution support, `nbformat`, `nbclient`, `IPython`, `matplotlib`, `scipy`, and `rdkit`.
+- Browser screenshot QA remains blocked because Playwright's Chromium binary is absent and package policy prevents installation.
+- The attached raw `Data/` support appears incomplete for a full five-solvent rerun.
+- Literature comparison constants still need direct source verification before final publication certification.
+
 ## 2026-06-01 18:15 BST scheduled run
 
 ### Review Focus
