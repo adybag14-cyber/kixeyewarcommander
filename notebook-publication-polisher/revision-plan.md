@@ -1,29 +1,28 @@
 # Revision Plan
 
-Last updated: 2026-06-01 11:15 BST scheduled run.
+Last updated: 2026-06-01 12:15 BST scheduled run.
 
-## Completed In This Run
+## Completed This Run
 
-- Regenerated `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached executed notebook.
-- Rewrote bare section-heading cells into short publication-facing transitions.
-- Strengthened the introduction, discussion and conclusion with a clearer literature-supported mechanism caveat.
-- Added the supporting Joshi, Fuyuki and Wada 2014 reference on polarity-controlled aminoazobenzene thermal isomerisation.
-- Made all cached report tables horizontally scroll-safe and kept displayed notebook index columns out of report tables.
-- Updated the notebook source so rerun-generated report tables preserve the same scroll-safe, index-free presentation.
-- Updated the final consistency-check output to use the report-table helper.
-- Downsampled all oversized embedded PNG figures to an export-safer maximum width of 2400 px.
-- Verified both embedded GIFs decode successfully through their final frame.
-- Removed high-risk layout/style patterns: negative heading letter spacing, hidden overflow, 18 px display radii and 2600 px width patterns.
-- Added missing docstrings to animation helper functions.
-- Added a reproducibility appendix note explaining that cached-output inspection is not a substitute for clean-rerun HTML/PDF export QA.
-- Updated progress memory and GitHub persistence notes.
+- Rebuilt the polished cached-output notebook.
+- Improved section transitions and research framing.
+- Added one supporting literature reference and a conclusion caveat.
+- Made table output scroll-safe in both source helper code and cached HTML outputs.
+- Reduced oversized embedded PNG payloads.
+- Verified embedded GIFs decode through their final frames.
+- Removed high-risk style patterns associated with clipping and cramped notebook rendering.
+- Added missing function/class docstrings.
+- Updated publication status, improvement log and rubric tracker.
 
-## Still Required For Final Publication Certification
+## Next Run Plan
 
-1. Add the complete five-solvent raw `Data/` directory.
-2. Install the full scientific notebook environment, including notebook export tooling and chemistry/plotting dependencies.
-3. Rerun the polished notebook from a clean kernel.
-4. Export the rerun notebook to HTML and PDF.
-5. Inspect every exported page for clipping, overlap, broken images, GIF fallback defects, unreadable labels, malformed tables and page-break issues.
-6. Recheck literature-comparison values against the cited papers.
-7. Add a project-level environment/dependency file after the dependency-complete environment is known.
+1. If the full five-solvent `Data/` folder is available, run a clean execution pass and compare regenerated outputs with the cached polished notebook.
+2. If dependencies are available, export to HTML and PDF, then inspect every rendered page for clipping, overlap, broken images, GIF fallback defects, unreadable labels and malformed tables.
+3. If execution is still blocked, focus on targeted source-level improvements that can be safely made from notebook JSON and cached outputs.
+4. Verify literature-comparison constants directly against cited papers before declaring final publication readiness.
+
+## Current Blockers
+
+- Missing complete raw data for acetonitrile, cyclohexane, THF and toluene.
+- Missing notebook execution/export dependencies in the local environment.
+- Export-level visual QA not yet possible.
