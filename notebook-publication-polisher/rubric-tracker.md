@@ -1,6 +1,6 @@
 # Rubric Tracker
 
-Last updated: 2026-06-01 13:19 BST scheduled run.
+Last updated: 2026-06-01 14:15 BST scheduled run.
 
 ## Overall Estimate
 
@@ -8,7 +8,15 @@ The polished cached notebook is likely in the high/excellent band for report str
 
 ## Evidence By Criterion
 
-### Data analysis and plotting
+### Criterion 1: Post-labs
+
+Current estimate: high/excellent.
+
+Evidence: the notebook answers the post-lab questions in a data-linked way, connecting conceptual explanations to the observed solvent-specific rates, accepted fit quality and limitations of single-wavelength detection. This run added a transition explaining that the post-lab answers are generated from the same analysis tables as the main discussion.
+
+Needed for full confidence: confirm the exact post-lab question wording against any additional course handout if available.
+
+### Criterion 2: Data analysis and plotting
 
 Current estimate: high but provisional.
 
@@ -16,37 +24,45 @@ Evidence: the executed notebook includes five-solvent summaries, explicit qualit
 
 Needed for full confidence: complete five-solvent raw data and clean rerun from source.
 
-### Report structure, Markdown, LaTeX, HTML and formatting
-
-Current estimate: high/excellent cached-notebook quality.
-
-Evidence: the notebook uses clear report sections, equations, references, figure captions, styled callouts, appendices and now no heading-only Markdown cells. All cached tables are scroll-safe and high-risk style patterns were removed.
-
-Needed for full confidence: exported HTML/PDF inspection to confirm no renderer-specific clipping, overlap, broken page breaks or animation fallback defects.
-
-### Code originality, maintainability and portability
+### Criterion 3: Experimental write-up
 
 Current estimate: high.
 
-Evidence: the analysis uses reusable functions and batch processing rather than repeated manual code. All detected functions/classes have docstrings, and the report-table helper now produces publication-safe HTML on rerun.
+Evidence: the notebook explains flash photolysis, first-order thermal recovery, solvent effects, quality-control logic and experimental limitations in a coherent report structure. The conclusion is appropriately cautious and names future work rather than overstating the cached results.
 
-Needed for full confidence: clean execution in the intended environment to verify dependency-specific display and output behavior.
+Needed for full confidence: confirm literature constants and course-specific experimental details against the original practical sheet.
 
-### Commenting, documentation and explanation of code
+### Criterion 4: Originality and elegance of Python code
+
+Current estimate: high.
+
+Evidence: the analysis uses reusable dataclasses, parser functions, batch fitting, quality-control functions, summary-table generation, validation helpers and figure-generation utilities rather than repeated manual calculations. All detected functions/classes now have docstrings.
+
+Needed for full confidence: clean execution in the intended environment to verify dependency-specific behavior.
+
+### Criterion 5: Portability of code
+
+Current estimate: moderate/high but blocked from certification.
+
+Evidence: the notebook allows `P201_DATA_DIR`, keeps analysis code self-contained, and includes dependency/version reporting. However, the local package lacks the complete raw data and several required packages, so portability cannot be proven here.
+
+Needed for full confidence: provide the complete `Data/` package and intended environment, rerun from a clean kernel and export successfully.
+
+### Criterion 6: Commenting, documentation and explanation of code
 
 Current estimate: high/excellent.
 
-Evidence: comments and docstrings explain non-obvious reproducibility, fitting and display decisions without excessive line-by-line narration. Previously undocumented nested animation helpers now have docstrings.
+Evidence: comments and docstrings explain non-obvious reproducibility, fitting, display and animation decisions without excessive line-by-line narration. This run removed the remaining undocumented function/class findings.
 
 Needed for full confidence: none beyond clean rerun verification.
 
-### Evidence of understanding and answers to questions
+### Criterion 7: Markdown, LaTeX, HTML and formatting
 
-Current estimate: high but provisional.
+Current estimate: high/excellent cached-notebook quality.
 
-Evidence: the notebook connects the solvent-dependent rates to first-order recovery, quality-control limits, literature comparisons and cautious chemical interpretation.
+Evidence: the notebook uses clear report sections, equations, references, figure captions, styled callouts, appendices and now no heading-only Markdown cells. All cached tables are scroll-safe, embedded PNG widths are capped at 2400 px, both GIFs decode, and high-risk clipping/style patterns were removed.
 
-Needed for full confidence: direct verification of cited literature constants and complete raw data availability.
+Needed for full confidence: exported HTML/PDF inspection to confirm no renderer-specific clipping, overlap, broken page breaks or animation fallback defects.
 
 ## Highest-Value Remaining Work
 
