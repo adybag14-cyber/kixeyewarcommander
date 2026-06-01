@@ -1,17 +1,17 @@
 # Revision Plan
 
-Last updated: 2026-06-01 21:15 BST scheduled run.
+Last updated: 2026-06-01 22:15 BST scheduled run.
 
 ## Completed This Run
 
 - Inspected the attached notebook, rubric, available data files, and previous progress notes.
 - Produced a polished notebook deliverable: `output/P201_201698955_publication_polished_2026-06-01.ipynb`.
 - Generated a visual QA contact sheet: `output/polished_visual_contact_sheet_2026-06-01.png`.
-- Cleaned cached table rendering so publication tables are index-free and horizontally scroll-safe.
-- Added rerun-safe table helpers before first use.
+- Added rerun-safe table display helpers for index-free, horizontally scroll-safe publication tables.
+- Rewrote 9 cached Pandas tables into publication-table HTML wrappers.
 - Downscaled oversized cached PNG and GIF media while preserving readability and GIF frame counts.
-- Improved GIF first-frame fallbacks for static/PDF export.
-- Removed cached clipping-prone CSS and negative heading tracking patterns.
+- Replaced each cached GIF first frame with an informative poster frame and added matching static fallbacks for PDF/static export.
+- Removed cached clipping-prone CSS, negative heading tracking, legacy table markup, blank index headers, and `border="1"` table patterns.
 - Verified code-cell syntax, cached output status, media decodability, and contact-sheet visual quality.
 
 ## Next Run Plan
