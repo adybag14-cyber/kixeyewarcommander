@@ -4,7 +4,7 @@
 
 The notebook is close to publication-ready as an executed artifact. The remaining high-value work is reproducibility and final export QA: rerun from the complete raw data package, then inspect HTML/PDF exports in a full notebook environment.
 
-## Completed in 2026-06-01 01:15 BST pass
+## Completed in 2026-06-01 02:15 BST pass
 
 - Reviewed the attached full-output notebook and rubric guidance.
 - Recreated `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached full-output notebook available in this run.
@@ -16,6 +16,7 @@ The notebook is close to publication-ready as an executed artifact. The remainin
 - Verified both cached GIF animations decode from the saved notebook: 84 frames and 70 frames.
 - Removed tracked high-risk styling patterns associated with clipping or brittle exports: hidden overflow, fixed 1080 px image caps, large 18 px radii, heavier old shadows, 12 px font-size patterns and negative heading letter spacing.
 - Verified no saved execution errors, no code-cell syntax errors and no functions/classes missing docstrings.
+- Recorded the final polished notebook checksum as `a8e3649d0111cde485f9be6ac5bf2b454956394d75854ac9e264321eb22f2de6`.
 
 ## Remaining work
 
