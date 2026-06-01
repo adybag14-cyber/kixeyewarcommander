@@ -82,3 +82,43 @@
 - Full raw data were not present in the visible package, so the five-solvent analysis could not be rerun from source files.
 - The current environment lacks Jupyter/nbconvert, so HTML/PDF export visual QA remains a blocker.
 - Cached outputs are internally well-formed, but final publication sign-off needs a rendered export review in a dependency-complete environment.
+
+## 2026-06-01 07:15 BST scheduled run
+
+### Review performed
+
+- Inspected the attached notebook package in `/workspace/agent_files/`, including `P201_201698955_publication_ready_FULL_OUTPUTS.ipynb` and the simple-exercise rubric guidance.
+- Reviewed existing memory and GitHub persistence state before editing so this pass continued the prior publication-polishing thread.
+- Confirmed the previous `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` artifact was not present in this fresh workspace, so the polished artifact was recreated from the attached source notebook.
+- Programmatically scanned the notebook for saved execution errors, syntax errors, heading-only Markdown cells, undocumented functions/classes, table outputs, embedded PNG dimensions, embedded GIF validity and high-risk clipping/export styles.
+- Checked export capability; `jupyter`, `nbformat` and `nbconvert` are still not installed, so true HTML/PDF export rendering could not be performed in this run.
+
+### Improvements made
+
+- Created `/workspace/output/P201_201698955_publication_ready_POLISHED_OUTPUTS.ipynb` from the attached full-output notebook.
+- Strengthened the introduction's research framing by explaining that 4A4N solvent effects should be interpreted through dielectric stabilization, specific solvation, hydrogen-bond accepting ability, viscosity and local packing, not polarity alone.
+- Rewrote 8 bare section headings into short, publication-facing transitions.
+- Added a reproducibility appendix note that clearly separates cached-output confidence from final raw-data reproducibility certification.
+- Updated the source `report_table` helper so rerun report tables render as horizontally scrollable HTML in Jupyter.
+- Wrapped all cached HTML table outputs in scroll-safe containers.
+- Downsampled cached embedded PNG figures wider than 2400 px to reduce notebook bloat and lower export-clipping risk.
+- Hardened cached and source-level visual styling for figures and GIF panels by removing brittle fixed-width, hidden-overflow, negative-letter-spacing and large-radius style patterns.
+- Added docstrings to remaining private/nested animation helpers.
+
+### Validation results
+
+- Polished notebook SHA-256: `fffb8241e1fde704c6479aab2e805f2809d4944f2d5ec51b2a7355fb43fb2cc1`.
+- Saved execution errors: none found.
+- Code-cell syntax errors: none found.
+- Heading-only Markdown cells: none found.
+- Functions/classes without docstrings: none found.
+- Cached table outputs: 9; all include horizontal overflow protection.
+- Cached embedded PNG figures: 8; maximum width after this pass is 2400 px.
+- Cached embedded GIFs: 2; decoded successfully with 84 and 70 frames.
+- Tracked high-risk cached/source style patterns: none found for `overflow: hidden`, `max-width:1080px`, `width:1080px`, `border-radius:18px`, `border-radius:11px`, `font-size:12px` or negative letter spacing.
+
+### Unresolved risks
+
+- Full raw data were not present in the visible package, so the five-solvent analysis could not be rerun from source files.
+- The current environment lacks Jupyter/nbconvert, so HTML/PDF export visual QA remains a blocker.
+- Cached outputs are internally well-formed, but final publication sign-off needs a rendered export review in a dependency-complete environment.
