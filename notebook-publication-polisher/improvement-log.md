@@ -1,5 +1,19 @@
 # Improvement Log
 
+## 2026-06-02 08:20 BST scheduled run
+
+- Re-inspected the attached full-output notebook, supplied simple-exercise rubric export, visible raw data package, and existing progress memory.
+- Created a refreshed polished notebook deliverable at `output/P201_201698955_publication_polished_2026-06-02.ipynb`.
+- Added rerun-safe publication table helpers and routed package audit, analysis summary, QC, benchmark, validation, sensitivity, and consistency-check display calls through the publication table path.
+- Rewrote cached Pandas table outputs into index-free `publication-table-wrap` containers; validation found zero legacy `border="1"` dataframe tables and zero blank Pandas index headers afterward.
+- Repaired animation panel CSS by removing hidden overflow in source and cached HTML, reducing clipping risk for notebook/HTML/PDF views.
+- Added static final-frame PNG fallbacks for embedded GIF animations while preserving the original 84-frame mechanism GIF and 70-frame laboratory workflow GIF.
+- Reduced oversized cached PNG figures to a 2200 px maximum width and resized GIF payloads to 1080 px width while retaining frame counts, reducing the polished notebook to about 9.03 MB.
+- Added a publication rendering note to the reproducibility appendix documenting scroll-safe tables, GIF fallbacks, cached visual QA, and full-rerun requirements.
+- Generated `output/P201_publication_visual_contact_sheet_2026-06-02.png` and visually reviewed all cached figures plus animation fallback frames for broken media, clipping, overlap, malformed plots, unreadable labels, and weak static previews; none were obvious at contact-sheet review scale.
+- Lightweight validation results: all code cells parse, cached outputs contain no error outputs, 12 embedded media payloads decode, 108 publication-table wrapper markers are present, 3 GIF fallback markers are present, and no hidden-overflow markers remain.
+- Remaining blockers are unchanged: no full clean rerun without the complete five-solvent data package and full scientific/Jupyter environment, no browser/PDF page-level export QA in this runtime, and no direct source verification of literature constants or course post-lab wording.
+
 ## 2026-06-02 07:15 BST scheduled run
 
 - Re-inspected the attached full-output notebook, supplied simple-exercise rubric export, visible raw data package, and prior progress memory.
