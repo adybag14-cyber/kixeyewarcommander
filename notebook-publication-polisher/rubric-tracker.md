@@ -1,6 +1,6 @@
 # Rubric Tracker
 
-Last updated: 2026-06-01 23:15 BST scheduled run.
+Last updated: 2026-06-02 01:15 BST scheduled run.
 
 ## Rubric Basis
 
@@ -18,7 +18,7 @@ Needed for full confidence: compare directly with the original post-lab question
 
 Current estimate: high for cached outputs, provisional for clean rerun.
 
-Evidence: cached outputs include five-solvent summaries, trace-level quality control, rate inference, bootstrap ranking, relative barrier comparison, validation checks, fit-window sensitivity, and diagnostic figures. This run confirmed no cached execution errors, all embedded media decode, figure rasters are bounded to publication-manageable sizes, GIF frame counts are preserved, and the refreshed contact sheet shows no obvious clipping, overlap, broken media, malformed plots, unreadable labels, or weak static animation previews.
+Evidence: cached outputs include five-solvent summaries, trace-level quality control, rate inference, bootstrap ranking, relative barrier comparison, validation checks, fit-window sensitivity, and diagnostic figures. The 2026-06-02 polished copy confirmed no cached execution errors, all 12 embedded media payloads decode, figure rasters are bounded to publication-manageable sizes, GIF frame counts are preserved, and the refreshed contact sheet shows no obvious clipping, overlap, broken media, malformed plots, unreadable labels, or weak static animation previews.
 
 Needed for full confidence: clean rerun from the complete raw data package and page-level browser/PDF visual QA of regenerated outputs.
 
@@ -58,7 +58,7 @@ Needed for full confidence: review warnings or runtime messages from a clean rer
 
 Current estimate: high/excellent for cached notebook output.
 
-Evidence: this run removed confirmed presentation defects from the cached notebook: no cached `overflow: hidden` / `overflow:hidden`, no negative heading tracking, no legacy Pandas dataframe classes, no blank table index headers, no `border="1"` table markup, and all report tables are wrapped for horizontal overflow. PNG/GIF media are bounded and decodable, and GIF first frames plus separate PNG fallbacks now show final-state previews for static/PDF rendering.
+Evidence: this run removed confirmed presentation defects from the cached notebook: no cached `overflow: hidden` / `overflow:hidden`, no negative heading tracking, no legacy Pandas dataframe classes, no blank table index headers, no `border="1"` table markup, and all report tables are wrapped for horizontal overflow. PNG/GIF media are bounded and decodable, and both inline GIF animations now include separate final-frame PNG fallbacks for static/PDF rendering.
 
 Needed for full confidence: browser and PDF export QA across normal and narrow viewports.
 
