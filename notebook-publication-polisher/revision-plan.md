@@ -1,6 +1,6 @@
 # Revision Plan
 
-Last updated: 2026-06-02 12:15 BST scheduled run.
+Last updated: 2026-06-02 13:15 BST scheduled run.
 
 ## Completed This Run
 
@@ -9,8 +9,9 @@ Last updated: 2026-06-02 12:15 BST scheduled run.
 - Removed cached table and CSS patterns that increase clipping/export risk.
 - Resized embedded PNG and GIF media to publication-friendly dimensions.
 - Added static final-frame fallbacks for both inline GIF animations.
+- Added a publication QA boundary note to the reproducibility appendix.
 - Validated code-cell syntax, cached output health, media decoding, GIF frame counts, and visual contact-sheet presentation.
-- Updated memory and GitHub persistence files for this run.
+- Updated local memory files and GitHub persistence files for this run. Remote sync for the memory folder failed because credentials were unavailable in this runtime.
 
 ## Highest-Value Next Improvements
 
