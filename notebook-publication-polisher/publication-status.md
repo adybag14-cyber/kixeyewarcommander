@@ -1,10 +1,10 @@
 # Publication Status
 
-Last updated: 2026-06-02 01:15 BST scheduled run.
+Last updated: 2026-06-02 02:15 BST scheduled run.
 
 ## Current Readiness Assessment
 
-The notebook is close to publication-ready as an already-executed, cached notebook. This run regenerated a refreshed polished copy at `output/P201_201698955_publication_polished_2026-06-02_0115BST.ipynb` and a visual QA contact sheet at `output/visual_contact_sheet_2026-06-02_0115BST.png` because the previous-run deliverables were not present in the fresh workspace.
+The notebook is close to publication-ready as an already-executed, cached notebook. This run regenerated a refreshed polished copy at `output/P201_201698955_publication_polished_2026-06-02_0215BST.ipynb` and a visual QA contact sheet at `output/visual_contact_sheet_2026-06-02_0215BST.png` because prior deliverables are not durable in each fresh scheduled workspace.
 
 The scientific structure remains strong against the supplied rubric: the notebook states a clear flash-photolysis aim, explains the first-order recovery model, reports five-solvent rate comparisons with uncertainty, documents quality control, includes validation checks, and connects the result to solvent-controlled thermal recovery of 4A4N.
 
@@ -14,8 +14,8 @@ Full publication signoff remains provisional because this runtime still lacks th
 
 ## Verified Improvements This Run
 
-- Created polished notebook deliverable: `output/P201_201698955_publication_polished_2026-06-02_0115BST.ipynb`.
-- Created visual QA contact sheet: `output/visual_contact_sheet_2026-06-02_0115BST.png`.
+- Created polished notebook deliverable: `output/P201_201698955_publication_polished_2026-06-02_0215BST.ipynb`.
+- Created visual QA contact sheet: `output/visual_contact_sheet_2026-06-02_0215BST.png`.
 - Added rerun-safe publication table helpers so future notebook execution can display index-free, horizontally scroll-safe HTML tables.
 - Replaced future `display(report_table(...))` calls with `display_report_table(...)` in the main report table cells.
 - Rewrote 9 cached Pandas dataframe tables into publication-table HTML wrappers.
@@ -24,7 +24,7 @@ Full publication signoff remains provisional because this runtime still lacks th
 - Downscaled cached GIFs to 1080 px wide while preserving their 84-frame and 70-frame animations.
 - Added static final-frame PNG fallbacks for both GIF animations so PDF/print/static renderers have meaningful previews.
 - Removed negative heading letter-spacing and all confirmed `overflow: hidden` / `overflow:hidden` patterns from the polished notebook.
-- Confirmed all code cells parse, cached outputs contain no error outputs, and all 12 embedded PNG/GIF payloads decode.
+- Confirmed all code cells parse, cached outputs contain no error outputs, all 12 embedded PNG/GIF payloads decode, 8 source table-display calls route through `display_report_table(...)`, and 11 publication table wrappers are present in source/cached output.
 - Visual contact-sheet review found no obvious clipping, overlap, broken images, malformed plots, unreadable labels, or weak static GIF previews in the cached visual set.
 
 ## Remaining Blockers
@@ -36,5 +36,5 @@ Full publication signoff remains provisional because this runtime still lacks th
 
 ## Current Deliverables
 
-- Polished notebook: `output/P201_201698955_publication_polished_2026-06-02_0115BST.ipynb`
-- Visual QA contact sheet: `output/visual_contact_sheet_2026-06-02_0115BST.png`
+- Polished notebook: `output/P201_201698955_publication_polished_2026-06-02_0215BST.ipynb`
+- Visual QA contact sheet: `output/visual_contact_sheet_2026-06-02_0215BST.png`
