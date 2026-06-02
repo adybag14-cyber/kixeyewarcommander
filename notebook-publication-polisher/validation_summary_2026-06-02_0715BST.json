@@ -1,0 +1,31 @@
+{
+  "notebook": "output/P201_201698955_publication_polished_2026-06-02_0715BST.ipynb",
+  "code_cells_parse": true,
+  "parse_failures": [],
+  "error_outputs": 0,
+  "html_outputs": 19,
+  "embedded_media_count": 12,
+  "embedded_media": [
+    {"cell": 22, "output": 0, "kind": "png", "size": [8562, 3282], "frames": 1, "bytes": 762614},
+    {"cell": 22, "output": 1, "kind": "png", "size": [3726, 2334], "frames": 1, "bytes": 450105},
+    {"cell": 22, "output": 2, "kind": "png", "size": [2866, 1756], "frames": 1, "bytes": 186330},
+    {"cell": 22, "output": 3, "kind": "png", "size": [3194, 1459], "frames": 1, "bytes": 119590},
+    {"cell": 22, "output": 4, "kind": "png", "size": [2566, 1516], "frames": 1, "bytes": 89313},
+    {"cell": 22, "output": 5, "kind": "png", "size": [3392, 1317], "frames": 1, "bytes": 131102},
+    {"cell": 22, "output": 6, "kind": "png", "size": [2626, 1486], "frames": 1, "bytes": 121356},
+    {"cell": 22, "output": 7, "kind": "png", "size": [3404, 1426], "frames": 1, "bytes": 235168},
+    {"cell": 34, "output": 0, "kind": "gif", "size": [1495, 828], "frames": 84, "bytes": 3380635},
+    {"cell": 34, "output": 0, "kind": "png", "size": [1495, 828], "frames": 1, "bytes": 90765},
+    {"cell": 36, "output": 0, "kind": "gif", "size": [1400, 772], "frames": 70, "bytes": 2187151},
+    {"cell": 36, "output": 0, "kind": "png", "size": [1400, 772], "frames": 1, "bytes": 70598}
+  ],
+  "remaining_patterns": {
+    "overflow_hidden": 0,
+    "negative_heading_letter_spacing": 0,
+    "default_dataframe_class": 0,
+    "border_one_tables": 0,
+    "blank_index_header": 0,
+    "publication_table_wrappers": 21,
+    "static_gif_fallbacks": 4
+  }
+}
