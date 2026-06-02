@@ -1,5 +1,21 @@
 # Improvement Log
 
+## 2026-06-02 09:15 BST scheduled run
+
+- Re-inspected the attached full-output notebook, supplied simple-exercise rubric export, visible raw data package, existing memory, and current output folder.
+- Confirmed the previous polished deliverable was not present in this workspace and recreated `output/P201_201698955_publication_polished_2026-06-02.ipynb` from the attached source notebook.
+- Added rerun-safe publication table helpers and routed report-table display calls through the new export-safe table display path.
+- Rewrote nine cached Pandas-style table outputs into index-free `publication-table-wrap` containers.
+- Removed remaining hidden-overflow animation-panel styling from the source and cached HTML output.
+- Resized embedded cached PNG figure payloads to a 2200 px maximum width and resized embedded GIF payloads to 1080 px width.
+- Preserved both animation frame counts: 84 frames for the mechanism/solvent-rate animation and 70 frames for the laboratory workflow animation.
+- Added cached static PNG final-frame fallbacks for both GIF animation outputs for PDF/static notebook viewers.
+- Added a publication-rendering safeguards note to the reproducibility appendix.
+- Confirmed all code cells parse, cached outputs contain no error outputs, all 12 embedded media payloads decode, no `overflow: hidden` or `border="1"` table patterns remain, and no blank `<th></th>` table headers remain.
+- Generated and visually reviewed `output/P201_publication_visual_contact_sheet_2026-06-02.png`; no obvious clipped labels, overlap, broken visuals, malformed charts, or unusable static animation previews were seen at contact-sheet scale.
+- Checked current runtime dependencies and confirmed clean rerun/export remains blocked by missing `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `rdkit`, and `numba`.
+- Verified via web search that the core Journal of Chemical Education article and related solvent-effect literature context are discoverable and consistent with the notebook's framing; full literature constant verification remains a blocker.
+
 ## 2026-06-02 08:20 BST scheduled run
 
 - Re-inspected the attached full-output notebook, supplied simple-exercise rubric export, visible raw data package, and existing progress memory.
