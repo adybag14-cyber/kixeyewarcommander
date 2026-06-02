@@ -1,5 +1,20 @@
 # Improvement Log
 
+## 2026-06-02 13:15 BST scheduled run
+
+- Re-inspected the attached full-output notebook, supplied simple-exercise rubric export, and prior progress memory.
+- Confirmed the attached source notebook still contained publication-rendering defects: nine legacy cached Pandas dataframe tables, `border="1"` table markup, one hidden-overflow CSS pattern, negative heading letter-spacing, no publication table wrappers, and oversized inline media.
+- Created `output/P201_201698955_publication_polished_2026-06-02_1315BST.ipynb` from `agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- Added rerun-safe `publication_table_html(...)` and `display_report_table(...)` helpers and routed future table display calls through them.
+- Converted nine cached table outputs into index-free `publication-table-wrap` containers and removed legacy dataframe classes, `border="1"` patterns, hidden-overflow styling, and negative letter-spacing.
+- Resized eight embedded PNG figures to a 2200 px maximum width.
+- Resized both embedded GIFs to 1080 px width while preserving frame counts: 84 frames for the mechanism/solvent-rate animation and 70 frames for the laboratory workflow animation.
+- Added static final-frame PNG fallbacks for both inline GIF animations.
+- Added a publication QA boundary note to the reproducibility appendix, separating confirmed cached-output QA from remaining clean-rerun/export requirements.
+- Generated `output/visual_contact_sheet_2026-06-02_1315BST.png` and visually reviewed all figures, GIF final frames, and static fallback images; no obvious clipping, overlapping labels, broken images, broken GIF previews, or malformed chart layouts were seen at contact-sheet scale.
+- Lightweight validation results: all 14 code cells parse, cached outputs contain no error outputs, 12 embedded media payloads decode, two GIFs preserve expected frame counts, nine outputs use publication table wrappers, and the polished notebook is about 9.25 MB.
+- Attempted to refresh the local memory folder from its remote twice, but sync failed because credentials for the memory remote were unavailable. Local memory files were still updated, and GitHub persistence was handled through the GitHub app connector.
+
 ## 2026-06-02 12:15 BST scheduled run
 
 - Re-inspected the attached full-output notebook, supplied simple-exercise rubric export, visible raw data package, local memory notes, and GitHub persistence state.
