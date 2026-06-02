@@ -1,5 +1,18 @@
 # Improvement Log
 
+## 2026-06-02 03:15 BST scheduled run
+
+- Re-inspected the attached notebook `agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`, the supplied simple-exercise rubric export, and the existing progress memory.
+- Created a refreshed polished notebook deliverable at `output/P201_201698955_publication_ready_polished_2026-06-02.ipynb`.
+- Added a reusable `display_report_table(...)` helper to the notebook source for future reruns, using `DataFrame.to_html(index=False, border=0)` inside a horizontally scroll-safe `publication-table-wrap` container.
+- Updated cached HTML table outputs with publication wrappers so wide tables are less likely to clip or overflow awkwardly in notebook/HTML views.
+- Removed export-risk styling patterns from the polished notebook: no `overflow: hidden` / `overflow:hidden`, no `letter-spacing:-`, and no `border="1"` remain.
+- Adjusted the inline animation panel CSS so overflow remains visible, reducing the risk of clipped shadows, rounded corners, or GIF edges in exports.
+- Validated the polished notebook structurally: all code cells parse, cached outputs contain no error outputs, 13 `publication-table-wrap` occurrences are present, and all 10 inline visual media payloads decode.
+- Verified cached visual media inventory: 8 PNG figures; mechanism GIF at 1495 x 828 with 84 frames; laboratory workflow GIF at 1400 x 772 with 70 frames.
+- Created a temporary contact sheet from the cached visuals and visually reviewed it for obvious clipping, overlap, malformed charts, broken media, unreadable labels, or unusable animation previews; none were found at review scale.
+- Could not perform a full clean rerun or browser/PDF export QA because this runtime lacks Jupyter/nbconvert and the complete raw five-solvent data package.
+
 ## 2026-06-02 02:15 BST scheduled run
 
 - Re-inspected the attached full-output notebook, supplied rubric export, and prior memory notes rather than assuming prior scheduled-run artifacts were present.
