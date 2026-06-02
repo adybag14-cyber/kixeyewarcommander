@@ -1,22 +1,21 @@
 # Revision Plan
 
-Last updated: 2026-06-02 11:15 BST scheduled run.
+Last updated: 2026-06-02 12:15 BST scheduled run.
 
 ## Completed This Run
 
-- Create a fresh polished notebook deliverable from the attached full-output notebook: `output/P201_201698955_publication_polished_2026-06-02.ipynb`.
-- Clean cached table outputs for publication-style rendering with index-free, horizontal-scroll-safe wrappers.
-- Add rerun-safe report-table display helpers.
-- Remove export-risk CSS patterns linked to cramped headings and animation-panel clipping.
-- Preserve GIF animations while adding static final-frame fallbacks.
-- Resize cached PNG and GIF payloads to publication-friendly dimensions.
-- Validate code parsing, cached output status, embedded HTML media decoding, GIF frame counts, and table/style marker scans.
-- Generate and review `output/polished_visual_contact_sheet_2026-06-02.png`, covering all embedded media and GIF fallbacks.
-- Update memory and GitHub persistence records.
+- Regenerated a polished notebook from the attached full-output notebook.
+- Hardened table rendering with rerun-safe publication table helpers and cached HTML table wrappers.
+- Removed cached table and CSS patterns that increase clipping/export risk.
+- Resized embedded PNG and GIF media to publication-friendly dimensions.
+- Added static final-frame fallbacks for both inline GIF animations.
+- Validated code-cell syntax, cached output health, media decoding, GIF frame counts, and visual contact-sheet presentation.
+- Updated memory and GitHub persistence files for this run.
 
-## Next Highest-Value Work
+## Highest-Value Next Improvements
 
-1. Run the polished notebook end to end in a complete Jupyter environment with the full five-solvent raw `Data/` directory.
-2. Export to HTML and PDF, then inspect actual pages for clipping, overlap, pagination defects, table overflow, and animation fallback behavior.
-3. Verify cited literature constants and post-lab answer claims against the original practical handout and primary sources.
-4. If clean rerun changes any generated tables or figures, repeat cached-output polish on the final executed notebook.
+1. Run the polished notebook cleanly in a full Jupyter/scientific Python environment with `IPython`, `matplotlib`, `scipy`, `rdkit`, `numba`, `nbformat`, `nbconvert`, and the complete five-solvent raw `Data/` directory.
+2. Export the cleanly rerun notebook to HTML and PDF, then inspect page-level rendering for pagination, clipping, table scroll behavior, GIF fallback display, and figure sizing.
+3. Verify literature constants and post-lab answer wording against the original practical handout and cited primary sources.
+4. Confirm every referenced generated artifact, including CSV summaries and figures, is reproduced by the final notebook execution path.
+5. If browser/PDF QA reveals any cramped annotations, selectively simplify labels or increase local figure panel spacing rather than changing the analysis.
