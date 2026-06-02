@@ -1,29 +1,29 @@
 # Publication Status
 
-Last updated: 2026-06-01 23:15 BST scheduled run.
+Last updated: 2026-06-02 01:15 BST scheduled run.
 
 ## Current Readiness Assessment
 
-The notebook is close to publication-ready as a cached, already-executed notebook. This run produced a refreshed polished copy at `output/P201_201698955_publication_polished_2026-06-01_2315BST.ipynb` and a visual QA contact sheet at `output/polished_visual_contact_sheet_2026-06-01_2315BST.png`.
+The notebook is close to publication-ready as an already-executed, cached notebook. This run regenerated a refreshed polished copy at `output/P201_201698955_publication_polished_2026-06-02_0115BST.ipynb` and a visual QA contact sheet at `output/visual_contact_sheet_2026-06-02_0115BST.png` because the previous-run deliverables were not present in the fresh workspace.
 
-The scientific narrative remains strong against the supplied rubric: the notebook states a clear flash-photolysis aim, explains the first-order recovery model, reports the five-solvent rate comparison with uncertainty, justifies quality control, includes validation checks, and connects the interpretation to solvent-controlled thermal recovery of 4A4N.
+The scientific structure remains strong against the supplied rubric: the notebook states a clear flash-photolysis aim, explains the first-order recovery model, reports five-solvent rate comparisons with uncertainty, documents quality control, includes validation checks, and connects the result to solvent-controlled thermal recovery of 4A4N.
 
-This run focused on confirmed publication defects in the attached notebook package: fragile Pandas table rendering, very large embedded figure rasters, animation fallback behavior, negative heading tracking, and hidden-overflow CSS that can clip content during HTML/PDF export. The polished copy now has index-free scroll-safe cached tables, bounded PNG/GIF media, final-state static animation fallbacks, and cleaner notebook styling.
+This run focused on confirmed publication defects in the attached notebook package: legacy Pandas table rendering, oversized embedded figure rasters, large embedded GIFs, animation fallback behavior, negative heading tracking, and hidden-overflow CSS that can clip content during HTML/PDF export. The refreshed polished copy now has index-free scroll-safe cached tables, bounded PNG/GIF media, final-frame static animation fallbacks, and cleaner notebook styling.
 
-Full publication signoff remains provisional because this runtime still lacks the complete notebook execution stack, the complete five-solvent raw `Data/` directory, and a browser/PDF rendering runtime for page-level export QA.
+Full publication signoff remains provisional because this runtime still lacks the complete notebook execution/export stack, the complete five-solvent raw `Data/` directory, and browser/PDF page-level rendering QA.
 
 ## Verified Improvements This Run
 
-- Created polished notebook deliverable: `output/P201_201698955_publication_polished_2026-06-01_2315BST.ipynb`.
-- Created visual QA contact sheet: `output/polished_visual_contact_sheet_2026-06-01_2315BST.png`.
+- Created polished notebook deliverable: `output/P201_201698955_publication_polished_2026-06-02_0115BST.ipynb`.
+- Created visual QA contact sheet: `output/visual_contact_sheet_2026-06-02_0115BST.png`.
 - Added rerun-safe publication table helpers so future notebook execution can display index-free, horizontally scroll-safe HTML tables.
-- Replaced future `display(report_table(...))` calls with `display_report_table(...)` in the notebook source.
+- Replaced future `display(report_table(...))` calls with `display_report_table(...)` in the main report table cells.
 - Rewrote 9 cached Pandas dataframe tables into publication-table HTML wrappers.
-- Removed cached table defects: `class="dataframe"`, blank row-index headers, and `border="1"` patterns are now absent from the polished notebook.
+- Removed cached table defects: `class="dataframe"`, blank row-index headers, and `border="1"` patterns are absent from the polished notebook.
 - Downscaled 8 cached PNG figures to a maximum width of 2200 px while preserving readability.
 - Downscaled cached GIFs to 1080 px wide while preserving their 84-frame and 70-frame animations.
-- Replaced cached GIF first frames with final-state poster frames and added matching static PNG fallbacks for PDF/static renderers.
-- Removed negative heading letter-spacing and `overflow: hidden` / `overflow:hidden` patterns from the polished notebook.
+- Added static final-frame PNG fallbacks for both GIF animations so PDF/print/static renderers have meaningful previews.
+- Removed negative heading letter-spacing and all confirmed `overflow: hidden` / `overflow:hidden` patterns from the polished notebook.
 - Confirmed all code cells parse, cached outputs contain no error outputs, and all 12 embedded PNG/GIF payloads decode.
 - Visual contact-sheet review found no obvious clipping, overlap, broken images, malformed plots, unreadable labels, or weak static GIF previews in the cached visual set.
 
@@ -36,5 +36,5 @@ Full publication signoff remains provisional because this runtime still lacks th
 
 ## Current Deliverables
 
-- Polished notebook: `output/P201_201698955_publication_polished_2026-06-01_2315BST.ipynb`
-- Visual QA contact sheet: `output/polished_visual_contact_sheet_2026-06-01_2315BST.png`
+- Polished notebook: `output/P201_201698955_publication_polished_2026-06-02_0115BST.ipynb`
+- Visual QA contact sheet: `output/visual_contact_sheet_2026-06-02_0115BST.png`
