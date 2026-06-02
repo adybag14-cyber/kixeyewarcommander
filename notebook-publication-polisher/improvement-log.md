@@ -1,5 +1,19 @@
 # Improvement Log
 
+## 2026-06-02 02:15 BST scheduled run
+
+- Re-inspected the attached full-output notebook, supplied rubric export, and prior memory notes rather than assuming prior scheduled-run artifacts were present.
+- Created `output/P201_201698955_publication_polished_2026-06-02_0215BST.ipynb` from the attached full-output notebook.
+- Added rerun-safe publication table helpers and routed 8 source table display calls through `display_report_table(...)`, including the automated consistency-check table via `publication_table(...)`.
+- Rewrote cached Pandas dataframe outputs into index-free, horizontally scroll-safe publication table wrappers; validation found 11 `publication-table-wrap` occurrences and no legacy `class="dataframe"` or `border="1"` table markup.
+- Added short explanatory transitions before the independent-validation, results/discussion, and post-lab answer sections so generated outputs sit in a clearer narrative frame.
+- Downscaled 8 cached embedded PNG figures to 2200 px maximum width and 2 cached GIF animations to 1080 px width while preserving the 84-frame mechanism animation and 70-frame workflow animation.
+- Added static final-frame PNG fallbacks for both inline GIF animations for print/PDF/static rendering.
+- Removed negative heading letter-spacing and confirmed no `overflow: hidden` / `overflow:hidden` patterns remain in the polished notebook.
+- Generated `output/visual_contact_sheet_2026-06-02_0215BST.png`; visual review found no obvious clipping, overlap, broken images, malformed figures, unreadable labels, or weak static GIF previews in the cached visual set.
+- Lightweight validation results: all code cells parse, cached outputs contain no error outputs, all 12 embedded media payloads decode, and the polished notebook is about 8.74 MB.
+- Remaining blockers persist: clean rerun/export is blocked by missing notebook/scientific packages in this runtime, the visible raw data folder is incomplete for a five-solvent rerun, browser/PDF page-level QA is still unverified, and literature/post-lab claims need direct handout/source verification for final academic signoff.
+
 ## 2026-06-02 01:15 BST scheduled run
 
 - Re-inspected the attached notebook package, supplied rubric export, prior progress notes, and visible raw data folder.
