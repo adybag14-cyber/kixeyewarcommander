@@ -1,6 +1,6 @@
 # Rubric Tracker
 
-Last updated: 2026-06-02 06:15 BST scheduled run.
+Last updated: 2026-06-02 07:15 BST scheduled run.
 
 ## Rubric Basis
 
@@ -15,9 +15,9 @@ Evidence supporting the estimate:
 - Clear aims and scope: the notebook states the flash-photolysis objective and the five-solvent comparison.
 - Theory and method: the first-order recovery transform, baseline handling, fit window, trace filtering, and assumptions are explained in report prose.
 - Data analysis: all visible cached outputs show processed trace counts, accepted-trace summaries, uncertainty estimates, bootstrap ranking, relative barrier comparisons, sensitivity checks, and automated consistency checks.
-- Graphical presentation: cached figures decode and the contact sheet shows readable plots, consistent palettes, labels, captions, and no obvious clipping or overlap at review scale.
+- Graphical presentation: cached figures decode and the 07:15 BST contact sheet shows readable plots, consistent palettes, labels, captions, GIF final frames, and static GIF fallbacks with no obvious clipping or overlap at review scale.
 - Code quality: functions are organized into parsing, fitting, QC, inference, validation, plotting, and animation sections, with docstrings and comments in the main helper functions.
-- Markdown/report formatting: the report uses section headings, equations, styled callout boxes, references, appendix notes, and now export-safer table/animation presentation.
+- Markdown/report formatting: the report uses section headings, equations, styled callout boxes, references, appendix notes, and now export-safer index-free table wrappers plus static animation fallbacks.
 
 ## Remaining Evidence Needed for Full Confidence
 
@@ -29,7 +29,7 @@ Evidence supporting the estimate:
 ## Latest Rubric-Aligned Improvements
 
 - Replaced cached dataframe-style tables with index-free publication wrappers, improving formatting and reducing clipping risk.
-- Added rerun-safe `display_report_table(...)` logic so future executed outputs keep the same presentation quality.
-- Removed CSS patterns likely to reduce readability or cause clipping in exports.
-- Added static final-frame fallbacks for inline GIF animations, improving accessibility for static notebook/PDF viewers.
-- Added an explicit publication-rendering note in the reproducibility appendix so limitations and presentation safeguards are transparent.
+- Added rerun-safe `publication_table_html(...)` and `display_report_table(...)` logic so future executed outputs keep the same presentation quality.
+- Removed CSS patterns likely to reduce readability or cause clipping in exports, including negative heading letter spacing and hidden-overflow panel styling.
+- Added static final-frame fallbacks for inline GIF animations, improving accessibility for static notebook/PDF viewers while preserving the animated GIFs.
+- Added an explicit publication-rendering note in the reproducibility appendix so limitations, table safeguards, animation fallbacks and full-rerun requirements are transparent.
