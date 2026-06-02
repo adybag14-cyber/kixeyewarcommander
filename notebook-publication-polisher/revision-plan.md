@@ -1,15 +1,15 @@
 # Revision Plan
 
-Last updated: 2026-06-02 07:15 BST scheduled run.
+Last updated: 2026-06-02 09:15 BST scheduled run.
 
 ## Completed This Run
 
-- Create a refreshed polished notebook deliverable from the attached full-output notebook.
+- Recreate the polished notebook deliverable from the attached full-output notebook.
 - Clean cached table outputs for publication-style rendering with index-free, horizontal-scroll-safe wrappers.
 - Add rerun-safe report-table display helpers.
 - Remove export-risk CSS patterns linked to clipping and cramped headings.
 - Preserve GIF animations while adding static final-frame fallbacks.
-- Validate code parsing, cached output status, media decoding, GIF frame counts, and table/style marker scans.
+- Validate code parsing, cached output status, embedded HTML media decoding, GIF frame counts, and table/style marker scans.
 - Generate and review a visual contact sheet covering all embedded media and GIF fallbacks.
 - Update memory and GitHub persistence records.
 
