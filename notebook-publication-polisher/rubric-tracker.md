@@ -1,6 +1,6 @@
 # Rubric Tracker
 
-Last updated: 2026-06-02 08:20 BST scheduled run.
+Last updated: 2026-06-02 09:15 BST scheduled run.
 
 ## Rubric Basis
 
@@ -15,9 +15,9 @@ Evidence supporting the estimate:
 - Clear aims and scope: the notebook states the flash-photolysis objective and the five-solvent comparison.
 - Theory and method: the first-order recovery transform, baseline handling, fit window, trace filtering, and assumptions are explained in report prose.
 - Data analysis: all visible cached outputs show processed trace counts, accepted-trace summaries, uncertainty estimates, bootstrap ranking, relative barrier comparisons, sensitivity checks, and automated consistency checks.
-- Graphical presentation: cached figures decode and the 08:20 BST contact sheet shows readable plots, consistent palettes, labels, captions, GIF final frames, and static GIF fallbacks with no obvious clipping or overlap at review scale.
+- Graphical presentation: cached figures decode and the contact-sheet review shows readable plots, consistent palettes, labels, captions, GIF final frames, and static GIF fallbacks with no obvious clipping or overlap at review scale.
 - Code quality: functions are organized into parsing, fitting, QC, inference, validation, plotting, and animation sections, with docstrings and comments in the main helper functions.
-- Markdown/report formatting: the report uses section headings, equations, styled callout boxes, references, appendix notes, and now export-safer index-free table wrappers plus static animation fallbacks.
+- Markdown/report formatting: the report uses section headings, equations, styled callout boxes, references, appendix notes, and now export-safer index-free table wrappers, resized cached media, and static animation fallbacks.
 
 ## Remaining Evidence Needed for Full Confidence
 
