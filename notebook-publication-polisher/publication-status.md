@@ -1,40 +1,36 @@
 # Publication Status
 
-Last updated: 2026-06-02 02:15 BST scheduled run.
+Last updated: 2026-06-02 03:15 BST scheduled run.
 
 ## Current Readiness Assessment
 
-The notebook is close to publication-ready as an already-executed, cached notebook. This run regenerated a refreshed polished copy at `output/P201_201698955_publication_polished_2026-06-02_0215BST.ipynb` and a visual QA contact sheet at `output/visual_contact_sheet_2026-06-02_0215BST.png` because prior deliverables are not durable in each fresh scheduled workspace.
+The attached notebook is close to publication-ready as an already-executed, cached notebook. The scientific narrative is strong against the supplied simple-exercise rubric: it states a clear flash-photolysis aim, explains the first-order recovery model, reports five-solvent rate comparisons with uncertainty, documents trace-level quality control, includes independent validation and sensitivity checks, and connects the findings to solvent-controlled thermal recovery of 4A4N.
 
-The scientific structure remains strong against the supplied rubric: the notebook states a clear flash-photolysis aim, explains the first-order recovery model, reports five-solvent rate comparisons with uncertainty, documents quality control, includes validation checks, and connects the result to solvent-controlled thermal recovery of 4A4N.
+This run created a refreshed polished deliverable at `output/P201_201698955_publication_ready_polished_2026-06-02.ipynb`. The pass focused on export and rendering robustness in the attached notebook copy: removing negative heading letter-spacing, eliminating hidden-overflow CSS that can clip animation panels in HTML/PDF exports, adding a rerun-safe scroll wrapper for report tables, and refreshing cached table outputs into horizontally scroll-safe HTML wrappers.
 
-This run focused on confirmed publication defects in the attached notebook package: legacy Pandas table rendering, oversized embedded figure rasters, large embedded GIFs, animation fallback behavior, negative heading tracking, and hidden-overflow CSS that can clip content during HTML/PDF export. The refreshed polished copy now has index-free scroll-safe cached tables, bounded PNG/GIF media, final-frame static animation fallbacks, and cleaner notebook styling.
+The notebook now passes lightweight structural QA in this runtime: all code cells parse, cached outputs contain no execution errors, no `overflow: hidden` / `overflow:hidden`, `letter-spacing:-`, or `border="1"` patterns remain, 13 publication table wrappers are present, and all 10 inline visual media payloads decode successfully. The cached media include 8 PNG figures plus 2 GIF animations; the GIFs retain their 84-frame and 70-frame animation counts.
 
-Full publication signoff remains provisional because this runtime still lacks the complete notebook execution/export stack, the complete five-solvent raw `Data/` directory, and browser/PDF page-level rendering QA.
+Full publication signoff remains provisional because this runtime lacks Jupyter/nbconvert and key notebook execution packages, the complete five-solvent raw `Data/` directory is not available in the attached files, and browser/PDF page-level rendering QA cannot be completed here.
 
 ## Verified Improvements This Run
 
-- Created polished notebook deliverable: `output/P201_201698955_publication_polished_2026-06-02_0215BST.ipynb`.
-- Created visual QA contact sheet: `output/visual_contact_sheet_2026-06-02_0215BST.png`.
-- Added rerun-safe publication table helpers so future notebook execution can display index-free, horizontally scroll-safe HTML tables.
-- Replaced future `display(report_table(...))` calls with `display_report_table(...)` in the main report table cells.
-- Rewrote 9 cached Pandas dataframe tables into publication-table HTML wrappers.
-- Removed cached table defects: `class="dataframe"`, blank row-index headers, and `border="1"` patterns are absent from the polished notebook.
-- Downscaled 8 cached PNG figures to a maximum width of 2200 px while preserving readability.
-- Downscaled cached GIFs to 1080 px wide while preserving their 84-frame and 70-frame animations.
-- Added static final-frame PNG fallbacks for both GIF animations so PDF/print/static renderers have meaningful previews.
-- Removed negative heading letter-spacing and all confirmed `overflow: hidden` / `overflow:hidden` patterns from the polished notebook.
-- Confirmed all code cells parse, cached outputs contain no error outputs, all 12 embedded PNG/GIF payloads decode, 8 source table-display calls route through `display_report_table(...)`, and 11 publication table wrappers are present in source/cached output.
-- Visual contact-sheet review found no obvious clipping, overlap, broken images, malformed plots, unreadable labels, or weak static GIF previews in the cached visual set.
+- Created polished notebook deliverable: `output/P201_201698955_publication_ready_polished_2026-06-02.ipynb`.
+- Added `display_report_table(...)` to the notebook source so future executions can render report tables inside a horizontal-scroll publication wrapper.
+- Routed the main cached table outputs through `publication-table-wrap` containers to reduce clipping risk for wide tables in notebook and HTML views.
+- Removed negative heading letter-spacing from the notebook-level CSS.
+- Replaced hidden overflow in the animation panel styling with visible overflow so rounded borders, shadows, and embedded GIF content are less likely to be clipped during export.
+- Confirmed all code cells parse with Python `ast`.
+- Confirmed cached outputs contain no error outputs.
+- Confirmed all 8 embedded PNG figures and both embedded GIF animations decode with Pillow.
+- Built and visually reviewed a temporary contact sheet from the cached visuals; no obvious broken media, malformed charts, clipped labels, overlap, or unusable animation previews were visible at review scale.
 
 ## Remaining Blockers
 
-- Clean rerun is blocked here by missing packages: `nbformat`, `nbconvert`, `IPython`, `matplotlib`, `scipy`, `rdkit`, `numba`, and Jupyter/notebook.
-- The attached raw data package remains incomplete for a clean five-solvent rerun: only the Acetone directory is visible under `agent_files/testing-main/Data/`, while the cached notebook reports all five solvents.
+- Clean rerun is blocked here by missing notebook/runtime packages such as Jupyter/nbconvert, `nbformat`, `IPython`, `matplotlib`, and other scientific dependencies required by the notebook.
+- The complete raw five-solvent `Data/` directory is not present in the attached workspace; only the cached notebook contains the full five-solvent executed results.
 - Browser/PDF page-level QA remains unavailable in this runtime, so final exported pages cannot yet be certified for every pagination, viewport, clipping, overlap, GIF fallback, and table-scroll edge case.
 - Literature comparison constants and course-specific post-lab answers still need direct verification against the original practical handout and cited primary sources before final academic signoff.
 
 ## Current Deliverables
 
-- Polished notebook: `output/P201_201698955_publication_polished_2026-06-02_0215BST.ipynb`
-- Visual QA contact sheet: `output/visual_contact_sheet_2026-06-02_0215BST.png`
+- Polished notebook: `output/P201_201698955_publication_ready_polished_2026-06-02.ipynb`
