@@ -1,6 +1,6 @@
 # Rubric Tracker
 
-Last updated: 2026-06-02 12:15 BST scheduled run.
+Last updated: 2026-06-02 13:15 BST scheduled run.
 
 ## Rubric Basis
 
@@ -28,6 +28,7 @@ Evidence supporting the estimate:
 
 ## Latest Rubric-Aligned Improvements
 
+- Regenerated a current polished notebook and added a publication QA boundary note to make verification status explicit.
 - Replaced cached dataframe-style tables with index-free publication wrappers, improving formatting and reducing clipping risk.
 - Added rerun-safe `publication_table_html(...)` and `display_report_table(...)` logic so future executed outputs keep the same presentation quality.
 - Removed hidden-overflow styling and negative heading letter-spacing that could harm notebook/HTML/PDF export presentation.
