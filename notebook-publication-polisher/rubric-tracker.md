@@ -1,6 +1,6 @@
 # Rubric Tracker
 
-Last updated: 2026-06-02 04:15 BST scheduled run.
+Last updated: 2026-06-02 05:15 BST scheduled run.
 
 ## Rubric Basis
 
@@ -18,7 +18,7 @@ Needed for full confidence: compare directly with the original post-lab question
 
 Current estimate: high for cached outputs, provisional for clean rerun.
 
-Evidence: cached outputs include five-solvent summaries, trace-level quality control, rate inference, bootstrap ranking, relative barrier comparison, validation checks, fit-window sensitivity, and diagnostic figures. The 2026-06-02 04:15 BST polished copy confirmed no cached execution errors, all 12 embedded visual media payloads decode, GIF frame counts are preserved, and a refreshed contact-sheet review showed no obvious clipping, overlap, broken media, malformed plots, unreadable labels, or unusable animation previews at review scale. Oversized PNG figures were reduced to a 2200 px maximum width, GIF animations were reduced to 1080 px width, and static final-frame fallbacks were added for PDF/static viewing.
+Evidence: cached outputs include five-solvent summaries, trace-level quality control, rate inference, bootstrap ranking, relative barrier comparison, validation checks, fit-window sensitivity, and diagnostic figures. The 2026-06-02 05:15 BST polished copy confirmed no cached execution errors, all 12 embedded visual media payloads decode, GIF frame counts are preserved, and a refreshed contact-sheet review showed no obvious clipping, overlap, broken media, malformed plots, unreadable labels, or unusable animation previews at review scale. Oversized PNG figures were reduced to a 2200 px maximum width, GIF animations were reduced to 1080 px width, and static final-frame fallbacks were added for PDF/static viewing.
 
 Needed for full confidence: clean rerun from the complete raw data package and page-level browser/PDF visual QA of regenerated outputs.
 
@@ -34,7 +34,7 @@ Needed for full confidence: verify course-specific experimental details and lite
 
 Current estimate: high.
 
-Evidence: the notebook uses dataclasses, parser functions, reusable fitting/QC/statistical helpers, validation functions, plotting functions, and now reusable publication-table display patterns rather than repeated one-off display code. The 04:15 BST polished source includes a scroll-safe `display_report_table(...)` helper for future reruns.
+Evidence: the notebook uses dataclasses, parser functions, reusable fitting/QC/statistical helpers, validation functions, plotting functions, and now reusable publication-table display patterns rather than repeated one-off display code. The 05:15 BST polished source includes a scroll-safe `display_report_table(...)` helper for future reruns.
 
 Needed for full confidence: execute from a clean kernel in the intended environment to confirm dependency-specific behavior.
 
