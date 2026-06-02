@@ -1,5 +1,19 @@
 # Improvement Log
 
+## 2026-06-02 12:15 BST scheduled run
+
+- Re-inspected the attached full-output notebook, supplied simple-exercise rubric export, visible raw data package, local memory notes, and GitHub persistence state.
+- Confirmed the current attached notebook still contained publication-rendering defects despite prior progress notes: nine legacy Pandas dataframe tables, `border="1"` table markup, no `publication-table-wrap` cached outputs, one hidden-overflow styling pattern, and oversized embedded visual payloads.
+- Created `output/P201_201698955_publication_polished_2026-06-02_1215BST.ipynb` from `agent_files/P201_201698955_publication_ready_FULL_OUTPUTS.ipynb`.
+- Added rerun-safe `publication_table_html(...)` and `display_report_table(...)` helpers and routed key report-table display paths through the publication table helper.
+- Rewrote nine cached table outputs into index-free `publication-table-wrap` containers; validation found zero legacy dataframe markers, zero `border="1"` table patterns, zero hidden-overflow patterns, and zero negative heading letter-spacing patterns afterward.
+- Resized eight embedded cached PNG figure payloads to a 2200 px maximum width.
+- Resized both embedded GIF payloads to 1080 px width while preserving frame counts: 84 frames for the mechanism/solvent-rate animation and 70 frames for the laboratory workflow animation.
+- Added cached static PNG final-frame fallbacks for both GIF animation outputs for PDF/static notebook viewers.
+- Generated and visually reviewed `output/visual_contact_sheet_2026-06-02_1215BST.png`; no obvious clipped axes, overlapping plot elements, broken visuals, malformed charts, unreadable labels, broken GIF previews, or unusable static fallbacks were seen at contact-sheet scale.
+- Lightweight validation results: all 14 code cells parse, cached outputs contain no error outputs, all 12 embedded media payloads decode, nine publication table wrappers are present, two GIFs and two static GIF fallback PNGs are present, and the polished notebook is about 8.61 MB.
+- Remaining blockers persist: clean rerun/export is blocked by missing Jupyter/scientific packages, only Acetone raw data is visible in the attached raw data folder, browser/PDF page-level QA is still unverified, and literature/post-lab claims need direct source verification.
+
 ## 2026-06-02 11:15 BST scheduled run
 
 - Re-inspected the attached full-output notebook, supplied simple-exercise rubric export, visible raw data package, existing memory, and current output folder.
