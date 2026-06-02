@@ -1,20 +1,20 @@
 # Publication Status
 
-Last updated: 2026-06-02 04:15 BST scheduled run.
+Last updated: 2026-06-02 05:15 BST scheduled run.
 
 ## Current Readiness Assessment
 
 The attached notebook is close to publication-ready as an already-executed, cached notebook. The scientific narrative is strong against the supplied simple-exercise rubric: it states a clear flash-photolysis aim, explains the first-order recovery model, reports five-solvent rate comparisons with uncertainty, documents trace-level quality control, includes independent validation and sensitivity checks, and connects the findings to solvent-controlled thermal recovery of 4A4N.
 
-This run created a refreshed polished deliverable at `output/P201_201698955_publication_polished_2026-06-02_0415BST.ipynb`. The pass focused on export and rendering robustness in the attached notebook copy: removing negative heading letter-spacing, eliminating hidden-overflow CSS that can clip animation panels in HTML/PDF exports, adding a rerun-safe scroll wrapper for report tables, refreshing cached table outputs into horizontally scroll-safe HTML wrappers, resizing oversized embedded figures, and adding static final-frame fallbacks for both inline GIF animations.
+This run created a refreshed polished deliverable at `output/P201_201698955_publication_polished_2026-06-02_0515BST.ipynb`. The pass focused on export and rendering robustness in the attached notebook copy: removing negative heading letter-spacing, eliminating hidden-overflow CSS that can clip animation panels in HTML/PDF exports, adding a rerun-safe scroll wrapper for report tables, refreshing cached table outputs into horizontally scroll-safe HTML wrappers, resizing oversized embedded figures, and adding static final-frame fallbacks for both inline GIF animations.
 
-The notebook now passes lightweight structural QA in this runtime: all code cells parse, cached outputs contain no execution errors, no `overflow: hidden` / `overflow:hidden`, `letter-spacing:-`, `letter-spacing: -`, `class="dataframe"`, or `border="1"` patterns remain, 20 publication table wrappers are present, and all 12 inline visual media payloads decode successfully. The cached media include 8 resized PNG figures, 2 GIF animations, and 2 static PNG animation fallbacks; the GIFs retain their 84-frame and 70-frame animation counts.
+The notebook now passes lightweight structural QA in this runtime: all code cells parse, cached outputs contain no execution errors, no `overflow: hidden` / `overflow:hidden`, `letter-spacing:-`, `letter-spacing: -`, `class="dataframe"`, `border="1"`, or blank Pandas index-header patterns remain, 9 cached publication table wrappers are present, and all 12 inline visual media payloads decode successfully. The cached media include 8 resized PNG figures, 2 GIF animations, and 2 static PNG animation fallbacks; the GIFs retain their 84-frame and 70-frame animation counts.
 
 Full publication signoff remains provisional because this runtime lacks Jupyter/nbconvert and key notebook execution packages, the complete five-solvent raw `Data/` directory is not available in the attached files, and browser/PDF page-level rendering QA cannot be completed here.
 
 ## Verified Improvements This Run
 
-- Created polished notebook deliverable: `output/P201_201698955_publication_polished_2026-06-02_0415BST.ipynb`.
+- Created polished notebook deliverable: `output/P201_201698955_publication_polished_2026-06-02_0515BST.ipynb`.
 - Added `display_report_table(...)` to the notebook source so future executions can render report tables inside a horizontal-scroll publication wrapper.
 - Routed the main cached table outputs through `publication-table-wrap` containers to reduce clipping risk for wide tables in notebook and HTML views.
 - Removed negative heading letter-spacing from the notebook-level CSS.
@@ -24,7 +24,7 @@ Full publication signoff remains provisional because this runtime lacks Jupyter/
 - Resized 8 oversized embedded PNG figures to a 2200 px maximum width and 2 embedded GIFs to 1080 px width while preserving animation frame counts.
 - Added 2 static final-frame PNG fallbacks for PDF/static notebook viewers.
 - Confirmed all 8 embedded PNG figures, both embedded GIF animations, and both static animation fallbacks decode with Pillow.
-- Built and visually reviewed `output/visual_contact_sheet_2026-06-02_0415BST.png`; no obvious broken media, malformed charts, clipped labels, overlap, or unusable animation previews were visible at review scale.
+- Built and visually reviewed `output/visual_contact_sheet_2026-06-02_0515BST.png`; no obvious broken media, malformed charts, clipped labels, overlap, or unusable animation previews were visible at review scale.
 
 ## Remaining Blockers
 
@@ -35,5 +35,5 @@ Full publication signoff remains provisional because this runtime lacks Jupyter/
 
 ## Current Deliverables
 
-- Polished notebook: `output/P201_201698955_publication_polished_2026-06-02_0415BST.ipynb`
-- Visual contact sheet: `output/visual_contact_sheet_2026-06-02_0415BST.png`
+- Polished notebook: `output/P201_201698955_publication_polished_2026-06-02_0515BST.ipynb`
+- Visual contact sheet: `output/visual_contact_sheet_2026-06-02_0515BST.png`
