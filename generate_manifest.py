@@ -1,9 +1,12 @@
 import os
 import json
 import hashlib
+import urllib.request
 
 BASE_DIR = 'assets'
 OUTPUT_FILE = 'shared_configs.json'
+HEIGHTFIELD_PATH = os.path.join('embedded', 'hardcodedmapheightfield.txt')
+HEIGHTFIELD_URL = 'https://wc-origin.cdn-kixeye.com/game/game-v7.v73213/embedded/hardcodedmapheightfield.txt'
 
 def generate_manifest():
     manifest_data = {}
@@ -44,5 +47,19 @@ def generate_manifest():
     
     print(f"Generated {OUTPUT_FILE} with {len(manifest_data)} assets.")
 
+def ensure_heightfield_asset():
+    if os.path.isfile(HEIGHTFIELD_PATH) and os.path.getsize(HEIGHTFIELD_PATH) > 1000:
+        print(f"Heightfield already present: {HEIGHTFIELD_PATH}")
+        return
+
+    os.makedirs(os.path.dirname(HEIGHTFIELD_PATH), exist_ok=True)
+    print(f"Downloading {HEIGHTFIELD_URL} -> {HEIGHTFIELD_PATH} ...")
+    with urllib.request.urlopen(HEIGHTFIELD_URL, timeout=60) as resp:
+        data = resp.read()
+    with open(HEIGHTFIELD_PATH, 'wb') as f:
+        f.write(data)
+    print(f"Downloaded heightfield ({len(data)} bytes).")
+
 if __name__ == '__main__':
+    ensure_heightfield_asset()
     generate_manifest()

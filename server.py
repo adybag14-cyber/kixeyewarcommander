@@ -47,6 +47,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     gateway_seen_actions = set()
     gateway_unknown_actions = set()
     asset_manifest_map = None
+    buildings_manifest_rows = None
     shared_configs_map = None
     shared_configs_source = None
     live_api_templates = None
@@ -134,6 +135,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         "move",
         "relocate",
         "upgrade",
+        "instant_upgrade",
         "instant_change_type",
         "sell",
         "remove",
@@ -167,6 +169,77 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             log(f"Asset manifest load failed: {e}")
             CustomHandler.asset_manifest_map = {}
         return CustomHandler.asset_manifest_map
+
+    def _load_buildings_manifest_rows(self):
+        if CustomHandler.buildings_manifest_rows is not None:
+            return CustomHandler.buildings_manifest_rows
+
+        rows = []
+        for manifest_name in ("Buildings.json", "Buildings.1.json", "buildings.json", "buildings.1.json"):
+            manifest_path = os.path.join("manifest", manifest_name)
+            try:
+                with open(manifest_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if isinstance(data, list):
+                    rows = data
+                    break
+            except Exception:
+                continue
+
+        CustomHandler.buildings_manifest_rows = rows
+        return rows
+
+    def _lookup_building_max_level(self, building_type):
+        building_type = self._safe_int(building_type, -1)
+        if building_type < 0:
+            return 0
+
+        for row in self._load_buildings_manifest_rows():
+            if not isinstance(row, dict):
+                continue
+            if self._safe_int(row.get("id"), -1) != building_type:
+                continue
+            levels = row.get("levels")
+            if isinstance(levels, list):
+                return len(levels)
+        return 0
+
+    def _action_requests_instant_upgrade(self, action):
+        if not isinstance(action, dict):
+            return False
+        action_name = str(action.get("action") or "").strip().lower()
+        if action_name in ("instant_upgrade", "finish_now"):
+            return True
+        for key in ("instant", "instant_upgrade", "finish_instantly", "instantly"):
+            value = action.get(key)
+            if value in (True, 1, "1", "true", "yes"):
+                return True
+            if self._safe_int(value, 0) == 1:
+                return True
+        return False
+
+    def _lookup_building_upgrade_time(self, building_type, to_level):
+        building_type = self._safe_int(building_type, -1)
+        to_level = self._safe_int(to_level, -1)
+        if building_type < 0 or to_level <= 0:
+            return 0
+
+        for row in self._load_buildings_manifest_rows():
+            if not isinstance(row, dict):
+                continue
+            if self._safe_int(row.get("id"), -1) != building_type:
+                continue
+            levels = row.get("levels")
+            if not isinstance(levels, list):
+                return 0
+            level_idx = to_level - 1
+            if level_idx < 0 or level_idx >= len(levels):
+                return 0
+            level_row = levels[level_idx]
+            if not isinstance(level_row, dict):
+                return 0
+            return max(0, self._safe_int(level_row.get("time"), 0))
+        return 0
 
     def _load_shared_configs_map(self):
         if CustomHandler.shared_configs_map is not None:
@@ -353,16 +426,122 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
         return payload
 
-    def _build_hashed_asset_relpath(self, requested_path):
-        rel = requested_path.replace("\\", "/").lstrip("/")
-        if rel.startswith("assets/"):
-            rel = rel[7:]
+    def _normalize_asset_storage_path(self, requested_path):
+        rel = (requested_path or "").replace("\\", "/").split("?")[0].lstrip("/")
         if not rel:
             return None
 
+        if rel.startswith("game/game-v"):
+            parts = rel.split("/", 2)
+            if len(parts) >= 3:
+                rel = parts[2]
+        if rel.startswith("game/"):
+            rel = rel[5:]
+
+        rel = re.sub(r"^(.*)\.[0-9a-fA-F]{32}(\.[^./]+)$", r"\1\2", rel)
+
+        if rel.startswith("assets/"):
+            return rel
+        if rel.startswith(("buildingbuttons/", "buildings/", "ui/", "units/", "buffs/", "embedded/")):
+            return "assets/" + rel
+        return rel if rel.startswith("assets/") else None
+
+    def _append_manifest_lookup_key(self, keys, candidate):
+        if not candidate:
+            return
+        for variant in [candidate, f"assets/{candidate}"]:
+            if variant not in keys:
+                keys.append(variant)
+
+    def _manifest_level_fallback_keys(self, rel):
+        """
+        When clients request upgrade art above the highest manifest entry (common for
+        platforms whose Buildings.json max level exceeds shipped top sprites), walk
+        downward until a manifest-backed asset exists.
+        """
+        rel = (rel or "").replace("\\", "/").lstrip("/")
+        if not rel:
+            return []
+
         manifest = self._load_asset_manifest_map()
-        hash_value = manifest.get(rel) or manifest.get("assets/" + rel)
-        if not hash_value:
+        fallbacks = []
+
+        def manifest_has(path):
+            return path in manifest or f"assets/{path}" in manifest
+
+        top_match = re.match(
+            r"^(buildings/\d+(?:\.v2)?)/top\.(\d+)((?:\.destroyed)?(?:\.v\d+)?)\.png$",
+            rel,
+        )
+        if top_match:
+            prefix, level_str, suffix = top_match.groups()
+            level = self._safe_int(level_str, 0)
+            suffix = suffix or ""
+            for try_level in range(level, 0, -1):
+                candidate = f"{prefix}/top.{try_level}{suffix}.png"
+                if manifest_has(candidate) and candidate not in fallbacks:
+                    fallbacks.append(candidate)
+
+        button_match = re.match(r"^buildingbuttons/(\d+)-(\d+)-s\.jpg$", rel)
+        if button_match:
+            type_id, level_str = button_match.groups()
+            level = self._safe_int(level_str, 0)
+            for try_level in range(level, 0, -1):
+                candidate = f"buildingbuttons/{type_id}-{try_level}-s.jpg"
+                if manifest_has(candidate) and candidate not in fallbacks:
+                    fallbacks.append(candidate)
+
+        return fallbacks
+
+    def _manifest_asset_lookup_keys(self, rel):
+        rel = (rel or "").replace("\\", "/").lstrip("/")
+        if not rel:
+            return []
+
+        keys = []
+        self._append_manifest_lookup_key(keys, rel)
+
+        building_match = re.match(r"^(buildings/\d+)(/.*)$", rel)
+        if building_match:
+            v2_key = f"{building_match.group(1)}.v2{building_match.group(2)}"
+            self._append_manifest_lookup_key(keys, v2_key)
+
+        building_v2_match = re.match(r"^(buildings/\d+)\.v2(/.*)$", rel)
+        if building_v2_match:
+            plain_key = f"{building_v2_match.group(1)}{building_v2_match.group(2)}"
+            self._append_manifest_lookup_key(keys, plain_key)
+
+        for fallback in self._manifest_level_fallback_keys(rel):
+            self._append_manifest_lookup_key(keys, fallback)
+            fb_building = re.match(r"^(buildings/\d+)(/.*)$", fallback)
+            if fb_building:
+                self._append_manifest_lookup_key(keys, f"{fb_building.group(1)}.v2{fb_building.group(2)}")
+            fb_v2 = re.match(r"^(buildings/\d+)\.v2(/.*)$", fallback)
+            if fb_v2:
+                self._append_manifest_lookup_key(keys, f"{fb_v2.group(1)}{fb_v2.group(2)}")
+
+        return keys
+
+    def _resolve_manifest_asset_entry(self, requested_path):
+        storage_path = self._normalize_asset_storage_path(requested_path)
+        if not storage_path:
+            return None, None
+
+        rel = storage_path[7:] if storage_path.startswith("assets/") else storage_path
+        if not rel:
+            return None, None
+
+        manifest = self._load_asset_manifest_map()
+        for key in self._manifest_asset_lookup_keys(rel):
+            hash_value = manifest.get(key)
+            if hash_value:
+                canonical = key[7:] if key.startswith("assets/") else key
+                return canonical, hash_value
+        return None, None
+
+    def _build_hashed_asset_relpath(self, requested_path):
+        rel, hash_value = self._resolve_manifest_asset_entry(requested_path)
+        if not rel or not hash_value:
             return None
 
         base, ext = os.path.splitext(rel)
@@ -378,24 +557,35 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             return resp.read(), url
 
     def _try_download_missing_asset(self, requested_path):
-        if not requested_path.startswith("assets/"):
+        target = self._normalize_asset_storage_path(requested_path)
+        if not target or not target.startswith("assets/"):
             return False
 
-        hashed_rel = self._build_hashed_asset_relpath(requested_path)
+        hashed_rel = self._build_hashed_asset_relpath(target)
         if not hashed_rel:
             return False
 
         try:
             raw, src_url = self._fetch_remote_asset_bytes(hashed_rel)
-            target = requested_path.replace("\\", "/")
             os.makedirs(os.path.dirname(target), exist_ok=True)
             with open(target, "wb") as f:
                 f.write(raw)
             log(f"AUTO-DOWNLOAD: {target} <- {src_url}")
             return True
         except Exception as e:
-            log(f"AUTO-DOWNLOAD FAIL: {requested_path} ({e})")
+            log(f"AUTO-DOWNLOAD FAIL: {target} ({e})")
             return False
+
+    def _try_download_assets_for_request(self, path_clean, normalized_game_paths):
+        candidates = []
+        for rel_variant in [path_clean] + normalized_game_paths:
+            normalized = self._normalize_asset_storage_path(rel_variant)
+            if normalized and normalized not in candidates:
+                candidates.append(normalized)
+        for target in candidates:
+            if self._try_download_missing_asset(target):
+                return True
+        return False
 
     def _try_download_direct_asset(self, requested_path):
         rel = requested_path.replace("\\", "/").lstrip("/")
@@ -858,9 +1048,22 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             if duration_seconds > 0:
                 break
 
+        if duration_seconds <= 0 and action_name == "upgrade" and isinstance(state.get("base"), dict):
+            buildingdata = state["base"].get("buildingdata")
+            if isinstance(buildingdata, str):
+                try:
+                    buildingdata = json.loads(buildingdata)
+                except Exception:
+                    buildingdata = {}
+            if isinstance(buildingdata, dict):
+                _, building = self._find_building_entry(buildingdata, building_id)
+                if isinstance(building, dict):
+                    building_type = self._safe_int(building.get("t"), -1)
+                    duration_seconds = self._lookup_building_upgrade_time(building_type, to_level)
+
         if duration_seconds <= 0:
             if action_name == "upgrade":
-                duration_seconds = 48 * 60 * 60
+                duration_seconds = 300
             elif action_name in ("build", "instant_build"):
                 duration_seconds = 6 * 60 * 60
             else:
@@ -902,6 +1105,72 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             started_at = now_ts
         elapsed = max(0, now_ts - started_at)
         return max(0, duration_seconds - elapsed)
+
+    def _runtime_complete_active_building_action_locked(self, state, building_id, ts):
+        if not isinstance(state, dict):
+            return False
+
+        active = state.get("active_building_actions")
+        if not isinstance(active, list) or not active:
+            return False
+
+        bid = self._safe_int(building_id, -1)
+        if bid < 0:
+            return False
+
+        base = state.get("base")
+        if not isinstance(base, dict):
+            return False
+
+        buildingdata = base.get("buildingdata")
+        if isinstance(buildingdata, str):
+            try:
+                buildingdata = json.loads(buildingdata)
+            except Exception:
+                buildingdata = {}
+        if not isinstance(buildingdata, dict):
+            return False
+        base["buildingdata"] = buildingdata
+
+        _, building = self._find_building_entry(buildingdata, bid)
+        if not isinstance(building, dict):
+            return False
+
+        completed = False
+        kept = []
+        now_ts = int(ts)
+        for row in active:
+            if not isinstance(row, dict):
+                continue
+            row_building_id = self._safe_int(row.get("building_id"), -1)
+            if row_building_id != bid:
+                kept.append(row)
+                continue
+
+            action_name = str(row.get("action") or "").strip().lower()
+            to_level = self._safe_int(row.get("to_level"), -1)
+            if action_name == "upgrade" and to_level >= 0:
+                if isinstance(building.get("l"), str):
+                    building["l"] = str(to_level)
+                else:
+                    building["l"] = int(to_level)
+                for transient_key in ("cU", "countdownUpgrade", "upgrading", "isUpgrading"):
+                    if transient_key in building:
+                        try:
+                            del building[transient_key]
+                        except Exception:
+                            pass
+                completed = True
+                continue
+
+            kept.append(row)
+
+        state["active_building_actions"] = kept
+        if completed:
+            base["currenttime"] = now_ts
+            base["server_time"] = now_ts
+            log(f"BUILDING upgrade completed id={bid} level={building.get('l')}")
+        return completed
 
     def _runtime_reconcile_active_building_actions_locked(self, state):
         if not isinstance(state, dict):
@@ -1312,17 +1581,44 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                             building["Y"] = str(self._safe_int(action.get(key_name), self._safe_int(building.get("Y"), 0)))
                             break
 
-                if action_name in ("upgrade", "instant_change_type") and isinstance(building, dict):
+                if action_name in ("upgrade", "instant_upgrade", "instant_change_type") and isinstance(building, dict):
                     to_level = action.get("to_level")
                     if to_level is None:
                         to_level = action.get("upgrade_to")
                     level = self._safe_int(to_level, -1)
+                    if str(to_level).strip().lower() in ("max", "maximum"):
+                        building_type = self._safe_int(building.get("t"), -1)
+                        level = self._lookup_building_max_level(building_type)
                     if action_name == "instant_change_type" and level >= 0:
                         building["l"] = str(level)
-                    elif action_name == "upgrade":
-                        # Keep the action active so transitions/base reloads can
-                        # rehydrate upgrade state instead of silently dropping it.
-                        self._runtime_register_active_building_action_locked(state, action, ts)
+                        new_type = action.get("type")
+                        if new_type is None:
+                            new_type = action.get("building_type")
+                        if new_type is None:
+                            new_type = action.get("to_type")
+                        if new_type is not None:
+                            building["t"] = str(self._safe_int(new_type, self._safe_int(building.get("t"), 0)))
+                    elif action_name in ("upgrade", "instant_upgrade"):
+                        instant = action_name == "instant_upgrade" or self._action_requests_instant_upgrade(action)
+                        if instant and level >= 0:
+                            if isinstance(building.get("l"), str):
+                                building["l"] = str(level)
+                            else:
+                                building["l"] = int(level)
+                            for transient_key in ("cU", "cB", "countdownUpgrade", "countdownBuild", "upgrading", "isUpgrading"):
+                                if transient_key in building:
+                                    try:
+                                        del building[transient_key]
+                                    except Exception:
+                                        pass
+                            log(f"BUILDING instant upgrade id={building_id} level={level}")
+                        else:
+                            # Keep the action active so transitions/base reloads can
+                            # rehydrate upgrade state instead of silently dropping it.
+                            self._runtime_register_active_building_action_locked(state, action, ts)
+
+                if action_name in ("finish_now", "finish") and building_id >= 0:
+                    self._runtime_complete_active_building_action_locked(state, building_id, ts)
 
                 if action_name in ("sell", "remove", "demolish", "trash") and b_key is not None:
                     if b_key in buildingdata:
@@ -1377,10 +1673,15 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         except Exception:
             return False
 
+        try:
+            file_size = os.path.getsize(filepath)
+        except Exception:
+            file_size = len(data)
+
         if req.endswith(".png"):
-            return len(data) >= 8 and data[:8] == b"\x89PNG\r\n\x1a\n"
+            return file_size >= 256 and len(data) >= 8 and data[:8] == b"\x89PNG\r\n\x1a\n"
         if req.endswith(".jpg") or req.endswith(".jpeg"):
-            return len(data) >= 4 and data[:2] == b"\xff\xd8"
+            return file_size >= 256 and len(data) >= 4 and data[:2] == b"\xff\xd8"
         if req.endswith(".zip"):
             return len(data) >= 2 and data[:2] == b"PK"
         if req.endswith(".json"):
@@ -1709,6 +2010,17 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 os.path.join("lang", alias),
             ])
 
+            building_match = re.match(r"^(?:assets/)?(buildings/\d+)(/.*)$", alias)
+            if building_match:
+                v2_alias = f"assets/{building_match.group(1)}.v2{building_match.group(2)}"
+                possible_paths.append(v2_alias)
+                possible_paths.append(v2_alias[7:])
+            building_v2_match = re.match(r"^(?:assets/)?(buildings/\d+)\.v2(/.*)$", alias)
+            if building_v2_match:
+                plain_alias = f"assets/{building_v2_match.group(1)}{building_v2_match.group(2)}"
+                possible_paths.append(plain_alias)
+                possible_paths.append(plain_alias[7:])
+
             # map manifest/data/<name>.<hash>.data requests to local manifest JSON aliases
             if alias.startswith("manifest/data/"):
                 blob_name = os.path.basename(alias)
@@ -1757,6 +2069,26 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
                 log(f"SERVING: {p} for {path_clean}")
                 self.serve_file(p)
                 return
+
+        # Manifest-hashed CDN assets are more reliable than unhashed direct paths.
+        if self._try_download_assets_for_request(path_clean, normalized_game_paths):
+            for p in possible_paths:
+                exists = os.path.exists(p)
+                isdir = os.path.isdir(p)
+                if exists and not isdir:
+                    if not self._is_probably_valid_for_request(p, path_clean):
+                        log(f"SKIP CORRUPT CANDIDATE: {p} for {path_clean}")
+                        continue
+                    log(f"SERVING: {p} for {path_clean} (after manifest download)")
+                    self.serve_file(p)
+                    return
+            for target in [self._normalize_asset_storage_path(path_clean)] + [
+                self._normalize_asset_storage_path(alias) for alias in normalized_game_paths
+            ]:
+                if target and os.path.exists(target) and not os.path.isdir(target):
+                    log(f"SERVING: {target} for {path_clean} (manifest target)")
+                    self.serve_file(target)
+                    return
 
         # Try mirroring the exact CDN asset path once, then resolve again.
         if self._try_download_direct_asset(path_clean):

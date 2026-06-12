@@ -38,6 +38,12 @@ shared_configs.json
 # Node
 node_modules/
 
+# Local auth/session secrets
+.env.local
+auth/kixeye-session.local.json
+auth/live-capture-*.json
+server_debug.log
+
 # Puppeteer browser profiles (local runtime artifacts)
 .puppeteer-kixeye-profile/
 .puppeteer-kixeye-profile-timeout/

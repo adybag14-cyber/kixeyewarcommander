@@ -28,6 +28,21 @@
             return LOCAL_ORIGIN + url.replace(/^https?:\/\/(?:127\.0\.0\.1|localhost):8089/, "");
         }
 
+        if (url.indexOf("cdn-kixeye.com") !== -1) {
+            try {
+                var parsed = new URL(url);
+                var cdnPath = parsed.pathname || "";
+                if (cdnPath.indexOf("/game/") !== -1) {
+                    cdnPath = cdnPath.split("/game/")[1];
+                } else {
+                    cdnPath = cdnPath.replace(/^\//, "");
+                }
+                if (cdnPath) {
+                    return LOCAL_ORIGIN + "/" + cdnPath;
+                }
+            } catch (cdnErr) { }
+        }
+
         if (url.indexOf("http://") === 0 || url.indexOf("https://") === 0) {
             return url;
         }
@@ -1123,6 +1138,181 @@
         }
     }
 
+    function bootstrapWorldmapTilesIntoManager(hx, data) {
+        hx = hx || window._hx_classes || {};
+        if (!data || typeof data !== "object") return false;
+        if (isWorldmapTileDataReady(hx)) return true;
+
+        var TileSetManager = hx["com.cc.worldmap.TileSetManager"];
+        if (!TileSetManager || typeof TileSetManager.get_instance !== "function") return false;
+
+        try {
+            var manager = TileSetManager.get_instance();
+            if (!manager || typeof manager.onTileDataLoaded !== "function") return false;
+            manager.onTileDataLoaded({ name: "WorldmapTilesData", data: data });
+            if (isWorldmapTileDataReady(hx)) {
+                console.log("[PATCH V33] TileSetManager initialized from WorldmapTilesData.");
+                return true;
+            }
+        } catch (bootstrapErr) {
+            console.warn("[PATCH V33] bootstrapWorldmapTilesIntoManager failed:", bootstrapErr);
+        }
+        return false;
+    }
+
+    function refreshWorldmapTileSetReferences(hx) {
+        hx = hx || window._hx_classes || {};
+        var Worldmap = hx["com.cc.worldmap.Worldmap"];
+        var TileSetManager = hx["com.cc.worldmap.TileSetManager"];
+        var P = hx["P"];
+        if (!Worldmap || !Worldmap._mapView || !TileSetManager) return false;
+
+        try {
+            var manager = TileSetManager.get_instance();
+            if (!manager || typeof manager.getTiles !== "function") return false;
+
+            var mapTag = (typeof manager.getMapTag === "function") ? manager.getMapTag() : "default";
+            if (P && typeof P.get_worldmapTag === "function") {
+                var flagTag = P.get_worldmapTag();
+                if (flagTag) mapTag = flagTag;
+            }
+            if (typeof manager.setValidMapTag === "function") {
+                manager.setValidMapTag(mapTag);
+            }
+
+            var tileSet = manager.getTiles(mapTag);
+            if (!tileSet) return false;
+
+            var mapView = Worldmap._mapView;
+            mapView._tileSet = tileSet;
+
+            var buffer = mapView._tileBuffer || null;
+            if (buffer && buffer.length) {
+                for (var i = 0; i < buffer.length; i++) {
+                    if (buffer[i]) buffer[i]._tileSet = tileSet;
+                }
+            }
+            if (mapView._mouseoverMC) {
+                mapView._mouseoverMC._tileSet = tileSet;
+            }
+            return true;
+        } catch (_tileRefErr) {
+            return false;
+        }
+    }
+
+    function forceWorldmapRenderRefresh(hx) {
+        hx = hx || window._hx_classes || {};
+        refreshWorldmapTileSetReferences(hx);
+        try {
+            var Worldmap = hx["com.cc.worldmap.Worldmap"];
+            if (!Worldmap || !Worldmap._mapView) return;
+            var mapView = Worldmap._mapView;
+            if (typeof mapView.centerOn === "function") {
+                mapView.centerOn();
+            } else if (typeof mapView.updateMap === "function") {
+                mapView.updateMap(true);
+            }
+            if (typeof mapView.updateMap === "function") {
+                mapView.updateMap(true);
+            }
+            if (typeof mapView.Redraw === "function") {
+                mapView.Redraw();
+            }
+            if (typeof Worldmap.redraw === "function") {
+                Worldmap.redraw();
+            }
+        } catch (_refreshErr) { }
+    }
+
+    function refreshWorldmapAfterTileBootstrap(hx) {
+        hx = hx || window._hx_classes || {};
+        forceWorldmapRenderRefresh(hx);
+        ensureHexMapLoadProgress();
+        patchWorldmapViewBootstrap();
+        syncBaseWorldLayerVisibility();
+    }
+
+    function ensureWorldmapTileDataLoaded(hx) {
+        hx = hx || window._hx_classes || {};
+        if (isWorldmapTileDataReady(hx)) return true;
+
+        var Db = hx["Db"] || window.Db;
+        var TileSetManager = hx["com.cc.worldmap.TileSetManager"];
+        if (!TileSetManager) return false;
+
+        if (Db && Db._dataStore && Db._dataStore.h) {
+            var cached = Db._dataStore.h["WorldmapTilesData"];
+            if (cached && bootstrapWorldmapTilesIntoManager(hx, cached)) {
+                return true;
+            }
+        }
+
+        if (Db && typeof Db.retrieveAssetByName === "function") {
+            try {
+                Db.retrieveAssetByName("WorldmapTilesData", function (asset) {
+                    if (!asset || !asset.data) return;
+                    if (bootstrapWorldmapTilesIntoManager(window._hx_classes || {}, asset.data)) {
+                        refreshWorldmapAfterTileBootstrap(window._hx_classes || {});
+                    }
+                });
+            } catch (_tileLoadErr) { }
+            try {
+                if (typeof Db.loadCDNAssets === "function") {
+                    Db.loadCDNAssets();
+                }
+            } catch (_cdnLoadErr) { }
+        }
+
+        if (!window.__PATCH_V33_TILE_DATA_FETCHING__) {
+            window.__PATCH_V33_TILE_DATA_FETCHING__ = true;
+            var candidates = [
+                "/manifest/WorldmapTilesData.1.json",
+                "/manifest/WorldmapTilesData.json"
+            ];
+
+            var tryFetch = function (idx) {
+                if (isWorldmapTileDataReady(hx)) {
+                    window.__PATCH_V33_TILE_DATA_FETCHING__ = false;
+                    return;
+                }
+                if (idx >= candidates.length) {
+                    window.__PATCH_V33_TILE_DATA_FETCHING__ = false;
+                    return;
+                }
+
+                fetch(rewriteLocalUrl(candidates[idx]))
+                    .then(function (r) {
+                        if (!r.ok) throw new Error("HTTP " + r.status);
+                        return r.text();
+                    })
+                    .then(function (text) {
+                        var parsed = JSON.parse(String(text || "").trim());
+                        var dbRef = window.Db || (window._hx_classes && window._hx_classes["Db"]);
+                        try {
+                            if (dbRef && dbRef._dataStore && dbRef._dataStore.h) {
+                                dbRef._dataStore.h["WorldmapTilesData"] = parsed;
+                            }
+                        } catch (_cacheErr) { }
+
+                        var hxLocal = window._hx_classes || {};
+                        if (bootstrapWorldmapTilesIntoManager(hxLocal, parsed)) {
+                            console.log("[PATCH V33] WorldmapTilesData fetched via " + candidates[idx]);
+                            refreshWorldmapAfterTileBootstrap(hxLocal);
+                        }
+                        window.__PATCH_V33_TILE_DATA_FETCHING__ = false;
+                    })
+                    .catch(function () {
+                        tryFetch(idx + 1);
+                    });
+            };
+
+            tryFetch(0);
+        }
+
+        return isWorldmapTileDataReady(hx);
+    }
+
     function isWorldmapTileDataReady(hx) {
         var TileSetManager = hx["com.cc.worldmap.TileSetManager"];
         if (!TileSetManager || typeof TileSetManager.get_instance !== "function") return false;
@@ -1341,6 +1531,147 @@
         console.log("[PATCH V33] MAP reset safety enabled.");
     }
 
+    function getGameStage(hx) {
+        hx = hx || window._hx_classes || {};
+        var GameClass = hx["GAME"] || window.GAME;
+        var inst = GameClass ? (GameClass._instance || GameClass.instance) : null;
+        return inst && inst.stage ? inst.stage : null;
+    }
+
+    function scheduleWorldmapPostTransitionBootstrap() {
+        if (window.__PATCH_V33_WM_POST_BOOTSTRAP_TIMER__) return;
+        var attempts = 0;
+        window.__PATCH_V33_WM_POST_BOOTSTRAP_TIMER__ = setInterval(function () {
+            attempts += 1;
+            var hx = window._hx_classes || {};
+            ensureWorldmapTileDataLoaded(hx);
+            ensureHexMapLoadProgress();
+            patchWorldmapViewBootstrap();
+            forceWorldmapRenderRefresh(hx);
+            syncBaseWorldLayerVisibility();
+            primeWorldmapNearbyEntities();
+            stabilizeWorldmapStateTransition();
+            var Worldmap = hx["com.cc.worldmap.Worldmap"];
+            var worldReady = getWorldmapStateFlag(hx) === true &&
+                Worldmap &&
+                Worldmap._mapView &&
+                Worldmap._hexMap &&
+                Worldmap._hexMap._isDoneLoading;
+            if (worldReady || attempts >= 48) {
+                clearInterval(window.__PATCH_V33_WM_POST_BOOTSTRAP_TIMER__);
+                window.__PATCH_V33_WM_POST_BOOTSTRAP_TIMER__ = 0;
+            }
+        }, 250);
+    }
+
+    function forceWorldMapTransition(hx) {
+        hx = hx || window._hx_classes || {};
+        var ActiveState = hx["ActiveState"];
+        var BaseLoadParams = hx["BaseLoadParams"];
+        if (!ActiveState || !BaseLoadParams || typeof ActiveState.SetState !== "function") return false;
+        if (!getGameStage(hx)) return false;
+
+        try {
+            if (typeof ActiveState.IsChangingState === "function" && ActiveState.IsChangingState()) return false;
+            if (typeof ActiveState.IsWorldMap === "function" && ActiveState.IsWorldMap()) {
+                scheduleWorldmapPostTransitionBootstrap();
+                return true;
+            }
+        } catch (_stateReadErr) { }
+
+        try {
+            var params = new BaseLoadParams();
+            var MAIN = hx["MAIN"] || window.MAIN;
+            var playerInfo = MAIN && MAIN.playerInfo ? MAIN.playerInfo : null;
+            var userId = playerInfo && typeof playerInfo.get_id === "function" ? playerInfo.get_id() : 33123969;
+            if (typeof params.set_userID === "function") params.set_userID(userId);
+            ActiveState.SetState(1, params, false);
+            scheduleWorldmapPostTransitionBootstrap();
+            return true;
+        } catch (worldErr) {
+            console.warn("[PATCH V33] forceWorldMapTransition failed:", worldErr);
+        }
+        return false;
+    }
+
+    function forceHomeTransition(hx) {
+        hx = hx || window._hx_classes || {};
+        var ActiveState = hx["ActiveState"];
+        if (!ActiveState || typeof ActiveState.goHome !== "function") return false;
+        if (!getGameStage(hx)) return false;
+
+        try {
+            if (typeof ActiveState.IsChangingState === "function" && ActiveState.IsChangingState()) return false;
+            if (typeof ActiveState.IsWorldMap === "function" && !ActiveState.IsWorldMap()) return true;
+        } catch (_stateReadErr) { }
+
+        try {
+            ActiveState.goHome();
+            return true;
+        } catch (homeErr) {
+            console.warn("[PATCH V33] forceHomeTransition failed:", homeErr);
+        }
+        return false;
+    }
+
+    function syncBaseWorldLayerVisibility() {
+        var hx = window._hx_classes || {};
+        var GLOBAL = hx["GLOBAL"];
+        var Worldmap = hx["com.cc.worldmap.Worldmap"];
+        var MAP = hx["com.cc.core.MAP"];
+        var worldState = getWorldmapStateFlag(hx);
+        var pendingWorldState = getPendingWorldmapStateFlag(hx);
+        var changingState = getActiveStateChangingFlag(hx);
+        var inWorldFlow = (worldState === true || pendingWorldState === true || changingState === true);
+        var hexReady = hasUsableHexMapCells(hx);
+        // Keep base layers visible until hex terrain is actually renderable.
+        var hideBaseLayers = inWorldFlow && hexReady;
+        var showWorldView = inWorldFlow && (hexReady || changingState === true);
+
+        function setVisible(obj, visible) {
+            if (!obj) return;
+            try {
+                if (typeof obj.set_visible === "function") obj.set_visible(!!visible);
+                else if (typeof obj.visible !== "undefined") obj.visible = !!visible;
+            } catch (_visErr) { }
+            try {
+                if (typeof obj.set_mouseEnabled === "function") obj.set_mouseEnabled(!!visible);
+                else if (typeof obj.mouseEnabled !== "undefined") obj.mouseEnabled = !!visible;
+            } catch (_mouseErr) { }
+            try {
+                if (typeof obj.set_mouseChildren === "function") obj.set_mouseChildren(!!visible);
+                else if (typeof obj.mouseChildren !== "undefined") obj.mouseChildren = !!visible;
+            } catch (_mouseChildErr) { }
+        }
+
+        // GLOBAL._layerMap hosts HexWorldmapView; never hide it during world-map flow.
+        if (GLOBAL && GLOBAL._layerMap) {
+            setVisible(GLOBAL._layerMap, !inWorldFlow || hexReady || changingState === true);
+        }
+
+        var baseBuildingLayers = [];
+        if (GLOBAL && GLOBAL._layerBase) baseBuildingLayers.push(GLOBAL._layerBase);
+        if (MAP) {
+            if (MAP._oldRender) baseBuildingLayers.push(MAP._oldRender);
+            if (MAP._GROUND) baseBuildingLayers.push(MAP._GROUND);
+            if (MAP._BUILDINGBASES) baseBuildingLayers.push(MAP._BUILDINGBASES);
+            if (MAP._BUILDINGTOPS) baseBuildingLayers.push(MAP._BUILDINGTOPS);
+        }
+
+        for (var i = 0; i < baseBuildingLayers.length; i++) {
+            setVisible(baseBuildingLayers[i], !hideBaseLayers);
+        }
+
+        if (Worldmap && Worldmap._mapView) {
+            setVisible(Worldmap._mapView, showWorldView);
+            if (hexReady && typeof Worldmap._mapView.updateMap === "function") {
+                try {
+                    Worldmap._mapView.updateMap(true);
+                } catch (_updateMapErr) { }
+            }
+        }
+    }
+
     function patchHudMapButtonsFallback() {
         if (window.__PATCH_V33_HUD_MAP_BUTTON_FALLBACK__) return;
 
@@ -1462,36 +1793,36 @@
             try { isChanging = !!(ActiveState.IsChangingState && ActiveState.IsChangingState()); } catch (_isChangingErr) { }
             if (isChanging) return;
 
+            var toggled = false;
             if (isWorld) {
-                try {
-                    if (typeof ActiveState.goHome === "function") {
-                        ActiveState.goHome();
-                        pointerState.lastToggleAt = now;
-                        console.warn("[PATCH V33] HUD fallback forced Enter Base.");
-                    }
-                } catch (_goHomeErr) { }
-                return;
-            }
-
-            try {
-                var BaseLoadParams = hx["BaseLoadParams"];
-                if (!BaseLoadParams || typeof ActiveState.SetState !== "function") return;
-
-                var params = new BaseLoadParams();
-                var MAIN = hx["MAIN"] || window.MAIN;
-                var playerInfo = MAIN && MAIN.playerInfo ? MAIN.playerInfo : null;
-                var userId = playerInfo && typeof playerInfo.get_id === "function" ? playerInfo.get_id() : 123456;
-                if (typeof params.set_userID === "function") {
-                    params.set_userID(userId);
+                toggled = forceHomeTransition(hx);
+                if (toggled) {
+                    pointerState.lastToggleAt = now;
+                    console.warn("[PATCH V33] HUD fallback forced Enter Base.");
                 }
-
-                ActiveState.SetState(1, params, false);
-                pointerState.lastToggleAt = now;
-                console.warn("[PATCH V33] HUD fallback forced World Map transition.");
-            } catch (fallbackErr) {
-                console.warn("[PATCH V33] HUD fallback SetState failed:", fallbackErr);
+            } else {
+                toggled = forceWorldMapTransition(hx);
+                if (toggled) {
+                    pointerState.lastToggleAt = now;
+                    console.warn("[PATCH V33] HUD fallback forced World Map transition.");
+                } else if (!window.__PATCH_V33_WM_TOGGLE_RETRY__) {
+                    window.__PATCH_V33_WM_TOGGLE_RETRY__ = setTimeout(function () {
+                        window.__PATCH_V33_WM_TOGGLE_RETRY__ = 0;
+                        if (forceWorldMapTransition(window._hx_classes || {})) {
+                            console.warn("[PATCH V33] HUD fallback retried World Map transition.");
+                        }
+                    }, 1500);
+                }
             }
+            if (toggled) syncBaseWorldLayerVisibility();
         }, true);
+
+        window.__PATCH_V33_TOGGLE_WORLD_MAP__ = function () {
+            return forceWorldMapTransition(window._hx_classes || {});
+        };
+        window.__PATCH_V33_TOGGLE_HOME_BASE__ = function () {
+            return forceHomeTransition(window._hx_classes || {});
+        };
 
         window.__PATCH_V33_HUD_MAP_BUTTON_FALLBACK__ = true;
         console.log("[PATCH V33] HUD world/base button fallback enabled.");
@@ -2124,6 +2455,7 @@
         } catch (_hexDoneReadErr) { }
 
         if (!hexMap._template || !hexMap._heightFields) return;
+        if (!ensureWorldmapTileDataLoaded(hx)) return;
 
         // Drive HexMap decode path when the world-state machine stalls before
         // map header processing completes. This follows native runtime methods
@@ -2269,7 +2601,14 @@
         } catch (_baseLayerProbeErr) { }
 
         var initialSyncPending = !window.__PATCH_V33_WORLDMAP_RECENTER_INITIAL_SYNC_DONE__;
+        if (forceLayerResync && window.__PATCH_V33_WM_FORCE_RESYNC_DONE__) {
+            forceLayerResync = false;
+        }
         if (!atEdge && !forceLayerResync && !initialSyncPending) return;
+
+        var nowMs = Date.now();
+        var lastRecenterAt = window.__PATCH_V33_WORLDMAP_RECENTER_LAST_AT__ || 0;
+        if (!initialSyncPending && lastRecenterAt && (nowMs - lastRecenterAt) < 1500) return;
 
         var appliedKey = String(targetX) + ":" + String(targetY) + ":" + String(mapWidth) + ":" + String(mapHeight);
         if (!forceLayerResync && window.__PATCH_V33_WORLDMAP_RECENTER_APPLIED_KEY__ === appliedKey) return;
@@ -2287,6 +2626,11 @@
             }
             window.__PATCH_V33_WORLDMAP_RECENTER_INITIAL_SYNC_DONE__ = true;
             window.__PATCH_V33_WORLDMAP_RECENTER_APPLIED_KEY__ = appliedKey;
+            window.__PATCH_V33_WORLDMAP_RECENTER_LAST_AT__ = nowMs;
+            if (forceLayerResync) {
+                window.__PATCH_V33_WM_FORCE_RESYNC_DONE__ = true;
+            }
+            refreshWorldmapTileSetReferences(hx);
             console.log("[PATCH V33] Recentered world map view to home coordinate (" + targetX + "," + targetY + ").");
         } catch (_recenterErr) { }
     }
@@ -2554,6 +2898,125 @@
         console.log("[PATCH V33] MAP layer call safety enabled.");
     }
 
+    function patchTileSetManagerSafety() {
+        var hx = window._hx_classes || {};
+        var TileSetManager = hx["com.cc.worldmap.TileSetManager"];
+        if (!TileSetManager || !TileSetManager.prototype || TileSetManager.prototype.__patchedTileSetManagerSafety) return;
+
+        var proto = TileSetManager.prototype;
+
+        if (typeof proto.getTiles === "function" && !proto.__patchedGetTilesSafety) {
+            var originalGetTiles = proto.getTiles;
+            proto.getTiles = function (mapTag) {
+                if (!this._tiles || !this._tiles.h) {
+                    ensureWorldmapTileDataLoaded(hx);
+                    if (!this._tiles || !this._tiles.h) {
+                        return this._emptyTileSet || null;
+                    }
+                }
+                return originalGetTiles.apply(this, arguments);
+            };
+            proto.__patchedGetTilesSafety = true;
+        }
+
+        if (typeof proto.getBackgroundImageForChunk === "function" && !proto.__patchedBackgroundChunkSafety) {
+            var originalGetBackgroundImageForChunk = proto.getBackgroundImageForChunk;
+            proto.getBackgroundImageForChunk = function () {
+                if (!this._backgrounds || !this._backgrounds.h) {
+                    ensureWorldmapTileDataLoaded(hx);
+                    if (!this._backgrounds || !this._backgrounds.h) return null;
+                }
+                try {
+                    return originalGetBackgroundImageForChunk.apply(this, arguments);
+                } catch (bgErr) {
+                    if (!this.__patchV33BackgroundChunkWarned) {
+                        this.__patchV33BackgroundChunkWarned = true;
+                        console.warn("[PATCH V33] TileSetManager.getBackgroundImageForChunk suppressed:", bgErr);
+                    }
+                    return null;
+                }
+            };
+            proto.__patchedBackgroundChunkSafety = true;
+        }
+
+        if (typeof proto.onTileDataLoaded === "function" && !proto.__patchedOnTileDataLoadedRefresh) {
+            var originalOnTileDataLoaded = proto.onTileDataLoaded;
+            proto.onTileDataLoaded = function () {
+                var result = originalOnTileDataLoaded.apply(this, arguments);
+                refreshWorldmapAfterTileBootstrap(window._hx_classes || {});
+                return result;
+            };
+            proto.__patchedOnTileDataLoadedRefresh = true;
+        }
+
+        TileSetManager.prototype.__patchedTileSetManagerSafety = true;
+        ensureWorldmapTileDataLoaded(hx);
+        console.log("[PATCH V33] TileSetManager safety enabled.");
+    }
+
+    function patchHexWorldmapViewRender() {
+        var hx = window._hx_classes || {};
+        var HexWorldmapView = hx["com.cc.worldmap.HexWorldmapView"];
+        var TileSet = hx["com.cc.worldmap.TileSet"];
+        if (!HexWorldmapView || !HexWorldmapView.prototype || HexWorldmapView.prototype.__patchedHexWorldmapViewRender) {
+            if (TileSet && TileSet.prototype && !TileSet.prototype.__patchedTileSetImageRedraw) {
+                var originalTileSetImagesLoaded = TileSet.prototype.onImagesLoaded;
+                if (typeof originalTileSetImagesLoaded === "function") {
+                    TileSet.prototype.onImagesLoaded = function () {
+                        var out = originalTileSetImagesLoaded.apply(this, arguments);
+                        forceWorldmapRenderRefresh(window._hx_classes || {});
+                        return out;
+                    };
+                    TileSet.prototype.__patchedTileSetImageRedraw = true;
+                }
+            }
+            return;
+        }
+
+        var proto = HexWorldmapView.prototype;
+        if (typeof proto.updateMap === "function" && !proto.__patchedUpdateMapTileSetRefresh) {
+            var originalUpdateMap = proto.updateMap;
+            proto.updateMap = function () {
+                refreshWorldmapTileSetReferences(hx);
+                return originalUpdateMap.apply(this, arguments);
+            };
+            proto.__patchedUpdateMapTileSetRefresh = true;
+        }
+
+        if (typeof proto.Init === "function" && !proto.__patchedInitRenderKick) {
+            var originalInit = proto.Init;
+            proto.Init = function () {
+                var out = originalInit.apply(this, arguments);
+                try {
+                    var self = this;
+                    setTimeout(function () {
+                        refreshWorldmapTileSetReferences(window._hx_classes || {});
+                        if (typeof self.updateMap === "function") self.updateMap(true);
+                        if (typeof self.Redraw === "function") self.Redraw();
+                    }, 0);
+                } catch (_initKickErr) { }
+                return out;
+            };
+            proto.__patchedInitRenderKick = true;
+        }
+
+        HexWorldmapView.prototype.__patchedHexWorldmapViewRender = true;
+
+        if (TileSet && TileSet.prototype && !TileSet.prototype.__patchedTileSetImageRedraw) {
+            var originalTileSetImagesLoaded = TileSet.prototype.onImagesLoaded;
+            if (typeof originalTileSetImagesLoaded === "function") {
+                TileSet.prototype.onImagesLoaded = function () {
+                    var out = originalTileSetImagesLoaded.apply(this, arguments);
+                    forceWorldmapRenderRefresh(window._hx_classes || {});
+                    return out;
+                };
+                TileSet.prototype.__patchedTileSetImageRedraw = true;
+            }
+        }
+
+        console.log("[PATCH V33] HexWorldmapView render refresh enabled.");
+    }
+
     function patchHexMapSafety() {
         var hx = window._hx_classes || {};
         var HexMap = hx["com.cc.models.HexMap"];
@@ -2631,9 +3094,19 @@
                     }
                     return;
                 }
+                var hxLocal = window._hx_classes || {};
+                ensureWorldmapTileDataLoaded(hxLocal);
                 try {
                     return originalProcessData.apply(this, arguments);
                 } catch (e2) {
+                    if (ensureWorldmapTileDataLoaded(hxLocal)) {
+                        try {
+                            return originalProcessData.apply(this, arguments);
+                        } catch (_retryProcessErr) { }
+                    }
+                    if (!isWorldmapTileDataReady(hxLocal) && !hasRenderableCells) {
+                        return;
+                    }
                     if (!this.__patchV33HexMapProcessWarned) {
                         this.__patchV33HexMapProcessWarned = true;
                         console.warn("[PATCH V33] HexMap.processData suppressed:", e2);
@@ -2692,6 +3165,50 @@
             }
         } catch (_cleanDetachedErr) { }
         return detachedRemoved;
+    }
+
+    function ensureBaseRenderOnBoot() {
+        var hx = window._hx_classes || {};
+        if (getWorldmapStateFlag(hx) === true || getPendingWorldmapStateFlag(hx) === true) return;
+        var MAP = hx["com.cc.core.MAP"];
+        var BASE = hx["BASE"];
+        if (!MAP || !BASE || !BASE._buildingsAll) return;
+
+        var topsCount = 0;
+        try {
+            if (MAP._BUILDINGTOPS && typeof MAP._BUILDINGTOPS.get_numChildren === "function") {
+                topsCount = MAP._BUILDINGTOPS.get_numChildren() | 0;
+            }
+        } catch (_topsCountErr) { }
+
+        if (topsCount >= 24) return;
+        reconcileDetachedBaseRender();
+    }
+
+    function patchWorldmapMapServiceSafety() {
+        var hx = window._hx_classes || {};
+        var candidates = [
+            "com.cc.worldmap.MapService",
+            "com.cc.worldmap.WorldmapService",
+            "com.kixeye.net.proto.atlas.MapService"
+        ];
+        for (var ci = 0; ci < candidates.length; ci++) {
+            var Cls = hx[candidates[ci]];
+            if (!Cls || !Cls.prototype || Cls.prototype.__patchedMapServiceSafety) continue;
+            if (typeof Cls.prototype.getPlayerHome === "function") {
+                var originalGetPlayerHome = Cls.prototype.getPlayerHome;
+                Cls.prototype.getPlayerHome = function () {
+                    try {
+                        return originalGetPlayerHome.apply(this, arguments);
+                    } catch (playerHomeErr) {
+                        console.warn("[PATCH V33] Suppressed MapService.getPlayerHome:", playerHomeErr);
+                        return null;
+                    }
+                };
+            }
+            Cls.prototype.__patchedMapServiceSafety = true;
+            console.log("[PATCH V33] MapService getPlayerHome safety enabled.");
+        }
     }
 
     function reconcileDetachedBaseRender() {
@@ -3843,6 +4360,12 @@
                                     console.warn("[PATCH V33] Db cache update skipped for " + key + ":", cacheErr);
                                 }
 
+                                if (key === "WorldmapTilesData" && data && typeof data === "object") {
+                                    try {
+                                        bootstrapWorldmapTilesIntoManager(window._hx_classes || {}, data);
+                                    } catch (_wmTilesBootstrapErr) { }
+                                }
+
                                 try {
                                     callback({ name: key, data: data });
                                 } catch (cbErr) {
@@ -4833,6 +5356,48 @@
         }
     }
 
+    function refreshBaseBuildingSprites() {
+        var hx = window._hx_classes || {};
+        var BASE = hx["BASE"];
+        if (!BASE || !BASE._buildingsAll || typeof BASE._buildingsAll.iterator !== "function") return;
+
+        var refreshMethodNames = [
+            "reload",
+            "refresh",
+            "loadTop",
+            "updateTop",
+            "onUpgradeComplete",
+            "onLevelChanged",
+            "updateLevel",
+            "loadBuildingTop"
+        ];
+
+        try {
+            var iterator = BASE._buildingsAll.iterator();
+            var checks = 0;
+            while (
+                iterator &&
+                iterator.keys &&
+                typeof iterator.keys.hasNext === "function" &&
+                iterator.keys.hasNext() &&
+                checks < 512
+            ) {
+                var key = iterator.keys.next();
+                checks++;
+                var building = iterator.map && iterator.map.h ? iterator.map.h[key] : null;
+                if (!building) continue;
+
+                for (var mi = 0; mi < refreshMethodNames.length; mi++) {
+                    var methodName = refreshMethodNames[mi];
+                    if (typeof building[methodName] !== "function") continue;
+                    try {
+                        building[methodName]();
+                    } catch (refreshErr) { }
+                }
+            }
+        } catch (refreshLoopErr) { }
+    }
+
     function patchUpdatesCheck() {
         var UPDATES = window._hx_classes && window._hx_classes["UPDATES"];
         if (!UPDATES || UPDATES.__patchedSafeCheck || !UPDATES.Check) return;
@@ -4864,6 +5429,14 @@
             var originalProcess = UPDATES.Process;
             UPDATES.Process = function (updates) {
                 if (!Array.isArray(updates)) updates = [];
+                var hadBuildingProduction = false;
+                for (var ui = 0; ui < updates.length; ui++) {
+                    var row = updates[ui];
+                    if (row && String(row.type || "").toLowerCase() === "building_production") {
+                        hadBuildingProduction = true;
+                        break;
+                    }
+                }
                 try {
                     return originalProcess.call(this, updates);
                 } catch (e) {
@@ -4871,6 +5444,14 @@
                     return;
                 } finally {
                     try { sanitizeUpdatesArray(); } catch (e2) { }
+                    if (hadBuildingProduction) {
+                        setTimeout(function () {
+                            try {
+                                refreshBaseBuildingSprites();
+                                reconcileDetachedBaseRender();
+                            } catch (postUpgradeErr) { }
+                        }, 250);
+                    }
                 }
             };
         }
@@ -5218,12 +5799,35 @@
     }
 
     function patchContractLoader() {
-        var DZ = window._hx_classes && window._hx_classes["com.cc.ui.xbaux.ContractLoader"];
+        var hx = window._hx_classes || {};
+        var DZ = hx["com.cc.ui.xbaux.ContractLoader"];
         if (DZ && !DZ.prototype.load) {
             console.log("[PATCH V32] Adding dummy load() to ContractLoader");
             DZ.prototype.load = function() {
                 console.warn("[ANTIGRAVITY_DEBUG] ContractLoader.load() called for: " + this._contractUrl);
             };
+        }
+
+        var ContractLoaded = hx["com.cc.ui.xbaux.messages.ContractLoaded"];
+        if (ContractLoaded && ContractLoaded.prototype && !ContractLoaded.prototype.__patchedContractLoadedSafety) {
+            var originalGetContract = ContractLoaded.prototype.get_contract;
+            ContractLoaded.prototype.get_contract = function () {
+                var contract = null;
+                try {
+                    contract = originalGetContract ? originalGetContract.apply(this, arguments) : this._contract;
+                } catch (_contractReadErr) {
+                    contract = this._contract || null;
+                }
+                if (!contract) {
+                    if (!window.__PATCH_V33_EMPTY_CONTRACT_STUB__) {
+                        window.__PATCH_V33_EMPTY_CONTRACT_STUB__ = { url: "", name: "" };
+                    }
+                    return window.__PATCH_V33_EMPTY_CONTRACT_STUB__;
+                }
+                return contract;
+            };
+            ContractLoaded.prototype.__patchedContractLoadedSafety = true;
+            console.log("[PATCH V33] ContractLoaded null-contract safety enabled.");
         }
     }
 
@@ -5406,19 +6010,25 @@
         patchWorldmapDragInputFallback();
         patchWorldmapNavigationSafety();
         patchWorldmapSubEventSafety();
+        patchWorldmapMapServiceSafety();
         bootstrapGameDataIfMissing();
         clearConnectionPopups();
         ensureCDNManifestInitialized();
         nudgeBlockingLoaders();
         autoLoadSharedConfigs();
         forceGameStart();
+        ensureBaseRenderOnBoot();
 
         if (loopCount % HEAVY_WORLD_PATCH_EVERY === 0) {
             patchMapResetSafety();
+            ensureWorldmapTileDataLoaded();
+            patchTileSetManagerSafety();
+            patchHexWorldmapViewRender();
             ensureHexMapLoadProgress();
             stabilizeWorldmapStateTransition();
             patchWorldmapViewBootstrap();
             syncWorldmapMapViewVisibility();
+            syncBaseWorldLayerVisibility();
             ensureWorldmapCenteredOnHome();
             primeWorldmapNearbyEntities();
             patchMapLayerCallSafety();
@@ -5458,10 +6068,15 @@
         patchGatewayAuthBootstrap();
         patchUInt64Safety();
         patchMapResetSafety();
+        ensureWorldmapTileDataLoaded();
+        patchTileSetManagerSafety();
+        patchHexWorldmapViewRender();
         ensureHexMapLoadProgress();
         stabilizeWorldmapStateTransition();
         patchWorldmapViewBootstrap();
+        forceWorldmapRenderRefresh();
         syncWorldmapMapViewVisibility();
+        syncBaseWorldLayerVisibility();
         ensureWorldmapCenteredOnHome();
         primeWorldmapNearbyEntities();
         patchMapLayerCallSafety();
@@ -5490,8 +6105,10 @@
         patchWorldmapDragInputFallback();
         patchWorldmapNavigationSafety();
         patchWorldmapSubEventSafety();
+        patchWorldmapMapServiceSafety();
         bootstrapGameDataIfMissing();
         clearConnectionPopups();
+        ensureBaseRenderOnBoot();
     };
 
 })();
